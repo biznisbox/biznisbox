@@ -1,0 +1,29 @@
+{
+    "auth": {
+        "login": "Einloggen",
+        "email": "E-Mail",
+        "password": "Passwort",
+        "password_confirmation": "Passwort bestätigen",
+        "remember_me": "Angemeldet bleiben",
+        "forgot_password": "Passwort vergessen?",
+        "logout": "Ausloggen",
+        "reset_password": {
+            "set_your_password": "Setze dein Passwort",
+            "reset_password": "Passwort zurücksetzen",
+            "set_new_password": "Setze neues Passwort",
+            "enter_email": "E-Mail Adresse eingeben"
+        }
+    },
+    "errors": {
+        "invalid_credentials": "Die eingegebenen Zugangsdaten sind ungültig.",
+        "throttle": "Zu viele Loginversuche. Bitte versuche es in :seconds Sekunden erneut.",
+        "error_404": "Seite nicht gefunden",
+        "error_404_message": "Die angeforderte Seite konnte nicht gefunden werden.",
+        "back_to_dashboard": "Zurück zum Dashboard",
+        "unauthorized": "Nicht autorisiert",
+        "not_logged_in": "Du bist nicht angemeldet.",
+        "session_timeout": "Deine Sitzung ist abgelaufen. Bitte melde dich erneut an.",
+        "internal_server_error": "Interner Serverfehler",
+        "validation_error": "Validierungsfehler"
+    }
+}

@@ -1,0 +1,76 @@
+[
+    {
+        "name": "admin.menu.dashboard",
+        "meta": ["dashboard"],
+        "icon": "fa fa-dashboard",
+        "permission": "",
+        "to": "/"
+    },
+    {
+        "name": "admin.menu.admin_dashboard",
+        "meta": ["admin-dashboard"],
+        "icon": "fa fa-dashboard",
+        "permission": "admin",
+        "to": "/admin"
+    },
+    {
+        "name": "admin.menu.users",
+        "meta": ["users"],
+        "icon": "fa fa-users",
+        "permission": "admin_users",
+        "to": "/admin/users"
+    },
+    {
+        "name": "admin.menu.integrations",
+        "meta": ["integrations"],
+        "icon": "fa fa-plug",
+        "permission": "admin_integrations",
+        "to": "/admin/integrations"
+    },
+    {
+        "name": "admin.menu.roles",
+        "meta": ["roles"],
+        "icon": "fa fa-user-secret",
+        "permission": "admin_roles",
+        "to": "/admin/roles"
+    },
+    {
+        "name": "admin.menu.company",
+        "meta": ["company"],
+        "icon": "fa fa-building",
+        "permission": "admin_company_settings",
+        "to": "/admin/company"
+    },
+    {
+        "name": "admin.menu.settings",
+        "meta": ["settings"],
+        "permission": "",
+        "icon": "fa fa-cog",
+        "children": [
+            {
+                "name": "admin.menu.settings_general",
+                "meta": ["settings-general"],
+                "permission": "admin_general_settings",
+                "to": "/admin/settings/general"
+            },
+            {
+                "name": "admin.menu.settings_currency",
+                "meta": ["settings-currency"],
+                "permission": "admin_currencies",
+                "to": "/admin/settings/currency"
+            },
+            {
+                "name": "admin.menu.numbering",
+                "meta": ["settings-numbering"],
+                "permission": "admin_numbering",
+                "to": "/admin/settings/numbering"
+            },
+            {
+                "name": "admin.menu.settings_taxes",
+                "meta": ["settings-taxes"],
+                "permission": "admin_tax_rates",
+                "to": "/admin/settings/taxes"
+            }
+        ]
+    }
+]

@@ -1,0 +1,46 @@
+name: Build
+'on':
+    push:
+        branches:
+            - master
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Setup PHP with PECL extension
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.1'
+                  extensions: mbstring, intl, gd, pdo_mysql, zip, exif, pcntl, bcmath, soap, imagick, xdebug, opcache
+                  tools: composer:v2
+            - name: Install Composer dependencies
+              run: composer install --no-interaction --prefer-dist --optimize-autoloader
+            - name: Install NPM modules
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+            - run: |
+                  npm install --no-audit
+                  npm run build
+                  npm install --production --no-audit
+            - name: Remove dev dependencies and git files
+              run: |
+                  composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+                  rm -rf .git
+                  rm -rf .github
+                  rm -rf .gitignore
+                  rm -rf .gitattributes
+                  rm -rf .editorconfig
+                  rm -rf .env
+                  rm -rf .eslintrc.js
+                  rm -rf .prettierignore
+                  rm -rf .prettierrc.json
+                  rm -rf .jsconfig.json
+            - name: Zip all files
+              run: zip -r production.zip *
+            - name: Upload artifacts
+              uses: actions/upload-artifact@v1
+              with:
+                  name: production
+                  path: ${{ github.workspace }}/production.zip

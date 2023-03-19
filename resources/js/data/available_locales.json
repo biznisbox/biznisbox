@@ -1,0 +1,14 @@
+[
+    {
+        "locale": "en",
+        "name": "English"
+    },
+    {
+        "locale": "sl",
+        "name": "Slovenian"
+    },
+    {
+        "locale": "de",
+        "name": "German"
+    }
+]

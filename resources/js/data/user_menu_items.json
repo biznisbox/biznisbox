@@ -1,0 +1,109 @@
+[
+    {
+        "name": "user_menu_items.dashboard",
+        "meta": ["dashboard"],
+        "permission": "",
+        "icon": "fa fa-dashboard",
+        "to": "/"
+    },
+    {
+        "name": "user_menu_items.admin",
+        "meta": ["admin"],
+        "permission": "admin",
+        "icon": "fa fa-cogs",
+        "to": "/admin"
+    },
+    {
+        "name": "user_menu_items.products",
+        "meta": ["products"],
+        "permission": "products",
+        "icon": "fa fa-cubes",
+        "to": "/products"
+    },
+    {
+        "name": "user_menu_items.billing",
+        "meta": ["billing"],
+        "icon": "fa fa-cash-register",
+        "permission": "",
+        "children": [
+            {
+                "name": "user_menu_items.customers",
+                "meta": ["customers"],
+                "permission": "customers",
+                "to": "/customers"
+            },
+            {
+                "name": "user_menu_items.invoices",
+                "meta": ["invoices"],
+                "permission": "invoices",
+                "to": "/invoices"
+            },
+            {
+                "name": "user_menu_items.estimates",
+                "meta": ["estimates"],
+                "permission": "estimates",
+                "to": "/estimates"
+            }
+        ]
+    },
+    {
+        "name": "user_menu_items.purchases",
+        "meta": ["purchases"],
+        "permission": "",
+        "icon": "fa fa-shopping-basket",
+        "children": [
+            {
+                "name": "user_menu_items.vendors",
+                "meta": ["vendors"],
+                "permission": "vendors",
+                "to": "/vendors"
+            },
+            {
+                "name": "user_menu_items.bills",
+                "meta": ["bills"],
+                "permission": "bills",
+                "to": "/bills"
+            }
+        ]
+    },
+    {
+        "name": "user_menu_items.banking",
+        "meta": ["banking"],
+        "permission": "",
+        "icon": "fa fa-university",
+        "children": [
+            {
+                "name": "user_menu_items.accounts",
+                "meta": ["accounts"],
+                "permission": "accounts",
+                "to": "/accounts"
+            },
+            {
+                "name": "user_menu_items.transactions",
+                "meta": ["transactions"],
+                "permission": "transactions",
+                "to": "/transactions"
+            },
+            {
+                "name": "user_menu_items.bank_feeds",
+                "meta": ["open_banking"],
+                "permission": "open_banking",
+                "to": "/open_banking"
+            }
+        ]
+    },
+    {
+        "name": "user_menu_items.documents",
+        "meta": ["documents"],
+        "icon": "fa fa-file-alt",
+        "permission": "documents",
+        "to": "/documents"
+    },
+    {
+        "name": "user_menu_items.calendar",
+        "meta": ["calendar"],
+        "icon": "fa fa-calendar-alt",
+        "permission": "calendar",
+        "to": "/calendar"
+    }
+]

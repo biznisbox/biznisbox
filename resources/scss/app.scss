@@ -1,0 +1,67 @@
+@import 'primevue/resources/primevue.min.css';
+@import 'primevue/resources/themes/lara-light-blue/theme.css';
+@import 'primeicons/primeicons.css';
+@import 'primeflex/primeflex.css';
+@import '../fonts/fonts.css';
+@import 'flag-icons/css/flag-icons.min.css';
+@import 'file-icon-vectors/dist/file-icon-vivid.css';
+
+// Site specific styles
+* {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+// PrimeFaces Icons (https://www.primefaces.org/primeicons/) font
+.pi {
+    font-family: 'PrimeIcons' !important;
+    font-size: 1.5rem !important;
+}
+
+.empty-icon {
+    font-size: 1.5rem !important;
+    margin-bottom: 5px;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.link-none-style {
+    text-decoration: none;
+}
+
+#menu .p-sidebar-content {
+    padding: 0 !important;
+}
+
+.card {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.card-header {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.break_word {
+    overflow-wrap: break-word;
+}
