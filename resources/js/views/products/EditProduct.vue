@@ -105,6 +105,7 @@
                             :label="$t('basic.cancel')"
                             icon="fa fa-times"
                             class="p-button-danger"
+                            id="cancel_button"
                             @click="goTo('/products/' + $route.params.id)"
                         />
                         <Button
@@ -112,6 +113,7 @@
                             icon="fa fa-floppy-disk"
                             :disabled="loadingData"
                             class="p-button-success"
+                            id="save_button"
                             @click="updateProduct($route.params.id)"
                         />
                     </div>
