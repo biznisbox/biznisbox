@@ -23,7 +23,7 @@ class InvoiceSeeder extends Seeder
 
             $payer = \App\Models\Customer::all()->random();
             $payer_address = $payer->addresses->where('type', 'billing')->first();
-            
+
             Invoice::create([
                 'id' => $id,
                 'created_by' => \App\Models\User::all()->random()->id,
