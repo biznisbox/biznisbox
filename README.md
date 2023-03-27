@@ -12,12 +12,12 @@ BiznisBox is a web application for managing your business. It is a simple and ea
 
 ## Features
 
-BiznisBox is open source business management software. It is a great tool for small and medium-sized businesses. It is a simple and easy to use application that allows you to manage your business in one place. It integrates with Stripe and PayPal for payments. It also integrates with Nordigen for bank account data. 
+BiznisBox is open source business management software. It is a great tool for small and medium-sized businesses. It is a simple and easy to use application that allows you to manage your business in one place. It integrates with Stripe and PayPal for payments. It also integrates with Nordigen for bank account data.
 
 -   Dashboard with statistics and charts
--   Customers 
--   Products 
--   Invoices 
+-   Customers
+-   Products
+-   Invoices
 -   Estimates
 -   Payments
 -   Online Payments (Stripe and PayPal)
@@ -28,11 +28,9 @@ BiznisBox is open source business management software. It is a great tool for sm
 -   Roles
 -   Permissions
 
-
 ## Need help?
 
-If you need help with BiznisBox, please contact us at our email address: [app@biznisbox.com](mailto:app@biznisbox.com). We will be happy to help you. You can also open an issue on GitHub. 
-
+If you need help with BiznisBox, please contact us at our email address: [app@biznisbox.com](mailto:app@biznisbox.com). We will be happy to help you. You can also open an issue on GitHub.
 
 ## License
 
