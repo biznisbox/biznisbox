@@ -177,7 +177,12 @@
         "date_and_due_date": "Datum in datum zapadlosti",
         "customer_and_payer": "Stranka in plačnik",
         "delete_confirm_invoice": "Ali ste prepričani, da želite izbrisati ta račun?",
-        "click_for_download": "Klikni za prenos"
+        "click_for_download": "Klikni za prenos",
+        "download_invoice": "Prenesi račun",
+        "payment_success": "Plačilo uspešno",
+        "payment_success_message": "Zahvaljujemo se vam za plačilo. Vaše plačilo je bilo uspešno obdelano.",
+        "payment_error": "Napaka pri plačilu",
+        "payment_error_message": "Prišlo je do napake pri obdelavi vašega plačila. Prosimo, poskusite znova."
     },
     "estimate": {
         "estimate": "Predračun | Predračuni",

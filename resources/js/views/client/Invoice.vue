@@ -36,6 +36,16 @@
                         </template>
                     </user-header>
 
+                    <div class="alert">
+                        <Message v-if="$route.query.status == 'success' && invoice.status == 'paid'" severity="success" closable>
+                            {{ $t('invoice.payment_success') }}
+                        </Message>
+
+                        <Message v-if="$route.query.status == 'error' && invoice.status != 'paid'" severity="error" closable>
+                            {{ $t('invoice.payment_error') }}
+                        </Message>
+                    </div>
+
                     <div id="payer_customer_data" class="grid">
                         <div v-if="!loadingData" id="customer_data" class="col-12 md:col-6">
                             <DisplayData :input="$t('invoice.customer')" custom-value>
@@ -220,14 +230,13 @@ export default {
             this.makeHttpRequest(
                 'POST',
                 '/api/online_payment/stripe',
-                { key: this.$route.query.key },
+                { key: this.$route.query.key, type: 'web' },
                 null,
                 {
                     'X-CLIENT-ROUTE': true,
                 },
                 false
             ).then((response) => {
-                console.log(response.data.url)
                 window.open(response.data.url, '_blank')
             })
         },
@@ -236,14 +245,13 @@ export default {
             this.makeHttpRequest(
                 'POST',
                 '/api/online_payment/paypal',
-                { key: this.$route.query.key },
+                { key: this.$route.query.key, type: 'web' },
                 null,
                 {
                     'X-CLIENT-ROUTE': true,
                 },
                 false
             ).then((response) => {
-                console.log(response.data.url)
                 window.open(response.data.url, '_blank')
             })
         },

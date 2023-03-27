@@ -21,6 +21,9 @@ class OnlinePaymentService
         if (!settings('stripe_available')) {
             return api_response(false, __('response.payment.stripe_not_available'), 400);
         }
+
+        $type = $request->type ?? 'api';
+
         $stripe = new StripeClient(settings('stripe_key'));
 
         $key = $request->key;
@@ -39,8 +42,12 @@ class OnlinePaymentService
 
             $payment = $stripe->checkout->sessions->create([
                 'mode' => 'payment',
-                'success_url' => url('api/online_payment/stripe/success?key=' . $key . '&status=success&lang=' . app()->getLocale()),
-                'cancel_url' => url('api/online_payment/stripe/cancel?key=' . $key . '&status=cancel&lang=' . app()->getLocale()),
+                'success_url' => url(
+                    'api/online_payment/stripe/success?key=' . $key . '&status=success&lang=' . app()->getLocale() . '&type=' . $type
+                ),
+                'cancel_url' => url(
+                    'api/online_payment/stripe/cancel?key=' . $key . '&status=cancel&lang=' . app()->getLocale() . '&type=' . $type
+                ),
                 'payment_method_types' => ['card'],
                 'metadata' => [
                     'invoice_id' => $invoice->id,
@@ -78,9 +85,6 @@ class OnlinePaymentService
     {
         if (!settings('stripe_available')) {
             return api_response(false, __('response.payment.stripe_not_available'), 400);
-        }
-        if ($status !== 'success') {
-            return api_response(false, __('response.unsuccessful'), 400);
         }
 
         $key = $request->key;
@@ -128,7 +132,15 @@ class OnlinePaymentService
                 $invoice->save();
 
                 activity_log(null, 'validate payment stripe', $payment->id, 'Online Payment', 'payment stripe', 'external', $key);
+
+                if ($request->type == 'web') {
+                    return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=success&lang=' . app()->getLocale());
+                }
                 return api_response(true, __('response.payment.success'));
+            }
+
+            if ($request->type == 'web') {
+                return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=error&lang=' . app()->getLocale());
             }
             return api_response(false, __('response.payment.failed'), 400);
         }
@@ -140,6 +152,7 @@ class OnlinePaymentService
             return api_response(false, __('response.payment.paypal_not_available'), 400);
         }
         $key = $request->key;
+        $type = $request->type ?? 'api';
 
         if (validate_external_key($key, 'invoice')) {
             $key_data = ExternalKeys::where('key', $key)->first();
@@ -166,8 +179,12 @@ class OnlinePaymentService
                     'amount' => $invoice->total,
                     'currency' => $invoice->currency,
                     'description' => __('response.payment.invoice') . ' ' . $invoice->number,
-                    'returnUrl' => url('api/online_payment/paypal/success?key=' . $key . '&status=success&lang=' . app()->getLocale()),
-                    'cancelUrl' => url('api/online_payment/paypal/cancel?key=' . $key . '&status=cancel&lang=' . app()->getLocale()),
+                    'returnUrl' => url(
+                        'api/online_payment/paypal/success?key=' . $key . '&status=success&lang=' . app()->getLocale() . '&type=' . $type
+                    ),
+                    'cancelUrl' => url(
+                        'api/online_payment/paypal/cancel?key=' . $key . '&status=cancel&lang=' . app()->getLocale() . '&type=' . $type
+                    ),
                 ])
                 ->send();
 
@@ -199,16 +216,15 @@ class OnlinePaymentService
         }
         $key = $request->key;
 
-        if ($status !== 'success') {
-            return api_response(false, __('response.unsuccessful'), 400);
-        }
-
         if (validate_external_key($key, 'invoice')) {
             $key_data = ExternalKeys::where('key', $key)->first();
             $invoice = Invoice::find($key_data->module_item_id);
 
-            if (!$invoice) {
-                return api_response(false, __('response.invoice.not_found'));
+            if ($status == 'cancel') {
+                if ($request->type == 'web') {
+                    return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=error&lang=' . app()->getLocale());
+                }
+                return api_response(false, __('response.payment.cancelled'), 400);
             }
 
             $payment = OnlinePayment::where('key', $key)
@@ -257,7 +273,15 @@ class OnlinePaymentService
                 $invoice->save();
 
                 activity_log(null, 'validate payment paypal', $payment->id, 'Online Payment', 'payment paypal', 'external', $key);
+
+                if ($request->type == 'web') {
+                    return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=success&lang=' . app()->getLocale());
+                }
                 return api_response(true, __('response.payment.success'));
+            }
+
+            if ($request->type == 'web') {
+                return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=error&lang=' . app()->getLocale());
             }
             return api_response(false, __('response.payment.failed'), 400);
         }
