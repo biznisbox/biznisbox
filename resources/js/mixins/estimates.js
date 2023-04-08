@@ -98,7 +98,7 @@ export default {
         updateEstimate(id) {
             this.makeHttpRequest('PUT', '/api/estimates/' + id, this.estimate).then((response) => {
                 this.showToast(response.data.message)
-                this.$router.push({ name: 'estimates' })
+                this.$router.push({ name: 'view-estimate', params: { id: id } })
             })
         },
 
