@@ -24,7 +24,7 @@
         "ext-zip": "*",
         "barryvdh/laravel-dompdf": "^2.0",
         "doctrine/dbal": "^3.0",
-        "firebase/php-jwt": "^6.3.1",
+        "firebase/php-jwt": "^6.4",
         "foroco/php-browser-detection": "^2.3",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
