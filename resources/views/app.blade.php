@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{ settings('company_name')}}</title>
 	@vite('resources/scss/app.scss')
+	<link id="theme-link" rel="stylesheet" href="/themes/lara-light-blue/theme.css">
 	<script>
 	window.App = {!! json_encode([
 		'settings' => \settings()->getPublicSettings(),

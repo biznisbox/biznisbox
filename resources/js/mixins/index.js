@@ -11,12 +11,16 @@ export default {
             validationErrors: [],
             loadingData: false,
             lang: localStorage.getItem('lang') || window.App.settings.default_lang,
+            theme: localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light',
         }
     },
 
     created() {
         if (this.$route.query.lang) {
             this.lang = this.$route.query.lang
+        }
+        if (!localStorage.getItem('theme')) {
+            localStorage.setItem('theme', 'light')
         }
         i18n.global.locale.value = this.lang
         moment.locale(this.lang)
@@ -202,6 +206,26 @@ export default {
         copyToClipboard(text) {
             navigator.clipboard.writeText(text)
             this.showToast(this.$t('basic.copied_to_clipboard'))
+        },
+
+        /**
+         * Function for change theme
+         * @param {string} theme Theme to change
+         */
+        changeTheme() {
+            let theme = localStorage.getItem('theme')
+            if (theme === 'light') {
+                this.$primevue.changeTheme('lara-dark-blue', 'lara-light-blue', 'theme-link', () => {
+                    localStorage.setItem('theme', 'dark')
+                    this.theme = 'dark'
+                })
+            }
+            if (theme === 'dark') {
+                this.$primevue.changeTheme('lara-light-blue', 'lara-dark-blue', 'theme-link', () => {
+                    localStorage.setItem('theme', 'light')
+                    this.theme = 'light'
+                })
+            }
         },
     },
 
