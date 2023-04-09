@@ -10,12 +10,16 @@
             <div id="accounts_table" class="card">
                 <DataTable
                     :value="accounts"
+                    v-model:filters="filters"
                     :loading="loadingData"
                     paginator
                     :rows="10"
+                    data-key="id"
+                    filterDisplay="menu"
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
                     column-resize-mode="expand"
+                    :globalFilterFields="['name', 'account_number']"
                     @row-dblclick="viewAccountNavigation"
                 >
                     <template #empty>
@@ -32,10 +36,15 @@
                     </template>
 
                     <Column field="name" :header="$t('account.name_and_number')">
-                        <template #body="slotProps">
-                            <span class="account_name">{{ slotProps.data.name }}</span
-                            ><i v-if="slotProps.data.is_default" class="ml-2 fa fa-lock"></i><br />
-                            <span class="account_number">{{ slotProps.data.account_number }}</span>
+                        <template #body="{ data }">
+                            {{ formatText(data.name) }} <br />
+                            {{ formatText(data.account_number) }}
+                        </template>
+
+                        <template #filter="{ filterModel }">
+                            <div class="flex">
+                                <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by name" />
+                            </div>
                         </template>
                     </Column>
                     <Column field="type" :header="$t('account.account_type')">
@@ -45,12 +54,55 @@
                             <Tag v-if="data.type === 'credit_card'" :value="$t('account.credit_card')"></Tag>
                             <Tag v-if="data.type === 'online_account'" :value="$t('account.online_account')"></Tag>
                         </template>
+
+                        <template #filter="{ filterModel }">
+                            <div class="flex">
+                                <Dropdown
+                                    v-model="filterModel.value"
+                                    :options="[
+                                        { label: $t('account.bank_account'), value: 'bank_account' },
+                                        { label: $t('account.cash'), value: 'cash' },
+                                        { label: $t('account.credit_card'), value: 'credit_card' },
+                                        { label: $t('account.online_account'), value: 'online_account' },
+                                    ]"
+                                    optionLabel="label"
+                                    optionValue="value"
+                                    class="p-column-filter"
+                                    placeholder="Select type"
+                                />
+                            </div>
+                        </template>
                     </Column>
-                    <Column field="current_balance" :header="$t('account.balance')"></Column>
+                    <Column field="current_balance" :header="$t('account.balance')">
+                        <template #body="{ data }">
+                            <span>{{ formatMoney(data.current_balance, data.currency) }}</span>
+                        </template>
+
+                        <template #filter="{ filterModel }">
+                            <div class="flex">
+                                <InputText
+                                    v-model="filterModel.value"
+                                    type="text"
+                                    class="p-column-filter"
+                                    placeholder="Search by balance"
+                                />
+                            </div>
+                        </template>
+                    </Column>
                     <Column field="bank_name" :header="$t('account.bank_name')">
-                        <template #body="slotProps">
-                            <span v-if="slotProps.data.bank_name">{{ slotProps.data.bank_name }}</span>
-                            <span v-else>-</span>
+                        <template #body="{ data }">
+                            <span>{{ formatText(data.bank_name) }}</span>
+                        </template>
+
+                        <template #filter="{ filterModel }">
+                            <div class="flex">
+                                <InputText
+                                    v-model="filterModel.value"
+                                    type="text"
+                                    class="p-column-filter"
+                                    placeholder="Search by bank name"
+                                />
+                            </div>
                         </template>
                     </Column>
                     <template #paginatorstart>
@@ -65,6 +117,7 @@
 </template>
 
 <script>
+import { FilterMatchMode, FilterOperator } from 'primevue/api'
 import AccountsMixin from '@/mixins/accounts'
 export default {
     name: 'AccountsPage',
@@ -72,6 +125,13 @@ export default {
 
     created() {
         this.getAccounts()
+        this.initFilters()
+    },
+
+    data() {
+        return {
+            filters: null,
+        }
     },
 
     methods: {
@@ -81,6 +141,16 @@ export default {
          */
         viewAccountNavigation(event) {
             this.$router.push(`/accounts/${event.data.id}`)
+        },
+
+        initFilters() {
+            this.filters = {
+                name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
+                account_number: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
+                type: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
+                current_balance: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
+                bank_name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
+            }
         },
     },
 }

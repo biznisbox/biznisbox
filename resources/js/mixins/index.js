@@ -150,8 +150,25 @@ export default {
             return value === null ? '' : value
         },
 
+        /**
+         * Function to format country
+         * @param {string} value
+         * @returns {string} Localized country name
+         */
         formatCountry(value) {
             return value === null ? '' : this.$t('countries.' + value)
+        },
+
+        /**
+         * Function to format money
+         * @param {number} value
+         * @returns {string} Formatted money
+         */
+        formatMoney(value, currency = null) {
+            if (currency === null || currency === undefined) {
+                currency = this.$settings.default_currency
+            }
+            return value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + ' ' + currency
         },
 
         /**

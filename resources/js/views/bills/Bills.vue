@@ -9,12 +9,16 @@
             <div id="bills_table" class="card">
                 <DataTable
                     :value="bills"
+                    v-model:filters="filters"
                     :loading="loadingData"
                     paginator
+                    data-key="id"
                     :rows="10"
+                    filter-display="menu"
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
                     column-resize-mode="expand"
+                    :globalFilterFields="['number', 'status', 'total']"
                     @row-dblclick="viewBillNavigation"
                 >
                     <template #empty>
@@ -30,16 +34,27 @@
                         </div>
                     </template>
 
-                    <Column field="number" :header="$t('bill.bill_number')" sortable></Column>
-                    <Column :header="$t('bill.date_and_due_date')">
-                        <template #body="slotProps">
-                            <div class="date_due_date">
-                                <div class="date">{{ slotProps.data.date ? formatDate(slotProps.data.date) : '-' }}</div>
-                                <div class="due_date">{{ slotProps.data.due_date ? formatDate(slotProps.data.due_date) : '-' }}</div>
+                    <Column field="number" :header="$t('bill.bill_number')">
+                        <template #body="{ data }">
+                            {{ data.number }}
+                        </template>
+                        <template #filter="{ filterModel }">
+                            <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by number" />
+                        </template>
+                    </Column>
+                    <Column field="date" :header="$t('bill.date_and_due_date')">
+                        <template #body="{ data }">
+                            <span class="date">{{ data.date ? formatDate(data.date) : '-' }}</span> <br />
+                            <span class="due_date">{{ data.due_date ? formatDate(data.due_date) : '-' }}</span>
+                        </template>
+
+                        <template #filter="{ filterModel }">
+                            <div class="flex">
+                                <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by date" />
                             </div>
                         </template>
                     </Column>
-                    <Column :header="$t('bill.status')">
+                    <Column field="status" :header="$t('bill.status')">
                         <template #body="slotProps">
                             <div class="status">
                                 <Tag v-if="slotProps.data.status === 'paid'" severity="success">{{ $t('status.paid') }}</Tag>
@@ -49,13 +64,34 @@
                                 <Tag v-if="slotProps.data.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
                             </div>
                         </template>
+
+                        <template #filter="{ filterModel }">
+                            <Dropdown
+                                v-model="filterModel.value"
+                                :options="[
+                                    { label: $t('status.paid'), value: 'paid' },
+                                    { label: $t('status.unpaid'), value: 'unpaid' },
+                                    { label: $t('status.overdue'), value: 'overdue' },
+                                    { label: $t('status.draft'), value: 'draft' },
+                                    { label: $t('status.cancelled'), value: 'cancelled' },
+                                ]"
+                                optionLabel="label"
+                                optionValue="value"
+                                class="p-column-filter"
+                                placeholder="Search by status"
+                            />
+                        </template>
                     </Column>
 
                     <Column field="total" :header="$t('bill.total')">
-                        <template #body="slotProps">
+                        <template #body="{ data }">
                             <div class="total">
-                                {{ slotProps.data.total + ' ' + $settings.default_currency }}
+                                {{ data.total + ' ' + $settings.default_currency }}
                             </div>
+                        </template>
+
+                        <template #filter="{ filterModel }">
+                            <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by total" />
                         </template>
                     </Column>
                     <template #paginatorstart>
@@ -70,6 +106,7 @@
 </template>
 
 <script>
+import { FilterMatchMode, FilterOperator } from 'primevue/api'
 import BillsMixin from '@/mixins/bills'
 export default {
     name: 'BillsPage',
@@ -77,11 +114,28 @@ export default {
 
     created() {
         this.getBills()
+        this.initFilters()
+    },
+
+    data() {
+        return {
+            filters: null,
+        }
     },
 
     methods: {
         viewBillNavigation(rowData) {
             this.$router.push(`/bills/${rowData.data.id}`)
+        },
+
+        initFilters() {
+            this.filters = {
+                global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+                number: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
+                date: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
+                total: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+                status: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
+            }
         },
     },
 }
