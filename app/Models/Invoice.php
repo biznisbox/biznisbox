@@ -166,7 +166,7 @@ class Invoice extends Model implements Auditable
 
             $invoice->total = $total;
 
-            if($total == 0){
+            if ($total == 0) {
                 $invoice->status = 'paid';
             }
 
@@ -217,10 +217,12 @@ class Invoice extends Model implements Auditable
             if ($invoice) {
                 $invoice = $this->find($id);
                 if (isset($data['items'])) {
-                    $items = InvoiceItems::where('invoice_id', $id)->get()->each(function ($item) {
-                        $this->incrementStock($item->product_id, $item->quantity);
-                        $item->delete();
-                    });
+                    $items = InvoiceItems::where('invoice_id', $id)
+                        ->get()
+                        ->each(function ($item) {
+                            $this->incrementStock($item->product_id, $item->quantity);
+                            $item->delete();
+                        });
 
                     foreach ($data['items'] as $item) {
                         $item['invoice_id'] = $invoice->id;
