@@ -2559,6 +2559,7 @@
   border-width: 0 0 1px 0;
   padding: 1rem 1rem;
   font-weight: 700;
+  border-radius: 6px 6px 0 0;
 }
 .p-datatable .p-datatable-footer {
   background: #071426;
@@ -2577,6 +2578,12 @@
   color: rgba(255, 255, 255, 0.87);
   background: #071426;
   transition: box-shadow 0.2s;
+}
+.p-datatable .p-datatable-thead > tr > th:first-child {
+  border-top-left-radius: 6px;
+}
+.p-datatable .p-datatable-thead > tr > th:last-child {
+  border-top-right-radius: 6px;
 }
 .p-datatable .p-datatable-tfoot > tr > td {
   text-align: left;
@@ -4021,7 +4028,7 @@
   border-color: transparent transparent #0b213f transparent;
   background: #071426;
   color: rgba(255, 255, 255, 0.6);
-  padding: 1.25rem;
+  padding: 1.5rem;
   font-weight: 700;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
@@ -5863,3 +5870,18 @@
 .p-speeddial-item.p-focus > .p-speeddial-action {
   box-shadow: 0 0 0 2px #1c2127, 0 0 0 4px rgba(147, 197, 253, 0.7), 0 1px 2px 0 rgba(0, 0, 0, 0);
 }
+.card {
+  background-color: #1c2127;
+  border: 1px solid #0b213f;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+

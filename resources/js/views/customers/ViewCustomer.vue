@@ -30,7 +30,6 @@
                                 </div>
                             </div>
                             <DisplayData :input="$t('customer.vat_number')" :value="customer.vat_number" />
-                            <DisplayData :input="$t('customer.currency')" :value="customer.currency" />
                             <DisplayData :input="$t('customer.website')" :value="customer.website" is-link />
                             <DisplayData :input="$t('customer.language')" :value="customer.language" />
                             <DisplayData
@@ -48,24 +47,28 @@
                         <div class="card">
                             <TabView id="customers_tabs">
                                 <TabPanel :header="$t('customer.address', 2)">
-                                    <h3 class="text-lg font-bold">{{ $t('customer.address', 2) }}</h3>
-                                    <div class="grid mt-2">
-                                        <div class="col-12 md:col-6">
-                                            <h3 class="text-lg font-bold">{{ $t('customer.billing_address') }}</h3>
-                                            <DisplayData :input="$t('address.address')" :value="customer.addresses[0].address" />
-                                            <DisplayData :input="$t('address.zip')" :value="customer.addresses[0].zip_code" />
-                                            <DisplayData :input="$t('address.city')" :value="customer.addresses[0].city" />
-                                            <DisplayData :input="$t('address.country')" :value="customer.addresses[0].country" />
-                                            <DisplayData :input="$t('customer.notes')" :value="customer.addresses[0].notes" />
-                                        </div>
+                                    <div class="p-3">
+                                        <div class="grid">
+                                            <div class="col-12 md:col-6">
+                                                <h3 class="text-lg font-bold">{{ $t('customer.billing_address') }}</h3>
+                                                <DisplayData :input="$t('address.address')" :value="customer.addresses[0].address" />
+                                                <DisplayData :input="$t('address.zip')" :value="customer.addresses[0].zip_code" />
+                                                <DisplayData :input="$t('address.city')" :value="customer.addresses[0].city" />
+                                                <DisplayData
+                                                    :input="$t('address.country')"
+                                                    :value="formatCountry(customer.addresses[0].country)"
+                                                />
+                                                <DisplayData :input="$t('customer.notes')" :value="customer.addresses[0].notes" />
+                                            </div>
 
-                                        <div class="col-12 md:col-6">
-                                            <h3 class="text-lg font-bold">{{ $t('customer.shipping_address') }}</h3>
-                                            <DisplayData :input="$t('address.address')" :value="customer.addresses[1].address" />
-                                            <DisplayData :input="$t('address.zip')" :value="customer.addresses[1].zip_code" />
-                                            <DisplayData :input="$t('address.city')" :value="customer.addresses[1].city" />
-                                            <DisplayData :input="$t('address.country')" :value="customer.addresses[1].country" />
-                                            <DisplayData :input="$t('customer.notes')" :value="customer.addresses[1].notes" />
+                                            <div class="col-12 md:col-6">
+                                                <h3 class="text-lg font-bold">{{ $t('customer.shipping_address') }}</h3>
+                                                <DisplayData :input="$t('address.address')" :value="customer.addresses[1].address" />
+                                                <DisplayData :input="$t('address.zip')" :value="customer.addresses[1].zip_code" />
+                                                <DisplayData :input="$t('address.city')" :value="customer.addresses[1].city" />
+                                                <DisplayData :input="$t('address.country')" :value="customer.addresses[1].country" />
+                                                <DisplayData :input="$t('customer.notes')" :value="customer.addresses[1].notes" />
+                                            </div>
                                         </div>
                                     </div>
                                 </TabPanel>

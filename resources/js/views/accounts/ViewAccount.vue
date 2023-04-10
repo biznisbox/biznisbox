@@ -115,12 +115,13 @@
                                 </TabPanel>
 
                                 <TabPanel :header="$t('account.bank_details')">
-                                    <DisplayData :input="$t('account.bank_name')" :value="account.bank_name" />
-                                    <DisplayData :input="$t('account.iban')" :value="account.iban" />
-                                    <DisplayData :input="$t('account.swift')" :value="account.swift" />
-
-                                    <DisplayData :input="$t('account.bank_address')" :value="account.bank_address" />
-                                    <DisplayData :input="$t('account.bank_contact')" :value="account.bank_contact" />
+                                    <div class="p-3">
+                                        <DisplayData :input="$t('account.bank_name')" :value="account.bank_name" />
+                                        <DisplayData :input="$t('account.iban')" :value="account.iban" />
+                                        <DisplayData :input="$t('account.swift')" :value="account.swift" />
+                                        <DisplayData :input="$t('account.bank_address')" :value="account.bank_address" />
+                                        <DisplayData :input="$t('account.bank_contact')" :value="account.bank_contact" />
+                                    </div>
                                 </TabPanel>
                             </TabView>
                         </div>
