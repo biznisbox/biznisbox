@@ -61,17 +61,6 @@
                             {{ formatText(data.customer?.name) }} <br />
                             {{ formatText(data.payer?.name) }}
                         </template>
-
-                        <template #filter="{ filterModel }">
-                            <div class="flex">
-                                <InputText
-                                    v-model="filterModel.value"
-                                    type="text"
-                                    class="p-column-filter"
-                                    placeholder="Search by customer"
-                                />
-                            </div>
-                        </template>
                     </Column>
 
                     <Column field="total" :header="$t('invoice.total')">
@@ -156,7 +145,6 @@ export default {
             this.filters = {
                 global: { value: null, matchMode: FilterMatchMode.CONTAINS },
                 number: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
-                customer: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 date: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 total: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
                 status: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
