@@ -15,6 +15,7 @@ return new class extends Migration {
         Schema::dropIfExists('categories');
         Schema::create('categories', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->foreignUuid('parent_id')->nullable();
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('color')->nullable();
@@ -22,7 +23,17 @@ return new class extends Migration {
                 ->string('module')
                 ->nullable()
                 ->default('products');
+            $table->string('icon')->nullable();
             $table->timestamps();
+        });
+
+        Schema::table('categories', function (Blueprint $table) {
+            $table
+                ->foreign('parent_id')
+                ->references('id')
+                ->on('categories')
+                ->nullOnDelete()
+                ->cascadeOnUpdate();
         });
     }
 

@@ -2,6 +2,9 @@ export default {
     data() {
         return {
             documents: [],
+            folders: [],
+            currentFolder: null,
+            currentDocument: null,
             document: {
                 id: '',
                 name: '',
@@ -10,18 +13,17 @@ export default {
                 preview_url: '',
                 download_url: '',
             },
-            currentPath: '',
         }
     },
 
     methods: {
         /**
          * Get all documents
-         * @param {string} path path of folder
+         * @param {string} folder_id current folder id
          * @returns {array} documents
          **/
-        getDocuments(path) {
-            this.makeHttpRequest('GET', '/api/documents', null, { path: path })
+        getDocuments(folder_id) {
+            this.makeHttpRequest('GET', '/api/documents', null, { folder_id: folder_id })
                 .then((response) => {
                     this.documents = response.data.data
                 })
@@ -57,25 +59,11 @@ export default {
          * @param {object} document document object
          * @returns {void}
          **/
-
         openDocument(document) {
-            if (document.data.extension == 'folder') {
-                this.$router.push('/documents?path=' + document.data.path)
-            } else {
-                this.sidebarFileShow = true
-                this.getFileData(document)
-            }
-        },
-
-        /**
-         * Function for get file data
-         * @param {object} document  document object
-         * @returns {void}  set document data to document object
-         **/
-        getFileData(document) {
-            this.makeHttpRequest('GET', '/api/documents/file', null, { path: document.data.path })
+            this.makeHttpRequest('GET', '/api/documents/file', null, { document_id: document.data.id })
                 .then((response) => {
                     this.document = response.data.data
+                    this.sidebarFileShow = true
                 })
                 .catch((error) => {
                     if (error.response.status === 404) {
@@ -85,34 +73,63 @@ export default {
         },
 
         /**
+         * Function for get file data
+         * @param {object} document  document object
+         * @returns {void}  set document data to document object
+         **/
+        getFileData(document) {
+            console.log(document)
+        },
+
+        getFolders() {
+            this.makeHttpRequest('GET', '/api/document/folders')
+                .then((response) => {
+                    this.folders = response.data.data
+                })
+                .catch((error) => {
+                    if (error.response.status === 404) {
+                        this.showToast('Error', error.response.data.message, 'error')
+                    }
+                })
+        },
+
+        folderSelected(folder) {
+            this.currentFolder = folder
+            this.getDocuments(folder.id)
+        },
+
+        /**
+         * Function for create folder
+         * @returns {void}
+         **/
+        createFolder() {
+            this.makeHttpRequest('POST', '/api/document/folders', {
+                name: this.newFolderName,
+                parent_folder_id: this.currentFolder?.id || null,
+            }).then((response) => {
+                this.showNewFolderDialog = false
+                this.newFolderName = ''
+                this.showToast(response.data.message)
+                this.getFolders()
+            })
+        },
+
+        /**
          * Function for delete document
          * @param {object} document document object
          * @returns {void}
          **/
         deleteDocument(document) {
-            if (document.type == 'folder') {
-                this.makeHttpRequest('DELETE', '/api/document/folders', null, { path: document.path })
-                    .then((response) => {
-                        this.showToast(response.data.message)
-                        this.getDocuments(this.currentPath)
-                    })
-                    .catch((error) => {
-                        if (error.response.status === 404) {
-                            this.showToast('Error', error.response.data.message, 'error')
-                        }
-                    })
-            } else {
-                this.makeHttpRequest('DELETE', '/api/documents/file', null, { path: document.path })
-                    .then((response) => {
-                        this.showToast(response.data.message)
-                        this.getDocuments(this.currentPath)
-                    })
-                    .catch((error) => {
-                        if (error.response.status === 404) {
-                            this.showToast('Error', error.response.data.message, 'error')
-                        }
-                    })
-            }
+            this.makeHttpRequest('DELETE', '/api/documents/file', null, { path: document.path })
+                .then((response) => {
+                    this.showToast(response.data.message)
+                    this.getDocuments(this.currentPath)
+                })
+                .catch((error) => {
+                    if (error.response.status === 404) {
+                        this.showToast('Error', error.response.data.message, 'error')
+                    }
+                })
         },
 
         /**

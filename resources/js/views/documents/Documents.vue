@@ -8,48 +8,67 @@
                 </template>
             </user-header>
             <div class="card">
-                <div id="documents_table">
-                    <DataTable
-                        v-model:contextMenuSelection="selectedDocument"
-                        :value="documents"
-                        :loading="loadingData"
-                        :resizable-columns="true"
-                        column-resize-mode="expand"
-                        responsive-layout="scroll"
-                        context-menu
-                        @row-dblclick="openDocument"
-                        @rowContextmenu="openRightClickMenu"
-                    >
-                        <template #empty>
-                            <div class="p-4 pl-0 text-center w-full text-gray-500">
-                                <i class="fa fa-info-circle empty-icon"></i>
-                                <p>{{ $t('document.no_documents') }}</p>
-                                <Button
-                                    class="mt-3"
-                                    :label="$t('document.upload_first_document')"
-                                    icon="fa fa-plus"
-                                    @click="openNewDocumentDialog"
-                                />
-                            </div>
-                        </template>
+                <div id="documents" class="grid">
+                    <div class="col-12 md:col-4">
+                        <Tree
+                            :value="folders"
+                            @node-select="folderSelected"
+                            :loading="loadingData"
+                            filter
+                            filterMode="strict"
+                            selectionMode="single"
+                        >
+                            <template #default="{ node }">
+                                <div class="p-d-flex p-ai-center">
+                                    <span class="fiv-viv fiv-icon-folder icon-file"></span>
+                                    <span class="ml-2">{{ node.label }}</span>
+                                </div>
+                            </template>
+                        </Tree>
+                    </div>
 
-                        <Column field="name" :header="$t('document.name')" sortable>
-                            <template #body="{ data }">
-                                <span :class="`fiv-viv fiv-icon-${data.extension} icon-file`"></span>
-                                <span class="ml-2">{{ data.name }}</span>
+                    <div class="col-12 md:col-8">
+                        <DataTable
+                            :value="documents"
+                            :loading="loadingData"
+                            paginator
+                            :rows="10"
+                            :rowsPerPageOptions="[10, 20, 50]"
+                            @row-click="openDocument"
+                            dataKey="id"
+                        >
+                            <template #empty>
+                                <div class="p-4 pl-0 text-center w-full text-gray-500">
+                                    <i class="fa fa-info-circle empty-icon"></i>
+                                    <p>{{ $t('document.no_documents') }}</p>
+                                    <Button
+                                        class="mt-3"
+                                        :label="$t('document.upload_first_document')"
+                                        icon="fa fa-plus"
+                                        @click="openNewDocumentDialog"
+                                    />
+                                </div>
                             </template>
-                        </Column>
-                        <Column field="created_at" :header="$t('document.created_at')" sortable>
-                            <template #body="{ data }">
-                                <span>{{ formatDateTime(data.created_at, true) }}</span>
-                            </template>
-                        </Column>
-                        <Column field="size" :header="$t('document.size')" sortable>
-                            <template #body="{ data }">
-                                <span>{{ formatFileSize(data.size) }}</span>
-                            </template>
-                        </Column>
-                    </DataTable>
+                            <Column field="name" :header="$t('document.name')" sortable>
+                                <template #body="slotProps">
+                                    <div class="">
+                                        <span :class="`fiv-viv fiv-icon-${slotProps.data.file_type} icon-file`"></span>
+                                        <span class="ml-2">{{ slotProps.data.name }}</span>
+                                    </div>
+                                </template>
+                            </Column>
+                            <Column field="created_at" :header="$t('document.created_at')" sortable>
+                                <template #body="slotProps">
+                                    <span>{{ formatDateTime(slotProps.data.created_at) }}</span>
+                                </template>
+                            </Column>
+                            <Column field="file_size" :header="$t('document.size')" sortable>
+                                <template #body="slotProps">
+                                    <span>{{ formatFileSize(slotProps.data.file_size) }}</span>
+                                </template>
+                            </Column>
+                        </DataTable>
+                    </div>
                 </div>
             </div>
 
@@ -73,14 +92,21 @@
             </Dialog>
 
             <!-- New document dialog -->
-            <Dialog v-model:visible="showNewDocumentDialog" :header="$t('document.new_document')" modal>
-                <FileUpload name="file" url="/api/documents" @before-send="uploadDocument" @upload="afterUploadDocument" />
-                <template #footer>
-                    <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="closeNewDocumentDialog" />
-                    </div>
-                </template>
-            </Dialog>
+            <div class="mt-4">
+                <Dialog v-model:visible="showNewDocumentDialog" :header="$t('document.new_document')" modal>
+                    <FileUpload name="file" url="/api/documents" @before-send="uploadDocument" @upload="afterUploadDocument" />
+                    <template #footer>
+                        <div id="function_buttons" class="flex gap-2 justify-content-end">
+                            <Button
+                                :label="$t('basic.cancel')"
+                                icon="fa fa-times"
+                                class="p-button-danger"
+                                @click="closeNewDocumentDialog"
+                            />
+                        </div>
+                    </template>
+                </Dialog>
+            </div>
 
             <!-- Sidebar for file -->
             <Sidebar v-model:visible="sidebarFileShow" position="right">
@@ -113,13 +139,15 @@
 </template>
 
 <script>
-import DocumnetsMixin from '@/mixins/documents'
+import DocumentsMixin from '@/mixins/documents'
 export default {
     name: 'DocumentsPage',
-    mixins: [DocumnetsMixin],
+    mixins: [DocumentsMixin],
 
     data() {
         return {
+            documents: [],
+            folders: [],
             showNewFolderDialog: false,
             showNewDocumentDialog: false,
             newFolderName: '',
@@ -132,19 +160,9 @@ export default {
         }
     },
 
-    watch: {
-        '$route.query.path': {
-            handler: function (path) {
-                if (path == undefined) {
-                    this.currentPath = '/'
-                } else {
-                    this.currentPath = path
-                }
-                this.getDocuments(path)
-            },
-            deep: true,
-            immediate: true,
-        },
+    created() {
+        this.getFolders()
+        this.getDocuments(this.currentFolder?.id || null)
     },
 
     methods: {
@@ -171,13 +189,13 @@ export default {
         },
 
         uploadDocument(event) {
-            event.formData.append('path', this.currentPath)
+            event.formData.append('folder_id', this.currentFolder?.id || null)
             event.xhr.setRequestHeader('Authorization', `Bearer ${this.token}`)
         },
 
-        afterUploadDocument(event) {
+        afterUploadDocument() {
             this.closeNewDocumentDialog()
-            this.getDocuments(this.currentPath)
+            this.getDocuments(this.currentFolder?.id || null)
         },
 
         viewDocument(document) {
@@ -194,15 +212,6 @@ export default {
 
         downloadDocument(url) {
             window.open(url, '_blank')
-        },
-
-        createFolder() {
-            this.makeHttpRequest('POST', '/api/document/folders', { path: this.currentPath, name: this.newFolderName }).then((response) => {
-                this.showNewFolderDialog = false
-                this.newFolderName = ''
-                this.showToast(response.data.message)
-                this.getDocuments(this.currentPath)
-            })
         },
     },
 }
