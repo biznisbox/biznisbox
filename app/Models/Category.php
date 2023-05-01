@@ -70,11 +70,11 @@ class Category extends Model implements Auditable
     {
         $category = $this->find($id);
         $category = $category->update([
-            'name' => $data['name'],
-            'description' => $data['description'],
-            'color' => $data['color'],
-            'module' => $data['module'],
-            'parent_id' => $data['parent_id'],
+            'name' => $data['name'] ?? $category->name,
+            'description' => $data['description'] ?? $category->description,
+            'color' => $data['color'] ?? $category->color,
+            'module' => $data['module'] ?? $category->module,
+            'parent_id' => $data['parent_id'] ?? $category->parent_id,
         ]);
         if ($category) {
             return true;
@@ -82,9 +82,9 @@ class Category extends Model implements Auditable
         return false;
     }
 
-    public function deleteCategory()
+    public function deleteCategory($id)
     {
-        $this->delete();
+        return $this->where('id', $id)->delete();
     }
 
     public function getCategoriesByModule($module)

@@ -5,10 +5,21 @@
 </template>
 
 <script>
-import DocumnetsMixin from '@/mixins/documents'
+import DocumentsMixin from '@/mixins/documents'
 export default {
     name: 'ViewDocumentPage',
-    mixins: [DocumnetsMixin],
+    mixins: [DocumentsMixin],
+
+    data() {
+        return {
+            document_id: this.$route.params.id,
+            document: null,
+        }
+    },
+
+    created() {
+        this.getDocument(this.document_id)
+    },
 }
 </script>
 

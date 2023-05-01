@@ -45,6 +45,18 @@ class DocumentsController extends Controller
         return api_response(null, __('response.document.create_failed'), 400);
     }
 
+    public function updateDocument(Request $request)
+    {
+        $document_id = $request->id;
+        $data = $request->all();
+        $document = $this->documentsModel->updateDocument($document_id, $data);
+
+        if ($document) {
+            return api_response($document, __('response.document.update_success'));
+        }
+        return api_response(null, __('response.document.update_failed'), 400);
+    }
+
     public function deleteDocument(Request $request)
     {
         $document_id = $request->document_id;
@@ -89,6 +101,17 @@ class DocumentsController extends Controller
         return api_response(null, __('response.folders.not_found'), 400);
     }
 
+    public function getFolder($id)
+    {
+        $folder = $this->documentsModel->getFolder($id);
+
+        if ($folder) {
+            return api_response($folder, __('response.folders.get_success'));
+        }
+
+        return api_response(null, __('response.folders.not_found'), 400);
+    }
+
     public function createFolder(Request $request)
     {
         $parent_folder_id = $request->parent_folder_id ?? null;
@@ -101,10 +124,22 @@ class DocumentsController extends Controller
         return api_response(null, __('response.document.create_failed'), 400);
     }
 
+    public function updateFolder(Request $request)
+    {
+        $folder_id = $request->id;
+        $data = $request->all();
+        $folder = $this->documentsModel->updateFolder($folder_id, $data);
+
+        if ($folder) {
+            return api_response($folder, __('response.document.update_success'));
+        }
+        return api_response(null, __('response.document.update_failed'), 400);
+    }
+
     public function deleteFolder(Request $request)
     {
-        $path = $request->path;
-        $folder = $this->documentsModel->deleteFolder($path);
+        $folder_id = $request->folder_id;
+        $folder = $this->documentsModel->deleteFolder($folder_id);
 
         if ($folder) {
             return api_response(null, __('response.document.delete_success'));

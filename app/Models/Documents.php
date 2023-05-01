@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use OwenIt\Auditing\Contracts\Auditable;
 use App\Models\Category;
-use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Str;
 
 class Documents extends Model implements Auditable
@@ -31,6 +30,7 @@ class Documents extends Model implements Auditable
         'file_hash_sha256',
         'file_hash_md5',
         'file_path',
+        'file_mime',
     ];
     protected $dates = ['deleted_at'];
 
@@ -88,6 +88,7 @@ class Documents extends Model implements Auditable
                 'file_name' => $fileName,
                 'file_type' => $file->getClientOriginalExtension(),
                 'file_size' => $file->getSize(),
+                'file_mime' => $file->getClientMimeType(),
                 'file_hash_sha256' => hash_file('sha256', $file),
                 'file_hash_md5' => hash_file('md5', $file),
                 'file_path' => $diskFileName,
@@ -106,10 +107,10 @@ class Documents extends Model implements Auditable
     public function updateDocument($document_id, $data)
     {
         $document = Documents::where('id', $document_id)->first();
+
         if ($document) {
             $document->name = $data['name'];
             $document->description = $data['description'];
-            $document->category_id = $data['category_id'];
             $document->save();
             return true;
         }
@@ -137,7 +138,7 @@ class Documents extends Model implements Auditable
 
     /**
      * Get a document
-     * @param $document_id UUID of the document
+     * @param UUID $document_id  of the document
      * @return object|bool Document object or false if not found
      */
     public function getDocument($document_id)
@@ -168,7 +169,8 @@ class Documents extends Model implements Auditable
             $file = Storage::get('documents/' . $document->file_path);
 
             return response($file, 200)
-                ->header('Content-Type', $document->file_type)
+                ->header('Content-Type', $document->file_mime)
+                ->header('Content-Length', $document->file_size)
                 ->header('Content-Disposition', 'inline; filename="' . $document->file_name . '"');
         }
         return false;
@@ -187,10 +189,24 @@ class Documents extends Model implements Auditable
             $file = Storage::get('documents/' . $document->file_path);
 
             return response($file, 200)
-                ->header('Content-Type', $document->file_type)
+                ->header('Content-Type', $document->file_mime)
+                ->header('Content-Length', $document->file_size)
                 ->header('Content-Disposition', 'attachment; filename="' . $document->file_name . '"');
         }
         return false;
+    }
+
+    /**
+     * Get all documents in the trash
+     * @return object Documents object
+     */
+
+    public function getTrashFiles()
+    {
+        $documents = new Documents();
+        $documents = $documents->onlyTrashed()->get();
+        activity_log(user_data()->data->id, 'get trash documents', null, 'Document', 'Documents');
+        return $documents;
     }
 
     /*
@@ -235,6 +251,19 @@ class Documents extends Model implements Auditable
     }
 
     /**
+     * Get a folder
+     * @param uuid $folder_id UUID of the folder
+     * @return object Folder object
+     */
+    public function getFolder($folder_id)
+    {
+        $folder = new Category();
+        $folder = Category::where('id', $folder_id)->first();
+        activity_log(user_data()->data->id, 'get folder', $folder_id, 'Document', 'Folder');
+        return $folder;
+    }
+
+    /**
      * Create a new folder
      * @param uuid|null $parent_category UUID of the parent folder or null for root folder
      * @param string $name Name of the folder
@@ -257,12 +286,11 @@ class Documents extends Model implements Auditable
      * @param string $name Name of the folder
      * @return bool True if folder was updated, false if not
      */
-    public function updateFolder($folder_id, $parent_category, $name)
+    public function updateFolder($folder_id, $data)
     {
         $category = new Category();
         $data = [
-            'name' => $name,
-            'parent_category' => $parent_category,
+            'name' => $data['label'],
         ];
         $category = $category->updateCategory($folder_id, $data);
         if ($category) {

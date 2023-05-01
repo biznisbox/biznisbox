@@ -9,9 +9,14 @@ export default {
                 id: '',
                 name: '',
                 type: '',
+                category_id: '',
                 description: '',
                 preview_url: '',
                 download_url: '',
+            },
+            folder: {
+                id: '',
+                name: '',
             },
         }
     },
@@ -73,12 +78,21 @@ export default {
         },
 
         /**
-         * Function for get file data
-         * @param {object} document  document object
+         * Function for get document data
+         * @param {uuid} id document UUID
          * @returns {void}  set document data to document object
          **/
-        getFileData(document) {
-            console.log(document)
+        getDocument(id) {
+            this.makeHttpRequest('GET', '/api/documents/file', null, { document_id: id })
+                .then((response) => {
+                    this.document = response.data.data
+                    this.sidebarFileShow = true
+                })
+                .catch((error) => {
+                    if (error.response.status === 404) {
+                        this.showToast('Error', error.response.data.message, 'error')
+                    }
+                })
         },
 
         getFolders() {
@@ -96,6 +110,23 @@ export default {
         folderSelected(folder) {
             this.currentFolder = folder
             this.getDocuments(folder.id)
+        },
+
+        updateDocument() {
+            this.makeHttpRequest('PUT', '/api/documents/file', {
+                id: this.document.id,
+                name: this.document.name,
+                description: this.document.description,
+            })
+                .then((response) => {
+                    this.showToast(response.data.message)
+                    this.editDocument = false
+                })
+                .catch((error) => {
+                    if (error.response.status === 404) {
+                        this.showToast('Error', error.response.data.message, 'error')
+                    }
+                })
         },
 
         /**
@@ -120,10 +151,19 @@ export default {
          * @returns {void}
          **/
         deleteDocument(document) {
-            this.makeHttpRequest('DELETE', '/api/documents/file', null, { path: document.path })
+            this.makeHttpRequest('DELETE', '/api/documents/file', null, { document_id: document.id })
                 .then((response) => {
                     this.showToast(response.data.message)
-                    this.getDocuments(this.currentPath)
+                    this.getDocuments(this.currentFolder?.id || null)
+                    this.sidebarFileShow = false
+                    this.document = {
+                        id: '',
+                        name: '',
+                        type: '',
+                        description: '',
+                        preview_url: '',
+                        download_url: '',
+                    }
                 })
                 .catch((error) => {
                     if (error.response.status === 404) {
@@ -144,6 +184,63 @@ export default {
                 icon: 'fa fa-circle-exclamation',
                 accept: () => {
                     this.deleteDocument(document)
+                },
+            })
+        },
+
+        /**
+         * Function for update folder
+         * @returns {void}
+         */
+        updateFolder() {
+            this.makeHttpRequest('PUT', '/api/document/folders', {
+                id: this.folder.id,
+                label: this.folder.label,
+            }).then((response) => {
+                this.showToast(response.data.message)
+                this.showEditFolderDialog = false
+                this.getFolders()
+            })
+        },
+
+        getFolder() {
+            this.makeHttpRequest('GET', '/api/document/folders/' + this.currentFolder?.id).then((response) => {
+                this.folder = response.data.data
+            })
+        },
+
+        /**
+         * Function for delete folder
+         * @param {UUID} folder_id folder UUID
+         * @returns {void}
+         **/
+        deleteFolder() {
+            this.makeHttpRequest('DELETE', '/api/document/folders', null, { folder_id: this.currentFolder.id })
+                .then((response) => {
+                    this.showToast(response.data.message)
+                    this.getFolders()
+                    this.currentFolder = null
+                    this.getDocuments(null)
+                    this.showEditFolderDialog = false
+                })
+                .catch((error) => {
+                    if (error.response.status === 404) {
+                        this.showToast('Error', error.response.data.message, 'error')
+                    }
+                })
+        },
+
+        /**
+         * Function for delete folder confirmation
+         * @returns {void} delete folder
+         **/
+        deleteFolderAsk() {
+            this.$confirm.require({
+                message: this.$t('document.delete_confirm_folder'),
+                header: this.$t('basic.confirmation'),
+                icon: 'fa fa-circle-exclamation',
+                accept: () => {
+                    this.deleteFolder()
                 },
             })
         },

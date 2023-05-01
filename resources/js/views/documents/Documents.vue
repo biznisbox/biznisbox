@@ -5,11 +5,18 @@
                 <template #actions>
                     <Button :label="$t('document.document')" icon="fa fa-file" @click="openNewDocumentDialog" />
                     <Button :label="$t('document.new_folder')" icon="fa fa-folder-plus" @click="openNewFolderDialog" />
+                    <Button
+                        v-if="currentFolder != null"
+                        :label="$t('document.edit_folder')"
+                        icon="fa fa-folder"
+                        @click="editFolderOpenDialog"
+                    />
                 </template>
             </user-header>
             <div class="card">
                 <div id="documents" class="grid">
                     <div class="col-12 md:col-4">
+                        <!-- Folders tree -->
                         <Tree
                             :value="folders"
                             @node-select="folderSelected"
@@ -19,7 +26,7 @@
                             selectionMode="single"
                         >
                             <template #default="{ node }">
-                                <div class="p-d-flex p-ai-center">
+                                <div>
                                     <span class="fiv-viv fiv-icon-folder icon-file"></span>
                                     <span class="ml-2">{{ node.label }}</span>
                                 </div>
@@ -28,6 +35,7 @@
                     </div>
 
                     <div class="col-12 md:col-8">
+                        <!-- Documents table -->
                         <DataTable
                             :value="documents"
                             :loading="loadingData"
@@ -57,12 +65,12 @@
                                     </div>
                                 </template>
                             </Column>
-                            <Column field="created_at" :header="$t('document.created_at')" sortable>
+                            <Column field="created_at" :header="$t('document.created_at')">
                                 <template #body="slotProps">
                                     <span>{{ formatDateTime(slotProps.data.created_at) }}</span>
                                 </template>
                             </Column>
-                            <Column field="file_size" :header="$t('document.size')" sortable>
+                            <Column field="file_size" :header="$t('document.size')">
                                 <template #body="slotProps">
                                     <span>{{ formatFileSize(slotProps.data.file_size) }}</span>
                                 </template>
@@ -71,9 +79,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Right menu -->
-            <ContextMenu ref="rightClickMenu" :model="rightClickMenuItems" />
 
             <!-- New folder dialog -->
             <Dialog v-model:visible="showNewFolderDialog" :header="$t('document.new_folder')" modal>
@@ -85,7 +90,6 @@
                 ></TextInput>
                 <template #footer>
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button :label="$t('basic.close')" icon="fa fa-times" class="p-button-danger" @click="closeNewFolderDialog" />
                         <Button :label="$t('basic.create')" icon="fa fa-check" @click="createFolder" />
                     </div>
                 </template>
@@ -108,29 +112,64 @@
                 </Dialog>
             </div>
 
+            <!-- Edit folder dialog -->
+
+            <div class="mt-4">
+                <Dialog v-model:visible="showEditFolderDialog" :header="$t('document.edit_folder')" modal>
+                    <TextInput
+                        id="folder_name_input"
+                        v-model="folder.label"
+                        class="field col-12"
+                        :label="$t('document.folder_name')"
+                    ></TextInput>
+                    <template #footer>
+                        <div id="function_buttons" class="flex gap-2 justify-content-end">
+                            <Button :label="$t('basic.save')" icon="fa fa-check" @click="updateFolder" />
+                            <Button :label="$t('basic.delete')" icon="fa fa-trash" class="p-button-danger" @click="deleteFolderAsk" />
+                        </div>
+                    </template>
+                </Dialog>
+            </div>
+
             <!-- Sidebar for file -->
-            <Sidebar v-model:visible="sidebarFileShow" position="right">
+
+            <!-- prettier-ignore-attribute -->
+            <Sidebar v-model:visible="sidebarFileShow" position="right" @hide="sidebarFileShow = false; editDocument = false;">
                 <LoadingScreen :blocked="loadingData">
-                    <span class="font-bold text-x" style="word-wrap: break-word">{{ document.name }}</span>
+                    <span @dblclick="editDocument = true" v-if="!editDocument" class="font-bold text-x" style="word-wrap: break-word">{{
+                        document.name
+                    }}</span>
+                    <InputText v-if="editDocument" v-model="document.name" class="mt-2 w-full" />
 
                     <div class="mt-2 flex gap-2">
                         <Button :label="$t('basic.download')" icon="fa fa-download" @click="downloadDocument(document.download_url)" />
                         <Button :label="$t('basic.preview')" icon="fa fa-eye" @click="previewDocument(document.preview_url)" />
                     </div>
 
-                    <div class="mt-4">
-                        <span class="font-bold">{{ $t('document.created_at') }}</span>
-                        <span class="ml-2">{{ formatDateTime(document.created_at) }}</span>
+                    <div class="mt-2">
+                        <span v-if="!editDocument" @dblclick="editDocument = true" class="text-x" style="word-wrap: break-word">{{
+                            document.description
+                        }}</span>
+                        <TextArea v-if="editDocument" v-model="document.description" class="mt-2 w-full" />
                     </div>
 
                     <div class="mt-4">
-                        <span class="font-bold">{{ $t('document.size') }}</span>
-                        <span class="ml-2">{{ formatFileSize(document.file_size) }}</span>
+                        <DisplayData :input="$t('document.created_at')" :value="formatDateTime(document.created_at)" />
                     </div>
 
                     <div class="mt-4">
-                        <span class="font-bold">{{ $t('document.type') }}</span>
-                        <span class="ml-2">{{ document.file_type }}</span>
+                        <DisplayData :input="$t('document.size')" :value="formatFileSize(document.file_size)" />
+                    </div>
+
+                    <div class="mt-4">
+                        <Button v-if="editDocument" :label="$t('basic.save')" icon="fa fa-save" @click="updateDocument" />
+                        <Button
+                            v-if="editDocument"
+                            class="p-button-danger ml-2"
+                            :label="$t('basic.delete')"
+                            icon="fa fa-trash"
+                            @click="deleteDocumentAsk(document)"
+                        />
                     </div>
                 </LoadingScreen>
             </Sidebar>
@@ -148,15 +187,13 @@ export default {
         return {
             documents: [],
             folders: [],
+            editDocument: false,
             showNewFolderDialog: false,
             showNewDocumentDialog: false,
             newFolderName: '',
+            showEditFolderDialog: false,
             selectedDocument: null,
             sidebarFileShow: false,
-            rightClickMenuItems: [
-                { label: this.$t('basic.view'), icon: 'fa fa-search', command: () => this.viewDocument(this.selectedDocument) },
-                { label: this.$t('basic.delete'), icon: 'fa fa-times', command: () => this.deleteDocumentAsk(this.selectedDocument) },
-            ],
         }
     },
 
@@ -184,10 +221,6 @@ export default {
             this.document.file = null
         },
 
-        openRightClickMenu(event) {
-            this.$refs.rightClickMenu.show(event.originalEvent)
-        },
-
         uploadDocument(event) {
             event.formData.append('folder_id', this.currentFolder?.id || null)
             event.xhr.setRequestHeader('Authorization', `Bearer ${this.token}`)
@@ -213,6 +246,11 @@ export default {
         downloadDocument(url) {
             window.open(url, '_blank')
         },
+
+        editFolderOpenDialog() {
+            this.getFolder(this.currentFolder?.id || null)
+            this.showEditFolderDialog = true
+        },
     },
 }
 </script>
@@ -220,14 +258,5 @@ export default {
 <style scoped>
 .icon-file {
     font-size: 1.5rem;
-}
-
-#documents_table {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 </style>

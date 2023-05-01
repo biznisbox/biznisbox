@@ -131,7 +131,9 @@ Route::middleware('auth')->group(function () {
         Route::put('/documents/file', DocumentsController::class . '@updateDocument');
         Route::delete('/documents/file', DocumentsController::class . '@deleteDocument');
         Route::get('/document/folders', DocumentsController::class . '@getFolders');
+        Route::get('/document/folders/{id}', DocumentsController::class . '@getFolder');
         Route::post('/document/folders', DocumentsController::class . '@createFolder');
+        Route::put('/document/folders', DocumentsController::class . '@updateFolder');
         Route::delete('/document/folders', DocumentsController::class . '@deleteFolder');
     });
 
