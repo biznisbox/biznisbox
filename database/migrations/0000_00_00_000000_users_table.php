@@ -36,21 +36,6 @@ return new class extends Migration {
             $table->softDeletes();
             $table->timestamps();
         });
-
-        // Create admin user
-        User::create([
-            'id' => '00000000-0000-0000-0000-000000000000',
-            'first_name' => 'Admin',
-            'last_name' => 'User',
-            'email' => 'admin@test.com',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'active' => true,
-            'picture' => null,
-            'role' => 'super_admin',
-            'timezone' => 'UTC',
-            'last_login_at' => null,
-            'language' => 'en',
-        ]);
     }
 
     /**
