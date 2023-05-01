@@ -19,11 +19,11 @@
                         <!-- Folders tree -->
                         <Tree
                             :value="folders"
-                            @node-select="folderSelected"
                             :loading="loadingData"
                             filter
-                            filterMode="strict"
-                            selectionMode="single"
+                            filter-mode="strict"
+                            selection-mode="single"
+                            @node-select="folderSelected"
                         >
                             <template #default="{ node }">
                                 <div>
@@ -41,9 +41,9 @@
                             :loading="loadingData"
                             paginator
                             :rows="10"
-                            :rowsPerPageOptions="[10, 20, 50]"
+                            :rows-per-page-options="[10, 20, 50]"
+                            data-key="id"
                             @row-click="openDocument"
-                            dataKey="id"
                         >
                             <template #empty>
                                 <div class="p-4 pl-0 text-center w-full text-gray-500">
@@ -136,7 +136,7 @@
             <!-- prettier-ignore-attribute -->
             <Sidebar v-model:visible="sidebarFileShow" position="right" @hide="sidebarFileShow = false; editDocument = false;">
                 <LoadingScreen :blocked="loadingData">
-                    <span @dblclick="editDocument = true" v-if="!editDocument" class="font-bold text-x" style="word-wrap: break-word">{{
+                    <span v-if="!editDocument" class="font-bold text-x" style="word-wrap: break-word" @dblclick="editDocument = true">{{
                         document.name
                     }}</span>
                     <InputText v-if="editDocument" v-model="document.name" class="mt-2 w-full" />
@@ -147,7 +147,7 @@
                     </div>
 
                     <div class="mt-2">
-                        <span v-if="!editDocument" @dblclick="editDocument = true" class="text-x" style="word-wrap: break-word">{{
+                        <span v-if="!editDocument" class="text-x" style="word-wrap: break-word" @dblclick="editDocument = true">{{
                             document.description
                         }}</span>
                         <TextArea v-if="editDocument" v-model="document.description" class="mt-2 w-full" />

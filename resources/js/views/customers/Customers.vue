@@ -9,17 +9,17 @@
 
             <div id="customers_table" class="card">
                 <DataTable
+                    v-model:filters="filters"
                     :value="customers"
                     :loading="loadingData"
                     paginator
-                    v-model:filters="filters"
                     :rows="10"
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
                     column-resize-mode="expand"
-                    filterDisplay="menu"
+                    filter-display="menu"
                     data-key="id"
-                    :globalFilterFields="['name', 'vat_number']"
+                    :global-filter-fields="['name', 'vat_number']"
                     @row-dblclick="viewCustomerNavigation"
                 >
                     <template #empty>
@@ -63,8 +63,8 @@
                                     { label: $t('customer.individual'), value: 'individual' },
                                     { label: $t('customer.company'), value: 'company' },
                                 ]"
-                                optionLabel="label"
-                                optionValue="value"
+                                option-label="label"
+                                option-value="value"
                                 class="p-column-filter"
                                 placeholder="Select type"
                             />
@@ -110,15 +110,15 @@ export default {
     name: 'CustomersPage',
     mixins: [CustomerMixin],
 
-    created() {
-        this.getCustomers()
-        this.initFilters()
-    },
-
     data() {
         return {
             filters: null,
         }
+    },
+
+    created() {
+        this.getCustomers()
+        this.initFilters()
     },
 
     methods: {

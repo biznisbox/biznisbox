@@ -9,12 +9,12 @@
 
             <div id="users_table" class="card">
                 <DataTable
-                    :value="users"
                     v-model:filters="filters"
+                    :value="users"
                     :loading="loadingData"
                     paginator
                     data-key="id"
-                    filterDisplay="menu"
+                    filter-display="menu"
                     :rows="10"
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
@@ -84,8 +84,8 @@
                                         { label: $t('status.active'), value: true },
                                         { label: $t('status.inactive'), value: false },
                                     ]"
-                                    optionLabel="label"
-                                    optionValue="value"
+                                    option-label="label"
+                                    option-value="value"
                                     class="p-column-filter"
                                     placeholder="Search by status"
                                 />
@@ -110,15 +110,15 @@ export default {
     name: 'AdminUsersPage',
     mixins: [AdminUserMixin],
 
-    created() {
-        this.getUsers()
-        this.initFilters()
-    },
-
     data() {
         return {
             filters: null,
         }
+    },
+
+    created() {
+        this.getUsers()
+        this.initFilters()
     },
 
     methods: {

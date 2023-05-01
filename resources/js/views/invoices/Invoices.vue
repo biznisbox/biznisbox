@@ -8,17 +8,17 @@
             </user-header>
             <div id="invoice_table" class="card">
                 <DataTable
-                    :value="invoices"
                     v-model:filters="filters"
+                    :value="invoices"
                     :loading="loadingData"
                     column-resize-mode="expand"
                     paginator
                     data-key="id"
                     :rows="10"
-                    filterDisplay="menu"
+                    filter-display="menu"
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
-                    :globalFilterFields="['number']"
+                    :global-filter-fields="['number']"
                     @row-dblclick="viewInvoiceNavigation"
                 >
                     <template #empty>
@@ -98,11 +98,11 @@
                                     { label: $t('status.refunded'), value: 'refunded' },
                                     { label: $t('status.cancelled'), value: 'cancelled' },
                                 ]"
-                                optionLabel="label"
-                                optionValue="value"
+                                option-label="label"
+                                option-value="value"
                                 filter
-                                filterBy="label"
-                                showClear
+                                filter-by="label"
+                                show-clear
                                 placeholder="Select a Status"
                                 class="p-column-filter"
                             />
@@ -125,15 +125,15 @@ import { FilterMatchMode, FilterOperator } from 'primevue/api'
 export default {
     name: 'InvoicesPage',
     mixins: [InvoiceMixin],
-    created() {
-        this.getInvoices()
-        this.initFilters()
-    },
 
     data() {
         return {
             filters: null,
         }
+    },
+    created() {
+        this.getInvoices()
+        this.initFilters()
     },
 
     methods: {

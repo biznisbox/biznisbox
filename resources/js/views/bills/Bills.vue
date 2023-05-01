@@ -8,8 +8,8 @@
             </user-header>
             <div id="bills_table" class="card">
                 <DataTable
-                    :value="bills"
                     v-model:filters="filters"
+                    :value="bills"
                     :loading="loadingData"
                     paginator
                     data-key="id"
@@ -18,7 +18,7 @@
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
                     column-resize-mode="expand"
-                    :globalFilterFields="['number', 'status', 'total']"
+                    :global-filter-fields="['number', 'status', 'total']"
                     @row-dblclick="viewBillNavigation"
                 >
                     <template #empty>
@@ -75,8 +75,8 @@
                                     { label: $t('status.draft'), value: 'draft' },
                                     { label: $t('status.cancelled'), value: 'cancelled' },
                                 ]"
-                                optionLabel="label"
-                                optionValue="value"
+                                option-label="label"
+                                option-value="value"
                                 class="p-column-filter"
                                 placeholder="Search by status"
                             />
@@ -112,15 +112,15 @@ export default {
     name: 'BillsPage',
     mixins: [BillsMixin],
 
-    created() {
-        this.getBills()
-        this.initFilters()
-    },
-
     data() {
         return {
             filters: null,
         }
+    },
+
+    created() {
+        this.getBills()
+        this.initFilters()
     },
 
     methods: {

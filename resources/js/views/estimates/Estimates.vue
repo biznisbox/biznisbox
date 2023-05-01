@@ -8,8 +8,8 @@
             </user-header>
             <div id="estimate_table" class="card">
                 <DataTable
-                    :value="estimates"
                     v-model:filters="filters"
+                    :value="estimates"
                     :loading="loadingData"
                     column-resize-mode="expand"
                     paginator
@@ -18,7 +18,7 @@
                     :rows="10"
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
-                    :globalFilterFields="['number', 'status', 'total']"
+                    :global-filter-fields="['number', 'status', 'total']"
                     @row-dblclick="viewEstimateNavigation"
                 >
                     <template #empty>
@@ -102,8 +102,8 @@
                                     { label: $t('status.cancelled'), value: 'cancelled' },
                                     { label: $t('status.converted'), value: 'converted' },
                                 ]"
-                                optionLabel="label"
-                                optionValue="value"
+                                option-label="label"
+                                option-value="value"
                                 class="p-column-filter"
                                 placeholder="Select a status"
                             />
@@ -126,15 +126,15 @@ import { FilterMatchMode, FilterOperator } from 'primevue/api'
 export default {
     name: 'EstimatesPage',
     mixins: [EstimateMixin],
-    created() {
-        this.getEstimates()
-        this.initFilters()
-    },
 
     data() {
         return {
             filters: null,
         }
+    },
+    created() {
+        this.getEstimates()
+        this.initFilters()
     },
 
     methods: {

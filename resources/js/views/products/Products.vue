@@ -8,8 +8,8 @@
             </user-header>
             <div id="products_table" class="card">
                 <DataTable
-                    :value="products"
                     v-model:filters="filters"
+                    :value="products"
                     :loading="loadingData"
                     column-resize-mode="expand"
                     paginator
@@ -18,7 +18,7 @@
                     :rows="10"
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
-                    :globalFilterFields="['name', 'stock_status', 'sell_price', 'buy_price']"
+                    :global-filter-fields="['name', 'stock_status', 'sell_price', 'buy_price']"
                     @row-dblclick="viewProductNavigation"
                 >
                     <template #empty>
@@ -84,8 +84,8 @@
                                     { label: $t('stock_status.over_stock'), value: 'over_stock' },
                                     { label: $t('stock_status.unknown'), value: 'unknown' },
                                 ]"
-                                optionLabel="label"
-                                optionValue="value"
+                                option-label="label"
+                                option-value="value"
                                 class="p-column-filter"
                                 placeholder="Search by stock status"
                             />
@@ -109,15 +109,15 @@ import ProductMixin from '@/mixins/products'
 export default {
     name: 'ProductsPage',
     mixins: [ProductMixin],
-    created() {
-        this.getProducts()
-        this.initFilters()
-    },
 
     data() {
         return {
             filters: {},
         }
+    },
+    created() {
+        this.getProducts()
+        this.initFilters()
     },
 
     methods: {

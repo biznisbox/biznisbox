@@ -9,17 +9,17 @@
 
             <div id="accounts_table" class="card">
                 <DataTable
-                    :value="accounts"
                     v-model:filters="filters"
+                    :value="accounts"
                     :loading="loadingData"
                     paginator
                     :rows="10"
                     data-key="id"
-                    filterDisplay="menu"
+                    filter-display="menu"
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
                     column-resize-mode="expand"
-                    :globalFilterFields="['name', 'account_number']"
+                    :global-filter-fields="['name', 'account_number']"
                     @row-dblclick="viewAccountNavigation"
                 >
                     <template #empty>
@@ -65,8 +65,8 @@
                                         { label: $t('account.credit_card'), value: 'credit_card' },
                                         { label: $t('account.online_account'), value: 'online_account' },
                                     ]"
-                                    optionLabel="label"
-                                    optionValue="value"
+                                    option-label="label"
+                                    option-value="value"
                                     class="p-column-filter"
                                     placeholder="Select type"
                                 />
@@ -123,15 +123,15 @@ export default {
     name: 'AccountsPage',
     mixins: [AccountsMixin],
 
-    created() {
-        this.getAccounts()
-        this.initFilters()
-    },
-
     data() {
         return {
             filters: null,
         }
+    },
+
+    created() {
+        this.getAccounts()
+        this.initFilters()
     },
 
     methods: {

@@ -9,8 +9,8 @@
 
             <div id="transactions_table" class="card">
                 <DataTable
-                    :value="transactions"
                     v-model:filters="filters"
+                    :value="transactions"
                     :loading="loadingData"
                     paginator
                     data-key="id"
@@ -18,7 +18,7 @@
                     :rows="10"
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
-                    :globalFilterFields="['name', 'number', 'amount', 'category', 'account']"
+                    :global-filter-fields="['name', 'number', 'amount', 'category', 'account']"
                     @row-dblclick="viewTransactionNavigation"
                 >
                     <template #empty>
@@ -95,8 +95,8 @@
                                         { label: $t('transaction.expense'), value: 'expense' },
                                         { label: $t('transaction.transfer'), value: 'transfer' },
                                     ]"
-                                    optionLabel="label"
-                                    optionValue="value"
+                                    option-label="label"
+                                    option-value="value"
                                     class="p-column-filter"
                                     placeholder="Search by type"
                                 />
@@ -139,15 +139,15 @@ export default {
     name: 'TransactionsPage',
     mixins: [TransactionsMixin],
 
-    created() {
-        this.getTransactions()
-        this.initFilters()
-    },
-
     data() {
         return {
             filters: null,
         }
+    },
+
+    created() {
+        this.getTransactions()
+        this.initFilters()
     },
 
     methods: {

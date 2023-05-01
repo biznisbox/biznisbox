@@ -9,8 +9,8 @@
 
             <div id="vendors_table" class="card">
                 <DataTable
-                    :value="vendors"
                     v-model:filters="filters"
+                    :value="vendors"
                     :loading="loadingData"
                     column-resize-mode="expand"
                     paginator
@@ -19,7 +19,7 @@
                     :rows="10"
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
-                    :globalFilterFields="['name', 'vat_number', 'email']"
+                    :global-filter-fields="['name', 'vat_number', 'email']"
                     @row-dblclick="viewVendorNavigation"
                 >
                     <template #empty>
@@ -110,15 +110,15 @@ export default {
     name: 'VendorsPage',
     mixins: [VendorMixin],
 
-    created() {
-        this.getVendors()
-        this.initFilters()
-    },
-
     data() {
         return {
             filters: null,
         }
+    },
+
+    created() {
+        this.getVendors()
+        this.initFilters()
     },
 
     methods: {
