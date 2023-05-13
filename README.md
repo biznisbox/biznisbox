@@ -1,10 +1,9 @@
 # BiznisBox
-<img src="https://biznisbox.com/app_logo.png" width="200" height="200" alt="BiznisBox Logo" />
 
+<img src="https://biznisbox.com/app_logo.png" width="200" height="200" alt="BiznisBox Logo" />
 
 ![GitHub](https://img.shields.io/github/license/biznisbox/biznisbox?style=for-the-badge)
 ![GitHub release](https://img.shields.io/github/v/release/biznisbox/biznisbox?include_prereleases&label=Current%20version&style=for-the-badge)
-
 
 **BiznisBox is currently in development. It is not ready for production use.**
 
