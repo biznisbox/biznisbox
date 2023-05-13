@@ -38,7 +38,7 @@ jobs:
                   rm -rf .prettierrc.json
                   rm -rf .jsconfig.json
             - name: Zip all files
-              run: zip -r production.zip *
+              run: zip -r production.zip * .[^.]*
             - name: Upload artifacts
               uses: actions/upload-artifact@v1
               with:
