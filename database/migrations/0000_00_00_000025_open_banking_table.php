@@ -22,11 +22,10 @@ return new class extends Migration {
             $table->string('iban')->nullable();
             $table->string('bank_name')->nullable();
             $table->string('bank_logo')->nullable();
-            $table->string('payments_available')->nullable();
+            $table->boolean('payment_available')->default(0)->nullable();
             $table->string('account_id')->nullable();
             $table->string('requisition_id')->nullable();
             $table->string('requisition_status')->nullable();
-            $table->string('connected_account_id')->nullable();
             $table->timestamp('connection_valid_until')->nullable();
             $table->timestamps();
         });

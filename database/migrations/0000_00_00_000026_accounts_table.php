@@ -33,11 +33,11 @@ return new class extends Migration {
             $table->string('iban')->nullable(); // International Bank Account Number
             $table->string('swift')->nullable(); // swift code
             $table
-                ->tinyInteger('is_default')
+                ->boolean('is_default')
                 ->nullable()
                 ->default(0); // 0 = false, 1 = true
             $table
-                ->tinyInteger('is_active')
+                ->boolean('is_active')
                 ->nullable()
                 ->default(1); // 0 = inactive, 1 = active
             $table
