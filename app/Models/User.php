@@ -42,7 +42,7 @@ class User extends Authenticatable implements Auditable
      */
     public function getInitials()
     {
-        return substr($this->first_name, 0, 1) . substr($this->last_name, 0, 1);
+        return $this->first_name[0] ?? ('' . $this->last_name[0] ?? '');
     }
 
     public function getPictureAttribute($value)
