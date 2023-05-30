@@ -64,9 +64,12 @@ return new class extends Migration {
                 ->on('categories')
                 ->nullOnDelete()
                 ->cascadeOnUpdate();
-            $table->string('number'); // transaction number
-            $table->string('type'); // expense, income, transfer
-            $table->string('name'); // transaction name
+            $table->string('number')->nullable(); // transaction number
+            $table
+                ->string('type')
+                ->nullable()
+                ->default('expense'); // expense, income, transfer, etc
+            $table->string('name')->nullable(); // transaction name
             $table->text('description')->nullable(); // memo
             $table->double('amount', 10, 2); // amount
             $table->string('currency')->nullable(); // currency
@@ -77,13 +80,6 @@ return new class extends Migration {
             $table->timestamp('date')->nullable(); // transaction date (not created_at)
             $table->boolean('reconciled')->default(false); // reconciled or not
             $table->timestamp('reconciled_at')->nullable(); // reconciled date
-            $table
-                ->foreignUuid('created_by')
-                ->nullable()
-                ->references('id')
-                ->on('users')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
             $table->timestamps();
             $table->softDeletes();
         });

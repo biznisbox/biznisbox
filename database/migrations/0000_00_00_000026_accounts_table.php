@@ -31,7 +31,7 @@ return new class extends Migration {
             $table->string('bank_address')->nullable(); // bank address
             $table->string('bank_contact')->nullable(); // phone or email
             $table->string('iban')->nullable(); // International Bank Account Number
-            $table->string('swift')->nullable(); // swift code
+            $table->string('bic')->nullable(); // Bank Identifier Code (SWIFT code)
             $table
                 ->boolean('is_default')
                 ->nullable()
@@ -48,8 +48,8 @@ return new class extends Migration {
                 ->nullOnDelete()
                 ->cascadeOnUpdate();
             $table->string('integration')->nullable(); // stripe, paypal etc.
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
