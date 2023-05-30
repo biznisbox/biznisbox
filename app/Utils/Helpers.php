@@ -216,7 +216,7 @@ if (!function_exists('generate_next_number')) {
  * @param string $module - module name
  * @return void
  */
-if (!function_exists('increment_number')) {
+if (!function_exists('incrementLastItemNumber')) {
     function incrementLastItemNumber($module)
     {
         $number = new SerialNumberFormatter();

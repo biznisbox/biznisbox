@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Models\OpenBanking;
+use App\Models\Accounts;
+use App\Models\Transaction;
 use Nordigen\NordigenPHP\API\NordigenClient;
 use Illuminate\Support\Facades\App;
 
@@ -76,18 +78,63 @@ class OpenBankingService
                         $account = $this->client->account($account);
                         $accountData = $account->getAccountMetaData();
                         $bank = $this->client->institution->getInstitution($accountData['institution_id']);
-                        OpenBanking::create([
-                            'name' => $accountData['iban'] ?? null,
+                        $balance = $account->getAccountBalances();
+                        $openBanking = OpenBanking::create([
                             'bank_id' => $accountData['institution_id'],
                             'requisition_id' => $requisitionId,
                             'requisition_status' => 'SUCCESS',
+                            'agreement_id' => $session['agreement'],
+                            'agreement_status' => 'ACCEPTED',
                             'account_id' => $accountData['id'],
                             'iban' => $accountData['iban'] ?? null,
                             'currency' => $accountData['currency'] ?? null,
                             'bank_name' => $bank['name'] ?? null,
-                            'payments_available' => $bank['payments'] ?? null,
+                            'payment_available' => $bank['payments'] ?? 0,
                             'bank_logo' => $bank['logo'] ?? null,
+                            'connection_valid_until' => now()
+                                ->addDays(90)
+                                ->format('Y-m-d H:i:s'),
                         ]);
+
+                        $internal_account = Accounts::create([
+                            'name' => $accountData['iban'] ?? null,
+                            'type' => 'bank_account',
+                            'currency' => $accountData['currency'] ?? null,
+                            'bank_name' => $bank['name'] ?? null,
+                            'iban' => $accountData['iban'] ?? null,
+                            'bic' => $bank['bic'] ?? null,
+                            'currency' => $accountData['currency'] ?? null,
+                            'open_banking_id' => $openBanking['id'],
+                            'integration' => 'open_banking',
+                            'opening_balance' => $balance['balances'][0]['balanceAmount']['amount'] ?? 0,
+                            'current_balance' => $balance['balances'][0]['balanceAmount']['amount'] ?? 0,
+                            'currency' => $balance['balances'][0]['balanceAmount']['currency'] ?? settings('default_currency'),
+                            'is_active' => 1,
+                        ]);
+
+                        $transactions = $account->getAccountTransactions(
+                            now()
+                                ->subDays($bank['transaction_total_days'])
+                                ->format('Y-m-d'),
+                            now()->format('Y-m-d')
+                        );
+
+                        foreach ($transactions as $transaction) {
+                            foreach ($transaction['booked'] as $bookedTransaction) {
+                                Transaction::create([
+                                    'name' => $bookedTransaction['transactionInformation'] ?? null,
+                                    'account_id' => $internal_account['id'],
+                                    'number' => generate_next_number(settings('transaction_number_format'), 'transactions'),
+                                    'type' => $bookedTransaction['transactionAmount']['amount'] < 0 ? 'expense' : 'income',
+                                    'amount' => $bookedTransaction['transactionAmount']['amount'],
+                                    'currency' => $bookedTransaction['transactionAmount']['currency'],
+                                    'date' => $bookedTransaction['bookingDate'] ?? now()->format('Y-m-d'),
+                                    'description' => $bookedTransaction['transactionInformation'] ?? null,
+                                    'status' => 'completed',
+                                ]);
+                                incrementLastItemNumber('transactions');
+                            }
+                        }
                     }
                     return api_response($session, __('response.open_banking.requisition_success'), 200);
                 }
@@ -213,5 +260,17 @@ class OpenBankingService
             return true;
         }
         return false;
+    }
+
+    public function refreshConnection($id)
+    {
+        if ($this->checkIfOpenBankingIsEnabled()) {
+            if ($id) {
+                $openBanking = OpenBanking::where('id', $id)->first();
+                if ($openBanking) {
+                }
+            }
+            return api_response(null, __('response.open_banking.not_enabled'), 403);
+        }
     }
 }
