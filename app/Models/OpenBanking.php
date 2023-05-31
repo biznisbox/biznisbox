@@ -28,10 +28,6 @@ class OpenBanking extends Model implements Auditable
         'connection_valid_until',
     ];
 
-    protected $casts = [
-        'payment_available' => 'boolean',
-    ];
-
     protected $hidden = [
         'account_id',
         'created_at',

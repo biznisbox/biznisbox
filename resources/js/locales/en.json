@@ -370,25 +370,6 @@
         "date_and_due_date": "Date and due date",
         "delete_confirm_bill": "Are you sure you want to delete this bill?"
     },
-    "open_banking": {
-        "account": "Bank Account | Bank Accounts",
-        "connect_new_account": "Connect new bank account",
-        "status": "Status",
-        "name": "Name",
-        "iban": "IBAN",
-        "bic": "BIC",
-        "bank_name": "Bank Name",
-        "connect_first_account": "Connect your first bank account",
-        "no_bank_accounts": "No bank accounts found",
-        "last_update": "Last Update",
-        "edit_account": "Edit Bank Account",
-        "balance": "Balance",
-        "amount": "Amount",
-        "description": "Description",
-        "date": "Date",
-        "no_transactions": "No transactions found",
-        "delete_confirm_bank_feed": "Are you sure you want to delete this bank feed?"
-    },
     "account": {
         "account": "Account | Accounts",
         "new_account": "New Account",
@@ -410,7 +391,7 @@
         "bank_name": "Bank Name",
         "currency": "Currency",
         "iban": "IBAN",
-        "swift": "SWIFT",
+        "bic": "BIC",
         "bank_address": "Bank Address",
         "bank_contact": "Bank Contact",
         "account_number": "Account Number",
@@ -418,7 +399,12 @@
         "integration": "Integration",
         "delete_confirm_account": "Are you sure you want to delete this account?",
         "account_details": "Account details",
-        "bank_details": "Bank details"
+        "bank_details": "Bank details",
+        "connect_bank": "Connect bank account",
+        "country": "Country",
+        "bank": "Bank",
+        "select_country": "Select country",
+        "select_bank": "Select bank"
     },
     "vendor": {
         "vendor": "Vendor | Vendors",

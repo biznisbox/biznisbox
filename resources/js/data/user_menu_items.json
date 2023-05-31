@@ -83,12 +83,6 @@
                 "meta": ["transactions"],
                 "permission": "transactions",
                 "to": "/transactions"
-            },
-            {
-                "name": "user_menu_items.bank_feeds",
-                "meta": ["open_banking"],
-                "permission": "open_banking",
-                "to": "/open_banking"
             }
         ]
     },

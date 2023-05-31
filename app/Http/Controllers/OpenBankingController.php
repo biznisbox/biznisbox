@@ -29,7 +29,7 @@ class OpenBankingController extends Controller
 
     public function initSession(Request $request)
     {
-        $redirectUri = url('/open_banking/add'); // frontend route Step 3
+        $redirectUri = url('/accounts');
         $institutionId = $request->institution_id;
         return $this->openBankingService->initSession($redirectUri, $institutionId);
     }

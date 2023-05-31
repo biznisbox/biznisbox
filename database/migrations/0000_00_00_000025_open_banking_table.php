@@ -19,10 +19,7 @@ return new class extends Migration {
             $table->string('iban')->nullable();
             $table->string('bank_name')->nullable();
             $table->string('bank_logo')->nullable();
-            $table
-                ->boolean('payment_available')
-                ->default(0)
-                ->nullable();
+            $table->text('payment_available')->nullable();
             $table->string('account_id')->nullable();
             $table->string('agreement_id')->nullable();
             $table->string('agreement_status')->nullable();

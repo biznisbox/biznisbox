@@ -72,7 +72,6 @@ class OpenBankingService
                 $session = $this->client->requisition->getRequisition($requisitionId);
                 if ($session['status'] == 'LN') {
                     $accounts = $session['accounts'];
-
                     $openBanking = OpenBanking::where('requisition_id', $requisitionId)->delete();
                     foreach ($accounts as $account) {
                         $account = $this->client->account($account);
@@ -89,7 +88,7 @@ class OpenBankingService
                             'iban' => $accountData['iban'] ?? null,
                             'currency' => $accountData['currency'] ?? null,
                             'bank_name' => $bank['name'] ?? null,
-                            'payment_available' => $bank['payments'] ?? 0,
+                            'payment_available' => json_encode($bank['supported_payments']) ?? false,
                             'bank_logo' => $bank['logo'] ?? null,
                             'connection_valid_until' => now()
                                 ->addDays(90)
@@ -114,22 +113,29 @@ class OpenBankingService
 
                         $transactions = $account->getAccountTransactions(
                             now()
-                                ->subDays($bank['transaction_total_days'])
+                                ->subDays($bank['transaction_total_days'] ?? 90)
                                 ->format('Y-m-d'),
                             now()->format('Y-m-d')
                         );
 
                         foreach ($transactions as $transaction) {
                             foreach ($transaction['booked'] as $bookedTransaction) {
+                                // Get transaction description
+                                $transactionDescription =
+                                    $bookedTransaction['remittanceInformationUnstructured'] ??
+                                    ($bookedTransaction['remittanceInformationStructured'] ??
+                                        ($bookedTransaction['remittanceInformationStructuredArray'][0] ??
+                                            ($bookedTransaction['remittanceInformationUnstructuredArray'][0] ?? null)));
+
                                 Transaction::create([
-                                    'name' => $bookedTransaction['transactionInformation'] ?? null,
+                                    'name' => $transactionDescription ?? null,
                                     'account_id' => $internal_account['id'],
                                     'number' => generate_next_number(settings('transaction_number_format'), 'transactions'),
                                     'type' => $bookedTransaction['transactionAmount']['amount'] < 0 ? 'expense' : 'income',
-                                    'amount' => $bookedTransaction['transactionAmount']['amount'],
+                                    'amount' => str_replace('-', '', $bookedTransaction['transactionAmount']['amount']),
                                     'currency' => $bookedTransaction['transactionAmount']['currency'],
                                     'date' => $bookedTransaction['bookingDate'] ?? now()->format('Y-m-d'),
-                                    'description' => $bookedTransaction['transactionInformation'] ?? null,
+                                    'description' => $transactionDescription,
                                     'status' => 'completed',
                                 ]);
                                 incrementLastItemNumber('transactions');

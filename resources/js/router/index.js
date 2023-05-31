@@ -50,11 +50,6 @@ const routes = [
     makeRoute('/transactions/:id', 'view-transaction', () => import('../views/transactions/ViewTransaction.vue'), { auth: true }, []),
     makeRoute('/transactions/:id/edit', 'edit-transaction', () => import('../views/transactions/EditTransaction.vue'), { auth: true }, []),
 
-    // Open banking Routes
-    makeRoute('/open_banking', 'open-banking', () => import('../views/bank_feeds/Accounts.vue'), { auth: true }, []),
-    makeRoute('/open_banking/view/:id', 'open-banking-feed', () => import('../views/bank_feeds/ViewFeed.vue'), { auth: true }, []),
-    makeRoute('/open_banking/add', 'open-banking-add-bank', () => import('../views/bank_feeds/AddBank.vue'), { auth: true }, []),
-
     // Vendor Routes
     makeRoute('/vendors', 'vendors', () => import('../views/vendors/Vendors.vue'), { auth: true }, []),
     makeRoute('/vendors/new', 'new-vendor', () => import('../views/vendors/NewVendor.vue'), { auth: true }, []),
