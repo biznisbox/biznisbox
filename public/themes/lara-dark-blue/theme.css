@@ -78,6 +78,11 @@
   font-size: 1rem;
 }
 
+.p-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
 .p-link {
   font-size: 1rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -648,6 +653,10 @@
   color: #1c2127;
   font-size: 14px;
 }
+.p-checkbox .p-checkbox-box .p-checkbox-icon.p-icon {
+  width: 14px;
+  height: 14px;
+}
 .p-checkbox .p-checkbox-box.p-highlight {
   border-color: #93C5FD;
   background: #93C5FD;
@@ -1119,6 +1128,7 @@
   color: #FCA5A5;
 }
 
+.p-input-icon-left > svg:first-of-type,
 .p-input-icon-left > i:first-of-type {
   left: 0.75rem;
   color: rgba(255, 255, 255, 0.6);
@@ -1132,6 +1142,7 @@
   left: 2.5rem;
 }
 
+.p-input-icon-right > svg:last-of-type,
 .p-input-icon-right > i:last-of-type {
   right: 0.75rem;
   color: rgba(255, 255, 255, 0.6);
@@ -1485,6 +1496,10 @@
   color: rgba(255, 255, 255, 0.87);
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   font-size: 1.143rem;
+}
+.p-rating .p-rating-item .p-rating-icon.p-icon {
+  width: 1.143rem;
+  height: 1.143rem;
 }
 .p-rating .p-rating-item .p-rating-icon.p-rating-cancel {
   color: #F48FB1;
@@ -2180,6 +2195,10 @@
 .p-speeddial-button.p-button.p-button-icon-only .p-button-icon {
   font-size: 1.3rem;
 }
+.p-speeddial-button.p-button.p-button-icon-only .p-icon {
+  width: 1.3rem;
+  height: 1.3rem;
+}
 
 .p-speeddial-list {
   outline: 0 none;
@@ -2579,12 +2598,14 @@
   background: #071426;
   transition: box-shadow 0.2s;
 }
+
 .p-datatable .p-datatable-thead > tr > th:first-child {
   border-top-left-radius: 6px;
 }
 .p-datatable .p-datatable-thead > tr > th:last-child {
   border-top-right-radius: 6px;
 }
+
 .p-datatable .p-datatable-tfoot > tr > td {
   text-align: left;
   padding: 1rem 1rem;
@@ -2709,6 +2730,10 @@
 }
 .p-datatable .p-datatable-loading-icon {
   font-size: 2rem;
+}
+.p-datatable .p-datatable-loading-icon.p-icon {
+  width: 2rem;
+  height: 2rem;
 }
 .p-datatable.p-datatable-gridlines .p-datatable-header {
   border-width: 1px 1px 0 1px;
@@ -3593,6 +3618,10 @@
 .p-tree .p-tree-loading-icon {
   font-size: 2rem;
 }
+.p-tree .p-tree-loading-icon.p-icon {
+  width: 2rem;
+  height: 2rem;
+}
 
 .p-treetable .p-paginator-top {
   border-width: 1px 0 1px 0;
@@ -3734,6 +3763,10 @@
 }
 .p-treetable .p-treetable-loading-icon {
   font-size: 2rem;
+}
+.p-treetable .p-treetable-loading-icon.p-icon {
+  width: 2rem;
+  height: 2rem;
 }
 .p-treetable.p-treetable-gridlines .p-datatable-header {
   border-width: 1px 1px 0 1px;
@@ -3968,6 +4001,9 @@
   border: 1px solid #0b213f;
   background: #071426;
   color: rgba(255, 255, 255, 0.87);
+  border-top: 0 none;
+}
+.p-panel .p-panel-content:last-child {
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
   border-top: 0 none;
@@ -3977,6 +4013,8 @@
   border: 1px solid #0b213f;
   background: #071426;
   color: rgba(255, 255, 255, 0.87);
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
   border-top: 0 none;
 }
 
@@ -4028,7 +4066,7 @@
   border-color: transparent transparent #0b213f transparent;
   background: #071426;
   color: rgba(255, 255, 255, 0.6);
-  padding: 1.5rem;
+  padding: 1.25rem;
   font-weight: 700;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
@@ -4121,6 +4159,10 @@
 }
 .p-confirm-popup .p-confirm-popup-icon {
   font-size: 1.5rem;
+}
+.p-confirm-popup .p-confirm-popup-icon.p-icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 .p-confirm-popup .p-confirm-popup-message {
   margin-left: 1rem;
@@ -4465,6 +4507,10 @@
 }
 .p-contextmenu .p-submenu-icon {
   font-size: 0.875rem;
+}
+.p-contextmenu .p-submenu-icon.p-icon {
+  width: 0.875rem;
+  height: 0.875rem;
 }
 
 .p-dock .p-dock-list-container {
@@ -5225,6 +5271,10 @@
 .p-tieredmenu .p-submenu-icon {
   font-size: 0.875rem;
 }
+.p-tieredmenu .p-submenu-icon.p-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+}
 
 .p-inline-message {
   padding: 0.75rem 0.75rem;
@@ -5356,6 +5406,10 @@
   font-size: 1.5rem;
   margin-right: 0.5rem;
 }
+.p-message .p-icon:not(.p-message-close-icon) {
+  width: 1.5rem;
+  height: 1.5rem;
+}
 
 .p-toast {
   opacity: 0.9;
@@ -5374,6 +5428,10 @@
 }
 .p-toast .p-toast-message .p-toast-message-content .p-toast-message-icon {
   font-size: 2rem;
+}
+.p-toast .p-toast-message .p-toast-message-content .p-toast-message-icon.p-icon {
+  width: 2rem;
+  height: 2rem;
 }
 .p-toast .p-toast-message .p-toast-message-content .p-toast-summary {
   font-weight: 700;
@@ -5449,6 +5507,10 @@
 .p-galleria .p-galleria-close .p-galleria-close-icon {
   font-size: 2rem;
 }
+.p-galleria .p-galleria-close .p-icon {
+  width: 2rem;
+  height: 2rem;
+}
 .p-galleria .p-galleria-close:hover {
   background: rgba(255, 255, 255, 0.1);
   color: #f8f9fa;
@@ -5465,6 +5527,10 @@
 .p-galleria .p-galleria-item-nav .p-galleria-item-prev-icon,
 .p-galleria .p-galleria-item-nav .p-galleria-item-next-icon {
   font-size: 2rem;
+}
+.p-galleria .p-galleria-item-nav .p-icon {
+  width: 2rem;
+  height: 2rem;
 }
 .p-galleria .p-galleria-item-nav:not(.p-disabled):hover {
   background: rgba(255, 255, 255, 0.1);
@@ -5549,6 +5615,10 @@
   color: #f8f9fa;
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
+.p-image-preview-indicator .p-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
 
 .p-image-preview-container:hover > .p-image-preview-indicator {
   background-color: rgba(0, 0, 0, 0.5);
@@ -5576,6 +5646,10 @@
 }
 .p-image-action.p-link i {
   font-size: 1.5rem;
+}
+.p-image-action.p-link .p-icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .p-avatar {
@@ -5769,6 +5843,10 @@
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.87);
 }
+.p-scrolltop .p-scrolltop-icon.p-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
 
 .p-skeleton {
   background-color: rgba(255, 255, 255, 0.06);
@@ -5805,6 +5883,10 @@
 .p-tag .p-tag-icon {
   margin-right: 0.25rem;
   font-size: 0.75rem;
+}
+.p-tag .p-tag-icon.p-icon {
+  width: 0.75rem;
+  height: 0.75rem;
 }
 
 .p-terminal {
@@ -5870,6 +5952,7 @@
 .p-speeddial-item.p-focus > .p-speeddial-action {
   box-shadow: 0 0 0 2px #1c2127, 0 0 0 4px rgba(147, 197, 253, 0.7), 0 1px 2px 0 rgba(0, 0, 0, 0);
 }
+
 .card {
   background-color: #1c2127;
   border: 1px solid #0b213f;
@@ -5884,4 +5967,3 @@
   font-weight: 500;
   margin-bottom: 1rem;
 }
-
