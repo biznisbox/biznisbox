@@ -31,7 +31,7 @@ class AccountsSeeder extends Seeder
                 'bank_address' => fake()->address(),
                 'bank_contact' => fake()->phoneNumber(),
                 'iban' => fake()->iban(),
-                'swift' => fake()->swiftBicNumber(),
+                'bic' => fake()->swiftBicNumber(),
             ]);
         }
     }

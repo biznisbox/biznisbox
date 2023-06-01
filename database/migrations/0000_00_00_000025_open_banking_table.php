@@ -26,6 +26,7 @@ return new class extends Migration {
             $table->string('requisition_id')->nullable();
             $table->string('requisition_status')->nullable();
             $table->timestamp('connection_valid_until')->nullable();
+            $table->timestamp('last_transaction_sync')->nullable();
             $table->timestamps();
         });
     }

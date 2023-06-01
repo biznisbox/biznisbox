@@ -49,7 +49,7 @@ class Accounts extends Model implements Auditable
 
     public function transactions()
     {
-        return $this->hasMany(Transaction::class, 'account_id', 'id');
+        return $this->hasMany(Transaction::class, 'account_id', 'id')->orderBy('date', 'desc');
     }
 
     public function bank_connections()

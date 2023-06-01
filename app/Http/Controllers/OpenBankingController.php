@@ -39,22 +39,4 @@ class OpenBankingController extends Controller
         $requisitionId = $request->requisition_id;
         return $this->openBankingService->getRequisition($requisitionId);
     }
-
-    public function getAccountData(Request $request, $id)
-    {
-        $fromDate = $request->from ?? null;
-        $toDate = $request->to ?? null;
-        return $this->openBankingService->getAccountData($id, $fromDate, $toDate);
-    }
-
-    public function getAccounts()
-    {
-        return $this->openBankingService->getAccounts();
-    }
-
-    public function updateAccountData(Request $request, $id)
-    {
-        $data = $request->all();
-        return $this->openBankingService->updateAccount($id, $data);
-    }
 }

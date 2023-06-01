@@ -29,7 +29,7 @@ class TransactionSeeder extends Seeder
                 'description' => fake()->sentence(),
                 'amount' => fake()->randomFloat(2, 1, 100),
                 'currency' => 'EUR',
-                'created_by' => \App\Models\User::all()->random()->id,
+                'exchange_rate' => 1,
                 'account_id' => \App\Models\Accounts::all()->random()->id,
             ]);
             incrementLastItemNumber('transaction');

@@ -26,6 +26,7 @@ class OpenBanking extends Model implements Auditable
         'requisition_id',
         'requisition_status',
         'connection_valid_until',
+        'last_transaction_sync',
     ];
 
     protected $hidden = [
@@ -38,22 +39,10 @@ class OpenBanking extends Model implements Auditable
         'agreement_status',
     ];
 
-    protected $dates = ['connection_valid_until'];
+    protected $dates = ['connection_valid_until', 'last_transaction_sync'];
 
     public function generateTags(): array
     {
         return ['OpenBanking'];
-    }
-
-    public function updateAccount($id, $data)
-    {
-        $account = $this->find($id);
-        if ($account) {
-            $account->update([
-                'name' => $data['name'] ?? $account->name,
-            ]);
-            return true;
-        }
-        return null;
     }
 }
