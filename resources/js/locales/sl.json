@@ -25,7 +25,8 @@
         "not_logged_in": "Niste prijavljeni",
         "session_timeout": "Vaša seja je potekla. Prosimo, prijavite se znova.",
         "internal_server_error": "Notranja napaka strežnika",
-        "validation_error": "Napaka pri validaciji"
+        "validation_error": "Napaka pri validaciji",
+        "bad_request": "Napačna zahteva"
     },
     "basic": {
         "cancel": "Prekliči",

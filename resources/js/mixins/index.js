@@ -59,10 +59,14 @@ export default {
                     })
                     .catch((error) => {
                         // If error is 401 Unauthorized, redirect to login page
-                        if (error.response.status === 401) {
+                        if (error.response.status === 401 && this.$route.name !== 'AuthLogin') {
                             this.showToast(this.$t('errors.session_timeout'), '', 'error')
                             sessionStorage.removeItem('token')
                             this.$router.push('/auth/login')
+                        }
+                        // If error with 401 Unauthorized and user is on login page, show invalid credentials error
+                        if (error.response.status === 401 && this.$route.name === 'AuthLogin') {
+                            this.showToast(this.$t('errors.invalid_credentials'), '', 'error')
                         }
                         // If error is 422 Unprocessable Entity, show validation errors
                         if (error.response.status === 422) {

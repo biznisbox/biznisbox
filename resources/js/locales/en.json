@@ -28,7 +28,8 @@
         "session_timeout": "Your session has timed out. Please log in again.",
         "internal_server_error": "Internal Server Error",
         "validation_error": "Validation Error",
-        "not_found_item": "Not found"
+        "not_found_item": "Not found",
+        "bad_request": "Bad Request"
     },
     "basic": {
         "cancel": "Cancel",

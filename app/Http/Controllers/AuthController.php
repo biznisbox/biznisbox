@@ -27,7 +27,7 @@ class AuthController extends Controller
         if ($token) {
             return api_response($token, __('response.login.success'));
         }
-        return api_response(null, __('response.login.failed'), 400);
+        return api_response(null, __('response.login.failed'), 401);
     }
 
     /**
