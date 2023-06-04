@@ -19,7 +19,6 @@
                                 :label="$t('account.account_type')"
                                 :options="[
                                     { label: $t('account.bank_account'), value: 'bank_account' },
-                                    { label: $t('account.credit_card'), value: 'credit_card' },
                                     { label: $t('account.online_account'), value: 'online_account' },
                                     { label: $t('account.cash'), value: 'cash' },
                                 ]"
@@ -48,15 +47,6 @@
                             </div>
                         </div>
 
-                        <div class="grid">
-                            <TextInput
-                                id="account_number_input"
-                                v-model="account.account_number"
-                                class="col-12"
-                                :label="$t('account.account_number')"
-                            ></TextInput>
-                        </div>
-
                         <div v-if="account.type === 'bank_account'" id="bank_data">
                             <div class="grid">
                                 <SelectButtonInput
@@ -72,7 +62,7 @@
 
                                 <TextInput id="iban_input" v-model="account.iban" class="col-6 md:col-4" :label="$t('account.iban')" />
 
-                                <TextInput id="swift_input" v-model="account.swift" class="col-6 md:col-4" :label="$t('account.swift')" />
+                                <TextInput id="bic_input" v-model="account.bic" class="col-6 md:col-4" :label="$t('account.bic')" />
                             </div>
                         </div>
 
@@ -101,20 +91,6 @@
                                 ></TextAreaInput>
                             </div>
                         </div>
-
-                        <div v-if="account.type === 'online_account'" id="integration">
-                            <div class="grid">
-                                <SelectInput
-                                    id="select_integration"
-                                    v-model="account.integration"
-                                    class="col-12"
-                                    :label="$t('account.integration')"
-                                    :options="integrations"
-                                    option-label="name"
-                                    option-value="id"
-                                />
-                            </div>
-                        </div>
                     </form>
 
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
@@ -138,11 +114,6 @@ import AccountsMixin from '@/mixins/accounts'
 export default {
     name: 'NewAccountPage',
     mixins: [AccountsMixin],
-    data() {
-        return {
-            integrations: [],
-        }
-    },
     created() {
         this.getCurrencies()
     },

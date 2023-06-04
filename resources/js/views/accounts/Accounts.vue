@@ -20,7 +20,7 @@
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
                     column-resize-mode="expand"
-                    :global-filter-fields="['name', 'account_number']"
+                    :global-filter-fields="['name', 'type']"
                     @row-dblclick="viewAccountNavigation"
                 >
                     <template #empty>
@@ -52,7 +52,6 @@
                         <template #body="{ data }">
                             <Tag v-if="data.type === 'bank_account'" :value="$t('account.bank_account')"></Tag>
                             <Tag v-if="data.type === 'cash'" :value="$t('account.cash')"></Tag>
-                            <Tag v-if="data.type === 'credit_card'" :value="$t('account.credit_card')"></Tag>
                             <Tag v-if="data.type === 'online_account'" :value="$t('account.online_account')"></Tag>
                         </template>
 
@@ -63,7 +62,6 @@
                                     :options="[
                                         { label: $t('account.bank_account'), value: 'bank_account' },
                                         { label: $t('account.cash'), value: 'cash' },
-                                        { label: $t('account.credit_card'), value: 'credit_card' },
                                         { label: $t('account.online_account'), value: 'online_account' },
                                     ]"
                                     option-label="label"
@@ -124,12 +122,12 @@
                                 v-model="selected_country"
                                 :options="available_countries"
                                 option-label="name"
-                                @change="getBanks()"
                                 option-value="code"
                                 placeholder="Select country"
+                                @change="getBanks()"
                             />
 
-                            <div class="p-field" v-if="selected_country">
+                            <div v-if="selected_country" class="p-field">
                                 <label for="bank">{{ $t('account.bank') }}</label>
 
                                 <Dropdown
@@ -151,8 +149,8 @@
                     </LoadingScreen>
                 </div>
                 <template #footer>
-                    <div class="p-d-flex p-ai-center p-jc-between">
-                        <Button label="Cancel" @click="connectBankDialog = false" />
+                    <div class="">
+                        <Button label="Cancel" @click="connectBankDialog = false" severity="error" icon="fa fa-times" />
                         <Button label="Connect" icon="fa fa-university" @click="initSession()" />
                     </div>
                 </template>

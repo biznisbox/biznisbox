@@ -26,7 +26,6 @@
                                 <div class="col-12 sm:col-6">
                                     <Tag v-if="account.type === 'bank_account'" :value="$t('account.bank_account')"></Tag>
                                     <Tag v-if="account.type === 'cash'" :value="$t('account.cash')"></Tag>
-                                    <Tag v-if="account.type === 'credit_card'" :value="$t('account.credit_card')"></Tag>
                                     <Tag v-if="account.type === 'online_account'" :value="$t('account.online_account')"></Tag>
                                 </div>
                             </div>
