@@ -159,6 +159,12 @@ class OpenBankingService
         }
     }
 
+    /**
+     * Refresh bank transactions from open banking
+     *
+     * @return boolean
+     */
+
     public function refreshBankTransactions()
     {
         if ($this->checkIfOpenBankingIsEnabled()) {
@@ -180,22 +186,16 @@ class OpenBankingService
                             $this->createTransactionRecord($transaction, $account['id']);
                         }
 
-                        if ($transactions_amount + $account->current_balance != $balance['balances'][0]['balanceAmount']['amount']) {
-                            DB::rollback();
-                            return false;
-                        }
-
                         $account->update([
                             'current_balance' => $balance['balances'][0]['balanceAmount']['amount'] ?? 0,
                         ]);
                         $account->save();
 
-                        $this->markBankTransactionsAsSynced($bank->account_id);
-                        DB::commit();
-                        return true;
+                        $this->markBankTransactionsAsSynced($bank->id);
                     }
-                    return true;
                 }
+                DB::commit();
+                return true;
             } catch (\Exception $e) {
                 DB::rollback();
                 return false;
@@ -203,6 +203,13 @@ class OpenBankingService
         }
     }
 
+    /**
+     * Create transaction record
+     *
+     * @param array $transaction_data (required)
+     * @param UUID $account_id (optional)
+     * @return void
+     */
     protected function createTransactionRecord($transaction_data, $account_id = null)
     {
         try {
@@ -234,16 +241,18 @@ class OpenBankingService
         }
     }
 
-    protected function markBankTransactionsAsSynced($account_id)
+    /**
+     * Mark bank transactions as synced
+     *
+     * @param $account_id - ID of the open banking account connection
+     * @return void
+     */
+    private function markBankTransactionsAsSynced($account_id)
     {
-        $account = Accounts::where('id', $account_id)->first();
-
-        if ($account) {
-            $openBanking = OpenBanking::where('id', $account->open_banking_id)->first();
-            if ($openBanking) {
-                $openBanking->last_transaction_sync = now();
-                $openBanking->save();
-            }
+        $openBanking = OpenBanking::where('id', $account_id)->first();
+        if ($openBanking) {
+            $openBanking->last_transaction_sync = now();
+            $openBanking->save();
         }
     }
 }
