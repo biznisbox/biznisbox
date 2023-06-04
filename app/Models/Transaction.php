@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use App\Models\Accounts;
 use OwenIt\Auditing\Contracts\Auditable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Transaction extends Model implements Auditable
 {
-    use HasFactory, HasUuids;
+    use HasFactory, HasUuids, SoftDeletes;
     use \OwenIt\Auditing\Auditable;
 
     protected $table = 'transactions';
@@ -35,7 +36,6 @@ class Transaction extends Model implements Auditable
         'date',
         'reconciled',
         'reconciled_at',
-        'created_by',
     ];
 
     protected $casts = [
@@ -58,15 +58,35 @@ class Transaction extends Model implements Auditable
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
-    public function createdBy()
+    public function invoice()
     {
-        return $this->belongsTo(User::class, 'created_by', 'id');
+        return $this->belongsTo(Invoice::class, 'invoice_id', 'id');
+    }
+
+    public function payment()
+    {
+        return $this->belongsTo(OnlinePayment::class, 'payment_id', 'id');
+    }
+
+    public function bill()
+    {
+        return $this->belongsTo(Bill::class, 'bill_id', 'id');
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id', 'id');
+    }
+
+    public function vendor()
+    {
+        return $this->belongsTo(Vendor::class, 'vendor_id', 'id');
     }
 
     public function getTransactions()
     {
         $transactions = $this->with('account')
-            ->orderBy('date')
+            ->orderBy('date', 'desc')
             ->get();
         if ($transactions) {
             activity_log(user_data()->data->id, 'get transactions', null, 'App\Models\Transaction', 'getTransactions');
@@ -77,8 +97,7 @@ class Transaction extends Model implements Auditable
 
     public function getTransaction($id)
     {
-        $transaction = $this->with('account')->find($id);
-
+        $transaction = $this->with(['account', 'category', 'invoice', 'payment', 'bill', 'customer', 'vendor'])->find($id);
         if ($transaction) {
             activity_log(user_data()->data->id, 'get transaction', $id, 'App\Models\Transaction', 'getTransaction');
             return $transaction;

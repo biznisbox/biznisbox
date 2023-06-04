@@ -26,7 +26,6 @@
                                 <div class="col-12 sm:col-6">
                                     <Tag v-if="account.type === 'bank_account'" :value="$t('account.bank_account')"></Tag>
                                     <Tag v-if="account.type === 'cash'" :value="$t('account.cash')"></Tag>
-                                    <Tag v-if="account.type === 'credit_card'" :value="$t('account.credit_card')"></Tag>
                                     <Tag v-if="account.type === 'online_account'" :value="$t('account.online_account')"></Tag>
                                 </div>
                             </div>
@@ -67,6 +66,12 @@
                                                 <p>{{ $t('transaction.no_transactions') }}</p>
                                             </div>
                                         </template>
+
+                                        <Column field="name" :header="$t('transaction.name')">
+                                            <template #body="{ data }">
+                                                <span>{{ data.name }}</span>
+                                            </template>
+                                        </Column>
 
                                         <Column field="date" :header="$t('transaction.date_and_number')">
                                             <template #body="{ data }">
@@ -115,10 +120,10 @@
                                 </TabPanel>
 
                                 <TabPanel :header="$t('account.bank_details')">
-                                    <div class="p-3">
+                                    <div class="p-2">
                                         <DisplayData :input="$t('account.bank_name')" :value="account.bank_name" />
                                         <DisplayData :input="$t('account.iban')" :value="account.iban" />
-                                        <DisplayData :input="$t('account.swift')" :value="account.swift" />
+                                        <DisplayData :input="$t('account.bic')" :value="account.bic" />
                                         <DisplayData :input="$t('account.bank_address')" :value="account.bank_address" />
                                         <DisplayData :input="$t('account.bank_contact')" :value="account.bank_contact" />
                                     </div>

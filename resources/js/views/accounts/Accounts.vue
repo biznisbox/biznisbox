@@ -4,6 +4,7 @@
             <user-header :title="$t('account.account', 2)">
                 <template #actions>
                     <HeaderActionButton :label="$t('account.new_account')" icon="fa fa-plus" to="/accounts/new" />
+                    <Button :label="$t('account.connect_bank')" icon="fa fa-university" @click="connectBankDialog = true" />
                 </template>
             </user-header>
 
@@ -19,7 +20,7 @@
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
                     column-resize-mode="expand"
-                    :global-filter-fields="['name', 'account_number']"
+                    :global-filter-fields="['name', 'type']"
                     @row-dblclick="viewAccountNavigation"
                 >
                     <template #empty>
@@ -51,7 +52,6 @@
                         <template #body="{ data }">
                             <Tag v-if="data.type === 'bank_account'" :value="$t('account.bank_account')"></Tag>
                             <Tag v-if="data.type === 'cash'" :value="$t('account.cash')"></Tag>
-                            <Tag v-if="data.type === 'credit_card'" :value="$t('account.credit_card')"></Tag>
                             <Tag v-if="data.type === 'online_account'" :value="$t('account.online_account')"></Tag>
                         </template>
 
@@ -62,7 +62,6 @@
                                     :options="[
                                         { label: $t('account.bank_account'), value: 'bank_account' },
                                         { label: $t('account.cash'), value: 'cash' },
-                                        { label: $t('account.credit_card'), value: 'credit_card' },
                                         { label: $t('account.online_account'), value: 'online_account' },
                                     ]"
                                     option-label="label"
@@ -112,6 +111,50 @@
                     </template>
                 </DataTable>
             </div>
+
+            <!-- Dialog connect bank account -->
+            <Dialog v-model="connectBankDialog" :header="$t('account.connect_bank')" :visible="connectBankDialog" width="500px">
+                <div class="p-fluid">
+                    <LoadingScreen :blocked="loadingData">
+                        <div class="p-field">
+                            <label for="country">{{ $t('account.country') }}</label>
+                            <Dropdown
+                                v-model="selected_country"
+                                :options="available_countries"
+                                option-label="name"
+                                option-value="code"
+                                placeholder="Select country"
+                                @change="getBanks()"
+                            />
+
+                            <div v-if="selected_country" class="p-field">
+                                <label for="bank">{{ $t('account.bank') }}</label>
+
+                                <Dropdown
+                                    v-model="selected_bank"
+                                    :options="available_banks"
+                                    option-label="name"
+                                    option-value="id"
+                                    placeholder="Select bank"
+                                >
+                                    <template #option="slotProps">
+                                        <div class="flex align-content-center flex-wrap">
+                                            <Avatar :image="slotProps.option.logo" size="large" />
+                                            <span class="flex ml-2">{{ slotProps.option.name }}</span>
+                                        </div>
+                                    </template>
+                                </Dropdown>
+                            </div>
+                        </div>
+                    </LoadingScreen>
+                </div>
+                <template #footer>
+                    <div class="">
+                        <Button label="Cancel" @click="connectBankDialog = false" severity="error" icon="fa fa-times" />
+                        <Button label="Connect" icon="fa fa-university" @click="initSession()" />
+                    </div>
+                </template>
+            </Dialog>
         </div>
     </user-layout>
 </template>
@@ -119,17 +162,26 @@
 <script>
 import { FilterMatchMode, FilterOperator } from 'primevue/api'
 import AccountsMixin from '@/mixins/accounts'
+import open_banking_countries from '@/data/open_banking_countries.json'
 export default {
     name: 'AccountsPage',
     mixins: [AccountsMixin],
-
     data() {
         return {
             filters: null,
+            connectBankDialog: false,
+            available_countries: open_banking_countries,
+            selected_country: null,
+            selected_bank: null,
+            available_banks: [],
         }
     },
 
     created() {
+        if (this.$route.query.ref) {
+            this.getRequisitions(this.$route.query.ref)
+        }
+
         this.getAccounts()
         this.initFilters()
     },
@@ -151,6 +203,42 @@ export default {
                 current_balance: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 bank_name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
             }
+        },
+
+        /**
+         * Function that gets banks from selected country
+         */
+        getBanks() {
+            this.makeHttpRequest('GET', '/api/open_banking/banks', null, { country: this.selected_country }).then((response) => {
+                this.available_banks = response.data.data
+            })
+        },
+
+        /**
+         * Function that get redirect url for bank
+         */
+        initSession() {
+            this.makeHttpRequest('POST', '/api/open_banking/init_session', { institution_id: this.selected_bank }).then((response) => {
+                window.location.href = response.data.data.link
+            })
+        },
+
+        /**
+         * Function that gets requisitions
+         */
+        getRequisitions(id) {
+            if (this.$route.query.error) {
+                this.showToast(this.$route.query.error, this.$route.query.details, 'error')
+                return this.$router.push('/accounts')
+            }
+            this.makeHttpRequest('POST', '/api/open_banking/get_requisition', { requisition_id: id })
+                .then((response) => {
+                    this.showToast(response.data.message)
+                })
+                .catch((error) => {
+                    this.showToast(error.response.data.message, 'error')
+                })
+            this.$router.push('/accounts')
         },
     },
 }

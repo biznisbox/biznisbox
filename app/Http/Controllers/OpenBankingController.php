@@ -29,7 +29,7 @@ class OpenBankingController extends Controller
 
     public function initSession(Request $request)
     {
-        $redirectUri = url('/open_banking/add'); // frontend route Step 3
+        $redirectUri = url('/accounts');
         $institutionId = $request->institution_id;
         return $this->openBankingService->initSession($redirectUri, $institutionId);
     }
@@ -38,23 +38,5 @@ class OpenBankingController extends Controller
     {
         $requisitionId = $request->requisition_id;
         return $this->openBankingService->getRequisition($requisitionId);
-    }
-
-    public function getAccountData(Request $request, $id)
-    {
-        $fromDate = $request->from ?? null;
-        $toDate = $request->to ?? null;
-        return $this->openBankingService->getAccountData($id, $fromDate, $toDate);
-    }
-
-    public function getAccounts()
-    {
-        return $this->openBankingService->getAccounts();
-    }
-
-    public function updateAccountData(Request $request, $id)
-    {
-        $data = $request->all();
-        return $this->openBankingService->updateAccount($id, $data);
     }
 }

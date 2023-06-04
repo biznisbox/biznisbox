@@ -13,11 +13,10 @@ export default {
                 bank_address: '',
                 bank_contact: '',
                 iban: '',
-                swift: '',
+                bic: '',
                 account_number: '',
                 is_default: false,
                 is_enabled: true,
-                integration: '',
             },
         }
     },

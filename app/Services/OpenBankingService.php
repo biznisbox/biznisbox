@@ -3,6 +3,10 @@
 namespace App\Services;
 
 use App\Models\OpenBanking;
+use App\Models\Accounts;
+use App\Models\Transaction;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Nordigen\NordigenPHP\API\NordigenClient;
 use Illuminate\Support\Facades\App;
 
@@ -67,144 +71,72 @@ class OpenBankingService
     {
         if ($this->checkIfOpenBankingIsEnabled()) {
             if ($requisitionId) {
-                $session = $this->client->requisition->getRequisition($requisitionId);
-                if ($session['status'] == 'LN') {
-                    $accounts = $session['accounts'];
+                try {
+                    DB::beginTransaction();
+                    $session = $this->client->requisition->getRequisition($requisitionId);
+                    if ($session['status'] == 'LN') {
+                        $accounts = $session['accounts'];
+                        $openBanking = OpenBanking::where('requisition_id', $requisitionId)->delete();
+                        foreach ($accounts as $account) {
+                            $account = $this->client->account($account);
+                            $accountData = $account->getAccountMetaData();
+                            $bank = $this->client->institution->getInstitution($accountData['institution_id']);
+                            $balance = $account->getAccountBalances();
+                            $openBanking = OpenBanking::create([
+                                'bank_id' => $accountData['institution_id'],
+                                'requisition_id' => $requisitionId,
+                                'requisition_status' => 'SUCCESS',
+                                'agreement_id' => $session['agreement'],
+                                'agreement_status' => 'ACCEPTED',
+                                'account_id' => $accountData['id'],
+                                'iban' => $accountData['iban'] ?? null,
+                                'currency' => $accountData['currency'] ?? null,
+                                'bank_name' => $bank['name'] ?? null,
+                                'payment_available' => json_encode($bank['supported_payments']) ?? false,
+                                'bank_logo' => $bank['logo'] ?? null,
+                                'connection_valid_until' => now()
+                                    ->addDays(90)
+                                    ->format('Y-m-d H:i:s'),
+                            ]);
 
-                    $openBanking = OpenBanking::where('requisition_id', $requisitionId)->delete();
-                    foreach ($accounts as $account) {
-                        $account = $this->client->account($account);
-                        $accountData = $account->getAccountMetaData();
-                        $bank = $this->client->institution->getInstitution($accountData['institution_id']);
-                        OpenBanking::create([
-                            'name' => $accountData['iban'] ?? null,
-                            'bank_id' => $accountData['institution_id'],
-                            'requisition_id' => $requisitionId,
-                            'requisition_status' => 'SUCCESS',
-                            'account_id' => $accountData['id'],
-                            'iban' => $accountData['iban'] ?? null,
-                            'currency' => $accountData['currency'] ?? null,
-                            'bank_name' => $bank['name'] ?? null,
-                            'payments_available' => $bank['payments'] ?? null,
-                            'bank_logo' => $bank['logo'] ?? null,
-                        ]);
+                            // Create internal account
+                            $internal_account = Accounts::create([
+                                'name' => $accountData['iban'] ?? null,
+                                'type' => 'bank_account',
+                                'currency' => $accountData['currency'] ?? null,
+                                'bank_name' => $bank['name'] ?? null,
+                                'iban' => $accountData['iban'] ?? null,
+                                'bic' => $bank['bic'] ?? null,
+                                'currency' => $accountData['currency'] ?? null,
+                                'open_banking_id' => $openBanking['id'],
+                                'integration' => 'open_banking',
+                                'opening_balance' => $balance['balances'][0]['balanceAmount']['amount'] ?? 0,
+                                'current_balance' => $balance['balances'][0]['balanceAmount']['amount'] ?? 0,
+                                'currency' => $balance['balances'][0]['balanceAmount']['currency'] ?? settings('default_currency'),
+                                'is_active' => 1,
+                            ]);
+
+                            $transactions = $account->getAccountTransactions(
+                                now()
+                                    ->subDays($bank['transaction_total_days'] ?? 90)
+                                    ->format('Y-m-d'),
+                                now()->format('Y-m-d')
+                            )['transactions']['booked'];
+
+                            foreach ($transactions as $transaction) {
+                                $this->createTransactionRecord($transaction, $internal_account['id']);
+                            }
+                            $this->markBankTransactionsAsSynced($internal_account['id']);
+                        }
                     }
+                    DB::commit();
                     return api_response($session, __('response.open_banking.requisition_success'), 200);
+                } catch (\Exception $e) {
+                    DB::rollback();
+                    return api_response(null, __('response.open_banking.requisition_error'), 400);
                 }
-                return api_response($session, __('response.open_banking.requisition_failed'), 200);
             }
-            return api_response(null, __('response.open_banking.session_id_required'), 400);
         }
-        return api_response(null, __('response.open_banking.not_enabled'), 403);
-    }
-
-    protected function getAccount($accountId)
-    {
-        if ($this->checkIfOpenBankingIsEnabled()) {
-            if ($accountId) {
-                $account = $this->client->account($accountId);
-                $accountData = $account->getAccountMetaData();
-                activity_log(user_data()->data->id, 'get account', $accountId, 'App\Services\OpenBankingService', 'getAccount');
-                return $accountData;
-            }
-            return null;
-        }
-    }
-
-    protected function getAccountBalance($accountId)
-    {
-        if ($this->checkIfOpenBankingIsEnabled()) {
-            if ($accountId) {
-                $account = $this->client->account($accountId);
-                $balance = $account->getAccountBalances();
-                activity_log(
-                    user_data()->data->id,
-                    'get account balance',
-                    $accountId,
-                    'App\Services\OpenBankingService',
-                    'getAccountBalance'
-                );
-                return $balance['balances'];
-            }
-            return null;
-        }
-    }
-
-    protected function getAccountTransactions($accountId, $fromDate = null, $toDate = null)
-    {
-        if ($this->checkIfOpenBankingIsEnabled()) {
-            if ($accountId) {
-                $account = $this->client->account($accountId);
-                $transactions = $account->getAccountTransactions($fromDate, $toDate);
-                activity_log(
-                    user_data()->data->id,
-                    'get account transactions',
-                    $accountId,
-                    'App\Services\OpenBankingService',
-                    'getAccountTransactions'
-                );
-                return $transactions['transactions'];
-            }
-            return null;
-        }
-        return null;
-    }
-
-    public function getAccounts()
-    {
-        if ($this->checkIfOpenBankingIsEnabled()) {
-            $accounts = OpenBanking::where('requisition_status', 'SUCCESS')->get();
-            return api_response($accounts);
-        }
-        return api_response(null, __('response.open_banking.not_enabled'), 403);
-    }
-
-    public function getAccountData($accountId, $fromDate = null, $toDate = null)
-    {
-        if ($this->checkIfOpenBankingIsEnabled()) {
-            if ($accountId) {
-                $openBanking = OpenBanking::where('id', $accountId)->first();
-                if ($openBanking) {
-                    $account = $this->getAccount($openBanking->account_id);
-                    $balance = $this->getAccountBalance($openBanking->account_id);
-                    $transactions = $this->getAccountTransactions($openBanking->account_id, $fromDate, $toDate);
-                    $data = [
-                        'internal_data' => $openBanking,
-                        'account' => $account,
-                        'balance' => $balance,
-                        'transactions' => $transactions,
-                    ];
-                    activity_log(
-                        user_data()->data->id,
-                        'get account data',
-                        $accountId,
-                        'App\Services\OpenBankingService',
-                        'getAccountData'
-                    );
-                    return api_response($data);
-                }
-                return api_response(null, __('response.open_banking.account_id_required'), 400);
-            }
-            return api_response(null, __('response.open_banking.account_id_required'), 400);
-        }
-        return api_response(null, __('response.open_banking.not_enabled'), 403);
-    }
-
-    public function updateAccount($id, $data)
-    {
-        if ($this->checkIfOpenBankingIsEnabled()) {
-            if ($id) {
-                $openBanking = OpenBanking::where('id', $id)->first();
-                if ($openBanking) {
-                    $openBanking = $openBanking->updateAccount($id, $data);
-                    activity_log(user_data()->data->id, 'update account', $id, 'App\Services\OpenBankingService', 'updateAccount');
-                    return api_response(null, __('response.open_banking.account_updated'), 200);
-                }
-                return api_response(null, __('response.open_banking.not_found'), 400);
-            }
-            return api_response(null, __('response.open_banking.not_found'), 400);
-        }
-        return api_response(null, __('response.open_banking.not_enabled'), 403);
     }
 
     protected function checkIfOpenBankingIsEnabled()
@@ -213,5 +145,114 @@ class OpenBankingService
             return true;
         }
         return false;
+    }
+
+    public function refreshConnection($id)
+    {
+        if ($this->checkIfOpenBankingIsEnabled()) {
+            if ($id) {
+                $openBanking = OpenBanking::where('id', $id)->first();
+                if ($openBanking) {
+                }
+            }
+            return api_response(null, __('response.open_banking.not_enabled'), 403);
+        }
+    }
+
+    /**
+     * Refresh bank transactions from open banking
+     *
+     * @return boolean
+     */
+
+    public function refreshBankTransactions()
+    {
+        if ($this->checkIfOpenBankingIsEnabled()) {
+            try {
+                DB::beginTransaction();
+                $openBanking = OpenBanking::where('requisition_status', 'SUCCESS')->get();
+                foreach ($openBanking as $bank) {
+                    $accountBank = $this->client->account($bank->account_id);
+                    $balance = $accountBank->getAccountBalances();
+                    $account = Accounts::where('open_banking_id', $bank->id)->first();
+                    if ($account->current_balance != $balance['balances'][0]['balanceAmount']['amount']) {
+                        $transactions = $accountBank->getAccountTransactions(
+                            Carbon::parse($bank->last_transaction_sync)->format('Y-m-d'),
+                            now()->format('Y-m-d')
+                        )['transactions']['booked'];
+                        $transactions_amount = 0;
+                        foreach ($transactions as $transaction) {
+                            $transactions_amount += $transaction['transactionAmount']['amount'];
+                            $this->createTransactionRecord($transaction, $account['id']);
+                        }
+
+                        $account->update([
+                            'current_balance' => $balance['balances'][0]['balanceAmount']['amount'] ?? 0,
+                        ]);
+                        $account->save();
+
+                        $this->markBankTransactionsAsSynced($bank->id);
+                    }
+                }
+                DB::commit();
+                return true;
+            } catch (\Exception $e) {
+                DB::rollback();
+                return false;
+            }
+        }
+    }
+
+    /**
+     * Create transaction record
+     *
+     * @param array $transaction_data (required)
+     * @param UUID $account_id (optional)
+     * @return void
+     */
+    protected function createTransactionRecord($transaction_data, $account_id = null)
+    {
+        try {
+            DB::beginTransaction();
+            $transactionDescription =
+                $transaction_data['remittanceInformationUnstructured'] ??
+                ($transaction_data['remittanceInformationStructured'] ??
+                    ($transaction_data['remittanceInformationStructuredArray'][0] ??
+                        ($transaction_data['remittanceInformationUnstructuredArray'][0] ?? null)));
+
+            $transaction = Transaction::create([
+                'number' => generate_next_number(settings('transaction_number_format'), 'transactions'),
+                'type' => $transaction_data['transactionAmount']['amount'] < 0 ? 'expense' : 'income',
+                'amount' => str_replace('-', '', $transaction_data['transactionAmount']['amount']) ?? 0,
+                'currency' => $transaction_data['transactionAmount']['currency'] ?? null,
+                'date' => $transaction_data['bookingDate'] ?? null,
+                'account_id' => $account_id ?? null,
+                'exchange_rate' => $transaction_data['exchangeRate'] ?? 1,
+                'name' => $transactionDescription ?? null,
+                'description' => $transactionDescription ?? null,
+                'status' => 'COMPLETED',
+            ]);
+            incrementLastItemNumber('transactions');
+            DB::commit();
+            return $transaction;
+        } catch (\Exception $e) {
+            DB::rollback();
+            return false;
+        }
+    }
+
+    /**
+     * Mark bank transactions as synced
+     *
+     * @param $account_id - ID of the open banking account connection
+     * @return void
+     */
+    private function markBankTransactionsAsSynced($account_id)
+    {
+        $openBanking = OpenBanking::where('id', $account_id)->first();
+        if ($openBanking) {
+            $openBanking->last_transaction_sync = now();
+            $openBanking->save();
+        }
     }
 }
