@@ -24,6 +24,8 @@ jobs:
                   npm install --no-audit
                   npm run build
                   npm install --production --no-audit
+            - name: Deploy CSS
+              run: php deploy
             - name: Remove dev dependencies and git files
               run: |
                   composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
