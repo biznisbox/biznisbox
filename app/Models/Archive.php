@@ -13,12 +13,12 @@ use OwenIt\Auditing\Contracts\Auditable;
 use App\Models\Category;
 use Illuminate\Support\Str;
 
-class Documents extends Model implements Auditable
+class Archive extends Model implements Auditable
 {
     use HasFactory, SoftDeletes, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
-    protected $table = 'documents';
+    protected $table = 'archive';
 
     protected $fillable = [
         'category_id',
@@ -81,7 +81,7 @@ class Documents extends Model implements Auditable
                 $request->folder_id = null;
             }
 
-            $document = Documents::create([
+            $document = $this->create([
                 'category_id' => $request->folder_id,
                 'name' => $fileName,
                 'description' => $request->description,
@@ -106,7 +106,7 @@ class Documents extends Model implements Auditable
      */
     public function updateDocument($document_id, $data)
     {
-        $document = Documents::where('id', $document_id)->first();
+        $document = $this->where('id', $document_id)->first();
 
         if ($document) {
             $document->name = $data['name'];
@@ -203,8 +203,7 @@ class Documents extends Model implements Auditable
 
     public function getTrashFiles()
     {
-        $documents = new Documents();
-        $documents = $documents->onlyTrashed()->get();
+        $documents = $this->onlyTrashed()->get();
         activity_log(user_data()->data->id, 'get trash documents', null, 'Document', 'Documents');
         return $documents;
     }
@@ -222,11 +221,10 @@ class Documents extends Model implements Auditable
      */
     public function getDocuments($folder_id)
     {
-        $documents = new Documents();
         if ($folder_id == null) {
-            $documents = $documents->where('category_id', null)->get();
+            $documents = $this->where('category_id', null)->get();
         } else {
-            $documents = $documents->where('category_id', $folder_id)->get();
+            $documents = $this->where('category_id', $folder_id)->get();
         }
         activity_log(user_data()->data->id, 'get documents', null, 'Document', 'Documents');
         return $documents;
@@ -239,7 +237,7 @@ class Documents extends Model implements Auditable
     public function getFolders()
     {
         $folders = new Category();
-        $folders = $folders->getCategoriesByModule('documents');
+        $folders = $folders->getCategoriesByModule('archive');
 
         $folders[] = [
             'id' => null,
@@ -257,7 +255,6 @@ class Documents extends Model implements Auditable
      */
     public function getFolder($folder_id)
     {
-        $folder = new Category();
         $folder = Category::where('id', $folder_id)->first();
         activity_log(user_data()->data->id, 'get folder', $folder_id, 'Document', 'Folder');
         return $folder;
@@ -272,7 +269,7 @@ class Documents extends Model implements Auditable
     public function createFolder($parent_category, $name)
     {
         $category = new Category();
-        $category = $category->createCategory($name, 'documents', 'folder', null, $parent_category);
+        $category = $category->createCategory($name, 'archive', 'folder', null, $parent_category);
         if ($category) {
             return true;
         }

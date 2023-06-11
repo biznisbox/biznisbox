@@ -1,6 +1,6 @@
 <template>
     <user-layout>
-        <div id="documents_page">
+        <div id="archive_page">
             <user-header :title="$t('archive.archive')">
                 <template #actions>
                     <Button :label="$t('archive.new_document')" icon="fa fa-file" @click="openNewDocumentDialog" />
@@ -98,7 +98,7 @@
             <!-- New document dialog -->
             <div class="mt-4">
                 <Dialog v-model:visible="showNewDocumentDialog" :header="$t('archive.new_document')" modal>
-                    <FileUpload name="file" url="/api/documents" @before-send="uploadDocument" @upload="afterUploadDocument" />
+                    <FileUpload name="file" url="/api/archive/documents" @before-send="uploadDocument" @upload="afterUploadDocument" />
                     <template #footer>
                         <div id="function_buttons" class="flex gap-2 justify-content-end">
                             <Button
@@ -178,10 +178,10 @@
 </template>
 
 <script>
-import DocumentsMixin from '@/mixins/documents'
+import ArchiveMixin from '@/mixins/archive'
 export default {
-    name: 'DocumentsPage',
-    mixins: [DocumentsMixin],
+    name: 'Archive',
+    mixins: [ArchiveMixin],
 
     data() {
         return {
@@ -234,7 +234,7 @@ export default {
         viewDocument(document) {
             if (document.type === 'folder') {
                 this.currentPath = document.path
-                this.$router.push('/documents?path=' + document.path)
+                this.$router.push('/archive/documents?path=' + document.path)
                 this.getDocuments(this.currentPath)
             }
         },

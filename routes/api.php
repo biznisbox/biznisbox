@@ -11,7 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\OpenBankingController;
-use App\Http\Controllers\DocumentsController;
+use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\OnlinePaymentController;
 use App\Http\Controllers\VendorsController;
 use App\Http\Controllers\BillController;
@@ -117,17 +117,17 @@ Route::middleware('auth')->group(function () {
     });
 
     // Documents routes
-    Route::middleware('can:documents')->group(function () {
-        Route::get('/documents', DocumentsController::class . '@getDocuments');
-        Route::get('/documents/file', DocumentsController::class . '@getDocument');
-        Route::post('/documents', DocumentsController::class . '@createDocument');
-        Route::put('/documents/file', DocumentsController::class . '@updateDocument');
-        Route::delete('/documents/file', DocumentsController::class . '@deleteDocument');
-        Route::get('/document/folders', DocumentsController::class . '@getFolders');
-        Route::get('/document/folders/{id}', DocumentsController::class . '@getFolder');
-        Route::post('/document/folders', DocumentsController::class . '@createFolder');
-        Route::put('/document/folders', DocumentsController::class . '@updateFolder');
-        Route::delete('/document/folders', DocumentsController::class . '@deleteFolder');
+    Route::middleware('can:archive')->prefix('/archive')->group(function () {
+        Route::get('/documents', ArchiveController::class . '@getDocuments');
+        Route::get('/documents/file', ArchiveController::class . '@getDocument');
+        Route::post('/documents', ArchiveController::class . '@createDocument');
+        Route::put('/documents/file', ArchiveController::class . '@updateDocument');
+        Route::delete('/documents/file', ArchiveController::class . '@deleteDocument');
+        Route::get('/document/folders', ArchiveController::class . '@getFolders');
+        Route::get('/document/folders/{id}', ArchiveController::class . '@getFolder');
+        Route::post('/document/folders', ArchiveController::class . '@createFolder');
+        Route::put('/document/folders', ArchiveController::class . '@updateFolder');
+        Route::delete('/document/folders', ArchiveController::class . '@deleteFolder');
     });
 
     // Vendor Routes
@@ -226,8 +226,8 @@ Route::prefix('/online_payment')->group(function () {
 
 // Signed Routes
 Route::middleware(['signed'])->group(function () {
-    Route::get('/document/download', DocumentsController::class . '@downloadDocument')->name('documents.download');
-    Route::get('/document/previews', DocumentsController::class . '@previewDocument')->name('documents.preview');
+    Route::get('/document/download', ArchiveController::class . '@downloadDocument')->name('documents.download');
+    Route::get('/document/previews', ArchiveController::class . '@previewDocument')->name('documents.preview');
     Route::get('/invoice/pdf', InvoiceController::class . '@getInvoicePdf')->name('invoice.pdf');
     Route::get('/estimate/pdf', EstimateController::class . '@getEstimatePdf')->name('estimate.pdf');
 });
