@@ -62,8 +62,14 @@ const routes = [
     makeRoute('/bills/:id', 'view-bill', () => import('../views/bills/ViewBill.vue'), { auth: true }, []),
     makeRoute('/bills/:id/edit', 'edit-bill', () => import('../views/bills/EditBill.vue'), { auth: true }, []),
 
+    // Archive Routes
+    makeRoute('/archive', 'archive', () => import('../views/archive/Archive.vue'), { auth: true }, []),
+
     // Documents Routes
     makeRoute('/documents', 'documents', () => import('../views/documents/Documents.vue'), { auth: true }, []),
+    makeRoute('/documents/new', 'new-document', () => import('../views/documents/NewDocument.vue'), { auth: true }, []),
+    makeRoute('/documents/:id', 'view-document', () => import('../views/documents/ViewDocument.vue'), { auth: true }, []),
+    makeRoute('/documents/:id/edit', 'edit-document', () => import('../views/documents/EditDocument.vue'), { auth: true }, []),
 
     // Admin Routes
     makeRoute('/admin', 'admin-dashboard', () => import('../views/admin/Dashboard.vue'), { auth: true, admin: true }, []),

@@ -26,6 +26,7 @@ return new class extends Migration {
         Permission::create(['name' => 'open_banking', 'display_name' => 'Open Banking']);
         Permission::create(['name' => 'documents', 'display_name' => 'Documents']);
         Permission::create(['name' => 'calendar', 'display_name' => 'Calendar']);
+        Permission::create(['name' => 'archive', 'display_name' => 'Archive']);
         Permission::create(['name' => 'edit_own_profile', 'display_name' => 'Edit own profile']);
         Permission::create(['name' => 'change_own_password', 'display_name' => 'Change own password']);
 
@@ -54,6 +55,7 @@ return new class extends Migration {
             'customers',
             'estimates',
             'vendors',
+            'archive',
             'bills',
             'accounts',
             'transactions',

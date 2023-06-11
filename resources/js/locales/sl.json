@@ -93,6 +93,7 @@
         "documents": "Dokumenti",
         "calendar": "Koledar",
         "reports": "Poročila",
+        "archive": "Arhiv",
         "admin": "Skrbniška plošča"
     },
     "dashboard": {
@@ -321,8 +322,8 @@
         "reference": "Referenca",
         "delete_confirm_transaction": "Ali ste prepričani, da želite izbrisati to transakcijo?"
     },
-    "document": {
-        "document": "Dokument | Dokumenti",
+    "archive": {
+        "archive": "Arhiv | Arhivi",
         "new_document": "Nov dokument",
         "edit_document": "Uredi dokument",
         "no_documents": "Ni dokumentov",
@@ -339,8 +340,8 @@
         "folder": "Mapa",
         "no_folders": "Ni map",
         "delete_confirm_document": "Ali ste prepričani, da želite izbrisati ta dokument?",
-        "edit_folder": "Uredni mapa",
-        "delete_confirm_folder": "Are you sure you want to delete this folder?"
+        "edit_folder": "Uredi mapa",
+        "delete_confirm_folder": "Ali ste prepričani, da želite izbrisati to mapo?"
     },
     "bill": {
         "bill": "Račun | Računi",

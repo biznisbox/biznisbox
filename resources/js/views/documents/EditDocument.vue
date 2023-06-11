@@ -1,12 +1,12 @@
 <template>
     <user-layout>
-        <div id="documents_page"></div>
+        <div id="edit_document_page"></div>
     </user-layout>
 </template>
 
 <script>
 export default {
-    name: 'Documents',
+    name: 'EditDocument',
     data() {},
     methods: {},
 }

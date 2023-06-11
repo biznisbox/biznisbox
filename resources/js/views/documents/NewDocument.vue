@@ -1,12 +1,12 @@
 <template>
     <user-layout>
-        <div id="documents_page"></div>
+        <div id="new_document_page"></div>
     </user-layout>
 </template>
 
 <script>
 export default {
-    name: 'Documents',
+    name: 'NewDocument',
     data() {},
     methods: {},
 }

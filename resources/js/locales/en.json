@@ -96,7 +96,8 @@
         "accounts": "Accounts",
         "documents": "Documents",
         "calendar": "Calendar",
-        "admin": "Admin dashboard"
+        "admin": "Admin dashboard",
+        "archive": "Archive"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -326,8 +327,8 @@
         "reference": "Reference",
         "delete_confirm_transaction": "Are you sure you want to delete this transaction?"
     },
-    "document": {
-        "document": "Document | Documents",
+    "archive": {
+        "archive": "Archive | Archives",
         "new_document": "New Document",
         "edit_document": "Edit Document",
         "no_documents": "No documents found",
