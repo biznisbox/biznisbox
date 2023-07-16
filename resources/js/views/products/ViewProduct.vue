@@ -119,7 +119,13 @@
                         class="product-text-editor"
                     />
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="goTo('/products')" />
+                        <Button
+                            :label="$t('basic.cancel')"
+                            id="cancel_button"
+                            icon="fa fa-times"
+                            class="p-button-danger"
+                            @click="goTo('/products')"
+                        />
                     </div>
                 </div>
             </LoadingScreen>
