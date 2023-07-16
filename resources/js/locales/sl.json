@@ -25,7 +25,8 @@
         "not_logged_in": "Niste prijavljeni",
         "session_timeout": "Vaša seja je potekla. Prosimo, prijavite se znova.",
         "internal_server_error": "Notranja napaka strežnika",
-        "validation_error": "Napaka pri validaciji"
+        "validation_error": "Napaka pri validaciji",
+        "bad_request": "Napačna zahteva"
     },
     "basic": {
         "cancel": "Prekliči",
@@ -177,7 +178,12 @@
         "date_and_due_date": "Datum in datum zapadlosti",
         "customer_and_payer": "Stranka in plačnik",
         "delete_confirm_invoice": "Ali ste prepričani, da želite izbrisati ta račun?",
-        "click_for_download": "Klikni za prenos"
+        "click_for_download": "Klikni za prenos",
+        "download_invoice": "Prenesi račun",
+        "payment_success": "Plačilo uspešno",
+        "payment_success_message": "Zahvaljujemo se vam za plačilo. Vaše plačilo je bilo uspešno obdelano.",
+        "payment_error": "Napaka pri plačilu",
+        "payment_error_message": "Prišlo je do napake pri obdelavi vašega plačila. Prosimo, poskusite znova."
     },
     "estimate": {
         "estimate": "Predračun | Predračuni",
@@ -332,7 +338,9 @@
         "folder_name": "Naziv mape",
         "folder": "Mapa",
         "no_folders": "Ni map",
-        "delete_confirm_document": "Ali ste prepričani, da želite izbrisati ta dokument?"
+        "delete_confirm_document": "Ali ste prepričani, da želite izbrisati ta dokument?",
+        "edit_folder": "Uredni mapa",
+        "delete_confirm_folder": "Are you sure you want to delete this folder?"
     },
     "bill": {
         "bill": "Račun | Računi",
@@ -358,25 +366,6 @@
         "date_and_due_date": "Datum in datum zapadlosti",
         "delete_confirm_bill": "Ali ste prepričani, da želite izbrisati ta račun?"
     },
-    "open_banking": {
-        "account": "Bančni račun | Bančni računi",
-        "connect_new_account": "Poveži nov račun",
-        "status": "Status",
-        "name": "Naziv",
-        "iban": "IBAN",
-        "bic": "BIC",
-        "bank_name": "Naziv banke",
-        "connect_first_account": "Povežite svoj prvi račun",
-        "no_bank_accounts": "Ni bančnih računov",
-        "last_update": "Zadnja posodobitev",
-        "edit_account": "Uredi račun",
-        "balance": "Stanje",
-        "amount": "Znesek",
-        "description": "Opis",
-        "date": "Datum",
-        "no_transactions": "Ni transakcij",
-        "delete_confirm_bank_feed": "Ali ste prepričani, da želite izbrisati ta bančni račun?"
-    },
     "account": {
         "account": "Račun | Računi",
         "new_account": "Nov račun",
@@ -398,7 +387,7 @@
         "bank_name": "Naziv banke",
         "currency": "Valuta",
         "iban": "IBAN",
-        "swift": "SWIFT",
+        "bic": "BIC",
         "bank_address": "Naslov banke",
         "bank_contact": "Kontakt banke",
         "account_number": "Številka računa",
@@ -406,7 +395,12 @@
         "integration": "Integracija",
         "delete_confirm_account": "Ali ste prepričani, da želite izbrisati ta račun?",
         "account_details": "Podrobnosti računa",
-        "bank_details": "Podrobnosti banke"
+        "bank_details": "Podrobnosti banke",
+        "connect_bank": "Poveži bančni račun",
+        "country": "Država",
+        "bank": "Banka",
+        "select_country": "Izberi državo",
+        "select_bank": "Izberi banko"
     },
     "vendor": {
         "vendor": "Dobavitelj | Dobavitelji",
@@ -727,7 +721,7 @@
         "Mayotte": "Mayotte",
         "Mexico": "Mehika",
         "Micronesia": "Mikronezija",
-        "Moldova (Republic of)": "Moldavija",
+        "Moldova": "Moldavija",
         "Monaco": "Monako",
         "Mongolia": "Mongolija",
         "Montenegro": "Črna gora",

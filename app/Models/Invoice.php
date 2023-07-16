@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\DB;
 use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Support\Facades\URL;
 use App\Mail\Customer\InvoiceNotification;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class Invoice extends Model implements Auditable
@@ -63,7 +62,7 @@ class Invoice extends Model implements Auditable
 
     public function items()
     {
-        return $this->hasMany(InvoiceItems::class);
+        return $this->hasMany(InvoiceItems::class, 'invoice_id');
     }
 
     public function customer()
@@ -166,6 +165,11 @@ class Invoice extends Model implements Auditable
             $total = $this->calculateInvoiceTotal($invoice);
 
             $invoice->total = $total;
+
+            if ($total == 0) {
+                $invoice->status = 'paid';
+            }
+
             $invoice->save();
             incrementLastItemNumber('invoice');
             DB::commit();
@@ -213,19 +217,19 @@ class Invoice extends Model implements Auditable
             if ($invoice) {
                 $invoice = $this->find($id);
                 if (isset($data['items'])) {
-                    $this->items()
-                        ->where('invoice_id', $id)
+                    $items = InvoiceItems::where('invoice_id', $id)
                         ->get()
                         ->each(function ($item) {
                             $this->incrementStock($item->product_id, $item->quantity);
                             $item->delete();
                         });
+
                     foreach ($data['items'] as $item) {
                         $item['invoice_id'] = $invoice->id;
                         $item['product_id'] = $item['product_id'];
                         $this->decrementStock($item['product_id'], $item['quantity']);
                         $item['total'] = $this->calculateItemTotal($item);
-                        $this->items()->create($item);
+                        InvoiceItems::create($item);
                     }
                 }
 

@@ -130,7 +130,7 @@ class Bill extends Model implements Auditable
         return $bill;
     }
 
-    public function getBillNumber()
+    public static function getBillNumber()
     {
         $number = generate_next_number(settings('bill_number_format'), 'bill');
         return $number;

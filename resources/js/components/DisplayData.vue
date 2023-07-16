@@ -11,7 +11,7 @@
                 {{ value }}
             </a>
         </div>
-        <div v-else class="text-gray-700 break_word">
+        <div v-else class="break_word">
             {{ value }}
         </div>
     </div>

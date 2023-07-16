@@ -24,14 +24,14 @@ class AccountsSeeder extends Seeder
                 'name' => 'Account ' . fake()->randomElement(['A', 'B', 'C', 'D', 'E']),
                 'description' => fake()->sentence(),
                 'currency' => 'EUR',
-                'type' => fake()->randomElement(['bank_account', 'cash', 'credit_card', 'online_account']),
+                'type' => fake()->randomElement(['bank_account', 'cash', 'online_account']),
                 'opening_balance' => $balance,
                 'current_balance' => $balance,
                 'bank_name' => fake()->company(),
                 'bank_address' => fake()->address(),
                 'bank_contact' => fake()->phoneNumber(),
                 'iban' => fake()->iban(),
-                'swift' => fake()->swiftBicNumber(),
+                'bic' => fake()->swiftBicNumber(),
             ]);
         }
     }

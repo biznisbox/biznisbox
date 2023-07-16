@@ -155,7 +155,6 @@ class Estimate extends Model implements Auditable
     public function updateEstimate($id, $data)
     {
         DB::beginTransaction();
-
         try {
             if (isset($data['customer_id'])) {
                 $customer = Customer::with('addresses')->find($data['customer_id']);
@@ -178,16 +177,20 @@ class Estimate extends Model implements Auditable
             }
 
             $estimate = $this->find($id);
+            if ($estimate->status == 'accepted') {
+                return false;
+            }
+
             $estimate->update($data);
 
             if (isset($data['items'])) {
-                $this->items()
-                    ->where('estimate_id', $id)
-                    ->delete();
+                $items = EstimateItems::where('estimate_id', $estimate->id)
+                    ->get()
+                    ->each->delete();
                 foreach ($data['items'] as $item) {
                     $item['estimate_id'] = $estimate->id;
                     $item['total'] = $this->calculateItemTotal($item);
-                    $this->items()->create($item);
+                    EstimateItems::create($item);
                 }
             }
 

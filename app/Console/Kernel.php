@@ -15,8 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
         $schedule->command('biznisbox:update-currency-rates')->daily();
+        $schedule->command('biznisbox:refresh-bank-transactions')->hourly();
     }
 
     /**

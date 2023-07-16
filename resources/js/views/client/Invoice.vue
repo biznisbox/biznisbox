@@ -36,23 +36,31 @@
                         </template>
                     </user-header>
 
+                    <div class="alert">
+                        <Message v-if="$route.query.status == 'success' && invoice.status == 'paid'" severity="success" closable>
+                            {{ $t('invoice.payment_success') }}
+                        </Message>
+
+                        <Message v-if="$route.query.status == 'error' && invoice.status != 'paid'" severity="error" closable>
+                            {{ $t('invoice.payment_error') }}
+                        </Message>
+                    </div>
+
                     <div id="payer_customer_data" class="grid">
                         <div v-if="!loadingData" id="customer_data" class="col-12 md:col-6">
                             <DisplayData :input="$t('invoice.customer')" custom-value>
                                 <div v-if="invoice.customer_id != null">
-                                    <span class="text-gray-700">{{ formatText(invoice.customer_name) }}</span>
+                                    <span>{{ formatText(invoice.customer_name) }}</span>
                                     <br />
-                                    <span class="text-gray-700">{{ formatText(invoice.customer_address) }}</span>
+                                    <span>{{ formatText(invoice.customer_address) }}</span>
                                     <br />
-                                    <span class="text-gray-700">{{
-                                        formatText(invoice.customer_zip_code) + ' ' + formatText(invoice.customer_city)
-                                    }}</span>
+                                    <span>{{ formatText(invoice.customer_zip_code) + ' ' + formatText(invoice.customer_city) }}</span>
                                     <br />
-                                    <span class="text-gray-700">{{ formatCountry(invoice.customer_country) }}</span>
+                                    <span>{{ formatCountry(invoice.customer_country) }}</span>
                                     <br />
                                 </div>
                                 <div v-else>
-                                    <span class="text-gray-700">{{ $t('invoice.no_customer') }}</span>
+                                    <span>{{ $t('invoice.no_customer') }}</span>
                                 </div>
                             </DisplayData>
                         </div>
@@ -60,18 +68,16 @@
                         <div v-if="!loadingData" id="payer_data" class="col-12 md:col-6">
                             <DisplayData :input="$t('invoice.payer')" custom-value>
                                 <div v-if="invoice.payer_id != null">
-                                    <span class="text-gray-700">{{ formatText(invoice.payer_name) }}</span> <br />
-                                    <span class="text-gray-700">{{ formatText(invoice.payer_address) }}</span>
+                                    <span>{{ formatText(invoice.payer_name) }}</span> <br />
+                                    <span>{{ formatText(invoice.payer_address) }}</span>
                                     <br />
-                                    <span class="text-gray-700">{{
-                                        formatText(invoice.payer_zip_code) + ' ' + formatText(invoice.payer_city)
-                                    }}</span>
+                                    <span>{{ formatText(invoice.payer_zip_code) + ' ' + formatText(invoice.payer_city) }}</span>
                                     <br />
-                                    <span class="text-gray-700">{{ formatCountry(invoice.payer_country) }}</span>
+                                    <span>{{ formatCountry(invoice.payer_country) }}</span>
                                     <br />
                                 </div>
                                 <div v-else>
-                                    <span class="text-gray-700">{{ $t('invoice.no_payer') }}</span>
+                                    <span>{{ $t('invoice.no_payer') }}</span>
                                 </div>
                             </DisplayData>
                         </div>
@@ -146,7 +152,7 @@
                     <div id="invoice_calculations" class="grid mt-5">
                         <div id="invoice_notes" class="col-12 md:col-6">
                             <DisplayData :input="$t('invoice.notes')" custom-value>
-                                <span v-if="invoice.notes && !loadingData" class="text-gray-700" v-html="invoice.notes"></span>
+                                <span v-if="invoice.notes && !loadingData" v-html="invoice.notes"></span>
                             </DisplayData>
                         </div>
 
@@ -220,14 +226,13 @@ export default {
             this.makeHttpRequest(
                 'POST',
                 '/api/online_payment/stripe',
-                { key: this.$route.query.key },
+                { key: this.$route.query.key, type: 'web' },
                 null,
                 {
                     'X-CLIENT-ROUTE': true,
                 },
                 false
             ).then((response) => {
-                console.log(response.data.url)
                 window.open(response.data.url, '_blank')
             })
         },
@@ -236,14 +241,13 @@ export default {
             this.makeHttpRequest(
                 'POST',
                 '/api/online_payment/paypal',
-                { key: this.$route.query.key },
+                { key: this.$route.query.key, type: 'web' },
                 null,
                 {
                     'X-CLIENT-ROUTE': true,
                 },
                 false
             ).then((response) => {
-                console.log(response.data.url)
                 window.open(response.data.url, '_blank')
             })
         },

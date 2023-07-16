@@ -101,6 +101,9 @@ Route::middleware('auth')->group(function () {
         Route::post('/accounts', AccountController::class . '@createAccount');
         Route::put('/accounts/{id}', AccountController::class . '@updateAccount');
         Route::delete('/accounts/{id}', AccountController::class . '@deleteAccount');
+        Route::get('/open_banking/banks', OpenBankingController::class . '@getBanks');
+        Route::post('/open_banking/init_session', OpenBankingController::class . '@initSession');
+        Route::post('/open_banking/get_requisition', OpenBankingController::class . '@getRequisition');
     });
 
     // Transactions routes
@@ -113,16 +116,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/transaction/transaction_number', TransactionController::class . '@getTransactionNumber');
     });
 
-    // Open Banking routes
-    Route::middleware('can:open_banking')->group(function () {
-        Route::get('/open_banking/banks', OpenBankingController::class . '@getBanks');
-        Route::post('/open_banking/init_session', OpenBankingController::class . '@initSession');
-        Route::post('/open_banking/get_requisition', OpenBankingController::class . '@getRequisition');
-        Route::get('/open_banking/accounts', OpenBankingController::class . '@getAccounts');
-        Route::get('/open_banking/accounts/{id}', OpenBankingController::class . '@getAccountData');
-        Route::put('/open_banking/accounts/{id}', OpenBankingController::class . '@updateAccountData');
-    });
-
     // Documents routes
     Route::middleware('can:documents')->group(function () {
         Route::get('/documents', DocumentsController::class . '@getDocuments');
@@ -131,7 +124,9 @@ Route::middleware('auth')->group(function () {
         Route::put('/documents/file', DocumentsController::class . '@updateDocument');
         Route::delete('/documents/file', DocumentsController::class . '@deleteDocument');
         Route::get('/document/folders', DocumentsController::class . '@getFolders');
+        Route::get('/document/folders/{id}', DocumentsController::class . '@getFolder');
         Route::post('/document/folders', DocumentsController::class . '@createFolder');
+        Route::put('/document/folders', DocumentsController::class . '@updateFolder');
         Route::delete('/document/folders', DocumentsController::class . '@deleteFolder');
     });
 

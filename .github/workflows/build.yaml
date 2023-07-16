@@ -24,6 +24,8 @@ jobs:
                   npm install --no-audit
                   npm run build
                   npm install --production --no-audit
+            - name: Deploy CSS
+              run: php deploy
             - name: Remove dev dependencies and git files
               run: |
                   composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
@@ -41,7 +43,7 @@ jobs:
                   rm -rf cypress.config.js
                   rm -rf cypress.env.json
             - name: Zip all files
-              run: zip -r production.zip *
+              run: zip -r production.zip * .[^.]*
             - name: Upload artifacts
               uses: actions/upload-artifact@v1
               with:

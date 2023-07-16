@@ -24,7 +24,6 @@ return new class extends Migration {
             $table->string('currency')->nullable();
             $table->text('address')->nullable();
             $table->string('city')->nullable();
-            $table->string('state')->nullable();
             $table->string('zip_code')->nullable();
             $table->string('country')->nullable();
             $table->softDeletes();

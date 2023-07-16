@@ -1,10 +1,10 @@
 <template>
     <div class="card p-4" @dblclick="goToLink">
-        <span class="text-xl font-bold text-gray-900 my-2 block">
+        <span class="text-xl font-bold my-2 block">
             {{ title }}
         </span>
 
-        <span class="float-right text-xl font-bold text-gray-900"> <i v-if="icon" :class="icon + ' mr-2'"></i> {{ data }} </span>
+        <span class="float-right text-xl font-bold"> <i v-if="icon" :class="icon + ' mr-2'"></i> {{ data }} </span>
     </div>
 </template>
 <script>

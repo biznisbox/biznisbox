@@ -9,7 +9,6 @@ import PrimeVue from '@/plugins/primevue'
 import Form from '@/plugins/form'
 import FullCalendar from '@/plugins/fullcalendar'
 import GlobalMixin from '@/mixins'
-import VueCookies from 'vue3-cookies'
 import UserLayout from '@/layouts/UserLayout.vue'
 import AdminLayout from '@/layouts/AdminLayout.vue'
 import UserHeader from '@/components/UserHeader.vue'
@@ -22,7 +21,6 @@ app.use(router)
 app.use(pinia)
 app.use(PrimeVue)
 app.mixin(GlobalMixin)
-app.use(VueCookies)
 app.use(i18n)
 app.use(Form)
 app.use(FullCalendar)

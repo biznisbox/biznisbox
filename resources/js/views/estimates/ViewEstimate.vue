@@ -49,19 +49,17 @@
                         <div v-if="!loadingData" id="customer_data" class="col-12 md:col-6">
                             <DisplayData :input="$t('estimate.customer')" custom-value>
                                 <div v-if="estimate.customer_id">
-                                    <span class="text-gray-700">{{ formatText(estimate.customer_name) }}</span>
+                                    <span>{{ formatText(estimate.customer_name) }}</span>
                                     <br />
-                                    <span class="text-gray-700">{{ formatText(estimate.customer_address) }}</span>
+                                    <span>{{ formatText(estimate.customer_address) }}</span>
                                     <br />
-                                    <span class="text-gray-700">{{
-                                        formatText(estimate.customer_zip_code) + ' ' + formatText(estimate.customer_city)
-                                    }}</span>
+                                    <span>{{ formatText(estimate.customer_zip_code) + ' ' + formatText(estimate.customer_city) }}</span>
                                     <br />
-                                    <span class="text-gray-700">{{ formatCountry(estimate.customer_country) }}</span>
+                                    <span>{{ formatCountry(estimate.customer_country) }}</span>
                                     <br />
                                 </div>
                                 <div v-else>
-                                    <span class="text-gray-700"> {{ $t('estimate.no_customer') }}</span>
+                                    <span> {{ $t('estimate.no_customer') }}</span>
                                 </div>
                             </DisplayData>
                         </div>
@@ -69,18 +67,16 @@
                         <div v-if="!loadingData" id="payer_data" class="col-12 md:col-6">
                             <DisplayData :input="$t('estimate.payer')" custom-value>
                                 <div v-if="estimate.payer">
-                                    <span class="text-gray-700">{{ formatText(estimate.payer_name) }}</span> <br />
-                                    <span class="text-gray-700">{{ formatText(estimate.payer_address) }}</span>
+                                    <span>{{ formatText(estimate.payer_name) }}</span> <br />
+                                    <span>{{ formatText(estimate.payer_address) }}</span>
                                     <br />
-                                    <span class="text-gray-700">{{
-                                        formatText(estimate.payer_zip_code) + ' ' + formatText(estimate.payer_city)
-                                    }}</span>
+                                    <span>{{ formatText(estimate.payer_zip_code) + ' ' + formatText(estimate.payer_city) }}</span>
                                     <br />
-                                    <span class="text-gray-700">{{ formatText(estimate.payer_country) }}</span>
+                                    <span>{{ formatText(estimate.payer_country) }}</span>
                                     <br />
                                 </div>
                                 <div v-else>
-                                    <span class="text-gray-700">{{ $t('estimate.no_payer') }}</span>
+                                    <span>{{ $t('estimate.no_payer') }}</span>
                                 </div>
                             </DisplayData>
                         </div>

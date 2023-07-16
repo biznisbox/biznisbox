@@ -6,6 +6,9 @@
             </template>
 
             <template #end>
+                <Button v-if="theme == 'dark'" icon="pi pi-sun" text rounded aria-label="Filter" @click="changeTheme()" />
+                <Button v-if="theme == 'light'" icon="pi pi-moon" text rounded aria-label="Filter" @click="changeTheme()" />
+
                 <Avatar
                     v-if="user.data.avatar == null"
                     :label="user.data.initials"

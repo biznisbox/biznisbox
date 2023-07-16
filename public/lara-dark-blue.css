@@ -1,0 +1,23 @@
+.p-datatable .p-datatable-header {
+    border-radius: 6px 6px 0 0;
+}
+
+.p-panel .p-panel-content:last-child {
+  border-top: 0 none;
+}
+
+.card {
+    background-color: #1c2127;
+    border: 1px solid #0b213f;
+    border-radius: 6px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+  
+.card-header {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+  

@@ -16,8 +16,8 @@ class DocumentsController extends Controller
 
     public function getDocuments(Request $request)
     {
-        $path = $request->path;
-        $documents = $this->documentsModel->getDocuments($path);
+        $folder_id = $request->folder_id ?? null;
+        $documents = $this->documentsModel->getDocuments($folder_id);
 
         if ($documents) {
             return api_response($documents, __('response.document.get_success'));
@@ -27,8 +27,8 @@ class DocumentsController extends Controller
 
     public function getDocument(Request $request)
     {
-        $path = $request->path;
-        $document = $this->documentsModel->getDocument($path);
+        $document_id = $request->document_id;
+        $document = $this->documentsModel->getDocument($document_id);
 
         if ($document) {
             return api_response($document, __('response.document.get_success'));
@@ -39,17 +39,28 @@ class DocumentsController extends Controller
     public function createDocument(Request $request)
     {
         $document = $this->documentsModel->createDocument($request);
-
         if ($document) {
             return api_response($document, __('response.document.create_success'), 201);
         }
         return api_response(null, __('response.document.create_failed'), 400);
     }
 
+    public function updateDocument(Request $request)
+    {
+        $document_id = $request->id;
+        $data = $request->all();
+        $document = $this->documentsModel->updateDocument($document_id, $data);
+
+        if ($document) {
+            return api_response($document, __('response.document.update_success'));
+        }
+        return api_response(null, __('response.document.update_failed'), 400);
+    }
+
     public function deleteDocument(Request $request)
     {
-        $path = $request->path;
-        $document = $this->documentsModel->deleteDocument($path);
+        $document_id = $request->document_id;
+        $document = $this->documentsModel->deleteDocument($document_id);
 
         if ($document) {
             return api_response(null, __('response.document.delete_success'));
@@ -59,8 +70,8 @@ class DocumentsController extends Controller
 
     public function downloadDocument(Request $request)
     {
-        $path = $request->path;
-        $document = $this->documentsModel->downloadDocument($path);
+        $document_id = $request->document_id;
+        $document = $this->documentsModel->downloadDocument($document_id);
 
         if ($document) {
             return $document;
@@ -70,8 +81,8 @@ class DocumentsController extends Controller
 
     public function previewDocument(Request $request)
     {
-        $path = $request->path;
-        $document = $this->documentsModel->previewDocument($path);
+        $document_id = $request->document_id;
+        $document = $this->documentsModel->previewDocument($document_id);
 
         if ($document) {
             return $document;
@@ -80,10 +91,9 @@ class DocumentsController extends Controller
     }
 
     // Folders operations
-    public function getFolders(Request $request)
+    public function getFolders()
     {
-        $path = $request->path;
-        $folders = $this->documentsModel->getFolders($path);
+        $folders = $this->documentsModel->getFolders();
 
         if ($folders) {
             return api_response($folders, __('response.folders.get_success'));
@@ -91,11 +101,22 @@ class DocumentsController extends Controller
         return api_response(null, __('response.folders.not_found'), 400);
     }
 
+    public function getFolder($id)
+    {
+        $folder = $this->documentsModel->getFolder($id);
+
+        if ($folder) {
+            return api_response($folder, __('response.folders.get_success'));
+        }
+
+        return api_response(null, __('response.folders.not_found'), 400);
+    }
+
     public function createFolder(Request $request)
     {
-        $path = $request->path;
+        $parent_folder_id = $request->parent_folder_id ?? null;
         $name = $request->name;
-        $folder = $this->documentsModel->createFolder($path, $name);
+        $folder = $this->documentsModel->createFolder($parent_folder_id, $name);
 
         if ($folder) {
             return api_response($folder, __('response.document.create_success'), 201);
@@ -103,10 +124,22 @@ class DocumentsController extends Controller
         return api_response(null, __('response.document.create_failed'), 400);
     }
 
+    public function updateFolder(Request $request)
+    {
+        $folder_id = $request->id;
+        $data = $request->all();
+        $folder = $this->documentsModel->updateFolder($folder_id, $data);
+
+        if ($folder) {
+            return api_response($folder, __('response.document.update_success'));
+        }
+        return api_response(null, __('response.document.update_failed'), 400);
+    }
+
     public function deleteFolder(Request $request)
     {
-        $path = $request->path;
-        $folder = $this->documentsModel->deleteFolder($path);
+        $folder_id = $request->folder_id;
+        $folder = $this->documentsModel->deleteFolder($folder_id);
 
         if ($folder) {
             return api_response(null, __('response.document.delete_success'));

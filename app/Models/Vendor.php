@@ -14,20 +14,7 @@ class Vendor extends Model implements Auditable
 
     protected $table = 'vendors';
 
-    protected $fillable = [
-        'name',
-        'type',
-        'vat_number',
-        'email',
-        'phone',
-        'website',
-        'currency',
-        'address',
-        'city',
-        'state',
-        'zip_code',
-        'country',
-    ];
+    protected $fillable = ['name', 'type', 'vat_number', 'email', 'phone', 'website', 'currency', 'address', 'city', 'zip_code', 'country'];
 
     public function generateTags(): array
     {

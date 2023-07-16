@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use OwenIt\Auditing\Contracts\Auditable;
+use App\Models\Category;
+use Illuminate\Support\Str;
 
 class Documents extends Model implements Auditable
 {
@@ -20,7 +21,7 @@ class Documents extends Model implements Auditable
     protected $table = 'documents';
 
     protected $fillable = [
-        'created_by',
+        'category_id',
         'name',
         'description',
         'file_name',
@@ -29,9 +30,11 @@ class Documents extends Model implements Auditable
         'file_hash_sha256',
         'file_hash_md5',
         'file_path',
-        'version',
+        'file_mime',
     ];
     protected $dates = ['deleted_at'];
+
+    protected $hidden = ['file_hash_sha256', 'file_hash_md5', 'file_path', 'deleted_at'];
 
     public function generateTags(): array
     {
@@ -43,237 +46,270 @@ class Documents extends Model implements Auditable
         return $this->belongsTo(User::class, 'created_by');
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Document Methods
+    |--------------------------------------------------------------------------
+    */
+
     /**
      * Create a new document
-     *
      * @param Request $request
      * @return Document
      */
     public function createDocument($request)
     {
-        try {
-            DB::beginTransaction();
-            if ($request->hasFile('file')) {
-                $file = $request->file('file');
-                $path = $request->input('path'); // Path after storage/app/documents folder
-                $fileName = $file->getClientOriginalName();
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName = $file->getClientOriginalName();
+            $diskFileName = Str::uuid() . '.' . $file->getClientOriginalExtension();
 
-                if (Storage::exists('documents/' . $path . '/' . $fileName)) {
-                    return false;
-                }
+            $fileStore = $file->storeAs('documents/' . $diskFileName);
 
-                $file_path = $path . '/' . $fileName;
-                if ($path == '' || $path == '/') {
-                    $file_path = '/' . $fileName;
-                }
-
-                Documents::create([
-                    'created_by' => user_data()->data->id,
-                    'name' => $fileName,
-                    'file_name' => $fileName,
-                    'file_type' => $file->getClientOriginalExtension(),
-                    'file_size' => $file->getSize(),
-                    'file_hash_sha256' => hash_file('sha256', $file),
-                    'file_hash_md5' => hash_file('md5', $file),
-                    'file_path' => $file_path,
-                ]);
-                $fileStore = $file->storeAs('documents' . $path, $fileName);
-                if (!$fileStore) {
-                    DB::rollBack();
-                    return false;
-                }
-                DB::commit();
-                return true;
-            }
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return false;
-        }
-    }
-
-    public function updateDocument($data)
-    {
-    }
-
-    public function deleteDocument($path)
-    {
-        try {
-            DB::beginTransaction();
-            $document = Documents::where('file_path', $path)->first();
-            if ($document) {
-                $document->delete();
-                if (Storage::exists('documents/' . $path)) {
-                    Storage::delete('documents/' . $path);
-                    DB::commit();
-                    return true;
-                }
+            if (!$fileStore) {
+                Storage::delete('documents/' . $diskFileName); // Delete the file if it was created but not stored
+                DB::rollBack();
                 return false;
             }
-            return false;
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return false;
-        }
-    }
 
-    public function getDocument($path)
-    {
-        try {
-            $file = Documents::where('file_path', $path)->first();
-            if ($file) {
-                if (Storage::exists('documents' . $file->file_path)) {
-                    $file->preview_url = URL::signedRoute('documents.preview', ['path' => $file->file_path]);
-                    $file->download_url = URL::signedRoute('documents.download', ['path' => $file->file_path]);
-                    activity_log(user_data()->data->id, 'get document', $file->id, 'App\Models\Documents', 'getDocument');
-                    return $file;
-                }
-                return false;
+            if ($request->folder_id == 'null') {
+                $request->folder_id = null;
             }
-            return false;
-        } catch (\Exception $e) {
-            return false;
+
+            $document = Documents::create([
+                'category_id' => $request->folder_id,
+                'name' => $fileName,
+                'description' => $request->description,
+                'file_name' => $fileName,
+                'file_type' => $file->getClientOriginalExtension(),
+                'file_size' => $file->getSize(),
+                'file_mime' => $file->getClientMimeType(),
+                'file_hash_sha256' => hash_file('sha256', $file),
+                'file_hash_md5' => hash_file('md5', $file),
+                'file_path' => $diskFileName,
+            ]);
+            activity_log(user_data()->data->id, 'create document', $document->id, 'Document', $document->name, null, null);
+            return true;
         }
     }
-
-    public function previewDocument($path)
-    {
-        if (Storage::exists('documents' . $path)) {
-            $file = Storage::get('documents' . $path);
-            $file_name = explode('/', $path);
-            $file_name = end($file_name);
-            $file_type = Storage::mimeType('documents/' . $path);
-
-            // TODO: Add log for user id and file id
-            return response($file, 200)
-                ->header('Content-Type', $file_type)
-                ->header('Content-Disposition', 'inline; filename="' . $file_name . '"');
-        }
-        return false;
-    }
-
-    public function downloadDocument($path)
-    {
-        if (Storage::exists('documents' . $path)) {
-            $file = Storage::get('documents' . $path);
-            $file_name = explode('/', $path);
-            $file_name = end($file_name);
-            $file_type = Storage::mimeType('documents/' . $path);
-
-            // TODO: Add log for user id and file id
-            return response($file, 200)
-                ->header('Content-Type', $file_type)
-                ->header('Content-Disposition', 'attachment; filename="' . $file_name . '"');
-        }
-        return false;
-    }
-
-    // Folder operations
 
     /**
-     * Get all documents from a path
-     *
-     * @param string $path Path after storage/app/documents folder
-     * @return void Array of documents
+     * Update a document
+     * @param uuid document_id UUID of the document to update
+     * @param array $data Array of data to update
+     * @return bool True if updated, false if not found
      */
-    public function getDocuments($path)
+    public function updateDocument($document_id, $data)
     {
-        if (Storage::exists('documents' . $path)) {
-            $files = Storage::files('documents' . $path);
-            $folders = Storage::directories('documents' . $path);
+        $document = Documents::where('id', $document_id)->first();
 
-            $files_array = [];
-            $folders_array = [];
-
-            foreach ($files as $file) {
-                $file_name = explode('/', $file);
-                $file_name = end($file_name);
-
-                $files_array[] = [
-                    'name' => $file_name,
-                    'size' => Storage::size($file),
-                    'type' => Storage::mimeType($file),
-                    'extension' => File::extension($file),
-                    'file' => true,
-                    'hash_sha256' => hash_file('sha256', Storage::path($file)),
-                    'hash_md5' => hash_file('md5', Storage::path($file)),
-                    'path' => explode('documents', $file)[1],
-                    'created_at' => Storage::lastModified($file),
-                ];
-            }
-
-            foreach ($folders as $folder) {
-                $folder_name = explode('/', $folder);
-                $folder_name = end($folder_name);
-                $folder_created_at = Storage::lastModified($folder);
-
-                $folders_array[] = [
-                    'name' => $folder_name,
-                    'size' => 0,
-                    'extension' => 'folder',
-                    'type' => 'folder',
-                    'file' => false,
-                    'path' => explode('documents', $folder)[1],
-                    'created_at' => $folder_created_at,
-                ];
-            }
-
-            $documents = array_merge($folders_array, $files_array);
-
-            // Folders first
-            $documents = collect($documents)
-                ->sortBy('file')
-                ->toArray();
-
-            activity_log(user_data()->data->id, 'get documents', $path, 'App\Models\Documents', 'getDocuments');
-
-            return $documents;
+        if ($document) {
+            $document->name = $data['name'];
+            $document->description = $data['description'];
+            $document->save();
+            return true;
         }
         return false;
     }
 
-    public function getFolders($path)
+    /**
+     * Delete a document (soft delete)
+     * @param uuid $document_id UUID of the document
+     * @return bool True if deleted, false if not found
+     */
+    public function deleteDocument($document_id)
     {
-        if (Storage::exists('documents/' . $path)) {
-            $folders = Storage::directories('documents' . $path);
-
-            $folders_array = [];
-
-            foreach ($folders as $folder) {
-                $folder_name = explode('/', $folder);
-                $folder_name = end($folder_name);
-
-                $folders_array[] = [
-                    'name' => $folder_name,
-                    'extension' => 'folder',
-                    'type' => 'folder',
-                    'path' => explode('documents', $folder)[1],
-                ];
+        try {
+            $document = $this->where('id', $document_id)->first();
+            if ($document) {
+                $document->delete();
+                activity_log(user_data()->data->id, 'delete document', $document->id, 'Document');
+                return true;
             }
-
-            activity_log(user_data()->data->id, 'get folders', $path, 'App\Models\Documents', 'getFolders');
-
-            return $folders_array;
+        } catch (\Exception $e) {
+            return false;
         }
     }
 
-    public function createFolder($path, $folder_name)
+    /**
+     * Get a document
+     * @param UUID $document_id  of the document
+     * @return object|bool Document object or false if not found
+     */
+    public function getDocument($document_id)
     {
-        if (Storage::exists('documents/' . $path)) {
-            if (Storage::makeDirectory('documents/' . $path . '/' . $folder_name)) {
-                activity_log(user_data()->data->id, 'create folder', $path . '/' . $folder_name, 'App\Models\Documents', 'createFolder');
-                return true;
+        try {
+            $document = $this->where('id', $document_id)->first();
+            if ($document) {
+                $document->preview_url = URL::signedRoute('documents.preview', ['document_id' => $document->id]);
+                $document->download_url = URL::signedRoute('documents.download', ['document_id' => $document->id]);
+                activity_log(user_data()->data->id, 'get document', $document->id, 'Document', 'Document');
+                return $document;
             }
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    /**
+     * Preview a document by id and return the file
+     * @param $id UUID of the document
+     * @return object|bool Document object or false if not found
+     */
+    public function previewDocument($id)
+    {
+        $document = $this->where('id', $id)->first();
+
+        if ($document) {
+            $file = Storage::get('documents/' . $document->file_path);
+
+            return response($file, 200)
+                ->header('Content-Type', $document->file_mime)
+                ->header('Content-Length', $document->file_size)
+                ->header('Content-Disposition', 'inline; filename="' . $document->file_name . '"');
         }
         return false;
     }
 
-    public function deleteFolder($path)
+    /**
+     * Download a document by id and return the file
+     * @param $id UUID of the document
+     * @return object|bool Document object or false if not found
+     */
+    public function downloadDocument($id)
     {
-        if (Storage::exists('documents/' . $path)) {
-            if (Storage::deleteDirectory('documents/' . $path)) {
-                activity_log(user_data()->data->id, 'delete folder', $path, 'App\Models\Documents', 'deleteFolder');
-                return true;
-            }
+        $document = $this->where('id', $id)->first();
+
+        if ($document) {
+            $file = Storage::get('documents/' . $document->file_path);
+
+            return response($file, 200)
+                ->header('Content-Type', $document->file_mime)
+                ->header('Content-Length', $document->file_size)
+                ->header('Content-Disposition', 'attachment; filename="' . $document->file_name . '"');
+        }
+        return false;
+    }
+
+    /**
+     * Get all documents in the trash
+     * @return object Documents object
+     */
+
+    public function getTrashFiles()
+    {
+        $documents = new Documents();
+        $documents = $documents->onlyTrashed()->get();
+        activity_log(user_data()->data->id, 'get trash documents', null, 'Document', 'Documents');
+        return $documents;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Folder functions
+    |--------------------------------------------------------------------------
+    */
+
+    /**
+     * Get all documents in a folder or root folder
+     * @param uuid|null $folder_id UUID of the folder or null for root folder
+     * @return object Documents object
+     */
+    public function getDocuments($folder_id)
+    {
+        $documents = new Documents();
+        if ($folder_id == null) {
+            $documents = $documents->where('category_id', null)->get();
+        } else {
+            $documents = $documents->where('category_id', $folder_id)->get();
+        }
+        activity_log(user_data()->data->id, 'get documents', null, 'Document', 'Documents');
+        return $documents;
+    }
+
+    /**
+     * Get all folders
+     * @return object Folders object
+     */
+    public function getFolders()
+    {
+        $folders = new Category();
+        $folders = $folders->getCategoriesByModule('documents');
+
+        $folders[] = [
+            'id' => null,
+            'label' => '/',
+            'parent_category' => null,
+        ];
+        activity_log(user_data()->data->id, 'get folders', null, 'Document', 'Folders');
+        return $folders;
+    }
+
+    /**
+     * Get a folder
+     * @param uuid $folder_id UUID of the folder
+     * @return object Folder object
+     */
+    public function getFolder($folder_id)
+    {
+        $folder = new Category();
+        $folder = Category::where('id', $folder_id)->first();
+        activity_log(user_data()->data->id, 'get folder', $folder_id, 'Document', 'Folder');
+        return $folder;
+    }
+
+    /**
+     * Create a new folder
+     * @param uuid|null $parent_category UUID of the parent folder or null for root folder
+     * @param string $name Name of the folder
+     * @return bool True if folder was created, false if not
+     */
+    public function createFolder($parent_category, $name)
+    {
+        $category = new Category();
+        $category = $category->createCategory($name, 'documents', 'folder', null, $parent_category);
+        if ($category) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Update a folder
+     * @param uuid $folder_id UUID of the folder
+     * @param uuid|null $parent_category UUID of the parent folder or null for root folder
+     * @param string $name Name of the folder
+     * @return bool True if folder was updated, false if not
+     */
+    public function updateFolder($folder_id, $data)
+    {
+        $category = new Category();
+        $data = [
+            'name' => $data['label'],
+        ];
+        $category = $category->updateCategory($folder_id, $data);
+        if ($category) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Delete a folder
+     * @param uuid $folder_id UUID of the folder
+     * @return bool True if folder was deleted, false if not
+     */
+    public function deleteFolder($folder_id)
+    {
+        $category = new Category();
+        $category = $category->deleteCategory($folder_id);
+        if ($category) {
+            return true;
         }
         return false;
     }

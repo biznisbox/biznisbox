@@ -11,12 +11,16 @@ export default {
             validationErrors: [],
             loadingData: false,
             lang: localStorage.getItem('lang') || window.App.settings.default_lang,
+            theme: localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light',
         }
     },
 
     created() {
         if (this.$route.query.lang) {
             this.lang = this.$route.query.lang
+        }
+        if (!localStorage.getItem('theme')) {
+            localStorage.setItem('theme', 'light')
         }
         i18n.global.locale.value = this.lang
         moment.locale(this.lang)
@@ -55,10 +59,14 @@ export default {
                     })
                     .catch((error) => {
                         // If error is 401 Unauthorized, redirect to login page
-                        if (error.response.status === 401) {
+                        if (error.response.status === 401 && this.$route.name !== 'AuthLogin') {
                             this.showToast(this.$t('errors.session_timeout'), '', 'error')
                             sessionStorage.removeItem('token')
                             this.$router.push('/auth/login')
+                        }
+                        // If error with 401 Unauthorized and user is on login page, show invalid credentials error
+                        if (error.response.status === 401 && this.$route.name === 'AuthLogin') {
+                            this.showToast(this.$t('errors.invalid_credentials'), '', 'error')
                         }
                         // If error is 422 Unprocessable Entity, show validation errors
                         if (error.response.status === 422) {
@@ -150,8 +158,25 @@ export default {
             return value === null ? '' : value
         },
 
+        /**
+         * Function to format country
+         * @param {string} value
+         * @returns {string} Localized country name
+         */
         formatCountry(value) {
             return value === null ? '' : this.$t('countries.' + value)
+        },
+
+        /**
+         * Function to format money
+         * @param {number} value
+         * @returns {string} Formatted money
+         */
+        formatMoney(value, currency = null) {
+            if (currency === null || currency === undefined) {
+                currency = this.$settings.default_currency
+            }
+            return value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + ' ' + currency
         },
 
         /**
@@ -185,6 +210,26 @@ export default {
         copyToClipboard(text) {
             navigator.clipboard.writeText(text)
             this.showToast(this.$t('basic.copied_to_clipboard'))
+        },
+
+        /**
+         * Function for change theme
+         * @param {string} theme Theme to change
+         */
+        changeTheme() {
+            let theme = localStorage.getItem('theme')
+            if (theme === 'light') {
+                this.$primevue.changeTheme('lara-dark-blue', 'lara-light-blue', 'theme-link', () => {
+                    localStorage.setItem('theme', 'dark')
+                    this.theme = 'dark'
+                })
+            }
+            if (theme === 'dark') {
+                this.$primevue.changeTheme('lara-light-blue', 'lara-dark-blue', 'theme-link', () => {
+                    localStorage.setItem('theme', 'light')
+                    this.theme = 'light'
+                })
+            }
         },
     },
 

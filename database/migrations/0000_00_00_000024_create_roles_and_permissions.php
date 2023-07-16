@@ -63,11 +63,6 @@ return new class extends Migration {
             'edit_own_profile',
             'change_own_password',
         ]);
-
-        // Assign admin user to admin role
-        $adminUser = \App\Models\User::where('role', 'super_admin')->first();
-        $adminRole = Role::where('name', 'super_admin')->first();
-        $adminUser->assignRole($adminRole);
     }
 
     /**

@@ -22,7 +22,7 @@ class BillsSeeder extends Seeder
             Bill::create([
                 'id' => $id,
                 'created_by' => \App\Models\User::all()->random()->id,
-                'number' => fake()->numberBetween(100000, 999999),
+                'number' => \App\Models\Bill::getBillNumber(),
                 'vendor_id' => \App\Models\Vendor::all()->random()->id,
                 'status' => fake()->randomElement(['draft', 'paid', 'overdue', 'cancelled', 'unpaid']),
                 'date' => now(),

@@ -5,56 +5,80 @@
                 <template #actions>
                     <Button :label="$t('document.document')" icon="fa fa-file" @click="openNewDocumentDialog" />
                     <Button :label="$t('document.new_folder')" icon="fa fa-folder-plus" @click="openNewFolderDialog" />
+                    <Button
+                        v-if="currentFolder != null"
+                        :label="$t('document.edit_folder')"
+                        icon="fa fa-folder"
+                        @click="editFolderOpenDialog"
+                    />
                 </template>
             </user-header>
             <div class="card">
-                <div id="documents_table">
-                    <DataTable
-                        v-model:contextMenuSelection="selectedDocument"
-                        :value="documents"
-                        :loading="loadingData"
-                        :resizable-columns="true"
-                        column-resize-mode="expand"
-                        responsive-layout="scroll"
-                        context-menu
-                        @row-dblclick="openDocument"
-                        @rowContextmenu="openRightClickMenu"
-                    >
-                        <template #empty>
-                            <div class="p-4 pl-0 text-center w-full text-gray-500">
-                                <i class="fa fa-info-circle empty-icon"></i>
-                                <p>{{ $t('document.no_documents') }}</p>
-                                <Button
-                                    class="mt-3"
-                                    :label="$t('document.upload_first_document')"
-                                    icon="fa fa-plus"
-                                    @click="openNewDocumentDialog"
-                                />
-                            </div>
-                        </template>
+                <div id="documents" class="grid">
+                    <div class="col-12 md:col-4">
+                        <!-- Folders tree -->
+                        <Tree
+                            :value="folders"
+                            :loading="loadingData"
+                            filter
+                            filter-mode="strict"
+                            selection-mode="single"
+                            @node-select="folderSelected"
+                        >
+                            <template #default="{ node }">
+                                <div>
+                                    <span class="fiv-viv fiv-icon-folder icon-file"></span>
+                                    <span class="ml-2">{{ node.label }}</span>
+                                </div>
+                            </template>
+                        </Tree>
+                    </div>
 
-                        <Column field="name" :header="$t('document.name')" sortable>
-                            <template #body="{ data }">
-                                <span :class="`fiv-viv fiv-icon-${data.extension} icon-file`"></span>
-                                <span class="ml-2">{{ data.name }}</span>
+                    <div class="col-12 md:col-8">
+                        <!-- Documents table -->
+                        <DataTable
+                            :value="documents"
+                            :loading="loadingData"
+                            paginator
+                            :rows="10"
+                            :rows-per-page-options="[10, 20, 50]"
+                            data-key="id"
+                            @row-click="openDocument"
+                        >
+                            <template #empty>
+                                <div class="p-4 pl-0 text-center w-full text-gray-500">
+                                    <i class="fa fa-info-circle empty-icon"></i>
+                                    <p>{{ $t('document.no_documents') }}</p>
+                                    <Button
+                                        class="mt-3"
+                                        :label="$t('document.upload_first_document')"
+                                        icon="fa fa-plus"
+                                        @click="openNewDocumentDialog"
+                                    />
+                                </div>
                             </template>
-                        </Column>
-                        <Column field="created_at" :header="$t('document.created_at')" sortable>
-                            <template #body="{ data }">
-                                <span>{{ formatDateTime(data.created_at, true) }}</span>
-                            </template>
-                        </Column>
-                        <Column field="size" :header="$t('document.size')" sortable>
-                            <template #body="{ data }">
-                                <span>{{ formatFileSize(data.size) }}</span>
-                            </template>
-                        </Column>
-                    </DataTable>
+                            <Column field="name" :header="$t('document.name')" sortable>
+                                <template #body="slotProps">
+                                    <div class="">
+                                        <span :class="`fiv-viv fiv-icon-${slotProps.data.file_type} icon-file`"></span>
+                                        <span class="ml-2">{{ slotProps.data.name }}</span>
+                                    </div>
+                                </template>
+                            </Column>
+                            <Column field="created_at" :header="$t('document.created_at')">
+                                <template #body="slotProps">
+                                    <span>{{ formatDateTime(slotProps.data.created_at) }}</span>
+                                </template>
+                            </Column>
+                            <Column field="file_size" :header="$t('document.size')">
+                                <template #body="slotProps">
+                                    <span>{{ formatFileSize(slotProps.data.file_size) }}</span>
+                                </template>
+                            </Column>
+                        </DataTable>
+                    </div>
                 </div>
             </div>
-
-            <!-- Right menu -->
-            <ContextMenu ref="rightClickMenu" :model="rightClickMenuItems" />
 
             <!-- New folder dialog -->
             <Dialog v-model:visible="showNewFolderDialog" :header="$t('document.new_folder')" modal>
@@ -66,45 +90,86 @@
                 ></TextInput>
                 <template #footer>
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button :label="$t('basic.close')" icon="fa fa-times" class="p-button-danger" @click="closeNewFolderDialog" />
                         <Button :label="$t('basic.create')" icon="fa fa-check" @click="createFolder" />
                     </div>
                 </template>
             </Dialog>
 
             <!-- New document dialog -->
-            <Dialog v-model:visible="showNewDocumentDialog" :header="$t('document.new_document')" modal>
-                <FileUpload name="file" url="/api/documents" @before-send="uploadDocument" @upload="afterUploadDocument" />
-                <template #footer>
-                    <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="closeNewDocumentDialog" />
-                    </div>
-                </template>
-            </Dialog>
+            <div class="mt-4">
+                <Dialog v-model:visible="showNewDocumentDialog" :header="$t('document.new_document')" modal>
+                    <FileUpload name="file" url="/api/documents" @before-send="uploadDocument" @upload="afterUploadDocument" />
+                    <template #footer>
+                        <div id="function_buttons" class="flex gap-2 justify-content-end">
+                            <Button
+                                :label="$t('basic.cancel')"
+                                icon="fa fa-times"
+                                class="p-button-danger"
+                                @click="closeNewDocumentDialog"
+                            />
+                        </div>
+                    </template>
+                </Dialog>
+            </div>
+
+            <!-- Edit folder dialog -->
+
+            <div class="mt-4">
+                <Dialog v-model:visible="showEditFolderDialog" :header="$t('document.edit_folder')" modal>
+                    <TextInput
+                        id="folder_name_input"
+                        v-model="folder.label"
+                        class="field col-12"
+                        :label="$t('document.folder_name')"
+                    ></TextInput>
+                    <template #footer>
+                        <div id="function_buttons" class="flex gap-2 justify-content-end">
+                            <Button :label="$t('basic.save')" icon="fa fa-check" @click="updateFolder" />
+                            <Button :label="$t('basic.delete')" icon="fa fa-trash" class="p-button-danger" @click="deleteFolderAsk" />
+                        </div>
+                    </template>
+                </Dialog>
+            </div>
 
             <!-- Sidebar for file -->
-            <Sidebar v-model:visible="sidebarFileShow" position="right">
+
+            <!-- prettier-ignore-attribute -->
+            <Sidebar v-model:visible="sidebarFileShow" position="right" @hide="sidebarFileShow = false; editDocument = false;">
                 <LoadingScreen :blocked="loadingData">
-                    <span class="font-bold text-x" style="word-wrap: break-word">{{ document.name }}</span>
+                    <span v-if="!editDocument" class="font-bold text-x" style="word-wrap: break-word" @dblclick="editDocument = true">{{
+                        document.name
+                    }}</span>
+                    <InputText v-if="editDocument" v-model="document.name" class="mt-2 w-full" />
 
                     <div class="mt-2 flex gap-2">
                         <Button :label="$t('basic.download')" icon="fa fa-download" @click="downloadDocument(document.download_url)" />
                         <Button :label="$t('basic.preview')" icon="fa fa-eye" @click="previewDocument(document.preview_url)" />
                     </div>
 
-                    <div class="mt-4">
-                        <span class="font-bold">{{ $t('document.created_at') }}</span>
-                        <span class="ml-2">{{ formatDateTime(document.created_at) }}</span>
+                    <div class="mt-2">
+                        <span v-if="!editDocument" class="text-x" style="word-wrap: break-word" @dblclick="editDocument = true">{{
+                            document.description
+                        }}</span>
+                        <TextArea v-if="editDocument" v-model="document.description" class="mt-2 w-full" />
                     </div>
 
                     <div class="mt-4">
-                        <span class="font-bold">{{ $t('document.size') }}</span>
-                        <span class="ml-2">{{ formatFileSize(document.file_size) }}</span>
+                        <DisplayData :input="$t('document.created_at')" :value="formatDateTime(document.created_at)" />
                     </div>
 
                     <div class="mt-4">
-                        <span class="font-bold">{{ $t('document.type') }}</span>
-                        <span class="ml-2">{{ document.file_type }}</span>
+                        <DisplayData :input="$t('document.size')" :value="formatFileSize(document.file_size)" />
+                    </div>
+
+                    <div class="mt-4">
+                        <Button v-if="editDocument" :label="$t('basic.save')" icon="fa fa-save" @click="updateDocument" />
+                        <Button
+                            v-if="editDocument"
+                            class="p-button-danger ml-2"
+                            :label="$t('basic.delete')"
+                            icon="fa fa-trash"
+                            @click="deleteDocumentAsk(document)"
+                        />
                     </div>
                 </LoadingScreen>
             </Sidebar>
@@ -113,38 +178,28 @@
 </template>
 
 <script>
-import DocumnetsMixin from '@/mixins/documents'
+import DocumentsMixin from '@/mixins/documents'
 export default {
     name: 'DocumentsPage',
-    mixins: [DocumnetsMixin],
+    mixins: [DocumentsMixin],
 
     data() {
         return {
+            documents: [],
+            folders: [],
+            editDocument: false,
             showNewFolderDialog: false,
             showNewDocumentDialog: false,
             newFolderName: '',
+            showEditFolderDialog: false,
             selectedDocument: null,
             sidebarFileShow: false,
-            rightClickMenuItems: [
-                { label: this.$t('basic.view'), icon: 'fa fa-search', command: () => this.viewDocument(this.selectedDocument) },
-                { label: this.$t('basic.delete'), icon: 'fa fa-times', command: () => this.deleteDocumentAsk(this.selectedDocument) },
-            ],
         }
     },
 
-    watch: {
-        '$route.query.path': {
-            handler: function (path) {
-                if (path == undefined) {
-                    this.currentPath = '/'
-                } else {
-                    this.currentPath = path
-                }
-                this.getDocuments(path)
-            },
-            deep: true,
-            immediate: true,
-        },
+    created() {
+        this.getFolders()
+        this.getDocuments(this.currentFolder?.id || null)
     },
 
     methods: {
@@ -166,18 +221,14 @@ export default {
             this.document.file = null
         },
 
-        openRightClickMenu(event) {
-            this.$refs.rightClickMenu.show(event.originalEvent)
-        },
-
         uploadDocument(event) {
-            event.formData.append('path', this.currentPath)
+            event.formData.append('folder_id', this.currentFolder?.id || null)
             event.xhr.setRequestHeader('Authorization', `Bearer ${this.token}`)
         },
 
-        afterUploadDocument(event) {
+        afterUploadDocument() {
             this.closeNewDocumentDialog()
-            this.getDocuments(this.currentPath)
+            this.getDocuments(this.currentFolder?.id || null)
         },
 
         viewDocument(document) {
@@ -196,13 +247,9 @@ export default {
             window.open(url, '_blank')
         },
 
-        createFolder() {
-            this.makeHttpRequest('POST', '/api/document/folders', { path: this.currentPath, name: this.newFolderName }).then((response) => {
-                this.showNewFolderDialog = false
-                this.newFolderName = ''
-                this.showToast(response.data.message)
-                this.getDocuments(this.currentPath)
-            })
+        editFolderOpenDialog() {
+            this.getFolder(this.currentFolder?.id || null)
+            this.showEditFolderDialog = true
         },
     },
 }
@@ -211,14 +258,5 @@ export default {
 <style scoped>
 .icon-file {
     font-size: 1.5rem;
-}
-
-#documents_table {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 </style>

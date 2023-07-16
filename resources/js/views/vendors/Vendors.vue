@@ -9,13 +9,17 @@
 
             <div id="vendors_table" class="card">
                 <DataTable
+                    v-model:filters="filters"
                     :value="vendors"
                     :loading="loadingData"
                     column-resize-mode="expand"
                     paginator
+                    data-key="id"
+                    filter-display="menu"
                     :rows="10"
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
+                    :global-filter-fields="['name', 'vat_number', 'email']"
                     @row-dblclick="viewVendorNavigation"
                 >
                     <template #empty>
@@ -31,25 +35,61 @@
                         </div>
                     </template>
 
-                    <Column :header="$t('vendor.name_and_tax_number')">
+                    <template #header>
+                        <div class="flex justify-content-end">
+                            <span class="p-input-icon-left">
+                                <i class="pi pi-search" />
+                                <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
+                            </span>
+                        </div>
+                    </template>
+
+                    <Column filed="name" :header="$t('vendor.name')">
                         <template #body="{ data }">
                             <span v-if="data.name"> {{ data.name }}</span>
-                            <br />
-                            <span v-if="data.vat_number"> {{ data.vat_number }}</span>
                         </template>
                     </Column>
 
-                    <Column :header="$t('vendor.email_and_phone')">
+                    <Column field="vat_number" :header="$t('vendor.vat_number')">
+                        <template #body="{ data }">
+                            <span v-if="data.vat_number"> {{ data.vat_number }}</span>
+                        </template>
+
+                        <template #filter="{ filterModel }">
+                            <div class="flex">
+                                <InputText
+                                    v-model="filterModel.value"
+                                    type="text"
+                                    class="p-column-filter"
+                                    placeholder="Search by vat number"
+                                />
+                            </div>
+                        </template>
+                    </Column>
+
+                    <Column field="email" :header="$t('vendor.email_and_phone')">
                         <template #body="{ data }">
                             <span v-if="data.email"> {{ data.email }}</span>
                             <br />
                             <span v-if="data.phone"> {{ data.phone }}</span>
                         </template>
+
+                        <template #filter="{ filterModel }">
+                            <div class="flex">
+                                <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by email" />
+                            </div>
+                        </template>
                     </Column>
 
-                    <Column :header="$t('vendor.country')">
+                    <Column field="country" :header="$t('vendor.country')">
                         <template #body="{ data }">
                             <span v-if="data.country"> {{ formatCountry(data.country) }}</span>
+                        </template>
+
+                        <template #filter="{ filterModel }">
+                            <div class="flex">
+                                <CountrySelect v-model="filterModel.value" class="p-column-filter" label="" />
+                            </div>
                         </template>
                     </Column>
                     <template #paginatorstart>
@@ -64,18 +104,35 @@
 </template>
 
 <script>
+import { FilterMatchMode, FilterOperator } from 'primevue/api'
 import VendorMixin from '@/mixins/vendors'
 export default {
     name: 'VendorsPage',
     mixins: [VendorMixin],
 
+    data() {
+        return {
+            filters: null,
+        }
+    },
+
     created() {
         this.getVendors()
+        this.initFilters()
     },
 
     methods: {
         viewVendorNavigation(event) {
             this.$router.push(`/vendors/${event.data.id}`)
+        },
+
+        initFilters() {
+            this.filters = {
+                global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+                vat_number: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
+                email: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
+                country: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
+            }
         },
     },
 }

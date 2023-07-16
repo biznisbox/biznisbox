@@ -1,0 +1,29 @@
+<?php
+
+if(!file_exists('public/themes/lara-light-blue')){
+    mkdir('public/themes/lara-light-blue', 0777, true);
+}
+
+if(!file_exists('public/themes/lara-dark-blue')){
+    mkdir('public/themes/lara-dark-blue', 0777, true);
+}
+
+fopen('public/themes/lara-light-blue/theme.css', 'w');
+fopen('public/themes/lara-dark-blue/theme.css', 'w');
+
+copy('node_modules/primevue/resources/themes/lara-light-blue/theme.css', 'public/themes/lara-light-blue/theme.css');
+copy('node_modules/primevue/resources/themes/lara-dark-blue/theme.css', 'public/themes/lara-dark-blue/theme.css');
+
+$dark = fopen('public/themes/lara-dark-blue/theme.css', 'a');
+$light = fopen('public/themes/lara-light-blue/theme.css', 'a');
+
+$append_dark = "public/lara-dark-blue.css";
+$append_light = "public/lara-light-blue.css";
+
+fwrite($dark, file_get_contents($append_dark));
+fwrite($light, file_get_contents($append_light));
+
+fclose($dark);
+fclose($light);
+
+// Path: deploy_js

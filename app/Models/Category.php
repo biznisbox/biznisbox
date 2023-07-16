@@ -16,6 +16,10 @@ class Category extends Model implements Auditable
 
     protected $fillable = ['name', 'description', 'color', 'module', 'parent_id'];
 
+    protected $appends = ['key', 'label', 'children'];
+
+    protected $hidden = ['name', 'description', 'module', 'parent_id', 'created_at', 'updated_at'];
+
     public function generateTags(): array
     {
         return ['Category'];
@@ -31,9 +35,30 @@ class Category extends Model implements Auditable
         return $this->hasMany(Category::class, 'parent_id')->with('children');
     }
 
-    public function newCategory($data)
+    public function getKeyAttribute()
     {
-        $category = $this->create($data);
+        return $this->attributes['id'];
+    }
+
+    public function getLabelAttribute()
+    {
+        return $this->attributes['name'];
+    }
+
+    public function getChildrenAttribute()
+    {
+        return $this->children()->get();
+    }
+
+    public function createCategory($name, $module, $description = null, $color = null, $parent_id = null)
+    {
+        $category = $this->create([
+            'name' => $name,
+            'description' => $description,
+            'color' => $color,
+            'module' => $module,
+            'parent_id' => $parent_id,
+        ]);
 
         if ($category) {
             return true;
@@ -44,46 +69,30 @@ class Category extends Model implements Auditable
     public function updateCategory($id, $data)
     {
         $category = $this->find($id);
-        $category = $category->update($data);
+        $category = $category->update([
+            'name' => $data['name'] ?? $category->name,
+            'description' => $data['description'] ?? $category->description,
+            'color' => $data['color'] ?? $category->color,
+            'module' => $data['module'] ?? $category->module,
+            'parent_id' => $data['parent_id'] ?? $category->parent_id,
+        ]);
         if ($category) {
             return true;
         }
         return false;
     }
 
-    public function deleteCategory()
+    public function deleteCategory($id)
     {
-        $this->delete();
-    }
-
-    public function getCategories()
-    {
-        $categories = $this->all();
-        activity_log(user_data()->data->id, 'get categories', null, 'App\Models\Category', 'getCategories');
-        return $categories;
-    }
-
-    public function getCategory($id)
-    {
-        $category = $this->find($id);
-        activity_log(user_data()->data->id, 'get category', $id, 'App\Models\Category', 'getCategory');
-        return $category;
+        return $this->where('id', $id)->delete();
     }
 
     public function getCategoriesByModule($module)
     {
-        $categories = $this->where('module', $module)->get();
-        activity_log(user_data()->data->id, 'get categories by module', $module, 'App\Models\Category', 'getCategoriesByModule');
-        return $categories;
-    }
-
-    public function getCategoryArray($module)
-    {
-        $categories = $this->whereNull('parent_id')
-            ->where('module', $module)
-            ->with('children')
+        $categories = $this->where('module', $module)
+            ->whereNull('parent_id')
             ->get();
-        activity_log(user_data()->data->id, 'get category array', $module, 'App\Models\Category', 'getCategoryArray');
+        activity_log(user_data()->data->id, 'get categories by module', $module, 'App\Models\Category', 'getCategoriesByModule');
         return $categories;
     }
 }
