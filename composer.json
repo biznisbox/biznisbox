@@ -35,6 +35,7 @@
         "nordigen/nordigen-php": "^1.1",
         "omnipay/paypal": "^3.0",
         "owen-it/laravel-auditing": "^13.0",
+        "sentry/sentry-laravel": "^3.6",
         "spatie/laravel-permission": "^5.9",
         "stripe/stripe-php": "^10.13"
     },

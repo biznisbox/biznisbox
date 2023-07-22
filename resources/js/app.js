@@ -4,6 +4,7 @@ import { createPinia } from 'pinia'
 import router from '@/router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import * as Sentry from '@sentry/vue'
 import i18n from '@/plugins/i18n'
 import PrimeVue from '@/plugins/primevue'
 import Form from '@/plugins/form'
@@ -16,6 +17,12 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 import '@fortawesome/fontawesome-free/js/all.min.js'
 
 const app = createApp(defineAsyncComponent(() => import('./App.vue')))
+
+Sentry.init({
+    app,
+    dsn: import.meta.env.VITE_SENTRY_DSN_PUBLIC,
+})
+
 const pinia = createPinia()
 app.use(router)
 app.use(pinia)

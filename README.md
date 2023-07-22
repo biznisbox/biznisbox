@@ -28,7 +28,7 @@ BiznisBox is open source invoice management software. It integrates with Stripe 
 -   Transactions
 -   Settings
 -   Users
--   Archive 
+-   Archive
 -   Documents management (Alpha)
 -   Roles
 -   Permissions
