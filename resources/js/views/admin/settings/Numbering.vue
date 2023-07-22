@@ -13,6 +13,7 @@
                         <TextInput v-model="settings.customer_number_format" :label="$t('admin.numbering.customer')" />
                         <TextInput v-model="settings.vendor_number_format" :label="$t('admin.numbering.vendor')" />
                         <TextInput v-model="settings.bill_number_format" :label="$t('admin.numbering.bill')" />
+                        <TextInput v-model="settings.document_number_format" :label="$t('admin.numbering.document')" />
                     </form>
 
                     <div id="function_buttons" class="flex gap-2 justify-content-end">

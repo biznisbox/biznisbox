@@ -12,8 +12,8 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::dropIfExists('documents');
-        Schema::create('documents', function (Blueprint $table) {
+        Schema::dropIfExists('archive');
+        Schema::create('archive', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table
                 ->foreignUuid('category_id')
@@ -43,6 +43,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('documents');
+        Schema::dropIfExists('archive');
     }
 };

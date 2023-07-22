@@ -25,12 +25,7 @@ export default {
 .spinner {
     position: absolute;
     top: 50%;
-    left: 0;
-    right: 0;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    left: 50%;
     z-index: 9999;
 }
 </style>

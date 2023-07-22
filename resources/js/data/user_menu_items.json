@@ -87,6 +87,13 @@
         ]
     },
     {
+        "name": "user_menu_items.archive",
+        "meta": ["archive"],
+        "icon": "fa fa-archive",
+        "permission": "archive",
+        "to": "/archive"
+    },
+    {
         "name": "user_menu_items.documents",
         "meta": ["documents"],
         "icon": "fa fa-file-alt",

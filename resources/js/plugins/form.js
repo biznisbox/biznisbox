@@ -14,6 +14,7 @@ import HeaderActionButton from '@/components/HeaderActionButton.vue'
 import LoadingScreen from '@/components/LoadingScreen.vue'
 import DisplayData from '@/components/DisplayData.vue'
 import DashboardCard from '@/components/DashboardCard.vue'
+import TinyMceEditor from '@/components/form/TinyMceEditor.vue'
 export default {
     install(app) {
         app.component('TextInput', TextInput)
@@ -31,5 +32,6 @@ export default {
         app.component('LoadingScreen', LoadingScreen)
         app.component('DisplayData', DisplayData)
         app.component('DashboardCard', DashboardCard)
+        app.component('TinyMceEditor', TinyMceEditor)
     },
 }

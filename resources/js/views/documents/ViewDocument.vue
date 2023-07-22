@@ -1,26 +1,119 @@
 <template>
     <user-layout>
-        <div id="view_document_page"></div>
+        <div id="view_document_page">
+            <LoadingScreen :blocked="loadingData">
+                <user-header :title="document.name">
+                    <template #actions>
+                        <Button
+                            :label="$t('basic.edit')"
+                            icon="fa fa-edit"
+                            class="p-button-success"
+                            @click="goTo(`/documents/${document.id}/edit`)"
+                        />
+                        <Button
+                            :label="$t('basic.delete')"
+                            icon="fa fa-trash"
+                            class="p-button-danger"
+                            @click="deleteDocumentAsk($route.params.id)"
+                        />
+                        <Button
+                            :label="$t('basic.download')"
+                            icon="fa fa-download"
+                            class="p-button-info"
+                            @click="downloadDocument($route.params.id)"
+                        />
+                    </template>
+                </user-header>
+
+                <div class="card">
+                    <div class="grid">
+                        <div id="number" class="col-12 md:col-4">
+                            <DisplayData :input="$t('document.number')" :value="document.number" />
+                        </div>
+
+                        <div id="name" class="col-12 md:col-4">
+                            <DisplayData :input="$t('document.name')" :value="document.name" />
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <DisplayData :input="$t('document.type')" custom-value>
+                                <Tag severity="info">{{ $t(`document.${document.type}`) }}</Tag>
+                            </DisplayData>
+                        </div>
+                    </div>
+
+                    <div class="grid">
+                        <div class="col-12 md:col-4">
+                            <DisplayData :input="$t('document.status')" custom-value>
+                                <Tag v-if="document.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
+                                <Tag v-if="document.status === 'pending'" severity="info">{{ $t('status.pending') }}</Tag>
+                                <Tag v-if="document.status === 'approved'" severity="success">{{ $t('status.approved') }}</Tag>
+                                <Tag v-if="document.status === 'rejected'" severity="danger">{{ $t('status.rejected') }}</Tag>
+                            </DisplayData>
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <DisplayData :input="$t('document.date')" :value="formatDateTime(document.date)" />
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <DisplayData
+                                :input="$t('document.due_date')"
+                                :value="document.due_date ? formatDateTime(document.due_date) : ''"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="grid">
+                        <div class="col-12 md:col-4">
+                            <DisplayData :input="$t('document.version')" :value="document.version" />
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <DisplayData :input="$t('document.archived')" custom-value>
+                                <Tag v-if="document.archived" severity="success">{{ $t('basic.yes') }}</Tag>
+                                <Tag v-else severity="danger">{{ $t('basic.no') }}</Tag>
+                            </DisplayData>
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <DisplayData :input="$t('document.access')" :value="document.access" custom-value>
+                                <Tag v-if="document.access === 'public'" severity="success">{{ $t('basic.public') }}</Tag>
+                                <Tag v-else-if="document.access === 'private'" severity="danger">{{ $t('basic.private') }}</Tag>
+                                <Tag v-else-if="document.access === 'internal'" severity="info">{{ $t('basic.shared') }}</Tag>
+                            </DisplayData>
+                        </div>
+                    </div>
+                    <div>
+                        <DisplayData :input="$t('document.content')" custom-value>
+                            <div class="grid content">
+                                <div v-html="document.content" class="col-12"></div>
+                            </div>
+                        </DisplayData>
+                    </div>
+                </div>
+
+                <div id="function_buttons" class="flex gap-2 justify-content-end">
+                    <Button :label="$t('basic.close')" icon="fa fa-times" class="p-button-danger" @click="goTo('/documents')" />
+                </div>
+            </LoadingScreen>
+        </div>
     </user-layout>
 </template>
 
 <script>
-import DocumentsMixin from '@/mixins/documents'
+import DocumentMixin from '@/mixins/documents'
 export default {
-    name: 'ViewDocumentPage',
-    mixins: [DocumentsMixin],
-
-    data() {
-        return {
-            document_id: this.$route.params.id,
-            document: null,
-        }
+    name: 'ViewDocument',
+    mixins: [DocumentMixin],
+    created() {
+        this.getDocument(this.$route.params.id)
     },
 
-    created() {
-        this.getDocument(this.document_id)
+    methods: {
+        downloadDocument(id) {
+            window.open(this.document.preview, '_blank')
+        },
     },
 }
 </script>
-
-<style></style>

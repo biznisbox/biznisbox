@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Documents;
+use App\Models\Archive;
 
-class DocumentsController extends Controller
+class ArchiveController extends Controller
 {
-    protected $documentsModel;
+    protected $archiveModel;
 
-    public function __construct(Documents $documentsModel)
+    public function __construct(Archive $archiveModel)
     {
-        $this->documentsModel = $documentsModel;
+        $this->archiveModel = $archiveModel;
     }
 
     public function getDocuments(Request $request)
     {
         $folder_id = $request->folder_id ?? null;
-        $documents = $this->documentsModel->getDocuments($folder_id);
+        $documents = $this->archiveModel->getDocuments($folder_id);
 
         if ($documents) {
             return api_response($documents, __('response.document.get_success'));
@@ -28,7 +28,7 @@ class DocumentsController extends Controller
     public function getDocument(Request $request)
     {
         $document_id = $request->document_id;
-        $document = $this->documentsModel->getDocument($document_id);
+        $document = $this->archiveModel->getDocument($document_id);
 
         if ($document) {
             return api_response($document, __('response.document.get_success'));
@@ -38,7 +38,7 @@ class DocumentsController extends Controller
 
     public function createDocument(Request $request)
     {
-        $document = $this->documentsModel->createDocument($request);
+        $document = $this->archiveModel->createDocument($request);
         if ($document) {
             return api_response($document, __('response.document.create_success'), 201);
         }
@@ -49,7 +49,7 @@ class DocumentsController extends Controller
     {
         $document_id = $request->id;
         $data = $request->all();
-        $document = $this->documentsModel->updateDocument($document_id, $data);
+        $document = $this->archiveModel->updateDocument($document_id, $data);
 
         if ($document) {
             return api_response($document, __('response.document.update_success'));
@@ -60,7 +60,7 @@ class DocumentsController extends Controller
     public function deleteDocument(Request $request)
     {
         $document_id = $request->document_id;
-        $document = $this->documentsModel->deleteDocument($document_id);
+        $document = $this->archiveModel->deleteDocument($document_id);
 
         if ($document) {
             return api_response(null, __('response.document.delete_success'));
@@ -71,7 +71,7 @@ class DocumentsController extends Controller
     public function downloadDocument(Request $request)
     {
         $document_id = $request->document_id;
-        $document = $this->documentsModel->downloadDocument($document_id);
+        $document = $this->archiveModel->downloadDocument($document_id);
 
         if ($document) {
             return $document;
@@ -82,7 +82,7 @@ class DocumentsController extends Controller
     public function previewDocument(Request $request)
     {
         $document_id = $request->document_id;
-        $document = $this->documentsModel->previewDocument($document_id);
+        $document = $this->archiveModel->previewDocument($document_id);
 
         if ($document) {
             return $document;
@@ -93,7 +93,7 @@ class DocumentsController extends Controller
     // Folders operations
     public function getFolders()
     {
-        $folders = $this->documentsModel->getFolders();
+        $folders = $this->archiveModel->getFolders();
 
         if ($folders) {
             return api_response($folders, __('response.folders.get_success'));
@@ -103,7 +103,7 @@ class DocumentsController extends Controller
 
     public function getFolder($id)
     {
-        $folder = $this->documentsModel->getFolder($id);
+        $folder = $this->archiveModel->getFolder($id);
 
         if ($folder) {
             return api_response($folder, __('response.folders.get_success'));
@@ -116,7 +116,7 @@ class DocumentsController extends Controller
     {
         $parent_folder_id = $request->parent_folder_id ?? null;
         $name = $request->name;
-        $folder = $this->documentsModel->createFolder($parent_folder_id, $name);
+        $folder = $this->archiveModel->createFolder($parent_folder_id, $name);
 
         if ($folder) {
             return api_response($folder, __('response.document.create_success'), 201);
@@ -128,7 +128,7 @@ class DocumentsController extends Controller
     {
         $folder_id = $request->id;
         $data = $request->all();
-        $folder = $this->documentsModel->updateFolder($folder_id, $data);
+        $folder = $this->archiveModel->updateFolder($folder_id, $data);
 
         if ($folder) {
             return api_response($folder, __('response.document.update_success'));
@@ -139,7 +139,7 @@ class DocumentsController extends Controller
     public function deleteFolder(Request $request)
     {
         $folder_id = $request->folder_id;
-        $folder = $this->documentsModel->deleteFolder($folder_id);
+        $folder = $this->archiveModel->deleteFolder($folder_id);
 
         if ($folder) {
             return api_response(null, __('response.document.delete_success'));

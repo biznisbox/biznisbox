@@ -70,7 +70,11 @@
         "search_placeholder": "Vnesite iskalni niz ...",
         "copied_to_clipboard": "Kopirano v odložišče",
         "accept": "Sprejmi",
-        "reject": "Zavrni"
+        "reject": "Zavrni",
+        "private": "Zaseben",
+        "public": "Javen",
+        "shared": "V skupni rabi",
+        "internal": "Interen"
     },
     "user_nav_menu": {
         "profile": "Moj račun",
@@ -93,6 +97,7 @@
         "documents": "Dokumenti",
         "calendar": "Koledar",
         "reports": "Poročila",
+        "archive": "Arhiv",
         "admin": "Skrbniška plošča"
     },
     "dashboard": {
@@ -239,7 +244,8 @@
         "converted": "Pretvorjeno",
         "active": "Aktiven",
         "overpaid": "Preplačano",
-        "inactive": "Neaktiven"
+        "inactive": "Neaktiven",
+        "pending": "V teku"
     },
     "customer": {
         "customer": "Stranka | Stranke",
@@ -321,8 +327,8 @@
         "reference": "Referenca",
         "delete_confirm_transaction": "Ali ste prepričani, da želite izbrisati to transakcijo?"
     },
-    "document": {
-        "document": "Dokument | Dokumenti",
+    "archive": {
+        "archive": "Arhiv | Arhivi",
         "new_document": "Nov dokument",
         "edit_document": "Uredi dokument",
         "no_documents": "Ni dokumentov",
@@ -339,8 +345,8 @@
         "folder": "Mapa",
         "no_folders": "Ni map",
         "delete_confirm_document": "Ali ste prepričani, da želite izbrisati ta dokument?",
-        "edit_folder": "Uredni mapa",
-        "delete_confirm_folder": "Are you sure you want to delete this folder?"
+        "edit_folder": "Uredi mapa",
+        "delete_confirm_folder": "Ali ste prepričani, da želite izbrisati to mapo?"
     },
     "bill": {
         "bill": "Račun | Računi",
@@ -426,6 +432,31 @@
         "delete_confirm_vendor": "Ali ste prepričani, da želite izbrisati tega dobavitelja?",
         "vendor_details": "Podrobnosti dobavitelja",
         "bills": "Računi"
+    },
+    "document": {
+        "document": "Dokument | Dokumenti",
+        "new_document": "Nov dokument",
+        "edit_document": "Uredi dokument",
+        "no_documents": "Ni dokumentov",
+        "number": "Številka",
+        "date": "Datum",
+        "name": "Naziv",
+        "notes": "Opombe",
+        "type": "Tip",
+        "status": "Status",
+        "due_date": "Datum zapadlosti",
+        "version": "Verzija",
+        "archived": "Arhivirano",
+        "access": "Dostopnost",
+        "content": "Vsebina",
+        "agreement": "Sporazum",
+        "contract": "Pogodba",
+        "letter": "Pismo",
+        "email": "Email",
+        "policy": "Pravilnik",
+        "other": "Drugo",
+        "create_first_document": "Ustvarite svoj prvi dokument",
+        "delete_confirm_document": "Ali ste prepričani, da želite izbrisati ta dokument?"
     },
     "admin": {
         "menu": {
@@ -572,7 +603,8 @@
             "payment": "Format številke plačila",
             "customer": "Format številke stranke",
             "vendor": "Format številke dobavitelja",
-            "bill": "Format številke računa"
+            "bill": "Format številke računa",
+            "document": "Format številke dokumenta"
         }
     },
     "countries": {

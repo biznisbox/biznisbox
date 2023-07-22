@@ -68,4 +68,13 @@ return [
         'notes' => 'Opombe',
         'total_amount' => 'Skupni znesek',
     ],
+    'document' => [
+        'title' => 'Dokument',
+        'number' => 'Številka dokumenta',
+        'date' => 'Datum',
+        'due_date' => 'Datum zapadlosti',
+        'status' => 'Status',
+        'type' => 'Vrsta',
+        'version' => 'Verzija',
+    ],
 ];

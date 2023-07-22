@@ -61,6 +61,7 @@ return new class extends Migration {
                 'type' => 'string',
                 'is_public' => 1,
             ],
+            ['key' => 'document_number_format', 'value' => '{{TEXT:DOC}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
             ['key' => 'customer_number_format', 'value' => '{{TEXT:CUS}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
             ['key' => 'vendor_number_format', 'value' => '{{TEXT:VEN}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
             ['key' => 'bill_number_format', 'value' => '{{TEXT:BILL}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
