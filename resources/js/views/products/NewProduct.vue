@@ -101,11 +101,18 @@
                     </form>
 
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="goTo('/products')" />
+                        <Button
+                            :label="$t('basic.cancel')"
+                            id="cancel_button"
+                            icon="fa fa-times"
+                            class="p-button-danger"
+                            @click="goTo('/products')"
+                        />
                         <Button
                             :label="$t('basic.save')"
                             :disabled="loadingData"
                             icon="fa fa-floppy-disk"
+                            id="save_button"
                             class="p-button-success"
                             @click="saveProduct"
                         />

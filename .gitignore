@@ -16,3 +16,6 @@ yarn-error.log
 /.idea
 /.vscode
 /.scannerwork
+cypress.env.json
+cypress/screenshots
+cypress/videos

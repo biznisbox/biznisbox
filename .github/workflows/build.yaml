@@ -39,6 +39,9 @@ jobs:
                   rm -rf .prettierignore
                   rm -rf .prettierrc.json
                   rm -rf .jsconfig.json
+                  rm -rf cypress
+                  rm -rf cypress.config.js
+                  rm -rf cypress.env.json
             - name: Zip all files
               run: zip -r production.zip * .[^.]*
             - name: Upload artifacts
