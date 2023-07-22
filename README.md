@@ -15,9 +15,7 @@ BiznisBox is a web application for managing invoices. It is a simple and easy to
 
 ## Features
 
-
 BiznisBox is open source invoice management software. It integrates with Stripe and PayPal for payments. It also integrates with Nordigen for bank account data.
-
 
 -   Dashboard with statistics and charts
 -   Customers
@@ -30,12 +28,18 @@ BiznisBox is open source invoice management software. It integrates with Stripe 
 -   Transactions
 -   Settings
 -   Users
+-   Archive 
+-   Documents management (Alpha)
 -   Roles
 -   Permissions
 
 ## Need help?
 
 If you need help with BiznisBox, please contact us at our email address: [app@biznisbox.com](mailto:app@biznisbox.com). We will be happy to help you. You can also open an issue on GitHub.
+
+## Documentation
+
+Documentation is available at [https://docs.biznisbox.com](https://docs.biznisbox.com).
 
 ## License
 
