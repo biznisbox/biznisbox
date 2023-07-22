@@ -68,4 +68,13 @@ return [
         'notes' => 'Notes',
         'total_amount' => 'Total amount',
     ],
+    'document' => [
+        'title' => 'Document',
+        'number' => 'Document number',
+        'date' => 'Date',
+        'due_date' => 'Due date',
+        'status' => 'Status',
+        'type' => 'Type',
+        'version' => 'Version',
+    ],
 ];

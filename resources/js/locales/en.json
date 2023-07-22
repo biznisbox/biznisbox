@@ -74,7 +74,11 @@
         "search_placeholder": "Search...",
         "copied_to_clipboard": "Copied to clipboard",
         "accept": "Accept",
-        "reject": "Reject"
+        "reject": "Reject",
+        "private": "Private",
+        "public": "Public",
+        "shared": "Shared",
+        "internal": "Internal"
     },
     "user_nav_menu": {
         "profile": "Profile",
@@ -243,7 +247,8 @@
         "converted": "Converted",
         "active": "Active",
         "overpaid": "Overpaid",
-        "inactive": "Inactive"
+        "inactive": "Inactive",
+        "pending": "Pending"
     },
     "customer": {
         "customer": "Customer | Customers",
@@ -433,6 +438,31 @@
         "vendor_details": "Vendor Details",
         "bills": "Bills"
     },
+    "document": {
+        "document": "Document | Documents",
+        "new_document": "New Document",
+        "edit_document": "Edit Document",
+        "no_documents": "No documents found",
+        "number": "Number",
+        "date": "Date",
+        "name": "Name",
+        "notes": "Notes",
+        "type": "Type",
+        "status": "Status",
+        "due_date": "Due Date",
+        "version": "Version",
+        "archived": "Archived",
+        "access": "Access",
+        "content": "Content",
+        "agreement": "Agreement",
+        "contract": "Contract",
+        "letter": "Letter",
+        "email": "Email",
+        "policy": "Policy",
+        "other": "Other",
+        "create_first_document": "Create your first document",
+        "delete_confirm_document": "Are you sure you want to delete this document?"
+    },
     "admin": {
         "menu": {
             "dashboard": "Dashboard",
@@ -578,7 +608,8 @@
             "payment": "Payment number format",
             "customer": "Customer number format",
             "vendor": "Vendor number format",
-            "bill": "Bill number format"
+            "bill": "Bill number format",
+            "document": "Document number format"
         }
     },
     "countries": {

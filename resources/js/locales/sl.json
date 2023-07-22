@@ -70,7 +70,11 @@
         "search_placeholder": "Vnesite iskalni niz ...",
         "copied_to_clipboard": "Kopirano v odložišče",
         "accept": "Sprejmi",
-        "reject": "Zavrni"
+        "reject": "Zavrni",
+        "private": "Zaseben",
+        "public": "Javen",
+        "shared": "V skupni rabi",
+        "internal": "Interen"
     },
     "user_nav_menu": {
         "profile": "Moj račun",
@@ -240,7 +244,8 @@
         "converted": "Pretvorjeno",
         "active": "Aktiven",
         "overpaid": "Preplačano",
-        "inactive": "Neaktiven"
+        "inactive": "Neaktiven",
+        "pending": "V teku"
     },
     "customer": {
         "customer": "Stranka | Stranke",
@@ -428,6 +433,31 @@
         "vendor_details": "Podrobnosti dobavitelja",
         "bills": "Računi"
     },
+    "document": {
+        "document": "Dokument | Dokumenti",
+        "new_document": "Nov dokument",
+        "edit_document": "Uredi dokument",
+        "no_documents": "Ni dokumentov",
+        "number": "Številka",
+        "date": "Datum",
+        "name": "Naziv",
+        "notes": "Opombe",
+        "type": "Tip",
+        "status": "Status",
+        "due_date": "Datum zapadlosti",
+        "version": "Verzija",
+        "archived": "Arhivirano",
+        "access": "Dostopnost",
+        "content": "Vsebina",
+        "agreement": "Sporazum",
+        "contract": "Pogodba",
+        "letter": "Pismo",
+        "email": "Email",
+        "policy": "Pravilnik",
+        "other": "Drugo",
+        "create_first_document": "Ustvarite svoj prvi dokument",
+        "delete_confirm_document": "Ali ste prepričani, da želite izbrisati ta dokument?"
+    },
     "admin": {
         "menu": {
             "dashboard": "Nadzorna plošča",
@@ -573,7 +603,8 @@
             "payment": "Format številke plačila",
             "customer": "Format številke stranke",
             "vendor": "Format številke dobavitelja",
-            "bill": "Format številke računa"
+            "bill": "Format številke računa",
+            "document": "Format številke dokumenta"
         }
     },
     "countries": {

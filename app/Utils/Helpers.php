@@ -223,3 +223,21 @@ if (!function_exists('incrementLastItemNumber')) {
         $number->incrementLastItemNumber($module);
     }
 }
+
+if (!function_exists('formatHTML')) {
+    /**
+     * Function for format html
+     * @param string $html - html
+     * @return string $html - formatted html
+     */
+    function formatHTML($html)
+    {
+        $html = trim($html);
+        $html = str_replace("\n", '', $html);
+        $html = str_replace("\r", '', $html);
+        $html = str_replace("\t", '', $html);
+        $html = stripslashes($html);
+        $html = htmlspecialchars($html);
+        return $html;
+    }
+}
