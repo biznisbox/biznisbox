@@ -1,0 +1,32 @@
+describe('Create New customer', () => {
+    it('should create new customer', () => {
+        cy.login(Cypress.env('USERNAME'), Cypress.env('PASSWORD'))
+        cy.visit('/customers/new')
+        cy.get('input[id="name_input"]').type('Test Customer')
+        cy.get('div[id="select_customer_type"]').click()
+        cy.get('input[id="vat_number_input"]').type('123456789')
+        cy.get('input[id="billing_address_input"]').type('Test Billing Address')
+        cy.get('input[id="billing_city_input"]').type('Test Billing City')
+        cy.get('input[id="billing_zip_input"]').type('12345')
+        cy.get('input[id="shipping_address_input"]').type('Test Shipping Address')
+        cy.get('input[id="shipping_city_input"]').type('Test Shipping City')
+        cy.get('input[id="shipping_zip_input"]').type('12345')
+        cy.get('div[id="function_buttons"] button[id="save_button"]').click()
+        cy.url().should('include', '/customers')
+    })
+
+    it('should not create new customer', () => {
+        cy.login(Cypress.env('USERNAME'), Cypress.env('PASSWORD'))
+        cy.visit('/customers/new')
+        
+        cy.get('input[id="vat_number_input"]').type('123456789')
+        cy.get('input[id="billing_address_input"]').type('Test Billing Address')
+        cy.get('input[id="billing_city_input"]').type('Test Billing City')
+        cy.get('input[id="billing_zip_input"]').type('12345')
+        cy.get('input[id="shipping_address_input"]').type('Test Shipping Address')
+        cy.get('input[id="shipping_city_input"]').type('Test Shipping City')
+        cy.get('input[id="shipping_zip_input"]').type('12345')
+        cy.get('div[id="function_buttons"] button[id="save_button"]').click()
+        cy.url().should('include', '/customers/new')
+    })
+})
