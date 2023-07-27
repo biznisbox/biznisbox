@@ -1,0 +1,13 @@
+.git
+.idea
+.env
+node_modules
+vendor
+public/hot
+storage/logs/**
+storage/app/documents/**
+storage/app/public/**
+storage/clockwork/**
+storage/framework/cache/**
+storage/framework/sessions/**
+storage/framework/views/**
