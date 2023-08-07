@@ -1,6 +1,15 @@
 .git
+.github
 .idea
 .env
+.gitignore
+.gitattributes
+.prettierrc
+.prettierignore
+.eslintrc.js
+.eslintignore
+jsconfig.json
+phpunit.xml
 node_modules
 vendor
 public/hot
