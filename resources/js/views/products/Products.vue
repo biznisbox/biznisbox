@@ -33,14 +33,6 @@
                             />
                         </div>
                     </template>
-                    <template #header>
-                        <div class="flex justify-content-end">
-                            <span class="p-input-icon-left">
-                                <i class="pi pi-search" />
-                                <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
-                            </span>
-                        </div>
-                    </template>
 
                     <Column field="name" :header="$t('product.name')" sortable>
                         <template #body="{ data }">
@@ -131,7 +123,6 @@ export default {
 
         initFilters() {
             this.filters = {
-                global: { value: null, matchMode: FilterMatchMode.CONTAINS },
                 name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 sell_price: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 buy_price: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },

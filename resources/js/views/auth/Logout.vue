@@ -1,6 +1,8 @@
 <template>
     <div>
-        <h1>{{ $t('auth.logout') }}</h1>
+        <LoadingScreen blocked>
+            <h1>{{ $t('auth.logout') }}</h1>
+        </LoadingScreen>
     </div>
 </template>
 
@@ -16,10 +18,6 @@ export default {
                 .then((res) => {
                     this.showToast(res.data.message)
                 })
-                .catch((err) => {
-                    console.log(err)
-                    this.showToast(err.response.data.message, '', 'error')
-                })
                 .finally(() => {
                     sessionStorage.removeItem('token')
                     this.$router.push({ name: 'AuthLogin' })
@@ -28,5 +26,3 @@ export default {
     },
 }
 </script>
-
-<style></style>

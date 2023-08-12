@@ -14,7 +14,6 @@
                                     :label="$t('auth.password')"
                                     type="password"
                                     :validate="v$.form.password"
-                                    :show-errors="formShowErrors"
                                 />
 
                                 <TextInput
@@ -23,7 +22,6 @@
                                     :label="$t('auth.password_confirmation')"
                                     type="password"
                                     :validate="v$.form.password_confirmation"
-                                    :show-errors="formShowErrors"
                                 />
                             </div>
                             <Button
@@ -77,20 +75,16 @@ export default {
     },
 
     methods: {
-        async setNewPassword() {
-            this.formShowErrors = true
-            const isValid = await this.v$.$validate()
-            if (!isValid) {
-                return
+        setNewPassword() {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
             }
-            this.makeHttpRequest('POST', '/api/auth/set_new_password', this.form)
-                .then((response) => {
-                    this.showToast(response.data.message)
-                    this.$router.push({ name: 'AuthLogin' })
-                })
-                .catch((error) => {
-                    this.showToast(error.response.data.message, '', 'error')
-                })
+
+            this.makeHttpRequest('POST', '/api/auth/set_new_password', this.form).then((response) => {
+                this.showToast(response.data.message)
+                this.$router.push({ name: 'AuthLogin' })
+            })
         },
     },
 }

@@ -3,25 +3,27 @@
         <label :for="id" class="block text-900 font-medium mb-1"> {{ label }} </label>
         <SelectButton
             :id="id"
+            :name="id"
             :model-value="modelValue"
             :options="options"
             :option-value="optionValue"
             :option-label="optionLabel"
             :validate="validate"
-            :show-errors="showErrors"
             :multiple="multiple"
             :disabled="disabled"
+            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
             @change="updateValue"
+            @blur="validate?.$touch()"
         />
-        <div v-if="validate && showErrors">
-            <div v-if="validate.$invalid" class="p-error">{{ validate.$errors[0].$message }}</div>
+        <div v-if="validate && validate?.$dirty" class="flex flex-column">
+            <div v-for="error in validate.$errors" v-if="validate.$invalid" class="p-error">{{ error.$message }}</div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'TextInputComponent',
+    name: 'SelectButtonInputComponent',
     props: {
         id: {
             type: String,
@@ -38,11 +40,6 @@ export default {
             type: Object,
             required: false,
             default: null,
-        },
-        showErrors: {
-            type: Boolean,
-            required: false,
-            default: false,
         },
         options: {
             type: Array,
@@ -72,5 +69,3 @@ export default {
     },
 }
 </script>
-
-<style></style>

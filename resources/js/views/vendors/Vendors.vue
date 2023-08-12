@@ -35,15 +35,6 @@
                         </div>
                     </template>
 
-                    <template #header>
-                        <div class="flex justify-content-end">
-                            <span class="p-input-icon-left">
-                                <i class="pi pi-search" />
-                                <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
-                            </span>
-                        </div>
-                    </template>
-
                     <Column filed="name" :header="$t('vendor.name')">
                         <template #body="{ data }">
                             <span v-if="data.name"> {{ data.name }}</span>
@@ -73,7 +64,6 @@
                             <br />
                             <span v-if="data.phone"> {{ data.phone }}</span>
                         </template>
-
                         <template #filter="{ filterModel }">
                             <div class="flex">
                                 <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by email" />
@@ -128,7 +118,6 @@ export default {
 
         initFilters() {
             this.filters = {
-                global: { value: null, matchMode: FilterMatchMode.CONTAINS },
                 vat_number: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 email: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 country: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },

@@ -144,7 +144,6 @@ export default {
 
         initFilters() {
             this.filters = {
-                global: { value: null, matchMode: FilterMatchMode.CONTAINS },
                 number: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 date: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 total: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },

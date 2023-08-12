@@ -7,7 +7,13 @@
                 <div class="card">
                     <form class="formgrid">
                         <div class="grid">
-                            <TextInput id="name_input" v-model="transaction.name" :label="$t('transaction.name')" class="col-12" />
+                            <TextInput
+                                id="name_input"
+                                v-model="v$.transaction.name.$model"
+                                :label="$t('transaction.name')"
+                                class="col-12"
+                                :validate="v$.transaction.name"
+                            />
                         </div>
                         <div class="grid">
                             <TextInput
@@ -151,7 +157,7 @@
                             :disabled="loadingData"
                             icon="fa fa-floppy-disk"
                             class="p-button-success"
-                            @click="updateTransaction"
+                            @click="validateForm"
                         />
                     </div>
                 </div>
@@ -161,10 +167,21 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core'
 import TransactionsMixin from '@/mixins/transactions'
 export default {
     name: 'EditTransactionPage',
     mixins: [TransactionsMixin],
+    setup: () => ({ v$: useVuelidate() }),
+
+    validations() {
+        return {
+            transaction: {
+                name: { required },
+            },
+        }
+    },
 
     created() {
         this.transaction.currency = this.$settings.default_currency
@@ -172,6 +189,17 @@ export default {
         this.getCustomers()
         this.getTransaction(this.$route.params.id)
         this.getVendors()
+    },
+
+    methods: {
+        validateForm() {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+
+            return this.updateTransaction()
+        },
     },
 }
 </script>

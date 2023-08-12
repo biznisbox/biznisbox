@@ -33,6 +33,7 @@
                             <DisplayData :input="$t('customer.website')" :value="customer.website" is-link />
                             <DisplayData :input="$t('customer.language')" :value="customer.language" />
                             <DisplayData
+                                v-if="customer.email !== null"
                                 :input="$t('customer.email')"
                                 :value="`${customer.email}`"
                                 :link="`mailto:${customer.email}`"

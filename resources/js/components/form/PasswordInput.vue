@@ -3,19 +3,21 @@
         <label :for="id" class="block text-900 font-medium mb-1"> {{ label }} </label>
         <Password
             :id="id"
+            :name="id"
             :model-value="modelValue"
             :validate="validate"
-            :show-errors="showErrors"
             :disabled="disabled"
             :placeholder="placeholder"
             input-class="w-full"
             :feedback="feedback"
             :toggle-mask="true"
             :input-id="id"
+            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
             @input="updateValue"
+            @blur="validate?.$touch()"
         />
-        <div v-if="validate && showErrors">
-            <div v-if="validate.$invalid" class="p-error">{{ validate.$errors[0]?.$message }}</div>
+        <div v-if="validate && validate?.$dirty" class="flex flex-column">
+            <div v-for="error in validate.$errors" v-if="validate.$invalid" class="p-error">{{ error.$message }}</div>
         </div>
     </div>
 </template>
@@ -36,11 +38,6 @@ export default {
             type: Object,
             required: false,
             default: null,
-        },
-        showErrors: {
-            type: Boolean,
-            required: false,
-            default: false,
         },
         disabled: {
             type: Boolean,
@@ -70,5 +67,3 @@ export default {
     },
 }
 </script>
-
-<style></style>

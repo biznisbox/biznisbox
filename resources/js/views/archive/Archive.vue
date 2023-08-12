@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="col-12 md:col-8">
-                        <!-- Documents table -->
+                        <!-- Archive table -->
                         <DataTable
                             :value="documents"
                             :loading="loadingData"
@@ -98,7 +98,9 @@
             <!-- New document dialog -->
             <div class="mt-4">
                 <Dialog v-model:visible="showNewDocumentDialog" :header="$t('archive.new_document')" modal>
-                    <FileUpload name="file" url="/api/archive/documents" @before-send="uploadDocument" @upload="afterUploadDocument" />
+                    <div class="my-2">
+                        <FileUpload name="file" url="/api/archive/documents" @before-send="uploadDocument" @upload="afterUploadDocument" />
+                    </div>
                     <template #footer>
                         <div id="function_buttons" class="flex gap-2 justify-content-end">
                             <Button
@@ -132,7 +134,6 @@
             </div>
 
             <!-- Sidebar for file -->
-
             <!-- prettier-ignore-attribute -->
             <Sidebar v-model:visible="sidebarFileShow" position="right" @hide="sidebarFileShow = false; editDocument = false;">
                 <LoadingScreen :blocked="loadingData">

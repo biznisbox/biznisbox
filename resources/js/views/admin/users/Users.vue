@@ -18,7 +18,6 @@
                     :rows="10"
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
-                    :global-filter-fields="['name', 'email']"
                     @row-dblclick="viewUserNavigation"
                 >
                     <template #empty>
@@ -34,14 +33,6 @@
                         </div>
                     </template>
 
-                    <template #header>
-                        <div class="flex justify-content-end">
-                            <span class="p-input-icon-left">
-                                <i class="pi pi-search" />
-                                <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
-                            </span>
-                        </div>
-                    </template>
                     <Column field="name" :header="$t('admin.user.name')" sortable>
                         <template #body="{ data }">
                             {{ data.first_name + ' ' + data.last_name }}
@@ -128,7 +119,6 @@ export default {
 
         initFilters() {
             this.filters = {
-                global: { value: null, matchMode: FilterMatchMode.CONTAINS },
                 name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 email: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 active: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },

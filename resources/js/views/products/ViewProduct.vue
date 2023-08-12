@@ -21,107 +21,52 @@
 
                 <div id="product_data" class="card">
                     <div class="grid">
-                        <SelectButtonInput
-                            id="select_product_type"
-                            v-model="product.type"
-                            class="field col-12 md:col-4"
-                            :label="$t('product.product_type')"
-                            :options="[
-                                { label: $t('product.product'), value: 'product' },
-                                { label: $t('product.service'), value: 'service' },
-                            ]"
-                            disabled
-                        />
+                        <DisplayData class="col-12" :input="$t('product.product_type')" custom-value>
+                            <Tag :value="$t('product.' + product.type)" />
+                        </DisplayData>
                     </div>
 
                     <!-- Product price -->
                     <div class="grid">
-                        <NumberInput
-                            id="sell_price_input"
-                            v-model="product.sell_price"
-                            class="field col-12 md:col-4"
-                            :label="$t('product.sell_price')"
-                            type="currency"
-                            disabled
-                        ></NumberInput>
-
-                        <NumberInput
-                            id="buy_price_input"
-                            v-model="product.buy_price"
-                            class="field col-12 md:col-4"
-                            :label="$t('product.buy_price')"
-                            type="currency"
-                            disabled
-                        ></NumberInput>
-
-                        <SelectInput
-                            id="select_unit"
-                            v-model="product.unit"
-                            class="field col-12 md:col-4"
-                            :options="units"
-                            :label="$t('product.unit')"
-                            option-value="name"
-                            option-label="name"
-                            disabled
+                        <DisplayData
+                            class="col-12 md:col-4"
+                            :input="$t('product.sell_price')"
+                            :value="product.sell_price + ' ' + $settings.default_currency"
                         />
+                        <DisplayData
+                            class="col-12 md:col-4"
+                            :input="$t('product.buy_price')"
+                            :value="product.buy_price + ' ' + $settings.default_currency"
+                        />
+                        <DisplayData class="col-12 md:col-4" :input="$t('product.unit')" :value="product.unit" />
                     </div>
                     <!-- Product taxes -->
-                    <SelectInput
-                        id="select_product_tax"
-                        v-model="product.tax"
-                        class="field"
-                        :label="$t('product.tax')"
-                        :options="taxes"
-                        option-label="name"
-                        option-value="value"
-                        disabled
-                    />
-
+                    <div class="grid">
+                        <DisplayData class="col-12" :input="$t('product.tax')" :value="product.tax + '%'" />
+                    </div>
                     <!-- Stock -->
                     <div v-if="product.type == 'product'" class="grid">
-                        <NumberInput
-                            id="stock_input"
-                            v-model="product.stock"
-                            class="field col-12 md:col-4"
-                            :label="$t('product.stock')"
-                            type="items"
-                            disabled
-                        ></NumberInput>
-
-                        <NumberInput
-                            id="min_stock_input"
-                            v-model="product.stock_min"
-                            class="field col-12 md:col-4"
-                            :label="$t('product.min_stock')"
-                            type="items"
-                            disabled
-                        ></NumberInput>
-
-                        <NumberInput
-                            id="max_stock_input"
-                            v-model="product.stock_max"
-                            class="field col-12 md:col-4"
-                            :label="$t('product.max_stock')"
-                            type="items"
-                            disabled
-                        ></NumberInput>
+                        <DisplayData class="col-12 md:col-4" :input="$t('product.stock')" :value="product.stock" />
+                        <DisplayData class="col-12 md:col-4" :input="$t('product.min_stock')" :value="product.stock_min" />
+                        <DisplayData class="col-12 md:col-4" :input="$t('product.max_stock')" :value="product.stock_max" />
                     </div>
 
                     <!-- Barcode input -->
-                    <TextInput id="barcode_input" v-model="product.barcode" :label="$t('product.barcode')" disabled></TextInput>
+                    <div class="grid">
+                        <DisplayData class="col-12" :input="$t('product.barcode')" :value="product.barcode" />
+                    </div>
 
                     <!-- Product description -->
-                    <EditorInput
-                        id="description_editor"
-                        v-model="product.description"
-                        readonly
-                        :label="$t('product.description')"
-                        class="product-text-editor"
-                    />
+                    <div class="grid">
+                        <DisplayData class="col-12" :input="$t('product.description')" custom-value>
+                            <span v-html="product.description"></span>
+                        </DisplayData>
+                    </div>
+
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
                         <Button
-                            :label="$t('basic.cancel')"
                             id="cancel_button"
+                            :label="$t('basic.cancel')"
                             icon="fa fa-times"
                             class="p-button-danger"
                             @click="goTo('/products')"

@@ -10,9 +10,10 @@
                             <div class="col-12 md:col-6">
                                 <TextInput
                                     id="input_first_name"
-                                    v-model="user.first_name"
+                                    v-model="v$.user.first_name.$model"
                                     :label="$t('admin.user.first_name')"
-                                    placeholder="First Name"
+                                    :placeholder="$t('admin.user.first_name')"
+                                    :validate="v$.user.first_name"
                                 />
                             </div>
 
@@ -30,16 +31,23 @@
                             <div class="col-12 md:col-4">
                                 <SelectButtonInput
                                     id="input_active"
-                                    v-model="user.active"
+                                    v-model="v$.user.active.$model"
                                     :label="$t('admin.user.active')"
                                     :options="[
                                         { value: true, label: $t('basic.yes') },
                                         { value: false, label: $t('basic.no') },
                                     ]"
+                                    :validate="v$.user.active"
                                 />
                             </div>
                             <div class="col-12 md:col-8">
-                                <TextInput id="input_email" v-model="user.email" :label="$t('admin.user.email')" placeholder="Email" />
+                                <TextInput
+                                    id="input_email"
+                                    v-model="v$.user.email.$model"
+                                    :label="$t('admin.user.email')"
+                                    placeholder="Email"
+                                    :validate="v$.user.email"
+                                />
                             </div>
                         </div>
 
@@ -60,11 +68,12 @@
                             <div class="col-12">
                                 <SelectInput
                                     id="input_role"
-                                    v-model="user.role"
+                                    v-model="v$.user.role.$model"
                                     :label="$t('admin.user.role')"
                                     :options="roles"
                                     option-label="display_name"
                                     option-value="name"
+                                    :validate="v$.user.role"
                                 />
                             </div>
                         </div>
@@ -76,12 +85,7 @@
                             class="p-button-danger"
                             @click="goTo('/admin/users/' + $route.params.id)"
                         />
-                        <Button
-                            :label="$t('basic.save')"
-                            icon="fa fa-floppy-disk"
-                            class="p-button-success"
-                            @click="updateUser($route.params.id)"
-                        />
+                        <Button :label="$t('basic.save')" icon="fa fa-floppy-disk" class="p-button-success" @click="validateForm" />
                     </div>
                 </div>
             </LoadingScreen>
@@ -90,14 +94,38 @@
 </template>
 
 <script>
+import { useVuelidate } from '@vuelidate/core'
+import { email, required } from '@vuelidate/validators'
 import AdminUserMixin from '@/mixins/admin/users'
 export default {
     name: 'AdminEditUserPage',
     mixins: [AdminUserMixin],
-
+    setup: () => ({ v$: useVuelidate() }),
     created() {
         this.getRoles()
         this.getUser(this.$route.params.id)
+    },
+    validations() {
+        return {
+            user: {
+                first_name: { required },
+                email: { required, email },
+                role: { required },
+                active: { required },
+                password: { required },
+            },
+        }
+    },
+
+    methods: {
+        validateForm() {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+
+            return this.updateUser(this.$route.params.id)
+        },
     },
 }
 </script>

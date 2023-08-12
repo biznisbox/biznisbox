@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-column mb-1">
         <label :for="id" class="block text-900 font-medium mb-1"> {{ label }} </label>
-        <Editor ref="editor" :init="init" :id="id" v-model="contentValue" model-events="change keydown blur focus paste" />
+        <Editor :id="id" ref="editor" v-model="contentValue" :init="init" model-events="change keydown blur focus paste" />
     </div>
 </template>
 
@@ -32,7 +32,7 @@ import 'tinymce/plugins/charmap/plugin'
 import Editor from '@tinymce/tinymce-vue'
 
 export default {
-    name: 'TinyMceEditor',
+    name: 'TinyMceEditorComponent',
     components: {
         Editor,
     },
@@ -54,19 +54,15 @@ export default {
             required: false,
             default: null,
         },
-        showErrors: {
-            type: Boolean,
-            required: false,
-            default: false,
-        },
         disabled: {
             type: Boolean,
             default: false,
         },
-    },
-
-    mounted() {
-        tinymce.init(this.init)
+        toolbar: {
+            type: String,
+            default:
+                'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect fontsizeselect formatselect |forecolor backcolor removeformat | charmap |  bullist numlist outdent indent | link image table | wordcount',
+        },
     },
 
     data() {
@@ -78,8 +74,7 @@ export default {
                 content_style: contentUiCss,
                 branding: false,
                 plugins: 'lists link image table wordcount advlist autolink lists link anchor charmap',
-                toolbar:
-                    'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect fontsizeselect formatselect |forecolor backcolor removeformat | charmap |  bullist numlist outdent indent | link image table | wordcount',
+                toolbar: this.toolbar,
                 menubar: false,
                 statusbar: false,
                 paste_data_images: true,
@@ -99,6 +94,10 @@ export default {
         contentValue: function (value) {
             this.$emit('update:modelValue', value)
         },
+    },
+
+    mounted() {
+        tinymce.init(this.init)
     },
 }
 </script>

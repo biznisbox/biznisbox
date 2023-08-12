@@ -6,12 +6,18 @@
                 <div class="card">
                     <form class="formgrid">
                         <div class="grid">
-                            <TextInput id="number_input" v-model="invoice.number" class="field col-12 md:col-6" label="Number" />
+                            <TextInput
+                                id="number_input"
+                                v-model="v$.invoice.number.$model"
+                                class="field col-12 md:col-6"
+                                :label="$t('invoice.invoice_number')"
+                                :validate="v$.invoice.number"
+                            />
                             <SelectInput
                                 id="status_input"
-                                v-model="invoice.status"
+                                v-model="v$.invoice.status.$model"
                                 class="field col-12 md:col-6"
-                                :label="$t('invoice.status')"
+                                label="Status"
                                 :options="[
                                     { label: $t('status.draft'), value: 'draft' },
                                     { label: $t('status.sent'), value: 'sent' },
@@ -22,6 +28,7 @@
                                     { label: $t('status.refunded'), value: 'refunded' },
                                     { label: $t('status.unpaid'), value: 'unpaid' },
                                 ]"
+                                :validate="v$.invoice.status"
                             />
                         </div>
 
@@ -42,21 +49,28 @@
                                 v-model="invoice.payer_id"
                                 class="field col-12 md:col-6"
                                 :label="$t('invoice.payer')"
-                                :options="customers"
-                                option-value="id"
                                 filter
                                 show-clear
+                                :options="customers"
+                                option-value="id"
                                 option-label="name"
                             />
                         </div>
 
                         <div class="grid">
-                            <DateInput id="date_input" v-model="invoice.date" class="field col-12 md:col-4" :label="$t('invoice.date')" />
+                            <DateInput
+                                id="date_input"
+                                v-model="v$.invoice.date.$model"
+                                class="field col-12 md:col-4"
+                                :label="$t('invoice.date')"
+                                :validate="v$.invoice.date"
+                            />
                             <DateInput
                                 id="due_date_input"
-                                v-model="invoice.due_date"
+                                v-model="v$.invoice.due_date.$model"
                                 class="field col-12 md:col-4"
                                 :label="$t('invoice.due_date')"
+                                :validate="v$.invoice.due_date"
                             />
                             <SelectInput
                                 id="currency_input"
@@ -166,7 +180,13 @@
 
                         <div class="grid">
                             <div class="field col-12 md:col-6">
-                                <EditorInput id="notes_input" v-model="invoice.notes" :label="$t('invoice.notes')" />
+                                <TinyMceEditor
+                                    id="notes_input"
+                                    v-model="invoice.notes"
+                                    :label="$t('invoice.notes')"
+                                    toolbar=" bold italic underline"
+                                    style="height: 200px"
+                                />
                             </div>
                             <div class="field col-12 md:col-6">
                                 <InputNumber
@@ -179,10 +199,11 @@
                                 />
                                 <InputNumber
                                     id="total_input"
-                                    v-model="invoice.total"
+                                    v-model="v$.invoice.total.$model"
                                     class="field col-12"
                                     :label="$t('invoice.total')"
-                                    :disabled="true"
+                                    disabled
+                                    :validate="v$.invoice.total"
                                     mode="currency"
                                     :currency="invoice.currency"
                                 />
@@ -197,7 +218,7 @@
                             :disabled="loadingData"
                             icon="fa fa-floppy-disk"
                             class="p-button-success"
-                            @click="saveInvoice"
+                            @click="validateForm"
                         />
                     </div>
                 </div>
@@ -207,17 +228,40 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core'
 import InvoiceMixin from '@/mixins/invoices'
 export default {
     name: 'NewInvoicePage',
     mixins: [InvoiceMixin],
+    setup: () => ({ v$: useVuelidate() }),
     created() {
         this.getCustomers()
         this.getProducts()
         this.getInvoiceNumber()
     },
 
+    validations() {
+        return {
+            invoice: {
+                number: { required },
+                date: { required },
+                due_date: { required },
+                status: { required },
+                total: { required },
+            },
+        }
+    },
+
     methods: {
+        validateForm() {
+            this.v$.$validate()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+            return this.saveInvoice()
+        },
+
         selectItem(index) {
             this.invoice.items[index].product_id = this.invoice.items[index].item.id
             this.invoice.items[index].type = this.invoice.items[index].item.type

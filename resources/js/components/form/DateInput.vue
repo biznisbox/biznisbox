@@ -3,9 +3,9 @@
         <label :for="id" class="block text-900 font-medium mb-1"> {{ label }} </label>
         <Calendar
             :id="id"
+            :name="id"
             :model-value="modelValue"
             :validate="validate"
-            :show-errors="showErrors"
             :disabled="disabled"
             :placeholder="placeholder"
             :min-date="minDate"
@@ -13,10 +13,12 @@
             :show-time="showTime"
             :hour-format="hourFormat"
             :date-format="dateFormat"
+            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
             @date-select="updateValue"
+            @blur="validate?.$touch()"
         />
-        <div v-if="validate && showErrors">
-            <div v-if="validate.$invalid" class="p-error">{{ validate.$errors[0].$message }}</div>
+        <div v-if="validate && validate?.$dirty" class="flex flex-column">
+            <div v-for="error in validate.$errors" v-if="validate.$invalid" class="p-error">{{ error.$message }}</div>
         </div>
     </div>
 </template>
@@ -40,11 +42,6 @@ export default {
             type: Object,
             required: false,
             default: null,
-        },
-        showErrors: {
-            type: Boolean,
-            required: false,
-            default: false,
         },
         disabled: {
             type: Boolean,
@@ -82,5 +79,3 @@ export default {
     },
 }
 </script>
-
-<style></style>

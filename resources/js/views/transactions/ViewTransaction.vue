@@ -16,9 +16,7 @@
 
                 <div class="card">
                     <DisplayData :input="$t('transaction.amount')" :value="transaction.amount + ' ' + transaction.currency" />
-
                     <DisplayData :input="$t('transaction.date')" :value="formatDate(transaction.date)" />
-
                     <DisplayData :input="$t('transaction.type')" custom-value>
                         <Tag v-if="transaction.type === 'income'" :value="$t('transaction.income')" class="p-tag-success" />
                         <Tag v-if="transaction.type === 'expense'" :value="$t('transaction.expense')" class="p-tag-danger" />

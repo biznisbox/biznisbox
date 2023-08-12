@@ -15,14 +15,21 @@
 
                 <div class="card">
                     <form class="formgrid">
-                        <TextInput id="input_name" v-model="role.name" :label="$t('admin.role.name')" placeholder="Name" />
+                        <TextInput
+                            id="input_name"
+                            v-model="v$.role.name.$model"
+                            :label="$t('admin.role.name')"
+                            :placeholder="$t('admin.role.name')"
+                            :validate="v$.role.name"
+                        />
 
                         <TextAreaInput
                             id="input_description"
-                            v-model="role.description"
+                            v-model="v$.role.description.$model"
                             class="w-full"
                             :label="$t('admin.role.description')"
                             :placeholder="$t('admin.role.description')"
+                            :validate="v$.role.description"
                         />
 
                         <div id="permissions" class="my-2">
@@ -42,7 +49,7 @@
                             icon="fa fa-floppy-disk"
                             class="p-button-success"
                             :disabled="role.name == 'Super Admin'"
-                            @click="updateRole($route.params.id)"
+                            @click="validateForm"
                         />
                     </div>
                 </div>
@@ -52,15 +59,36 @@
 </template>
 
 <script>
+import { useVuelidate } from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
 import RoleMixin from '@/mixins/admin/roles'
 export default {
     name: 'AdminEditRolePage',
     mixins: [RoleMixin],
-
+    setup: () => ({ v$: useVuelidate() }),
     created() {
         this.getPermissions()
         this.getRole(this.$route.params.id)
         this.role.name = this.role.display_name
+    },
+    validations() {
+        return {
+            role: {
+                name: { required },
+                description: { required },
+            },
+        }
+    },
+
+    methods: {
+        validateForm() {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+
+            return this.updateRole(this.$route.params.id)
+        },
     },
 }
 </script>

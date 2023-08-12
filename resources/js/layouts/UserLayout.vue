@@ -1,5 +1,5 @@
 <template>
-    <div id="user_layout" class="mb-3">
+    <div id="user_layout">
         <Toolbar class="toolbar">
             <template #start>
                 <Button icon="pi pi-bars" class="p-button-rounded p-button-text" @click="toggleMenu" />
@@ -37,7 +37,7 @@
             </div>
         </Sidebar>
 
-        <div class="mx-3 mt-3">
+        <div class="m-2">
             <slot></slot>
         </div>
     </div>

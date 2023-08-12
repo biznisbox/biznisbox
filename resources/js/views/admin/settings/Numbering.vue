@@ -1,6 +1,6 @@
 <template>
     <admin-layout>
-        <div id="admin_settings_general_page">
+        <div id="admin_settings_numbering_page">
             <LoadingScreen :blocked="loadingData">
                 <user-header :title="$t('admin.numbering.title')" />
 
@@ -29,12 +29,8 @@
 <script>
 import SettingsMixin from '@/mixins/admin/settings'
 export default {
-    name: 'AdminSettingsGeneral',
+    name: 'AdminSettingsNumberingPage',
     mixins: [SettingsMixin],
-
-    data() {
-        return {}
-    },
     created() {
         this.getSettings()
     },

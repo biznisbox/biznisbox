@@ -17,9 +17,10 @@
                     <div class="grid">
                         <TextInput
                             id="title_input"
-                            v-model="event.title"
+                            v-model="v$.event.title.$model"
                             class="field col-12 md:col-10"
                             :label="$t('calendar.event_title')"
+                            :validate="v$.event.title"
                         ></TextInput>
                         <ColorPicker v-model="event.color" class="field col-12 md:col-2"></ColorPicker>
                     </div>
@@ -103,7 +104,7 @@
                             icon="fa fa-floppy-disk"
                             :disabled="loadingData"
                             class="p-button-success"
-                            @click="dialogSaveEvent"
+                            @click="validateForm('create')"
                         />
                     </div>
                 </template>
@@ -116,9 +117,10 @@
                         <div class="grid">
                             <TextInput
                                 id="title_input"
-                                v-model="event.title"
+                                v-model="v$.event.title.$model"
                                 class="field col-12 md:col-10"
                                 :label="$t('calendar.event_title')"
+                                :validate="v$.event.title"
                             ></TextInput>
                             <ColorPicker v-model="event.color" class="field col-12 md:col-2"></ColorPicker>
                         </div>
@@ -208,7 +210,7 @@
                             :disabled="loadingData"
                             icon="fa fa-floppy-disk"
                             class="p-button-success"
-                            @click="dialogUpdateEvent"
+                            @click="validateForm('update')"
                         />
                     </div>
                 </template>
@@ -218,6 +220,8 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
@@ -229,6 +233,15 @@ import axios from 'axios'
 export default {
     name: 'CalendarPage',
     mixins: [CalendarMixin],
+    setup: () => ({ v$: useVuelidate() }),
+
+    validations() {
+        return {
+            event: {
+                title: { required },
+            },
+        }
+    },
     data() {
         return {
             calendarOptions: {
@@ -262,6 +275,7 @@ export default {
                             successCallback(response.data.data)
                         })
                         .catch((error) => {
+                            this.showToast(this.$t('basic.error'), this.$t('basic.error'), 'error')
                             failureCallback(error)
                         })
                 },
@@ -305,6 +319,7 @@ export default {
         },
 
         clearEvent() {
+            this.v$.$reset()
             this.event = {
                 title: '',
                 start: '',
@@ -320,6 +335,7 @@ export default {
 
         setEvent(event, type = 'date_click') {
             if (type === 'date_click') {
+                this.v$.$reset()
                 this.event = {
                     title: '',
                     start: event.date,
@@ -332,6 +348,7 @@ export default {
                     description: '',
                 }
             } else {
+                this.v$.$reset()
                 this.event = {
                     title: '',
                     start: event.start,
@@ -343,6 +360,22 @@ export default {
                     status: 'confirmed',
                     description: '',
                 }
+            }
+        },
+
+        validateForm(fun) {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+
+            if (fun == 'create') {
+                this.v$.$reset()
+                return this.dialogSaveEvent()
+            }
+            if (fun == 'update') {
+                this.v$.$reset()
+                return this.dialogUpdateEvent(this.event.id)
             }
         },
     },

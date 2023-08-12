@@ -41,7 +41,7 @@
                     <div id="char_current_month" class="col-12 md:col-6">
                         <div class="card">
                             <DisplayData :input="$t('dashboard.current_month_income_expense_chart')" custom-value>
-                                <Chart :data="data.current_month_income_expense_char" type="doughnut" :height="30" />
+                                <Chart :data="data.current_month_income_expense_char" type="pie" :height="100" />
                             </DisplayData>
                         </div>
                     </div>

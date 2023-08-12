@@ -7,16 +7,23 @@
                 <div class="card">
                     <form class="formgrid">
                         <div class="grid">
-                            <TextInput id="name_input" v-model="customer.name" class="field col-12 md:col-6" label="Name"></TextInput>
+                            <TextInput
+                                id="name_input"
+                                v-model="v$.customer.name.$model"
+                                class="field col-12 md:col-6"
+                                :label="$t('customer.name')"
+                                :validate="v$.customer.name"
+                            ></TextInput>
                             <SelectButtonInput
                                 id="select_customer_type"
-                                v-model="customer.type"
+                                v-model="v$.customer.type.$model"
                                 class="field col-12 md:col-6"
                                 :label="$t('customer.type')"
                                 :options="[
                                     { label: $t('customer.individual'), value: 'individual' },
                                     { label: $t('customer.company'), value: 'company' },
                                 ]"
+                                :validate="v$.customer.type"
                             />
                         </div>
 
@@ -86,9 +93,10 @@
                         <div class="grid">
                             <TextInput
                                 id="email_input"
-                                v-model="customer.email"
+                                v-model="v$.customer.email.$model"
                                 class="col-12 md:col-4"
                                 :label="$t('customer.email')"
+                                :validate="v$.customer.email"
                             ></TextInput>
                             <TextInput
                                 id="phone_input"
@@ -96,12 +104,12 @@
                                 class="col-12 md:col-4"
                                 :label="$t('customer.phone')"
                             ></TextInput>
-
                             <TextInput
                                 id="website_input"
-                                v-model="customer.website"
+                                v-model="v$.customer.website.$model"
                                 class="col-12 md:col-4"
                                 :label="$t('customer.website')"
+                                :validate="v$.customer.website"
                             ></TextInput>
                         </div>
 
@@ -134,12 +142,36 @@
 </template>
 
 <script>
+import { required, email, url } from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core'
 import CustomerMixin from '@/mixins/customers'
 export default {
     name: 'EditCustomerPage',
     mixins: [CustomerMixin],
+    setup: () => ({ v$: useVuelidate() }),
     created() {
         this.getCustomer(this.$route.params.id)
+    },
+
+    validations() {
+        return {
+            customer: {
+                name: { required },
+                type: { required },
+                email: { email },
+                website: { url },
+            },
+        }
+    },
+
+    methods: {
+        validateForm() {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+            return this.updateCustomer(this.$route.params.id)
+        },
     },
 }
 </script>

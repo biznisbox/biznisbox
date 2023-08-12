@@ -17,7 +17,6 @@
                                 <Button class="mt-3" :label="$t('admin.taxes.create_first_tax')" icon="fa fa-plus" @click="newTaxDialog" />
                             </div>
                         </template>
-
                         <Column field="name" :header="$t('admin.taxes.name')" />
                         <Column field="description" :header="$t('admin.taxes.description')" />
                         <Column field="value" :header="$t('admin.taxes.value')" />
@@ -25,23 +24,35 @@
                 </div>
             </div>
 
+            <!-- Edit tax modal -->
             <Dialog v-model:visible="showEditTaxDialog" :header="$t('admin.taxes.edit_tax')" modal>
                 <LoadingScreen :blocked="loadingData">
                     <form id="edit_tax_form" class="formgrid">
                         <div class="grid">
-                            <TextInput v-model="tax.name" :label="$t('admin.taxes.name')" class="col-12" />
+                            <TextInput
+                                v-model="v$.tax.name.$model"
+                                :label="$t('admin.taxes.name')"
+                                class="col-12"
+                                :validate="v$.tax.name"
+                            />
                         </div>
                         <div class="grid">
-                            <TextAreaInput v-model="tax.description" :label="$t('admin.taxes.description')" class="col-12" />
+                            <TextAreaInput
+                                v-model="v$.tax.description.$model"
+                                :label="$t('admin.taxes.description')"
+                                class="col-12"
+                                :validate="v$.tax.description"
+                            />
                         </div>
                         <div class="grid">
                             <NumberInput
-                                v-model="tax.value"
+                                v-model="v$.tax.value.$model"
                                 :label="$t('admin.taxes.value')"
                                 type="float"
                                 :min-fraction="2"
                                 :max-fraction="2"
                                 class="col-12"
+                                :validate="v$.tax.value"
                             />
                         </div>
                     </form>
@@ -66,23 +77,35 @@
                 </template>
             </Dialog>
 
+            <!-- New tax modal -->
             <Dialog v-model:visible="showNewTaxDialog" :header="$t('admin.taxes.new_tax')" modal>
                 <LoadingScreen :blocked="loadingData">
-                    <form id="new_tax_form" class="formgrid">
+                    <form id="new_tax_form" class="formgrid mt-3">
                         <div class="grid">
-                            <TextInput v-model="tax.name" :label="$t('admin.taxes.name')" class="col-12" />
+                            <TextInput
+                                v-model="v$.tax.name.$model"
+                                :label="$t('admin.taxes.name')"
+                                class="col-12"
+                                :validate="v$.tax.name"
+                            />
                         </div>
                         <div class="grid">
-                            <TextAreaInput v-model="tax.description" :label="$t('admin.taxes.description')" class="col-12" />
+                            <TextAreaInput
+                                v-model="v$.tax.description.$model"
+                                :label="$t('admin.taxes.description')"
+                                class="col-12"
+                                :validate="v$.tax.description"
+                            />
                         </div>
                         <div class="grid">
                             <NumberInput
-                                v-model="tax.value"
+                                v-model="v$.tax.value.$model"
                                 :label="$t('admin.taxes.value')"
                                 type="float"
                                 :min-fraction="2"
                                 :max-fraction="2"
                                 class="col-12"
+                                :validate="v$.tax.value"
                             />
                         </div>
                     </form>
@@ -107,8 +130,11 @@
 </template>
 
 <script>
+import { useVuelidate } from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
 export default {
-    name: 'AdminSettingsGeneralPage',
+    name: 'AdminSettingsTaxPage',
+    setup: () => ({ v$: useVuelidate() }),
     data() {
         return {
             taxes: [],
@@ -116,10 +142,20 @@ export default {
                 id: '',
                 name: '',
                 description: '',
-                value: 0.0,
+                value: null,
             },
             showEditTaxDialog: false,
             showNewTaxDialog: false,
+        }
+    },
+
+    validations() {
+        return {
+            tax: {
+                name: { required },
+                description: { required },
+                value: { required },
+            },
         }
     },
     created() {
@@ -140,7 +176,13 @@ export default {
         },
 
         updateTax() {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+
             this.makeHttpRequest('PUT', `/api/admin/taxes/${this.tax.id}`, this.tax).then((response) => {
+                this.v$.$reset()
                 this.getTaxes()
                 this.showEditTaxDialog = false
             })
@@ -155,13 +197,20 @@ export default {
         },
 
         createTax() {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+
             this.makeHttpRequest('POST', '/api/admin/taxes', this.tax).then((response) => {
+                this.v$.$reset()
                 this.getTaxes()
                 this.showNewTaxDialog = false
             })
         },
 
         newTaxDialog() {
+            this.v$.$reset()
             this.tax = {
                 id: '',
                 name: '',
@@ -173,6 +222,7 @@ export default {
         },
 
         editTaxDialog(event) {
+            this.v$.$reset()
             this.showEditTaxDialog = true
             this.getTax(event.data.id)
         },

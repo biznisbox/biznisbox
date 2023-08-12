@@ -29,20 +29,41 @@
                 </div>
             </div>
 
+            <!-- Edit currency modal -->
             <Dialog v-model:visible="showEditCurrencyDialog" :header="$t('admin.currency.edit_currency')" modal>
                 <LoadingScreen :blocked="loadingData">
-                    <form id="edit_currency_form" class="formgrid">
+                    <form id="edit_currency_form" class="formgrid mt-3">
                         <div class="grid">
-                            <TextInput v-model="currency.name" :label="$t('admin.currency.name')" class="col-12" />
+                            <TextInput
+                                v-model="v$.currency.name.$model"
+                                :label="$t('admin.currency.name')"
+                                class="col-12"
+                                :validate="v$.currency.name"
+                            />
                         </div>
                         <div class="grid">
-                            <TextInput v-model="currency.code" :label="$t('admin.currency.code')" class="col-12" />
+                            <TextInput
+                                v-model="v$.currency.code.$model"
+                                :label="$t('admin.currency.code')"
+                                class="col-12"
+                                :validate="v$.currency.code"
+                            />
                         </div>
                         <div class="grid">
-                            <TextInput v-model="currency.symbol" :label="$t('admin.currency.symbol')" class="col-12" />
+                            <TextInput
+                                v-model="v$.currency.symbol.$model"
+                                :label="$t('admin.currency.symbol')"
+                                class="col-12"
+                                :validate="v$.currency.symbol"
+                            />
                         </div>
                         <div class="grid">
-                            <TextInput v-model="currency.rate" :label="$t('admin.currency.rate')" class="col-12" />
+                            <TextInput
+                                v-model="v$.currency.rate.$model"
+                                :label="$t('admin.currency.rate')"
+                                class="col-12"
+                                :validate="v$.currency.rate"
+                            />
                         </div>
                     </form>
                 </LoadingScreen>
@@ -71,20 +92,41 @@
                 </template>
             </Dialog>
 
+            <!-- New currency modal -->
             <Dialog v-model:visible="showNewCurrencyDialog" :header="$t('admin.currency.new_currency')" modal>
                 <LoadingScreen :blocked="loadingData">
-                    <form id="new_currency_form" class="formgrid">
+                    <form id="new_currency_form" class="formgrid mt-3">
                         <div class="grid">
-                            <TextInput v-model="currency.name" :label="$t('admin.currency.name')" class="col-12" />
+                            <TextInput
+                                v-model="v$.currency.name.$model"
+                                :label="$t('admin.currency.name')"
+                                class="col-12"
+                                :validate="v$.currency.name"
+                            />
                         </div>
                         <div class="grid">
-                            <TextInput v-model="currency.code" :label="$t('admin.currency.code')" class="col-12" />
+                            <TextInput
+                                v-model="v$.currency.code.$model"
+                                :label="$t('admin.currency.code')"
+                                class="col-12"
+                                :validate="v$.currency.code"
+                            />
                         </div>
                         <div class="grid">
-                            <TextInput v-model="currency.symbol" :label="$t('admin.currency.symbol')" class="col-12" />
+                            <TextInput
+                                v-model="v$.currency.symbol.$model"
+                                :label="$t('admin.currency.symbol')"
+                                class="col-12"
+                                :validate="v$.currency.symbol"
+                            />
                         </div>
                         <div class="grid">
-                            <TextInput v-model="currency.rate" :label="$t('admin.currency.rate')" class="col-12" />
+                            <TextInput
+                                v-model="v$.currency.rate.$model"
+                                :label="$t('admin.currency.rate')"
+                                class="col-12"
+                                :validate="v$.currency.rate"
+                            />
                         </div>
                     </form>
                 </LoadingScreen>
@@ -108,8 +150,11 @@
 </template>
 
 <script>
+import { useVuelidate } from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
 export default {
     name: 'AdminSettingsCurrencyPage',
+    setup: () => ({ v$: useVuelidate() }),
     data() {
         return {
             currencies: [],
@@ -124,6 +169,18 @@ export default {
             showNewCurrencyDialog: false,
         }
     },
+
+    validations() {
+        return {
+            currency: {
+                name: { required },
+                code: { required },
+                symbol: { required },
+                rate: { required },
+            },
+        }
+    },
+
     created() {
         this.getCurrencies()
     },
@@ -142,7 +199,13 @@ export default {
         },
 
         updateCurrency() {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+
             this.makeHttpRequest('PUT', `/api/admin/currencies/${this.currency.id}`, this.currency).then((response) => {
+                this.v$.$reset()
                 this.getCurrencies()
                 this.showEditCurrencyDialog = false
             })
@@ -157,8 +220,14 @@ export default {
         },
 
         createCurrency() {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+
             this.makeHttpRequest('POST', '/api/admin/currencies', this.currency).then((response) => {
                 this.getCurrencies()
+                this.v$.$reset()
                 this.showNewCurrencyDialog = false
             })
         },

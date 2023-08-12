@@ -57,7 +57,7 @@
 
                     <div class="col-12 md:col-8">
                         <div class="card">
-                            <TabView>
+                            <TabView id="sessions_tab">
                                 <TabPanel :header="$t('admin.user.login_history')">
                                     <DataTable :value="user.sessions" paginator :rows="10" :rows-per-page-options="[10, 20, 50]">
                                         <template #empty>
@@ -116,17 +116,20 @@
                 </div>
 
                 <Dialog v-model:visible="showPasswordDialog" :header="$t('admin.user.reset_password')" modal>
-                    <form class="formgrid">
+                    <form class="formgrid mt-3">
                         <div class="grid">
-                            <div class="col-3 field-checkbox">
+                            <div class="col-12 field-checkbox">
                                 <Checkbox v-model="user.auto_generated_password" binary @change="generatePasswordEdit" />
                                 <label>{{ $t('admin.user.auto_generate_password') }}</label>
                             </div>
+                        </div>
+
+                        <div class="grid">
                             <TextInput
                                 id="input_password"
                                 v-model="v$.password.password.$model"
                                 :label="$t('admin.user.password')"
-                                class="col-8"
+                                class="col-12"
                                 :placeholder="$t('admin.user.password')"
                                 :disabled="user.auto_generated_password"
                                 :validate="v$.password.password"
@@ -134,7 +137,7 @@
                             />
                         </div>
                         <div class="grid">
-                            <div class="flex flex-column mb-3">
+                            <div class="flex flex-column mb-3 col-12">
                                 <label for="input_send_details_to" class="block text-900 font-medium mb-2">
                                     {{ $t('admin.user.send_details_to') }}</label
                                 >
@@ -159,7 +162,7 @@
                             :label="$t('admin.user.reset_password')"
                             icon="fa fa-floppy-disk"
                             class="p-button-success"
-                            @click="resetPassword($route.params.id, password)"
+                            @click="validatePasswordForm"
                         />
                     </div>
                 </Dialog>
@@ -205,6 +208,14 @@ export default {
             }
         },
 
+        validatePasswordForm() {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+            this.resetPassword(this.$route.params.id, this.password)
+        },
+
         userEditNavigation(id) {
             this.$router.push({ name: 'admin-edit-user', params: { id } })
         },
@@ -212,4 +223,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+#sessions_tab .p-tabview-panels {
+    padding: 0px !important;
+}
+</style>

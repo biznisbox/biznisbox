@@ -84,10 +84,15 @@
                             </DisplayData>
                         </div>
                     </div>
+
                     <div>
+                        <DisplayData :input="$t('document.notes')" :value="document.notes" />
+                    </div>
+
+                    <div class="mt-3">
                         <DisplayData :input="$t('document.content')" custom-value>
                             <div class="grid content">
-                                <div v-html="document.content" class="col-12"></div>
+                                <div class="col-12" v-html="document.content"></div>
                             </div>
                         </DisplayData>
                     </div>

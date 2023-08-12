@@ -18,7 +18,6 @@
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
                     column-resize-mode="expand"
-                    :global-filter-fields="['number', 'status', 'total']"
                     @row-dblclick="viewBillNavigation"
                 >
                     <template #empty>

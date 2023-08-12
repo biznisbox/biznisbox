@@ -95,15 +95,15 @@
 
 <script>
 import SettingsMixin from '@/mixins/admin/settings'
-import AvailableLanguages from '@/data/available_locales.json'
+import availableLanguages from '@/data/available_locales.json'
 import availableTimezones from '@/data/timezones.json'
 export default {
-    name: 'AdminSettingsGeneral',
+    name: 'AdminSettingsGeneralPage',
     mixins: [SettingsMixin],
 
     data() {
         return {
-            available_languages: AvailableLanguages,
+            available_languages: availableLanguages,
             timezones: availableTimezones,
         }
     },
