@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use OwenIt\Auditing\Contracts\Auditable;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\URL;
-use Laravel\SerializableClosure\Serializers\Signed;
 
 class Documents extends Model implements Auditable
 {
@@ -36,7 +35,10 @@ class Documents extends Model implements Auditable
         'notes',
     ];
 
-    protected $dates = ['date', 'due_date'];
+    protected $casts = [
+        'date' => 'date',
+        'due_date' => 'date'
+    ];
 
     public function generateTags(): array
     {
