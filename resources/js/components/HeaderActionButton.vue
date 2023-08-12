@@ -1,13 +1,12 @@
 <template>
-    <router-link :to="to" class="link-none-style">
+    <RouterLink :to="to" class="link-none-style">
         <Button :label="label" :icon="icon" :class="style" />
-    </router-link>
+    </RouterLink>
 </template>
 
 <script>
 export default {
     name: 'HeaderActionButton',
-
     props: {
         label: {
             type: String,
@@ -15,6 +14,7 @@ export default {
         },
         icon: {
             type: String,
+            default: ''
         },
         to: {
             type: String,

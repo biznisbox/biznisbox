@@ -2,182 +2,152 @@
     {
         "id": 1,
         "name": "Austria",
-        "code": "AT",
-        "flag": "https://countryflagsapi.com/png/aut"
+        "code": "AT"
     },
     {
         "id": 2,
         "name": "Belgium",
-        "code": "BE",
-        "flag": "https://countryflagsapi.com/png/bel"
+        "code": "BE"
     },
     {
         "id": 3,
         "name": "Bulgaria",
-        "code": "BG",
-        "flag": "https://countryflagsapi.com/png/bgr"
+        "code": "BG"
     },
     {
         "id": 4,
         "name": "Cyprus",
-        "code": "CY",
-        "flag": "https://countryflagsapi.com/png/cyp"
+        "code": "CY"
     },
     {
         "id": 5,
         "name": "Czech Republic",
-        "code": "CZ",
-        "flag": "https://countryflagsapi.com/png/cze"
+        "code": "CZ"
     },
     {
         "id": 6,
         "name": "Germany",
-        "code": "DE",
-        "flag": "https://countryflagsapi.com/png/deu"
+        "code": "DE"
     },
     {
         "id": 7,
         "name": "Denmark",
-        "code": "DK",
-        "flag": "https://countryflagsapi.com/png/dnk"
+        "code": "DK"
     },
     {
         "id": 8,
         "name": "Estonia",
-        "code": "EE",
-        "flag": "https://countryflagsapi.com/png/est"
+        "code": "EE"
     },
     {
         "id": 9,
         "name": "Spain",
-        "code": "ES",
-        "flag": "https://countryflagsapi.com/png/esp"
+        "code": "ES"
     },
     {
         "id": 10,
         "name": "Finland",
-        "code": "FI",
-        "flag": "https://countryflagsapi.com/png/fin"
+        "code": "FI"
     },
     {
         "id": 11,
         "name": "France",
-        "code": "FR",
-        "flag": "https://countryflagsapi.com/png/fra"
+        "code": "FR"
     },
     {
         "id": 12,
         "name": "United Kingdom",
-        "code": "GB",
-        "flag": "https://countryflagsapi.com/png/gbr"
+        "code": "GB"
     },
     {
         "id": 13,
         "name": "Greece",
-        "code": "GR",
-        "flag": "https://countryflagsapi.com/png/grc"
+        "code": "GR"
     },
     {
         "id": 14,
         "name": "Croatia",
-        "code": "HR",
-        "flag": "https://countryflagsapi.com/png/hrv"
+        "code": "HR"
     },
     {
         "id": 15,
         "name": "Hungary",
-        "code": "HU",
-        "flag": "https://countryflagsapi.com/png/hun"
+        "code": "HU"
     },
 
     {
         "id": 16,
         "name": "Ireland",
-        "code": "IE",
-        "flag": "https://countryflagsapi.com/png/irl"
+        "code": "IE"
     },
     {
         "id": 17,
         "name": "Italy",
-        "code": "IT",
-        "flag": "https://countryflagsapi.com/png/ita"
+        "code": "IT"
     },
     {
         "id": 18,
         "name": "Lithenstein",
-        "code": "LI",
-        "flag": "https://countryflagsapi.com/png/lie"
+        "code": "LI"
     },
     {
         "id": 19,
         "name": "Lithuania",
-        "code": "LT",
-        "flag": "https://countryflagsapi.com/png/ltu"
+        "code": "LT"
     },
     {
         "id": 20,
         "name": "Luxembourg",
-        "code": "LU",
-        "flag": "https://countryflagsapi.com/png/lux"
+        "code": "LU"
     },
     {
         "id": 21,
         "name": "Latvia",
-        "code": "LV",
-        "flag": "https://countryflagsapi.com/png/lva"
+        "code": "LV"
     },
     {
         "id": 22,
         "name": "Malta",
-        "code": "MT",
-        "flag": "https://countryflagsapi.com/png/mlt"
+        "code": "MT"
     },
     {
         "id": 23,
         "name": "Netherlands",
-        "code": "NL",
-        "flag": "https://countryflagsapi.com/png/nld"
+        "code": "NL"
     },
     {
         "id": 24,
         "name": "Norway",
-        "code": "NO",
-        "flag": "https://countryflagsapi.com/png/nor"
+        "code": "NO"
     },
     {
         "id": 25,
         "name": "Poland",
-        "code": "PL",
-        "flag": "https://countryflagsapi.com/png/pol"
+        "code": "PL"
     },
     {
         "id": 26,
         "name": "Portugal",
-        "code": "PT",
-        "flag": "https://countryflagsapi.com/png/prt"
+        "code": "PT"
     },
     {
         "id": 27,
         "name": "Romania",
-        "code": "RO",
-        "flag": "https://countryflagsapi.com/png/rou"
+        "code": "RO"
     },
     {
         "id": 28,
         "name": "Sweden",
-        "code": "SE",
-        "flag": "https://countryflagsapi.com/png/swe"
+        "code": "SE"
     },
     {
         "id": 29,
         "name": "Slovenia",
-        "code": "SI",
-        "flag": "https://countryflagsapi.com/png/svn"
+        "code": "SI"
     },
     {
         "id": 30,
         "name": "Slovakia",
-        "code": "SK",
-        "flag": "https://countryflagsapi.com/png/svk"
+        "code": "SK"
     }
 ]

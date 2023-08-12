@@ -18,7 +18,7 @@ describe('Create New customer', () => {
     it('should not create new customer', () => {
         cy.login(Cypress.env('USERNAME'), Cypress.env('PASSWORD'))
         cy.visit('/customers/new')
-        
+
         cy.get('input[id="vat_number_input"]').type('123456789')
         cy.get('input[id="billing_address_input"]').type('Test Billing Address')
         cy.get('input[id="billing_city_input"]').type('Test Billing City')

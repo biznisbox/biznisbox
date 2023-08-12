@@ -74,7 +74,15 @@
         "private": "Zaseben",
         "public": "Javen",
         "shared": "V skupni rabi",
-        "internal": "Interen"
+        "internal": "Interen",
+        "external": "Ekstern",
+        "error": "Napaka",
+        "success": "Uspešno",
+        "info": "Informacija",
+        "warning": "Opozorilo",
+        "danger": "Nevarnost",
+        "notification": "Obvestilo",
+        "invalid_form": "Obrazec vsebuje napake. Prosimo, preverite obrazec in poskusite znova."
     },
     "user_nav_menu": {
         "profile": "Moj račun",
@@ -199,6 +207,7 @@
         "share_dialog": "Deli predračun",
         "create_first_estimate": "Ustvari prvi predračun",
         "share_dialog_text": "Kopiraj spodnjo povezavo in jo pošlji stranki ali pa skeniraj QR kodo.",
+        "number": "Številka predračuna",
         "status": "Status",
         "customer": "Stranka",
         "payer": "Plačnik",
