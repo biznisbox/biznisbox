@@ -100,10 +100,12 @@ class DashboardService
                 [
                     'label' => __('response.dashboard.income'),
                     'data' => [],
+                    'backgroundColor' => '#4caf50',
                 ],
                 [
                     'label' => __('response.dashboard.expense'),
                     'data' => [],
+                    'backgroundColor' => '#f44336',
                 ],
             ],
         ];
@@ -144,6 +146,7 @@ class DashboardService
             'datasets' => [
                 [
                     'data' => [$income, $expense],
+                    'backgroundColor' => ['#4caf50', '#f44336'],
                 ],
             ],
         ];

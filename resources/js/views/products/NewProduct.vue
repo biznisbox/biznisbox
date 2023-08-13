@@ -7,16 +7,23 @@
                     <form class="formgrid">
                         <!-- Product basic -->
                         <div class="grid">
-                            <TextInput id="name_input" v-model="product.name" class="field col-12 md:col-8" label="Name"></TextInput>
+                            <TextInput
+                                id="name_input"
+                                v-model="v$.product.name.$model"
+                                :validate="v$.product.name"
+                                class="field col-12 md:col-8"
+                                :label="$t('product.name')"
+                            ></TextInput>
                             <SelectButtonInput
                                 id="select_product_type"
-                                v-model="product.type"
+                                v-model="v$.product.type.$model"
                                 class="field col-12 md:col-4"
                                 :label="$t('product.product_type')"
                                 :options="[
                                     { label: $t('product.product'), value: 'product' },
                                     { label: $t('product.service'), value: 'service' },
                                 ]"
+                                :validate="v$.product.type"
                             />
                         </div>
 
@@ -24,18 +31,20 @@
                         <div class="grid">
                             <NumberInput
                                 id="sell_price_input"
-                                v-model="product.sell_price"
+                                v-model="v$.product.sell_price.$model"
                                 class="field col-12 md:col-4"
                                 :label="$t('product.sell_price')"
                                 type="currency"
+                                :validate="v$.product.sell_price"
                             ></NumberInput>
 
                             <NumberInput
                                 id="buy_price_input"
-                                v-model="product.buy_price"
+                                v-model="v$.product.buy_price.$model"
                                 class="field col-12 md:col-4"
                                 :label="$t('product.buy_price')"
                                 type="currency"
+                                :validate="v$.product.buy_price"
                             ></NumberInput>
 
                             <SelectInput
@@ -50,7 +59,6 @@
                         </div>
 
                         <!-- Product taxes -->
-
                         <SelectInput
                             id="select_product_tax"
                             v-model="product.tax"
@@ -92,29 +100,30 @@
                         <TextInput id="barcode_input" v-model="product.barcode" :label="$t('product.barcode')"></TextInput>
 
                         <!-- Product description -->
-                        <EditorInput
+                        <TinyMceEditor
                             id="description_editor"
                             v-model="product.description"
                             :label="$t('product.description')"
-                            class="product-text-editor"
+                            toolbar=" bold italic underline"
+                            style="height: 200px"
                         />
                     </form>
 
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
                         <Button
-                            :label="$t('basic.cancel')"
                             id="cancel_button"
+                            :label="$t('basic.cancel')"
                             icon="fa fa-times"
                             class="p-button-danger"
                             @click="goTo('/products')"
                         />
                         <Button
+                            id="save_button"
                             :label="$t('basic.save')"
                             :disabled="loadingData"
                             icon="fa fa-floppy-disk"
-                            id="save_button"
                             class="p-button-success"
-                            @click="saveProduct"
+                            @click="validateForm"
                         />
                     </div>
                 </div>
@@ -124,10 +133,32 @@
 </template>
 
 <script>
+import { useVuelidate } from '@vuelidate/core'
+import { required, decimal } from '@vuelidate/validators'
 import ProductMixin from '@/mixins/products'
 export default {
     name: 'NewProductPage',
     mixins: [ProductMixin],
+
+    setup: () => ({ v$: useVuelidate() }),
+    validations: {
+        product: {
+            name: { required },
+            type: { required },
+            sell_price: { decimal },
+            buy_price: { decimal },
+        },
+    },
+
+    methods: {
+        validateForm() {
+            this.v$.product.$touch()
+            if (this.v$.product.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+            return this.saveProduct()
+        },
+    },
 }
 </script>
 

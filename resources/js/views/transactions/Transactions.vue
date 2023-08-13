@@ -18,7 +18,6 @@
                     :rows="10"
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
-                    :global-filter-fields="['name', 'number', 'amount', 'category', 'account']"
                     @row-dblclick="viewTransactionNavigation"
                 >
                     <template #empty>

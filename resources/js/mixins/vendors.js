@@ -46,7 +46,7 @@ export default {
          **/
         createVendor() {
             this.makeHttpRequest('POST', '/api/vendors', this.vendor).then((response) => {
-                this.$toast.add({ severity: 'success', summary: response.data.message, life: 3000 })
+                this.showToast(response.data.message)
                 this.$router.push({ name: 'vendors' })
             })
         },
@@ -58,7 +58,7 @@ export default {
          **/
         updateVendor(id) {
             this.makeHttpRequest('PUT', '/api/vendors/' + id, this.vendor).then((response) => {
-                this.$toast.add({ severity: 'success', summary: response.data.message, life: 3000 })
+                this.showToast(response.data.message)
                 this.$router.push({ name: 'vendors' })
             })
         },

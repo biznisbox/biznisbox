@@ -9,19 +9,21 @@
                         <div class="grid">
                             <TextInput
                                 id="name_input"
-                                v-model="customer.name"
+                                v-model="v$.customer.name.$model"
                                 class="field col-12 md:col-6"
                                 :label="$t('customer.name')"
+                                :validate="v$.customer.name"
                             ></TextInput>
                             <SelectButtonInput
                                 id="select_customer_type"
-                                v-model="customer.type"
+                                v-model="v$.customer.type.$model"
                                 class="field col-12 md:col-6"
                                 :label="$t('customer.type')"
                                 :options="[
                                     { label: $t('customer.individual'), value: 'individual' },
                                     { label: $t('customer.company'), value: 'company' },
                                 ]"
+                                :validate="v$.customer.type"
                             />
                         </div>
 
@@ -90,9 +92,10 @@
                         <div class="grid">
                             <TextInput
                                 id="email_input"
-                                v-model="customer.email"
+                                v-model="v$.customer.email.$model"
                                 class="col-12 md:col-4"
                                 :label="$t('customer.email')"
+                                :validate="v$.customer.email"
                             ></TextInput>
                             <TextInput
                                 id="phone_input"
@@ -100,12 +103,12 @@
                                 class="col-12 md:col-4"
                                 :label="$t('customer.phone')"
                             ></TextInput>
-
                             <TextInput
                                 id="website_input"
-                                v-model="customer.website"
+                                v-model="v$.customer.website.$model"
                                 class="col-12 md:col-4"
                                 :label="$t('customer.website')"
+                                :validate="v$.customer.website"
                             ></TextInput>
                         </div>
 
@@ -116,14 +119,20 @@
                         </div>
                     </form>
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button id="close_button" :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="goTo('/customers')" />
+                        <Button
+                            id="close_button"
+                            :label="$t('basic.cancel')"
+                            icon="fa fa-times"
+                            class="p-button-danger"
+                            @click="goTo('/customers')"
+                        />
                         <Button
                             id="save_button"
                             :label="$t('basic.save')"
                             :disabled="loadingData"
                             icon="fa fa-floppy-disk"
                             class="p-button-success"
-                            @click="saveCustomer"
+                            @click="validateForm"
                         />
                     </div>
                 </div>
@@ -133,10 +142,34 @@
 </template>
 
 <script>
+import { required, email, url } from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core'
 import CustomerMixin from '@/mixins/customers'
 export default {
     name: 'NewCustomersPage',
     mixins: [CustomerMixin],
+    setup: () => ({ v$: useVuelidate() }),
+
+    validations() {
+        return {
+            customer: {
+                name: { required },
+                type: { required },
+                email: { email },
+                website: { url },
+            },
+        }
+    },
+
+    methods: {
+        validateForm() {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+            return this.saveCustomer()
+        },
+    },
 }
 </script>
 

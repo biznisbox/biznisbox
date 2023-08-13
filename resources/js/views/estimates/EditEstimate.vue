@@ -9,15 +9,17 @@
                         <div class="grid">
                             <TextInput
                                 id="number_input"
-                                v-model="estimate.number"
+                                v-model="v$.estimate.number.$model"
                                 class="field col-12 md:col-6"
-                                :label="$t('estimate.estimate_number')"
+                                :validate="v$.estimate.number"
+                                :label="$t('estimate.number')"
+                                disabled
                             />
                             <SelectInput
                                 id="status_input"
-                                v-model="estimate.status"
+                                v-model="v$.estimate.status.$model"
                                 class="field col-12 md:col-6"
-                                label="Status"
+                                :label="$t('estimate.status')"
                                 :options="[
                                     { label: $t('status.draft'), value: 'draft' },
                                     { label: $t('status.sent'), value: 'sent' },
@@ -27,6 +29,7 @@
                                     { label: $t('status.expired'), value: 'expired' },
                                     { label: $t('status.cancelled'), value: 'cancelled' },
                                 ]"
+                                :validate="v$.estimate.status"
                             />
                         </div>
 
@@ -56,21 +59,19 @@
                         </div>
 
                         <div class="grid">
-                            <DateInput id="date_input" v-model="estimate.date" class="field col-12 md:col-4" :label="$t('estimate.date')" />
+                            <DateInput
+                                id="date_input"
+                                v-model="v$.estimate.date.$model"
+                                class="field col-12 md:col-4"
+                                :validate="v$.estimate.date"
+                                :label="$t('estimate.date')"
+                            />
                             <DateInput
                                 id="valid_until_input"
-                                v-model="estimate.valid_until"
+                                v-model="v$.estimate.valid_until.$model"
                                 class="field col-12 md:col-4"
                                 :label="$t('estimate.valid_until')"
-                            />
-                            <SelectInput
-                                id="currency_input"
-                                v-model="estimate.currency"
-                                class="field col-12 md:col-4"
-                                :label="$t('estimate.currency')"
-                                :options="currencies"
-                                option-value="code"
-                                option-label="name"
+                                :validate="v$.estimate.valid_until"
                             />
                         </div>
 
@@ -173,7 +174,13 @@
 
                         <div class="grid">
                             <div class="field col-12 md:col-6">
-                                <EditorInput id="notes_input" v-model="estimate.notes" :label="$t('estimate.notes')" />
+                                <TinyMceEditor
+                                    id="notes_input"
+                                    v-model="estimate.notes"
+                                    :label="$t('estimate.notes')"
+                                    toolbar=" bold italic underline"
+                                    style="height: 200px"
+                                />
                             </div>
                             <div class="field col-12 md:col-6">
                                 <InputNumber
@@ -186,12 +193,13 @@
                                 />
                                 <InputNumber
                                     id="total_input"
-                                    v-model="estimate.total"
+                                    v-model="v$.estimate.total.$model"
                                     class="field col-12"
                                     :label="$t('estimate.total')"
                                     :disabled="true"
                                     mode="currency"
                                     :currency="estimate.currency"
+                                    :validate="v$.estimate.total"
                                 />
                             </div>
                         </div>
@@ -219,17 +227,41 @@
 </template>
 
 <script>
+import { useVuelidate } from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
 import EstimateMixin from '@/mixins/estimates'
 export default {
-    name: 'EditestimatePage',
+    name: 'EditEstimatePage',
     mixins: [EstimateMixin],
+
+    setup: () => ({ v$: useVuelidate() }),
     created() {
         this.getCustomers()
         this.getProducts()
         this.getEstimate(this.$route.params.id)
     },
 
+    validations() {
+        return {
+            estimate: {
+                number: { required },
+                status: { required },
+                date: { required },
+                valid_until: { required },
+                total: { required },
+            },
+        }
+    },
+
     methods: {
+        validateForm() {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+            this.updateEstimate(this.estimate.id)
+        },
+
         selectItem(index, item) {
             this.estimate.items[index].product_id = this.estimate.items[index].item.id
             this.estimate.items[index].type = this.estimate.items[index].item.type

@@ -36,10 +36,10 @@ class Vendor extends Model implements Auditable
         return false;
     }
 
-    public function updateVendor($data, $id)
+    public function updateVendor($id, $data)
     {
         $vendor = $this->find($id);
-        $vendor->update($data);
+        $vendor = $vendor->update($data);
 
         if ($vendor) {
             return true;

@@ -8,7 +8,7 @@ export default {
         return {
             token: sessionStorage.getItem('token') ? sessionStorage.getItem('token') : null,
             user: sessionStorage.getItem('token') ? jwtDecode(sessionStorage.getItem('token')) : null,
-            validationErrors: [],
+            validationErrors: [], // Validation errors from API
             loadingData: false,
             lang: localStorage.getItem('lang') || window.App.settings.default_lang,
             theme: localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light',
@@ -50,6 +50,8 @@ export default {
                             'Content-Type': 'application/json',
                             Accept: 'application/json',
                             Language: this.$i18n.locale,
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                             Authorization: this.token ? 'Bearer ' + this.token : '',
                             ...headers,
                         },

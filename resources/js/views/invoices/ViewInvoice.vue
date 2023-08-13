@@ -150,12 +150,12 @@
                             <table class="w-full">
                                 <tr>
                                     <td class="w-6 font-bold mb-1">{{ $t('invoice.discount') }}</td>
-                                    <td class="text-gray-700 text-right">{{ invoice.discount }} %</td>
+                                    <td class="text-right">{{ invoice.discount }} %</td>
                                 </tr>
 
                                 <tr>
                                     <td class="w-6 font-bold mb-1">{{ $t('invoice.total') }}</td>
-                                    <td class="text-gray-700 text-right">{{ invoice.total }} {{ invoice.currency }}</td>
+                                    <td class="text-right">{{ invoice.total }} {{ invoice.currency }}</td>
                                 </tr>
                             </table>
                         </div>

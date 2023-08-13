@@ -161,12 +161,12 @@
                             <table class="w-full">
                                 <tr>
                                     <td class="w-6 font-bold">{{ $t('estimate.discount') }}</td>
-                                    <td class="text-gray-700 text-right">{{ estimate.discount }} %</td>
+                                    <td class="text-right">{{ estimate.discount }} %</td>
                                 </tr>
 
                                 <tr>
                                     <td class="w-6 font-bold">{{ $t('estimate.total') }}</td>
-                                    <td class="text-gray-700 text-right">{{ estimate.total }} {{ estimate.currency }}</td>
+                                    <td class="text-right">{{ estimate.total }} {{ estimate.currency }}</td>
                                 </tr>
                             </table>
                         </div>

@@ -2,7 +2,7 @@
     <Toast />
     <ScrollTop />
     <ConfirmDialog></ConfirmDialog>
-    <router-view />
+    <RouterView />
 </template>
 
 <script>

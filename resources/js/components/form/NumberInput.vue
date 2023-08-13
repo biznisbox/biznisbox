@@ -4,65 +4,75 @@
         <InputNumber
             v-if="type == 'number'"
             :id="id"
+            :name="id"
             :model-value="modelValue"
             :validate="validate"
-            :show-errors="showErrors"
             :disabled="disabled"
+            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
             @input="updateValue"
+            @blur="validate?.$touch()"
         />
 
         <InputNumber
             v-if="type == 'float'"
             :id="id"
+            :name="id"
             :model-value="modelValue"
             mode="decimal"
             :min-fraction-digits="minFraction"
             :max-fraction-digits="maxFraction"
             :validate="validate"
-            :show-errors="showErrors"
             :disabled="disabled"
+            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
             @input="updateValue"
+            @blur.native="validate?.$touch()"
         />
 
         <InputNumber
             v-if="type == 'currency'"
             :id="id"
+            :name="id"
             :model-value="modelValue"
             mode="currency"
             :currency="currency"
             :locale="locale"
             :validate="validate"
-            :show-errors="showErrors"
             :disabled="disabled"
+            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
             @input="updateValue"
+            @blur.native="validate?.$touch()"
         />
 
         <InputNumber
             v-if="type == 'percentage'"
             :id="id"
+            :name="id"
             :model-value="modelValue"
             mode="decimal"
             :min-fraction-digits="0"
             :max-fraction-digits="2"
             :validate="validate"
-            :show-errors="showErrors"
             :disabled="disabled"
+            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
             @input="updateValue"
+            @blur.native="validate?.$touch()"
         />
 
         <InputNumber
             v-if="type == 'items'"
             :id="id"
+            :name="id"
             :model-value="modelValue"
             :validate="validate"
-            :show-errors="showErrors"
             show-buttons
             :disabled="disabled"
+            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
+            @blur.native="validate?.$touch()"
             @input="updateValue"
         />
 
-        <div v-if="validate && showErrors">
-            <div v-if="validate.$invalid" class="p-error">{{ validate.$errors[0].$message }}</div>
+        <div v-if="validate && validate?.$dirty" class="flex flex-column">
+            <div v-for="error in validate.$errors" v-if="validate.$invalid" class="p-error">{{ error.$message }}</div>
         </div>
     </div>
 </template>
@@ -87,11 +97,6 @@ export default {
             required: false,
             default: null,
         },
-        showErrors: {
-            type: Boolean,
-            required: false,
-            default: false,
-        },
         type: {
             type: String,
             default: 'number', // currency, number, integer, percent, item
@@ -106,11 +111,11 @@ export default {
         },
         locale: {
             type: String,
-            default: 'en-US', // "fi-FI" or "fi"
+            default: 'en-US', // "fi-FI" or "fi" or "en-US" or "en"
         },
         currency: {
             type: String,
-            default: 'EUR', // Integer or “XOF” for CFA Franc BCEAO (West African CFA franc)
+            default: 'EUR', // Integer or String (EUR, USD, etc.)
         },
         disabled: {
             type: Boolean,
@@ -124,5 +129,3 @@ export default {
     },
 }
 </script>
-
-<style></style>

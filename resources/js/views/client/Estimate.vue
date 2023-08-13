@@ -1,5 +1,5 @@
 <template>
-    <div id="client_view_estimate_page" class="p-3">
+    <div id="client_view_estimate_page" class="p-2">
         <LoadingScreen :blocked="loadingData">
             <div>
                 <div id="company_data" class="mb-2 d-block p-3">

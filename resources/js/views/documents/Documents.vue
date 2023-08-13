@@ -7,10 +7,10 @@
                 </template>
             </user-header>
 
-            <div id="customers_table" class="card">
+            <div id="documents_table" class="card">
                 <DataTable
-                    :value="documents"
                     v-model:filters="filters"
+                    :value="documents"
                     :loading="loadingData"
                     paginator
                     :rows="10"

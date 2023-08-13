@@ -1,4 +1,5 @@
 import { createI18n } from 'vue-i18n'
+
 // Lang files
 import en from '@/locales/en.json' // English
 import sl from '@/locales/sl.json' // Slovenian

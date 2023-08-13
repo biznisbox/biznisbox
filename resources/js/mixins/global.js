@@ -6,7 +6,6 @@ export default {
             taxes: [],
             currencies: [],
             countries: countries,
-            formShowErrors: false,
         }
     },
 

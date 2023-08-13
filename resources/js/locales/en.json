@@ -78,7 +78,15 @@
         "private": "Private",
         "public": "Public",
         "shared": "Shared",
-        "internal": "Internal"
+        "internal": "Internal",
+        "external": "External",
+        "error": "Error",
+        "success": "Success",
+        "info": "Info",
+        "warning": "Warning",
+        "danger": "Danger",
+        "notification": "Notification",
+        "invalid_form": "Form contains errors. Please check the fields and try again."
     },
     "user_nav_menu": {
         "profile": "Profile",
@@ -202,6 +210,7 @@
         "share_dialog": "Share estimate",
         "create_first_estimate": "Create your first estimate",
         "share_dialog_text": "Copy the link below and share it with your customer or scan the QR code.",
+        "number": "Estimate Number",
         "status": "Status",
         "customer": "Customer",
         "payer": "Payer",

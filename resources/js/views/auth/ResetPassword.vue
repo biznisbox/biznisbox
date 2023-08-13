@@ -3,22 +3,14 @@
         <div class="flex justify-content-center mt-5 mx-5">
             <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
                 <div class="text-center">
-                    <h1 class="text-900 font-medium text-5xl mb-4">{{ $t('auth.forgot_password') }}</h1>
-                    <p class="text-900 font-medium text-2xl mb-4">{{ $t('auth.reset_password.reset_password') }}</p>
-                    <p class="text-900 font-medium text-xl mb-4">
+                    <h1 class="text-900 font-medium text-2xl mb-4">{{ $t('auth.forgot_password') }}</h1>
+                    <p class="text-900 font-medium text mb-4">
                         {{ $t('auth.reset_password.enter_email') }}
                     </p>
                     <div class="flex justify-content-center">
                         <div class="w-full lg:w-10">
                             <div class="mb-4">
-                                <TextInput
-                                    id="email"
-                                    v-model="v$.form.email.$model"
-                                    :label="$t('auth.email')"
-                                    :validate="v$.form.email"
-                                    :error="v$.form.email"
-                                    :show-errors="formShowErrors"
-                                />
+                                <TextInput id="email" v-model="v$.form.email.$model" :label="$t('auth.email')" :validate="v$.form.email" />
                             </div>
                             <Button
                                 :label="$t('auth.reset_password.reset_password')"
@@ -60,20 +52,16 @@ export default {
     },
 
     methods: {
-        async resetPassword() {
-            this.formShowErrors = true
-            const isValid = await this.v$.$validate()
-            if (!isValid) {
-                return
+        resetPassword() {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
             }
-            this.makeHttpRequest('POST', '/api/auth/reset_password', this.form)
-                .then((response) => {
-                    this.showToast(response.data.message)
-                    this.$router.push({ name: 'AuthLogin' })
-                })
-                .catch((error) => {
-                    this.showToast(error.response.data.message, '', 'error')
-                })
+
+            this.makeHttpRequest('POST', '/api/auth/reset_password', this.form).then((response) => {
+                this.showToast(response.data.message)
+                this.$router.push({ name: 'AuthLogin' })
+            })
         },
     },
 }

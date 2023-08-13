@@ -19,18 +19,18 @@
                         <div v-if="!loadingData" id="vendor_data" class="col-12 md:col-6">
                             <DisplayData :input="$t('bill.vendor')" custom-value>
                                 <div v-if="bill.vendor">
-                                    <span class="text-gray-700">{{ bill.vendor ? formatText(bill.vendor.name) : '' }}</span> <br />
-                                    <span class="text-gray-700">{{ bill.vendor ? formatText(bill.vendor.address) : '' }}</span>
+                                    <span>{{ bill.vendor ? formatText(bill.vendor.name) : '' }}</span> <br />
+                                    <span>{{ bill.vendor ? formatText(bill.vendor.address) : '' }}</span>
                                     <br />
-                                    <span class="text-gray-700">{{
+                                    <span>{{
                                         bill.vendor ? formatText(bill.vendor.zip_code) + ' ' + formatText(bill.vendor.city) : ''
                                     }}</span>
                                     <br />
-                                    <span class="text-gray-700">{{ bill.vendor ? formatText(bill.vendor.country) : '' }}</span>
+                                    <span>{{ bill.vendor ? formatText(bill.vendor.country) : '' }}</span>
                                     <br />
                                 </div>
                                 <div v-else>
-                                    <span class="text-gray-700"> {{ $t('bill.no_vendor') }}</span>
+                                    <span> {{ $t('bill.no_vendor') }}</span>
                                 </div>
                             </DisplayData>
                         </div>

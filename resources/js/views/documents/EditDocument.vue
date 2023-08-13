@@ -7,13 +7,24 @@
                 <div class="card">
                     <form class="formgrid">
                         <div class="grid">
-                            <TextInput v-model="document.number" disabled :label="$t('document.number')" class="col-12 md:col-6" />
-                            <TextInput v-model="document.name" :label="$t('document.name')" class="col-12 md:col-6" />
+                            <TextInput
+                                v-model="v$.document.number.$model"
+                                :label="$t('document.number')"
+                                class="col-12 md:col-6"
+                                :validate="v$.document.number"
+                                disabled
+                            />
+                            <TextInput
+                                v-model="v$.document.name.$model"
+                                :label="$t('document.name')"
+                                class="col-12 md:col-6"
+                                :validate="v$.document.name"
+                            />
                         </div>
 
                         <div class="grid">
                             <SelectInput
-                                v-model="document.type"
+                                v-model="v$.document.type.$model"
                                 :label="$t('document.type')"
                                 :options="[
                                     { label: $t('document.document'), value: 'document' },
@@ -25,6 +36,7 @@
                                     { label: $t('document.other'), value: 'other' },
                                 ]"
                                 class="col-12"
+                                :validate="v$.document.type"
                             />
                         </div>
 
@@ -78,7 +90,7 @@
                         :disabled="loadingData"
                         icon="fa fa-floppy-disk"
                         class="p-button-success"
-                        @click="updateDocument($route.params.id)"
+                        @click="validateForm"
                     />
                 </div>
             </LoadingScreen>
@@ -87,12 +99,36 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core'
 import DocumentMixin from '@/mixins/documents'
 export default {
     name: 'EditDocument',
     mixins: [DocumentMixin],
+    setup: () => ({ v$: useVuelidate() }),
     created() {
         this.getDocument(this.$route.params.id)
+    },
+
+    validations() {
+        return {
+            document: {
+                number: { required },
+                name: { required },
+                type: { required },
+            },
+        }
+    },
+
+    methods: {
+        validateForm() {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+
+            return this.updateDocument(this.$route.params.id)
+        },
     },
 }
 </script>

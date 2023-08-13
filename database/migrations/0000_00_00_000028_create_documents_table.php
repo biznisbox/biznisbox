@@ -28,8 +28,8 @@ return new class extends Migration {
                 ->cascadeOnUpdate();
             $table->string('number')->nullable(); // Number of the document (invoice number, offer number, etc.
             $table->string('name'); // Name of the document - title of the document
-            $table->timestamp('date')->nullable(); // Date of the document
-            $table->timestamp('due_date')->nullable(); // Due date of the document
+            $table->date('date')->nullable(); // Date of the document
+            $table->date('due_date')->nullable(); // Due date of the document
             $table->string('access')->default('public'); // Access of the document - public, private, internal
             $table->string('status')->default('draft'); // Status of the document - draft, published, archived
             $table->string('type')->default('document'); // Type of the document - offer, document, report

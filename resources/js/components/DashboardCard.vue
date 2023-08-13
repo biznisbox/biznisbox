@@ -31,7 +31,7 @@ export default {
     methods: {
         goToLink() {
             if (this.link) {
-                window.open(this.link, '_self')
+                this.$router.push(this.link)
             }
         },
     },

@@ -7,9 +7,14 @@
                 <div class="card">
                     <form class="formgrid">
                         <div class="grid">
-                            <TextInput v-model="bill.number" :label="$t('bill.bill_number')" class="col-12 md:col-6" />
+                            <TextInput
+                                v-model="v$.bill.number.$model"
+                                :label="$t('bill.bill_number')"
+                                :validate="v$.bill.number"
+                                class="col-12 md:col-6"
+                            />
                             <SelectInput
-                                v-model="bill.status"
+                                v-model="v$.bill.status.$model"
                                 label="Status"
                                 class="col-12 md:col-6"
                                 :options="[
@@ -19,12 +24,23 @@
                                     { label: $t('status.overdue'), value: 'overdue' },
                                     { label: $t('status.cancelled'), value: 'cancelled' },
                                 ]"
+                                :validate="v$.bill.status"
                             />
                         </div>
 
                         <div class="grid">
-                            <DateInput v-model="bill.date" :label="$t('bill.date')" class="col-12 md:col-6" />
-                            <DateInput v-model="bill.due_date" :label="$t('bill.due_date')" class="col-12 md:col-6" />
+                            <DateInput
+                                v-model="v$.bill.date.$model"
+                                :label="$t('bill.date')"
+                                :validate="v$.bill.date"
+                                class="col-12 md:col-6"
+                            />
+                            <DateInput
+                                v-model="v$.bill.due_date.$model"
+                                :label="$t('bill.due_date')"
+                                :validate="v$.bill.due_date"
+                                class="col-12 md:col-6"
+                            />
                         </div>
 
                         <div class="grid">
@@ -34,14 +50,16 @@
                                 class="col-12"
                                 :options="vendors"
                                 data-key="id"
+                                filter
+                                show-clear
                                 option-label="name"
                                 option-value="id"
-                                placeholder="Select vendor"
                             />
                         </div>
-
-                        <div id="items_table">
-                            <Button :label="$t('bill.add_item')" icon="fa fa-plus" class="mb-4" @click="addItem" />
+                        <div id="items_table" class="grid">
+                            <div class="col-12">
+                                <Button :label="$t('bill.add_item')" icon="fa fa-plus" @click="addItem" />
+                            </div>
                             <DataTable class="col-12" :value="bill.items">
                                 <template #empty>
                                     <div class="p-4 pl-0 text-center text-gray-500">{{ $t('bill.no_items') }}</div>
@@ -128,12 +146,13 @@
                                 />
                                 <InputNumber
                                     id="total_input"
-                                    v-model="bill.total"
+                                    v-model="v$.bill.total.$model"
                                     class="field col-12"
                                     :label="$t('bill.total')"
-                                    :disabled="true"
+                                    disabled
                                     mode="currency"
                                     :currency="$settings.default_currency"
+                                    :validate="v$.bill.total"
                                 />
                             </div>
                         </div>
@@ -146,7 +165,7 @@
                             :disabled="loadingData"
                             icon="fa fa-floppy-disk"
                             class="p-button-success"
-                            @click="createBill"
+                            @click="validateForm"
                         />
                     </div>
                 </div>
@@ -156,10 +175,14 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core'
 import BillsMixin from '@/mixins/bills'
 export default {
     name: 'NewBillPage',
     mixins: [BillsMixin],
+
+    setup: () => ({ v$: useVuelidate() }),
 
     created() {
         this.getVendors()
@@ -167,7 +190,27 @@ export default {
         this.getBillNumber()
     },
 
+    validations() {
+        return {
+            bill: {
+                number: { required },
+                status: { required },
+                date: { required },
+                due_date: { required },
+                total: { required },
+            },
+        }
+    },
+
     methods: {
+        validateForm() {
+            this.v$.$touch()
+            if (this.v$.$error) {
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            }
+
+            return this.createBill()
+        },
         addItem() {
             this.bill.items.push({
                 name: '',

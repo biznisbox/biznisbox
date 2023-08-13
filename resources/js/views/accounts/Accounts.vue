@@ -20,7 +20,6 @@
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
                     column-resize-mode="expand"
-                    :global-filter-fields="['name', 'type']"
                     @row-dblclick="viewAccountNavigation"
                 >
                     <template #empty>
@@ -35,7 +34,6 @@
                             />
                         </div>
                     </template>
-
                     <Column field="name" :header="$t('account.name_and_number')">
                         <template #body="{ data }">
                             {{ formatText(data.name) }} <br />
@@ -76,7 +74,6 @@
                         <template #body="{ data }">
                             <span>{{ formatMoney(data.current_balance, data.currency) }}</span>
                         </template>
-
                         <template #filter="{ filterModel }">
                             <div class="flex">
                                 <InputText
@@ -92,7 +89,6 @@
                         <template #body="{ data }">
                             <span>{{ formatText(data.bank_name) }}</span>
                         </template>
-
                         <template #filter="{ filterModel }">
                             <div class="flex">
                                 <InputText
@@ -111,7 +107,6 @@
                     </template>
                 </DataTable>
             </div>
-
             <!-- Dialog connect bank account -->
             <Dialog v-model="connectBankDialog" :header="$t('account.connect_bank')" :visible="connectBankDialog" width="500px">
                 <div class="p-fluid">
@@ -126,10 +121,8 @@
                                 placeholder="Select country"
                                 @change="getBanks()"
                             />
-
                             <div v-if="selected_country" class="p-field">
                                 <label for="bank">{{ $t('account.bank') }}</label>
-
                                 <Dropdown
                                     v-model="selected_bank"
                                     :options="available_banks"
@@ -150,15 +143,14 @@
                 </div>
                 <template #footer>
                     <div class="">
-                        <Button label="Cancel" @click="connectBankDialog = false" severity="error" icon="fa fa-times" />
-                        <Button label="Connect" icon="fa fa-university" @click="initSession()" />
+                        <Button :label="$t('basic.cancel')" severity="error" icon="fa fa-times" @click="connectBankDialog = false" />
+                        <Button :label="$t('account.connect_bank')" icon="fa fa-university" @click="initSession()" />
                     </div>
                 </template>
             </Dialog>
         </div>
     </user-layout>
 </template>
-
 <script>
 import { FilterMatchMode, FilterOperator } from 'primevue/api'
 import AccountsMixin from '@/mixins/accounts'
@@ -176,7 +168,6 @@ export default {
             available_banks: [],
         }
     },
-
     created() {
         if (this.$route.query.ref) {
             this.getRequisitions(this.$route.query.ref)
@@ -185,7 +176,6 @@ export default {
         this.getAccounts()
         this.initFilters()
     },
-
     methods: {
         /**
          * Function that redirects to account view page
@@ -194,7 +184,6 @@ export default {
         viewAccountNavigation(event) {
             this.$router.push(`/accounts/${event.data.id}`)
         },
-
         initFilters() {
             this.filters = {
                 name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },

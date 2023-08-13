@@ -33,11 +33,8 @@
                             <DisplayData :input="$t('vendor.zip_code')" :value="vendor.zip_code" />
                             <DisplayData :input="$t('vendor.city')" :value="vendor.city" />
                             <DisplayData :input="$t('vendor.country')" :value="formatCountry(vendor.country)" />
-
                             <DisplayData :input="$t('vendor.email')" is-link :value="vendor.email" :link="`mailto:${vendor.email}`" />
-
                             <DisplayData :input="$t('vendor.phone')" :value="vendor.phone" is-link :link="`tel:${vendor.phone}`" />
-
                             <DisplayData :input="$t('customer.vat_number')" :value="vendor.vat_number" />
                             <DisplayData :input="$t('customer.currency')" :value="vendor.currency" />
                             <DisplayData :input="$t('customer.website')" :value="vendor.website" is-link />
