@@ -35,11 +35,15 @@ BiznisBox is open source invoice management software. It integrates with Stripe 
 
 ## Need help?
 
-If you need help with BiznisBox, please contact us at our email address: [app@biznisbox.com](mailto:app@biznisbox.com). We will be happy to help you. You can also open an issue on GitHub.
+If you need help with BiznisBox, please contact us at our email address: [app@biznisbox.com](mailto:app@biznisbox.com). We will be happy to help you. You can also open an [issue on GitHub](https://github.com/biznisbox/biznisbox/issues).
 
 ## Documentation
 
 Documentation is available at [https://docs.biznisbox.com](https://docs.biznisbox.com).
+
+## Contribute
+
+You want to participate in the development of the BiznisBox application. We are currently looking for people to participate in development.
 
 ## License
 

@@ -98,12 +98,36 @@ return [
     //Document responses
     'document' => [
         'get_success' => 'Documents retrieved successfully',
-        'get_failed' => 'Documents could not be retrieved',
+        'get_error' => 'Documents could not be retrieved',
         'not_found' => 'Document could not be found',
         'create_failed' => 'Document could not be created',
         'create_success' => 'Document was created successfully',
+        'update_success' => 'Document was updated successfully',
+        'update_error' => 'Document could not be updated',
         'delete_failed' => 'Document could  not be deleted successfully',
-        'delete_success' => 'Customer deleted successfully',
+        'delete_success' => 'Document deleted successfully',
+    ],
+
+    // Archive responses
+    'archive' => [
+        'get_success' => 'File retrieved successfully',
+        'get_error' => 'File could not be retrieved',
+        'not_found' => 'File could not be found',
+        'create_failed' => 'File could not be created',
+        'create_success' => 'File was created successfully',
+        'update_success' => 'File was updated successfully',
+        'update_failed' => 'File could not be updated',
+        'delete_failed' => 'File could  not be deleted successfully',
+        'delete_success' => 'File deleted successfully',
+        'get_success_folder' => 'Folder retrieved successfully',
+        'get_error_folder' => 'Folders could not be retrieved',
+        'not_found_folder' => 'Folder could not be found',
+        'create_failed_folder' => 'Folder could not be created',
+        'create_success_folder' => 'Folder was created successfully',
+        'update_success_folder' => 'Folder was updated successfully',
+        'update_failed_folder' => 'Folder could not be updated',
+        'delete_failed_folder' => 'Folder could not be deleted successfully',
+        'delete_success_folder' => 'Folder deleted successfully',
     ],
 
     //Estimate responses
@@ -176,6 +200,18 @@ return [
         'requisition_failed' => 'Requisition failed',
         'session_id_required' => 'Session ID is required',
         'account_id_required' => 'Account ID is required',
+    ],
+
+    'calendar' => [
+        'get_success' => 'Event retrieved successfully',
+        'get_error' => 'Event could not be retrieved',
+        'not_found' => 'Event could not be found',
+        'create_failed' => 'Event could not be created',
+        'create_success' => 'Event was created successfully',
+        'update_success' => 'Event was updated successfully',
+        'update_failed' => 'Event could not be updated',
+        'delete_failed' => 'Event could  not be deleted successfully',
+        'delete_success' => 'Event deleted successfully',
     ],
 
     // Email responses

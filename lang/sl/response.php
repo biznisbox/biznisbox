@@ -102,6 +102,8 @@ return [
         'not_found' => 'Dokumenta ni mogoče najti',
         'create_failed' => 'Dokument ni bil ustvarjen',
         'create_success' => 'Dokument je bil uspešno ustvarjen',
+        'update_success' => 'Dokument je bil uspešno posodobljen',
+        'update_error' => 'Dokument ni bil posodobljen',
         'delete_failed' => 'Dokumenta ni bilo mogoče izbrisati',
         'delete_success' => 'Dokument je bil uspešno izbrisan',
     ],
@@ -122,6 +124,28 @@ return [
         'delete_success' => 'Predračun je bil uspešno izbrisan',
         'delete_failed' => 'Predračuna ni bilo mogoče izbrisati',
         'send_failed' => 'Predračuna ni bilo mogoče poslati',
+    ],
+
+    // Archive responses
+    'archive' => [
+        'get_success' => 'Datoteka pridobljena uspešno',
+        'get_error' => 'Datoteke ni bilo mogoče pridobiti',
+        'not_found' => 'Datoteke ni mogoče najti',
+        'create_failed' => 'Datoteke ni mogoče ustvariti',
+        'create_success' => 'Datoteka uspešno ustvarena',
+        'update_success' => 'Datoteka uspešno posodobljena',
+        'update_failed' => 'Datoeke ni bilo mogoče posodobiti',
+        'delete_failed' => 'Datoteke ni bilo mogoče izbrisati',
+        'delete_success' => 'Datoteka uspešno izbrisana',
+        'get_success_folder' => 'Mapa uspešno pridobljena',
+        'get_error_folder' => 'Mape ni bilo mogoče pridobiti',
+        'not_found_folder' => 'Mape ni bilo mogoče najti',
+        'create_failed_folder' => 'Mape ni bilo mogoče ustvariti',
+        'create_success_folder' => 'Mapa uspešno ustvarena',
+        'update_success_folder' => 'Mapa uspešno posodobljena',
+        'update_failed_folder' => 'Mape ni bilo mogoče posodobiti',
+        'delete_failed_folder' => 'Mape ni bilo mogoče izbrisati',
+        'delete_success_folder' => 'Mapa uspešno izbrisana',
     ],
 
     //Invoice responses
@@ -176,6 +200,17 @@ return [
         'account_id_required' => 'ID računa je obvezen',
     ],
 
+    'calendar' => [
+        'get_success' => 'Dogodek uspešno pridobljen',
+        'get_error' => 'Dogodka ni bilo mogoče pridobiti',
+        'not_found' => 'Dogodka ni mogoče najti',
+        'create_failed' => 'Dogodka ni mogoče ustvariti',
+        'create_success' => 'Dogodek uspešno ustvarena',
+        'update_success' => 'Dogodek uspešno posodobljena',
+        'update_failed' => 'Dogodka ni bilo mogoče posodobiti',
+        'delete_failed' => 'Dogodka ni bilo mogoče izbrisati',
+        'delete_success' => 'Dogodek uspešno izbrisana',
+    ],
     // Email responses
     'email' => [
         'invoice_subject' => 'Račun',

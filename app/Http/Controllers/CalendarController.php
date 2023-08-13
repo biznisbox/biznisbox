@@ -19,7 +19,7 @@ class CalendarController extends Controller
         $event = $this->calendarModel->createEvent($data);
 
         if (!$event) {
-            return api_response(null, __('response.calendar.create_error'), 500);
+            return api_response(null, __('response.calendar.create_failed'), 500);
         }
         return api_response($event, __('response.calendar.create_success'));
     }
@@ -29,7 +29,7 @@ class CalendarController extends Controller
         $data = $request->all();
         $event = $this->calendarModel->updateEvent($event_id, $data);
         if (!$event) {
-            return api_response(null, __('response.calendar.update_error'), 500);
+            return api_response(null, __('response.calendar.update_failed'), 500);
         }
         return api_response($event, __('response.calendar.update_success'));
     }
@@ -38,7 +38,7 @@ class CalendarController extends Controller
     {
         $event = $this->calendarModel->deleteEvent($event_id);
         if (!$event) {
-            return api_response(null, __('response.calendar.delete_error'), 500);
+            return api_response(null, __('response.calendar.delete_failed'), 500);
         }
         return api_response($event, __('response.calendar.delete_success'));
     }
@@ -57,6 +57,6 @@ class CalendarController extends Controller
         $start = $request->start;
         $end = $request->end;
         $events = $this->calendarModel->getEventsByUser($start, $end);
-        return api_response($events);
+        return api_response($events, __('response.calendar.get_success'));
     }
 }

@@ -20,9 +20,9 @@ class ArchiveController extends Controller
         $documents = $this->archiveModel->getDocuments($folder_id);
 
         if ($documents) {
-            return api_response($documents, __('response.document.get_success'));
+            return api_response($documents, __('response.archive.get_success'));
         }
-        return api_response(null, __('response.document.get_failed'), 400);
+        return api_response(null, __('response.archive.get_failed'), 400);
     }
 
     public function getDocument(Request $request)
@@ -31,18 +31,18 @@ class ArchiveController extends Controller
         $document = $this->archiveModel->getDocument($document_id);
 
         if ($document) {
-            return api_response($document, __('response.document.get_success'));
+            return api_response($document, __('response.archive.get_success'));
         }
-        return api_response(null, __('response.document.not_found'), 404);
+        return api_response(null, __('response.archive.not_found'), 404);
     }
 
     public function createDocument(Request $request)
     {
         $document = $this->archiveModel->createDocument($request);
         if ($document) {
-            return api_response($document, __('response.document.create_success'), 201);
+            return api_response($document, __('response.archive.create_success'), 201);
         }
-        return api_response(null, __('response.document.create_failed'), 400);
+        return api_response(null, __('response.archive.create_failed'), 400);
     }
 
     public function updateDocument(Request $request)
@@ -52,9 +52,9 @@ class ArchiveController extends Controller
         $document = $this->archiveModel->updateDocument($document_id, $data);
 
         if ($document) {
-            return api_response($document, __('response.document.update_success'));
+            return api_response($document, __('response.archive.update_success'));
         }
-        return api_response(null, __('response.document.update_failed'), 400);
+        return api_response(null, __('response.archive.update_failed'), 400);
     }
 
     public function deleteDocument(Request $request)
@@ -63,9 +63,9 @@ class ArchiveController extends Controller
         $document = $this->archiveModel->deleteDocument($document_id);
 
         if ($document) {
-            return api_response(null, __('response.document.delete_success'));
+            return api_response(null, __('response.archive.delete_success'));
         }
-        return api_response(null, __('response.document.delete_failed'), 400);
+        return api_response(null, __('response.archive.delete_failed'), 400);
     }
 
     public function downloadDocument(Request $request)
@@ -76,7 +76,7 @@ class ArchiveController extends Controller
         if ($document) {
             return $document;
         }
-        return api_response(null, __('response.document.not_found'), 400);
+        return api_response(null, __('response.archive.not_found'), 400);
     }
 
     public function previewDocument(Request $request)
@@ -87,7 +87,7 @@ class ArchiveController extends Controller
         if ($document) {
             return $document;
         }
-        return api_response(null, __('response.document.not_found'), 400);
+        return api_response(null, __('response.archive.not_found'), 400);
     }
 
     // Folders operations
@@ -106,10 +106,10 @@ class ArchiveController extends Controller
         $folder = $this->archiveModel->getFolder($id);
 
         if ($folder) {
-            return api_response($folder, __('response.folders.get_success'));
+            return api_response($folder, __('response.folders.get_success_folder'));
         }
 
-        return api_response(null, __('response.folders.not_found'), 400);
+        return api_response(null, __('response.folders.not_found_folder'), 400);
     }
 
     public function createFolder(Request $request)
@@ -119,9 +119,9 @@ class ArchiveController extends Controller
         $folder = $this->archiveModel->createFolder($parent_folder_id, $name);
 
         if ($folder) {
-            return api_response($folder, __('response.document.create_success'), 201);
+            return api_response($folder, __('response.archive.create_success_folder'), 201);
         }
-        return api_response(null, __('response.document.create_failed'), 400);
+        return api_response(null, __('response.archive.create_failed_folder'), 400);
     }
 
     public function updateFolder(Request $request)
@@ -131,9 +131,9 @@ class ArchiveController extends Controller
         $folder = $this->archiveModel->updateFolder($folder_id, $data);
 
         if ($folder) {
-            return api_response($folder, __('response.document.update_success'));
+            return api_response($folder, __('response.archive.update_success_folder'));
         }
-        return api_response(null, __('response.document.update_failed'), 400);
+        return api_response(null, __('response.archive.update_failed_folder'), 400);
     }
 
     public function deleteFolder(Request $request)
@@ -142,8 +142,8 @@ class ArchiveController extends Controller
         $folder = $this->archiveModel->deleteFolder($folder_id);
 
         if ($folder) {
-            return api_response(null, __('response.document.delete_success'));
+            return api_response(null, __('response.archive.delete_success_folder'));
         }
-        return api_response(null, __('response.document.delete_failed'), 400);
+        return api_response(null, __('response.archive.delete_failed_folder'), 400);
     }
 }
