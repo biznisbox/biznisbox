@@ -184,6 +184,7 @@ export default {
             this.makeHttpRequest('PUT', `/api/admin/taxes/${this.tax.id}`, this.tax).then((response) => {
                 this.v$.$reset()
                 this.getTaxes()
+                this.showToast(response.data.message)
                 this.showEditTaxDialog = false
             })
         },
@@ -204,6 +205,7 @@ export default {
 
             this.makeHttpRequest('POST', '/api/admin/taxes', this.tax).then((response) => {
                 this.v$.$reset()
+                this.showToast(response.data.message)
                 this.getTaxes()
                 this.showNewTaxDialog = false
             })

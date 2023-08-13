@@ -207,6 +207,7 @@ export default {
             this.makeHttpRequest('PUT', `/api/admin/currencies/${this.currency.id}`, this.currency).then((response) => {
                 this.v$.$reset()
                 this.getCurrencies()
+                this.showToast(response.data.message)
                 this.showEditCurrencyDialog = false
             })
         },
@@ -227,6 +228,7 @@ export default {
 
             this.makeHttpRequest('POST', '/api/admin/currencies', this.currency).then((response) => {
                 this.getCurrencies()
+                this.showToast(response.data.message)
                 this.v$.$reset()
                 this.showNewCurrencyDialog = false
             })

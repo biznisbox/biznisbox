@@ -132,7 +132,7 @@
                             icon="fa fa-floppy-disk"
                             class="p-button-success"
                             :disabled="loadingData"
-                            @click="updateCustomer($route.params.id)"
+                            @click="validateForm"
                         />
                     </div>
                 </div>

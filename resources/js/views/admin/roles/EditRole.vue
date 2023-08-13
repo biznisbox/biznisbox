@@ -8,7 +8,7 @@
                             :label="$t('basic.delete')"
                             icon="fa fa-trash"
                             class="p-button-danger"
-                            @click="deleteRole($route.params.id)"
+                            @click="deleteRoleAsk($route.params.id)"
                         />
                     </template>
                 </user-header>

@@ -75,6 +75,17 @@ export default {
             })
         },
 
+        deleteRoleAsk(id) {
+            this.$confirm.require({
+                message: this.$t('admin.role.delete_confirm_role'),
+                header: this.$t('basic.confirmation'),
+                icon: 'fa fa-circle-exclamation',
+                accept: () => {
+                    this.deleteRole(id)
+                },
+            })
+        },
+
         /**
          * Update role
          * @param {string} id UUID of role
