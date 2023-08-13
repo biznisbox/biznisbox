@@ -72,7 +72,6 @@ import SplitterPanel from 'primevue/splitterpanel'
 import Galleria from 'primevue/galleria'
 import Toast from 'primevue/toast'
 import Row from 'primevue/row'
-import Editor from 'primevue/editor'
 import ConfirmDialog from 'primevue/confirmdialog'
 import ConfirmPopup from 'primevue/confirmpopup'
 import TriStateCheckbox from 'primevue/tristatecheckbox'
@@ -149,7 +148,7 @@ export default {
         app.component('ProgressSpinner', ProgressSpinner)
         app.component('Tag', Tag)
         app.component('Toast', Toast)
-        app.component('Row', Row), app.component('Editor', Editor)
+        app.component('Row', Row),
         app.component('ConfirmDialog', ConfirmDialog)
         app.component('ConfirmPopup', ConfirmPopup)
         app.component('TriStateCheckbox', TriStateCheckbox)

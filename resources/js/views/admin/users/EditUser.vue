@@ -112,7 +112,6 @@ export default {
                 email: { required, email },
                 role: { required },
                 active: { required },
-                password: { required },
             },
         }
     },

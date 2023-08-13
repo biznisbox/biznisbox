@@ -82,12 +82,13 @@
                     </div>
 
                     <div class="grid">
-                        <EditorInput
+                        <TinyMceEditor
                             id="description_input"
                             v-model="event.description"
                             class="field col-12"
                             :label="$t('calendar.event_description')"
-                        ></EditorInput>
+                            toolbar="bold italic underline | alignleft aligncenter alignright alignjustify | fontselect fontsizeselect formatselect |forecolor backcolor removeformat | charmap |  bullist numlist outdent indent"
+                        />
                     </div>
                 </form>
 
@@ -182,12 +183,13 @@
                         </div>
 
                         <div class="grid">
-                            <EditorInput
+                            <TinyMceEditor
                                 id="description_input"
                                 v-model="event.description"
                                 class="field col-12"
                                 :label="$t('calendar.event_description')"
-                            ></EditorInput>
+                                toolbar="bold italic underline | alignleft aligncenter alignright alignjustify | fontselect fontsizeselect formatselect |forecolor backcolor removeformat | charmap |  bullist numlist outdent indent"
+                            />
                         </div>
                     </form>
                 </LoadingScreen>
