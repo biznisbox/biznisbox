@@ -148,7 +148,7 @@ export default {
         app.component('ProgressSpinner', ProgressSpinner)
         app.component('Tag', Tag)
         app.component('Toast', Toast)
-        app.component('Row', Row),
+        app.component('Row', Row)
         app.component('ConfirmDialog', ConfirmDialog)
         app.component('ConfirmPopup', ConfirmPopup)
         app.component('TriStateCheckbox', TriStateCheckbox)

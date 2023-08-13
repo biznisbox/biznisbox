@@ -60,9 +60,9 @@ export default {
         },
         toolbar: {
             type: String,
-            default: 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect fontsizeselect formatselect |forecolor backcolor removeformat | charmap |  bullist numlist outdent indent | link image table | wordcount',
+            default:
+                'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect fontsizeselect formatselect |forecolor backcolor removeformat | charmap |  bullist numlist outdent indent | link image table | wordcount',
         },
-
     },
 
     data() {

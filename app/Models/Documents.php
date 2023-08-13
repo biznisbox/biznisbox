@@ -37,7 +37,7 @@ class Documents extends Model implements Auditable
 
     protected $casts = [
         'date' => 'date',
-        'due_date' => 'date'
+        'due_date' => 'date',
     ];
 
     public function generateTags(): array
