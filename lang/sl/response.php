@@ -60,7 +60,7 @@ return [
     //Account responses
     'accounts' => [
         'get_success' => 'Račun je bil uspešno pridobljen',
-        'get_failed' => 'Accounts could not be retrieved',
+        'get_failed' => 'Računa ni bilo mogoče pridobiti',
         'not_found' => 'Računa ni bilo mogoče najti',
         'create_success' => 'Račun je bil uspešno ustvarjen',
         'create_error' => 'Računa ni bilo mogoče ustvariti',
@@ -68,7 +68,7 @@ return [
         'update_error' => 'Računa ni bilo mogoče posodobiti',
         'delete_success' => 'Račun je bil uspešno izbrisan',
         'delete_error' => 'Računa ni bilo mogoče izbrisati',
-        'get_success' => 'Account retrieved successfully',
+        'get_success' => 'Račun je bil uspešno pridobljen',
         'get_error' => 'Računa ni bilo mogoče pridobiti',
     ],
 
@@ -87,7 +87,7 @@ return [
     //Customer responses
     'customer' => [
         'get_success' => 'Kupec je bil uspešno pridobljen',
-        'get_failed' => 'Customers could not be retrieved',
+        'get_failed' => 'Kupca ni bilo mogoče pridobiti',
         'not_found' => 'Kupeca ni bilo mogoče najti',
         'create_failed' => 'Kupec ni bil ustvarjen',
         'create_success' => 'Kupec je bil uspešno ustvarjen',
@@ -133,7 +133,7 @@ return [
     //Estimate responses
     'estimate' => [
         'get_success' => 'Predračun je bil uspešno pridobljen',
-        'get_failed' => 'Estimates could not be retrieved',
+        'get_failed' => 'Predračuna ni bilo mogoče pridobiti',
         'not_found' => 'Predračuna ni bilo mogoče najti',
         'create_failed' => 'Predračun ni bil ustvarjen',
         'create_success' => 'Predračun je bil uspešno ustvarjen',
@@ -143,26 +143,26 @@ return [
         'delete_failed' => 'Predračuna ni bilo mogoče izbrisati',
         'update_failed' => 'Predračuna ni bilo mogoče posodobiti',
         'share_success' => 'Predračun je bil uspešno posredovan',
-        'share_failed' => 'Estimate could not be shared',
+        'share_failed' => 'Predračna ni mogoče deliti',
         'accept_reject_success' => 'Predračun je bil uspešno sprejet/zavrnjen',
         'send_success' => 'Predračun je bil uspešno poslan',
         'send_failed' => 'Predračuna ni bilo mogoče poslati',
-        'pdf_failed' => 'Generating PDF failed',
+        'pdf_failed' => 'Ustvarjanje PDF datoteke ni bilo uspešno',
     ],
 
     //Invoice responses
     'invoice' => [
         'get_success' => 'Račun je bil uspešno pridobljen',
-        'get_failed' => 'Invoices could not be retrieved',
+        'get_failed' => 'Računa ni bilo mogoče pridobiti',
         'not_found' => 'Računa ni bilo mogoče najti',
         'create_failed' => 'Račun ni bil ustvarjen',
         'create_success' => 'Račun je bil uspešno ustvarjen',
         'delete_success' => 'Račun je bil uspešno izbrisan',
         'update_success' => 'Račun je bil uspešno posodobljen',
         'share_success' => 'Račun je bil uspešno posredovan',
-        'share_failed' => 'Estimate could not be shared',
+        'share_failed' => 'Predračna ni mogoče deliti',
         'send_success' => 'Račun je bil uspešno poslan',
-        'pdf_failed' => 'Generating PDF failed',
+        'pdf_failed' => 'Ustvarjanje PDF datoteke ni bilo uspešno',
         'send_failed' => 'Računa ni bilo mogoče poslati',
         'update_failed' => 'Računa ni bilo mogoče posodobiti',
         'delete_failed' => 'Računa ni bilo mogoče izbrisati',
@@ -274,16 +274,16 @@ return [
         ],
 
         'user' => [
-            'not_found' => 'User could not be found',
-            'create_failed' => 'User could not be created',
-            'create_success' => 'User was created successfully',
-            'update_success' => 'User was updated successfully',
-            'update_failed' => 'User could not be updated',
-            'delete_success' => 'User was deleted successfully',
-            'delete_failed' => 'User could not be deleted',
-            'password_reset_success' => 'Password was reset successfully',
-            'password_reset_failed' => 'Password could not be reset',
-            'delete_failed_self_account' => 'You cannot delete your own account',
+            'not_found' => 'Uporabnika ni bilo mogoče najti',
+            'create_failed' => 'Uporabnika ni bilo mogoče ustvariti',
+            'create_success' => 'Uporabnik je bil uspešno ustvarjen',
+            'update_success' => 'Uporabnik je bil uspešno posodobljen',
+            'update_failed' => 'Uporabnika ni bilo mogoče posodobiti',
+            'delete_success' => 'Uporabnik uspešno izbrisan',
+            'delete_failed' => 'Uporabnika ni bilo mogoče izbrisati',
+            'password_reset_success' => 'Geslo je ospešno ponastavljeno',
+            'password_reset_failed' => 'Gesla ni bilo mogoče ponastaviti',
+            'delete_failed_self_account' => 'Ne morate izbrisati lastnega računa',
         ],
     ],
 ];
