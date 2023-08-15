@@ -1,0 +1,5 @@
+files:
+  - source: /lang/en/*.php
+    translation: /lang/%two_letters_code%/%original_file_name%
+  - source: /resources/js/locales/en.json
+    translation: /resources/js/locales/%two_letters_code%.%file_extension%
