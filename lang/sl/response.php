@@ -60,7 +60,7 @@ return [
     //Account responses
     'accounts' => [
         'get_success' => 'Račun je bil uspešno pridobljen',
-        'get_error' => 'Računa ni bilo mogoče pridobiti',
+        'get_failed' => 'Accounts could not be retrieved',
         'not_found' => 'Računa ni bilo mogoče najti',
         'create_success' => 'Račun je bil uspešno ustvarjen',
         'create_error' => 'Računa ni bilo mogoče ustvariti',
@@ -68,7 +68,7 @@ return [
         'update_error' => 'Računa ni bilo mogoče posodobiti',
         'delete_success' => 'Račun je bil uspešno izbrisan',
         'delete_error' => 'Računa ni bilo mogoče izbrisati',
-        'get_success' => 'Račun je bil uspešno pridobljen',
+        'get_success' => 'Account retrieved successfully',
         'get_error' => 'Računa ni bilo mogoče pridobiti',
     ],
 
@@ -87,7 +87,7 @@ return [
     //Customer responses
     'customer' => [
         'get_success' => 'Kupec je bil uspešno pridobljen',
-        'get_error' => 'Kupec ni bil pridobljen',
+        'get_failed' => 'Customers could not be retrieved',
         'not_found' => 'Kupeca ni bilo mogoče najti',
         'create_failed' => 'Kupec ni bil ustvarjen',
         'create_success' => 'Kupec je bil uspešno ustvarjen',
@@ -106,24 +106,6 @@ return [
         'update_error' => 'Dokument ni bil posodobljen',
         'delete_failed' => 'Dokumenta ni bilo mogoče izbrisati',
         'delete_success' => 'Dokument je bil uspešno izbrisan',
-    ],
-
-    //Estimate responses
-    'estimate' => [
-        'get_success' => 'Predračun je bil uspešno pridobljen',
-        'get_error' => 'Predračuna ni bilo mogoče pridobiti',
-        'not_found' => 'Predračuna ni bilo mogoče najti',
-        'create_failed' => 'Predračun ni bil ustvarjen',
-        'create_success' => 'Predračun je bil uspešno ustvarjen',
-        'convert_success' => 'Predračun je bil uspešno pretvorjen v račun',
-        'update_success' => 'Predračun je bil uspešno posodobljen',
-        'update_failed' => 'Predračuna ni bilo mogoče posodobiti',
-        'share_success' => 'Predračun je bil uspešno posredovan',
-        'accept_reject_success' => 'Predračun je bil uspešno sprejet/zavrnjen',
-        'send_success' => 'Predračun je bil uspešno poslan',
-        'delete_success' => 'Predračun je bil uspešno izbrisan',
-        'delete_failed' => 'Predračuna ni bilo mogoče izbrisati',
-        'send_failed' => 'Predračuna ni bilo mogoče poslati',
     ],
 
     // Archive responses
@@ -148,20 +130,42 @@ return [
         'delete_success_folder' => 'Mapa uspešno izbrisana',
     ],
 
+    //Estimate responses
+    'estimate' => [
+        'get_success' => 'Predračun je bil uspešno pridobljen',
+        'get_failed' => 'Estimates could not be retrieved',
+        'not_found' => 'Predračuna ni bilo mogoče najti',
+        'create_failed' => 'Predračun ni bil ustvarjen',
+        'create_success' => 'Predračun je bil uspešno ustvarjen',
+        'convert_success' => 'Predračun je bil uspešno pretvorjen v račun',
+        'update_success' => 'Predračun je bil uspešno posodobljen',
+        'delete_success' => 'Predračun je bil uspešno izbrisan',
+        'delete_failed' => 'Predračuna ni bilo mogoče izbrisati',
+        'update_failed' => 'Predračuna ni bilo mogoče posodobiti',
+        'share_success' => 'Predračun je bil uspešno posredovan',
+        'share_failed' => 'Estimate could not be shared',
+        'accept_reject_success' => 'Predračun je bil uspešno sprejet/zavrnjen',
+        'send_success' => 'Predračun je bil uspešno poslan',
+        'send_failed' => 'Predračuna ni bilo mogoče poslati',
+        'pdf_failed' => 'Generating PDF failed',
+    ],
+
     //Invoice responses
     'invoice' => [
         'get_success' => 'Račun je bil uspešno pridobljen',
-        'get_error' => 'Računa ni bilo mogoče pridobiti',
+        'get_failed' => 'Invoices could not be retrieved',
         'not_found' => 'Računa ni bilo mogoče najti',
         'create_failed' => 'Račun ni bil ustvarjen',
         'create_success' => 'Račun je bil uspešno ustvarjen',
         'delete_success' => 'Račun je bil uspešno izbrisan',
         'update_success' => 'Račun je bil uspešno posodobljen',
         'share_success' => 'Račun je bil uspešno posredovan',
+        'share_failed' => 'Estimate could not be shared',
         'send_success' => 'Račun je bil uspešno poslan',
-        'delete_failed' => 'Računa ni bilo mogoče izbrisati',
+        'pdf_failed' => 'Generating PDF failed',
         'send_failed' => 'Računa ni bilo mogoče poslati',
         'update_failed' => 'Računa ni bilo mogoče posodobiti',
+        'delete_failed' => 'Računa ni bilo mogoče izbrisati',
     ],
 
     //Online payment responses
@@ -178,8 +182,6 @@ return [
 
     //Profile responses
     'user' => [
-        'get_success' => 'Uporabnik je bil uspešno pridobljen',
-        'get_error' => 'Uporabnika ni bilo mogoče pridobiti',
         'not_found' => 'Uporabnika ni bilo mogoče najti',
         'update_success' => 'Uporabnik je bil uspešno posodobljen',
         'password_updated' => 'Geslo je bilo uspešno posodobljeno',
@@ -211,6 +213,7 @@ return [
         'delete_failed' => 'Dogodka ni bilo mogoče izbrisati',
         'delete_success' => 'Dogodek uspešno izbrisana',
     ],
+
     // Email responses
     'email' => [
         'invoice_subject' => 'Račun',
