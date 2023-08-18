@@ -75,8 +75,8 @@ export default {
 
             this.makeHttpRequest('POST', '/api/auth/login', this.form).then((response) => {
                 this.showToast(response.data.message)
-                sessionStorage.setItem('token', response.data.data)
-                localStorage.setItem('lang', jwtDecode(response.data.data).data?.lang)
+                this.$cookies.set('token', response.data.data, '2h')
+                localStorage.setItem('lang', jwtDecode(response.data.data).data?.lang) // set language - localstorage long term
                 this.$router.push({ name: 'Dashboard' })
             })
         },

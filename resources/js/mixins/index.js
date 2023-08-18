@@ -6,8 +6,8 @@ export default {
     mixins: [GlobalMixin],
     data() {
         return {
-            token: sessionStorage.getItem('token') ? sessionStorage.getItem('token') : null,
-            user: sessionStorage.getItem('token') ? jwtDecode(sessionStorage.getItem('token')) : null,
+            token: this.$cookies.get('token') ? this.$cookies.get('token') : null,
+            user: this.$cookies.get('token') ? jwtDecode(this.$cookies.get('token')) : null,
             validationErrors: [], // Validation errors from API
             loadingData: false,
             lang: localStorage.getItem('lang') || window.App.settings.default_lang,
@@ -204,6 +204,24 @@ export default {
             }
             return false
         },
+
+        /**
+         * Function for check if user has any permission from given array
+         * @param {array} permissions Permissions to check
+         * @returns {boolean} True if user has any permission, false otherwise
+         **/
+        hasAnyPermission(permissions) {
+            if (permissions.length == 0) {
+                return false
+            }
+            for (let i = 0; i < permissions.length; i++) {
+                if (this.user.data?.permissions.includes(permissions[i])) {
+                    return true
+                }
+            }
+            return false
+        },
+
         /**
          * Function for copy text to clipboard
          * @param {string} text Text to copy
@@ -220,16 +238,16 @@ export default {
          */
         changeTheme() {
             let theme = localStorage.getItem('theme')
-            if (theme === 'light') {
-                this.$primevue.changeTheme('lara-dark-blue', 'lara-light-blue', 'theme-link', () => {
-                    localStorage.setItem('theme', 'dark')
-                    this.theme = 'dark'
-                })
-            }
             if (theme === 'dark') {
-                this.$primevue.changeTheme('lara-light-blue', 'lara-dark-blue', 'theme-link', () => {
+                this.$primevue.changeTheme('lara-dark-blue', 'lara-light-blue', 'theme-link', () => {
                     localStorage.setItem('theme', 'light')
                     this.theme = 'light'
+                })
+            }
+            if (theme === 'light') {
+                this.$primevue.changeTheme('lara-light-blue', 'lara-dark-blue', 'theme-link', () => {
+                    localStorage.setItem('theme', 'dark')
+                    this.theme = 'dark'
                 })
             }
         },

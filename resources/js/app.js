@@ -4,6 +4,7 @@ import { createPinia } from 'pinia'
 import router from '@/router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueCookies from 'vue3-cookies'
 import * as Sentry from '@sentry/vue'
 import i18n from '@/plugins/i18n'
 import PrimeVue from '@/plugins/primevue'
@@ -28,6 +29,7 @@ app.use(router)
 app.use(pinia)
 app.use(PrimeVue)
 app.mixin(GlobalMixin)
+app.use(VueCookies)
 app.use(i18n)
 app.use(Form)
 app.use(FullCalendar)

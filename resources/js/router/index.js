@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useCookies } from 'vue3-cookies'
+const { cookies } = useCookies()
 import jwtDecode from 'jwt-decode'
 const routes = [
     // Dashboard
@@ -145,23 +147,24 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+    const token = cookies.get('token')
     if (to.meta.auth && !to.meta.admin) {
         // Check if route requires auth
-        if (sessionStorage.getItem('token')) {
+        if (token) {
             next()
         } else {
             next({ name: 'AuthLogin' })
         }
     } else if (to.meta.admin) {
         // Check if route requires admin
-        if (sessionStorage.getItem('token') && jwtDecode(sessionStorage.getItem('token')).data.permissions.includes('admin')) {
+        if (token && jwtDecode(token).data.permissions.includes('admin')) {
             next()
         } else {
             next({ name: 'AuthLogin' })
         }
     } else if (to.name === 'AuthLogin') {
         // If user is already logged in, redirect to dashboard (only for login page)
-        if (sessionStorage.getItem('token')) {
+        if (token) {
             next({ name: 'Dashboard' })
         } else {
             next()

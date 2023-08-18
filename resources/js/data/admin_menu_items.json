@@ -4,6 +4,7 @@
         "meta": ["dashboard"],
         "icon": "fa fa-dashboard",
         "permission": "",
+        "permissions": [],
         "to": "/"
     },
     {
@@ -11,6 +12,7 @@
         "meta": ["admin-dashboard"],
         "icon": "fa fa-dashboard",
         "permission": "admin",
+        "permissions": [],
         "to": "/admin"
     },
     {
@@ -18,12 +20,14 @@
         "meta": ["users"],
         "icon": "fa fa-users",
         "permission": "admin_users",
+        "permissions": [],
         "to": "/admin/users"
     },
     {
         "name": "admin.menu.integrations",
         "meta": ["integrations"],
         "icon": "fa fa-plug",
+        "permissions": [],
         "permission": "admin_integrations",
         "to": "/admin/integrations"
     },
@@ -32,6 +36,7 @@
         "meta": ["roles"],
         "icon": "fa fa-user-secret",
         "permission": "admin_roles",
+        "permissions": [],
         "to": "/admin/roles"
     },
     {
@@ -39,12 +44,14 @@
         "meta": ["company"],
         "icon": "fa fa-building",
         "permission": "admin_company_settings",
+        "permissions": [],
         "to": "/admin/company"
     },
     {
         "name": "admin.menu.settings",
         "meta": ["settings"],
         "permission": "",
+        "permissions": ["admin_general_settings", "admin_currencies", "admin_numbering", "admin_tax_rates"],
         "icon": "fa fa-cog",
         "children": [
             {

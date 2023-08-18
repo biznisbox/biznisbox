@@ -7,7 +7,7 @@
                     <span>{{ $t(item.name) }}</span>
                 </router-link>
             </div>
-            <div v-if="item.children && item.children.length">
+            <div v-if="item.children && item.children.length && hasAnyPermission(item.permissions)">
                 <template v-if="item.children">
                     <router-link v-slot="{ isActive }" :to="item.children[0].to" custom>
                         <div>

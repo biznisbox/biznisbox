@@ -19,7 +19,7 @@ export default {
                     this.showToast(res.data.message)
                 })
                 .finally(() => {
-                    sessionStorage.removeItem('token')
+                    this.$cookies.remove('token')
                     this.$router.push({ name: 'AuthLogin' })
                 })
         },
