@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BasicController;
@@ -37,9 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/auth/logout', AuthController::class . '@Logout')->middleware('auth');
 
     // Products Routes
-
+    Route::get('/products', ProductController::class . '@getProducts');
     Route::middleware('can:products')->group(function () {
-        Route::get('/products', ProductController::class . '@getProducts');
         Route::get('/products/{id}', ProductController::class . '@getProduct');
         Route::post('/products', ProductController::class . '@createProduct');
         Route::put('/products/{id}', ProductController::class . '@updateProduct');
@@ -47,8 +45,8 @@ Route::middleware('auth')->group(function () {
     });
 
     // Customers Routes
+    Route::get('/customers', CustomersController::class . '@getCustomers');
     Route::middleware('can:customers')->group(function () {
-        Route::get('/customers', CustomersController::class . '@getCustomers');
         Route::get('/customers/{id}', CustomersController::class . '@getCustomer');
         Route::post('/customers', CustomersController::class . '@createCustomer');
         Route::put('/customers/{id}', CustomersController::class . '@updateCustomer');
@@ -96,8 +94,8 @@ Route::middleware('auth')->group(function () {
     });
 
     // Accounts routes
+    Route::get('/accounts', AccountController::class . '@getAccounts');
     Route::middleware('can:accounts')->group(function () {
-        Route::get('/accounts', AccountController::class . '@getAccounts');
         Route::get('/accounts/{id}', AccountController::class . '@getAccount');
         Route::post('/accounts', AccountController::class . '@createAccount');
         Route::put('/accounts/{id}', AccountController::class . '@updateAccount');
@@ -144,8 +142,8 @@ Route::middleware('auth')->group(function () {
     });
 
     // Vendor Routes
+    Route::get('/vendors', VendorsController::class . '@getVendors');
     Route::middleware('can:vendors')->group(function () {
-        Route::get('/vendors', VendorsController::class . '@getVendors');
         Route::get('/vendors/{id}', VendorsController::class . '@getVendor');
         Route::post('/vendors', VendorsController::class . '@createVendor');
         Route::put('/vendors/{id}', VendorsController::class . '@updateVendor');
@@ -256,6 +254,6 @@ Route::get('{any}', function () {
     return response()->json(['message' => 'API route not available.'], 404);
 })->where('any', '.*');
 
-Route::get('/', function () {
+Route::get('/ping', function () {
     return response()->json(['message' => 'API is working'], 200);
 });

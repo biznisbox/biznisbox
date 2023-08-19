@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
@@ -26,15 +25,6 @@ return new class extends Migration {
             $table->double('rate', 10, 4)->default(1);
             $table->timestamps();
         });
-
-        DB::table('currencies')->insert([
-            [
-                'name' => 'Euro',
-                'code' => 'EUR',
-                'symbol' => '€',
-                'rate' => 1,
-            ],
-        ]);
     }
 
     /**
