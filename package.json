@@ -29,7 +29,7 @@
         "vue-loader": "^17.2.2"
     },
     "dependencies": {
-        "@fullcalendar/core": "^5.11.4",
+        "@fullcalendar/core": "^5.11.5",
         "@fullcalendar/daygrid": "^5.11.4",
         "@fullcalendar/interaction": "^5.11.4",
         "@fullcalendar/list": "^5.11.4",
