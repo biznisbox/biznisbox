@@ -30,7 +30,7 @@
     },
     "dependencies": {
         "@fullcalendar/core": "^5.11.4",
-        "@fullcalendar/daygrid": "^5.11.4",
+        "@fullcalendar/daygrid": "^5.11.5",
         "@fullcalendar/interaction": "^5.11.4",
         "@fullcalendar/list": "^5.11.4",
         "@fullcalendar/rrule": "^5.11.4",
