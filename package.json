@@ -35,7 +35,7 @@
         "@fullcalendar/list": "^5.11.4",
         "@fullcalendar/rrule": "^5.11.4",
         "@fullcalendar/timegrid": "^5.11.4",
-        "@fullcalendar/vue3": "^5.11.4",
+        "@fullcalendar/vue3": "^5.11.5",
         "@intlify/unplugin-vue-i18n": "^0.12.3",
         "@sentry/vue": "^7.64.0",
         "@tinymce/tinymce-vue": "^5.1.0",
