@@ -4,7 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{ settings('company_name')}}</title>
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="{{ settings('company_logo') }}">
+	<link rel="apple-touch-icon" href="{{ settings('company_logo') }}">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	@vite('resources/scss/app.scss')
 	<link id="theme-link" rel="stylesheet" href="/themes/lara-light-blue/theme.css">

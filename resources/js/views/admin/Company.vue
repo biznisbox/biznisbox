@@ -6,6 +6,30 @@
 
             <div id="company_data" class="card">
                 <form class="formgrid">
+                    <FileUpload
+                        name="image"
+                        url="/api/admin/company_logo"
+                        auto
+                        accept="image/*"
+                        @before-send="beforeUploadLogo"
+                        @upload="getCompanyData"
+                    >
+                        <template #header="{ chooseCallback, files }">
+                            <div v-if="files.length > 0">
+                                <Avatar :image="files[0].objectURL" size="xlarge" />
+                            </div>
+                            <div v-else>
+                                <Avatar
+                                    v-if="company.company_logo != null"
+                                    :image="company.company_logo"
+                                    size="xlarge"
+                                    style="cursor: pointer"
+                                    @click="chooseCallback()"
+                                    @contextmenu.prevent="removeLogo"
+                                />
+                            </div>
+                        </template>
+                    </FileUpload>
                     <TextInput
                         id="company_name_input"
                         v-model="v$.company.company_name.$model"
@@ -96,6 +120,7 @@ export default {
                 company_phone: '',
                 company_email: '',
                 company_vat: '',
+                company_logo: '',
             },
         }
     },
@@ -135,8 +160,29 @@ export default {
                 this.showToast(response.data.message)
             })
         },
+
+        removeLogo() {
+            this.makeHttpRequest('DELETE', '/api/admin/company_logo').then((response) => {
+                this.company.company_logo = '/biznisbox_logo.png'
+                this.showToast(response.data.message)
+            })
+        },
+
+        beforeUploadLogo(event) {
+            event.xhr.setRequestHeader('Authorization', `Bearer ${this.token}`)
+        },
     },
 }
 </script>
 
-<style></style>
+<style>
+.p-fileupload-buttonbar {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.p-fileupload .p-fileupload-content {
+    display: none;
+}
+</style>

@@ -111,7 +111,7 @@ class InitBiznisBox extends Command
             Settings::firstOrCreate(['key' => 'company_country'], ['value' => null, 'type' => 'string', 'is_public' => 1]);
             Settings::firstOrCreate(['key' => 'company_phone'], ['value' => null, 'type' => 'string', 'is_public' => 1]);
             Settings::firstOrCreate(['key' => 'company_email'], ['value' => null, 'type' => 'string', 'is_public' => 1]);
-            Settings::firstOrCreate(['key' => 'company_logo'], ['value' => null, 'type' => 'string', 'is_public' => 1]);
+            Settings::firstOrCreate(['key' => 'company_logo'], ['value' => '/biznisbox_logo.png', 'type' => 'string', 'is_public' => 1]);
             Settings::firstOrCreate(['key' => 'company_vat'], ['value' => null, 'type' => 'string', 'is_public' => 1]);
 
             Settings::firstOrCreate(['key' => 'default_currency'], ['value' => 'EUR', 'type' => 'string', 'is_public' => 1]);

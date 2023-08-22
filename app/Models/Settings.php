@@ -24,6 +24,7 @@ class Settings extends Model implements Auditable
         return ['Settings'];
     }
 
+    // For setting value attribute (automatically cast to correct type)
     public function getValueAttribute($value)
     {
         switch ($this->type) {
@@ -40,6 +41,7 @@ class Settings extends Model implements Auditable
         }
     }
 
+    // Get all settings as array
     public function getAllSettings()
     {
         $settings = self::all()->mapWithKeys(function ($item) {
@@ -49,6 +51,7 @@ class Settings extends Model implements Auditable
         return $settings;
     }
 
+    // Get all public settings as array (is_public = true) - for frontend
     public function getPublicSettings()
     {
         $settings = self::where('is_public', true)
@@ -59,6 +62,7 @@ class Settings extends Model implements Auditable
         return $settings;
     }
 
+    // Set setting value by key (if not exists, create new) or array of key => value
     public function set($key, $value = null)
     {
         if (is_array($key)) {
@@ -76,6 +80,7 @@ class Settings extends Model implements Auditable
         }
     }
 
+    // Get setting value by key or default value if not exists
     public function get($key, $default = null)
     {
         if (self::has($key)) {
@@ -84,11 +89,13 @@ class Settings extends Model implements Auditable
         return $default;
     }
 
+    // Check if setting exists by key
     public function has($key)
     {
         return self::where('key', $key)->exists();
     }
 
+    // Remove setting by key
     public function remove($key)
     {
         if (self::has($key)) {

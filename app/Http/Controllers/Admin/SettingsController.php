@@ -9,7 +9,6 @@ use App\Services\Admin\SettingsService;
 class SettingsController extends Controller
 {
     protected $settingsService;
-
     public function __construct(SettingsService $settingsService)
     {
         $this->settingsService = $settingsService;
@@ -90,5 +89,16 @@ class SettingsController extends Controller
     public function deleteTax($id)
     {
         return $this->settingsService->deleteTax($id);
+    }
+
+    // Company Logo
+    public function saveCompanyImage(Request $request)
+    {
+        return $this->settingsService->saveCompanyImage($request);
+    }
+
+    public function removeCompanyImage()
+    {
+        return $this->settingsService->removeCompanyImage();
     }
 }
