@@ -339,7 +339,12 @@
         "customer": "Stranka",
         "vendor": "Prodajalec",
         "reference": "Referenca",
-        "delete_confirm_transaction": "Ali ste prepričani, da želite izbrisati to transakcijo?"
+        "delete_confirm_transaction": "Ali ste prepričani, da želite izbrisati to transakcijo?",
+        "transaction_details": "Transaction details",
+        "new_category": "New Category",
+        "edit_category": "Edit Category",
+        "category_name": "Category Name",
+        "category_created": "Category created successfully"
     },
     "archive": {
         "archive": "Arhiv | Arhivi",
