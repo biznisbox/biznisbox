@@ -35,6 +35,7 @@ class Category extends Model implements Auditable
         return $this->hasMany(Category::class, 'parent_id')->with('children');
     }
 
+    // Getter for get key and label attributes (frontend)
     public function getKeyAttribute()
     {
         return $this->attributes['id'];
@@ -50,22 +51,39 @@ class Category extends Model implements Auditable
         return $this->children()->get();
     }
 
-    public function createCategory($name, $module, $description = null, $color = null, $parent_id = null)
+    /**
+     * Create new category
+     * @param string $name Name of the category (it will be used as a label)
+     * @param string $module Module of the category (in which module it will be used - ex. 'archive')
+     * @param string $description Description of the category
+     * @param string $color Color of the category (hexadecimal)
+     * @param string $parent_id Parent category id
+     * @param string $icon Icon of the category (ex. 'pi pi-folder')
+     * @return boolean True if category is created, false if not
+     */
+    public function createCategory($name, $module, $description = null, $color = null, $parent_id = null, $icon = null)
     {
         $category = $this->create([
             'name' => $name,
             'description' => $description,
             'color' => $color,
             'module' => $module,
+            'icon' => $icon,
             'parent_id' => $parent_id,
         ]);
 
         if ($category) {
-            return true;
+            return $category;
         }
         return false;
     }
 
+    /**
+     * Update category
+     * @param UUID $id Category UUID
+     * @param mixed $data Data to update (ex. ['name' => 'New name']) if some data is not provided it will not be updated (it will stay the same)
+     * @return boolean True if category is updated, false if not
+     */
     public function updateCategory($id, $data)
     {
         $category = $this->find($id);
@@ -82,11 +100,21 @@ class Category extends Model implements Auditable
         return false;
     }
 
+    /**
+     * Delete category
+     * @param UUID $id Category id
+     * @return boolean True if category is deleted, false if not
+     */
     public function deleteCategory($id)
     {
         return $this->where('id', $id)->delete();
     }
 
+    /**
+     * Get category by module
+     * @param string $module Module of the category (in which module it will be used - ex. 'archive')
+     * @return object Category object
+     */
     public function getCategoriesByModule($module)
     {
         $categories = $this->where('module', $module)

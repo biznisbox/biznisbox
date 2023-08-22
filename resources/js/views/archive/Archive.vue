@@ -6,7 +6,7 @@
                     <Button :label="$t('archive.new_document')" icon="fa fa-file" @click="openNewDocumentDialog" />
                     <Button :label="$t('archive.new_folder')" icon="fa fa-folder-plus" @click="openNewFolderDialog" />
                     <Button
-                        v-if="currentFolder != null"
+                        v-if="currentFolder.id != null"
                         :label="$t('archive.edit_folder')"
                         icon="fa fa-folder"
                         @click="editFolderOpenDialog"
@@ -115,7 +115,6 @@
             </div>
 
             <!-- Edit folder dialog -->
-
             <div class="mt-4">
                 <Dialog v-model:visible="showEditFolderDialog" :header="$t('archive.edit_folder')" modal>
                     <TextInput

@@ -70,7 +70,7 @@
                                 class="col-12 md:col-6"
                                 option-label="name"
                                 option-value="id"
-                                :filter="true"
+                                filter
                             />
                             <SelectInput
                                 id="to_account_input"
@@ -80,7 +80,7 @@
                                 class="col-12 md:col-6"
                                 option-label="name"
                                 option-value="id"
-                                :filter="true"
+                                filter
                             />
                         </div>
 
@@ -93,16 +93,20 @@
                             />
                         </div>
 
-                        <div v-if="transaction.type == 'income'" class="grid">
+                        <div class="grid">
                             <SelectInput
                                 id="category_input"
-                                v-model="transaction.category"
-                                editable
+                                v-model="transaction.category_id"
                                 :label="$t('transaction.category')"
                                 class="col-12 md:col-6"
+                                :options="transactionCategories"
+                                option-label="label"
+                                option-value="id"
+                                filter
                             />
 
                             <SelectInput
+                                v-if="transaction.type == 'income'"
                                 id="customer_input"
                                 v-model="transaction.customer_id"
                                 :label="$t('transaction.customer')"
@@ -110,20 +114,11 @@
                                 :options="customers"
                                 option-label="name"
                                 option-value="id"
-                                :filter="true"
-                            />
-                        </div>
-
-                        <div v-if="transaction.type == 'expense'" class="grid">
-                            <SelectInput
-                                id="category_input"
-                                v-model="transaction.category"
-                                editable
-                                :label="$t('transaction.category')"
-                                class="col-12 md:col-6"
+                                filter
                             />
 
                             <SelectInput
+                                v-if="transaction.type == 'expense'"
                                 id="vendor_input"
                                 v-model="transaction.vendor_id"
                                 :label="$t('transaction.vendor')"
@@ -131,7 +126,7 @@
                                 :options="vendors"
                                 option-label="name"
                                 option-value="id"
-                                :filter="true"
+                                filter
                             />
                         </div>
 
@@ -188,6 +183,7 @@ export default {
         this.getAccounts()
         this.getCustomers()
         this.getTransaction(this.$route.params.id)
+        this.getTransactionCategories()
         this.getVendors()
     },
 

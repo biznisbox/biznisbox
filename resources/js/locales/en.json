@@ -339,7 +339,12 @@
         "customer": "Customer",
         "vendor": "Vendor",
         "reference": "Reference",
-        "delete_confirm_transaction": "Are you sure you want to delete this transaction?"
+        "delete_confirm_transaction": "Are you sure you want to delete this transaction?",
+        "transaction_details": "Transaction details",
+        "new_category": "New Category",
+        "edit_category": "Edit Category",
+        "category_name": "Category Name",
+        "category_created": "Category created successfully"
     },
     "archive": {
         "archive": "Archive | Archives",

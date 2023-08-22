@@ -4,6 +4,7 @@
             <user-header :title="$t('transaction.transaction', 2)">
                 <template #actions>
                     <HeaderActionButton :label="$t('transaction.new_transaction')" icon="fa fa-plus" to="/transactions/new" />
+                    <Button icon="fa fa-folder-tree" :label="$t('transaction.new_category')" @click="showNewCategory = true" />
                 </template>
             </user-header>
 
@@ -126,6 +127,54 @@
                         </div>
                     </template>
                 </DataTable>
+
+                <!-- New category dialog -->
+                <Dialog v-model:visible="showNewCategory" :header="$t('transaction.new_category')" modal>
+                    <form id="new_category_form" class="formgrid">
+                        <div class="grid">
+                            <TextInput
+                                id="name_input"
+                                v-model="category.name"
+                                class="field col-12"
+                                :label="$t('transaction.category_name')"
+                            ></TextInput>
+                        </div>
+
+                        <div class="grid">
+                            <SelectInput
+                                v-model="category.description"
+                                :options="[
+                                    { label: $t('transaction.income'), value: 'income' },
+                                    { label: $t('transaction.expense'), value: 'expense' },
+                                    { label: $t('transaction.transfer'), value: 'transfer' },
+                                ]"
+                                option-label="label"
+                                option-value="value"
+                                placeholder="Select type"
+                                class="col-12"
+                                :label="$t('transaction.type')"
+                            />
+                        </div>
+                    </form>
+
+                    <template #footer>
+                        <div id="function_buttons" class="grid gap-2 justify-content-end">
+                            <Button
+                                :label="$t('basic.cancel')"
+                                icon="fa fa-times"
+                                class="p-button-danger"
+                                @click="showNewCategory = false"
+                            />
+                            <Button
+                                :label="$t('basic.save')"
+                                icon="fa fa-floppy-disk"
+                                :disabled="loadingData"
+                                class="p-button-success"
+                                @click="saveCategory()"
+                            />
+                        </div>
+                    </template>
+                </Dialog>
             </div>
         </div>
     </user-layout>
@@ -141,6 +190,7 @@ export default {
     data() {
         return {
             filters: null,
+            showNewCategory: false,
         }
     },
 
@@ -162,6 +212,35 @@ export default {
                 account: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 type: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
             }
+        },
+
+        saveCategory() {
+            // Set icon and color based on category type
+            switch (this.category.description) {
+                case 'income':
+                    this.category.icon = 'fa fa-arrow-up'
+                    this.category.color = '#4caf50'
+                    break
+                case 'expense':
+                    this.category.icon = 'fa fa-arrow-down'
+                    this.category.color = '#f44336'
+                    break
+                case 'transfer':
+                    this.category.icon = 'fa fa-exchange-alt'
+                    this.category.color = '#2196f3'
+                    break
+            }
+            this.makeHttpRequest('POST', '/api/categories', this.category).then((response) => {
+                this.showToast(this.$t('basic.success'), this.$t('transaction.category_created'))
+                this.showNewCategory = false
+                this.category = {
+                    name: '',
+                    description: '',
+                    icon: '',
+                    color: '',
+                }
+                this.getTransactions()
+            })
         },
     },
 }

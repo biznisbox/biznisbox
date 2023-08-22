@@ -205,7 +205,7 @@ class InitBiznisBox extends Command
             Unit::firstOrCreate(['symbol' => 'h', 'name' => 'Hours']);
         }
 
-        if(!$this->option('update')) {
+        if (!$this->option('update')) {
             if ($this->confirm('Would you like to create a super admin user?')) {
                 $email = $this->ask('Enter email');
                 $password = $this->secret('Enter password');

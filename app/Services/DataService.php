@@ -38,14 +38,21 @@ class DataService
     public function getCategories($module)
     {
         $categories = new Category();
-        $categories = $categories->getCategoryArray($module);
+        $categories = $categories->getCategoriesByModule($module);
         return $categories;
     }
 
     public function createCategory($categoryData)
     {
         $category = new Category();
-        $category = $category->newCategory($categoryData);
+        $name = $categoryData['name'] ?? null;
+        $module = $categoryData['module'] ?? null;
+        $description = $categoryData['description'] ?? null;
+        $color = $categoryData['color'] ?? null;
+        $parent_id = $categoryData['parent_id'] ?? null;
+        $icon = $categoryData['icon'] ?? null;
+
+        $category = $category->createCategory($name, $module, $description, $color, $parent_id, $icon);
         return $category;
     }
 

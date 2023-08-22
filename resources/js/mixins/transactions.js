@@ -5,6 +5,14 @@ export default {
     mixins: [AccountMixin, CustomersMixin, VendorMixin],
     data() {
         return {
+            transactionCategories: [],
+            category: {
+                name: '',
+                description: '',
+                module: 'transaction',
+                icon: '',
+                color: '',
+            },
             transactions: [],
             transaction: {
                 name: '',
@@ -19,7 +27,7 @@ export default {
                 account_id: null,
                 number: '',
                 currency: '',
-                category: '',
+                category_id: '',
                 description: '',
                 payment_method: '',
                 reference: '',
@@ -118,6 +126,12 @@ export default {
         getTransactionNumber() {
             this.makeHttpRequest('GET', '/api/transaction/transaction_number').then((response) => {
                 this.transaction.number = response.data.data
+            })
+        },
+
+        getTransactionCategories() {
+            this.makeHttpRequest('GET', '/api/categories?module=transaction').then((response) => {
+                this.transactionCategories = response.data.data
             })
         },
     },
