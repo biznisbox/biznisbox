@@ -1,0 +1,38 @@
+version: '3.1'
+services:
+  biznisbox:
+    image: biznisbox
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: biznisbox
+    restart: always
+    env:
+      APP_ENV: production
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: biznisbox
+      DB_USERNAME: biznisbox
+      DB_PASSWORD: biznisbox123
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    volumes:
+      - files:/var/www/html/storage
+  db:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: biznisbox
+      MYSQL_USER: biznisbox
+      MYSQL_PASSWORD: biznisbox123
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+volumes:
+  db_data:
+  files:

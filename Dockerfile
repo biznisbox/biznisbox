@@ -2,9 +2,10 @@ FROM ubuntu:latest
 ARG DEBIAN_FRONTEND=noninteractive
 
 LABEL maintainer="BiznisBox <app@biznisbox.com>"
-LABEL version="1.0"
+LABEL version="1.0.0"
 LABEL description="Docker image for BiznisBox application"
 LABEL github="https://github.com/biznisbox/biznisbox"
+LABEL website="https://biznisbox.com"
 
 # Update and upgrade packages
 RUN apt-get update && apt-get upgrade -y
@@ -43,7 +44,7 @@ RUN chown -R www-data:www-data /var/www/html
 WORKDIR /var/www/html
 
 # Create volume
-VOLUME [ "/var/www/html/storage" ]
+VOLUME [ "/var/www/html/storage", "/var/www/html/public/uploads"]
 
 # Install dependencies
 RUN composer install --no-interaction --no-dev --prefer-dist --optimize-autoloader
