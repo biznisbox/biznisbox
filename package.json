@@ -16,7 +16,7 @@
         "@prettier/plugin-php": "^0.19.6",
         "@vitejs/plugin-vue": "^4.2.3",
         "axios": "^1.4.0",
-        "cypress": "^12.17.4",
+        "cypress": "^13.1.0",
         "eslint": "^8.47.0",
         "eslint-config-prettier": "^8.8.0",
         "eslint-plugin-prettier": "^4.2.1",
