@@ -2,8 +2,8 @@
 
 namespace App\Utils;
 
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class SerialNumberFormatter
 {
@@ -60,7 +60,7 @@ class SerialNumberFormatter
                     $number .= date($placeholder[1]);
                     break;
                 case 'NUMBER':
-                    $last_item_number = Cache::get($module . '_last_item_number', 0) + 1; // get last item number from cache
+                    $last_item_number = $this->getLastItemNumber($module) + 1; // get last item number from cache
                     $number .= str_pad($last_item_number, $placeholder[1], '0', STR_PAD_LEFT);
                     break;
                 case 'TEXT':
@@ -88,9 +88,69 @@ class SerialNumberFormatter
         return $this->generateNumber($placeholders, '-', $module);
     }
 
+    /**
+     * Function for increment last item number
+     *
+     * @param string $module - application module (documents, invoices, estimates, etc.)
+     * @return integer $last_item_number - last item number (incremented)
+     */
     public function incrementLastItemNumber($module)
     {
-        $last_item_number = Cache::get($module . '_last_item_number', 0) + 1; // get last item number from cache
-        Cache::forever($module . '_last_item_number', $last_item_number); // save last item number in cache
+        $last_item_number = $this->getLastItemNumber($module) + 1; // get last item number from cache
+        DB::table('numbering')
+            ->where([
+                'module' => $module,
+                'year' => date('Y'),
+            ])
+            ->update([
+                'number' => $last_item_number,
+            ]);
+        return $last_item_number;
+    }
+
+    /**
+     * Function for decrement last item number
+     *
+     * @param string $module - application module (documents, invoices, estimates, etc.)
+     * @return integer $last_item_number - last item number (decremented)
+     */
+
+    public function decrementLastItemNumber($module)
+    {
+        $last_item_number = $this->getLastItemNumber($module) - 1; // get last item number from cache
+        DB::table('numbering')
+            ->where([
+                'module' => $module,
+                'year' => date('Y'),
+            ])
+            ->update([
+                'number' => $last_item_number,
+            ]);
+        return $last_item_number;
+    }
+
+    /**
+     * Function for get last item number from database
+     *
+     * @param string $module - application module (documents, invoices, estimates, etc.)
+     * @return integer $last_number - last item number
+     */
+    public function getLastItemNumber($module)
+    {
+        $last_number = DB::table('numbering')
+            ->where('year', date('Y'))
+            ->where('module', $module)
+            ->first();
+
+        if (!$last_number) {
+            $last_number = DB::table('numbering')->insert([
+                'id' => Str::uuid(),
+                'module' => $module,
+                'year' => date('Y'),
+                'number' => 0, // set default number to 0 (if there is no number in database) - this will be incremented to 1
+            ]);
+            return 0;
+        }
+        return $last_number->number;
     }
 }

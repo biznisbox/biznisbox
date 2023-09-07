@@ -14,7 +14,20 @@ class Vendor extends Model implements Auditable
 
     protected $table = 'vendors';
 
-    protected $fillable = ['name', 'type', 'vat_number', 'email', 'phone', 'website', 'currency', 'address', 'city', 'zip_code', 'country'];
+    protected $fillable = [
+        'name',
+        'number',
+        'type',
+        'vat_number',
+        'email',
+        'phone',
+        'website',
+        'currency',
+        'address',
+        'city',
+        'zip_code',
+        'country',
+    ];
 
     public function generateTags(): array
     {
@@ -31,6 +44,7 @@ class Vendor extends Model implements Auditable
         $vendor = $this->create($data);
 
         if ($vendor) {
+            incrementLastItemNumber('vendor');
             return true;
         }
         return false;
@@ -76,5 +90,11 @@ class Vendor extends Model implements Auditable
             return $vendors;
         }
         return false;
+    }
+
+    public static function getVendorNumber()
+    {
+        $number = generate_next_number(settings('vendor_number_format'), 'vendor');
+        return $number;
     }
 }

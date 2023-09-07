@@ -29,6 +29,7 @@
                                     <Tag v-if="customer.type === 'individual'" :value="$t('customer.individual')" />
                                 </div>
                             </div>
+                            <DisplayData :input="$t('customer.number')" :value="customer.number" />
                             <DisplayData :input="$t('customer.vat_number')" :value="customer.vat_number" />
                             <DisplayData :input="$t('customer.website')" :value="customer.website" is-link />
                             <DisplayData :input="$t('customer.language')" :value="customer.language" />

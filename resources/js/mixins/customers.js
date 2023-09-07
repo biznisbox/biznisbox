@@ -3,7 +3,9 @@ export default {
         return {
             customers: [],
             customer: {
+                id: '',
                 name: '',
+                number: '',
                 type: '',
                 vat_number: '',
                 language: '',
@@ -137,6 +139,12 @@ export default {
          */
         removeContact(index) {
             this.customer.contacts.splice(index, 1)
+        },
+
+        getCustomerNumber() {
+            this.makeHttpRequest('GET', '/api/customer/customer_number').then((response) => {
+                this.customer.number = response.data.data
+            })
         },
     },
 }

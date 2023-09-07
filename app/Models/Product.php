@@ -18,6 +18,7 @@ class Product extends Model implements Auditable
 
     protected $fillable = [
         'category_id',
+        'number',
         'name',
         'description',
         'image',
@@ -108,7 +109,12 @@ class Product extends Model implements Auditable
 
     public function createProduct($productData)
     {
-        return $this->create($productData);
+        $product = $this->create($productData);
+        if (!$product) {
+            return false;
+        }
+        incrementLastItemNumber('product');
+        return $product;
     }
 
     public function updateProduct($id, $productData)
@@ -127,5 +133,11 @@ class Product extends Model implements Auditable
             return false;
         }
         return $product->delete();
+    }
+
+    public static function getProductNumber()
+    {
+        $number = generate_next_number(settings('product_number_format'), 'product');
+        return $number;
     }
 }

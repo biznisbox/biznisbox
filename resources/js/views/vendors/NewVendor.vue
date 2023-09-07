@@ -7,16 +7,23 @@
                 <form class="formgrid">
                     <div class="grid">
                         <TextInput
+                            id="number_input"
+                            v-model="vendor.number"
+                            class="col-12 md:col-3"
+                            :label="$t('vendor.number')"
+                            :validate="v$.vendor.number"
+                        ></TextInput>
+                        <TextInput
                             id="name_input"
                             v-model="v$.vendor.name.$model"
-                            class="field col-12 md:col-6"
+                            class="col-12 md:col-6"
                             :label="$t('vendor.name')"
                             :validate="v$.vendor.name"
                         ></TextInput>
                         <SelectButtonInput
                             id="select_vendor_type"
                             v-model="v$.vendor.type.$model"
-                            class="field col-12 md:col-6"
+                            class="col-12 md:col-3"
                             :label="$t('vendor.type')"
                             :options="[
                                 { label: $t('vendor.individual'), value: 'individual' },
@@ -96,9 +103,14 @@ export default {
     mixins: [VendorMixin],
     setup: () => ({ v$: useVuelidate() }),
 
+    created() {
+        this.getVendorNumber()
+    },
+
     validations() {
         return {
             vendor: {
+                number: { required },
                 name: { required },
                 email: { email },
                 website: { url },

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\ProductService;
 use App\Models\Product;
 
 class ProductController extends Controller
@@ -65,5 +64,11 @@ class ProductController extends Controller
             return api_response(null, __('response.product.delete_success'));
         }
         return api_response(null, __('response.product.not_found'), 404);
+    }
+
+    public function getProductNumber()
+    {
+        $productNumber = $this->productModel->getProductNumber();
+        return api_response($productNumber, __('response.product.get_success'));
     }
 }

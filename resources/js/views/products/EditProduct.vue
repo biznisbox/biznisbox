@@ -8,16 +8,24 @@
                         <!-- Product basic -->
                         <div class="grid">
                             <TextInput
+                                id="number_input"
+                                v-model="v$.product.number.$model"
+                                :validate="v$.product.number"
+                                class="field col-12 md:col-3"
+                                :label="$t('product.number')"
+                                disabled
+                            />
+                            <TextInput
                                 id="name_input"
                                 v-model="v$.product.name.$model"
                                 :validate="v$.product.name"
-                                class="field col-12 md:col-8"
+                                class="field col-12 md:col-6"
                                 :label="$t('product.name')"
                             ></TextInput>
                             <SelectButtonInput
                                 id="select_product_type"
                                 v-model="v$.product.type.$model"
-                                class="field col-12 md:col-4"
+                                class="field col-12 md:col-3"
                                 :label="$t('product.product_type')"
                                 :options="[
                                     { label: $t('product.product'), value: 'product' },
@@ -147,6 +155,7 @@ export default {
     },
     validations: {
         product: {
+            number: { required },
             name: { required },
             type: { required },
             sell_price: { decimal },

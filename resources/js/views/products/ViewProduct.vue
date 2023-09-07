@@ -21,7 +21,9 @@
 
                 <div id="product_data" class="card">
                     <div class="grid">
-                        <DisplayData class="col-12" :input="$t('product.product_type')" custom-value>
+                        <DisplayData class="col-12 md:col-6" :input="$t('product.number')" :value="product.number" />
+
+                        <DisplayData class="col-12 md:col-6" :input="$t('product.product_type')" custom-value>
                             <Tag :value="$t('product.' + product.type)" />
                         </DisplayData>
                     </div>

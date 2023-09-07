@@ -212,7 +212,7 @@ class Transaction extends Model implements Auditable
 
     public static function getTransactionNumber()
     {
-        $number = generate_next_number(settings('transaction_number_format'), 'transactions');
+        $number = generate_next_number(settings('transaction_number_format'), 'transaction');
         return $number;
     }
 }

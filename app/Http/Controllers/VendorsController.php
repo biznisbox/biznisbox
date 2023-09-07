@@ -64,4 +64,10 @@ class VendorsController extends Controller
         }
         return api_response(null, __('response.vendor.delete_failed'), 400);
     }
+
+    public function getVendorNumber()
+    {
+        $vendorNumber = $this->vendorModel->getVendorNumber();
+        return api_response($vendorNumber, __('response.vendor.get_success'));
+    }
 }

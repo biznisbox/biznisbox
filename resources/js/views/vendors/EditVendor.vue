@@ -8,6 +8,13 @@
                     <form class="formgrid">
                         <div class="grid">
                             <TextInput
+                                id="number_input"
+                                v-model="vendor.number"
+                                class="field col-12 md:col-3"
+                                :label="$t('vendor.number')"
+                                disabled
+                            ></TextInput>
+                            <TextInput
                                 id="name_input"
                                 v-model="v$.vendor.name.$model"
                                 class="field col-12 md:col-6"
@@ -17,7 +24,7 @@
                             <SelectButtonInput
                                 id="select_vendor_type"
                                 v-model="v$.vendor.type.$model"
-                                class="field col-12 md:col-6"
+                                class="field col-12 md:col-3"
                                 :label="$t('vendor.type')"
                                 :options="[
                                     { label: $t('vendor.individual'), value: 'individual' },

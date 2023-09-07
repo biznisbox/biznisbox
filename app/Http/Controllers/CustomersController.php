@@ -68,10 +68,6 @@ class CustomersController extends Controller
     public function getCustomerNumber()
     {
         $customerNumber = $this->customerModel->getCustomerNumber();
-
-        if ($customerNumber) {
-            return api_response($customerNumber, __('response.customer.get_success'));
-        }
-        return api_response(null, __('response.customer.get_error'), 400);
+        return api_response($customerNumber, __('response.customer.get_success'));
     }
 }

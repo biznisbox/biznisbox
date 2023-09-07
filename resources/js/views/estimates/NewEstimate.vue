@@ -61,21 +61,21 @@
                             <DateInput
                                 id="date_input"
                                 v-model="v$.estimate.date.$model"
-                                class="field col-12 md:col-4"
+                                class="col-12 md:col-4"
                                 :validate="v$.estimate.date"
                                 :label="$t('estimate.date')"
                             />
                             <DateInput
                                 id="valid_until_input"
                                 v-model="v$.estimate.valid_until.$model"
-                                class="field col-12 md:col-4"
+                                class="col-12 md:col-4"
                                 :label="$t('estimate.valid_until')"
                                 :validate="v$.estimate.valid_until"
                             />
                             <SelectInput
                                 id="currency_input"
                                 v-model="estimate.currency"
-                                class="field col-12 md:col-4"
+                                class="col-12 md:col-4"
                                 :label="$t('estimate.currency')"
                                 :options="currencies"
                                 option-value="code"
@@ -179,7 +179,7 @@
                         </div>
 
                         <div class="grid">
-                            <div class="field col-12 md:col-6">
+                            <div class="col-12 md:col-6">
                                 <TinyMceEditor
                                     id="notes_input"
                                     v-model="estimate.notes"
@@ -188,11 +188,11 @@
                                     style="height: 200px"
                                 />
                             </div>
-                            <div class="field col-12 md:col-6">
+                            <div class="col-12 md:col-6">
                                 <InputNumber
                                     id="discount_input"
                                     v-model="estimate.discount"
-                                    class="field col-12"
+                                    class="col-12"
                                     :label="$t('estimate.discount')"
                                     suffix="%"
                                     @blur="calculateTotal"
@@ -200,7 +200,7 @@
                                 <InputNumber
                                     id="total_input"
                                     v-model="v$.estimate.total.$model"
-                                    class="field col-12"
+                                    class="col-12"
                                     :label="$t('estimate.total')"
                                     :disabled="true"
                                     mode="currency"

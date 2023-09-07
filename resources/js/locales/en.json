@@ -127,6 +127,7 @@
         "buy_price": "Buy Price",
         "stock_status": "Stock Status",
         "name": "Name",
+        "number": "Number",
         "no_products": "No products found",
         "create_first_product": "Create your first product",
         "service": "Service",
@@ -266,6 +267,7 @@
         "no_customers": "No customers found",
         "create_first_customer": "Create your first customer",
         "name": "Name",
+        "number": "Number",
         "type": "Type",
         "company": "Company",
         "individual": "Individual",
@@ -435,6 +437,7 @@
         "create_first_vendor": "Create your first vendor",
         "name_and_tax_number": "Name and tax number",
         "email_and_phone": "Email and phone",
+        "number": "Number",
         "country": "Country",
         "type": "Type",
         "company": "Company",
@@ -623,7 +626,8 @@
             "customer": "Customer number format",
             "vendor": "Vendor number format",
             "bill": "Bill number format",
-            "document": "Document number format"
+            "document": "Document number format",
+            "product": "Product number format"
         }
     },
     "countries": {

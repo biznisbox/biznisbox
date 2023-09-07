@@ -9,14 +9,14 @@
                             <TextInput
                                 id="number_input"
                                 v-model="v$.invoice.number.$model"
-                                class="field col-12 md:col-6"
+                                class="col-12 md:col-6"
                                 :label="$t('invoice.invoice_number')"
                                 :validate="v$.invoice.number"
                             />
                             <SelectInput
                                 id="status_input"
                                 v-model="v$.invoice.status.$model"
-                                class="field col-12 md:col-6"
+                                class="col-12 md:col-6"
                                 label="Status"
                                 :options="[
                                     { label: $t('status.draft'), value: 'draft' },
@@ -36,7 +36,7 @@
                             <SelectInput
                                 id="customer_input"
                                 v-model="invoice.customer_id"
-                                class="field col-12 md:col-6"
+                                class="col-12 md:col-6"
                                 :label="$t('invoice.customer')"
                                 :options="customers"
                                 filter
@@ -47,7 +47,7 @@
                             <SelectInput
                                 id="payer_input"
                                 v-model="invoice.payer_id"
-                                class="field col-12 md:col-6"
+                                class="col-12 md:col-6"
                                 :label="$t('invoice.payer')"
                                 filter
                                 show-clear
@@ -61,21 +61,21 @@
                             <DateInput
                                 id="date_input"
                                 v-model="v$.invoice.date.$model"
-                                class="field col-12 md:col-4"
+                                class="col-12 md:col-4"
                                 :label="$t('invoice.date')"
                                 :validate="v$.invoice.date"
                             />
                             <DateInput
                                 id="due_date_input"
                                 v-model="v$.invoice.due_date.$model"
-                                class="field col-12 md:col-4"
+                                class="col-12 md:col-4"
                                 :label="$t('invoice.due_date')"
                                 :validate="v$.invoice.due_date"
                             />
                             <SelectInput
                                 id="currency_input"
                                 v-model="invoice.currency"
-                                class="field col-12 md:col-4"
+                                class="col-12 md:col-4"
                                 :label="$t('invoice.currency')"
                                 :options="currencies"
                                 option-value="code"
@@ -172,14 +172,14 @@
 
                                 <Column :header="$t('basic.actions')">
                                     <template #body="slotProps">
-                                        <Button class="field p-button-danger" icon="fa fa-trash" @click="removeItem(slotProps.index)" />
+                                        <Button class="p-button-danger" icon="fa fa-trash" @click="removeItem(slotProps.index)" />
                                     </template>
                                 </Column>
                             </DataTable>
                         </div>
 
                         <div class="grid">
-                            <div class="field col-12 md:col-6">
+                            <div class="col-12 md:col-6">
                                 <TinyMceEditor
                                     id="notes_input"
                                     v-model="invoice.notes"
@@ -188,11 +188,11 @@
                                     style="height: 200px"
                                 />
                             </div>
-                            <div class="field col-12 md:col-6">
+                            <div class="col-12 md:col-6">
                                 <InputNumber
                                     id="discount_input"
                                     v-model="invoice.discount"
-                                    class="field col-12"
+                                    class="col-12"
                                     :label="$t('invoice.discount')"
                                     suffix="%"
                                     @blur="calculateTotal"
@@ -200,7 +200,7 @@
                                 <InputNumber
                                     id="total_input"
                                     v-model="v$.invoice.total.$model"
-                                    class="field col-12"
+                                    class="col-12"
                                     :label="$t('invoice.total')"
                                     disabled
                                     :validate="v$.invoice.total"

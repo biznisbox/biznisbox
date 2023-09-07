@@ -6,7 +6,7 @@
                     <Button :label="$t('archive.new_document')" icon="fa fa-file" @click="openNewDocumentDialog" />
                     <Button :label="$t('archive.new_folder')" icon="fa fa-folder-plus" @click="openNewFolderDialog" />
                     <Button
-                        v-if="currentFolder.id != null"
+                        v-if="currentFolder != null"
                         :label="$t('archive.edit_folder')"
                         icon="fa fa-folder"
                         @click="editFolderOpenDialog"
@@ -199,7 +199,7 @@ export default {
 
     created() {
         this.getFolders()
-        this.getDocuments(this.currentFolder?.id || null)
+        this.getDocuments(this.currentFolder || null)
     },
 
     methods: {
@@ -222,13 +222,13 @@ export default {
         },
 
         uploadDocument(event) {
-            event.formData.append('folder_id', this.currentFolder?.id || null)
+            event.formData.append('folder_id', this.currentFolder || null)
             event.xhr.setRequestHeader('Authorization', `Bearer ${this.token}`)
         },
 
         afterUploadDocument() {
             this.closeNewDocumentDialog()
-            this.getDocuments(this.currentFolder?.id || null)
+            this.getDocuments(this.currentFolder || null)
         },
 
         viewDocument(document) {
@@ -248,7 +248,7 @@ export default {
         },
 
         editFolderOpenDialog() {
-            this.getFolder(this.currentFolder?.id || null)
+            this.getFolder(this.currentFolder || null)
             this.showEditFolderDialog = true
         },
     },

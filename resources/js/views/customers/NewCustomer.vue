@@ -8,16 +8,23 @@
                     <form class="formgrid">
                         <div class="grid">
                             <TextInput
+                                id="number_input"
+                                v-model="v$.customer.number.$model"
+                                class="col-12 md:col-3"
+                                :label="$t('customer.number')"
+                                :validate="v$.customer.number"
+                            ></TextInput>
+                            <TextInput
                                 id="name_input"
                                 v-model="v$.customer.name.$model"
-                                class="field col-12 md:col-6"
+                                class="col-12 md:col-6"
                                 :label="$t('customer.name')"
                                 :validate="v$.customer.name"
                             ></TextInput>
                             <SelectButtonInput
                                 id="select_customer_type"
                                 v-model="v$.customer.type.$model"
-                                class="field col-12 md:col-6"
+                                class="field col-12 md:col-3"
                                 :label="$t('customer.type')"
                                 :options="[
                                     { label: $t('customer.individual'), value: 'individual' },
@@ -150,9 +157,14 @@ export default {
     mixins: [CustomerMixin],
     setup: () => ({ v$: useVuelidate() }),
 
+    created() {
+        this.getCustomerNumber()
+    },
+
     validations() {
         return {
             customer: {
+                number: { required },
                 name: { required },
                 type: { required },
                 email: { email },

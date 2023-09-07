@@ -5,6 +5,7 @@ export default {
             product: {
                 category_id: '',
                 name: '',
+                number: '',
                 description: '',
                 sell_price: 0,
                 buy_price: 0,
@@ -110,6 +111,17 @@ export default {
                 accept: () => {
                     this.deleteProduct(id)
                 },
+            })
+        },
+
+        /**
+         * Get product number
+         *
+         * @returns {void}
+         */
+        getProductNumber() {
+            this.makeHttpRequest('GET', '/api/product/product_number').then((response) => {
+                this.product.number = response.data.data
             })
         },
     },

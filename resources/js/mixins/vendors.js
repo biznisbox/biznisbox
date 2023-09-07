@@ -3,6 +3,8 @@ export default {
         return {
             vendors: [],
             vendor: {
+                id: '',
+                number: '',
                 name: '',
                 address: '',
                 city: '',
@@ -88,6 +90,16 @@ export default {
                 accept: () => {
                     this.deleteVendor(id)
                 },
+            })
+        },
+
+        /**
+         * Get vendor number
+         * @returns {void} return response
+         **/
+        getVendorNumber() {
+            this.makeHttpRequest('GET', '/api/vendor/vendor_number').then((response) => {
+                this.vendor.number = response.data.data
             })
         },
     },

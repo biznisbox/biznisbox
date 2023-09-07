@@ -8,16 +8,24 @@
                     <form class="formgrid">
                         <div class="grid">
                             <TextInput
+                                id="number_input"
+                                v-model="customer.number"
+                                class="col-12 md:col-3"
+                                :label="$t('customer.number')"
+                                disabled
+                                aria-disabled="true"
+                            ></TextInput>
+                            <TextInput
                                 id="name_input"
                                 v-model="v$.customer.name.$model"
-                                class="field col-12 md:col-6"
+                                class="col-12 md:col-6"
                                 :label="$t('customer.name')"
                                 :validate="v$.customer.name"
                             ></TextInput>
                             <SelectButtonInput
                                 id="select_customer_type"
                                 v-model="v$.customer.type.$model"
-                                class="field col-12 md:col-6"
+                                class="col-12 md:col-3"
                                 :label="$t('customer.type')"
                                 :options="[
                                     { label: $t('customer.individual'), value: 'individual' },

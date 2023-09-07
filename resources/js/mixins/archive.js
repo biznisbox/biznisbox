@@ -108,7 +108,7 @@ export default {
         },
 
         folderSelected(folder) {
-            this.currentFolder = folder
+            this.currentFolder = folder.id
             this.getDocuments(folder.id)
         },
 
@@ -136,7 +136,7 @@ export default {
         createFolder() {
             this.makeHttpRequest('POST', '/api/archive/document/folders', {
                 name: this.newFolderName,
-                parent_folder_id: this.currentFolder?.id || null,
+                parent_folder_id: this.currentFolder || null,
             }).then((response) => {
                 this.showNewFolderDialog = false
                 this.newFolderName = ''
@@ -154,7 +154,7 @@ export default {
             this.makeHttpRequest('DELETE', '/api/archive/documents/file', null, { document_id: document.id })
                 .then((response) => {
                     this.showToast(response.data.message)
-                    this.getDocuments(this.currentFolder?.id || null)
+                    this.getDocuments(this.currentFolder || null)
                     this.sidebarFileShow = false
                     this.document = {
                         id: '',
@@ -204,7 +204,7 @@ export default {
         },
 
         getFolder() {
-            this.makeHttpRequest('GET', '/api/archive/document/folders/' + this.currentFolder?.id).then((response) => {
+            this.makeHttpRequest('GET', '/api/archive/document/folders/' + this.currentFolder).then((response) => {
                 this.folder = response.data.data
             })
         },
@@ -215,7 +215,7 @@ export default {
          * @returns {void}
          **/
         deleteFolder() {
-            this.makeHttpRequest('DELETE', '/api/archive/document/folders', null, { folder_id: this.currentFolder.id })
+            this.makeHttpRequest('DELETE', '/api/archive/document/folders', null, { folder_id: this.currentFolder })
                 .then((response) => {
                     this.showToast(response.data.message)
                     this.getFolders()

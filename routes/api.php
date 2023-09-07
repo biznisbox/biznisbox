@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/products', ProductController::class . '@createProduct');
         Route::put('/products/{id}', ProductController::class . '@updateProduct');
         Route::delete('/products/{id}', ProductController::class . '@deleteProduct');
+        Route::get('/product/product_number', ProductController::class . '@getProductNumber');
     });
 
     // Customers Routes
@@ -51,6 +52,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/customers', CustomersController::class . '@createCustomer');
         Route::put('/customers/{id}', CustomersController::class . '@updateCustomer');
         Route::delete('/customers/{id}', CustomersController::class . '@deleteCustomer');
+        Route::get('/customer/customer_number', CustomersController::class . '@getCustomerNumber');
     });
 
     // Invoice Routes
@@ -148,6 +150,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/vendors', VendorsController::class . '@createVendor');
         Route::put('/vendors/{id}', VendorsController::class . '@updateVendor');
         Route::delete('/vendors/{id}', VendorsController::class . '@deleteVendor');
+        Route::get('/vendor/vendor_number', VendorsController::class . '@getVendorNumber');
     });
 
     // Bills Routes
