@@ -240,8 +240,10 @@ class SettingsService
      */
     public function removeCompanyImage()
     {
-        settings(['company_logo' => '/biznisbox_logo.png']);
-        File::delete(public_path(settings('company_logo')));
+        if(settings('company_logo') != '/biznisbox_logo.png'){
+            File::delete(public_path(settings('company_logo')));
+            settings(['company_logo' => '/biznisbox_logo.png']);
+        }
         return api_response(null, __('response.admin.company_logo.remove_success'));
     }
 }

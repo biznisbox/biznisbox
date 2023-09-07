@@ -68,16 +68,15 @@
                         <!-- Product taxes -->
                         <div class="grid">
                             <SelectInput
-                            id="select_product_tax"
-                            v-model="product.tax"
-                            class="col-12"
-                            :label="$t('product.tax')"
-                            :options="taxes"
-                            option-label="name"
-                            option-value="value"
-                        />
+                                id="select_product_tax"
+                                v-model="product.tax"
+                                class="col-12"
+                                :label="$t('product.tax')"
+                                :options="taxes"
+                                option-label="name"
+                                option-value="value"
+                            />
                         </div>
- 
 
                         <!-- Stock -->
                         <div v-if="product.type == 'product'" class="grid">
