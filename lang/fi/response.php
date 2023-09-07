@@ -255,7 +255,7 @@ return [
             'upload_success' => 'Yrityksen logo ladattu onnistuneesti',
             'upload_failed' => 'Yrityksen logoa ei voitu ladata',
             'remove_success' => 'Yrityksen logo poistettiin onnistuneesti',
-            'remove_failed' => 'Company logo could not be removed',
+            'remove_failed' => 'Yrityksen logoa ei voitu poistaa',
         ],
         'settings' => [
             'update_success' => 'Asetukset päivitettiin onnistuneesti',
