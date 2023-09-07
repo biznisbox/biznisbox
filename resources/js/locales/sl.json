@@ -127,6 +127,7 @@
         "buy_price": "Nabavna cena",
         "stock_status": "Stanje zaloge",
         "name": "Ime",
+        "number": "Number",
         "no_products": "Ni izdelkov",
         "create_first_product": "Ustvarite prvi izdelek",
         "service": "Storitev",
@@ -266,6 +267,7 @@
         "no_customers": "Ni strank",
         "create_first_customer": "Ustvarite svojo prvo stranko",
         "name": "Ime/Naziv",
+        "number": "Number",
         "type": "Tip stranke",
         "company": "Podjetje",
         "individual": "Posameznik",
@@ -435,6 +437,7 @@
         "create_first_vendor": "Ustvarite svojega prvega dobavitelja",
         "name_and_tax_number": "Naziv in davčna številka",
         "email_and_phone": "Email in telefon",
+        "number": "Number",
         "country": "Država",
         "type": "Vrsta",
         "company": "Podjetje",
@@ -623,7 +626,8 @@
             "customer": "Format številke stranke",
             "vendor": "Format številke dobavitelja",
             "bill": "Format številke računa",
-            "document": "Format številke dokumenta"
+            "document": "Format številke dokumenta",
+            "product": "Product number format"
         }
     },
     "countries": {
