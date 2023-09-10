@@ -158,7 +158,16 @@
         "language": "Kieli",
         "change_password": "Vaihda Salasana",
         "new_password": "Uusi Salasana",
-        "password_confirmation": "Vahvista Salasana"
+        "password_confirmation": "Vahvista Salasana",
+        "login_history": "Kirjautumishistoria",
+        "login_time": "Kirjautumisaika",
+        "device_type": "Laitteen Tyyppi",
+        "os": "Käyttöjärjestelmä",
+        "browser": "Selain",
+        "ip_address": "Ip Osoite",
+        "location": "Sijainti",
+        "unknown": "Tuntematon",
+        "no_login_history": "Ei kirjautumishistoriaa"
     },
     "invoice": {
         "invoice": "Lasku - Laskut",
