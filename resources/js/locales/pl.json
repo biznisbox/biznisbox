@@ -158,7 +158,16 @@
         "language": "Język",
         "change_password": "Zmień hasło",
         "new_password": "Nowe hasło",
-        "password_confirmation": "Potwierdzenie hasła"
+        "password_confirmation": "Potwierdzenie hasła",
+        "login_history": "Historia logowania",
+        "login_time": "Czas logowania",
+        "device_type": "Typ urządzenia",
+        "os": "OS",
+        "browser": "Przeglądarki",
+        "ip_address": "Adres IP",
+        "location": "Lokalizacja",
+        "unknown": "Nieznane",
+        "no_login_history": "Brak historii logowania"
     },
     "invoice": {
         "invoice": "Faktura | Faktury",
