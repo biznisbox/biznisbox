@@ -158,7 +158,16 @@
         "language": "Språk",
         "change_password": "Ändra lösenord",
         "new_password": "Nytt lösenord",
-        "password_confirmation": "Lösenord Bekräftelse"
+        "password_confirmation": "Lösenord Bekräftelse",
+        "login_history": "Logga in Historik",
+        "login_time": "Tid för inloggning",
+        "device_type": "Typ av enhet",
+        "os": "OS",
+        "browser": "Webbläsare",
+        "ip_address": "IP-adress",
+        "location": "Plats",
+        "unknown": "Okänd",
+        "no_login_history": "Ingen inloggningshistorik"
     },
     "invoice": {
         "invoice": "Faktura <unk> Fakturor",
