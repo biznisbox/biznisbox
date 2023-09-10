@@ -158,7 +158,16 @@
         "language": "Taal",
         "change_password": "Wachtwoord wijzigen",
         "new_password": "Nieuw wachtwoord",
-        "password_confirmation": "Wachtwoord bevestigen"
+        "password_confirmation": "Wachtwoord bevestigen",
+        "login_history": "Login geschiedenis",
+        "login_time": "Login tijd",
+        "device_type": "Type apparaat",
+        "os": "Besturingssysteem",
+        "browser": "browser",
+        "ip_address": "IP adres",
+        "location": "Locatie",
+        "unknown": "onbekend",
+        "no_login_history": "Geen logingeschiedenis"
     },
     "invoice": {
         "invoice": "Facturen char@@2 Facturen",
