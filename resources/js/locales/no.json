@@ -158,7 +158,16 @@
         "language": "Språk",
         "change_password": "Endre passord",
         "new_password": "Nytt passord",
-        "password_confirmation": "Bekreftelse på passord"
+        "password_confirmation": "Bekreftelse på passord",
+        "login_history": "Påloggings historikk",
+        "login_time": "Påloggings tid",
+        "device_type": "Type enhet",
+        "os": "operativsystem",
+        "browser": "Nettleser",
+        "ip_address": "IP Adresse",
+        "location": "Sted",
+        "unknown": "Ukjent",
+        "no_login_history": "Ingen påloggingshistorikk"
     },
     "invoice": {
         "invoice": "Fakturaen(e) til faktura",
