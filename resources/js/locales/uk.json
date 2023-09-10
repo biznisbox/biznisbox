@@ -158,7 +158,16 @@
         "language": "Мова:",
         "change_password": "Зміна пароля",
         "new_password": "Новий пароль",
-        "password_confirmation": "Підтвердження пароля"
+        "password_confirmation": "Підтвердження пароля",
+        "login_history": "Історія входів в систему",
+        "login_time": "Час входу в систему",
+        "device_type": "Тип пристрою",
+        "os": "ОС",
+        "browser": "Браузер",
+        "ip_address": "IP-адреса",
+        "location": "Місцезнаходження",
+        "unknown": "Не вказано",
+        "no_login_history": "Немає історії входу в систему"
     },
     "invoice": {
         "invoice": "Рахунок | Рахунки",
