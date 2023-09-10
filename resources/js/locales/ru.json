@@ -158,7 +158,16 @@
         "language": "Язык",
         "change_password": "Изменить пароль",
         "new_password": "Новый пароль",
-        "password_confirmation": "Подтверждение пароля"
+        "password_confirmation": "Подтверждение пароля",
+        "login_history": "История входа",
+        "login_time": "Время входа",
+        "device_type": "Тип устройства",
+        "os": "ОС",
+        "browser": "Браузер",
+        "ip_address": "IP-адрес",
+        "location": "Местоположение",
+        "unknown": "Неизвестен",
+        "no_login_history": "Нет истории входа"
     },
     "invoice": {
         "invoice": "Счет | Счета",
