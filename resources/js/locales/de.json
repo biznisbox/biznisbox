@@ -158,7 +158,16 @@
         "language": "Sprachen",
         "change_password": "Passwort ändern",
         "new_password": "Neues Passwort",
-        "password_confirmation": "Passwortbestätigung"
+        "password_confirmation": "Passwortbestätigung",
+        "login_history": "Anmeldeverlauf",
+        "login_time": "Anmeldezeit",
+        "device_type": "Gerätetyp",
+        "os": "OS",
+        "browser": "Browser",
+        "ip_address": "IP-Adresse",
+        "location": "Standort",
+        "unknown": "Unbekannt",
+        "no_login_history": "Kein Login-Verlauf"
     },
     "invoice": {
         "invoice": "Rechnung | Rechnungen",
