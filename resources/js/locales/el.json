@@ -158,7 +158,16 @@
         "language": "Γλώσσα",
         "change_password": "Αλλαγή Κωδικού Πρόσβασης",
         "new_password": "Νέος Κωδικός Πρόσβασης",
-        "password_confirmation": "Επιβεβαίωση Κωδικού"
+        "password_confirmation": "Επιβεβαίωση Κωδικού",
+        "login_history": "Ιστορικό Σύνδεσης",
+        "login_time": "Χρόνος Σύνδεσης",
+        "device_type": "Τύπος Συσκευής",
+        "os": "OS",
+        "browser": "Περιηγητής",
+        "ip_address": "Διεύθυνση IP",
+        "location": "Τοποθεσία",
+        "unknown": "Άγνωστο",
+        "no_login_history": "Δεν υπάρχει ιστορικό σύνδεσης"
     },
     "invoice": {
         "invoice": "Τιμολόγια (Τιμολόγια)",
