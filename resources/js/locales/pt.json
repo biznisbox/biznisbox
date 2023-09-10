@@ -158,7 +158,16 @@
         "language": "IDIOMA",
         "change_password": "Mudar a senha",
         "new_password": "Nova Palavra-Passe",
-        "password_confirmation": "Confirmação da senha"
+        "password_confirmation": "Confirmação da senha",
+        "login_history": "Histórico Acesso",
+        "login_time": "Tempo de Login",
+        "device_type": "Tipo de dispositivo",
+        "os": "S.O.",
+        "browser": "Navegador",
+        "ip_address": "Endereço IP",
+        "location": "Local:",
+        "unknown": "Desconhecido",
+        "no_login_history": "Sem histórico de login"
     },
     "invoice": {
         "invoice": "Facturas de Fatura",
