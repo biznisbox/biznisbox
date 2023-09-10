@@ -158,7 +158,16 @@
         "language": "Jazyk",
         "change_password": "Změnit heslo",
         "new_password": "Nové heslo",
-        "password_confirmation": "Potvrzení hesla"
+        "password_confirmation": "Potvrzení hesla",
+        "login_history": "Historie přihlášení",
+        "login_time": "Čas přihlášení",
+        "device_type": "Typ zařízení",
+        "os": "OS",
+        "browser": "Prohlížeč",
+        "ip_address": "IP adresa",
+        "location": "Poloha",
+        "unknown": "Neznámý",
+        "no_login_history": "Žádná historie přihlášení"
     },
     "invoice": {
         "invoice": "Faktura | Faktury",
