@@ -158,7 +158,16 @@
         "language": "Sprog",
         "change_password": "Skift Adgangskode",
         "new_password": "Ny Adgangskode",
-        "password_confirmation": "Bekræftelse Af Adgangskode"
+        "password_confirmation": "Bekræftelse Af Adgangskode",
+        "login_history": "Log Ind Historik",
+        "login_time": "Login Tid",
+        "device_type": "Enhedstype",
+        "os": "OS",
+        "browser": "Browser",
+        "ip_address": "Ip Adresse",
+        "location": "Placering",
+        "unknown": "Ukendt",
+        "no_login_history": "Ingen login-historik"
     },
     "invoice": {
         "invoice": "Faktura - Fakturaer",
