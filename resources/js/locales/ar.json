@@ -158,7 +158,16 @@
         "language": "اللغة",
         "change_password": "تغيير كلمة المرور",
         "new_password": "كلمة المرور الجديدة",
-        "password_confirmation": "تأكيد كلمة المرور"
+        "password_confirmation": "تأكيد كلمة المرور",
+        "login_history": "سجل الدخول",
+        "login_time": "وقت تسجيل الدخول",
+        "device_type": "نوع الجهاز",
+        "os": "نظام التشغيل",
+        "browser": "المتصفح",
+        "ip_address": "عنوان IP",
+        "location": "الموقع",
+        "unknown": "غير معروف",
+        "no_login_history": "لا يوجد سجل دخول"
     },
     "invoice": {
         "invoice": "الفاتورة <unk> الفواتير",
