@@ -158,7 +158,16 @@
         "language": "Limba",
         "change_password": "Schimbare parolă",
         "new_password": "Parolă nouă",
-        "password_confirmation": "Confirmare parolă"
+        "password_confirmation": "Confirmare parolă",
+        "login_history": "Istoric autentificare",
+        "login_time": "Timp de conectare",
+        "device_type": "Tipul dispozitivului",
+        "os": "SG",
+        "browser": "Browser",
+        "ip_address": "Adresă IP",
+        "location": "Locaţie",
+        "unknown": "Necunoscut",
+        "no_login_history": "Nici un istoric de conectare"
     },
     "invoice": {
         "invoice": "Facturi (facturi)",
