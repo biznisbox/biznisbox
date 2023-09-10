@@ -158,7 +158,16 @@
         "language": "Lingua",
         "change_password": "Cambia Password",
         "new_password": "Nuova Password",
-        "password_confirmation": "Conferma Password"
+        "password_confirmation": "Conferma Password",
+        "login_history": "Cronologia Login",
+        "login_time": "Tempo Di Accesso",
+        "device_type": "Tipo Di Dispositivo",
+        "os": "OS",
+        "browser": "Browser",
+        "ip_address": "Indirizzo IP",
+        "location": "Posizione",
+        "unknown": "Sconosciuto",
+        "no_login_history": "Nessuna cronologia login"
     },
     "invoice": {
         "invoice": "Fattura <unk> Fatture",
