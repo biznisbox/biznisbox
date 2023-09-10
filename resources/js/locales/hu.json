@@ -158,7 +158,16 @@
         "language": "Language",
         "change_password": "Change Password",
         "new_password": "New Password",
-        "password_confirmation": "Password Confirmation"
+        "password_confirmation": "Password Confirmation",
+        "login_history": "Login History",
+        "login_time": "Login Time",
+        "device_type": "Device Type",
+        "os": "OS",
+        "browser": "Browser",
+        "ip_address": "IP Address",
+        "location": "Location",
+        "unknown": "Unknown",
+        "no_login_history": "No login history"
     },
     "invoice": {
         "invoice": "Invoice | Invoices",
