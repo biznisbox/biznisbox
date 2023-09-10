@@ -69,7 +69,7 @@
                                 v-model="v$.user_data.email.$model"
                                 :label="$t('profile.email')"
                                 :placeholder="$t('profile.email')"
-                                :disabled="loadingData"
+                                disabled
                                 :validate="v$.user_data.email"
                             />
                         </div>
@@ -95,38 +95,84 @@
                     </div>
                 </div>
 
-                <div id="user_profile_password" class="mt-5 card">
-                    <h3>{{ $t('profile.change_password') }}</h3>
+                <div class="card">
+                    <TabView id="profile_tabs">
+                        <TabPanel :header="$t('profile.login_history')">
+                            <DataTable :value="user_data.sessions" paginator :rows="10" :rows-per-page-options="[10, 20, 50]">
+                                <template #empty>
+                                    <div class="p-4 pl-0 text-center w-full text-gray-500">
+                                        <i class="fa fa-info-circle empty-icon"></i>
+                                        <p>{{ $t('profile.no_login_history') }}</p>
+                                    </div>
+                                </template>
 
-                    <div class="grid my-2">
-                        <div class="col-12 md:col-6">
-                            <PasswordInput
-                                id="input_password"
-                                v-model="v$.password.password.$model"
-                                :label="$t('profile.new_password')"
-                                :placeholder="$t('profile.new_password')"
-                                type="password"
-                                :disabled="loadingData"
-                                :validate="v$.password.password"
-                            />
-                        </div>
+                                <Column field="created_at" :header="$t('profile.login_time')">
+                                    <template #body="slotProps">
+                                        {{ formatDateTime(slotProps.data.created_at) }}
+                                    </template>
+                                </Column>
+                                <Column field="ip" :header="$t('profile.ip_address')" />
+                                <Column field="device_type" :header="$t('profile.device_type')">
+                                    <template #body="slotProps">
+                                        <span v-if="slotProps.data.device_type === 'desktop'">
+                                            <i class="fa fa-desktop text-blue-500"></i>
+                                        </span>
 
-                        <div class="col-12 md:col-6">
-                            <PasswordInput
-                                id="input_confirm_password"
-                                v-model="v$.password.confirm_password.$model"
-                                :label="$t('profile.password_confirmation')"
-                                :placeholder="$t('profile.password_confirmation')"
-                                type="password"
-                                :disabled="loadingData"
-                                :validate="v$.password.confirm_password"
-                            />
-                        </div>
-                    </div>
+                                        <span v-else-if="slotProps.data.device_type === 'mobile'">
+                                            <i class="fa fa-mobile text-blue-500"></i>
+                                        </span>
 
-                    <div id="user_profile_password_buttons">
-                        <Button :label="$t('profile.change_password')" :disabled="loadingData" @click="changePassword" />
-                    </div>
+                                        <span v-else-if="slotProps.data.device_type === 'tablet'">
+                                            <i class="fa fa-tablet text-blue-500"></i>
+                                        </span>
+                                        <Tag v-else severity="danger" :value="$t('profile.unknown')" />
+                                    </template>
+                                </Column>
+                                <Column field="os" :header="$t('profile.os')" />
+                                <Column field="location" :header="$t('profile.location')">
+                                    <template #body="slotProps">
+                                        <div v-if="slotProps.data.location">
+                                            <div>{{ slotProps.data.location }}</div>
+                                            <div>{{ formatCountry(slotProps.data.country) }}</div>
+                                        </div>
+                                    </template>
+                                </Column>
+                            </DataTable>
+                        </TabPanel>
+
+                        <TabPanel :header="$t('profile.change_password')">
+                            <div class="grid pt-2">
+                                <form>
+                                    <div class="col-12 md:col-6">
+                                        <PasswordInput
+                                            id="input_password"
+                                            v-model="v$.password.password.$model"
+                                            :label="$t('profile.new_password')"
+                                            :placeholder="$t('profile.new_password')"
+                                            type="password"
+                                            :disabled="loadingData"
+                                            :validate="v$.password.password"
+                                        />
+                                    </div>
+
+                                    <div class="col-12 md:col-6">
+                                        <PasswordInput
+                                            id="input_confirm_password"
+                                            v-model="v$.password.confirm_password.$model"
+                                            :label="$t('profile.password_confirmation')"
+                                            :placeholder="$t('profile.password_confirmation')"
+                                            type="password"
+                                            :disabled="loadingData"
+                                            :validate="v$.password.confirm_password"
+                                        />
+                                    </div>
+                                    <div id="user_profile_password_buttons" class="col-12">
+                                        <Button :label="$t('profile.change_password')" :disabled="loadingData" @click="changePassword" />
+                                    </div>
+                                </form>
+                            </div>
+                        </TabPanel>
+                    </TabView>
                 </div>
             </LoadingScreen>
         </div>
@@ -150,6 +196,7 @@ export default {
                 language: '',
                 initials: '',
                 avatar: '',
+                sessions: [],
             },
             password: {
                 password: '',
@@ -189,6 +236,7 @@ export default {
 
             this.makeHttpRequest('PUT', '/api/my_profile', this.user_data).then((response) => {
                 this.showToast(response.data.message)
+                this.getMyProfile()
             })
         },
         changePassword() {
@@ -227,5 +275,9 @@ export default {
 
 .p-fileupload .p-fileupload-content {
     display: none;
+}
+
+.p-tabview-panels {
+    padding: 0 !important;
 }
 </style>
