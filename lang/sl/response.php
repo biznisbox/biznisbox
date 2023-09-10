@@ -252,10 +252,10 @@ return [
             'super_admin_cannot_be_deleted' => 'Super Admin vloge ni mogoče izbrisati',
         ],
         'company_logo' => [
-            'upload_success' => 'Company logo was uploaded successfully',
-            'upload_failed' => 'Company logo could not be uploaded',
-            'remove_success' => 'Company logo was removed successfully',
-            'remove_failed' => 'Company logo could not be removed',
+            'upload_success' => 'Logotip podjetja je bil uspešno naložen',
+            'upload_failed' => 'Logotipa podjetja ni bilo mogoče naložiti',
+            'remove_success' => 'Logotip podjetja je bil uspešno odstranjen',
+            'remove_failed' => 'Logotipa podjetja ni bilo mogoče odstraniti',
         ],
         'settings' => [
             'update_success' => 'Nastavitve so bile uspešno posodobljene',
