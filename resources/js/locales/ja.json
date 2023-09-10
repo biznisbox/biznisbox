@@ -158,7 +158,16 @@
         "language": "言語",
         "change_password": "パスワードの変更",
         "new_password": "新しいパスワード",
-        "password_confirmation": "パスワードの確認"
+        "password_confirmation": "パスワードの確認",
+        "login_history": "ログイン履歴",
+        "login_time": "ログイン時間",
+        "device_type": "デバイスタイプ",
+        "os": "OS",
+        "browser": "ブラウザー",
+        "ip_address": "IP アドレス",
+        "location": "場所",
+        "unknown": "不明",
+        "no_login_history": "ログイン履歴がありません"
     },
     "invoice": {
         "invoice": "請求書 | 請求書",
