@@ -231,6 +231,8 @@ import rrulePlugin from '@fullcalendar/rrule'
 import allLocales from '@fullcalendar/core/locales-all'
 import CalendarMixin from '@/mixins/calendar'
 import axios from 'axios'
+import { useCookies } from 'vue3-cookies'
+const { cookies } = useCookies()
 
 export default {
     name: 'CalendarPage',
@@ -270,7 +272,7 @@ export default {
                             },
                             headers: {
                                 Accept: 'application/json',
-                                Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+                                Authorization: 'Bearer ' + cookies.get('token'),
                             },
                         })
                         .then((response) => {
