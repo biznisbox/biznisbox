@@ -86,7 +86,12 @@
         "warning": "Warning",
         "danger": "Danger",
         "notification": "Notification",
-        "invalid_form": "Form contains errors. Please check the fields and try again."
+        "invalid_form": "Form contains errors. Please check the fields and try again.",
+        "other": "Other",
+        "micro": "Micro",
+        "small": "Small",
+        "medium": "Medium",
+        "large": "Large"
     },
     "user_nav_menu": {
         "profile": "Profile",
@@ -109,7 +114,10 @@
         "documents": "Documents",
         "calendar": "Calendar",
         "admin": "Admin dashboard",
-        "archive": "Archive"
+        "archive": "Archive",
+        "partners": "Partners",
+        "reports": "Reports",
+        "settings": "Settings"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -119,6 +127,76 @@
         "total_unpaid_bills": "Total unpaid bills",
         "year_income_expense_chart": "Income and expenses for the current year",
         "current_month_income_expense_chart": "Income and expenses for the current month"
+    },
+    "form": {
+        "customer": "Customer",
+        "number": "Number",
+        "name": "Name",
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "type": "Type",
+        "entity_type": "Entity Type",
+        "company": "Company",
+        "individual": "Individual",
+        "vat_number": "VAT Number",
+        "tax_number": "Tax Number",
+        "currency": "Currency",
+        "language": "Language",
+        "size": "Size",
+        "company_size": "Company Size",
+        "address": "Address",
+        "zip_code": "Zip Code",
+        "city": "City",
+        "country": "Country",
+        "email": "Email",
+        "phone": "Phone",
+        "website": "Website",
+        "payment_method": "Payment Method",
+        "notes": "Notes",
+        "date": "Date",
+        "due_date": "Due Date",
+        "status": "Status",
+        "function": "Function",
+        "phone_number": "Phone number",
+        "mobile_number": "Mobile number",
+        "fax_number": "Fax number",
+        "default": "Default",
+        "partner_type": "Partner Type",
+        "description": "Description"
+    },
+    "address_types": {
+        "billing": "Billing",
+        "shipping": "Shipping",
+        "office": "Office"
+    },
+    "partner_types": {
+        "customer": "Customer",
+        "supplier": "Supplier",
+        "both": "Both"
+    },
+    "entity_types": {
+        "company": "Company",
+        "individual": "Individual"
+    },
+    "payment_methods": {
+        "bank_transfer": "Bank Transfer",
+        "cash": "Cash",
+        "check": "Check",
+        "credit_card": "Credit Card",
+        "paypal": "PayPal",
+        "stripe": "Stripe",
+        "other": "Other"
+    },
+    "partner": {
+        "partner": "Partner | Partners",
+        "new_partner": "New Partner",
+        "edit_partner": "Edit Partner",
+        "no_partners": "No partners found",
+        "create_first_partner": "Create your first partner",
+        "add_contact": "Add contact",
+        "no_contacts": "No contacts found",
+        "add_address": "Add address",
+        "no_addresses": "No addresses found"
     },
     "product": {
         "product": "Product | Products",

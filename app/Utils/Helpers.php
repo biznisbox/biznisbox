@@ -2,6 +2,7 @@
 use App\Services\AuthService;
 use Illuminate\Http\Request;
 use App\Utils\SerialNumberFormatter;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 if (!function_exists('api_response')) {
     /**
@@ -239,5 +240,33 @@ if (!function_exists('formatHTML')) {
         $html = stripslashes($html);
         $html = htmlspecialchars($html);
         return $html;
+    }
+}
+
+
+if (!function_exists('processRelation')) {
+    /**
+     * Function for process relation
+     * @param Relation $relation - relation
+     * @param array $items - items
+     * @return void
+     */
+    function processRelation(Relation $relation, array $items)
+    {
+        $relation->getResults()->each(function($model) use ($items) {
+            foreach ($items as $item) {
+                if ($model->id === ($item['id'] ?? null)) {
+                    $model->fill($item)->save();
+                    return;
+                }
+            }
+
+            return $model->delete();
+        });
+
+        foreach ($items as $item) {
+            if (!isset($item['id']))
+                $relation->create($item);
+        };
     }
 }

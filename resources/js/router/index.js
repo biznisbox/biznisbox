@@ -25,6 +25,12 @@ const routes = [
     makeRoute('/customers/:id', 'view-customer', () => import('../views/customers/ViewCustomer.vue'), { auth: true }, []),
     makeRoute('/customers/:id/edit', 'edit-customer', () => import('../views/customers/EditCustomer.vue'), { auth: true }, []),
 
+    // Partners Routes
+    makeRoute('/partners', 'partners', () => import('../views/partners/Partners.vue'), { auth: true }, []),
+    makeRoute('/partners/new', 'new-partner', () => import('../views/partners/NewPartner.vue'), { auth: true }, []),
+    makeRoute('/partners/:id', 'view-partner', () => import('../views/partners/ViewPartner.vue'), { auth: true }, []),
+    makeRoute('/partners/:id/edit', 'edit-partner', () => import('../views/partners/EditPartner.vue'), { auth: true }, []),
+
     // Calendar Routes
     makeRoute('/calendar', 'calendar', () => import('../views/calendar/Calendar.vue'), { auth: true }, []),
 
