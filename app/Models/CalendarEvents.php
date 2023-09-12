@@ -12,7 +12,8 @@ class CalendarEvents extends Model implements Auditable
 {
     use HasFactory, SoftDeletes, HasUuids;
     use \OwenIt\Auditing\Auditable;
-
+    
+    protected $table = 'calendar_events';
     protected $fillable = [
         'user_id',
         'title',
@@ -58,10 +59,6 @@ class CalendarEvents extends Model implements Auditable
     {
         $data['user_id'] = user_data()->data->id;
         $event = $this->create($data);
-
-        if (isset($data['attendees'])) {
-            $event->attendees()->createMany($data['attendees']);
-        }
         return $event;
     }
 
@@ -71,11 +68,6 @@ class CalendarEvents extends Model implements Auditable
             ->where('user_id', user_data()->data->id)
             ->firstOrFail();
         $event->update($data);
-
-        if (isset($data['attendees'])) {
-            $event->attendees()->delete();
-            $event->attendees()->createMany($data['attendees']);
-        }
         return $event;
     }
 

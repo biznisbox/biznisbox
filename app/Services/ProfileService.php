@@ -5,7 +5,6 @@ namespace App\Services;
 use App\Models\User;
 use App\Models\Sessions;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,7 +16,6 @@ class ProfileService
         $user->initials = $user->getInitials();
         $user->sessions = Sessions::where('user_id', $user->id)
             ->latest()
-            ->limit(10)
             ->get();
         activity_log(user_data()->data->id, 'get own profile', $user->id, 'App\Services\ProfileService', 'getUserProfile', 'User');
         if ($user) {
