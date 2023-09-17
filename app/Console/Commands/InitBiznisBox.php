@@ -42,9 +42,9 @@ class InitBiznisBox extends Command
             $this->info('Updating default roles...');
         } else {
             $this->info('Creating default roles...');
+            Role::firstOrCreate(['name' => 'super_admin'], ['display_name' => 'Super Admin']);
+            Role::firstOrCreate(['name' => 'user'], ['display_name' => 'User']);
         }
-        Role::firstOrCreate(['name' => 'super_admin'], ['display_name' => 'Super Admin']);
-        Role::firstOrCreate(['name' => 'user'], ['display_name' => 'User']);
 
         // User permissions
         Permission::firstOrCreate(['name' => 'products', 'display_name' => 'Products']);
@@ -59,6 +59,7 @@ class InitBiznisBox extends Command
         Permission::firstOrCreate(['name' => 'documents', 'display_name' => 'Documents']);
         Permission::firstOrCreate(['name' => 'calendar', 'display_name' => 'Calendar']);
         Permission::firstOrCreate(['name' => 'archive', 'display_name' => 'Archive']);
+        Permission::firstOrCreate(['name' => 'partners', 'display_name' => 'Partners']);
         Permission::firstOrCreate(['name' => 'edit_own_profile', 'display_name' => 'Edit own profile']);
         Permission::firstOrCreate(['name' => 'change_own_password', 'display_name' => 'Change own password']);
 
@@ -96,6 +97,7 @@ class InitBiznisBox extends Command
                 'documents',
                 'calendar',
                 'archive',
+                'partners',
                 'edit_own_profile',
                 'change_own_password',
             ]);
@@ -168,6 +170,10 @@ class InitBiznisBox extends Command
             Settings::firstOrCreate(
                 ['key' => 'product_number_format'],
                 ['value' => '{{TEXT:PRO}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+            );
+            Settings::firstOrCreate(
+                ['key' => 'partner_number_format'],
+                ['value' => '{{TEXT:PAR}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
             );
         }
 

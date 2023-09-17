@@ -15,12 +15,14 @@ use App\Http\Controllers\OnlinePaymentController;
 use App\Http\Controllers\VendorsController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\UsersController as AdminUsersController;
 use App\Http\Controllers\Admin\PermissionController as AdminPermissionController;
 use App\Http\Controllers\Admin\SettingsController as AdminSettingsController;
 use App\Http\Controllers\Admin\BasicController as AdminBasicController;
 use App\Http\Controllers\Client\InvoiceController as ClientInvoiceController;
 use App\Http\Controllers\Client\EstimateController as ClientEstimateController;
+use App\Http\Controllers\PartnerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,6 +55,16 @@ Route::middleware('auth')->group(function () {
         Route::put('/customers/{id}', CustomersController::class . '@updateCustomer');
         Route::delete('/customers/{id}', CustomersController::class . '@deleteCustomer');
         Route::get('/customer/customer_number', CustomersController::class . '@getCustomerNumber');
+    });
+
+    // Partners Routes
+    Route::middleware(['can:partners'])->group(function () {
+        Route::get('/partners', PartnerController::class . '@getPartners');
+        Route::get('/partners/{id}', PartnerController::class . '@getPartner');
+        Route::post('/partners', PartnerController::class . '@createPartner');
+        Route::put('/partners/{id}', PartnerController::class . '@updatePartner');
+        Route::delete('/partners/{id}', PartnerController::class . '@deletePartner');
+        Route::get('/partner/partner_number', PartnerController::class . '@getPartnerNumber');
     });
 
     // Invoice Routes

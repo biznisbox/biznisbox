@@ -16,6 +16,14 @@
         "to": "/admin"
     },
     {
+        "name": "user_menu_items.partners",
+        "meta": ["partners"],
+        "permission": "partners",
+        "permissions": [],
+        "icon": "fa fa-handshake",
+        "to": "/partners"
+    },
+    {
         "name": "user_menu_items.products",
         "meta": ["products"],
         "permission": "products",
