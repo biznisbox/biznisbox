@@ -13,20 +13,20 @@ return new class extends Migration {
         Schema::create('documents', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table
-                ->uuid('document_creator_id')
-                ->nullable()
-                ->references('id')
-                ->on('users')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
-            $table
                 ->uuid('document_category_id')
                 ->nullable()
                 ->references('id')
                 ->on('categories')
                 ->nullOnDelete()
-                ->cascadeOnUpdate();
-            $table->string('number')->nullable(); // Number of the document (invoice number, offer number, etc.
+                ->cascadeOnUpdate(); // document_category_id is the folder that the document is in
+            $table
+                ->foreignUuid('partner_id')
+                ->nullable()
+                ->references('id')
+                ->on('partners')
+                ->nullOnDelete()
+                ->cascadeOnUpdate(); // partner_id is the partner that the document is related to
+            $table->string('number')->nullable(); // Number of the document (invoice number, offer number, etc.)
             $table->string('name'); // Name of the document - title of the document
             $table->date('date')->nullable(); // Date of the document
             $table->date('due_date')->nullable(); // Due date of the document

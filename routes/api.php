@@ -5,7 +5,7 @@ use App\Http\Controllers\BasicController;
 use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\EstimateController;
+use App\Http\Controllers\QuotationsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\TransactionController;
@@ -21,7 +21,7 @@ use App\Http\Controllers\Admin\PermissionController as AdminPermissionController
 use App\Http\Controllers\Admin\SettingsController as AdminSettingsController;
 use App\Http\Controllers\Admin\BasicController as AdminBasicController;
 use App\Http\Controllers\Client\InvoiceController as ClientInvoiceController;
-use App\Http\Controllers\Client\EstimateController as ClientEstimateController;
+use App\Http\Controllers\Client\QuotationsController as ClientQuotationsController;
 use App\Http\Controllers\PartnerController;
 use Illuminate\Support\Facades\Route;
 
@@ -58,6 +58,7 @@ Route::middleware('auth')->group(function () {
     });
 
     // Partners Routes
+    Route::get('/partners_list', PartnerController::class . '@getPartnersLimitedData');
     Route::middleware(['can:partners'])->group(function () {
         Route::get('/partners', PartnerController::class . '@getPartners');
         Route::get('/partners/{id}', PartnerController::class . '@getPartner');
@@ -76,20 +77,18 @@ Route::middleware('auth')->group(function () {
         Route::delete('/invoices/{id}', InvoiceController::class . '@deleteInvoice');
         Route::get('/invoice/invoice_number', InvoiceController::class . '@getInvoiceNumber');
         Route::get('/invoice/share/{id}', InvoiceController::class . '@shareInvoice');
-        Route::post('/invoice/send/{id}', InvoiceController::class . '@sendInvoice');
     });
 
-    // Estimate Routes
-    Route::middleware('can:estimates')->group(function () {
-        Route::get('/estimates', EstimateController::class . '@getEstimates');
-        Route::get('/estimates/{id}', EstimateController::class . '@getEstimate');
-        Route::post('/estimates', EstimateController::class . '@createEstimate');
-        Route::put('/estimates/{id}', EstimateController::class . '@updateEstimate');
-        Route::delete('/estimates/{id}', EstimateController::class . '@deleteEstimate');
-        Route::get('/estimate/convert/{id}', EstimateController::class . '@convertEstimateToInvoice');
-        Route::get('/estimate/estimate_number', EstimateController::class . '@getEstimateNumber');
-        Route::get('/estimate/share/{id}', EstimateController::class . '@shareEstimate');
-        Route::post('/estimate/send/{id}', EstimateController::class . '@sendEstimate');
+    // Quotes Routes
+    Route::middleware('can:quotes')->group(function () {
+        Route::get('/quotations', QuotationsController::class . '@getQuotes');
+        Route::get('/quotations/{id}', QuotationsController::class . '@getQuote');
+        Route::post('/quotations', QuotationsController::class . '@createQuote');
+        Route::put('/quotations/{id}', QuotationsController::class . '@updateQuote');
+        Route::delete('/quotations/{id}', QuotationsController::class . '@deleteQuote');
+        Route::get('/quote/convert/{id}', QuotationsController::class . '@convertQuoteToInvoice');
+        Route::get('/quote/quote_number', QuotationsController::class . '@getQuoteNumber');
+        Route::get('/quote/share/{id}', QuotationsController::class . '@shareQuote');
     });
 
     // Categories Routes
@@ -257,14 +256,14 @@ Route::middleware(['signed'])->group(function () {
     Route::get('/document/download', ArchiveController::class . '@downloadDocument')->name('documents.download');
     Route::get('/document/previews', ArchiveController::class . '@previewDocument')->name('documents.preview');
     Route::get('/invoice/pdf', InvoiceController::class . '@getInvoicePdf')->name('invoice.pdf');
-    Route::get('/estimate/pdf', EstimateController::class . '@getEstimatePdf')->name('estimate.pdf');
+    Route::get('/quote/pdf', QuotationsController::class . '@getQuotePdf')->name('quote.pdf');
     Route::get('/document-internal/pdf', DocumentController::class . '@getDocumentPdf')->name('document.pdf');
 });
 
 Route::prefix('/client')->group(function () {
     Route::get('/invoices', ClientInvoiceController::class . '@getInvoice');
-    Route::get('/estimates', ClientEstimateController::class . '@getEstimate');
-    Route::post('/estimates/accept-reject', ClientEstimateController::class . '@acceptRejectEstimate');
+    Route::get('/quote', ClientQuotationsController::class . '@getQuote');
+    Route::post('/quote/accept-reject', ClientQuotationsController::class . '@acceptRejectQuote');
 });
 
 Route::get('{any}', function () {

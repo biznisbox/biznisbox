@@ -10,14 +10,14 @@
                                 id="number_input"
                                 v-model="v$.invoice.number.$model"
                                 class="col-12 md:col-6"
-                                :label="$t('invoice.invoice_number')"
+                                :label="$t('form.number')"
                                 :validate="v$.invoice.number"
                             />
                             <SelectInput
                                 id="status_input"
                                 v-model="v$.invoice.status.$model"
                                 class="col-12 md:col-6"
-                                label="Status"
+                                :label="$t('form.status')"
                                 :options="[
                                     { label: $t('status.draft'), value: 'draft' },
                                     { label: $t('status.sent'), value: 'sent' },
@@ -37,46 +37,70 @@
                                 id="customer_input"
                                 v-model="invoice.customer_id"
                                 class="col-12 md:col-6"
-                                :label="$t('invoice.customer')"
-                                :options="customers"
+                                :label="$t('form.customer')"
+                                :options="partners"
                                 filter
                                 show-clear
                                 option-value="id"
                                 option-label="name"
                             />
+
                             <SelectInput
                                 id="payer_input"
                                 v-model="invoice.payer_id"
                                 class="col-12 md:col-6"
-                                :label="$t('invoice.payer')"
+                                :label="$t('form.payer')"
                                 filter
                                 show-clear
-                                :options="customers"
+                                :options="partners"
                                 option-value="id"
                                 option-label="name"
                             />
                         </div>
 
                         <div class="grid">
+                            <SelectInput
+                                v-model="invoice.customer_address_id"
+                                :label="$t('form.customer_address')"
+                                class="col-12 md:col-6"
+                                :options="customerAddresses"
+                                data-key="id"
+                                option-label="addressText"
+                                option-value="id"
+                                :disabled="!invoice.customer_id"
+                            />
+
+                            <SelectInput
+                                v-model="invoice.payer_address_id"
+                                :label="$t('form.payer_address')"
+                                class="col-12 md:col-6"
+                                :options="payerAddresses"
+                                data-key="id"
+                                option-label="addressText"
+                                option-value="id"
+                                :disabled="!invoice.payer_id"
+                            />
+                        </div>
+                        <div class="grid">
                             <DateInput
                                 id="date_input"
                                 v-model="v$.invoice.date.$model"
                                 class="col-12 md:col-4"
-                                :label="$t('invoice.date')"
+                                :label="$t('form.date')"
                                 :validate="v$.invoice.date"
                             />
                             <DateInput
                                 id="due_date_input"
                                 v-model="v$.invoice.due_date.$model"
                                 class="col-12 md:col-4"
-                                :label="$t('invoice.due_date')"
+                                :label="$t('form.due_date')"
                                 :validate="v$.invoice.due_date"
                             />
                             <SelectInput
                                 id="currency_input"
                                 v-model="invoice.currency"
                                 class="col-12 md:col-4"
-                                :label="$t('invoice.currency')"
+                                :label="$t('form.currency')"
                                 :options="currencies"
                                 option-value="code"
                                 option-label="name"
@@ -85,14 +109,14 @@
 
                         <div class="grid">
                             <div class="col-12">
-                                <Button :label="$t('invoice.add_item')" icon="fa fa-plus" @click="addItem" />
+                                <Button :label="$t('basic.add_item')" icon="fa fa-plus" @click="addItem" />
                             </div>
                             <DataTable class="col-12" :value="invoice.items">
                                 <template #empty>
                                     <div class="p-4 pl-0 text-center text-gray-500">{{ $t('invoice.no_items') }}</div>
                                 </template>
 
-                                <Column field="name" header="Name">
+                                <Column field="name" :header="$t('form.name')">
                                     <template #body="slotProps">
                                         <Dropdown
                                             v-model="slotProps.data.item"
@@ -111,7 +135,7 @@
                                         </Dropdown>
                                     </template>
                                 </Column>
-                                <Column field="description" :header="$t('invoice.description')">
+                                <Column field="description" :header="$t('form.description')">
                                     <template #body="slotProps">
                                         <TextAreaInput :id="`description_input_${slotProps.index}`" v-model="slotProps.data.description" />
                                     </template>
@@ -121,7 +145,7 @@
                                         <InputNumber
                                             :id="`quantity_input_${slotProps.index}`"
                                             v-model="slotProps.data.quantity"
-                                            :show-buttons="true"
+                                            show-buttons
                                             :min="1"
                                             mode="decimal"
                                             @input="calculateItemTotal(slotProps.index)"
@@ -141,7 +165,7 @@
                                         <InputNumber
                                             :id="`price_input_${slotProps.index}`"
                                             v-model="slotProps.data.price"
-                                            :currency="invoice.currency"
+                                            :currency="$settings.default_currency"
                                             mode="currency"
                                             @focus="calculateItemTotal(slotProps.index)"
                                         />
@@ -157,12 +181,12 @@
                                         />
                                     </template>
                                 </Column>
-                                <Column :header="$t('invoice.total')">
+                                <Column :header="$t('form.total')">
                                     <template #body="slotProps">
                                         <InputNumber
                                             :id="`total_input_${slotProps.index}`"
                                             v-model="slotProps.data.total"
-                                            :currency="invoice.currency"
+                                            :currency="$settings.default_currency"
                                             :disabled="true"
                                             mode="currency"
                                             @focus="calculateItemTotal(slotProps.index)"
@@ -180,28 +204,38 @@
 
                         <div class="grid">
                             <div class="col-12 md:col-6">
+                                <TextAreaInput id="notes_input" v-model="invoice.notes" :label="$t('form.notes')" />
+
                                 <TinyMceEditor
-                                    id="notes_input"
-                                    v-model="invoice.notes"
-                                    :label="$t('invoice.notes')"
-                                    toolbar=" bold italic underline"
+                                    id="footer_input"
+                                    v-model="invoice.footer"
+                                    :label="$t('form.footer')"
+                                    toolbar=" bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link"
                                     style="height: 200px"
                                 />
                             </div>
                             <div class="col-12 md:col-6">
-                                <InputNumber
+                                <NumberInput
                                     id="discount_input"
                                     v-model="invoice.discount"
                                     class="col-12"
-                                    :label="$t('invoice.discount')"
+                                    :label="$t('form.discount')"
                                     suffix="%"
                                     @blur="calculateTotal"
                                 />
-                                <InputNumber
-                                    id="total_input"
+                                <NumberInput
+                                    v-if="invoice.currency_rate !== 1"
+                                    id="currency_rate_input"
+                                    v-model="invoice.currency_rate"
+                                    class="col-12"
+                                    disabled
+                                    :label="$t('form.currency_rate')"
+                                />
+                                <NumberInput
+                                    id="final_total_input"
                                     v-model="v$.invoice.total.$model"
                                     class="col-12"
-                                    :label="$t('invoice.total')"
+                                    :label="$t('form.final_total')"
                                     disabled
                                     :validate="v$.invoice.total"
                                     mode="currency"
@@ -235,12 +269,23 @@ export default {
     name: 'NewInvoicePage',
     mixins: [InvoiceMixin],
     setup: () => ({ v$: useVuelidate() }),
+    watch: {
+        'invoice.customer_id': function (val) {
+            this.getCustomerAddresses(val)
+        },
+        'invoice.payer_id': function (val) {
+            this.getPayerAddresses(val)
+        },
+        'invoice.currency': function (val) {
+            this.invoice.currency_rate = this.currencies.find((currency) => currency.code === val).rate
+            this.calculateTotal()
+        },
+    },
     created() {
-        this.getCustomers()
+        this.getPartners()
         this.getProducts()
         this.getInvoiceNumber()
     },
-
     validations() {
         return {
             invoice: {
@@ -252,7 +297,6 @@ export default {
             },
         }
     },
-
     methods: {
         validateForm() {
             this.v$.$validate()
@@ -261,7 +305,6 @@ export default {
             }
             return this.saveInvoice()
         },
-
         selectItem(index) {
             this.invoice.items[index].product_id = this.invoice.items[index].item.id
             this.invoice.items[index].type = this.invoice.items[index].item.type
@@ -272,7 +315,6 @@ export default {
             this.invoice.items[index].total = this.invoice.items[index].price * this.invoice.items[index].quantity
             this.calculateItemTotal(index)
         },
-
         addItem() {
             this.invoice.items.push({
                 product_id: '',
@@ -288,11 +330,9 @@ export default {
                 total: 0,
             })
         },
-
         removeItem(index) {
             this.invoice.items.splice(index, 1)
         },
-
         calculateItemTotal(index) {
             let item = this.invoice.items[index]
             item.total = item.price * item.quantity
@@ -301,13 +341,35 @@ export default {
             this.invoice.items[index].total = item.total
             this.calculateTotal()
         },
-
         calculateTotal() {
             this.invoice.total = 0
             this.invoice.items.forEach((item) => {
                 this.invoice.total += item.total
             })
+            if (this.invoice.currency_rate) {
+                this.invoice.total = this.invoice.total * this.invoice.currency_rate
+            }
             this.invoice.total = this.invoice.total - (this.invoice.total * this.invoice.discount) / 100
+        },
+        getCustomerAddresses() {
+            if (!this.invoice.customer_id) {
+                this.customerAddresses = []
+                return
+            }
+            this.customerAddresses = this.formatAddresses(this.partners, this.invoice.customer_id)
+            if (this.customerAddresses.length) {
+                this.invoice.customer_address_id = this.customerAddresses[0].id
+            }
+        },
+        getPayerAddresses() {
+            if (!this.invoice.payer_id) {
+                this.payerAddresses = []
+                return
+            }
+            this.payerAddresses = this.formatAddresses(this.partners, this.invoice.payer_id)
+            if (this.payerAddresses.length) {
+                this.invoice.payer_address_id = this.payerAddresses[0].id
+            }
         },
     },
 }

@@ -14,16 +14,9 @@ class PartnerAddress extends Model implements Auditable
 
     protected $table = 'partner_addresses';
 
-    protected $fillable = [
-        'partner_id',
-        'is_primary',
-        'type',
-        'address',
-        'city',
-        'zip_code',
-        'country',
-        'notes',
-    ];
+    protected $fillable = ['partner_id', 'is_primary', 'type', 'address', 'city', 'zip_code', 'country', 'notes'];
+
+    protected $hidden = ['partner_id', 'created_at', 'updated_at'];
 
     public function generateTags(): array
     {
@@ -33,6 +26,11 @@ class PartnerAddress extends Model implements Auditable
     public function partner()
     {
         return $this->belongsTo(Partner::class);
+    }
+
+    public function formatAddresses()
+    {
+        return $this->address . ', ' . $this->zip_code . ' ' . $this->city . ', ' . $this->country;
     }
 
     public function getPartnerAddresses($partnerId)
@@ -59,7 +57,4 @@ class PartnerAddress extends Model implements Auditable
     {
         return $this->find($id)->delete();
     }
-
-    
-
 }

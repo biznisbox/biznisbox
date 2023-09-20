@@ -1,15 +1,15 @@
 <template>
     <user-layout>
-        <div id="estimates_page">
-            <user-header :title="$t('estimate.estimate', 2)">
+        <div id="quotes_page">
+            <user-header :title="$t('quote.quote', 2)">
                 <template #actions>
-                    <HeaderActionButton :label="$t('estimate.new_estimate')" icon="fa fa-plus" to="/estimates/new" />
+                    <HeaderActionButton :label="$t('quote.new_quote')" icon="fa fa-plus" to="/quotes/new" />
                 </template>
             </user-header>
-            <div id="estimate_table" class="card">
+            <div id="quote_table" class="card">
                 <DataTable
                     v-model:filters="filters"
-                    :value="estimates"
+                    :value="quotes"
                     :loading="loadingData"
                     column-resize-mode="expand"
                     paginator
@@ -24,17 +24,17 @@
                     <template #empty>
                         <div class="p-4 pl-0 text-center w-full text-gray-500">
                             <i class="fa fa-info-circle empty-icon"></i>
-                            <p>{{ $t('estimate.no_estimates') }}</p>
+                            <p>{{ $t('quote.no_quotes') }}</p>
                             <Button
                                 class="mt-3"
-                                :label="$t('estimate.create_first_estimate')"
+                                :label="$t('quote.create_first_quote')"
                                 icon="fa fa-plus"
-                                @click="$router.push('/estimates/new')"
+                                @click="$router.push('/quotes/new')"
                             />
                         </div>
                     </template>
 
-                    <Column field="number" :header="$t('estimate.estimate_number')">
+                    <Column field="number" :header="$t('form.number')">
                         <template #body="{ data }">
                             {{ data.number }}
                         </template>
@@ -44,7 +44,7 @@
                         </template>
                     </Column>
 
-                    <Column field="date" :header="$t('estimate.date_and_due_date')">
+                    <Column field="date" :header="$t('quote.date_and_due_date')">
                         <template #body="{ data }">
                             <span>{{ data.date ? formatDate(data.date) : '' }}</span> <br />
                             <span>{{ data.valid_until ? formatDate(data.valid_until) : '' }}</span>
@@ -57,7 +57,7 @@
                         </template>
                     </Column>
 
-                    <Column field="customer" :header="$t('estimate.customer_and_payer')">
+                    <Column field="customer" :header="$t('quote.customer_and_payer')">
                         <template #body="{ data }">
                             {{ formatText(data.customer_name) }} <br />
                             {{ formatText(data.payer_name) }}
@@ -67,7 +67,7 @@
                         </template>
                     </Column>
 
-                    <Column field="total" :header="$t('invoice.total')">
+                    <Column field="total" :header="$t('form.total')">
                         <template #body="{ data }">
                             {{ data.total + ' ' + data.currency }}
                         </template>
@@ -77,7 +77,7 @@
                         </template>
                     </Column>
 
-                    <Column filter-field="status" :header="$t('invoice.status')">
+                    <Column filter-field="status" :header="$t('form.status')">
                         <template #body="{ data }">
                             <Tag v-if="data.status === 'accepted'" severity="success">{{ $t('status.accepted') }}</Tag>
                             <Tag v-if="data.status === 'rejected'" severity="danger">{{ $t('status.rejected') }}</Tag>
@@ -121,11 +121,11 @@
 </template>
 
 <script>
-import EstimateMixin from '@/mixins/estimates'
+import QuotesMixin from '@/mixins/quotes'
 import { FilterMatchMode, FilterOperator } from 'primevue/api'
 export default {
-    name: 'EstimatesPage',
-    mixins: [EstimateMixin],
+    name: 'QuotesPage',
+    mixins: [QuotesMixin],
 
     data() {
         return {
@@ -133,13 +133,13 @@ export default {
         }
     },
     created() {
-        this.getEstimates()
+        this.getQuotes()
         this.initFilters()
     },
 
     methods: {
         viewEstimateNavigation(rowData) {
-            this.$router.push(`/estimates/${rowData.data.id}`)
+            this.$router.push(`/quotes/${rowData.data.id}`)
         },
 
         initFilters() {

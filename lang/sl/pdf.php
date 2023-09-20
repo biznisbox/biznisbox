@@ -46,10 +46,10 @@ return [
         'paypal' => 'PayPal',
         'other' => 'Drugo',
     ],
-    'estimate' => [
-        'title' => 'Predračun',
-        'number' => 'Številka predračuna',
-        'date' => 'Datum predračuna',
+    'quote' => [
+        'title' => 'Ponudba',
+        'number' => 'Številka ponudbe',
+        'date' => 'Datum ponudbe',
         'valid_until' => 'Veljaven do',
         'status' => 'Status',
         'payment_method' => 'Način plačila',

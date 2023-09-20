@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use OwenIt\Auditing\Contracts\Auditable;
 
-class EstimateItems extends Model implements Auditable
+class QuoteItems extends Model implements Auditable
 {
     use HasFactory, HasUuids, \OwenIt\Auditing\Auditable;
 
-    protected $fillable = ['estimate_id', 'product_id', 'name', 'description', 'unit', 'quantity', 'price', 'tax', 'discount', 'total'];
+    protected $table = 'quote_items';
+    protected $fillable = ['quote_id', 'product_id', 'name', 'description', 'unit', 'quantity', 'price', 'tax', 'discount', 'total'];
 
     protected $casts = [
         'quantity' => 'float',
@@ -21,14 +22,18 @@ class EstimateItems extends Model implements Auditable
         'total' => 'float',
     ];
 
+    protected $dates = ['deleted_at', 'updated_at', 'created_at'];
+
+    protected $hidden = ['deleted_at', 'updated_at', 'created_at'];
+
     public function generateTags(): array
     {
-        return ['EstimateItems'];
+        return ['QuoteItems'];
     }
 
-    public function estimate()
+    public function quote()
     {
-        return $this->belongsTo(Estimate::class);
+        return $this->belongsTo(Quote::class);
     }
 
     public function product()

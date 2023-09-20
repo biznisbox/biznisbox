@@ -5,8 +5,8 @@
                 <template #actions>
                     <HeaderActionButton :label="$t('account.new_account')" icon="fa fa-plus" to="/accounts/new" />
                     <Button
-                        :label="$t('account.connect_bank')"
                         v-if="$settings.open_banking_available"
+                        :label="$t('account.connect_bank')"
                         icon="fa fa-university"
                         @click="connectBankDialog = true"
                     />

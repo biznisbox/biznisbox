@@ -1,24 +1,24 @@
 <template>
     <user-layout>
-        <div id="new_estimate_page">
+        <div id="edit_quote_page">
             <LoadingScreen :blocked="loadingData">
-                <user-header :title="$t('estimate.new_estimate')"></user-header>
-
+                <user-header :title="$t('quote.edit_quote')" />
                 <div class="card">
                     <form class="formgrid">
                         <div class="grid">
                             <TextInput
                                 id="number_input"
-                                v-model="v$.estimate.number.$model"
-                                class="field col-12 md:col-6"
-                                :validate="v$.estimate.number"
-                                :label="$t('estimate.number')"
+                                v-model="v$.quote.number.$model"
+                                class="col-12 md:col-6"
+                                disabled
+                                :validate="v$.quote.number"
+                                :label="$t('form.number')"
                             />
                             <SelectInput
                                 id="status_input"
-                                v-model="v$.estimate.status.$model"
+                                v-model="v$.quote.status.$model"
                                 class="field col-12 md:col-6"
-                                :label="$t('estimate.status')"
+                                :label="$t('form.status')"
                                 :options="[
                                     { label: $t('status.draft'), value: 'draft' },
                                     { label: $t('status.sent'), value: 'sent' },
@@ -28,55 +28,80 @@
                                     { label: $t('status.expired'), value: 'expired' },
                                     { label: $t('status.cancelled'), value: 'cancelled' },
                                 ]"
-                                :validate="v$.estimate.status"
+                                :validate="v$.quote.status"
                             />
                         </div>
 
                         <div class="grid">
                             <SelectInput
                                 id="customer_input"
-                                v-model="estimate.customer_id"
-                                class="field col-12 md:col-6"
-                                :label="$t('estimate.customer')"
-                                :options="customers"
-                                option-value="id"
+                                v-model="quote.customer_id"
+                                class="col-12 md:col-6"
+                                :label="$t('form.customer')"
+                                :options="partners"
                                 filter
                                 show-clear
+                                option-value="id"
                                 option-label="name"
                             />
+
                             <SelectInput
                                 id="payer_input"
-                                v-model="estimate.payer_id"
-                                class="field col-12 md:col-6"
-                                :label="$t('estimate.payer')"
-                                :options="customers"
+                                v-model="quote.payer_id"
+                                class="col-12 md:col-6"
+                                :label="$t('form.payer')"
                                 filter
                                 show-clear
+                                :options="partners"
                                 option-value="id"
                                 option-label="name"
                             />
                         </div>
 
                         <div class="grid">
+                            <SelectInput
+                                v-model="quote.customer_address_id"
+                                :label="$t('form.customer_address')"
+                                class="col-12 md:col-6"
+                                :options="customerAddresses"
+                                data-key="id"
+                                option-label="addressText"
+                                option-value="id"
+                                :disabled="!quote.customer_id"
+                            />
+
+                            <SelectInput
+                                v-model="quote.payer_address_id"
+                                :label="$t('form.payer_address')"
+                                class="col-12 md:col-6"
+                                :options="payerAddresses"
+                                data-key="id"
+                                option-label="addressText"
+                                option-value="id"
+                                :disabled="!quote.payer_id"
+                            />
+                        </div>
+
+                        <div class="grid">
                             <DateInput
                                 id="date_input"
-                                v-model="v$.estimate.date.$model"
+                                v-model="v$.quote.date.$model"
                                 class="col-12 md:col-4"
-                                :validate="v$.estimate.date"
-                                :label="$t('estimate.date')"
+                                :validate="v$.quote.date"
+                                :label="$t('form.date')"
                             />
                             <DateInput
                                 id="valid_until_input"
-                                v-model="v$.estimate.valid_until.$model"
+                                v-model="v$.quote.valid_until.$model"
                                 class="col-12 md:col-4"
-                                :label="$t('estimate.valid_until')"
-                                :validate="v$.estimate.valid_until"
+                                :label="$t('form.valid_until')"
+                                :validate="v$.quote.valid_until"
                             />
                             <SelectInput
                                 id="currency_input"
-                                v-model="estimate.currency"
+                                v-model="quote.currency"
                                 class="col-12 md:col-4"
-                                :label="$t('estimate.currency')"
+                                :label="$t('form.currency')"
                                 :options="currencies"
                                 option-value="code"
                                 option-label="name"
@@ -85,20 +110,21 @@
 
                         <div class="grid">
                             <div class="col-12">
-                                <Button :label="$t('estimate.add_item')" icon="fa fa-plus" @click="addItem" />
+                                <Button :label="$t('basic.add_item')" icon="fa fa-plus" @click="addItem" />
                             </div>
-                            <DataTable class="col-12" :value="estimate.items">
+                            <DataTable class="col-12" :value="quote.items">
                                 <template #empty>
-                                    <div class="p-4 pl-0 text-center text-gray-500">{{ $t('estimate.no_items') }}</div>
+                                    <div class="p-4 pl-0 text-center text-gray-500">{{ $t('quote.no_items') }}</div>
                                 </template>
 
-                                <Column field="name" header="Name">
+                                <Column field="name" :header="$t('form.name')">
                                     <template #body="slotProps">
                                         <Dropdown
+                                            v-if="slotProps.data.added"
                                             v-model="slotProps.data.item"
                                             :options="products"
                                             data-key="id"
-                                            :placeholder="$t('estimate.select_item')"
+                                            :placeholder="$t('quote.select_item')"
                                             @change="selectItem(slotProps.index, slotProps.data)"
                                         >
                                             <template #value="slotProps">
@@ -109,14 +135,15 @@
                                                 <span v-if="slotProps.option">{{ slotProps.option.name }}</span>
                                             </template>
                                         </Dropdown>
+                                        <span v-else>{{ slotProps.data.name }}</span>
                                     </template>
                                 </Column>
-                                <Column field="description" :header="$t('estimate.description')">
+                                <Column field="description" :header="$t('form.description')">
                                     <template #body="slotProps">
                                         <TextAreaInput :id="`description_input_${slotProps.index}`" v-model="slotProps.data.description" />
                                     </template>
                                 </Column>
-                                <Column :header="$t('estimate.quantity_and_discount')">
+                                <Column :header="$t('quote.quantity_and_discount')">
                                     <template #body="slotProps">
                                         <InputNumber
                                             :id="`quantity_input_${slotProps.index}`"
@@ -136,12 +163,12 @@
                                         />
                                     </template>
                                 </Column>
-                                <Column :header="$t('estimate.price_and_tax')">
+                                <Column :header="$t('quote.price_and_tax')">
                                     <template #body="slotProps">
                                         <InputNumber
                                             :id="`price_input_${slotProps.index}`"
                                             v-model="slotProps.data.price"
-                                            :currency="estimate.currency"
+                                            :currency="$settings.default_currency"
                                             mode="currency"
                                             @focus="calculateItemTotal(slotProps.index)"
                                         />
@@ -151,18 +178,18 @@
                                             class="mt-0 md:mt-2"
                                             option-value="value"
                                             option-label="name"
-                                            :placeholder="$t('estimate.select_tax')"
+                                            :placeholder="$t('quote.select_tax')"
                                             :show-clear="true"
                                             @change="calculateItemTotal(slotProps.index)"
                                         />
                                     </template>
                                 </Column>
-                                <Column :header="$t('estimate.total')">
+                                <Column field="total" :header="$t('form.total')">
                                     <template #body="slotProps">
                                         <InputNumber
                                             :id="`total_input_${slotProps.index}`"
                                             v-model="slotProps.data.total"
-                                            :currency="estimate.currency"
+                                            :currency="$settings.default_currency"
                                             :disabled="true"
                                             mode="currency"
                                             @focus="calculateItemTotal(slotProps.index)"
@@ -172,7 +199,7 @@
 
                                 <Column :header="$t('basic.actions')">
                                     <template #body="slotProps">
-                                        <Button class="field p-button-danger" icon="fa fa-trash" @click="removeItem(slotProps.index)" />
+                                        <Button class="p-button-danger" icon="fa fa-trash" @click="removeItem(slotProps.index)" />
                                     </template>
                                 </Column>
                             </DataTable>
@@ -180,39 +207,48 @@
 
                         <div class="grid">
                             <div class="col-12 md:col-6">
+                                <TextAreaInput id="notes_input" v-model="quote.notes" :label="$t('form.notes')" />
                                 <TinyMceEditor
-                                    id="notes_input"
-                                    v-model="estimate.notes"
-                                    :label="$t('estimate.notes')"
-                                    toolbar=" bold italic underline"
+                                    id="footer_input"
+                                    v-model="quote.footer"
+                                    :label="$t('form.footer')"
                                     style="height: 200px"
+                                    toolbar=" bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link"
                                 />
                             </div>
                             <div class="col-12 md:col-6">
-                                <InputNumber
+                                <NumberInput
                                     id="discount_input"
-                                    v-model="estimate.discount"
+                                    v-model="quote.discount"
                                     class="col-12"
-                                    :label="$t('estimate.discount')"
+                                    :label="$t('form.discount')"
                                     suffix="%"
                                     @blur="calculateTotal"
                                 />
-                                <InputNumber
-                                    id="total_input"
-                                    v-model="v$.estimate.total.$model"
+                                <NumberInput
+                                    v-if="quote.currency_rate !== 1"
+                                    id="currency_rate_input"
+                                    v-model="quote.currency_rate"
                                     class="col-12"
-                                    :label="$t('estimate.total')"
+                                    disabled
+                                    :label="$t('form.currency_rate')"
+                                />
+                                <NumberInput
+                                    id="total_input"
+                                    v-model="v$.quote.total.$model"
+                                    class="col-12"
+                                    :label="$t('form.final_total')"
                                     :disabled="true"
                                     mode="currency"
-                                    :currency="estimate.currency"
-                                    :validate="v$.estimate.total"
+                                    :currency="quote.currency"
+                                    :validate="v$.quote.total"
                                 />
                             </div>
                         </div>
                     </form>
 
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="goTo('/estimates')" />
+                        <Button :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="goTo('/quotes')" />
                         <Button
                             :label="$t('basic.save')"
                             :disabled="loadingData"
@@ -230,20 +266,40 @@
 <script>
 import { useVuelidate } from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
-import EstimateMixin from '@/mixins/estimates'
+import QuoteMixin from '@/mixins/quotes'
 export default {
-    name: 'NewEstimatePage',
-    mixins: [EstimateMixin],
+    name: 'EditQuotePage',
+    mixins: [QuoteMixin],
+
     setup: () => ({ v$: useVuelidate() }),
+
+    watch: {
+        'quote.currency': function () {
+            if (!this.quote.currency) {
+                return
+            }
+            this.quote.currency_rate = this.currencies.find((currency) => currency.code === val).rate
+            this.calculateTotal()
+        },
+        'quote.currency_rate': function () {
+            this.calculateTotal()
+        },
+        'quote.customer_id': function () {
+            this.getCustomerAddresses()
+        },
+        'quote.payer_id': function () {
+            this.getPayerAddresses()
+        },
+    },
     created() {
-        this.getCustomers()
+        this.getPartners()
         this.getProducts()
-        this.getEstimateNumber()
+        this.getQuote(this.$route.params.id)
     },
 
     validations() {
         return {
-            estimate: {
+            quote: {
                 number: { required },
                 status: { required },
                 date: { required },
@@ -255,58 +311,74 @@ export default {
 
     methods: {
         validateForm() {
-            this.v$.$validate()
+            this.v$.$touch()
             if (this.v$.$error) {
                 return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
             }
-            return this.createEstimate()
+            this.updateQuote(this.$route.params.id)
         },
 
-        selectItem(index) {
-            this.estimate.items[index].product_id = this.estimate.items[index].item.id
-            this.estimate.items[index].type = this.estimate.items[index].item.type
-            this.estimate.items[index].name = this.estimate.items[index].item.name
-            this.estimate.items[index].unit = this.estimate.items[index].item.unit
-            this.estimate.items[index].price = this.estimate.items[index].item.sell_price
-            this.estimate.items[index].tax = this.estimate.items[index].item.tax
-            this.estimate.items[index].total = this.estimate.items[index].price * this.estimate.items[index].quantity
+        selectItem(index, item) {
+            this.quote.items[index].product_id = this.quote.items[index].item.id
+            this.quote.items[index].type = this.quote.items[index].item.type
+            this.quote.items[index].name = this.quote.items[index].item.name
+            this.quote.items[index].unit = this.quote.items[index].item.unit
+            this.quote.items[index].price = this.quote.items[index].item.sell_price
+            this.quote.items[index].tax = this.quote.items[index].item.tax
+            this.quote.items[index].total = this.quote.items[index].price * this.quote.items[index].quantity
             this.calculateItemTotal(index)
         },
 
         addItem() {
-            this.estimate.items.push({
+            this.quote.items.push({
                 product_id: '',
-                item: '',
+                type: '',
                 name: '',
+                added: true,
                 description: '',
                 quantity: 1,
-                unit: '',
-                price: 0,
-                tax: 0,
                 discount: 0,
+                price: 0,
                 total: 0,
             })
         },
 
         removeItem(index) {
-            this.estimate.items.splice(index, 1)
+            this.quote.items.splice(index, 1)
         },
 
         calculateItemTotal(index) {
-            let item = this.estimate.items[index]
+            let item = this.quote.items[index]
             item.total = item.price * item.quantity
             item.total = item.total - (item.total * item.discount) / 100
             item.total = item.total + (item.total * item.tax) / 100
-            this.estimate.items[index].total = item.total
+            this.quote.items[index].total = item.total
             this.calculateTotal()
         },
 
         calculateTotal() {
-            this.estimate.total = 0
-            this.estimate.items.forEach((item) => {
-                this.estimate.total += item.total
+            this.quote.total = 0
+            this.quote.items.forEach((item) => {
+                this.quote.total += item.total
             })
-            this.estimate.total = this.estimate.total - (this.estimate.total * this.estimate.discount) / 100
+            if (this.quote.currency_rate !== 1) {
+                this.quote.total = this.quote.total * this.quote.currency_rate
+            }
+            this.quote.total = this.quote.total - (this.quote.total * this.quote.discount) / 100
+        },
+        getCustomerAddresses() {
+            if (!this.quote.customer_id) {
+                this.customerAddresses = []
+                return
+            }
+            this.customerAddresses = this.formatAddresses(this.partners, this.quote.customer_id)
+        },
+        getPayerAddresses() {
+            if (!this.quote.payer_id) {
+                this.payerAddresses = []
+                return
+            }
+            this.payerAddresses = this.formatAddresses(this.partners, this.quote.payer_id)
         },
     },
 }

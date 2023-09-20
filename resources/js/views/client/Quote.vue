@@ -1,5 +1,5 @@
 <template>
-    <div id="client_view_invoice_page" class="p-2">
+    <div id="client_view_quote_page" class="p-2">
         <LoadingScreen :blocked="loadingData">
             <div>
                 <div id="company_data" class="mb-2 d-block p-3">
@@ -11,111 +11,98 @@
                     <span v-if="$settings.company_vat">{{ $t('form.tax_id') + ': ' + $settings.company_vat }}</span>
                 </div>
 
-                <div v-if="!no_found" class="card">
-                    <user-header :title="$t('invoice.invoice') + ' ' + invoice.number">
+                <div v-if="!not_found" class="card">
+                    <user-header :title="quote.number">
                         <template #actions>
+                            <Button class="mr-2 no-print" :disabled="!quote" icon="fa fa-download" @click="downloadQuote" />
                             <Button
-                                v-tooltip:top="$t('invoice.click_for_download')"
-                                class="mr-2 no-print"
-                                :disabled="!invoice"
-                                icon="fa fa-download"
-                                @click="downloadInvoice"
+                                v-if="quote.status !== 'accepted' && quote.status !== 'rejected' && quote.status !== 'converted'"
+                                class="mr-2 p-button-success no-print"
+                                :disabled="!quote"
+                                icon="fa fa-check"
+                                :label="$t('basic.accept')"
+                                @click="acceptRejectQuote($route.params.id, 'accepted')"
                             />
                             <Button
-                                v-if="$settings.stripe_available && invoice.status != 'paid'"
-                                class="mr-2 no-print"
-                                icon="fa fa-credit-card"
-                                @click="payWithCard"
-                            />
-                            <Button
-                                v-if="$settings.paypal_available && invoice.status != 'paid'"
-                                class="mr-2 no-print"
-                                icon="fab fa-paypal"
-                                @click="payWithPaypal"
+                                v-if="quote.status !== 'accepted' && quote.status !== 'rejected' && quote.status !== 'converted'"
+                                class="mr-2 p-button-danger no-print"
+                                :disabled="!quote"
+                                icon="fa fa-times"
+                                :label="$t('basic.reject')"
+                                @click="acceptRejectQuote($route.params.id, 'rejected')"
                             />
                         </template>
                     </user-header>
-
-                    <div class="alert">
-                        <Message v-if="$route.query.status == 'success' && invoice.status == 'paid'" severity="success" closable>
-                            {{ $t('invoice.payment_success') }}
-                        </Message>
-
-                        <Message v-if="$route.query.status == 'error' && invoice.status != 'paid'" severity="error" closable>
-                            {{ $t('invoice.payment_error') }}
-                        </Message>
-                    </div>
-
                     <div id="payer_customer_data" class="grid">
                         <div v-if="!loadingData" id="customer_data" class="col-12 md:col-6">
                             <DisplayData :input="$t('form.customer')" custom-value>
-                                <div v-if="invoice.customer_id != null">
-                                    <span>{{ formatText(invoice.customer_name) }}</span>
+                                <div v-if="quote.customer_id != null">
+                                    <span>{{ formatText(quote.customer_name) }}</span> <br />
+                                    <span>{{ formatText(quote.customer_address) }}</span>
                                     <br />
-                                    <span>{{ formatText(invoice.customer_address) }}</span>
+                                    <span>{{ formatText(quote.customer_zip_code) + ' ' + formatText(quote.customer_city) }}</span>
                                     <br />
-                                    <span>{{ formatText(invoice.customer_zip_code) + ' ' + formatText(invoice.customer_city) }}</span>
-                                    <br />
-                                    <span>{{ formatCountry(invoice.customer_country) }}</span>
+                                    <span>{{ formatCountry(quote.customer_country) }}</span>
                                     <br />
                                 </div>
                                 <div v-else>
-                                    <span>{{ $t('invoice.no_customer') }}</span>
+                                    <span>{{ $t('quote.no_customer') }}</span>
                                 </div>
                             </DisplayData>
                         </div>
 
                         <div v-if="!loadingData" id="payer_data" class="col-12 md:col-6">
                             <DisplayData :input="$t('form.payer')" custom-value>
-                                <div v-if="invoice.payer_id != null">
-                                    <span>{{ formatText(invoice.payer_name) }}</span> <br />
-                                    <span>{{ formatText(invoice.payer_address) }}</span>
+                                <div v-if="quote.payer">
+                                    <span>{{ formatText(quote.payer_name) }}</span> <br />
+                                    <span>{{ formatText(quote.payer_address) }}</span>
                                     <br />
-                                    <span>{{ formatText(invoice.payer_zip_code) + ' ' + formatText(invoice.payer_city) }}</span>
+                                    <span>{{ formatText(quote.payer_zip_code) + ' ' + formatText(quote.payer_city) }}</span>
                                     <br />
-                                    <span>{{ formatCountry(invoice.payer_country) }}</span>
+                                    <span>{{ formatCountry(quote.payer_country) }}</span>
                                     <br />
                                 </div>
                                 <div v-else>
-                                    <span>{{ $t('invoice.no_payer') }}</span>
+                                    <span>{{ $t('quote.no_payer') }}</span>
                                 </div>
                             </DisplayData>
                         </div>
                     </div>
 
-                    <div id="invoice_data" class="grid">
+                    <div id="quote_data" class="grid">
                         <div v-if="!loadingData" class="col-6 md:col-3">
-                            <DisplayData :input="$t('form.date')" :value="formatDate(invoice.date)" />
+                            <DisplayData :input="$t('form.date')" :value="formatDate(formatText(quote.date))" />
                         </div>
 
                         <div v-if="!loadingData" class="col-6 md:col-3">
-                            <DisplayData :input="$t('form.due_date')" :value="formatDate(invoice.due_date)" />
+                            <DisplayData :input="$t('form.valid_until')" :value="formatDate(formatText(quote.due_date))" />
                         </div>
 
                         <div v-if="!loadingData" class="col-6 md:col-3">
                             <DisplayData :input="$t('form.status')" custom-value>
-                                <Tag v-if="invoice.status === 'paid'" severity="success">{{ $t('status.paid') }}</Tag>
-                                <Tag v-if="invoice.status === 'unpaid'" severity="danger">{{ $t('status.unpaid') }}</Tag>
-                                <Tag v-if="invoice.status === 'overdue'" severity="danger">{{ $t('status.overdue') }}</Tag>
-                                <Tag v-if="invoice.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
-                                <Tag v-if="invoice.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
-                                <Tag v-if="invoice.status === 'refunded'" severity="">{{ $t('status.refunded') }}</Tag>
-                                <Tag v-if="invoice.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
+                                <Tag v-if="quote.status === 'accepted'" severity="success">{{ $t('status.accepted') }}</Tag>
+                                <Tag v-if="quote.status === 'rejected'" severity="danger">{{ $t('status.rejected') }}</Tag>
+                                <Tag v-if="quote.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
+                                <Tag v-if="quote.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
+                                <Tag v-if="quote.status === 'viewed'" severity="warning">{{ $t('status.viewed') }}</Tag>
+                                <Tag v-if="quote.status === 'expired'" severity="danger">{{ $t('status.expired') }}</Tag>
+                                <Tag v-if="quote.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
+                                <Tag v-if="quote.status === 'converted'" severity="success">{{ $t('status.converted') }}</Tag>
                             </DisplayData>
                         </div>
 
                         <div v-if="!loadingData" class="col-6 md:col-3">
-                            <DisplayData :input="$t('form.currency')" :value="formatText(invoice.currency)" />
+                            <DisplayData :input="$t('form.currency')" :value="formatText(quote.currency)" />
                         </div>
                     </div>
 
-                    <div v-if="!loadingData" id="invoice_items">
-                        <DataTable :value="invoice.items">
+                    <div v-if="!loadingData" id="quote_items">
+                        <DataTable :value="quote.items">
                             <template #empty>
                                 <div class="p-3 text-center w-full text-gray-500">
                                     <i class="fa fa-info-circle empty-icon"></i>
                                     <p>
-                                        {{ $t('invoice.no_items') }}
+                                        {{ $t('quote.no_items') }}
                                     </p>
                                 </div>
                             </template>
@@ -149,10 +136,10 @@
                         </DataTable>
                     </div>
 
-                    <div id="invoice_calculations" class="grid mt-5">
-                        <div id="invoice_footer" class="col-12 md:col-6">
+                    <div id="quote_calculations" class="grid mt-5">
+                        <div id="quote_notes" class="col-12 md:col-6">
                             <DisplayData :input="$t('form.footer')" custom-value>
-                                <span v-if="invoice.footer && !loadingData" v-html="invoice.notes"></span>
+                                <span v-if="quote.footer && !loadingData" v-html="quote.footer"></span>
                             </DisplayData>
                         </div>
 
@@ -160,17 +147,17 @@
                             <table class="w-full">
                                 <tr>
                                     <td class="w-6 font-bold mb-1">{{ $t('form.discount') }}</td>
-                                    <td class="text-gray-700 text-right">{{ invoice.discount }} %</td>
+                                    <td class="text-gray-700 text-right">{{ quote.discount }} %</td>
                                 </tr>
-                                <tr v-if="invoice.currency_rate != 1">
+                                <tr>
                                     <td class="w-6 font-bold mb-1">{{ $t('form.currency_rate') }}</td>
                                     <td class="text-gray-700 text-right">
-                                        {{ `1 ${$settings.default_currency} = ${invoice.currency_rate} ${invoice.currency}` }}
+                                        {{{{ `1 ${$settings.default_currency} = ${ quote.currency_rate} ${quote.currency}` }} }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="w-6 font-bold mb-1">{{ $t('form.total') }}</td>
-                                    <td class="text-gray-700 text-right">{{ invoice.total }} {{ invoice.currency }}</td>
+                                    <td class="text-gray-700 text-right">{{ quote.total }} {{ quote.currency }}</td>
                                 </tr>
                             </table>
                         </div>
@@ -183,87 +170,75 @@
 
 <script>
 export default {
-    name: 'ClientViewInvoice',
+    name: 'ClientViewQuotePage',
     data() {
         return {
-            no_found: false,
-            invoice: {
+            not_found: false,
+            quote: {
                 number: '',
                 date: '',
-                due_date: '',
-                customer_id: '',
-                payer_id: '',
-                customer_city: '',
+                valid_until: '',
+                customer_id: null,
                 customer_name: '',
+                customer_address_id: null,
                 customer_address: '',
                 customer_zip_code: '',
+                customer_city: '',
                 customer_country: '',
-                payer_city: '',
+                payer_id: null,
                 payer_name: '',
+                payer_address_id: null,
                 payer_address: '',
                 payer_zip_code: '',
+                payer_city: '',
                 payer_country: '',
                 status: 'draft',
                 items: [],
                 currency: 'EUR',
+                currency_rate: 1,
                 payment_method: '',
-                terms: '',
                 notes: '',
                 discount: 0,
-                discount_type: '',
+                discount_type: 'percentage', // percentage or fixed
                 tax: '',
                 total: 0.0,
+                footer: '',
             },
         }
     },
+
     mounted() {
-        this.getInvoice()
+        this.getQuote()
     },
+
     methods: {
-        getInvoice() {
-            this.makeHttpRequest('GET', '/api/client/invoices', null, { key: this.$route.query.key }, { 'X-CLIENT-ROUTE': true })
+        getQuote() {
+            this.makeHttpRequest('GET', '/api/client/quote', null, { key: this.$route.query.key }, { 'X-CLIENT-ROUTE': true })
                 .then((response) => {
-                    this.invoice = response.data.data
+                    this.quote = response.data.data
                 })
                 .catch((error) => {
                     if (error.response.status == 404) {
-                        this.no_found = true
+                        this.not_found = true
                         this.showToast(error.response.data.message, '', 'error')
                     }
                 })
         },
 
-        downloadInvoice() {
-            window.open(this.invoice.download, '_blank')
+        downloadQuote() {
+            window.open(this.quote.download, '_blank')
         },
 
-        payWithCard() {
+        acceptRejectQuote(id, status) {
             this.makeHttpRequest(
                 'POST',
-                '/api/online_payment/stripe',
-                { key: this.$route.query.key, type: 'web' },
-                null,
-                {
-                    'X-CLIENT-ROUTE': true,
-                },
-                false
+                '/api/client/quote/accept-reject',
+                { status: status },
+                { key: this.$route.query.key },
+                { 'X-CLIENT-ROUTE': true }
             ).then((response) => {
-                window.open(response.data.url, '_blank')
-            })
-        },
-
-        payWithPaypal() {
-            this.makeHttpRequest(
-                'POST',
-                '/api/online_payment/paypal',
-                { key: this.$route.query.key, type: 'web' },
-                null,
-                {
-                    'X-CLIENT-ROUTE': true,
-                },
-                false
-            ).then((response) => {
-                window.open(response.data.url, '_blank')
+                this.showToast(response.data.message)
+                this.getQuote()
             })
         },
     },

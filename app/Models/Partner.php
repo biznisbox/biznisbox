@@ -53,8 +53,12 @@ class Partner extends Model implements Auditable
 
     public function getPartners($type = null)
     {
+        // type can have comma separated values
         if ($type) {
-            return $this->with('addresses', 'contacts')->where('type', $type)->get();
+            $type = explode(',', $type);
+            return $this->with('addresses', 'contacts')
+                ->whereIn('type', $type)
+                ->get();
         } else {
             return $this->with('addresses', 'contacts')->get();
         }
@@ -62,22 +66,26 @@ class Partner extends Model implements Auditable
 
     public function getPartner($id)
     {
-        return $this->with('addresses', 'contacts')->where('id', $id)->first();
+        return $this->with('addresses', 'contacts')
+            ->where('id', $id)
+            ->first();
     }
 
     public function createPartner($data)
     {
-        try{
+        try {
             DB::beginTransaction();
             $partner = $this->create($data); // create partner
-            if (isset($data['addresses'])) { // if addresses are sets
+            if (isset($data['addresses'])) {
+                // if addresses are sets
                 foreach ($data['addresses'] as $address) {
                     $address['partner_id'] = $partner->id; // add partner id to address
                     processRelation($partner->addresses(), $data['addresses']);
                 }
             }
-    
-            if (isset($data['contacts'])) { // if contacts are sets
+
+            if (isset($data['contacts'])) {
+                // if contacts are sets
                 foreach ($data['contacts'] as $contact) {
                     $contact['partner_id'] = $partner->id; // add partner id to contact
                     processRelation($partner->contacts(), $data['contacts']);
@@ -87,16 +95,14 @@ class Partner extends Model implements Auditable
             DB::commit();
             $partner = $this->getPartner($partner->id); // get partner with addresses and contacts
             return $partner;
-        }
-        catch(\Exception $e){
+        } catch (\Exception $e) {
             DB::rollback();
             return false;
         }
     }
 
-
-    public function updatePartner($id, $data){
-
+    public function updatePartner($id, $data)
+    {
         try {
             DB::beginTransaction();
             $partner = $this->find($id);
@@ -108,11 +114,11 @@ class Partner extends Model implements Auditable
                 if (isset($data['contacts'])) {
                     processRelation($partner->contacts(), $data['contacts']);
                 }
+                DB::commit();
                 $partner = $this->getPartner($partner->id);
                 return $partner;
             }
-        }
-        catch(\Exception $e){
+        } catch (\Exception $e) {
             DB::rollback();
             return false;
         }
@@ -126,8 +132,7 @@ class Partner extends Model implements Auditable
                 $partner->delete();
                 return true;
             }
-        }
-        catch(\Exception $e){
+        } catch (\Exception $e) {
             return false;
         }
     }
@@ -149,5 +154,35 @@ class Partner extends Model implements Auditable
         $number = generate_next_number(settings('partner_number_format'), 'partner');
         return $number;
     }
-}
 
+    /**
+     * Get partners limited data (used for select in forms) - provide only basic data and addresses
+     * @param string|null $type - type of partner (customer, supplier, both)
+     * @return array
+     */
+    public function getPartnersLimitedData($type = null)
+    {
+        $partners = $this->getPartners($type);
+        $data = [];
+        foreach ($partners as $partner) {
+            $data[] = [
+                'id' => $partner->id,
+                'name' => $partner->name,
+                'number' => $partner->number,
+                'type' => $partner->type,
+                'entity_type' => $partner->entity_type,
+                'addresses' => $partner->addresses->toArray(),
+            ];
+        }
+        return $data;
+    }
+
+    public function getPartnerAddress($partner_id, $address_id)
+    {
+        $address = $this->find($partner_id)
+            ->addresses()
+            ->where('id', $address_id)
+            ->first();
+        return $address;
+    }
+}

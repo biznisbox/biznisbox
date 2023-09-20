@@ -17,28 +17,41 @@ return new class extends Migration {
             $table->uuid('id')->primary();
             $table->string('number')->nullable();
             $table
-                ->foreignUuid('created_by')
+                ->foreignUuid('supplier_id')
                 ->nullable()
                 ->references('id')
-                ->on('users')
+                ->on('partners')
                 ->nullOnDelete()
                 ->cascadeOnUpdate();
+            $table->string('supplier_name')->nullable();
             $table
-                ->foreignUuid('vendor_id')
+                ->foreignUuid('supplier_address_id')
                 ->nullable()
                 ->references('id')
-                ->on('vendors')
+                ->on('partner_addresses')
                 ->nullOnDelete()
                 ->cascadeOnUpdate();
+            $table->string('supplier_address')->nullable();
+            $table->string('supplier_city')->nullable();
+            $table->string('supplier_zip_code')->nullable();
+            $table->string('supplier_country')->nullable();
+            $table->string('currency')->nullable();
+            $table->double('currency_rate')->default(1);
+            $table->string('payment_method')->nullable();
             $table
                 ->string('status')
                 ->default('draft')
                 ->nullable();
             $table->date('date')->nullable();
             $table->date('due_date')->nullable();
+            $table->string('notes')->nullable();
+            $table->string('footer')->nullable();
             $table->decimal('discount', 10, 2)->nullable();
-            $table->decimal('total')->nullable();
+            $table->string('discount_type')->nullable();
+            $table->decimal('tax', 10, 2)->nullable();
+            $table->decimal('total', 10, 2)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::dropIfExists('bill_items');
@@ -65,6 +78,7 @@ return new class extends Migration {
                 ->decimal('quantity', 10, 2)
                 ->default(0)
                 ->nullable();
+            $table->decimal('tax', 10, 2)->nullable();
             $table->decimal('price', 10, 2)->nullable();
             $table
                 ->decimal('total')

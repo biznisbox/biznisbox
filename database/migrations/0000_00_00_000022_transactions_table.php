@@ -40,14 +40,14 @@ return new class extends Migration {
                 ->foreignUuid('customer_id')
                 ->nullable()
                 ->references('id')
-                ->on('customers')
+                ->on('partners')
                 ->nullOnDelete()
                 ->cascadeOnUpdate();
             $table
-                ->foreignUuid('vendor_id')
+                ->foreignUuid('supplier_id')
                 ->nullable()
                 ->references('id')
-                ->on('vendors')
+                ->on('partners')
                 ->nullOnDelete()
                 ->cascadeOnUpdate();
             $table

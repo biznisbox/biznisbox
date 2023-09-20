@@ -27,11 +27,11 @@ class InvoiceItems extends Model implements Auditable
     ];
 
     protected $casts = [
-        'quantity' => 'float',
-        'price' => 'float',
-        'tax' => 'float',
-        'discount' => 'float',
-        'total' => 'float',
+        'quantity' => 'double',
+        'price' => 'double',
+        'tax' => 'double',
+        'discount' => 'double',
+        'total' => 'double',
     ];
 
     public function generateTags(): array

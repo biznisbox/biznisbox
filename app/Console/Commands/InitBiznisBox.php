@@ -49,9 +49,7 @@ class InitBiznisBox extends Command
         // User permissions
         Permission::firstOrCreate(['name' => 'products', 'display_name' => 'Products']);
         Permission::firstOrCreate(['name' => 'invoices', 'display_name' => 'Invoices']);
-        Permission::firstOrCreate(['name' => 'customers', 'display_name' => 'Customers']);
-        Permission::firstOrCreate(['name' => 'estimates', 'display_name' => 'Estimates']);
-        Permission::firstOrCreate(['name' => 'vendors', 'display_name' => 'Vendors']);
+        Permission::firstOrCreate(['name' => 'quotes', 'display_name' => 'Quotes']);
         Permission::firstOrCreate(['name' => 'bills', 'display_name' => 'Bills']);
         Permission::firstOrCreate(['name' => 'accounts', 'display_name' => 'Accounts']);
         Permission::firstOrCreate(['name' => 'transactions', 'display_name' => 'Transactions']);
@@ -87,9 +85,7 @@ class InitBiznisBox extends Command
             $user->givePermissionTo([
                 'products',
                 'invoices',
-                'customers',
-                'estimates',
-                'vendors',
+                'quotes',
                 'bills',
                 'accounts',
                 'transactions',
@@ -136,8 +132,8 @@ class InitBiznisBox extends Command
             Settings::firstOrCreate(['key' => 'paypal_test_mode'], ['value' => true, 'type' => 'boolean', 'is_public' => 1]);
 
             Settings::firstOrCreate(
-                ['key' => 'estimate_number_format'],
-                ['value' => '{{TEXT:EST}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+                ['key' => 'quote_number_format'],
+                ['value' => '{{TEXT:QUO}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
             );
             Settings::firstOrCreate(
                 ['key' => 'invoice_number_format'],
@@ -154,14 +150,6 @@ class InitBiznisBox extends Command
             Settings::firstOrCreate(
                 ['key' => 'document_number_format'],
                 ['value' => '{{TEXT:DOC}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
-            );
-            Settings::firstOrCreate(
-                ['key' => 'customer_number_format'],
-                ['value' => '{{TEXT:CUS}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
-            );
-            Settings::firstOrCreate(
-                ['key' => 'vendor_number_format'],
-                ['value' => '{{TEXT:VEN}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
             );
             Settings::firstOrCreate(
                 ['key' => 'bill_number_format'],
@@ -228,7 +216,6 @@ class InitBiznisBox extends Command
                 ]);
             }
         }
-
         $this->info('BiznisBox initialized successfully.');
     }
 }

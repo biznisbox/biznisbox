@@ -21,7 +21,14 @@ return new class extends Migration {
                 ->references('id')
                 ->on('categories')
                 ->nullOnDelete()
-                ->cascadeOnUpdate();
+                ->cascadeOnUpdate(); // category_id is the folder that the document is in
+            $table
+                ->foreignUuid('partner_id')
+                ->nullable()
+                ->references('id')
+                ->on('partners')
+                ->nullOnDelete()
+                ->cascadeOnUpdate(); // partner_id is the partner that the document is related to
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('file_name')->nullable();
@@ -31,8 +38,8 @@ return new class extends Migration {
             $table->string('file_path')->nullable();
             $table->string('file_hash_sha256')->nullable();
             $table->string('file_hash_md5')->nullable();
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

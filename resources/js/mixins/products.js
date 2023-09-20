@@ -25,6 +25,7 @@ export default {
     created() {
         this.getUnits()
         this.getTaxes()
+        this.getCurrencies()
     },
 
     methods: {

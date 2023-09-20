@@ -122,6 +122,7 @@ export default {
             if (unix) {
                 return moment(value, 'X').format(this.$settings.date_format)
             }
+            if (value === null) return ''
             return moment(value).format(this.$settings.date_format)
         },
 
@@ -250,6 +251,29 @@ export default {
                     this.theme = 'dark'
                 })
             }
+        },
+
+        /**
+         * Function for format addresses of partners
+         * @param {object} partners Partners data (list of partners) from API
+         * @param {number} partner_id ID of partner to format addresses
+         * @return {object} Formatted addresses of partner
+         */
+        formatAddresses(partners, partner_id = null) {
+            let addressesList = []
+            let partnerData = partners.find((partner) => partner.id === partner_id).addresses
+
+            partnerData.forEach((address) => {
+                addressesList.push({
+                    id: address.id,
+                    address: address.address,
+                    zip_code: address.zip_code,
+                    city: address.city,
+                    country: address.country,
+                    addressText: `${address.address ?? ''} - ${address.zip_code ?? ''} - ${address.city ?? ''}  - ${address.country ?? ''}`,
+                })
+            })
+            return addressesList
         },
     },
 

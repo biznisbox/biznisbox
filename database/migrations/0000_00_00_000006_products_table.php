@@ -22,6 +22,7 @@ return new class extends Migration {
                 ->constrained('categories')
                 ->nullOnDelete()
                 ->cascadeOnUpdate();
+            $table->string('number')->nullable();
             $table->string('name')->index();
             $table->longText('description')->nullable();
             $table->string('image')->nullable();
@@ -36,8 +37,8 @@ return new class extends Migration {
             $table->string('type')->nullable();
             $table->string('barcode')->nullable();
             $table->string('sku')->nullable();
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

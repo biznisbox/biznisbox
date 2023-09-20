@@ -104,7 +104,7 @@
                             <div class="col-12">
                                 <Button :label="$t('partner.add_address')" icon="fa fa-plus" @click="addAddress" />
                             </div>
-                            <DataTable class="col-12" id="addresses_table" :value="partner.addresses">
+                            <DataTable id="addresses_table" class="col-12" :value="partner.addresses">
                                 <template #empty>
                                     <div class="p-4 pl-0 text-center text-gray-500">{{ $t('partner.no_addresses') }}</div>
                                 </template>
@@ -170,7 +170,7 @@
                             <div class="col-12">
                                 <Button :label="$t('partner.add_contact')" icon="fa fa-plus" @click="addContact" />
                             </div>
-                            <DataTable class="col-12" id="contacts_table" :value="partner.contacts">
+                            <DataTable id="contacts_table" class="col-12" :value="partner.contacts">
                                 <template #empty>
                                     <div class="p-4 pl-0 text-center text-gray-500">{{ $t('partner.no_contacts') }}</div>
                                 </template>

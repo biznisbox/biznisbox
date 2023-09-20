@@ -12,7 +12,7 @@ class CalendarEvents extends Model implements Auditable
 {
     use HasFactory, SoftDeletes, HasUuids;
     use \OwenIt\Auditing\Auditable;
-    
+
     protected $table = 'calendar_events';
     protected $fillable = [
         'user_id',

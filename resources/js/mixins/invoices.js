@@ -1,23 +1,27 @@
-import customers from './customers'
-import products from './products'
+import productsMixin from './products'
 export default {
-    mixins: [customers, products],
+    mixins: [productsMixin],
     data() {
         return {
             invoices: [],
             shareUrl: '',
+            partners: [],
+            customerAddresses: [],
+            payerAddresses: [],
             invoice: {
                 number: '',
                 date: '',
                 due_date: '',
                 customer_id: null,
                 customer_name: '',
+                customer_address_id: null,
                 customer_address: '',
                 customer_zip_code: '',
                 customer_city: '',
                 customer_country: '',
                 payer_id: null,
                 payer_name: '',
+                payer_address_id: null,
                 payer_address: '',
                 payer_zip_code: '',
                 payer_city: '',
@@ -39,10 +43,11 @@ export default {
                     },
                 ],
                 currency: 'EUR',
+                currency_rate: 1,
                 payment_method: '',
                 notes: '',
                 discount: 0,
-                discount_type: '',
+                discount_type: 'percentage', // 'percentage' or 'fixed
                 tax: '',
                 total: 0.0,
             },
@@ -152,19 +157,14 @@ export default {
         },
 
         /**
-         * Send invoice by email
-         * @param {string} id uuid of invoice
-         * @returns {void} redirect to invoice page
+         * Get partners
+         * @returns {array} partners
          **/
-        sendInvoice(id) {
-            this.makeHttpRequest('POST', '/api/invoice/send/' + id, null, null, null, false)
-                .then((response) => {
-                    this.showToast(response.data.message)
-                    this.getInvoice(id)
-                })
-                .catch((error) => {
-                    this.showToast(error.response.data.message, '', 'error')
-                })
+
+        getPartners() {
+            this.makeHttpRequest('GET', '/api/partners_list?type=both,customers').then((response) => {
+                this.partners = response.data.data
+            })
         },
     },
 }

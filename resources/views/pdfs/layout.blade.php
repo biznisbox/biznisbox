@@ -52,13 +52,13 @@
     <div id="header">
         <table width="100%">
             <tr>
-                <td width="75%">
+                <td width="90%">
                     <h1>
                         @yield('title')
                     </h1>
                 </td>
-                <td widht="15%" style="right: 0">
-                    <div class="barcode" >
+                <td widht="10%">
+                    <div class="barcode">
                         @yield('barcode')
                     </div>
                 </td>
