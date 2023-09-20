@@ -87,7 +87,7 @@
                             <strong>{{ __('pdf.invoice.customer')}}</strong>
                             <br />
                             @if ($invoice->customer != null)
-                                {{ $invoice->customer->name }}
+                                {{ $invoice->customer_name }}
                                 <br />
                                 {{ $invoice->customer_address }}
                                 <br />
@@ -105,7 +105,7 @@
                             <strong>{{ __('pdf.invoice.payer')}}</strong>
                             <br />
                             @if ($invoice->payer != null)
-                                {{ $invoice->payer->name }}
+                                {{ $invoice->payer_name }}
                                 <br />
                                 {{ $invoice->payer_address }}
                                 <br />
@@ -128,11 +128,11 @@
                 <tr>
                     <td width="20%"><strong>{{ __('pdf.invoice.name')}}</strong></td>
                     <td width="20%"><strong>{{ __('pdf.invoice.description')}}</strong></td>
-                    <td width="10%"><strong>{{ __('pdf.invoice.price')}} ({{ $invoice->currency }})</strong></td>
+                    <td width="10%"><strong>{{ __('pdf.invoice.price')}} ({{ settings('default_currency') }})</strong></td>
                     <td width="10%"><strong>{{ __('pdf.invoice.quantity')}}</strong></td>
                     <td width="10%"><strong>{{ __('pdf.invoice.tax')}}</strong></td>
                     <td with="10%"><strong>{{ __('pdf.invoice.discount')}}</strong></td>
-                    <td width="10%"><strong>{{ __('pdf.invoice.total')}} ({{ $invoice->currency }})</strong></td>
+                    <td width="10%"><strong>{{ __('pdf.invoice.total')}} ({{ settings('default_currency') }})</strong></td>
                 </tr>
             </thead>
             <tbody>
@@ -140,11 +140,11 @@
                     <tr>
                         <td>{{ $item['name'] }}</td>
                         <td>{{ $item['description'] }}</td>
-                        <td>{{ $item['price'] . ' ' . $invoice->currency }}</td>
+                        <td>{{ $item['price'] . ' ' . settings('default_currency') }}</td>
                         <td>{{ $item['quantity'] }}</td>
                         <td>{{ $item['tax'] . ' %' }}</td>
                         <td>{{ $item['discount'] . ' %' }}</td>
-                        <td>{{ $item['total'] . ' ' . $invoice->currency }}</td>
+                        <td>{{ $item['total'] . ' ' . settings('default_currency') }}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -165,6 +165,9 @@
                     <td width="30%" align="right" style="vertical-align:top">
                         <span> <strong>{{ __('pdf.invoice.discount')}}</strong> {{ $invoice->discount . ' %' }}</span>
                         <hr />
+                        @if ($invoice->currency_rate != 1)
+                        <span><strong>{{ __('pdf.invoice.currency_rate')}}</strong> {{ $invoice->currency_rate }}</span>
+                        @endif
                         <span><strong>{{ __('pdf.invoice.total_amount')}}</strong> {{ $invoice->total . ' ' . $invoice->currency }}</span>
                     </td>
                 </tr>

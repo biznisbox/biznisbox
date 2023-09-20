@@ -21,31 +21,28 @@
                             </div>
                             <div class="grid">
                                 <div class="col-12 sm:col-6">
-                                    <DisplayData :input="$t('account.name')" :value="account.name" />
+                                    <DisplayData :input="$t('form.name')" :value="account.name" />
                                 </div>
                                 <div class="col-12 sm:col-6">
-                                    <Tag v-if="account.type === 'bank_account'" :value="$t('account.bank_account')"></Tag>
-                                    <Tag v-if="account.type === 'cash'" :value="$t('account.cash')"></Tag>
-                                    <Tag v-if="account.type === 'online_account'" :value="$t('account.online_account')"></Tag>
+                                    <Tag v-if="account.type === 'bank_account'" :value="$t('account_types.bank_account')"></Tag>
+                                    <Tag v-if="account.type === 'cash'" :value="$t('account_types.cash')"></Tag>
+                                    <Tag v-if="account.type === 'online_account'" :value="$t('account_types.online_account')"></Tag>
                                 </div>
                             </div>
 
                             <div class="grid">
                                 <div class="col-12 sm:col-6">
                                     <DisplayData
-                                        :input="$t('account.opening_balance')"
+                                        :input="$t('form.opening_balance')"
                                         :value="account.opening_balance + ' ' + account.currency"
                                     />
                                 </div>
                                 <div class="col-12 sm:col-6">
-                                    <DisplayData
-                                        :input="$t('account.account_balance')"
-                                        :value="account.current_balance + ' ' + account.currency"
-                                    />
+                                    <DisplayData :input="$t('form.balance')" :value="account.current_balance + ' ' + account.currency" />
                                 </div>
                             </div>
 
-                            <DisplayData :input="$t('account.description')" :value="account.description" />
+                            <DisplayData :input="$t('form.description')" :value="account.description" />
                         </div>
                     </div>
                     <div class="col-12 md:col-8">
@@ -67,7 +64,7 @@
                                             </div>
                                         </template>
 
-                                        <Column field="name" :header="$t('transaction.name')">
+                                        <Column field="name" :header="$t('form.name')">
                                             <template #body="{ data }">
                                                 <span>{{ data.name }}</span>
                                             </template>
@@ -101,7 +98,7 @@
                                             </template>
                                         </Column>
 
-                                        <Column field="category" :header="$t('transaction.category')">
+                                        <Column field="category" :header="$t('form.category')">
                                             <template #body="{ data }">
                                                 <span>{{ data.category ? data.category : '-' }}</span>
                                             </template>
@@ -121,11 +118,11 @@
 
                                 <TabPanel :header="$t('account.bank_details')">
                                     <div class="p-2">
-                                        <DisplayData :input="$t('account.bank_name')" :value="account.bank_name" />
-                                        <DisplayData :input="$t('account.iban')" :value="account.iban" />
-                                        <DisplayData :input="$t('account.bic')" :value="account.bic" />
-                                        <DisplayData :input="$t('account.bank_address')" :value="account.bank_address" />
-                                        <DisplayData :input="$t('account.bank_contact')" :value="account.bank_contact" />
+                                        <DisplayData :input="$t('form.bank_name')" :value="account.bank_name" />
+                                        <DisplayData :input="$t('form.iban')" :value="account.iban" />
+                                        <DisplayData :input="$t('form.bic')" :value="account.bic" />
+                                        <DisplayData :input="$t('form.address')" :value="account.bank_address" />
+                                        <DisplayData :input="$t('form.contact')" :value="account.bank_contact" />
                                     </div>
                                 </TabPanel>
                             </TabView>

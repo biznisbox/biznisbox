@@ -13,7 +13,18 @@ class DashboardService
 
     private function getNumberOfCustomers()
     {
-        return DB::table('customers')->count();
+        return DB::table('partners')
+            ->where('type', 'customer')
+            ->orWhere('type', 'both')
+            ->count();
+    }
+
+    private function getNumberOfSuppliers()
+    {
+        return DB::table('partners')
+            ->where('type', 'supplier')
+            ->orWhere('type', 'both')
+            ->count();
     }
 
     private function getNumberOfUnpaidInvoices()
@@ -60,11 +71,6 @@ class DashboardService
             ->orderBy('quantity', 'desc')
             ->limit(5)
             ->get();
-    }
-
-    private function getNumberOfVendors()
-    {
-        return DB::table('vendors')->count();
     }
 
     private function getLowStockProducts()
@@ -177,7 +183,7 @@ class DashboardService
     {
         return [
             'products' => $this->getNumberOfProducts(),
-            'vendors' => $this->getNumberOfVendors(),
+            'suppliers' => $this->getNumberOfSuppliers(),
             'unpaid_invoices' => $this->getNumberOfUnpaidInvoices(),
             'unpaid_invoices_list' => $this->getUnpaidInvoices(),
             'top_selling_products' => $this->getTopSellingProducts(),

@@ -2,6 +2,9 @@
 use App\Services\AuthService;
 use Illuminate\Http\Request;
 use App\Utils\SerialNumberFormatter;
+use Clockwork\Request\Log;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\Facades\Log as FacadesLog;
 
 if (!function_exists('api_response')) {
     /**
@@ -239,5 +242,137 @@ if (!function_exists('formatHTML')) {
         $html = stripslashes($html);
         $html = htmlspecialchars($html);
         return $html;
+    }
+}
+
+if (!function_exists('processRelation')) {
+    /**
+     * Function for process relation
+     * @param Relation $relation - relation
+     * @param array $items - items
+     * @return void
+     */
+    function processRelation(Relation $relation, array $items)
+    {
+        $relation->getResults()->each(function ($model) use ($items) {
+            foreach ($items as $item) {
+                if ($model->id === ($item['id'] ?? null)) {
+                    $model->fill($item)->save();
+                    return;
+                }
+            }
+
+            return $model->delete();
+        });
+
+        foreach ($items as $item) {
+            if (!isset($item['id'])) {
+                $relation->create($item);
+            }
+        }
+    }
+}
+
+if (!function_exists('getCurrencyRate')) {
+    /**
+     * Function for get currency rate
+     * @param string $currency - currency
+     * @return float $rate - currency rate
+     */
+    function getCurrencyRate($currency)
+    {
+        $currency_rate = new \App\Models\Currencies();
+        $rate = $currency_rate->getCurrencyRate($currency);
+        return $rate;
+    }
+}
+
+if (!function_exists('calculateDiscountHelper')) {
+    /**
+     * Function for calculate discount
+     * @param float $total - total
+     * @param float $discount - discount
+     * @param string $discount_type - discount type
+     * @return float $total - total
+     */
+    function calculateDiscountHelper($total, $discount, $discount_type = 'percentage')
+    {
+        if ($discount_type === 'percentage') {
+            $total = $total - ($total * $discount) / 100;
+        } else {
+            $total = $total - $discount;
+        }
+        return $total;
+    }
+}
+
+if (!function_exists('calculateTaxHelper')) {
+    /**
+     * Function for calculate tax
+     * @param float $total - total
+     * @param float $tax - tax
+     * @param string $tax_type - tax type
+     * @return float $total - total
+     */
+    function calculateTaxHelper($total, $tax, $tax_type = 'percentage')
+    {
+        if ($tax_type === 'percentage') {
+            $total = $total + ($total * $tax) / 100;
+        } else {
+            $total = $total + $tax;
+        }
+        return $total;
+    }
+}
+
+if (!function_exists('calculateItemTotalHelper')) {
+    /**
+     * Function for calculate item total
+     * @param array $item - item
+     * @return float $total - total
+     */
+    function calculateItemTotalHelper($item)
+    {
+        $total = $item['quantity'] * $item['price'];
+        if (isset($item['tax'])) {
+            $total = calculateTaxHelper($total, $item['tax']);
+        }
+        if (isset($item['discount'])) {
+            $total = calculateDiscountHelper($total, $item['discount']);
+        }
+        return $total;
+    }
+}
+
+if (!function_exists('calculateTotalHelper')) {
+    /**
+     * Function for calculate total
+     * @param array $items - items
+     * @param float $discount - discount
+     * @param string $discount_type - discount type
+     * @return float $total - total
+     */
+    function calculateTotalHelper(
+        $items,
+        $discount = null,
+        $discount_type = 'percentage',
+        $currency_rate = null,
+        $tax = null,
+        $tax_type = 'percentage'
+    ) {
+        $total = 0;
+        foreach ($items as $item) {
+            $total += $item['total'];
+        }
+        if ($discount !== null) {
+            $total = calculateDiscountHelper($total, $discount, $discount_type);
+        }
+        if ($tax !== null) {
+            $total = calculateTaxHelper($total, $tax, $tax_type);
+        }
+        if ($currency_rate !== null) {
+            $total = $total * $currency_rate;
+        }
+        return $total;
     }
 }

@@ -22,7 +22,7 @@ class Transaction extends Model implements Auditable
         'payment_id',
         'bill_id',
         'customer_id',
-        'vendor_id',
+        'supplier_id',
         'account_id',
         'category_id',
         'number',
@@ -75,12 +75,12 @@ class Transaction extends Model implements Auditable
 
     public function customer()
     {
-        return $this->belongsTo(Customer::class, 'customer_id', 'id');
+        return $this->belongsTo(Partner::class, 'customer_id', 'id');
     }
 
-    public function vendor()
+    public function supplier()
     {
-        return $this->belongsTo(Vendor::class, 'vendor_id', 'id');
+        return $this->belongsTo(Partner::class, 'supplier_id', 'id');
     }
 
     public function getTransactions()
@@ -97,7 +97,7 @@ class Transaction extends Model implements Auditable
 
     public function getTransaction($id)
     {
-        $transaction = $this->with(['account', 'category', 'invoice', 'payment', 'bill', 'customer', 'vendor'])->find($id);
+        $transaction = $this->with(['account', 'category', 'invoice', 'payment', 'bill', 'customer', 'supplier'])->find($id);
         if ($transaction) {
             activity_log(user_data()->data->id, 'get transaction', $id, 'App\Models\Transaction', 'getTransaction');
             return $transaction;

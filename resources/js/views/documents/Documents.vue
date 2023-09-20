@@ -34,7 +34,7 @@
                             />
                         </div>
                     </template>
-                    <Column field="name" :header="$t('document.name')">
+                    <Column field="name" :header="$t('form.name')">
                         <template #body="{ data }">
                             {{ data.name }}
                         </template>
@@ -43,16 +43,16 @@
                         </template>
                     </Column>
 
-                    <Column field="type" :header="$t('document.type')">
+                    <Column field="type" :header="$t('form.type')">
                         <template #body="{ data }">
-                            <Tag severity="info">{{ $t(`document.${data.type}`) }}</Tag>
+                            <Tag severity="info">{{ $t(`document_types.${data.type}`) }}</Tag>
                         </template>
                         <template #filter="{ filterModel }">
                             <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by name" />
                         </template>
                     </Column>
 
-                    <Column field="status" :header="$t('document.status')">
+                    <Column field="status" :header="$t('form.status')">
                         <template #body="{ data }">
                             <Tag v-if="data.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
                             <Tag v-if="data.status === 'pending'" severity="info">{{ $t('status.pending') }}</Tag>

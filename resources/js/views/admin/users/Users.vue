@@ -33,7 +33,7 @@
                         </div>
                     </template>
 
-                    <Column field="name" :header="$t('admin.user.name')" sortable>
+                    <Column field="name" :header="$t('form.name')" sortable>
                         <template #body="{ data }">
                             {{ data.first_name + ' ' + data.last_name }}
                         </template>
@@ -44,7 +44,7 @@
                             </div>
                         </template>
                     </Column>
-                    <Column field="email" :header="$t('admin.user.email')" sortable>
+                    <Column field="email" :header="$t('form.email')" sortable>
                         <template #body="{ data }">
                             {{ data.email }}
                         </template>
@@ -54,14 +54,14 @@
                             </div>
                         </template>
                     </Column>
-                    <Column field="role" :header="$t('admin.user.role')" sortable>
+                    <Column field="role" :header="$t('form.role')" sortable>
                         <template #body="{ data }">
                             <Tag v-if="data.roles[0]" :value="data.roles[0]?.display_name" />
                             <Tag v-else severity="danger" :value="$t('admin.user.no_roles')" />
                         </template>
                     </Column>
 
-                    <Column field="active" :header="$t('admin.user.active')" sortable>
+                    <Column field="active" :header="$t('form.active')" sortable>
                         <template #body="slotProps">
                             <Tag v-if="slotProps.data.active" :value="$t('status.active')" severity="success" />
                             <Tag v-if="!slotProps.data.active" :value="$t('status.inactive')" severity="danger" />

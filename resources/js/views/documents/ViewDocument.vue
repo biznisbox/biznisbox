@@ -28,23 +28,23 @@
                 <div class="card">
                     <div class="grid">
                         <div id="number" class="col-12 md:col-4">
-                            <DisplayData :input="$t('document.number')" :value="document.number" />
+                            <DisplayData :input="$t('form.number')" :value="document.number" />
                         </div>
 
                         <div id="name" class="col-12 md:col-4">
-                            <DisplayData :input="$t('document.name')" :value="document.name" />
+                            <DisplayData :input="$t('form.name')" :value="document.name" />
                         </div>
 
                         <div class="col-12 md:col-4">
                             <DisplayData :input="$t('document.type')" custom-value>
-                                <Tag severity="info">{{ $t(`document.${document.type}`) }}</Tag>
+                                <Tag severity="info">{{ $t(`form.${document.type}`) }}</Tag>
                             </DisplayData>
                         </div>
                     </div>
 
                     <div class="grid">
                         <div class="col-12 md:col-4">
-                            <DisplayData :input="$t('document.status')" custom-value>
+                            <DisplayData :input="$t('form.status')" custom-value>
                                 <Tag v-if="document.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
                                 <Tag v-if="document.status === 'pending'" severity="info">{{ $t('status.pending') }}</Tag>
                                 <Tag v-if="document.status === 'approved'" severity="success">{{ $t('status.approved') }}</Tag>
@@ -53,31 +53,28 @@
                         </div>
 
                         <div class="col-12 md:col-4">
-                            <DisplayData :input="$t('document.date')" :value="formatDateTime(document.date)" />
+                            <DisplayData :input="$t('form.date')" :value="formatDateTime(document.date)" />
                         </div>
 
                         <div class="col-12 md:col-4">
-                            <DisplayData
-                                :input="$t('document.due_date')"
-                                :value="document.due_date ? formatDateTime(document.due_date) : ''"
-                            />
+                            <DisplayData :input="$t('form.due_date')" :value="document.due_date ? formatDateTime(document.due_date) : ''" />
                         </div>
                     </div>
 
                     <div class="grid">
                         <div class="col-12 md:col-4">
-                            <DisplayData :input="$t('document.version')" :value="document.version" />
+                            <DisplayData :input="$t('form.version')" :value="document.version" />
                         </div>
 
                         <div class="col-12 md:col-4">
-                            <DisplayData :input="$t('document.archived')" custom-value>
+                            <DisplayData :input="$t('form.archived')" custom-value>
                                 <Tag v-if="document.archived" severity="success">{{ $t('basic.yes') }}</Tag>
                                 <Tag v-else severity="danger">{{ $t('basic.no') }}</Tag>
                             </DisplayData>
                         </div>
 
                         <div class="col-12 md:col-4">
-                            <DisplayData :input="$t('document.access')" :value="document.access" custom-value>
+                            <DisplayData :input="$t('form.access')" :value="document.access" custom-value>
                                 <Tag v-if="document.access === 'public'" severity="success">{{ $t('basic.public') }}</Tag>
                                 <Tag v-else-if="document.access === 'private'" severity="danger">{{ $t('basic.private') }}</Tag>
                                 <Tag v-else-if="document.access === 'internal'" severity="info">{{ $t('basic.shared') }}</Tag>
@@ -86,11 +83,11 @@
                     </div>
 
                     <div>
-                        <DisplayData :input="$t('document.notes')" :value="document.notes" />
+                        <DisplayData :input="$t('form.notes')" :value="document.notes" />
                     </div>
 
                     <div class="mt-3">
-                        <DisplayData :input="$t('document.content')" custom-value>
+                        <DisplayData :input="$t('form.content')" custom-value>
                             <div class="grid content">
                                 <div class="col-12" v-html="document.content"></div>
                             </div>

@@ -1,11 +1,11 @@
 import AccountMixin from './accounts'
-import CustomersMixin from './customers'
-import VendorMixin from './vendors'
 export default {
-    mixins: [AccountMixin, CustomersMixin, VendorMixin],
+    mixins: [AccountMixin],
     data() {
         return {
             transactionCategories: [],
+            customers: [],
+            suppliers: [],
             category: {
                 name: '',
                 description: '',
@@ -23,7 +23,7 @@ export default {
                 payment_id: null,
                 bill_id: null,
                 customer_id: null,
-                vendor_id: null,
+                supplier_id: null,
                 account_id: null,
                 number: '',
                 currency: '',
@@ -129,9 +129,33 @@ export default {
             })
         },
 
+        /**
+         * Get transaction categories
+         * @returns {array}  return transaction categories
+         * */
         getTransactionCategories() {
             this.makeHttpRequest('GET', '/api/categories?module=transaction').then((response) => {
                 this.transactionCategories = response.data.data
+            })
+        },
+
+        /**
+         * Get customers
+         * @returns {array}  return customers
+         * */
+        getCustomers() {
+            this.makeHttpRequest('GET', '/api/partners_list?type=customer,both').then((response) => {
+                this.customers = response.data.data
+            })
+        },
+
+        /**
+         * Get suppliers
+         * @returns {array}  return suppliers
+         * */
+        getSuppliers() {
+            this.makeHttpRequest('GET', '/api/partners_list?type=supplier,both').then((response) => {
+                this.suppliers = response.data.data
             })
         },
     },

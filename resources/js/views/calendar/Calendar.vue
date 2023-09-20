@@ -18,75 +18,70 @@
                         <TextInput
                             id="title_input"
                             v-model="v$.event.title.$model"
-                            class="field col-12 md:col-10"
-                            :label="$t('calendar.event_title')"
+                            class="col-12 md:col-10"
+                            :label="$t('form.title')"
                             :validate="v$.event.title"
-                        ></TextInput>
-                        <ColorPicker v-model="event.color" class="field col-12 md:col-2"></ColorPicker>
+                        />
+                        <ColorPicker v-model="event.color" class="col-12 md:col-2" />
                     </div>
 
                     <div class="grid">
                         <DateInput
                             id="start_input"
                             v-model="event.start"
-                            class="field col-12 md:col-5"
-                            :label="$t('calendar.event_start')"
+                            class="col-12 md:col-5"
+                            :label="$t('form.start_date')"
                             :show-time="!event.all_day"
                         ></DateInput>
                         <DateInput
                             id="end_input"
                             v-model="event.end"
-                            class="field col-12 md:col-5"
-                            :label="$t('calendar.event_end')"
+                            class="col-12 md:col-5"
+                            :label="$t('form.end_date')"
                             :show-time="!event.all_day"
-                        ></DateInput>
-                        <div class="field-checkbox col-12 md:col-1">
-                            <Checkbox id="all_day_input" v-model="event.all_day" name="all_day" binary></Checkbox>
-                            <label class=" ">{{ $t('calendar.all_day') }}</label>
+                        />
+                        <div class="field-checkbox col-12 md:col-2">
+                            <Checkbox id="all_day_input" v-model="event.all_day" name="all_day" binary />
+                            <label>{{ $t('form.all_day') }}</label>
                         </div>
                     </div>
 
                     <div class="grid">
-                        <TextInput
-                            id="location_input"
-                            v-model="event.location"
-                            class="field col-12"
-                            :label="$t('calendar.event_location')"
-                        ></TextInput>
+                        <TextInput id="location_input" v-model="event.location" class="col-12" :label="$t('form.location')" />
                     </div>
 
                     <div class="grid">
                         <SelectInput
                             id="show_as_input"
                             v-model="event.show_as"
-                            class="field col-12 md:col-6"
-                            :label="$t('calendar.show_me_as')"
+                            class="col-12 md:col-6"
+                            :label="$t('form.show_me_as')"
                             :options="[
-                                { value: 'free', label: $t('calendar.free') },
-                                { value: 'busy', label: $t('calendar.busy') },
-                                { value: 'tentative', label: $t('calendar.tentative') },
-                                { value: 'outofoffice', label: $t('calendar.outofoffice') },
+                                { value: 'free', label: $t('show_as.free') },
+                                { value: 'busy', label: $t('show_as.busy') },
+                                { value: 'tentative', label: $t('show_as.tentative') },
+                                { value: 'out_of_office', label: $t('show_as.out_of_office') },
                             ]"
-                        ></SelectInput>
+                        />
                         <SelectInput
                             id="status_input"
                             v-model="event.status"
-                            class="field col-12 md:col-6"
-                            :label="$t('calendar.event_status')"
+                            class="col-12 md:col-6"
+                            :label="$t('form.status')"
                             :options="[
-                                { value: 'confirmed', label: $t('calendar.confirmed') },
-                                { value: 'tentative', label: $t('calendar.tentative') },
-                                { value: 'cancelled', label: $t('calendar.cancelled') },
+                                { value: 'confirmed', label: $t('status.confirmed') },
+                                { value: 'tentative', label: $t('status.tentative') },
+                                { value: 'cancelled', label: $t('status.cancelled') },
                             ]"
-                        ></SelectInput>
+                        />
                     </div>
 
                     <div class="grid">
                         <TinyMceEditor
                             id="description_input"
                             v-model="event.description"
-                            class="field col-12"
-                            :label="$t('calendar.event_description')"
+                            class="col-12"
+                            :label="$t('form.description')"
                             toolbar="bold italic underline | alignleft aligncenter alignright alignjustify | fontselect fontsizeselect formatselect |forecolor backcolor removeformat | charmap |  bullist numlist outdent indent"
                         />
                     </div>
@@ -119,10 +114,10 @@
                             <TextInput
                                 id="title_input"
                                 v-model="v$.event.title.$model"
-                                class="field col-12 md:col-10"
-                                :label="$t('calendar.event_title')"
+                                class="col-12 md:col-10"
+                                :label="$t('form.title')"
                                 :validate="v$.event.title"
-                            ></TextInput>
+                            />
                             <ColorPicker v-model="event.color" class="field col-12 md:col-2"></ColorPicker>
                         </div>
 
@@ -130,64 +125,59 @@
                             <DateInput
                                 id="start_input"
                                 v-model="event.start"
-                                class="field col-12 md:col-5"
-                                :label="$t('calendar.event_start')"
+                                class="col-12 md:col-5"
+                                :label="$t('form.start_date')"
                                 :show-time="!event.all_day"
-                            ></DateInput>
+                            />
                             <DateInput
                                 id="end_input"
                                 v-model="event.end"
-                                class="field col-12 md:col-5"
-                                :label="$t('calendar.event_end')"
+                                class="col-12 md:col-5"
+                                :label="$t('form.end_date')"
                                 :show-time="!event.all_day"
-                            ></DateInput>
+                            />
                             <div class="field-checkbox col-12 md:col-1">
-                                <Checkbox id="all_day_input" v-model="event.all_day" name="all_day" binary></Checkbox>
-                                <label class=" ">{{ $t('calendar.all_day') }}</label>
+                                <Checkbox id="all_day_input" v-model="event.all_day" name="all_day" binary />
+                                <label>{{ $t('form.all_day') }}</label>
                             </div>
                         </div>
 
                         <div class="grid">
-                            <TextInput
-                                id="location_input"
-                                v-model="event.location"
-                                class="field col-12"
-                                :label="$t('calendar.event_location')"
-                            ></TextInput>
+                            <TextInput id="location_input" v-model="event.location" class="col-12" :label="$t('form.location')" />
                         </div>
 
                         <div class="grid">
                             <SelectInput
                                 id="show_as_input"
                                 v-model="event.show_as"
-                                class="field col-12 md:col-6"
-                                :label="$t('calendar.show_me_as')"
+                                class="col-12 md:col-6"
+                                :label="$t('form.show_me_as')"
                                 :options="[
-                                    { value: 'free', label: $t('calendar.free') },
-                                    { value: 'busy', label: $t('calendar.busy') },
-                                    { value: 'tentative', label: $t('calendar.tentative') },
-                                    { value: 'outofoffice', label: $t('calendar.outofoffice') },
+                                    { value: 'free', label: $t('show_as.free') },
+                                    { value: 'busy', label: $t('show_as.busy') },
+                                    { value: 'tentative', label: $t('show_as.tentative') },
+                                    { value: 'out_of_office', label: $t('show_as.out_of_office') },
                                 ]"
-                            ></SelectInput>
+                            />
                             <SelectInput
                                 id="status_input"
                                 v-model="event.status"
-                                class="field col-12 md:col-6"
-                                :label="$t('calendar.event_status')"
+                                class="col-12 md:col-6"
+                                :label="$t('form.status')"
                                 :options="[
-                                    { value: 'confirmed', label: $t('calendar.confirmed') },
-                                    { value: 'tentative', label: $t('calendar.tentative') },
-                                    { value: 'cancelled', label: $t('calendar.cancelled') },
+                                    { value: 'confirmed', label: $t('status.confirmed') },
+                                    { value: 'tentative', label: $t('status.tentative') },
+                                    { value: 'cancelled', label: $t('status.cancelled') },
                                 ]"
-                            ></SelectInput>
+                            />
                         </div>
 
                         <div class="grid">
                             <TinyMceEditor
                                 id="description_input"
                                 v-model="event.description"
-                                class="field col-12"
-                                :label="$t('calendar.event_description')"
+                                class="col-12"
+                                :label="$t('form.description')"
                                 toolbar="bold italic underline | alignleft aligncenter alignright alignjustify | fontselect fontsizeselect formatselect |forecolor backcolor removeformat | charmap |  bullist numlist outdent indent"
                             />
                         </div>

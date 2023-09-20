@@ -46,10 +46,10 @@ return [
         'paypal' => 'PayPal',
         'other' => 'Other',
     ],
-    'estimate' => [
-        'title' => 'Estimate',
-        'number' => 'Estimate number',
-        'date' => 'Estimate date',
+    'quote' => [
+        'title' => 'Quote',
+        'number' => 'Quote number',
+        'date' => 'Quote date',
         'valid_until' => 'Valid until',
         'status' => 'Status',
         'payment_method' => 'Payment method',

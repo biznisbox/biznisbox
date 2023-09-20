@@ -34,7 +34,7 @@
                         </div>
                     </template>
 
-                    <Column field="name" :header="$t('product.name')" sortable>
+                    <Column field="name" :header="$t('form.name')" sortable>
                         <template #body="{ data }">
                             {{ data.name }}
                         </template>
@@ -42,7 +42,7 @@
                             <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by name" />
                         </template>
                     </Column>
-                    <Column field="sell_price" :header="$t('product.sell_price')" sortable>
+                    <Column field="sell_price" :header="$t('form.sell_price')" sortable>
                         <template #body="{ data }">
                             {{ data.sell_price }} {{ data.sell_price ? $settings.default_currency : '' }}
                         </template>
@@ -51,13 +51,13 @@
                             <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by sell price" />
                         </template>
                     </Column>
-                    <Column field="buy_price" :header="$t('product.buy_price')" sortable>
+                    <Column field="buy_price" :header="$t('form.buy_price')" sortable>
                         <template #body="{ data }"> {{ data.buy_price }} {{ data.buy_price ? $settings.default_currency : '' }} </template>
                         <template #filter="{ filterModel }">
                             <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by buy price" />
                         </template>
                     </Column>
-                    <Column field="stock_status" :header="$t('product.stock_status')" sortable>
+                    <Column field="stock_status" :header="$t('form.stock_status')" sortable>
                         <template #body="{ data }">
                             <Tag v-if="data.stock_status === 'out_of_stock'" severity="danger"> {{ $t('stock_status.out_of_stock') }}</Tag>
                             <Tag v-if="data.stock_status === 'in_stock'" severity="success"> {{ $t('stock_status.in_stock') }}</Tag>

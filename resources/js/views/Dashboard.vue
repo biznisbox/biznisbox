@@ -5,7 +5,7 @@
 
             <div id="numbers" class="grid">
                 <div class="col-12 md:col-6 lg:col-3">
-                    <DashboardCard :title="$t('dashboard.total_customers')" icon="fa fa-users" link="/customers" :data="data.customers" />
+                    <DashboardCard :title="$t('dashboard.total_customers')" icon="fa fa-users" link="/partners" :data="data.customers" />
                 </div>
                 <div class="col-12 md:col-6 lg:col-3">
                     <DashboardCard :title="$t('dashboard.total_products')" icon="fa fa-boxes" link="/products" :data="data.products" />

@@ -33,12 +33,20 @@
                         </div>
                     </template>
 
-                    <Column field="number" :header="$t('bill.bill_number')">
+                    <Column field="number" :header="$t('form.number')">
                         <template #body="{ data }">
                             {{ data.number }}
                         </template>
                         <template #filter="{ filterModel }">
                             <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by number" />
+                        </template>
+                    </Column>
+                    <Column field="supplier_name" :header="$t('form.supplier')">
+                        <template #body="{ data }">
+                            {{ data.supplier_name }}
+                        </template>
+                        <template #filter="{ filterModel }">
+                            <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by supplier" />
                         </template>
                     </Column>
                     <Column field="date" :header="$t('bill.date_and_due_date')">
@@ -53,7 +61,7 @@
                             </div>
                         </template>
                     </Column>
-                    <Column field="status" :header="$t('bill.status')">
+                    <Column field="status" :header="$t('form.status')">
                         <template #body="slotProps">
                             <div class="status">
                                 <Tag v-if="slotProps.data.status === 'paid'" severity="success">{{ $t('status.paid') }}</Tag>
@@ -82,10 +90,10 @@
                         </template>
                     </Column>
 
-                    <Column field="total" :header="$t('bill.total')">
+                    <Column field="total" :header="$t('form.total')">
                         <template #body="{ data }">
                             <div class="total">
-                                {{ data.total + ' ' + $settings.default_currency }}
+                                {{ data.total + ' ' + data.currency }}
                             </div>
                         </template>
 
@@ -131,6 +139,7 @@ export default {
             this.filters = {
                 global: { value: null, matchMode: FilterMatchMode.CONTAINS },
                 number: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
+                supplier_name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 date: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 total: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
                 status: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
