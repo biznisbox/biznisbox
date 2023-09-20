@@ -21,10 +21,10 @@
 
                 <div id="product_data" class="card">
                     <div class="grid">
-                        <DisplayData class="col-12 md:col-6" :input="$t('product.number')" :value="product.number" />
+                        <DisplayData class="col-12 md:col-6" :input="$t('form.number')" :value="product.number" />
 
-                        <DisplayData class="col-12 md:col-6" :input="$t('product.product_type')" custom-value>
-                            <Tag :value="$t('product.' + product.type)" />
+                        <DisplayData class="col-12 md:col-6" :input="$t('form.type')" custom-value>
+                            <Tag :value="$t('product_type.' + product.type)" />
                         </DisplayData>
                     </div>
 
@@ -32,35 +32,35 @@
                     <div class="grid">
                         <DisplayData
                             class="col-12 md:col-4"
-                            :input="$t('product.sell_price')"
+                            :input="$t('form.sell_price')"
                             :value="product.sell_price + ' ' + $settings.default_currency"
                         />
                         <DisplayData
                             class="col-12 md:col-4"
-                            :input="$t('product.buy_price')"
+                            :input="$t('form.buy_price')"
                             :value="product.buy_price + ' ' + $settings.default_currency"
                         />
-                        <DisplayData class="col-12 md:col-4" :input="$t('product.unit')" :value="product.unit" />
+                        <DisplayData class="col-12 md:col-4" :input="$t('form.unit')" :value="product.unit" />
                     </div>
                     <!-- Product taxes -->
                     <div class="grid">
-                        <DisplayData class="col-12" :input="$t('product.tax')" :value="product.tax + '%'" />
+                        <DisplayData class="col-12" :input="$t('form.tax')" :value="product.tax + '%'" />
                     </div>
                     <!-- Stock -->
                     <div v-if="product.type == 'product'" class="grid">
-                        <DisplayData class="col-12 md:col-4" :input="$t('product.stock')" :value="product.stock" />
-                        <DisplayData class="col-12 md:col-4" :input="$t('product.min_stock')" :value="product.stock_min" />
-                        <DisplayData class="col-12 md:col-4" :input="$t('product.max_stock')" :value="product.stock_max" />
+                        <DisplayData class="col-12 md:col-4" :input="$t('form.stock')" :value="product.stock" />
+                        <DisplayData class="col-12 md:col-4" :input="$t('form.min_stock')" :value="product.stock_min" />
+                        <DisplayData class="col-12 md:col-4" :input="$t('form.max_stock')" :value="product.stock_max" />
                     </div>
 
                     <!-- Barcode input -->
                     <div class="grid">
-                        <DisplayData class="col-12" :input="$t('product.barcode')" :value="product.barcode" />
+                        <DisplayData class="col-12" :input="$t('form.barcode')" :value="product.barcode" />
                     </div>
 
                     <!-- Product description -->
                     <div class="grid">
-                        <DisplayData class="col-12" :input="$t('product.description')" custom-value>
+                        <DisplayData class="col-12" :input="$t('form.description')" custom-value>
                             <span v-html="product.description"></span>
                         </DisplayData>
                     </div>

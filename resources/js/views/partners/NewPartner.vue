@@ -18,14 +18,14 @@
                             <TextInput
                                 id="name_input"
                                 v-model="v$.partner.name.$model"
-                                class="col-12 md:col-9"
+                                class="col-12 md:col-5"
                                 :label="$t('form.name')"
                                 :validate="v$.partner.name"
                             />
                             <SelectButtonInput
                                 id="select_partner_type"
                                 v-model="v$.partner.type.$model"
-                                class="col-12 md:col-5"
+                                class="col-12 md:col-4"
                                 :label="$t('form.partner_type')"
                                 :options="[
                                     { label: $t('partner_types.customer'), value: 'customer' },
@@ -99,7 +99,17 @@
                                 option-label="name"
                             />
                         </div>
-
+                        <div class="grid">
+                            <SelectInput
+                                id="select_partner_industry"
+                                v-model="partner.industry"
+                                class="col-12 md:col-6"
+                                :options="industries"
+                                :label="$t('form.industry')"
+                                option-value="value"
+                                option-label="name"
+                            />
+                        </div>
                         <div id="addresses_table_section" class="grid">
                             <div class="col-12">
                                 <Button :label="$t('partner.add_address')" icon="fa fa-plus" @click="addAddress" />

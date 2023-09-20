@@ -28,14 +28,14 @@
                 <div class="grid">
                     <div class="col-12 md:col-4">
                         <div class="card">
-                            <DisplayData :input="$t('admin.user.first_name')" :value="user.first_name" />
-                            <DisplayData :input="$t('admin.user.last_name')" :value="user.last_name" />
-                            <DisplayData :input="$t('admin.user.email')" :value="user.email" is-link :link="`mailto:${user.email}`" />
-                            <DisplayData :input="$t('admin.user.active')" custom-value>
+                            <DisplayData :input="$t('form.first_name')" :value="user.first_name" />
+                            <DisplayData :input="$t('form.last_name')" :value="user.last_name" />
+                            <DisplayData :input="$t('form.email')" :value="user.email" is-link :link="`mailto:${user.email}`" />
+                            <DisplayData :input="$t('form.active')" custom-value>
                                 <Tag v-if="user.active" severity="success" :value="$t('basic.yes')" />
                                 <Tag v-else severity="danger" :value="$t('basic.no')" />
                             </DisplayData>
-                            <DisplayData :input="$t('admin.user.language')" :value="$t(`lang.${user.language}`)" />
+                            <DisplayData :input="$t('form.language')" :value="$t(`lang.${user.language}`)" />
                             <DisplayData :input="$t('admin.user.last_login_at')" custom-value>
                                 <span v-if="user.last_login_at">
                                     {{ formatDateTime(user.last_login_at) }}
@@ -44,7 +44,7 @@
                                     <Tag severity="danger" :value="$t('admin.user.never_logged_in')" />
                                 </span>
                             </DisplayData>
-                            <DisplayData :input="$t('admin.user.roles')" custom-value>
+                            <DisplayData :input="$t('form.roles')" custom-value>
                                 <div v-if="user.roles.length > 0">
                                     <Tag v-for="role in user.roles" :key="role.id" :value="role.display_name" />
                                 </div>
@@ -58,22 +58,22 @@
                     <div class="col-12 md:col-8">
                         <div class="card">
                             <TabView id="sessions_tab">
-                                <TabPanel :header="$t('admin.user.login_history')">
+                                <TabPanel :header="$t('login_history.login_history')">
                                     <DataTable :value="user.sessions" paginator :rows="10" :rows-per-page-options="[10, 20, 50]">
                                         <template #empty>
                                             <div class="p-4 pl-0 text-center w-full text-gray-500">
                                                 <i class="fa fa-info-circle empty-icon"></i>
-                                                <p>{{ $t('admin.user.no_login_history') }}</p>
+                                                <p>{{ $t('login_history.no_login_history') }}</p>
                                             </div>
                                         </template>
 
-                                        <Column field="created_at" :header="$t('admin.user.login_time')">
+                                        <Column field="created_at" :header="$t('login_history.login_time')">
                                             <template #body="slotProps">
                                                 {{ formatDateTime(slotProps.data.created_at) }}
                                             </template>
                                         </Column>
-                                        <Column field="ip" :header="$t('admin.user.ip_address')" />
-                                        <Column field="device_type" :header="$t('admin.user.device_type')">
+                                        <Column field="ip" :header="$t('login_history.ip_address')" />
+                                        <Column field="device_type" :header="$t('login_history.device_type')">
                                             <template #body="slotProps">
                                                 <span v-if="slotProps.data.device_type === 'desktop'">
                                                     <i class="fa fa-desktop text-blue-500"></i>
@@ -86,11 +86,11 @@
                                                 <span v-else-if="slotProps.data.device_type === 'tablet'">
                                                     <i class="fa fa-tablet text-blue-500"></i>
                                                 </span>
-                                                <Tag v-else severity="danger" :value="$t('admin.user.unknown')" />
+                                                <Tag v-else severity="danger" :value="$t('status.unknown')" />
                                             </template>
                                         </Column>
-                                        <Column field="os" :header="$t('admin.user.os')" />
-                                        <Column field="location" :header="$t('admin.user.location')">
+                                        <Column field="os" :header="$t('login_history.os')" />
+                                        <Column field="location" :header="$t('login_history.location')">
                                             <template #body="slotProps">
                                                 <div v-if="slotProps.data.location">
                                                     <div>{{ slotProps.data.location }}</div>
@@ -128,9 +128,9 @@
                             <TextInput
                                 id="input_password"
                                 v-model="v$.password.password.$model"
-                                :label="$t('admin.user.password')"
+                                :label="$t('form.password')"
                                 class="col-12"
-                                :placeholder="$t('admin.user.password')"
+                                :placeholder="$t('form.password')"
                                 :disabled="user.auto_generated_password"
                                 :validate="v$.password.password"
                                 :show-errors="formShowErrors"

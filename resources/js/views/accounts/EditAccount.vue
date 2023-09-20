@@ -10,18 +10,18 @@
                                 id="name_input"
                                 v-model="v$.account.name.$model"
                                 class="col-12 md:col-6"
-                                :label="$t('account.name')"
+                                :label="$t('form.name')"
                                 :validate="v$.account.name"
                             ></TextInput>
                             <SelectButtonInput
                                 id="select_account_type"
                                 v-model="v$.account.type.$model"
                                 class="col-12 md:col-6"
-                                :label="$t('account.account_type')"
+                                :label="$t('form.type')"
                                 :options="[
-                                    { label: $t('account.bank_account'), value: 'bank_account' },
-                                    { label: $t('account.online_account'), value: 'online_account' },
-                                    { label: $t('account.cash'), value: 'cash' },
+                                    { label: $t('account_types.bank_account'), value: 'bank_account' },
+                                    { label: $t('account_types.online_account'), value: 'online_account' },
+                                    { label: $t('account_types.cash'), value: 'cash' },
                                 ]"
                                 :validate="v$.account.type"
                             />
@@ -32,7 +32,7 @@
                                 id="select_currency"
                                 v-model="v$.account.currency.$model"
                                 class="col-12 md:col-6"
-                                :label="$t('account.currency')"
+                                :label="$t('form.currency')"
                                 :options="currencies"
                                 option-label="name"
                                 option-value="code"
@@ -44,7 +44,7 @@
                                 type="currency"
                                 :currency="account.currency"
                                 class="col-12 md:col-6"
-                                :label="$t('account.opening_balance')"
+                                :label="$t('form.opening_balance')"
                                 :validate="v$.account.opening_balance"
                             ></NumberInput>
                         </div>
@@ -55,14 +55,14 @@
                                     id="is_default_account"
                                     v-model="account.is_default"
                                     class="col-12 md:col-4"
-                                    :label="$t('account.default_account')"
+                                    :label="$t('form.default_account')"
                                     :options="[
                                         { label: $t('basic.yes'), value: true },
                                         { label: $t('basic.no'), value: false },
                                     ]"
                                 />
-                                <TextInput id="iban_input" v-model="account.iban" class="col-6 md:col-4" :label="$t('account.iban')" />
-                                <TextInput id="bic_input" v-model="account.bic" class="col-6 md:col-4" :label="$t('account.bic')" />
+                                <TextInput id="iban_input" v-model="account.iban" class="col-6 md:col-4" :label="$t('form.iban')" />
+                                <TextInput id="bic_input" v-model="account.bic" class="col-6 md:col-4" :label="$t('form.bic')" />
                             </div>
                         </div>
 
@@ -72,13 +72,13 @@
                                     id="bank_name_input"
                                     v-model="account.bank_name"
                                     class="col-12 md:col-6"
-                                    :label="$t('account.bank_name')"
+                                    :label="$t('form.bank_name')"
                                 ></TextInput>
                                 <TextInput
                                     id="bank_contact_input"
                                     v-model="account.bank_contact"
                                     class="col-12 md:col-6"
-                                    :label="$t('account.bank_contact')"
+                                    :label="$t('form.contact')"
                                 ></TextInput>
                             </div>
                             <div class="grid">
@@ -86,9 +86,18 @@
                                     id="bank_address_input"
                                     v-model="account.bank_address"
                                     class="col-12"
-                                    :label="$t('account.bank_address')"
+                                    :label="$t('form.address')"
                                 ></TextAreaInput>
                             </div>
+                        </div>
+
+                        <div class="grid">
+                            <TextAreaInput
+                                id="description_input"
+                                v-model="account.description"
+                                class="col-12"
+                                :label="$t('form.description')"
+                            ></TextAreaInput>
                         </div>
                     </form>
 

@@ -26,6 +26,7 @@ return new class extends Migration {
             $table->string('website')->nullable();
             $table->string('size')->nullable(); // small, medium, large
             $table->string('industry')->nullable(); // industry
+            $table->string('currency')->nullable(); // currency
             $table->string('status')->nullable(); // active, inactive, archived
             $table->timestamps();
             $table->softDeletes();

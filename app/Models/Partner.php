@@ -27,6 +27,7 @@ class Partner extends Model implements Auditable
         'notes',
         'website',
         'size',
+        'currency',
         'industry',
         'status',
     ];
@@ -46,9 +47,24 @@ class Partner extends Model implements Auditable
         return $this->hasMany(PartnerContact::class);
     }
 
-    public function assignee()
+    public function invoices()
     {
-        return $this->belongsTo(User::class, 'assignee_id');
+        return $this->hasMany(Invoice::class, 'payer_id');
+    }
+
+    public function quotes()
+    {
+        return $this->hasMany(Quote::class, 'customer_id');
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'customer_id')->orWhere('supplier_id', $this->id);
+    }
+
+    public function bills()
+    {
+        return $this->hasMany(Bill::class, 'supplier_id');
     }
 
     public function getPartners($type = null)
@@ -66,7 +82,7 @@ class Partner extends Model implements Auditable
 
     public function getPartner($id)
     {
-        return $this->with('addresses', 'contacts')
+        return $this->with('addresses', 'contacts', 'invoices', 'quotes', 'transactions', 'bills')
             ->where('id', $id)
             ->first();
     }

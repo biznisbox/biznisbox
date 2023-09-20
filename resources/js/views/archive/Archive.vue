@@ -57,7 +57,7 @@
                                     />
                                 </div>
                             </template>
-                            <Column field="name" :header="$t('archive.name')" sortable>
+                            <Column field="name" :header="$t('form.name')" sortable>
                                 <template #body="slotProps">
                                     <div class="">
                                         <span :class="`fiv-viv fiv-icon-${slotProps.data.file_type} icon-file`"></span>
@@ -65,12 +65,12 @@
                                     </div>
                                 </template>
                             </Column>
-                            <Column field="created_at" :header="$t('archive.created_at')">
+                            <Column field="created_at" :header="$t('form.created_at')">
                                 <template #body="slotProps">
                                     <span>{{ formatDateTime(slotProps.data.created_at) }}</span>
                                 </template>
                             </Column>
-                            <Column field="file_size" :header="$t('archive.size')">
+                            <Column field="file_size" :header="$t('form.size')">
                                 <template #body="slotProps">
                                     <span>{{ formatFileSize(slotProps.data.file_size) }}</span>
                                 </template>
@@ -82,12 +82,7 @@
 
             <!-- New folder dialog -->
             <Dialog v-model:visible="showNewFolderDialog" :header="$t('archive.new_folder')" modal>
-                <TextInput
-                    id="folder_name_input"
-                    v-model="newFolderName"
-                    class="field col-12"
-                    :label="$t('archive.folder_name')"
-                ></TextInput>
+                <TextInput id="folder_name_input" v-model="newFolderName" class="col-12" :label="$t('archive.folder_name')"></TextInput>
                 <template #footer>
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
                         <Button :label="$t('basic.create')" icon="fa fa-check" @click="createFolder" />
@@ -117,12 +112,7 @@
             <!-- Edit folder dialog -->
             <div class="mt-4">
                 <Dialog v-model:visible="showEditFolderDialog" :header="$t('archive.edit_folder')" modal>
-                    <TextInput
-                        id="folder_name_input"
-                        v-model="folder.label"
-                        class="field col-12"
-                        :label="$t('archive.folder_name')"
-                    ></TextInput>
+                    <TextInput id="folder_name_input" v-model="folder.label" class="col-12" :label="$t('archive.folder_name')"></TextInput>
                     <template #footer>
                         <div id="function_buttons" class="flex gap-2 justify-content-end">
                             <Button :label="$t('basic.save')" icon="fa fa-check" @click="updateFolder" />
@@ -154,11 +144,11 @@
                     </div>
 
                     <div class="mt-4">
-                        <DisplayData :input="$t('archive.created_at')" :value="formatDateTime(document.created_at)" />
+                        <DisplayData :input="$t('form.created_at')" :value="formatDateTime(document.created_at)" />
                     </div>
 
                     <div class="mt-4">
-                        <DisplayData :input="$t('archive.size')" :value="formatFileSize(document.file_size)" />
+                        <DisplayData :input="$t('form.size')" :value="formatFileSize(document.file_size)" />
                     </div>
 
                     <div class="mt-4">

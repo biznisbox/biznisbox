@@ -2,7 +2,7 @@
     <user-layout>
         <div id="edit_product_page">
             <LoadingScreen :blocked="loadingData">
-                <user-header :title="$t('product.edit')" />
+                <user-header :title="$t('product.edit_product')" />
                 <div class="card">
                     <form class="formgrid">
                         <!-- Product basic -->
@@ -11,8 +11,8 @@
                                 id="number_input"
                                 v-model="v$.product.number.$model"
                                 :validate="v$.product.number"
-                                class="field col-12 md:col-3"
-                                :label="$t('product.number')"
+                                class="col-12 md:col-3"
+                                :label="$t('form.number')"
                                 disabled
                             />
                             <TextInput
@@ -20,16 +20,16 @@
                                 v-model="v$.product.name.$model"
                                 :validate="v$.product.name"
                                 class="field col-12 md:col-6"
-                                :label="$t('product.name')"
+                                :label="$t('form.name')"
                             ></TextInput>
                             <SelectButtonInput
                                 id="select_product_type"
                                 v-model="v$.product.type.$model"
-                                class="field col-12 md:col-3"
-                                :label="$t('product.product_type')"
+                                class="col-12 md:col-3"
+                                :label="$t('form.type')"
                                 :options="[
-                                    { label: $t('product.product'), value: 'product' },
-                                    { label: $t('product.service'), value: 'service' },
+                                    { label: $t('product_type.product'), value: 'product' },
+                                    { label: $t('product_type.service'), value: 'service' },
                                 ]"
                                 :validate="v$.product.type"
                             />
@@ -40,8 +40,8 @@
                             <NumberInput
                                 id="sell_price_input"
                                 v-model="v$.product.sell_price.$model"
-                                class="field col-12 md:col-4"
-                                :label="$t('product.sell_price')"
+                                class="col-12 md:col-4"
+                                :label="$t('form.sell_price')"
                                 type="currency"
                                 :validate="v$.product.sell_price"
                             ></NumberInput>
@@ -49,8 +49,8 @@
                             <NumberInput
                                 id="buy_price_input"
                                 v-model="v$.product.buy_price.$model"
-                                class="field col-12 md:col-4"
-                                :label="$t('product.buy_price')"
+                                class="col-12 md:col-4"
+                                :label="$t('form.buy_price')"
                                 type="currency"
                                 :validate="v$.product.buy_price"
                             ></NumberInput>
@@ -60,7 +60,7 @@
                                 v-model="product.unit"
                                 class="field col-12 md:col-4"
                                 :options="units"
-                                :label="$t('product.unit')"
+                                :label="$t('form.unit')"
                                 option-value="name"
                                 option-label="name"
                             />
@@ -70,8 +70,7 @@
                         <SelectInput
                             id="select_product_tax"
                             v-model="product.tax"
-                            class="field"
-                            :label="$t('product.tax')"
+                            :label="$t('form.tax')"
                             :options="taxes"
                             option-label="name"
                             option-value="value"
@@ -82,37 +81,37 @@
                             <NumberInput
                                 id="stock_input"
                                 v-model="product.stock"
-                                class="field col-12 md:col-4"
-                                :label="$t('product.stock')"
+                                class="col-12 md:col-4"
+                                :label="$t('form.stock')"
                                 type="items"
                             ></NumberInput>
 
                             <NumberInput
                                 id="min_stock_input"
                                 v-model="product.stock_min"
-                                class="field col-12 md:col-4"
-                                :label="$t('product.min_stock')"
+                                class="col-12 md:col-4"
+                                :label="$t('form.min_stock')"
                                 type="items"
                             ></NumberInput>
 
                             <NumberInput
                                 id="max_stock_input"
                                 v-model="product.stock_max"
-                                class="field col-12 md:col-4"
-                                :label="$t('product.max_stock')"
+                                class="col-12 md:col-4"
+                                :label="$t('form.max_stock')"
                                 type="items"
                             ></NumberInput>
                         </div>
 
                         <!-- Barcode input -->
-                        <TextInput id="barcode_input" v-model="product.barcode" :label="$t('product.barcode')"></TextInput>
+                        <TextInput id="barcode_input" v-model="product.barcode" :label="$t('form.barcode')"></TextInput>
 
                         <!-- Product description -->
                         <TinyMceEditor
                             id="description_editor"
                             v-model="product.description"
-                            :label="$t('product.description')"
-                            toolbar=" bold italic underline"
+                            :label="$t('form.description')"
+                            toolbar="bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link"
                             style="height: 200px"
                         />
                     </form>
