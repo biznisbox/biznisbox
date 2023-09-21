@@ -23,7 +23,7 @@ export default defineConfig({
     },
     build: {
         target: 'esnext',
-        chunkSizeWarningLimit: 1000,
+        chunkSizeWarningLimit: 5000,
         rollupOptions: {
             // https://rollupjs.org/guide/en/#big-list-of-options
         },

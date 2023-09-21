@@ -43,13 +43,6 @@ export default {
     name: 'AuthLogin',
     setup: () => ({ v$: useVuelidate() }),
 
-    created() {
-        this.form.email = this.$cookies.get('user_login') || '' // set email from cookies
-        if (this.$cookies.get('token')) {
-            this.$router.push({ name: 'Dashboard' })
-        }
-    },
-
     data() {
         return {
             form: {
@@ -57,6 +50,13 @@ export default {
                 password: '',
                 remember_me: false,
             },
+        }
+    },
+
+    created() {
+        this.form.email = this.$cookies.get('user_login') || '' // set email from cookies
+        if (this.$cookies.get('token')) {
+            this.$router.push({ name: 'Dashboard' })
         }
     },
     validations() {

@@ -152,7 +152,7 @@
                                 <tr>
                                     <td class="w-6 font-bold mb-1">{{ $t('form.currency_rate') }}</td>
                                     <td class="text-gray-700 text-right">
-                                        {{{{ `1 ${$settings.default_currency} = ${ quote.currency_rate} ${quote.currency}` }} }}
+                                        {{ `1 ${$settings.default_currency} = ${quote.currency_rate} ${quote.currency}` }}
                                     </td>
                                 </tr>
                                 <tr>

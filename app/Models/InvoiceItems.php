@@ -12,18 +12,7 @@ class InvoiceItems extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
-    protected $fillable = [
-        'invoice_id',
-        'product_id',
-        'name',
-        'description',
-        'unit',
-        'quantity',
-        'price',
-        'tax',
-        'discount',
-        'total',
-    ];
+    protected $fillable = ['invoice_id', 'product_id', 'name', 'description', 'unit', 'quantity', 'price', 'tax', 'discount', 'total'];
 
     protected $casts = [
         'quantity' => 'double',
