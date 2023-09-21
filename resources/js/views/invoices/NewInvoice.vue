@@ -10,6 +10,7 @@
                                 id="number_input"
                                 v-model="v$.invoice.number.$model"
                                 class="col-12 md:col-6"
+                                disabled
                                 :label="$t('form.number')"
                                 :validate="v$.invoice.number"
                             />

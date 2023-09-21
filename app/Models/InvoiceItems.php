@@ -18,7 +18,6 @@ class InvoiceItems extends Model implements Auditable
         'name',
         'description',
         'unit',
-        'type',
         'quantity',
         'price',
         'tax',

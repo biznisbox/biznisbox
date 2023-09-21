@@ -620,11 +620,10 @@
             "title": "Number formats settings",
             "numbering": "Numbering | Numberings",
             "invoice": "Invoice number format",
-            "estimate": "Estimate number format",
             "transaction": "Transaction number format",
             "payment": "Payment number format",
-            "customer": "Customer number format",
-            "vendor": "Vendor number format",
+            "quote": "Quote number format",
+            "partner": "Partner number format",
             "bill": "Bill number format",
             "document": "Document number format",
             "product": "Product number format"

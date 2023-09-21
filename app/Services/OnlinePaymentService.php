@@ -120,11 +120,14 @@ class OnlinePaymentService
                     'name' => __('response.payment.invoice') . ' ' . $invoice->number,
                     'invoice_id' => $invoice->id,
                     'amount' => $invoice->total,
+                    'customer_id' => $invoice->customer_id,
                     'currency' => $invoice->currency,
+                    'exchange_rate' => $invoice->currency_rate,
                     'payment_method' => 'stripe',
                     'payment_status' => 'success',
                     'type' => 'income',
                     'number' => $transaction_number,
+                    'date' => date('Y-m-d'),
                     'referenced_online_payment' => $payment->id,
                 ]);
 
@@ -261,11 +264,14 @@ class OnlinePaymentService
                     'name' => __('response.payment.invoice') . ' ' . $invoice->number,
                     'invoice_id' => $invoice->id,
                     'amount' => $invoice->total,
+                    'customer_id' => $invoice->customer_id,
                     'currency' => $invoice->currency,
+                    'exchange_rate' => $invoice->currency_rate,
                     'payment_method' => 'paypal',
                     'payment_status' => 'success',
                     'type' => 'income',
                     'number' => $transaction_number,
+                    'date' => date('Y-m-d'),
                     'referenced_online_payment' => $payment->id,
                 ]);
 

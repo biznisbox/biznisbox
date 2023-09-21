@@ -96,12 +96,6 @@ class Invoice extends Model implements Auditable
         try {
             DB::beginTransaction();
             $invoice = Invoice::with('items')->find($id);
-            $invoice->preview = URL::signedRoute('invoice.pdf', ['id' => $invoice->id, 'type' => 'preview', 'lang' => app()->getLocale()]);
-            $invoice->download = URL::signedRoute('invoice.pdf', [
-                'id' => $invoice->id,
-                'type' => 'download',
-                'lang' => app()->getLocale(),
-            ]);
             DB::commit();
             activity_log(user_data()->data->id, 'get invoice', $id, 'App\Models\Invoice', 'getInvoice');
             return $invoice;

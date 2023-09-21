@@ -42,6 +42,14 @@ import { email, required, minLength } from '@vuelidate/validators'
 export default {
     name: 'AuthLogin',
     setup: () => ({ v$: useVuelidate() }),
+
+    created() {
+        this.form.email = this.$cookies.get('user_login') || '' // set email from cookies
+        if (this.$cookies.get('token')) {
+            this.$router.push({ name: 'Dashboard' })
+        }
+    },
+
     data() {
         return {
             form: {
@@ -74,6 +82,9 @@ export default {
             }
 
             this.makeHttpRequest('POST', '/api/auth/login', this.form).then((response) => {
+                if (this.form.remember_me) {
+                    this.$cookies.set('user_login', this.form.email, '1y') // set email in cookies
+                }
                 this.showToast(response.data.message)
                 this.$cookies.set('token', response.data.data, '2h')
                 localStorage.setItem('lang', jwtDecode(response.data.data).data?.lang) // set language - localstorage long term
