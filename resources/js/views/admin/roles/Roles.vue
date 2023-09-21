@@ -22,8 +22,8 @@
                                 />
                             </div>
                         </template>
-                        <Column field="display_name" :header="$t('admin.role.name')" sortable />
-                        <Column field="description" :header="$t('admin.role.description')" sortable />
+                        <Column field="display_name" :header="$t('form.name')" sortable />
+                        <Column field="description" :header="$t('form.description')" sortable />
                     </DataTable>
                 </div>
             </loadingScreen>

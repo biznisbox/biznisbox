@@ -5,22 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\InvoiceItems;
 use App\Models\Product;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Support\Facades\URL;
-use App\Mail\Customer\InvoiceNotification;
-use Illuminate\Support\Facades\Mail;
 
 class Invoice extends Model implements Auditable
 {
-    use HasFactory, HasUuids;
+    use HasFactory, HasUuids, SoftDeletes;
     use \OwenIt\Auditing\Auditable;
 
     protected $fillable = [
-        'created_by',
         'customer_id',
         'payer_id',
         'number',
@@ -29,11 +27,13 @@ class Invoice extends Model implements Auditable
         'currency_rate',
         'payment_method',
         'customer_name',
+        'customer_address_id',
         'customer_address',
         'customer_city',
         'customer_zip_code',
         'customer_country',
         'payer_name',
+        'payer_address_id',
         'payer_address',
         'payer_city',
         'payer_zip_code',
@@ -41,6 +41,7 @@ class Invoice extends Model implements Auditable
         'date',
         'due_date',
         'notes',
+        'footer',
         'discount_type',
         'discount',
         'tax',
@@ -53,7 +54,12 @@ class Invoice extends Model implements Auditable
         'discount' => 'float',
         'tax' => 'float',
         'total' => 'float',
+        'currency_rate' => 'float',
     ];
+
+    protected $dates = ['date', 'due_date', 'deleted_at', 'updated_at', 'created_at'];
+
+    protected $hidden = ['deleted_at', 'updated_at', 'created_at'];
 
     public function generateTags(): array
     {
@@ -67,27 +73,12 @@ class Invoice extends Model implements Auditable
 
     public function customer()
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(Partner::class, 'customer_id');
     }
 
     public function payer()
     {
-        return $this->belongsTo(Customer::class);
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function getInvoiceNumberAttribute()
-    {
-        return $this->prefix . $this->number;
-    }
-
-    public function getInvoiceTotalAttribute()
-    {
-        return $this->items->sum('total');
+        return $this->belongsTo(Partner::class, 'payer_id');
     }
 
     public function getInvoices()
@@ -105,12 +96,6 @@ class Invoice extends Model implements Auditable
         try {
             DB::beginTransaction();
             $invoice = Invoice::with('items')->find($id);
-            $invoice->preview = URL::signedRoute('invoice.pdf', ['id' => $invoice->id, 'type' => 'preview', 'lang' => app()->getLocale()]);
-            $invoice->download = URL::signedRoute('invoice.pdf', [
-                'id' => $invoice->id,
-                'type' => 'download',
-                'lang' => app()->getLocale(),
-            ]);
             DB::commit();
             activity_log(user_data()->data->id, 'get invoice', $id, 'App\Models\Invoice', 'getInvoice');
             return $invoice;
@@ -122,64 +107,43 @@ class Invoice extends Model implements Auditable
 
     /**
      * Create invoice
-     *
      * @param [array] $data
      * @return boolean success or fail to create invoice
      */
     public function createInvoice($data)
     {
-        DB::beginTransaction();
-
-        if (isset($data['customer_id'])) {
-            $customer = Customer::with('addresses')->find($data['customer_id']);
-            $customer_address = $customer->addresses->where('type', 'billing')->first();
-            $data['customer_name'] = $customer->name;
-            $data['customer_address'] = $customer_address->address;
-            $data['customer_city'] = $customer_address->city;
-            $data['customer_zip_code'] = $customer_address->zip_code;
-            $data['customer_country'] = $customer_address->country;
-        }
-
-        if (isset($data['payer_id'])) {
-            $payer = Customer::with('addresses')->find($data['payer_id']);
-            $payer_address = $payer->addresses->where('type', 'billing')->first();
-            $data['payer_name'] = $payer->name;
-            $data['payer_address'] = $payer_address->address;
-            $data['payer_city'] = $payer_address->city;
-            $data['payer_zip_code'] = $payer_address->zip_code;
-            $data['payer_country'] = $payer_address->country;
-        }
-
-        $invoice = Invoice::create($data);
-
-        if ($invoice) {
-            if (isset($data['items'])) {
-                foreach ($data['items'] as $item) {
-                    $item['invoice_id'] = $invoice->id;
-                    $item['product_id'] = $item['product_id'];
-                    $this->decrementStock($item['product_id'], $item['quantity']);
-                    $item['total'] = $this->calculateItemTotal($item);
-                    InvoiceItems::create($item);
+        try {
+            DB::beginTransaction();
+            $data = $this->setPayerData($data, $data['payer_id'], $data['payer_address_id']);
+            $data = $this->setCustomerData($data, $data['customer_id'], $data['customer_address_id']);
+            $invoice = Invoice::create($data);
+            if ($invoice) {
+                if (isset($data['items'])) {
+                    foreach ($data['items'] as $item) {
+                        $this->decrementStock($item['product_id'], $item['quantity']);
+                        $item['total'] = calculateItemTotalHelper($item);
+                        $invoice->items()->create($item);
+                    }
                 }
+                $items = $invoice->items()->get();
+                $total = calculateTotalHelper($items, $data['discount'], $data['discount_type'], $data['currency_rate']);
+                $invoice->total = $total;
+                if ($total == 0) {
+                    $invoice->status = 'paid'; // if total is 0, invoice is paid
+                }
+                $invoice->save();
+                incrementLastItemNumber('invoice');
+                DB::commit();
+                return $invoice;
             }
-            $total = $this->calculateInvoiceTotal($invoice);
-
-            $invoice->total = $total;
-
-            if ($total == 0) {
-                $invoice->status = 'paid';
-            }
-
-            $invoice->save();
-            incrementLastItemNumber('invoice');
-            DB::commit();
-            return true;
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return false;
         }
     }
 
     /**
      * Update invoice
-     *
      * @param [array] $data
      * @return boolean success or fail to update invoice
      */
@@ -187,57 +151,35 @@ class Invoice extends Model implements Auditable
     {
         try {
             DB::beginTransaction();
-
-            if (isset($data['customer_id'])) {
-                $customer = Customer::with('addresses')->find($data['customer_id']);
-                $customer_address = $customer->addresses->where('type', 'billing')->first();
-                $data['customer_name'] = $customer->name;
-                $data['customer_address'] = $customer_address->address;
-                $data['customer_city'] = $customer_address->city;
-                $data['customer_zip_code'] = $customer_address->zip_code;
-                $data['customer_country'] = $customer_address->country;
-            }
-
-            if (isset($data['payer_id'])) {
-                $payer = Customer::with('addresses')->find($data['payer_id']);
-                $payer_address = $payer->addresses->where('type', 'billing')->first();
-                $data['payer_name'] = $payer->name;
-                $data['payer_address'] = $payer_address->address;
-                $data['payer_city'] = $payer_address->city;
-                $data['payer_zip_code'] = $payer_address->zip_code;
-                $data['payer_country'] = $payer_address->country;
-            }
-
+            $data = $this->setPayerData($data, $data['payer_id'], $data['payer_address_id']);
+            $data = $this->setCustomerData($data, $data['customer_id'], $data['customer_address_id']);
             $invoice = $this->find($id);
+
             if ($invoice->status == 'paid') {
                 return false;
             }
             $invoice = $invoice->update($data);
-
             if ($invoice) {
                 $invoice = $this->find($id);
                 if (isset($data['items'])) {
-                    $items = InvoiceItems::where('invoice_id', $id)
-                        ->get()
-                        ->each(function ($item) {
-                            $this->incrementStock($item->product_id, $item->quantity);
-                            $item->delete();
-                        });
+                    $items = $invoice->items()->each(function ($item) {
+                        $this->incrementStock($item->product_id, $item->quantity);
+                        $item->delete();
+                    });
 
                     foreach ($data['items'] as $item) {
-                        $item['invoice_id'] = $invoice->id;
-                        $item['product_id'] = $item['product_id'];
                         $this->decrementStock($item['product_id'], $item['quantity']);
-                        $item['total'] = $this->calculateItemTotal($item);
-                        InvoiceItems::create($item);
+                        $item['total'] = calculateItemTotalHelper($item);
+                        $invoice->items()->create($item);
                     }
                 }
 
-                $total = $this->calculateInvoiceTotal($invoice);
+                $items = $invoice->items()->get();
+                $total = calculateTotalHelper($items, $data['discount'], $data['discount_type'], $data['currency_rate']);
                 $invoice->total = $total;
                 $invoice->save();
                 DB::commit();
-                return true;
+                return $invoice;
             }
         } catch (\Exception $e) {
             DB::rollBack();
@@ -247,7 +189,6 @@ class Invoice extends Model implements Auditable
 
     /**
      * Delete invoice
-     *
      * @param [string] $id
      * @return boolean success or fail to delete invoice
      */
@@ -262,7 +203,6 @@ class Invoice extends Model implements Auditable
                 }
                 $this->items()
                     ->where('invoice_id', $id)
-                    ->get()
                     ->each(function ($item) {
                         $this->incrementStock($item->product_id, $item->quantity);
                         $item->delete();
@@ -277,41 +217,12 @@ class Invoice extends Model implements Auditable
         }
     }
 
-    public function calculateItemTotal($item)
-    {
-        $total = 0;
-        $total += $item['quantity'] * $item['price'];
-        if ($item['discount']) {
-            $total -= ($total * $item['discount']) / 100;
-        }
-        if ($item['tax']) {
-            $total += ($total * $item['tax']) / 100;
-        }
-        return $total;
-    }
-
-    public function calculateItemsTotal($items)
-    {
-        $total = 0;
-        foreach ($items as $item) {
-            $item['total'] = $this->calculateItemTotal($item);
-            $total += $item['total'];
-        }
-        return $total;
-    }
-
-    public function calculateInvoiceTotal($invoice)
-    {
-        $items = InvoiceItems::where('invoice_id', $invoice->id)->get();
-        $total = $this->calculateItemsTotal($items);
-
-        if ($invoice->discount) {
-            $total = $total - ($total * $invoice->discount) / 100;
-        }
-
-        return $total;
-    }
-
+    /**
+     * Decrement stock of product when invoice is created or updated
+     * @param [uuid] $product_id product id
+     * @param integer $quantity quantity
+     * @return void
+     */
     protected function decrementStock($product_id, $quantity = 0)
     {
         if ($product_id == null) {
@@ -324,6 +235,12 @@ class Invoice extends Model implements Auditable
         }
     }
 
+    /**
+     * Increment stock of product when invoice is deleted or updated
+     * @param [uuid] $product_id product id
+     * @param integer $quantity quantity
+     * @return void
+     */
     protected function incrementStock($product_id, $quantity = 0)
     {
         if ($product_id == null) {
@@ -336,12 +253,20 @@ class Invoice extends Model implements Auditable
         }
     }
 
+    /**
+     * Get invoice number
+     * @return string invoice number
+     */
     public static function getInvoiceNumber()
     {
         $number = generate_next_number(settings('invoice_number_format'), 'invoice');
         return $number;
     }
 
+    /**
+     * Share invoice with customer
+     * @return string invoice number
+     */
     public function shareInvoice($id)
     {
         $invoice = $this->find($id);
@@ -350,11 +275,17 @@ class Invoice extends Model implements Auditable
         return $url;
     }
 
+    /**
+     * Get invoice for client
+     * @param string $id
+     * @return object invoice
+     */
     public function getClientInvoice($id)
     {
         try {
             DB::beginTransaction();
-            $invoice = Invoice::with('items')->find($id);
+            $invoice = $this->with('items')->find($id);
+            $invoice->notes = null;
             $invoice->preview = URL::signedRoute('invoice.pdf', ['id' => $invoice->id, 'type' => 'preview', 'lang' => app()->getLocale()]);
             $invoice->download = URL::signedRoute('invoice.pdf', [
                 'id' => $invoice->id,
@@ -386,33 +317,55 @@ class Invoice extends Model implements Auditable
         }
     }
 
-    public function sendInvoice($id)
+    protected function setPayerData($data, $payerId, $payerAddressId)
     {
-        $invoice = $this->with('customer', 'payer', 'items')->find($id);
-        $link = $this->shareInvoice($id);
-        if ($invoice->status == 'draft') {
-            // SEND MAILS TO CUSTOMER AND PAYER
-            $receivers = [];
-            if ($invoice->customer != null && $invoice->customer->email) {
-                $receivers[] = $invoice->customer->email;
-            }
-
-            if ($invoice->payer != null && $invoice->payer->email && $invoice->payer->email != $invoice->customer->email) {
-                $receivers[] = $invoice->payer->email;
-            }
-
-            if ($receivers) {
-                $pdf = $this->getInvoicePdf($invoice->id, 'attach');
-
-                foreach ($receivers as $receiver) {
-                    Mail::to($receiver)->send(new InvoiceNotification($invoice, $link, $pdf));
-                }
-                $invoice->status = 'sent';
-                $invoice->save();
-                activity_log(user_data()->data->id, 'SendInvoice', $invoice->id, 'App\Models\Invoice', 'Invoice');
-                return true;
-            }
+        if (!$payerId || !$payerAddressId) {
+            $data['payer_id'] = null;
+            $data['payer_address_id'] = null;
+            $data['payer_name'] = null;
+            $data['payer_address'] = null;
+            $data['payer_city'] = null;
+            $data['payer_zip_code'] = null;
+            $data['payer_country'] = null;
+            return $data;
         }
-        return false;
+        $partner = Partner::where('id', $payerId)->get()[0];
+        $address = PartnerAddress::where('partner_id', $payerId)
+            ->where('id', $payerAddressId)
+            ->get()[0];
+        $data['payer_id'] = $partner->id;
+        $data['payer_name'] = $partner->name;
+        $data['payer_address_id'] = $address->id;
+        $data['payer_address'] = $address->address;
+        $data['payer_city'] = $address->city;
+        $data['payer_zip_code'] = $address->zip_code;
+        $data['payer_country'] = $address->country;
+        return $data;
+    }
+
+    protected function setCustomerData($data, $customerId, $customerAddressId)
+    {
+        if (!$customerId || !$customerAddressId) {
+            $data['customer_id'] = null;
+            $data['address_id'] = null;
+            $data['customer_name'] = null;
+            $data['customer_address'] = null;
+            $data['customer_city'] = null;
+            $data['customer_zip_code'] = null;
+            $data['customer_country'] = null;
+            return $data;
+        }
+        $partner = Partner::where('id', $customerId)->get()[0];
+        $address = PartnerAddress::where('partner_id', $customerId)
+            ->where('id', $customerAddressId)
+            ->get()[0];
+        $data['customer_id'] = $partner->id;
+        $data['customer_name'] = $partner->name;
+        $data['customer_address_id'] = $address->id;
+        $data['customer_address'] = $address->address;
+        $data['customer_city'] = $address->city;
+        $data['customer_zip_code'] = $address->zip_code;
+        $data['customer_country'] = $address->country;
+        return $data;
     }
 }

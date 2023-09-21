@@ -19,11 +19,11 @@ const routes = [
     makeRoute('/products/:id', 'view-product', () => import('../views/products/ViewProduct.vue'), { auth: true }, []),
     makeRoute('/products/:id/edit', 'edit-product', () => import('../views/products/EditProduct.vue'), { auth: true }, []),
 
-    // Customers Routes
-    makeRoute('/customers', 'customers', () => import('../views/customers/Customers.vue'), { auth: true }, []),
-    makeRoute('/customers/new', 'new-customer', () => import('../views/customers/NewCustomer.vue'), { auth: true }, []),
-    makeRoute('/customers/:id', 'view-customer', () => import('../views/customers/ViewCustomer.vue'), { auth: true }, []),
-    makeRoute('/customers/:id/edit', 'edit-customer', () => import('../views/customers/EditCustomer.vue'), { auth: true }, []),
+    // Partners Routes
+    makeRoute('/partners', 'partners', () => import('../views/partners/Partners.vue'), { auth: true }, []),
+    makeRoute('/partners/new', 'new-partner', () => import('../views/partners/NewPartner.vue'), { auth: true }, []),
+    makeRoute('/partners/:id', 'view-partner', () => import('../views/partners/ViewPartner.vue'), { auth: true }, []),
+    makeRoute('/partners/:id/edit', 'edit-partner', () => import('../views/partners/EditPartner.vue'), { auth: true }, []),
 
     // Calendar Routes
     makeRoute('/calendar', 'calendar', () => import('../views/calendar/Calendar.vue'), { auth: true }, []),
@@ -34,11 +34,11 @@ const routes = [
     makeRoute('/invoices/:id', 'view-invoice', () => import('../views/invoices/ViewInvoice.vue'), { auth: true }, []),
     makeRoute('/invoices/:id/edit', 'edit-invoice', () => import('../views/invoices/EditInvoice.vue'), { auth: true }, []),
 
-    // Estimates Routes
-    makeRoute('/estimates', 'estimates', () => import('../views/estimates/Estimates.vue'), { auth: true }, []),
-    makeRoute('/estimates/new', 'new-estimate', () => import('../views/estimates/NewEstimate.vue'), { auth: true }, []),
-    makeRoute('/estimates/:id', 'view-estimate', () => import('../views/estimates/ViewEstimate.vue'), { auth: true }, []),
-    makeRoute('/estimates/:id/edit', 'edit-estimate', () => import('../views/estimates/EditEstimate.vue'), { auth: true }, []),
+    // Quotes Routes
+    makeRoute('/quotes', 'quotes', () => import('../views/quotes/Quotes.vue'), { auth: true }, []),
+    makeRoute('/quotes/new', 'new-quote', () => import('../views/quotes/NewQuote.vue'), { auth: true }, []),
+    makeRoute('/quotes/:id', 'view-quote', () => import('../views/quotes/ViewQuote.vue'), { auth: true }, []),
+    makeRoute('/quotes/:id/edit', 'edit-quote', () => import('../views/quotes/EditQuote.vue'), { auth: true }, []),
 
     // Account Routes
     makeRoute('/accounts', 'accounts', () => import('../views/accounts/Accounts.vue'), { auth: true }, []),
@@ -51,12 +51,6 @@ const routes = [
     makeRoute('/transactions/new', 'new-transaction', () => import('../views/transactions/NewTransaction.vue'), { auth: true }, []),
     makeRoute('/transactions/:id', 'view-transaction', () => import('../views/transactions/ViewTransaction.vue'), { auth: true }, []),
     makeRoute('/transactions/:id/edit', 'edit-transaction', () => import('../views/transactions/EditTransaction.vue'), { auth: true }, []),
-
-    // Vendor Routes
-    makeRoute('/vendors', 'vendors', () => import('../views/vendors/Vendors.vue'), { auth: true }, []),
-    makeRoute('/vendors/new', 'new-vendor', () => import('../views/vendors/NewVendor.vue'), { auth: true }, []),
-    makeRoute('/vendors/:id', 'view-vendor', () => import('../views/vendors/ViewVendor.vue'), { auth: true }, []),
-    makeRoute('/vendors/:id/edit', 'edit-vendor', () => import('../views/vendors/EditVendor.vue'), { auth: true }, []),
 
     // Bills Routes
     makeRoute('/bills', 'bills', () => import('../views/bills/Bills.vue'), { auth: true }, []),
@@ -132,7 +126,7 @@ const routes = [
     makeRoute('/admin/roles/:id', 'admin-edit-role', () => import('../views/admin/roles/EditRole.vue'), { auth: true, admin: true }, []),
     // Client Routes
     makeRoute('/client/invoice/:id', 'client-invoice', () => import('../views/client/Invoice.vue'), { auth: false, client: true }, []),
-    makeRoute('/client/estimate/:id', 'client-estimate', () => import('../views/client/Estimate.vue'), { auth: false, client: true }, []),
+    makeRoute('/client/quote/:id', 'client-quote', () => import('../views/client/Quote.vue'), { auth: false, client: true }, []),
 
     // 404
     {

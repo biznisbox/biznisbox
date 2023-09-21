@@ -16,6 +16,14 @@
         "to": "/admin"
     },
     {
+        "name": "user_menu_items.partners",
+        "meta": ["partners"],
+        "permission": "partners",
+        "permissions": [],
+        "icon": "fa fa-handshake",
+        "to": "/partners"
+    },
+    {
         "name": "user_menu_items.products",
         "meta": ["products"],
         "permission": "products",
@@ -28,14 +36,8 @@
         "meta": ["billing"],
         "icon": "fa fa-cash-register",
         "permission": "",
-        "permissions": ["invoices", "estimates", "customers"],
+        "permissions": ["invoices", "quotes"],
         "children": [
-            {
-                "name": "user_menu_items.customers",
-                "meta": ["customers"],
-                "permission": "customers",
-                "to": "/customers"
-            },
             {
                 "name": "user_menu_items.invoices",
                 "meta": ["invoices"],
@@ -43,10 +45,10 @@
                 "to": "/invoices"
             },
             {
-                "name": "user_menu_items.estimates",
-                "meta": ["estimates"],
-                "permission": "estimates",
-                "to": "/estimates"
+                "name": "user_menu_items.quotes",
+                "meta": ["quotes"],
+                "permission": "quotes",
+                "to": "/quotes"
             }
         ]
     },
@@ -54,15 +56,9 @@
         "name": "user_menu_items.purchases",
         "meta": ["purchases"],
         "permission": "",
-        "permissions": ["vendors", "bills"],
+        "permissions": ["bills"],
         "icon": "fa fa-shopping-basket",
         "children": [
-            {
-                "name": "user_menu_items.vendors",
-                "meta": ["vendors"],
-                "permission": "vendors",
-                "to": "/vendors"
-            },
             {
                 "name": "user_menu_items.bills",
                 "meta": ["bills"],

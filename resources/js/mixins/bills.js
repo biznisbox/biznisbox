@@ -2,13 +2,25 @@ export default {
     data() {
         return {
             bills: [],
-            vendors: [],
+            suppliers: [],
             products: [],
+            supplierAddresses: [],
             bill: {
                 number: '',
                 date: '',
                 due_date: '',
-                vendor_id: '',
+                supplier_id: null,
+                supplier_address_id: null,
+                supplier_address: '',
+                supplier_city: '',
+                supplier_zip_code: '',
+                supplier_country: '',
+                supplier_name: '',
+                currency: 'EUR',
+                currency_rate: 1,
+                discount: 0,
+                discount_type: 'percentage',
+                total: 0.0,
                 status: 'draft',
                 items: [
                     {
@@ -24,10 +36,6 @@ export default {
                         total: 0,
                     },
                 ],
-                currency: 'EUR',
-                discount: 0,
-                discount_type: '',
-                total: 0.0,
             },
         }
     },
@@ -110,12 +118,20 @@ export default {
             })
         },
 
-        getVendors() {
-            this.makeHttpRequest('GET', '/api/vendors').then((response) => {
-                this.vendors = response.data.data
+        /**
+         * Get suppliers
+         * @return {void} set suppliers
+         */
+        getSuppliers() {
+            this.makeHttpRequest('GET', '/api/partners_list?type=both,supplier').then((response) => {
+                this.suppliers = response.data.data
             })
         },
 
+        /**
+         * Get products
+         * @return {void} set products
+         */
         getProducts() {
             this.makeHttpRequest('GET', '/api/products').then((response) => {
                 this.products = response.data.data

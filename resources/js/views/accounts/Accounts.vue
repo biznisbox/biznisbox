@@ -5,8 +5,8 @@
                 <template #actions>
                     <HeaderActionButton :label="$t('account.new_account')" icon="fa fa-plus" to="/accounts/new" />
                     <Button
-                        :label="$t('account.connect_bank')"
                         v-if="$settings.open_banking_available"
+                        :label="$t('account.connect_bank')"
                         icon="fa fa-university"
                         @click="connectBankDialog = true"
                     />
@@ -51,11 +51,11 @@
                             </div>
                         </template>
                     </Column>
-                    <Column field="type" :header="$t('account.account_type')">
+                    <Column field="type" :header="$t('form.account_type')">
                         <template #body="{ data }">
-                            <Tag v-if="data.type === 'bank_account'" :value="$t('account.bank_account')"></Tag>
-                            <Tag v-if="data.type === 'cash'" :value="$t('account.cash')"></Tag>
-                            <Tag v-if="data.type === 'online_account'" :value="$t('account.online_account')"></Tag>
+                            <Tag v-if="data.type === 'bank_account'" :value="$t('account_types.bank_account')"></Tag>
+                            <Tag v-if="data.type === 'cash'" :value="$t('account_types.cash')"></Tag>
+                            <Tag v-if="data.type === 'online_account'" :value="$t('account_types.online_account')"></Tag>
                         </template>
 
                         <template #filter="{ filterModel }">
@@ -63,9 +63,9 @@
                                 <Dropdown
                                     v-model="filterModel.value"
                                     :options="[
-                                        { label: $t('account.bank_account'), value: 'bank_account' },
-                                        { label: $t('account.cash'), value: 'cash' },
-                                        { label: $t('account.online_account'), value: 'online_account' },
+                                        { label: $t('account_types.bank_account'), value: 'bank_account' },
+                                        { label: $t('account_types.cash'), value: 'cash' },
+                                        { label: $t('account_types.online_account'), value: 'online_account' },
                                     ]"
                                     option-label="label"
                                     option-value="value"
@@ -75,7 +75,7 @@
                             </div>
                         </template>
                     </Column>
-                    <Column field="current_balance" :header="$t('account.balance')">
+                    <Column field="current_balance" :header="$t('form.balance')">
                         <template #body="{ data }">
                             <span>{{ formatMoney(data.current_balance, data.currency) }}</span>
                         </template>
@@ -90,7 +90,7 @@
                             </div>
                         </template>
                     </Column>
-                    <Column field="bank_name" :header="$t('account.bank_name')">
+                    <Column field="bank_name" :header="$t('form.bank_name')">
                         <template #body="{ data }">
                             <span>{{ formatText(data.bank_name) }}</span>
                         </template>
@@ -117,7 +117,7 @@
                 <div class="p-fluid">
                     <LoadingScreen :blocked="loadingData">
                         <div class="p-field">
-                            <label for="country">{{ $t('account.country') }}</label>
+                            <label for="country">{{ $t('form.country') }}</label>
                             <Dropdown
                                 v-model="selected_country"
                                 :options="available_countries"
@@ -127,7 +127,7 @@
                                 @change="getBanks()"
                             />
                             <div v-if="selected_country" class="p-field">
-                                <label for="bank">{{ $t('account.bank') }}</label>
+                                <label for="bank">{{ $t('form.bank') }}</label>
                                 <Dropdown
                                     v-model="selected_bank"
                                     :options="available_banks"

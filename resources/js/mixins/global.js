@@ -5,6 +5,7 @@ export default {
             units: [],
             taxes: [],
             currencies: [],
+            languages: [],
             countries: countries,
         }
     },

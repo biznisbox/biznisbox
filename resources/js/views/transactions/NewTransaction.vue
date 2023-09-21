@@ -21,6 +21,7 @@
                                 v-model="transaction.number"
                                 :label="$t('transaction.number')"
                                 class="col-12 md:col-6"
+                                disabled
                             />
                             <SelectButtonInput
                                 id="type_input"
@@ -120,10 +121,10 @@
                             <SelectInput
                                 v-if="transaction.type == 'expense'"
                                 id="vendor_input"
-                                v-model="transaction.vendor_id"
+                                v-model="transaction.supplier_id"
                                 :label="$t('transaction.vendor')"
                                 class="col-12 md:col-6"
-                                :options="vendors"
+                                :options="suppliers"
                                 option-label="name"
                                 option-value="id"
                                 filter
@@ -176,7 +177,7 @@ export default {
         this.getAccounts()
         this.getCustomers()
         this.getTransactionNumber()
-        this.getVendors()
+        this.getSuppliers()
         this.getTransactionCategories()
         this.transaction.currency = this.$settings.default_currency
     },

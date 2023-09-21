@@ -9,13 +9,14 @@
                         <div class="grid">
                             <TextInput
                                 v-model="v$.document.number.$model"
-                                :label="$t('document.number')"
+                                :label="$t('form.number')"
                                 class="col-12 md:col-6"
+                                disabled
                                 :validate="v$.document.number"
                             />
                             <TextInput
                                 v-model="v$.document.name.$model"
-                                :label="$t('document.name')"
+                                :label="$t('form.name')"
                                 class="col-12 md:col-6"
                                 :validate="v$.document.name"
                             />
@@ -24,15 +25,15 @@
                         <div class="grid">
                             <SelectInput
                                 v-model="v$.document.type.$model"
-                                :label="$t('document.type')"
+                                :label="$t('form.type')"
                                 :options="[
-                                    { label: $t('document.document'), value: 'document' },
-                                    { label: $t('document.agreement'), value: 'agreement' },
-                                    { label: $t('document.contract'), value: 'contract' },
-                                    { label: $t('document.letter'), value: 'letter' },
-                                    { label: $t('document.email'), value: 'email' },
-                                    { label: $t('document.policy'), value: 'policy' },
-                                    { label: $t('document.other'), value: 'other' },
+                                    { label: $t('document_types.document'), value: 'document' },
+                                    { label: $t('document_types.agreement'), value: 'agreement' },
+                                    { label: $t('document_types.contract'), value: 'contract' },
+                                    { label: $t('document_types.letter'), value: 'letter' },
+                                    { label: $t('document_types.email'), value: 'email' },
+                                    { label: $t('document_types.policy'), value: 'policy' },
+                                    { label: $t('basic.other'), value: 'other' },
                                 ]"
                                 class="col-12"
                                 :validate="v$.document.type"
@@ -40,14 +41,14 @@
                         </div>
 
                         <div class="grid">
-                            <DateInput v-model="document.date" :label="$t('document.date')" class="col-12 md:col-6" />
-                            <DateInput v-model="document.due_date" :label="$t('document.due_date')" class="col-12 md:col-6" />
+                            <DateInput v-model="document.date" :label="$t('form.date')" class="col-12 md:col-6" />
+                            <DateInput v-model="document.due_date" :label="$t('form.due_date')" class="col-12 md:col-6" />
                         </div>
 
                         <div class="grid">
                             <SelectInput
                                 v-model="document.status"
-                                :label="$t('document.status')"
+                                :label="$t('form.status')"
                                 :options="[
                                     { label: $t('status.draft'), value: 'draft' },
                                     { label: $t('status.pending'), value: 'pending' },
@@ -59,7 +60,7 @@
 
                             <SelectInput
                                 v-model="document.access"
-                                :label="$t('document.access')"
+                                :label="$t('form.access')"
                                 :options="[
                                     { label: $t('basic.private'), value: 'private' },
                                     { label: $t('basic.public'), value: 'public' },
@@ -69,15 +70,15 @@
                                 class="col-12 md:col-4"
                             />
 
-                            <TextInput v-model="document.version" :label="$t('document.version')" class="col-12 md:col-4" />
+                            <TextInput v-model="document.version" :label="$t('form.version')" class="col-12 md:col-4" />
                         </div>
 
                         <div class="grid">
-                            <TinyMceEditor v-model="document.content" :label="$t('document.content')" class="col-12" />
+                            <TinyMceEditor v-model="document.content" :label="$t('form.content')" class="col-12" />
                         </div>
 
                         <div class="grid">
-                            <TextAreaInput v-model="document.notes" :label="$t('document.notes')" class="col-12" />
+                            <TextAreaInput v-model="document.notes" :label="$t('form.notes')" class="col-12" />
                         </div>
                     </form>
                 </div>

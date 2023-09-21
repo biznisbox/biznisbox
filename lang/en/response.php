@@ -31,17 +31,17 @@ return [
         'delete_failed' => 'A product could not be deleted',
     ],
 
-    // Vendor responses
-    'vendor' => [
-        'not_found' => 'Vendor not found',
-        'get_success' => 'Vendors retrieved successfully',
-        'get_failed' => 'Vendors could not be retrieved',
-        'create_success' => 'Vendor created successfully',
-        'create_failed' => 'A vendor could not be created',
-        'update_success' => 'Vendor updated successfully',
-        'update_failed' => 'A vendor could not be updated',
-        'delete_success' => 'Vendor deleted successfully',
-        'delete_failed' => 'A vendor could not be deleted',
+    // Partner responses
+    'partner' => [
+        'not_found' => 'Partner not found',
+        'get_success' => 'Partners retrieved successfully',
+        'get_failed' => 'Partners could not be retrieved',
+        'create_success' => 'Partner created successfully',
+        'create_failed' => 'A Partner could not be created',
+        'update_success' => 'Partner updated successfully',
+        'update_failed' => 'A Partner could not be updated',
+        'delete_success' => 'Partner deleted successfully',
+        'delete_failed' => 'A Partner could not be deleted',
     ],
 
     // Transaction responses
@@ -84,17 +84,6 @@ return [
         'delete_error' => 'Bill could not be deleted successfully',
     ],
 
-    //Customer responses
-    'customer' => [
-        'get_success' => 'Customers retrieved successfully',
-        'get_failed' => 'Customers could not be retrieved',
-        'not_found' => 'Customer could not be found',
-        'create_failed' => 'Customer could not be created',
-        'create_success' => 'Customer was created successfully',
-        'update_success' => 'Customer was updated successfully',
-        'delete_success' => 'Customer deleted successfully',
-    ],
-
     //Document responses
     'document' => [
         'get_success' => 'Documents retrieved successfully',
@@ -130,23 +119,23 @@ return [
         'delete_success_folder' => 'Folder deleted successfully',
     ],
 
-    //Estimate responses
-    'estimate' => [
-        'get_success' => 'Estimates retrieved successfully',
-        'get_failed' => 'Estimates could not be retrieved',
-        'not_found' => 'Estimate could not be found',
-        'create_failed' => 'Estimate could not be created',
-        'create_success' => 'Estimate was created successfully',
-        'convert_success' => 'Estimate was converted to invoice successfully',
-        'update_success' => 'Estimate was updated successfully',
-        'delete_success' => 'Estimate was deleted successfully',
-        'delete_failed' => 'Estimate could not be deleted',
-        'update_failed' => 'Estimate could not be updated',
-        'share_success' => 'Estimate was shared successfully',
-        'share_failed' => 'Estimate could not be shared',
-        'accept_reject_success' => 'Estimate was rejected successfully',
-        'send_success' => 'Estimate was sent successfully',
-        'send_failed' => 'Estimate could not be sent',
+    //Quote responses
+    'quote' => [
+        'get_success' => 'Quotes retrieved successfully',
+        'get_failed' => 'Quotes could not be retrieved',
+        'not_found' => 'Quote could not be found',
+        'create_failed' => 'Quote could not be created',
+        'create_success' => 'Quote was created successfully',
+        'convert_success' => 'Quote was converted to invoice successfully',
+        'update_success' => 'Quote was updated successfully',
+        'delete_success' => 'Quote was deleted successfully',
+        'delete_failed' => 'Quote could not be deleted',
+        'update_failed' => 'Quote could not be updated',
+        'share_success' => 'Quote was shared successfully',
+        'share_failed' => 'Quote could not be shared',
+        'accept_reject_success' => 'Quote was rejected successfully',
+        'send_success' => 'Quote was sent successfully',
+        'send_failed' => 'Quote could not be sent',
         'pdf_failed' => 'Generating PDF failed',
     ],
 
@@ -160,7 +149,7 @@ return [
         'delete_success' => 'Invoice was deleted successfully',
         'update_success' => 'Invoice was updated successfully',
         'share_success' => 'Invoice was shared successfully',
-        'share_failed' => 'Estimate could not be shared',
+        'share_failed' => 'Quote could not be shared',
         'send_success' => 'Invoice was sent successfully',
         'pdf_failed' => 'Generating PDF failed',
         'send_failed' => 'Invoice could not be sent',

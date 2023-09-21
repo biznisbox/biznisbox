@@ -18,27 +18,6 @@ return new class extends Migration {
             $table->string('module'); // Module of the numbering - invoice, document, estimate, etc.
             $table->integer('number')->default(0); // Number of the document (invoice number, offer number, etc.)
         });
-
-        Schema::table('products', function (Blueprint $table) {
-            $table
-                ->string('number')
-                ->nullable()
-                ->after('id');
-        });
-
-        Schema::table('customers', function (Blueprint $table) {
-            $table
-                ->string('number')
-                ->nullable()
-                ->after('id');
-        });
-
-        Schema::table('vendors', function (Blueprint $table) {
-            $table
-                ->string('number')
-                ->nullable()
-                ->after('id');
-        });
     }
 
     /**

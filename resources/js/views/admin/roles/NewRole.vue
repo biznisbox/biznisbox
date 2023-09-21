@@ -9,8 +9,8 @@
                         <TextInput
                             id="input_name"
                             v-model="v$.role.name.$model"
-                            :label="$t('admin.role.name')"
-                            :placeholder="$t('admin.role.name')"
+                            :label="$t('form.name')"
+                            :placeholder="$t('form.name')"
                             :validate="v$.role.name"
                         />
 
@@ -18,13 +18,13 @@
                             id="input_description"
                             v-model="v$.role.description.$model"
                             class="w-full"
-                            :label="$t('admin.role.description')"
-                            :placeholder="$t('admin.role.description')"
+                            :label="$t('form.description')"
+                            :placeholder="$t('form.description')"
                             :validate="v$.role.description"
                         />
 
                         <div id="permissions" class="my-2">
-                            <h3>{{ $t('admin.role.permissions') }}</h3>
+                            <h3>{{ $t('form.permissions') }}</h3>
                             <div class="flex flex-wrap gap-2">
                                 <div v-for="permission in permissions" :key="permission.id" class="field-checkbox">
                                     <Checkbox

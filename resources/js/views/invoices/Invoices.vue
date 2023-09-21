@@ -33,7 +33,7 @@
                         </div>
                     </template>
 
-                    <Column field="number" :header="$t('invoice.invoice_number')">
+                    <Column field="number" :header="$t('form.number')">
                         <template #body="{ data }">
                             {{ data.number }}
                         </template>
@@ -57,12 +57,12 @@
 
                     <Column field="customer" :header="$t('invoice.customer_and_payer')">
                         <template #body="{ data }">
-                            {{ formatText(data.customer?.name) }} <br />
-                            {{ formatText(data.payer?.name) }}
+                            {{ formatText(data.customer_name) }} <br />
+                            {{ formatText(data.payer_name) }}
                         </template>
                     </Column>
 
-                    <Column field="total" :header="$t('invoice.total')">
+                    <Column field="total" :header="$t('form.total')">
                         <template #body="{ data }">
                             {{ data.total + ' ' + data.currency }}
                         </template>
@@ -74,7 +74,7 @@
                         </template>
                     </Column>
 
-                    <Column field="status" :header="$t('invoice.status')">
+                    <Column field="status" :header="$t('form.status')">
                         <template #body="{ data }">
                             <Tag v-if="data.status === 'paid'" severity="success">{{ $t('status.paid') }}</Tag>
                             <Tag v-if="data.status === 'unpaid'" severity="danger">{{ $t('status.unpaid') }}</Tag>
@@ -99,10 +99,7 @@
                                 ]"
                                 option-label="label"
                                 option-value="value"
-                                filter
-                                filter-by="label"
                                 show-clear
-                                placeholder="Select a Status"
                                 class="p-column-filter"
                             />
                         </template>

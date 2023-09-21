@@ -9,13 +9,13 @@
                         <div class="grid">
                             <TextInput
                                 v-model="v$.bill.number.$model"
-                                :label="$t('bill.bill_number')"
+                                :label="$t('form.number')"
                                 :validate="v$.bill.number"
                                 class="col-12 md:col-6"
                             />
                             <SelectInput
                                 v-model="v$.bill.status.$model"
-                                label="Status"
+                                :label="$t('form.status')"
                                 class="col-12 md:col-6"
                                 :options="[
                                     { label: $t('status.draft'), value: 'draft' },
@@ -31,13 +31,13 @@
                         <div class="grid">
                             <DateInput
                                 v-model="v$.bill.date.$model"
-                                :label="$t('bill.date')"
+                                :label="$t('form.date')"
                                 :validate="v$.bill.date"
                                 class="col-12 md:col-6"
                             />
                             <DateInput
                                 v-model="v$.bill.due_date.$model"
-                                :label="$t('bill.due_date')"
+                                :label="$t('form.due_date')"
                                 :validate="v$.bill.due_date"
                                 class="col-12 md:col-6"
                             />
@@ -45,27 +45,37 @@
 
                         <div class="grid">
                             <SelectInput
-                                v-model="bill.vendor_id"
-                                :label="$t('bill.vendor')"
-                                class="col-12"
-                                :options="vendors"
+                                v-model="bill.supplier_id"
+                                :label="$t('form.supplier')"
+                                class="col-12 md:col-6"
+                                :options="suppliers"
                                 data-key="id"
                                 filter
                                 show-clear
                                 option-label="name"
                                 option-value="id"
                             />
+
+                            <SelectInput
+                                v-model="bill.supplier_address_id"
+                                :label="$t('form.supplier_address')"
+                                class="col-12 md:col-6"
+                                :options="supplierAddresses"
+                                data-key="id"
+                                option-label="addressText"
+                                option-value="id"
+                            />
                         </div>
                         <div id="items_table" class="grid">
                             <div class="col-12">
-                                <Button :label="$t('bill.add_item')" icon="fa fa-plus" @click="addItem" />
+                                <Button :label="$t('basic.add_item')" icon="fa fa-plus" @click="addItem" />
                             </div>
                             <DataTable class="col-12" :value="bill.items">
                                 <template #empty>
                                     <div class="p-4 pl-0 text-center text-gray-500">{{ $t('bill.no_items') }}</div>
                                 </template>
 
-                                <Column field="name" :header="$t('bill.name')">
+                                <Column field="name" :header="$t('form.name')">
                                     <template #body="slotProps">
                                         <Dropdown
                                             :id="`item_dropdown_${slotProps.index}`"
@@ -85,12 +95,12 @@
                                         </Dropdown>
                                     </template>
                                 </Column>
-                                <Column field="description" :header="$t('bill.description')">
+                                <Column field="description" :header="$t('form.description')">
                                     <template #body="slotProps">
                                         <TextAreaInput :id="`description_input_${slotProps.index}`" v-model="slotProps.data.description" />
                                     </template>
                                 </Column>
-                                <Column field="quantity" :header="$t('bill.quantity')">
+                                <Column field="quantity" :header="$t('form.quantity')">
                                     <template #body="slotProps">
                                         <InputNumber
                                             :id="`quantity_input_${slotProps.index}`"
@@ -102,7 +112,7 @@
                                         />
                                     </template>
                                 </Column>
-                                <Column field="price" :header="$t('bill.price')">
+                                <Column field="price" :header="$t('form.price')">
                                     <template #body="slotProps">
                                         <InputNumber
                                             :id="`price_input_${slotProps.index}`"
@@ -113,7 +123,7 @@
                                         />
                                     </template>
                                 </Column>
-                                <Column field="total" :header="$t('bill.total')">
+                                <Column field="total" :header="$t('form.total')">
                                     <template #body="slotProps">
                                         <InputNumber
                                             :id="`total_input_${slotProps.index}`"
@@ -128,7 +138,7 @@
 
                                 <Column :header="$t('basic.actions')">
                                     <template #body="slotProps">
-                                        <Button class="field p-button-danger" icon="fa fa-trash" @click="removeItem(slotProps.index)" />
+                                        <Button class="p-button-danger" icon="fa fa-trash" @click="removeItem(slotProps.index)" />
                                     </template>
                                 </Column>
                             </DataTable>
@@ -140,15 +150,15 @@
                                     id="discount_input"
                                     v-model="bill.discount"
                                     class="field col-12"
-                                    :label="$t('bill.discount')"
+                                    :label="$t('form.discount')"
                                     suffix="%"
                                     @blur="calculateTotal"
                                 />
                                 <InputNumber
                                     id="total_input"
                                     v-model="v$.bill.total.$model"
-                                    class="field col-12"
-                                    :label="$t('bill.total')"
+                                    class="col-12"
+                                    :label="$t('form.final_total')"
                                     disabled
                                     mode="currency"
                                     :currency="$settings.default_currency"
@@ -184,8 +194,18 @@ export default {
 
     setup: () => ({ v$: useVuelidate() }),
 
+    watch: {
+        'bill.supplier_id': function () {
+            if (!this.bill.supplier_id) {
+                this.supplierAddresses = []
+                return
+            }
+            this.getSupplierAddresses()
+        },
+    },
+
     created() {
-        this.getVendors()
+        this.getSuppliers()
         this.getProducts()
         this.getBillNumber()
     },
@@ -245,6 +265,17 @@ export default {
 
         removeItem(index) {
             this.bill.items.splice(index, 1)
+        },
+
+        getSupplierAddresses() {
+            if (!this.bill.supplier_id) {
+                this.supplierAddresses = []
+                return
+            }
+            this.supplierAddresses = this.formatAddresses(this.suppliers, this.bill.supplier_id)
+            if (this.supplierAddresses.length === 1) {
+                this.bill.supplier_address_id = this.supplierAddresses[0].id
+            }
         },
     },
 }

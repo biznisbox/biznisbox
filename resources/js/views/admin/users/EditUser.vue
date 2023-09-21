@@ -11,8 +11,8 @@
                                 <TextInput
                                     id="input_first_name"
                                     v-model="v$.user.first_name.$model"
-                                    :label="$t('admin.user.first_name')"
-                                    :placeholder="$t('admin.user.first_name')"
+                                    :label="$t('form.first_name')"
+                                    :placeholder="$t('form.first_name')"
                                     :validate="v$.user.first_name"
                                 />
                             </div>
@@ -21,8 +21,8 @@
                                 <TextInput
                                     id="input_last_name"
                                     v-model="user.last_name"
-                                    :label="$t('admin.user.last_name')"
-                                    placeholder="Last Name"
+                                    :label="$t('form.last_name')"
+                                    :placeholder="$t('form.last_name')"
                                 />
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                                 <SelectButtonInput
                                     id="input_active"
                                     v-model="v$.user.active.$model"
-                                    :label="$t('admin.user.active')"
+                                    :label="$t('form.active')"
                                     :options="[
                                         { value: true, label: $t('basic.yes') },
                                         { value: false, label: $t('basic.no') },
@@ -44,7 +44,7 @@
                                 <TextInput
                                     id="input_email"
                                     v-model="v$.user.email.$model"
-                                    :label="$t('admin.user.email')"
+                                    :label="$t('form.email')"
                                     placeholder="Email"
                                     :validate="v$.user.email"
                                 />
@@ -56,7 +56,7 @@
                                 <SelectInput
                                     id="input_language"
                                     v-model="user.language"
-                                    :label="$t('admin.user.language')"
+                                    :label="$t('form.language')"
                                     :options="locales"
                                     option-label="name"
                                     option-value="locale"
@@ -69,7 +69,7 @@
                                 <SelectInput
                                     id="input_role"
                                     v-model="v$.user.role.$model"
-                                    :label="$t('admin.user.role')"
+                                    :label="$t('form.role')"
                                     :options="roles"
                                     option-label="display_name"
                                     option-value="name"

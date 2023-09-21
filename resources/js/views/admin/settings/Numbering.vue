@@ -7,11 +7,10 @@
                 <div class="card">
                     <form class="formgrid">
                         <TextInput v-model="settings.invoice_number_format" :label="$t('admin.numbering.invoice')" />
-                        <TextInput v-model="settings.estimate_number_format" :label="$t('admin.numbering.estimate')" />
+                        <TextInput v-model="settings.quote_number_format" :label="$t('admin.numbering.quote')" />
                         <TextInput v-model="settings.transaction_number_format" :label="$t('admin.numbering.transaction')" />
                         <TextInput v-model="settings.payment_number_format" :label="$t('admin.numbering.payment')" />
-                        <TextInput v-model="settings.customer_number_format" :label="$t('admin.numbering.customer')" />
-                        <TextInput v-model="settings.vendor_number_format" :label="$t('admin.numbering.vendor')" />
+                        <TextInput v-model="settings.partner_number_format" :label="$t('admin.numbering.partner')" />
                         <TextInput v-model="settings.bill_number_format" :label="$t('admin.numbering.bill')" />
                         <TextInput v-model="settings.document_number_format" :label="$t('admin.numbering.document')" />
                         <TextInput v-model="settings.product_number_format" :label="$t('admin.numbering.product')" />
