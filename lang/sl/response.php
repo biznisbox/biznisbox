@@ -31,17 +31,17 @@ return [
         'delete_failed' => 'Izdelka ni bilo mogoče izbrisati',
     ],
 
-    // Vendor responses
-    'vendor' => [
-        'not_found' => 'Prodajalec ni bil najden',
-        'get_success' => 'Prodajalec je bil uspešno pridobljen',
-        'get_failed' => 'Prodajalca ni bilo mogoče pridobiti',
-        'create_success' => 'Prodajalec je bil uspešno ustvarjen',
-        'create_failed' => 'Prodajalca ni bilo mogoče ustvariti',
-        'update_success' => 'Prodajalec je bil uspešno posodobljen',
-        'update_failed' => 'Prodajalca ni bilo mogoče posodobiti',
-        'delete_success' => 'Prodajalec je bil uspešno izbrisan',
-        'delete_failed' => 'Prodajalca ni bilo mogoče izbrisati',
+    // Partner responses
+    'partner' => [
+        'not_found' => 'Partner ni najden',
+        'get_success' => 'Partnerji so bili uspešno pridobljen',
+        'get_failed' => 'Partnerjev ni bilo mogoče pridobiti',
+        'create_success' => 'Partner uspešno ustvarjena',
+        'create_failed' => 'Partnerja ni bilo mogoče ustvariti',
+        'update_success' => 'Partner uspešno posodobljen',
+        'update_failed' => 'Partnerja ni bilo mogoče posodobiti',
+        'delete_success' => 'Partner uspešno izbrisan',
+        'delete_failed' => 'Partnerja ni bilo mogoče izbrisati',
     ],
 
     // Transaction responses
@@ -60,7 +60,7 @@ return [
     //Account responses
     'accounts' => [
         'get_success' => 'Račun je bil uspešno pridobljen',
-        'get_error' => 'Računa ni bilo mogoče pridobiti',
+        'get_failed' => 'Računa ni bilo mogoče pridobiti',
         'not_found' => 'Računa ni bilo mogoče najti',
         'create_success' => 'Račun je bil uspešno ustvarjen',
         'create_error' => 'Računa ni bilo mogoče ustvariti',
@@ -84,17 +84,6 @@ return [
         'delete_error' => 'Računa ni bilo mogoče izbrisati',
     ],
 
-    //Customer responses
-    'customer' => [
-        'get_success' => 'Kupec je bil uspešno pridobljen',
-        'get_error' => 'Kupec ni bil pridobljen',
-        'not_found' => 'Kupeca ni bilo mogoče najti',
-        'create_failed' => 'Kupec ni bil ustvarjen',
-        'create_success' => 'Kupec je bil uspešno ustvarjen',
-        'update_success' => '   Kupec je bil uspešno posodobljen',
-        'delete_success' => 'Kupec je bil uspešno izbrisan',
-    ],
-
     //Document responses
     'document' => [
         'get_success' => 'Dokument je bil uspešno pridobljen',
@@ -108,60 +97,64 @@ return [
         'delete_success' => 'Dokument je bil uspešno izbrisan',
     ],
 
-    //Estimate responses
-    'estimate' => [
-        'get_success' => 'Predračun je bil uspešno pridobljen',
-        'get_error' => 'Predračuna ni bilo mogoče pridobiti',
-        'not_found' => 'Predračuna ni bilo mogoče najti',
-        'create_failed' => 'Predračun ni bil ustvarjen',
-        'create_success' => 'Predračun je bil uspešno ustvarjen',
-        'convert_success' => 'Predračun je bil uspešno pretvorjen v račun',
-        'update_success' => 'Predračun je bil uspešno posodobljen',
-        'update_failed' => 'Predračuna ni bilo mogoče posodobiti',
-        'share_success' => 'Predračun je bil uspešno posredovan',
-        'accept_reject_success' => 'Predračun je bil uspešno sprejet/zavrnjen',
-        'send_success' => 'Predračun je bil uspešno poslan',
-        'delete_success' => 'Predračun je bil uspešno izbrisan',
-        'delete_failed' => 'Predračuna ni bilo mogoče izbrisati',
-        'send_failed' => 'Predračuna ni bilo mogoče poslati',
-    ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'Datoteka pridobljena uspešno',
         'get_error' => 'Datoteke ni bilo mogoče pridobiti',
         'not_found' => 'Datoteke ni mogoče najti',
         'create_failed' => 'Datoteke ni mogoče ustvariti',
-        'create_success' => 'Datoteka uspešno ustvarena',
+        'create_success' => 'Datoteka uspešno ustvarjena',
         'update_success' => 'Datoteka uspešno posodobljena',
-        'update_failed' => 'Datoeke ni bilo mogoče posodobiti',
+        'update_failed' => 'Datoteke ni bilo mogoče posodobiti',
         'delete_failed' => 'Datoteke ni bilo mogoče izbrisati',
         'delete_success' => 'Datoteka uspešno izbrisana',
         'get_success_folder' => 'Mapa uspešno pridobljena',
         'get_error_folder' => 'Mape ni bilo mogoče pridobiti',
         'not_found_folder' => 'Mape ni bilo mogoče najti',
         'create_failed_folder' => 'Mape ni bilo mogoče ustvariti',
-        'create_success_folder' => 'Mapa uspešno ustvarena',
+        'create_success_folder' => 'Mapa uspešno ustvarjena',
         'update_success_folder' => 'Mapa uspešno posodobljena',
         'update_failed_folder' => 'Mape ni bilo mogoče posodobiti',
         'delete_failed_folder' => 'Mape ni bilo mogoče izbrisati',
         'delete_success_folder' => 'Mapa uspešno izbrisana',
     ],
 
+    //Quote responses
+    'quote' => [
+        'get_success' => 'Ponudba je bil uspešno pridobljena',
+        'get_failed' => 'Ponudbe ni bilo mogoče pridobiti',
+        'not_found' => 'Ponudbe ni bilo mogoče najti',
+        'create_failed' => 'Ponudba ni bila ustvarjena',
+        'create_success' => 'Ponudba je bila uspešno ustvarjena',
+        'convert_success' => 'Ponudba je bil uspešno pretvorjena v račun',
+        'update_success' => 'Ponudba je bila uspešno posodbljena',
+        'delete_success' => 'Ponudba je bila uspešno izbrisana',
+        'delete_failed' => 'Ponudbe ni bilo mogoče izbrisati',
+        'update_failed' => 'Ponudba ni bila posodobljena',
+        'share_success' => 'Ponudba je bila uspešno dana v skupno rabo',
+        'share_failed' => 'Ponudbe ni bilo mogoče dati v skupno rabo',
+        'accept_reject_success' => 'Ponudba je bila uspešno zavrnjena',
+        'send_success' => 'Ponudba je bila uspešno poslana',
+        'send_failed' => 'Ponudbe ni bilo mogoče poslati',
+        'pdf_failed' => 'Ustvarjanje PDF datoteke ni bilo uspešno',
+    ],
+
     //Invoice responses
     'invoice' => [
         'get_success' => 'Račun je bil uspešno pridobljen',
-        'get_error' => 'Računa ni bilo mogoče pridobiti',
+        'get_failed' => 'Računa ni bilo mogoče pridobiti',
         'not_found' => 'Računa ni bilo mogoče najti',
         'create_failed' => 'Račun ni bil ustvarjen',
         'create_success' => 'Račun je bil uspešno ustvarjen',
         'delete_success' => 'Račun je bil uspešno izbrisan',
         'update_success' => 'Račun je bil uspešno posodobljen',
         'share_success' => 'Račun je bil uspešno posredovan',
+        'share_failed' => 'Ponudbe ni bilo mogoče dati v skupno rabo',
         'send_success' => 'Račun je bil uspešno poslan',
-        'delete_failed' => 'Računa ni bilo mogoče izbrisati',
+        'pdf_failed' => 'Ustvarjanje PDF datoteke ni bilo uspešno',
         'send_failed' => 'Računa ni bilo mogoče poslati',
         'update_failed' => 'Računa ni bilo mogoče posodobiti',
+        'delete_failed' => 'Računa ni bilo mogoče izbrisati',
     ],
 
     //Online payment responses
@@ -178,8 +171,6 @@ return [
 
     //Profile responses
     'user' => [
-        'get_success' => 'Uporabnik je bil uspešno pridobljen',
-        'get_error' => 'Uporabnika ni bilo mogoče pridobiti',
         'not_found' => 'Uporabnika ni bilo mogoče najti',
         'update_success' => 'Uporabnik je bil uspešno posodobljen',
         'password_updated' => 'Geslo je bilo uspešno posodobljeno',
@@ -205,12 +196,13 @@ return [
         'get_error' => 'Dogodka ni bilo mogoče pridobiti',
         'not_found' => 'Dogodka ni mogoče najti',
         'create_failed' => 'Dogodka ni mogoče ustvariti',
-        'create_success' => 'Dogodek uspešno ustvarena',
+        'create_success' => 'Dogodek uspešno ustvarjen',
         'update_success' => 'Dogodek uspešno posodobljena',
         'update_failed' => 'Dogodka ni bilo mogoče posodobiti',
         'delete_failed' => 'Dogodka ni bilo mogoče izbrisati',
         'delete_success' => 'Dogodek uspešno izbrisana',
     ],
+
     // Email responses
     'email' => [
         'invoice_subject' => 'Račun',
@@ -248,6 +240,12 @@ return [
             'super_admin_cannot_be_updated' => 'Super Admin vloge ni mogoče posodobiti',
             'super_admin_cannot_be_deleted' => 'Super Admin vloge ni mogoče izbrisati',
         ],
+        'company_logo' => [
+            'upload_success' => 'Logotip podjetja je bil uspešno naložen',
+            'upload_failed' => 'Logotipa podjetja ni bilo mogoče naložiti',
+            'remove_success' => 'Logotip podjetja je bil uspešno odstranjen',
+            'remove_failed' => 'Logotipa podjetja ni bilo mogoče odstraniti',
+        ],
         'settings' => [
             'update_success' => 'Nastavitve so bile uspešno posodobljene',
             'update_failed' => 'Nastavitve ni bilo mogoče posodobiti',
@@ -271,16 +269,16 @@ return [
         ],
 
         'user' => [
-            'not_found' => 'User could not be found',
-            'create_failed' => 'User could not be created',
-            'create_success' => 'User was created successfully',
-            'update_success' => 'User was updated successfully',
-            'update_failed' => 'User could not be updated',
-            'delete_success' => 'User was deleted successfully',
-            'delete_failed' => 'User could not be deleted',
-            'password_reset_success' => 'Password was reset successfully',
-            'password_reset_failed' => 'Password could not be reset',
-            'delete_failed_self_account' => 'You cannot delete your own account',
+            'not_found' => 'Uporabnika ni bilo mogoče najti',
+            'create_failed' => 'Uporabnika ni bilo mogoče ustvariti',
+            'create_success' => 'Uporabnik je bil uspešno ustvarjen',
+            'update_success' => 'Uporabnik je bil uspešno posodobljen',
+            'update_failed' => 'Uporabnika ni bilo mogoče posodobiti',
+            'delete_success' => 'Uporabnik uspešno izbrisan',
+            'delete_failed' => 'Uporabnika ni bilo mogoče izbrisati',
+            'password_reset_success' => 'Geslo je ospešno ponastavljeno',
+            'password_reset_failed' => 'Gesla ni bilo mogoče ponastaviti',
+            'delete_failed_self_account' => 'Ne morate izbrisati lastnega računa',
         ],
     ],
 ];
