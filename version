@@ -1,0 +1,104 @@
+<?php
+
+// Functions for updating the version number in composer.json and package.json files
+
+// Get version from composer.json
+function get_version() {
+    $composer = json_decode(file_get_contents(__DIR__ . '/composer.json'));
+    return $composer->version;
+}
+
+
+// Get version from package.json
+function get_version_js() {
+    $package = json_decode(file_get_contents(__DIR__ . '/package.json'));
+    return $package->version;
+}
+
+
+// Update version in composer.json
+function update_version($version) {
+    $composer = json_decode(file_get_contents(__DIR__ . '/composer.json'));
+    $composer->version = $version;
+    file_put_contents(__DIR__ . '/composer.json', json_encode($composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+}
+
+
+// Update version in package.json
+function update_version_js($version) {
+    $package = json_decode(file_get_contents(__DIR__ . '/package.json'));
+    $package->version = $version;
+    file_put_contents(__DIR__ . '/package.json', json_encode($package, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+}
+
+
+// Update version in composer.json and package.json
+function update_versions($type = 'PATCH') {
+    $version = get_version();
+    $version = explode('.', $version);
+    switch ($type) {
+        case 'MAJOR':
+            $version[0]++;
+            $version[1] = 0;
+            $version[2] = 0;
+            break;
+        case 'MINOR':
+            $version[1]++;
+            $version[2] = 0;
+            break;
+        case 'PATCH':
+            $version[2]++;
+            break;
+    }
+    $version_js = $version;
+    $version = implode('.', $version);
+    $version_js = implode('.', $version_js);
+    update_version($version);
+    update_version_js($version_js);
+    return $version;
+}
+
+function get_last_version_github(){
+    $url = 'https://api.github.com/repos/biznisbox/biznisbox/tags';
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_USERAGENT, 'Biznisbox');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    $response = json_decode($response);
+    $version = $response[0]->name;
+    return $version;
+}
+
+
+// Run console command
+if (isset($argv[1])) {
+    switch ($argv[1]) {
+        case 'get':
+            echo $version;
+            break;
+        case 'get-js':
+            echo get_version_js();
+            break;
+        case 'update':
+            echo update_versions();
+            break;
+        case 'update-major':
+            echo update_versions('MAJOR');
+            break;
+        case 'update-minor':
+            echo update_versions('MINOR');
+            break;
+        case 'update-patch':
+            echo update_versions('PATCH');
+            break;
+        case 'get-last-version-github':
+            echo get_last_version_github();
+            break;
+        default:
+            echo 'Invalid command';
+    }
+}
+
+
