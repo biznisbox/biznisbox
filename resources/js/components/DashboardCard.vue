@@ -1,5 +1,5 @@
 <template>
-    <div class="card p-4" @dblclick="goToLink">
+    <div class="card p-4 cursor-pointer" @dblclick="goToLink">
         <span class="text-xl font-bold my-2 block">
             {{ title }}
         </span>

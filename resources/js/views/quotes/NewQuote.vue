@@ -248,7 +248,7 @@
                     </form>
 
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="goTo('/estimates')" />
+                        <Button :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="goTo('/quotes')" />
                         <Button
                             :label="$t('basic.save')"
                             :disabled="loadingData"

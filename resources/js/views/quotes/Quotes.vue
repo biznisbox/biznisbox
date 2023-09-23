@@ -19,7 +19,7 @@
                     paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                     :rows-per-page-options="[10, 20, 50]"
                     :global-filter-fields="['number', 'status', 'total']"
-                    @row-dblclick="viewEstimateNavigation"
+                    @row-dblclick="viewQuoteNavigation"
                 >
                     <template #empty>
                         <div class="p-4 pl-0 text-center w-full text-gray-500">
@@ -111,7 +111,7 @@
                     </Column>
                     <template #paginatorstart>
                         <div class="p-d-flex p-ai-center p-mr-2">
-                            <Button class="p-button-rounded p-button-text p-button-plain" icon="fa fa-sync" @click="getEstimates()" />
+                            <Button class="p-button-rounded p-button-text p-button-plain" icon="fa fa-sync" @click="getQuotes()" />
                         </div>
                     </template>
                 </DataTable>
@@ -138,7 +138,7 @@ export default {
     },
 
     methods: {
-        viewEstimateNavigation(rowData) {
+        viewQuoteNavigation(rowData) {
             this.$router.push(`/quotes/${rowData.data.id}`)
         },
 

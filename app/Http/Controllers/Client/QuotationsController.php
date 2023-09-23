@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Quote;
 use App\Services\Client\QuoteService;
 
 class QuotationsController extends Controller

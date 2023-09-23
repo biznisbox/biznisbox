@@ -2,7 +2,6 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BasicController;
-use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\QuotationsController;
@@ -12,10 +11,8 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\OpenBankingController;
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\OnlinePaymentController;
-use App\Http\Controllers\VendorsController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\DocumentController;
-use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\UsersController as AdminUsersController;
 use App\Http\Controllers\Admin\PermissionController as AdminPermissionController;
 use App\Http\Controllers\Admin\SettingsController as AdminSettingsController;
@@ -45,16 +42,6 @@ Route::middleware('auth')->group(function () {
         Route::put('/products/{id}', ProductController::class . '@updateProduct');
         Route::delete('/products/{id}', ProductController::class . '@deleteProduct');
         Route::get('/product/product_number', ProductController::class . '@getProductNumber');
-    });
-
-    // Customers Routes
-    Route::get('/customers', CustomersController::class . '@getCustomers');
-    Route::middleware('can:customers')->group(function () {
-        Route::get('/customers/{id}', CustomersController::class . '@getCustomer');
-        Route::post('/customers', CustomersController::class . '@createCustomer');
-        Route::put('/customers/{id}', CustomersController::class . '@updateCustomer');
-        Route::delete('/customers/{id}', CustomersController::class . '@deleteCustomer');
-        Route::get('/customer/customer_number', CustomersController::class . '@getCustomerNumber');
     });
 
     // Partners Routes
@@ -152,16 +139,6 @@ Route::middleware('auth')->group(function () {
         Route::put('/documents/{id}', DocumentController::class . '@updateDocument');
         Route::delete('/documents/{id}', DocumentController::class . '@deleteDocument');
         Route::get('/document/number', DocumentController::class . '@getDocumentNumber');
-    });
-
-    // Vendor Routes
-    Route::get('/vendors', VendorsController::class . '@getVendors');
-    Route::middleware('can:vendors')->group(function () {
-        Route::get('/vendors/{id}', VendorsController::class . '@getVendor');
-        Route::post('/vendors', VendorsController::class . '@createVendor');
-        Route::put('/vendors/{id}', VendorsController::class . '@updateVendor');
-        Route::delete('/vendors/{id}', VendorsController::class . '@deleteVendor');
-        Route::get('/vendor/vendor_number', VendorsController::class . '@getVendorNumber');
     });
 
     // Bills Routes
