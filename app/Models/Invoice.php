@@ -61,9 +61,29 @@ class Invoice extends Model implements Auditable
 
     protected $hidden = ['deleted_at', 'updated_at', 'created_at'];
 
+    protected $appends = ['preview', 'download'];
+
     public function generateTags(): array
     {
         return ['Invoice'];
+    }
+
+    public function getPreviewAttribute()
+    {
+        return URL::signedRoute('invoice.pdf', [
+            'id' => $this->id,
+            'type' => 'preview',
+            'lang' => app()->getLocale(),
+        ]);
+    }
+
+    public function getDownloadAttribute()
+    {
+        return URL::signedRoute('invoice.pdf', [
+            'id' => $this->id,
+            'type' => 'download',
+            'lang' => app()->getLocale(),
+        ]);
     }
 
     public function items()
