@@ -10,12 +10,14 @@
                             icon="fa fa-pen"
                             class="p-button-success"
                             @click="editQuoteRoute"
+                            id="edit_quote_button"
                         />
                         <Button
                             v-if="quote.status != 'accepted' && quote.status != 'converted'"
                             :label="$t('basic.delete')"
                             icon="fa fa-trash"
                             class="p-button-danger"
+                            id="delete_quote_button"
                             @click="deleteQuoteAsk(quote.id)"
                         />
                         <Button
@@ -23,10 +25,23 @@
                             :label="$t('quote.convert_to_invoice')"
                             icon="fa fa-file-invoice-dollar"
                             class="p-button-success"
+                            id="convert_quote_to_invoice_button"
                             @click="convertQuoteToInvoice(quote.id)"
                         />
-                        <Button :label="$t('basic.share')" icon="fa fa-share" class="p-button-info" @click="shareQuote($route.params.id)" />
-                        <Button :label="$t('basic.download')" icon="fa fa-download" class="p-button-info" @click="downloadQuote" />
+                        <Button
+                            :label="$t('basic.share')"
+                            id="share_quote_button"
+                            icon="fa fa-share"
+                            class="p-button-info"
+                            @click="shareQuote($route.params.id)"
+                        />
+                        <Button
+                            :label="$t('basic.download')"
+                            id="download_quote_button"
+                            icon="fa fa-download"
+                            class="p-button-info"
+                            @click="downloadQuote"
+                        />
                     </template>
                 </user-header>
 

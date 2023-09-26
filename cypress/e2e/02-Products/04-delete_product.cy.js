@@ -1,4 +1,4 @@
-describe('Delete Product', () => {
+describe('Delete product', () => {
     it('should delete product', () => {
         cy.login(Cypress.env('USERNAME'), Cypress.env('PASSWORD'))
         cy.visit('/products')
@@ -6,6 +6,6 @@ describe('Delete Product', () => {
         cy.url().should('include', '/products/')
         cy.get('div[id="header"] div div button').eq(1).click()
         cy.get('div.p-dialog div.p-dialog-footer button').eq(1).click()
-        cy.url().should('include', '/products')
+        cy.url().should('be.equal', Cypress.config().baseUrl + '/products')
     })
 })

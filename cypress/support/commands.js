@@ -10,7 +10,8 @@ Cypress.Commands.add('login', (email, password) => {
             },
         }).then((resp) => {
             expect(resp.status).to.eq(200)
-            window.sessionStorage.setItem('token', resp.body.data)
+            expect(resp.body).to.have.property('data')
+            cy.setCookie('token', resp.body.data)
         })
     })
 })

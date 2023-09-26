@@ -3,24 +3,31 @@
         <div id="archive_page">
             <user-header :title="$t('archive.archive')">
                 <template #actions>
-                    <Button :label="$t('archive.new_document')" icon="fa fa-file" @click="openNewDocumentDialog" />
-                    <Button :label="$t('archive.new_folder')" icon="fa fa-folder-plus" @click="openNewFolderDialog" />
+                    <Button :label="$t('archive.new_document')" icon="fa fa-file" @click="openNewDocumentDialog" id="new_document_button" />
+                    <Button
+                        :label="$t('archive.new_folder')"
+                        icon="fa fa-folder-plus"
+                        @click="openNewFolderDialog"
+                        id="new_folder_button"
+                    />
                     <Button
                         v-if="currentFolder != null"
                         :label="$t('archive.edit_folder')"
                         icon="fa fa-folder"
+                        id="edit_folder_button"
                         @click="editFolderOpenDialog"
                     />
                 </template>
             </user-header>
             <div class="card">
                 <div id="documents" class="grid">
-                    <div class="col-12 md:col-4">
+                    <div class="col-12 md:col-4" id="folder_tree_section">
                         <!-- Folders tree -->
                         <Tree
                             :value="folders"
                             :loading="loadingData"
                             filter
+                            id="folder_tree"
                             filter-mode="strict"
                             selection-mode="single"
                             @node-select="folderSelected"
@@ -34,13 +41,14 @@
                         </Tree>
                     </div>
 
-                    <div class="col-12 md:col-8">
+                    <div class="col-12 md:col-8" id="files_section">
                         <!-- Archive table -->
                         <DataTable
                             :value="documents"
                             :loading="loadingData"
                             paginator
                             :rows="10"
+                            id="documents_table"
                             :rows-per-page-options="[10, 20, 50]"
                             data-key="id"
                             @row-click="openDocument"
@@ -85,55 +93,67 @@
                 <TextInput id="folder_name_input" v-model="newFolderName" class="col-12" :label="$t('archive.folder_name')"></TextInput>
                 <template #footer>
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button :label="$t('basic.create')" icon="fa fa-check" @click="createFolder" />
+                        <Button id="cancel_folder_button" :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="closeNewFolderDialog" />
+                        <Button id="save_folder_button" :label="$t('basic.create')" icon="fa fa-check" @click="createFolder" class="p-button-success" />
                     </div>
                 </template>
             </Dialog>
 
             <!-- New document dialog -->
-            <div class="mt-4">
-                <Dialog v-model:visible="showNewDocumentDialog" :header="$t('archive.new_document')" modal>
-                    <div class="my-2">
-                        <FileUpload name="file" url="/api/archive/documents" @before-send="uploadDocument" @upload="afterUploadDocument" />
+            <Dialog id="upload_document_dialog" v-model:visible="showNewDocumentDialog" :header="$t('archive.new_document')" modal>
+                <div class="my-2" id="upload_document_section">
+                    <FileUpload id="file_uploader" name="file" url="/api/archive/documents" @before-send="uploadDocument" @upload="afterUploadDocument" />
+                </div>
+                <template #footer>
+                    <div id="function_buttons" class="flex gap-2 justify-content-end">
+                        <Button :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="closeNewDocumentDialog" />
                     </div>
-                    <template #footer>
-                        <div id="function_buttons" class="flex gap-2 justify-content-end">
-                            <Button
-                                :label="$t('basic.cancel')"
-                                icon="fa fa-times"
-                                class="p-button-danger"
-                                @click="closeNewDocumentDialog"
-                            />
-                        </div>
-                    </template>
-                </Dialog>
-            </div>
+                </template>
+            </Dialog>
 
             <!-- Edit folder dialog -->
-            <div class="mt-4">
-                <Dialog v-model:visible="showEditFolderDialog" :header="$t('archive.edit_folder')" modal>
-                    <TextInput id="folder_name_input" v-model="folder.label" class="col-12" :label="$t('archive.folder_name')"></TextInput>
-                    <template #footer>
-                        <div id="function_buttons" class="flex gap-2 justify-content-end">
-                            <Button :label="$t('basic.save')" icon="fa fa-check" @click="updateFolder" />
-                            <Button :label="$t('basic.delete')" icon="fa fa-trash" class="p-button-danger" @click="deleteFolderAsk" />
-                        </div>
-                    </template>
-                </Dialog>
-            </div>
+            <Dialog v-model:visible="showEditFolderDialog" :header="$t('archive.edit_folder')" modal>
+                <TextInput id="folder_name_input" v-model="folder.label" class="col-12" :label="$t('archive.folder_name')"></TextInput>
+                <template #footer>
+                    <div id="function_buttons" class="flex gap-2 justify-content-end">
+                        <Button :label="$t('basic.save')" icon="fa fa-check" @click="updateFolder" />
+                        <Button :label="$t('basic.delete')" icon="fa fa-trash" class="p-button-danger" @click="deleteFolderAsk" />
+                    </div>
+                </template>
+            </Dialog>
 
             <!-- Sidebar for file -->
             <!-- prettier-ignore-attribute -->
-            <Sidebar v-model:visible="sidebarFileShow" position="right" @hide="sidebarFileShow = false; editDocument = false;">
+            <Sidebar
+                id="document_sidebar"
+                v-model:visible="sidebarFileShow"
+                position="right"
+                @hide="sidebarFileShow = false; editDocument = false;"
+            >
                 <LoadingScreen :blocked="loadingData">
-                    <span v-if="!editDocument" class="font-bold text-x" style="word-wrap: break-word" @dblclick="editDocument = true">{{
-                        document.name
-                    }}</span>
-                    <InputText v-if="editDocument" v-model="document.name" class="mt-2 w-full" />
+                    <span
+                        v-if="!editDocument"
+                        id="document_name"
+                        class="font-bold text-x"
+                        style="word-wrap: break-word"
+                        @dblclick="editDocument = true"
+                        >{{ document.name }}</span
+                    >
+                    <InputText v-if="editDocument" id="document_name" v-model="document.name" class="mt-2 w-full" />
 
                     <div class="mt-2 flex gap-2">
-                        <Button :label="$t('basic.download')" icon="fa fa-download" @click="downloadDocument(document.download_url)" />
-                        <Button :label="$t('basic.preview')" icon="fa fa-eye" @click="previewDocument(document.preview_url)" />
+                        <Button
+                            :label="$t('basic.download')"
+                            id="document_download_button"
+                            icon="fa fa-download"
+                            @click="downloadDocument(document.download_url)"
+                        />
+                        <Button
+                            :label="$t('basic.preview')"
+                            id="document_preview_button"
+                            icon="fa fa-eye"
+                            @click="previewDocument(document.preview_url)"
+                        />
                     </div>
 
                     <div class="mt-2">
@@ -151,13 +171,20 @@
                         <DisplayData :input="$t('form.size')" :value="formatFileSize(document.file_size)" />
                     </div>
 
-                    <div class="mt-4">
-                        <Button v-if="editDocument" :label="$t('basic.save')" icon="fa fa-save" @click="updateDocument" />
+                    <div class="mt-4" id="functions_buttons">
+                        <Button
+                            v-if="editDocument"
+                            id="document_save_button"
+                            :label="$t('basic.save')"
+                            icon="fa fa-save"
+                            @click="updateDocument"
+                        />
                         <Button
                             v-if="editDocument"
                             class="p-button-danger ml-2"
                             :label="$t('basic.delete')"
                             icon="fa fa-trash"
+                            id="delete_document_button"
                             @click="deleteDocumentAsk(document)"
                         />
                     </div>

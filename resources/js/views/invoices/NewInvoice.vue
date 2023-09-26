@@ -108,9 +108,9 @@
                             />
                         </div>
 
-                        <div class="grid">
+                        <div id="item_section" class="grid">
                             <div class="col-12">
-                                <Button :label="$t('basic.add_item')" icon="fa fa-plus" @click="addItem" />
+                                <Button :label="$t('basic.add_item')" icon="fa fa-plus" @click="addItem" id="add_item_button" />
                             </div>
                             <DataTable class="col-12" :value="invoice.items">
                                 <template #empty>
@@ -123,6 +123,7 @@
                                             v-model="slotProps.data.item"
                                             :options="products"
                                             data-key="id"
+                                            :id="`product_select_${slotProps.index}`"
                                             :placeholder="$t('invoice.select_item')"
                                             @change="selectItem(slotProps.index, slotProps.data)"
                                         >
@@ -247,12 +248,19 @@
                     </form>
 
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="goTo('/invoices')" />
+                        <Button
+                            :label="$t('basic.cancel')"
+                            id="cancel_button"
+                            icon="fa fa-times"
+                            class="p-button-danger"
+                            @click="goTo('/invoices')"
+                        />
                         <Button
                             :label="$t('basic.save')"
                             :disabled="loadingData"
                             icon="fa fa-floppy-disk"
                             class="p-button-success"
+                            id="save_button"
                             @click="validateForm"
                         />
                     </div>

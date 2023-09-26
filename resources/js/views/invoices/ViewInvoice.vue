@@ -9,6 +9,7 @@
                             :label="$t('basic.edit')"
                             icon="fa fa-pen"
                             class="p-button-success"
+                            id="edit_invoice_button"
                             @click="editInvoiceNavigate"
                         />
                         <Button
@@ -16,15 +17,23 @@
                             :label="$t('basic.delete')"
                             icon="fa fa-trash"
                             class="p-button-danger"
+                            id="delete_invoice_button"
                             @click="deleteInvoiceAsk($route.params.id)"
                         />
                         <Button
                             :label="$t('basic.share')"
                             icon="fa fa-share"
                             class="p-button-info"
+                            id="share_invoice_button"
                             @click="shareInvoice($route.params.id)"
                         />
-                        <Button :label="$t('basic.download')" icon="fa fa-download" class="p-button-info" @click="downloadInvoice" />
+                        <Button
+                            :label="$t('basic.download')"
+                            id="download_invoice_button"
+                            icon="fa fa-download"
+                            class="p-button-info"
+                            @click="downloadInvoice"
+                        />
                     </template>
                 </user-header>
 

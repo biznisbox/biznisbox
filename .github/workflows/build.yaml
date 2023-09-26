@@ -42,6 +42,9 @@ jobs:
                   rm -rf cypress
                   rm -rf cypress.config.js
                   rm -rf cypress.env.json
+                  rm -rf phpunit.xml
+                  rm -rf version
+                  rm -rf crowdin.yml
             - name: Zip all files
               run: zip -r production.zip * .[^.]*
             - name: Upload artifacts

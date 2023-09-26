@@ -1,4 +1,4 @@
-describe('View Product', () => {
+describe('View product', () => {
     it('should view product', () => {
         cy.login(Cypress.env('USERNAME'), Cypress.env('PASSWORD'))
         cy.visit('/products')
