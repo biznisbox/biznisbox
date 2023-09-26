@@ -8,6 +8,7 @@ body:
   - type: textarea
     id: what-suggestion
     attributes:
+        label: Describe your idea
       value: If you have an idea for a new feature, please describe it in detail.
     validations:
       required: true
@@ -21,12 +22,14 @@ body:
         - Enhancement
         - Improvement
         - Other
-      validations:
+    validations:
         required: true
   - type: textarea
     id: why-idea
     attributes:
       description: Please describe why you think this would be a good idea.
+    validations:
+        required: true
   - type: checkboxes
     id: terms
     attributes:
