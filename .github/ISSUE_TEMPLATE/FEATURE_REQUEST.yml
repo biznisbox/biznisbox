@@ -1,0 +1,37 @@
+name: Feature request
+description: Suggest an idea for this project💡
+title: "💡[Feature request]: "
+labels: ["🎉feature", "triage"]
+assignees:
+  - patik123
+body:
+  - type: markdown
+    id: what-suggestion
+    attributes:
+      label: What suggestion do you have?
+      value: If you have an idea for a new feature, please describe it in detail.
+    validations:
+      required: true
+  - type: dropdown
+    id: idea-type
+    attributes:
+      label: What type of idea is this? 
+      multiple: true
+      options:
+        - New feature
+        - Enhancement
+        - Improvement
+        - Other
+  - type: markdown
+    id: why-idea
+    attributes:
+      label: Why do you think this would be a good idea?
+      description: Please describe why you think this would be a good idea.
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/biznisbox/biznisbox/blob/main/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
