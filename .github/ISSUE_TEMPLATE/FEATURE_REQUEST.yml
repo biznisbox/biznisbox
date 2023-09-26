@@ -9,7 +9,7 @@ body:
     id: what-suggestion
     attributes:
         label: Describe your idea
-      value: If you have an idea for a new feature, please describe it in detail.
+        value: If you have an idea for a new feature, please describe it in detail.
     validations:
       required: true
   - type: dropdown
