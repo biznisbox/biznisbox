@@ -5,10 +5,9 @@ labels: ["🎉feature", "triage"]
 assignees:
   - patik123
 body:
-  - type: markdown
+  - type: textarea
     id: what-suggestion
     attributes:
-      label: What suggestion do you have?
       value: If you have an idea for a new feature, please describe it in detail.
     validations:
       required: true
@@ -22,10 +21,11 @@ body:
         - Enhancement
         - Improvement
         - Other
-  - type: markdown
+      validations:
+        required: true
+  - type: textarea
     id: why-idea
     attributes:
-      label: Why do you think this would be a good idea?
       description: Please describe why you think this would be a good idea.
   - type: checkboxes
     id: terms
