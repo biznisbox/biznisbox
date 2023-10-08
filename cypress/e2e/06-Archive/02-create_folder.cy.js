@@ -1,4 +1,4 @@
-import {faker } from '@faker-js/faker'
+import { faker } from '@faker-js/faker'
 describe('Create folder', () => {
     it('should create folder', () => {
         cy.login(Cypress.env('USERNAME'), Cypress.env('PASSWORD'))

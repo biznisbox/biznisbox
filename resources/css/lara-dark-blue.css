@@ -3,7 +3,7 @@
 }
 
 .p-panel .p-panel-content:last-child {
-  border-top: 0 none;
+    border-top: 0 none;
 }
 
 .card {
@@ -14,10 +14,21 @@
     margin-bottom: 1rem;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
 }
-  
+
 .card-header {
     font-size: 1rem;
     font-weight: 500;
     margin-bottom: 1rem;
 }
-  
+
+.p-datatable .p-datatable-thead > tr > th:first-child {
+    border-radius: 6px 0 0 0 !important;
+}
+
+.p-datatable .p-datatable-thead > tr > th:last-child {
+    border-radius: 0 6px 0 0 !important;
+}
+
+.p-datatable .p-paginator {
+    border-radius: 0 0 6px 6px !important;
+}

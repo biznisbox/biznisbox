@@ -3,7 +3,7 @@
 }
 
 .p-panel .p-panel-content:last-child {
-  border-top: 0 none;
+    border-top: 0 none;
 }
 
 .card {
@@ -14,10 +14,22 @@
     transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
     padding: 0.75rem;
     margin-bottom: 1rem;
-  }
-  
-  .card-header {
+}
+
+.card-header {
     font-size: 1rem;
     font-weight: 500;
     margin-bottom: 1rem;
-  }
+}
+
+.p-datatable .p-datatable-thead > tr > th:first-child {
+    border-radius: 6px 0 0 0 !important;
+}
+
+.p-datatable .p-datatable-thead > tr > th:last-child {
+    border-radius: 0 6px 0 0 !important;
+}
+
+.p-datatable .p-paginator {
+    border-radius: 0 0 6px 6px !important;
+}
