@@ -5,7 +5,7 @@
                 <user-header :title="$t('profile.profile')" />
                 <div class="card">
                     <div class="grid">
-                        <div class="col-12 md:col-2">
+                        <div id="user_profile_upload" class="col-12 md:col-2">
                             <FileUpload
                                 name="picture"
                                 url="/api/my_profile/avatar"
@@ -30,6 +30,7 @@
                                             v-if="user_data.picture != null"
                                             :image="user_data.picture"
                                             size="xlarge"
+                                            class="transparent"
                                             style="cursor: pointer"
                                             @click="chooseCallback()"
                                             @contextmenu.prevent="removeAvatar"
@@ -265,6 +266,10 @@ export default {
 }
 </script>
 <style>
+.transparent {
+    background-color: transparent !important;
+}
+
 .p-fileupload-buttonbar {
     background: none !important;
     border: none !important;

@@ -176,6 +176,10 @@ export default {
 </script>
 
 <style>
+#company_data .p-avatar {
+    background-color: transparent !important;
+}
+
 .p-fileupload-buttonbar {
     background: none !important;
     border: none !important;
