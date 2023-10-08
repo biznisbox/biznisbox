@@ -14,7 +14,7 @@ export default {
                 stock_max: 0,
                 unit: '',
                 active: true,
-                type: '',
+                type: 'service',
                 barcode: '',
                 sku: '',
                 tax: '',

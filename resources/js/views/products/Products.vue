@@ -34,6 +34,15 @@
                         </div>
                     </template>
 
+                    <Column field="number" :header="$t('form.number')" sortable>
+                        <template #body="{ data }">
+                            <span>{{ data.number }}</span>
+                        </template>
+                        <template #filter="{ filterModel }">
+                            <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by number" />
+                        </template>
+                    </Column>
+
                     <Column field="name" :header="$t('form.name')" sortable>
                         <template #body="{ data }">
                             {{ data.name }}
@@ -123,6 +132,7 @@ export default {
 
         initFilters() {
             this.filters = {
+                number: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 sell_price: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 buy_price: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },

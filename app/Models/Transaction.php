@@ -123,6 +123,7 @@ class Transaction extends Model implements Auditable
 
     public function createTransaction($data)
     {
+        $transaction = self::create($data);
         if ($data['type'] == 'income') {
             $this->updateAccountAmount($data['account_id'], $data['amount'], $data['type']);
         }
@@ -130,9 +131,8 @@ class Transaction extends Model implements Auditable
             $this->updateAccountAmount($data['account_id'], $data['amount'], $data['type']);
         }
         if ($data['type'] == 'transfer') {
-            $this->transferAmount($data['from_account'], $data['to_account'], $data['amount']);
+            $this->transferAmount($data['from_account'], $data['to_account'], $data['amount'], $transaction->id);
         }
-        $transaction = self::create($data);
         incrementLastItemNumber('transaction');
         if ($transaction) {
             return $transaction;
@@ -159,7 +159,6 @@ class Transaction extends Model implements Auditable
         return false;
     }
 
-    // TODO - need to first increase the amount in the account and then decrease the amount in the account (update the account amount)
     protected function updateAccountAmount($account_id, $amount, $type)
     {
         $account = Accounts::find($account_id);
@@ -173,39 +172,47 @@ class Transaction extends Model implements Auditable
         }
     }
 
-    // TODO - need to check if the amount is available in the from account before transfer and also need to check if the from and to account is same or not
-    protected function transferAmount($from_account_id, $to_account_id, $amount)
+    protected function transferAmount($from_account_id, $to_account_id, $amount, $transaction_id = null)
     {
         $from_account = Accounts::where('id', $from_account_id)->first();
         $to_account = Accounts::where('id', $to_account_id)->first();
         if ($from_account && $to_account) {
+            $current_balance = $from_account->current_balance;
+            if ($current_balance < $amount) {
+                return false;
+            }
+
             $from_account->current_balance = $from_account->current_balance - $amount;
-            Transaction::create([
+            self::create([
+                'name' => 'Transfer to ' . $to_account->name,
                 'number' => $this->getTransactionNumber(),
                 'account_id' => $from_account_id,
                 'type' => 'expense',
-                'category' => 'transfer',
                 'description' => 'Transfer to ' . $to_account->name,
                 'amount' => $amount,
                 'currency' => $from_account->currency,
-                'currency_rate' => 1,
+                'exchange_rate' => 1,
                 'payment_method' => 'transfer',
                 'date' => now(),
+                'reference' => $transaction_id,
             ]);
+            incrementLastItemNumber('transaction');
             $from_account->save();
             $to_account->current_balance = $to_account->current_balance + $amount;
-            Transaction::create([
+            self::create([
+                'name' => 'Transfer from ' . $from_account->name,
                 'number' => $this->getTransactionNumber(),
                 'account_id' => $to_account_id,
                 'type' => 'income',
-                'category' => 'transfer',
                 'description' => 'Transfer from ' . $from_account->name,
                 'amount' => $amount,
                 'currency' => $to_account->currency,
-                'currency_rate' => 1,
+                'exchange_rate' => 1,
                 'payment_method' => 'transfer',
                 'date' => now(),
+                'reference' => $transaction_id,
             ]);
+            incrementLastItemNumber('transaction');
             $to_account->save();
         }
     }

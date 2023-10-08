@@ -93,8 +93,20 @@
                 <TextInput id="folder_name_input" v-model="newFolderName" class="col-12" :label="$t('archive.folder_name')"></TextInput>
                 <template #footer>
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button id="cancel_folder_button" :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="closeNewFolderDialog" />
-                        <Button id="save_folder_button" :label="$t('basic.create')" icon="fa fa-check" @click="createFolder" class="p-button-success" />
+                        <Button
+                            id="cancel_folder_button"
+                            :label="$t('basic.cancel')"
+                            icon="fa fa-times"
+                            class="p-button-danger"
+                            @click="closeNewFolderDialog"
+                        />
+                        <Button
+                            id="save_folder_button"
+                            :label="$t('basic.create')"
+                            icon="fa fa-check"
+                            @click="createFolder"
+                            class="p-button-success"
+                        />
                     </div>
                 </template>
             </Dialog>
@@ -102,7 +114,13 @@
             <!-- New document dialog -->
             <Dialog id="upload_document_dialog" v-model:visible="showNewDocumentDialog" :header="$t('archive.new_document')" modal>
                 <div class="my-2" id="upload_document_section">
-                    <FileUpload id="file_uploader" name="file" url="/api/archive/documents" @before-send="uploadDocument" @upload="afterUploadDocument" />
+                    <FileUpload
+                        id="file_uploader"
+                        name="file"
+                        url="/api/archive/documents"
+                        @before-send="uploadDocument"
+                        @upload="afterUploadDocument"
+                    />
                 </div>
                 <template #footer>
                     <div id="function_buttons" class="flex gap-2 justify-content-end">

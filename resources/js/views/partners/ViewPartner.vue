@@ -90,7 +90,7 @@
                                                 <Tag v-if="data.type === 'billing'" :value="$t('address_types.billing')" />
                                                 <Tag v-if="data.type === 'shipping'" :value="$t('address_types.shipping')" />
                                                 <Tag v-if="data.type === 'office'" :value="$t('address_types.office')" />
-                                                <Tag v-if="data.type === 'other'" :value="$t('address_types.other')" />
+                                                <Tag v-if="data.type === 'other'" :value="$t('basic.other')" />
                                             </template>
                                         </Column>
                                         <Column field="address" :header="$t('form.address')" />

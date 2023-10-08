@@ -68,6 +68,9 @@ class OnlinePaymentService
                 'payment_id' => $payment->id,
                 'payment_status' => $payment->payment_status,
                 'payment_response' => $payment,
+                'payment_type' => 'online',
+                'payment_amount' => $invoice->total,
+                'payment_currency' => $invoice->currency,
                 'key' => $key,
             ]);
 
@@ -111,14 +114,14 @@ class OnlinePaymentService
 
             if ($session->payment_status == 'paid') {
                 $payment->payment_status = 'success';
+                $payment->payment_amount = $session->amount_total / 100;
+                $payment->payment_currency = $session->currency;
                 $payment->save();
-
-                $transaction_number = new Transaction();
-                $transaction_number = $transaction_number->getTransactionNumber();
 
                 $transaction = Transaction::create([
                     'name' => __('response.payment.invoice') . ' ' . $invoice->number,
                     'invoice_id' => $invoice->id,
+                    'payment_id' => $payment->id,
                     'amount' => $invoice->total,
                     'customer_id' => $invoice->customer_id,
                     'currency' => $invoice->currency,
@@ -126,7 +129,7 @@ class OnlinePaymentService
                     'payment_method' => 'stripe',
                     'payment_status' => 'success',
                     'type' => 'income',
-                    'number' => $transaction_number,
+                    'number' => Transaction::getTransactionNumber(),
                     'date' => date('Y-m-d'),
                     'referenced_online_payment' => $payment->id,
                 ]);
@@ -199,6 +202,9 @@ class OnlinePaymentService
                     'payment_id' => $payment['id'],
                     'payment_status' => $payment['state'],
                     'payment_response' => $payment,
+                    'payment_type' => 'online',
+                    'payment_amount' => $invoice->total,
+                    'payment_currency' => $invoice->currency,
                     'key' => $key,
                 ]);
 
@@ -257,9 +263,6 @@ class OnlinePaymentService
                 $payment->payment_status = 'success';
                 $payment->save();
 
-                $transaction_number = new Transaction();
-                $transaction_number = $transaction_number->getTransactionNumber();
-
                 $transaction = Transaction::create([
                     'name' => __('response.payment.invoice') . ' ' . $invoice->number,
                     'invoice_id' => $invoice->id,
@@ -270,7 +273,7 @@ class OnlinePaymentService
                     'payment_method' => 'paypal',
                     'payment_status' => 'success',
                     'type' => 'income',
-                    'number' => $transaction_number,
+                    'number' => Transaction::getTransactionNumber(),
                     'date' => date('Y-m-d'),
                     'referenced_online_payment' => $payment->id,
                 ]);
