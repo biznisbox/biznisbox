@@ -18,10 +18,10 @@
                 <Avatar
                     v-if="user.data.avatar != null"
                     :image="user.data.avatar"
-                    class="user-avatar cursor-pointer"
+                    class="user-avatar cursor-pointer bg-transparent"
                     @click="toggleUserMenu"
                 />
-                <Menu ref="user-avatar-menu" :model="menu_items" :popup="true" class="user-avatar-menu-dropdown" />
+                <Menu ref="user-avatar-menu" :model="menu_items" popup class="user-avatar-menu-dropdown" />
             </template>
         </Toolbar>
 
