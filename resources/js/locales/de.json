@@ -352,6 +352,7 @@
         "share_dialog_text": "Kopieren Sie den unten stehenden Link und teilen Sie ihn mit Ihrem Kunden oder scannen Sie den QR-Code.",
         "create_first_invoice": "Erstelle deine erste Rechnung",
         "no_customer": "Kein Kunde",
+        "add_payment": "Add payment",
         "no_payer": "No payer",
         "no_items": "Keine Elemente",
         "add_item": "Element hinzufügen",
