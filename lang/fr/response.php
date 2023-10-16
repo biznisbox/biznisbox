@@ -156,6 +156,7 @@ return [
         'send_failed' => 'La facture n\'a pas pu être envoyée',
         'update_failed' => 'La facture n\'a pas pu être mise à jour',
         'delete_failed' => 'La facture n\'a pas pu être supprimée',
+        'transaction_success' => 'Transaction was added successfully',
     ],
 
     //Online payment responses
