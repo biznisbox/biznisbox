@@ -352,6 +352,7 @@
         "share_dialog_text": "Kopioi alla oleva linkki ja jaa se asiakkaallesi tai skannaa QR-koodi.",
         "create_first_invoice": "Luo ensimmäinen laskusi",
         "no_customer": "Ei asiakasta",
+        "add_payment": "Add payment",
         "no_payer": "No payer",
         "no_items": "Ei kohteita",
         "add_item": "Lisää kohde",
