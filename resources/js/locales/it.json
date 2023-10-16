@@ -352,6 +352,7 @@
         "share_dialog_text": "Copiare il link qui sotto e condividerlo con il cliente o scansionare il codice QR.",
         "create_first_invoice": "Crea la tua prima fattura",
         "no_customer": "Nessun cliente",
+        "add_payment": "Add payment",
         "no_payer": "No payer",
         "no_items": "Nessun elemento",
         "add_item": "Aggiungi elemento",
