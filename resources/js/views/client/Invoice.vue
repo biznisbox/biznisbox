@@ -22,13 +22,13 @@
                                 @click="downloadInvoice"
                             />
                             <Button
-                                v-if="$settings.stripe_available && invoice.status != 'paid'"
+                                v-if="$settings.stripe_available && invoice.status != 'paid' && invoice.status != 'overpaid'"
                                 class="mr-2 no-print"
                                 icon="fa fa-credit-card"
                                 @click="payWithCard"
                             />
                             <Button
-                                v-if="$settings.paypal_available && invoice.status != 'paid'"
+                                v-if="$settings.paypal_available && invoice.status != 'paid' && invoice.status != 'overpaid'"
                                 class="mr-2 no-print"
                                 icon="fab fa-paypal"
                                 @click="payWithPaypal"
@@ -100,6 +100,8 @@
                                 <Tag v-if="invoice.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
                                 <Tag v-if="invoice.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
                                 <Tag v-if="invoice.status === 'refunded'" severity="">{{ $t('status.refunded') }}</Tag>
+                                <Tag v-if="invoice.status === 'partial'" severity="warning">{{ $t('status.partial') }}</Tag>
+                                <Tag v-if="invoice.status === 'overpaid'" severity="danger">{{ $t('status.overpaid') }}</Tag>
                                 <Tag v-if="invoice.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
                             </DisplayData>
                         </div>
@@ -175,6 +177,56 @@
                             </table>
                         </div>
                     </div>
+
+                    <div v-if="invoice.transactions.length > 0" id="transactions" class="my-5">
+                        <div class="font-bold my-2">{{ $t('transaction.transaction', 2) }}</div>
+
+                        <DataTable :value="invoice.transactions">
+                            <template #empty>
+                                <div class="p-4 pl-0 text-center w-full text-gray-500">
+                                    <i class="fa fa-info-circle empty-icon"></i>
+                                    <p>{{ $t('transaction.no_transactions') }}</p>
+                                </div>
+                            </template>
+
+                            <Column field="name" :header="$t('transaction.name')">
+                                <template #body="{ data }">
+                                    <span>{{ data.name ? data.name : '-' }}</span>
+                                </template>
+                            </Column>
+
+                            <Column field="date" :header="$t('transaction.date_and_number')">
+                                <template #body="{ data }">
+                                    <span>{{ data.date ? formatDate(data.date) : '-' }}</span
+                                    ><br />
+                                    <span>{{ data.number }}</span>
+                                </template>
+                            </Column>
+
+                            <Column field="amount" :header="$t('transaction.amount')">
+                                <template #body="{ data }">
+                                    <span>{{ data.amount ? data.amount + ' ' + data.currency : '-' }}</span> <br />
+                                </template>
+                            </Column>
+
+                            <Column field="type" :header="$t('transaction.type')">
+                                <template #body="{ data }">
+                                    <span v-if="data.type === 'income'">
+                                        <i class="fa fa-arrow-up text-green-500 mr-2"></i>
+                                        <span>{{ $t('transaction.income') }}</span>
+                                    </span>
+                                    <span v-if="data.type === 'expense'">
+                                        <i class="fa fa-arrow-down text-red-500 mr-2"></i>
+                                        <span>{{ $t('transaction.expense') }}</span>
+                                    </span>
+                                    <span v-if="data.type === 'transfer'">
+                                        <i class="fa fa-exchange-alt text-blue-500 mr-2"></i>
+                                        <span>{{ $t('transaction.transfer') }}</span>
+                                    </span>
+                                </template>
+                            </Column>
+                        </DataTable>
+                    </div>
                 </div>
             </div>
         </LoadingScreen>
@@ -213,6 +265,7 @@ export default {
                 discount_type: '',
                 tax: '',
                 total: 0.0,
+                transactions: [],
             },
         }
     },

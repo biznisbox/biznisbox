@@ -92,4 +92,14 @@ class InvoiceController extends Controller
         }
         return api_response(null, __('response.invoice.not_found'), 404);
     }
+
+    public function addTransaction(Request $request, $id)
+    {
+        $transaction = $this->invoiceModel->addTransaction($id, $request->amount);
+
+        if ($transaction) {
+            return api_response($transaction, __('response.invoice.transaction_success'), 200);
+        }
+        return api_response(null, __('response.invoice.not_found'), 404);
+    }
 }

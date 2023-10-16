@@ -139,7 +139,7 @@ class OnlinePaymentService
                     Transaction::updateAccountAmount(settings('stripe_account_id'), $invoice->total, 'income');
                     $invoice->status = 'paid';
                     $invoice->save();
-
+                    incrementLastItemNumber('transaction');
                     activity_log(null, 'validate payment stripe', $payment->id, 'Online Payment', 'payment stripe', 'external', $key);
 
                     if ($request->type == 'web') {
@@ -292,7 +292,7 @@ class OnlinePaymentService
                     Transaction::updateAccountAmount(settings('paypal_account_id'), $invoice->total, 'income');
                     $invoice->status = 'paid';
                     $invoice->save();
-
+                    incrementLastItemNumber('transaction');
                     activity_log(null, 'validate payment paypal', $payment->id, 'Online Payment', 'payment paypal', 'external', $key);
 
                     if ($request->type == 'web') {

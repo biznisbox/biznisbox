@@ -5,7 +5,7 @@
                 <user-header :title="invoice.number">
                     <template #actions>
                         <Button
-                            v-if="invoice.status != 'paid'"
+                            v-if="invoice.status != 'paid' && invoice.status != 'overpaid' && invoice.status != 'refunded'"
                             :label="$t('basic.edit')"
                             icon="fa fa-pen"
                             class="p-button-success"
@@ -13,12 +13,18 @@
                             @click="editInvoiceNavigate"
                         />
                         <Button
-                            v-if="invoice.status != 'paid'"
+                            v-if="invoice.status != 'paid' && invoice.status != 'overpaid' && invoice.status != 'refunded'"
                             :label="$t('basic.delete')"
                             icon="fa fa-trash"
                             class="p-button-danger"
                             id="delete_invoice_button"
                             @click="deleteInvoiceAsk($route.params.id)"
+                        />
+                        <Button
+                            v-if="invoice.status != 'paid' && invoice.status != 'overpaid' && invoice.status != 'refunded'"
+                            :label="$t('invoice.add_payment')"
+                            icon="fa fa-plus"
+                            @click="addTransactionDialog = true"
                         />
                         <Button
                             :label="$t('basic.share')"
@@ -92,6 +98,8 @@
                                 <Tag v-if="invoice.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
                                 <Tag v-if="invoice.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
                                 <Tag v-if="invoice.status === 'refunded'" severity="">{{ $t('status.refunded') }}</Tag>
+                                <Tag v-if="invoice.status === 'partial'" severity="warning">{{ $t('status.partial') }}</Tag>
+                                <Tag v-if="invoice.status === 'overpaid'" severity="danger">{{ $t('status.overpaid') }}</Tag>
                                 <Tag v-if="invoice.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
                             </DisplayData>
                         </div>
@@ -170,6 +178,55 @@
                         </div>
                     </div>
 
+                    <div id="transactions" class="my-5">
+                        <div class="font-bold my-2">{{ $t('transaction.transaction', 2) }}</div>
+
+                        <DataTable :value="invoice.transactions">
+                            <template #empty>
+                                <div class="p-4 pl-0 text-center w-full text-gray-500">
+                                    <i class="fa fa-info-circle empty-icon"></i>
+                                    <p>{{ $t('transaction.no_transactions') }}</p>
+                                </div>
+                            </template>
+
+                            <Column field="name" :header="$t('transaction.name')">
+                                <template #body="{ data }">
+                                    <span>{{ data.name ? data.name : '-' }}</span>
+                                </template>
+                            </Column>
+
+                            <Column field="date" :header="$t('transaction.date_and_number')">
+                                <template #body="{ data }">
+                                    <span>{{ data.date ? formatDate(data.date) : '-' }}</span
+                                    ><br />
+                                    <span>{{ data.number }}</span>
+                                </template>
+                            </Column>
+
+                            <Column field="amount" :header="$t('transaction.amount')">
+                                <template #body="{ data }">
+                                    <span>{{ data.amount ? data.amount + ' ' + data.currency : '-' }}</span> <br />
+                                </template>
+                            </Column>
+                            <Column field="type" :header="$t('transaction.type')">
+                                <template #body="{ data }">
+                                    <span v-if="data.type === 'income'">
+                                        <i class="fa fa-arrow-up text-green-500 mr-2"></i>
+                                        <span>{{ $t('transaction.income') }}</span>
+                                    </span>
+                                    <span v-if="data.type === 'expense'">
+                                        <i class="fa fa-arrow-down text-red-500 mr-2"></i>
+                                        <span>{{ $t('transaction.expense') }}</span>
+                                    </span>
+                                    <span v-if="data.type === 'transfer'">
+                                        <i class="fa fa-exchange-alt text-blue-500 mr-2"></i>
+                                        <span>{{ $t('transaction.transfer') }}</span>
+                                    </span>
+                                </template>
+                            </Column>
+                        </DataTable>
+                    </div>
+
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
                         <Button :label="$t('basic.close')" icon="fa fa-times" class="p-button-danger" @click="goTo('/invoices')" />
                     </div>
@@ -193,6 +250,26 @@
                     <Button :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="shareDialog = false" />
                 </template>
             </Dialog>
+
+            <!-- Add transaction dialog -->
+            <Dialog ref="add_transaction_dialog" v-model:visible="addTransactionDialog" :header="$t('invoice.add_payment')" modal>
+                <div id="add_transaction_dialog_content">
+                    <form>
+                        <NumberInput
+                            id="amount_input"
+                            v-model="transaction.amount"
+                            type="currency"
+                            :currency="invoice.currency"
+                            :label="$t('transaction.amount')"
+                            class="col-12"
+                        />
+                    </form>
+                </div>
+                <template #footer>
+                    <Button :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="closeSaveTransactionDialog" />
+                    <Button :label="$t('basic.save')" icon="fa fa-save" class="p-button-success" @click="saveTransaction" />
+                </template>
+            </Dialog>
         </div>
     </user-layout>
 </template>
@@ -210,6 +287,11 @@ export default {
     data() {
         return {
             shareDialog: false,
+            addTransactionDialog: false,
+
+            transaction: {
+                amount: 0,
+            },
         }
     },
     created() {
@@ -223,6 +305,21 @@ export default {
 
         downloadInvoice() {
             window.open(this.invoice.download, '_blank')
+        },
+
+        closeSaveTransactionDialog() {
+            this.transaction = {
+                amount: 0,
+            }
+            this.addTransactionDialog = false
+        },
+
+        saveTransaction() {
+            this.makeHttpRequest('POST', '/api/invoice/transaction/' + this.invoice.id, this.transaction).then((response) => {
+                this.showToast(response.data.message)
+                this.closeSaveTransactionDialog()
+                this.getInvoice(this.$route.params.id)
+            })
         },
     },
 }

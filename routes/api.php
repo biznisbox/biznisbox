@@ -64,6 +64,7 @@ Route::middleware('auth')->group(function () {
         Route::delete('/invoices/{id}', InvoiceController::class . '@deleteInvoice');
         Route::get('/invoice/invoice_number', InvoiceController::class . '@getInvoiceNumber');
         Route::get('/invoice/share/{id}', InvoiceController::class . '@shareInvoice');
+        Route::post('/invoice/transaction/{id}', InvoiceController::class . '@addTransaction');
     });
 
     // Quotes Routes

@@ -156,6 +156,7 @@ return [
         'send_failed' => 'Invoice could not be sent',
         'update_failed' => 'Invoice could not be updated',
         'delete_failed' => 'Invoice could not be deleted',
+        'transaction_success' => 'Transaction was added successfully',
     ],
 
     //Online payment responses

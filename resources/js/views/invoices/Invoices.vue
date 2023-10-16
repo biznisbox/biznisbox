@@ -83,6 +83,8 @@
                             <Tag v-if="data.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
                             <Tag v-if="data.status === 'refunded'" severity="">{{ $t('status.refunded') }}</Tag>
                             <Tag v-if="data.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
+                            <Tag v-if="data.status === 'partial'" severity="warning">{{ $t('status.partial') }}</Tag>
+                            <Tag v-if="data.status === 'overpaid'" severity="danger">{{ $t('status.overpaid') }}</Tag>
                         </template>
 
                         <template #filter="{ filterModel }">

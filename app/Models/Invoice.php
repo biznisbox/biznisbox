@@ -12,6 +12,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Support\Facades\URL;
+use App\Models\Transaction;
 
 class Invoice extends Model implements Auditable
 {
@@ -68,6 +69,11 @@ class Invoice extends Model implements Auditable
         return ['Invoice'];
     }
 
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'invoice_id');
+    }
+
     public function getPreviewAttribute()
     {
         return URL::signedRoute('invoice.pdf', [
@@ -115,7 +121,7 @@ class Invoice extends Model implements Auditable
     {
         try {
             DB::beginTransaction();
-            $invoice = Invoice::with('items')->find($id);
+            $invoice = Invoice::with('items', 'transactions')->find($id);
             DB::commit();
             activity_log(user_data()->data->id, 'get invoice', $id, 'App\Models\Invoice', 'getInvoice');
             return $invoice;
@@ -304,7 +310,7 @@ class Invoice extends Model implements Auditable
     {
         try {
             DB::beginTransaction();
-            $invoice = $this->with('items')->find($id);
+            $invoice = $this->with('items', 'transactions')->find($id);
             $invoice->notes = null;
             $invoice->preview = URL::signedRoute('invoice.pdf', ['id' => $invoice->id, 'type' => 'preview', 'lang' => app()->getLocale()]);
             $invoice->download = URL::signedRoute('invoice.pdf', [
@@ -334,6 +340,62 @@ class Invoice extends Model implements Auditable
         } else {
             activity_log(null, 'StreamInvoice', $invoice->id, 'Invoice', 'Invoice');
             return $pdf->stream('Invoice ' . $invoice->number . '.pdf');
+        }
+    }
+
+    /**
+     * Add transaction to invoice (payment)
+     *
+     * @param UUID $id invoice id to add transaction
+     * @param double $amount amount of transaction
+     * @return void
+     */
+    public function addTransaction($id, $amount)
+    {
+        try {
+            DB::beginTransaction();
+            $invoice = $this->find($id);
+
+            $transaction = Transaction::create([
+                'number' => Transaction::getTransactionNumber(),
+                'type' => 'income',
+                'amount' => $amount,
+                'date' => date('Y-m-d'),
+                'invoice_id' => $id,
+                'customer_id' => $invoice->customer_id,
+                'supplier_id' => $invoice->payer_id,
+                'currency' => $invoice->currency,
+                'currency_rate' => $invoice->currency_rate,
+            ]);
+
+            if ($transaction) {
+                // Get all transactions of invoice
+                $transactions = Transaction::where('invoice_id', $id)->get();
+
+                // Calculate total of all transactions
+                $total = 0;
+                foreach ($transactions as $transaction) {
+                    $total += $transaction->amount;
+                }
+
+                // Update invoice total
+                if ($total == $invoice->total) {
+                    $invoice->status = 'paid';
+                }
+                if ($total > 0 && $total < $invoice->total) {
+                    $invoice->status = 'partial'; // 'partial' or 'paid'
+                }
+                if ($total > $invoice->total) {
+                    $invoice->status = 'overpaid';
+                }
+                $invoice->save();
+                incrementLastItemNumber('transaction');
+                DB::commit();
+                return $transaction;
+            }
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return false;
         }
     }
 
