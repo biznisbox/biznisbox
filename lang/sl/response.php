@@ -156,6 +156,7 @@ return [
         'send_failed' => 'Računa ni bilo mogoče poslati',
         'update_failed' => 'Računa ni bilo mogoče posodobiti',
         'delete_failed' => 'Računa ni bilo mogoče izbrisati',
+        'transaction_success' => 'Transaction was added successfully',
     ],
 
     //Online payment responses
