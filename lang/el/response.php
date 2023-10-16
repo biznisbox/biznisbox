@@ -156,6 +156,7 @@ return [
         'send_failed' => 'Δεν ήταν δυνατή η αποστολή τιμολογίου',
         'update_failed' => 'Το τιμολόγιο δεν μπόρεσε να ενημερωθεί',
         'delete_failed' => 'Δεν ήταν δυνατή η διαγραφή του τιμολογίου',
+        'transaction_success' => 'Transaction was added successfully',
     ],
 
     //Online payment responses
