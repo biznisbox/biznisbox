@@ -51,6 +51,14 @@
                             </div>
                         </template>
                     </Column>
+
+                    <Column field="is_active" :header="$t('form.active')">
+                        <template #body="{ data }">
+                            <Tag v-if="data.is_active" :value="$t('basic.yes')" severity="success" />
+                            <Tag v-else :value="$t('basic.no')" severity="danger" />
+                        </template>
+                    </Column>
+
                     <Column field="type" :header="$t('form.account_type')">
                         <template #body="{ data }">
                             <Tag v-if="data.type === 'bank_account'" :value="$t('account_types.bank_account')"></Tag>

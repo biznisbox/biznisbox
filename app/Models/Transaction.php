@@ -159,7 +159,7 @@ class Transaction extends Model implements Auditable
         return false;
     }
 
-    protected function updateAccountAmount($account_id, $amount, $type)
+    public static function updateAccountAmount($account_id, $amount, $type)
     {
         $account = Accounts::find($account_id);
         if ($account) {

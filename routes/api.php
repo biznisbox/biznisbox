@@ -185,6 +185,8 @@ Route::middleware('auth')->group(function () {
                 Route::post('/company_logo', AdminSettingsController::class . '@saveCompanyImage');
                 Route::delete('/company_logo', AdminSettingsController::class . '@removeCompanyImage');
             });
+
+            // Settings Routes
             Route::middleware(['can:admin_general_settings'])->group(function () {
                 Route::get('/settings', AdminSettingsController::class . '@getSettings');
                 Route::put('/settings', AdminSettingsController::class . '@updateSettings');

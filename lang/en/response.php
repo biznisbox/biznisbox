@@ -70,6 +70,7 @@ return [
         'delete_error' => 'Account could not be deleted',
         'get_success' => 'Account retrieved successfully',
         'get_error' => 'Account could not be retrieved',
+        'delete_default_account' => 'Default account cannot be deleted',
     ],
 
     //Bill responses

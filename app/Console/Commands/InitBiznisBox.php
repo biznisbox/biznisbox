@@ -8,6 +8,7 @@ use App\Models\Permission;
 use App\Models\Settings;
 use App\Models\Currencies as Currency;
 use App\Models\Units as Unit;
+use App\Models\Accounts as Account;
 
 class InitBiznisBox extends Command
 {
@@ -99,6 +100,43 @@ class InitBiznisBox extends Command
             ]);
         }
 
+        // Create default accounts if not updating - this will prevent overwriting user accounts
+        if (!$this->option('update')) {
+            $this->info('Creating default accounts...');
+            Account::firstOrCreate([
+                'name' => 'Default account',
+                'type' => 'bank_account',
+                'is_default' => 1,
+                'is_active' => 1,
+                'opening_balance' => 0,
+                'current_balance' => 0,
+                'description' => 'Default account',
+                'currency' => 'EUR',
+            ]);
+            Account::firstOrCreate([
+                'name' => 'PayPal',
+                'type' => 'online_account',
+                'is_default' => 0,
+                'is_active' => 0,
+                'integration' => 'paypal',
+                'opening_balance' => 0,
+                'current_balance' => 0,
+                'description' => 'PayPal account',
+                'currency' => 'EUR',
+            ]);
+            Account::firstOrCreate([
+                'name' => 'Stripe',
+                'type' => 'online_account',
+                'is_default' => 0,
+                'is_active' => 0,
+                'integration' => 'stripe',
+                'opening_balance' => 0,
+                'current_balance' => 0,
+                'description' => 'Stripe account',
+                'currency' => 'EUR',
+            ]);
+        }
+
         // Create default settings if not updating - this will prevent overwriting user settings
         if (!$this->option('update')) {
             $this->info('Creating default settings...');
@@ -121,6 +159,7 @@ class InitBiznisBox extends Command
 
             Settings::firstOrCreate(['key' => 'stripe_available'], ['value' => false, 'type' => 'boolean', 'is_public' => 1]);
             Settings::firstOrCreate(['key' => 'stripe_key'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
+            Settings::firstOrCreate(['key' => 'stripe_account_id'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
 
             Settings::firstOrCreate(['key' => 'open_banking_available'], ['value' => false, 'type' => 'boolean', 'is_public' => 1]);
             Settings::firstOrCreate(['key' => 'open_banking_id'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
@@ -130,6 +169,7 @@ class InitBiznisBox extends Command
             Settings::firstOrCreate(['key' => 'paypal_secret'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
             Settings::firstOrCreate(['key' => 'paypal_available'], ['value' => false, 'type' => 'boolean', 'is_public' => 1]);
             Settings::firstOrCreate(['key' => 'paypal_test_mode'], ['value' => true, 'type' => 'boolean', 'is_public' => 1]);
+            Settings::firstOrCreate(['key' => 'paypal_account_id'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
 
             Settings::firstOrCreate(
                 ['key' => 'quote_number_format'],

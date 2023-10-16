@@ -24,9 +24,9 @@
                                     <DisplayData :input="$t('form.name')" :value="account.name" />
                                 </div>
                                 <div class="col-12 sm:col-6">
-                                    <Tag v-if="account.type === 'bank_account'" :value="$t('account_types.bank_account')"></Tag>
-                                    <Tag v-if="account.type === 'cash'" :value="$t('account_types.cash')"></Tag>
-                                    <Tag v-if="account.type === 'online_account'" :value="$t('account_types.online_account')"></Tag>
+                                    <Tag v-if="account.type === 'bank_account'" :value="$t('account_types.bank_account')" />
+                                    <Tag v-if="account.type === 'cash'" :value="$t('account_types.cash')" />
+                                    <Tag v-if="account.type === 'online_account'" :value="$t('account_types.online_account')" />
                                 </div>
                             </div>
 

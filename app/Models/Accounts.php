@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use OwenIt\Auditing\Contracts\Auditable;
 
 class Accounts extends Model implements Auditable
@@ -89,12 +91,8 @@ class Accounts extends Model implements Auditable
         if ($account->is_default == 1) {
             return false;
         }
-
-        $account->delete();
-        if ($account) {
-            return true;
-        }
-        return false;
+        $account = $account->delete();
+        return $account;
     }
 
     public function getAccount($id)

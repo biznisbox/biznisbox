@@ -2,6 +2,7 @@
 
 namespace App\Services\Admin;
 
+use App\Models\Accounts;
 use App\Models\Settings;
 use App\Models\Currencies;
 use App\Models\Taxes;
@@ -68,6 +69,15 @@ class SettingsService
     public function updateSettings($data)
     {
         settings($data);
+
+        // Activate Stripe and Paypal accounts if they are available and have keys
+        if ($data['stripe_available'] && $data['stripe_key'] && $data['stripe_account_id']) {
+            Accounts::find($data['stripe_account_id'])->update(['is_active' => 1]);
+        }
+
+        if ($data['paypal_available'] && $data['paypal_client_id'] && $data['paypal_secret']) {
+            Accounts::find($data['paypal_account_id'])->update(['is_active' => 1]);
+        }
         activity_log(user_data()->data->id, 'update settings', null, 'App\Models\Settings', 'updateSettings');
         return api_response(null, __('response.admin.settings.update_success'));
     }

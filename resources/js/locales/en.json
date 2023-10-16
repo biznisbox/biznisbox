@@ -216,7 +216,10 @@
         "active": "Active",
         "role": "Role",
         "roles": "Roles",
-        "permissions": "Permissions"
+        "permissions": "Permissions",
+        "category": "Category",
+        "categories": "Categories",
+        "active_account": "Active Account"
     },
     "address_types": {
         "billing": "Billing",
@@ -536,6 +539,7 @@
             "stripe_available": "Stripe available",
             "stripe_key": "Stripe API Key",
             "stripe_key_help": "You can find your API keys in your Stripe account.",
+            "stripe_account_id": "Stripe internal account ID",
             "paypal": "PayPal",
             "paypal_available": "PayPal available",
             "paypal_test_mode": "Test Mode",
@@ -543,6 +547,7 @@
             "paypal_client_id_help": "You can find your Client ID in your PayPal account.",
             "paypal_secret": "PayPal Secret",
             "paypal_secret_help": "You can find your Secret in your PayPal account.",
+            "paypal_account_id": "PayPal internal account ID",
             "open_banking": "Open Banking",
             "open_banking_available": "Open Banking available",
             "open_banking_client_id": "Open Banking Client ID",

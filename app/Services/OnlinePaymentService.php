@@ -121,6 +121,7 @@ class OnlinePaymentService
                 $transaction = Transaction::create([
                     'name' => __('response.payment.invoice') . ' ' . $invoice->number,
                     'invoice_id' => $invoice->id,
+                    'account_id' => settings('stripe_account_id'),
                     'payment_id' => $payment->id,
                     'amount' => $invoice->total,
                     'customer_id' => $invoice->customer_id,
@@ -134,15 +135,23 @@ class OnlinePaymentService
                     'referenced_online_payment' => $payment->id,
                 ]);
 
-                $invoice->status = 'paid';
-                $invoice->save();
+                if ($transaction) {
+                    Transaction::updateAccountAmount(settings('stripe_account_id'), $invoice->total, 'income');
+                    $invoice->status = 'paid';
+                    $invoice->save();
 
-                activity_log(null, 'validate payment stripe', $payment->id, 'Online Payment', 'payment stripe', 'external', $key);
+                    activity_log(null, 'validate payment stripe', $payment->id, 'Online Payment', 'payment stripe', 'external', $key);
+
+                    if ($request->type == 'web') {
+                        return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=success&lang=' . app()->getLocale());
+                    }
+                    return api_response(true, __('response.payment.success'));
+                }
 
                 if ($request->type == 'web') {
-                    return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=success&lang=' . app()->getLocale());
+                    return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=error&lang=' . app()->getLocale());
                 }
-                return api_response(true, __('response.payment.success'));
+                return api_response(false, __('response.payment.failed'), 400);
             }
 
             if ($request->type == 'web') {
@@ -263,9 +272,10 @@ class OnlinePaymentService
                 $payment->payment_status = 'success';
                 $payment->save();
 
-                $transaction = Transaction::create([
+                Transaction::create([
                     'name' => __('response.payment.invoice') . ' ' . $invoice->number,
                     'invoice_id' => $invoice->id,
+                    'account_id' => settings('paypal_account_id'),
                     'amount' => $invoice->total,
                     'customer_id' => $invoice->customer_id,
                     'currency' => $invoice->currency,
@@ -278,15 +288,23 @@ class OnlinePaymentService
                     'referenced_online_payment' => $payment->id,
                 ]);
 
-                $invoice->status = 'paid';
-                $invoice->save();
+                if ($transaction) {
+                    Transaction::updateAccountAmount(settings('paypal_account_id'), $invoice->total, 'income');
+                    $invoice->status = 'paid';
+                    $invoice->save();
 
-                activity_log(null, 'validate payment paypal', $payment->id, 'Online Payment', 'payment paypal', 'external', $key);
+                    activity_log(null, 'validate payment paypal', $payment->id, 'Online Payment', 'payment paypal', 'external', $key);
+
+                    if ($request->type == 'web') {
+                        return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=success&lang=' . app()->getLocale());
+                    }
+                    return api_response(true, __('response.payment.success'));
+                }
 
                 if ($request->type == 'web') {
-                    return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=success&lang=' . app()->getLocale());
+                    return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=error&lang=' . app()->getLocale());
                 }
-                return api_response(true, __('response.payment.success'));
+                return api_response(false, __('response.payment.failed'), 400);
             }
 
             if ($request->type == 'web') {

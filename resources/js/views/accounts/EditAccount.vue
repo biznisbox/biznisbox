@@ -31,7 +31,7 @@
                             <SelectInput
                                 id="select_currency"
                                 v-model="v$.account.currency.$model"
-                                class="col-12 md:col-6"
+                                class="col-12 md:col-4"
                                 :label="$t('form.currency')"
                                 :options="currencies"
                                 option-label="name"
@@ -43,10 +43,20 @@
                                 v-model="v$.account.opening_balance.$model"
                                 type="currency"
                                 :currency="account.currency"
-                                class="col-12 md:col-6"
+                                class="col-12 md:col-4"
                                 :label="$t('form.opening_balance')"
                                 :validate="v$.account.opening_balance"
                             ></NumberInput>
+                            <SelectButtonInput
+                                id="is_active_account"
+                                v-model="account.is_active"
+                                class="col-12 md:col-4"
+                                :label="$t('form.active_account')"
+                                :options="[
+                                    { label: $t('basic.yes'), value: true },
+                                    { label: $t('basic.no'), value: false },
+                                ]"
+                            />
                         </div>
 
                         <div v-if="account.type === 'bank_account'" id="bank_data">

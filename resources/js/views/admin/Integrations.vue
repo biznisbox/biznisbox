@@ -23,6 +23,18 @@
                                     class="col-12"
                                 />
                             </div>
+
+                            <div class="grid">
+                                <SelectInput
+                                    id="stripe_account_input"
+                                    v-model="settings.stripe_account_id"
+                                    :label="$t('admin.integrations.stripe_account_id')"
+                                    :options="accounts"
+                                    class="col-12"
+                                    option-label="name"
+                                    option-value="id"
+                                />
+                            </div>
                         </div>
 
                         <div id="paypal_integration">
@@ -54,6 +66,18 @@
                                     :label="$t('admin.integrations.paypal_secret')"
                                     :disabled="!settings.paypal_available"
                                     class="col-12 md:col-6"
+                                />
+                            </div>
+
+                            <div class="grid">
+                                <SelectInput
+                                    id="paypal_account_input"
+                                    v-model="settings.paypal_account_id"
+                                    :label="$t('admin.integrations.paypal_account_id')"
+                                    :options="accounts"
+                                    class="col-12"
+                                    option-label="name"
+                                    option-value="id"
                                 />
                             </div>
                         </div>
@@ -107,7 +131,25 @@ export default {
     data() {
         return {
             stripe_disabled_input: true,
+            paypal_disabled_input: true,
+            accounts: [],
         }
+    },
+
+    created() {
+        this.getAccounts()
+    },
+
+    methods: {
+        /**
+         * Get all accounts
+         * @return {void} return accounts
+         **/
+        getAccounts() {
+            this.makeHttpRequest('GET', '/api/accounts').then((response) => {
+                this.accounts = response.data.data
+            })
+        },
     },
 }
 </script>
