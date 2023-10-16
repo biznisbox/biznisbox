@@ -352,6 +352,7 @@
         "share_dialog_text": "Zkopírujte níže uvedený odkaz a sdílejte jej se svým zákazníkem nebo naskenujte QR kód.",
         "create_first_invoice": "Vytvořit svou první fakturu",
         "no_customer": "Žádný zákazník",
+        "add_payment": "Add payment",
         "no_payer": "No payer",
         "no_items": "Žádné položky",
         "add_item": "Přidat položku",
