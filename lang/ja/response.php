@@ -156,6 +156,7 @@ return [
         'send_failed' => '請求書を送信できませんでした',
         'update_failed' => '請求書を更新できませんでした',
         'delete_failed' => '請求書を削除できませんでした',
+        'transaction_success' => 'Transaction was added successfully',
     ],
 
     //Online payment responses
