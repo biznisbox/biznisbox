@@ -352,6 +352,7 @@
         "share_dialog_text": "Скопіюйте посилання нижче і поділіться ним із клієнтом або відскануйте QR-код.",
         "create_first_invoice": "Створи свій перший рахунок",
         "no_customer": "Клієнт відсутній",
+        "add_payment": "Add payment",
         "no_payer": "No payer",
         "no_items": "Товарів немає",
         "add_item": "Додати елемент",
