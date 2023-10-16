@@ -156,6 +156,7 @@ return [
         'send_failed' => 'Factura nu a putut fi trimisă',
         'update_failed' => 'Factura nu a putut fi actualizată',
         'delete_failed' => 'Factura nu a putut fi ștearsă',
+        'transaction_success' => 'Transaction was added successfully',
     ],
 
     //Online payment responses
