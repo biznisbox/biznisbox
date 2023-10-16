@@ -156,6 +156,7 @@ return [
         'send_failed' => 'Laskua ei voitu lähettää',
         'update_failed' => 'Laskua ei voitu päivittää',
         'delete_failed' => 'Laskua ei voitu poistaa',
+        'transaction_success' => 'Transaction was added successfully',
     ],
 
     //Online payment responses
