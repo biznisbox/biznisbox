@@ -352,6 +352,7 @@
         "share_dialog_text": "Kopiraj spodnjo povezavo in jo pošlji stranki ali pa skeniraj QR kodo.",
         "create_first_invoice": "Ustvarite prvi račun",
         "no_customer": "Ni stranke",
+        "add_payment": "Add payment",
         "no_payer": "Ni plačnika",
         "no_items": "Ni produktov",
         "add_item": "Dodaj produkt",
