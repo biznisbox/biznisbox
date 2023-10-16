@@ -70,6 +70,7 @@ return [
         'delete_error' => 'Računa ni bilo mogoče izbrisati',
         'get_success' => 'Račun je bil uspešno pridobljen',
         'get_error' => 'Računa ni bilo mogoče pridobiti',
+        'delete_default_account' => 'Default account cannot be deleted',
     ],
 
     //Bill responses
