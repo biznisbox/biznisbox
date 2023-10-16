@@ -156,6 +156,7 @@ return [
         'send_failed' => 'Faktura nie może zostać wysłana',
         'update_failed' => 'Faktura nie może zostać zaktualizowana',
         'delete_failed' => 'Faktura nie może zostać usunięta',
+        'transaction_success' => 'Transaction was added successfully',
     ],
 
     //Online payment responses
