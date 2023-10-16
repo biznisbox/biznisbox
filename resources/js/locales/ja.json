@@ -352,6 +352,7 @@
         "share_dialog_text": "下のリンクをコピーして顧客と共有するか、QRコードをスキャンしてください。",
         "create_first_invoice": "最初の請求書を作成する",
         "no_customer": "顧客なし",
+        "add_payment": "Add payment",
         "no_payer": "No payer",
         "no_items": "アイテムがありません",
         "add_item": "アイテムを追加",
