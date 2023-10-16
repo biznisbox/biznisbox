@@ -156,6 +156,7 @@ return [
         'send_failed' => 'Не можливо надіслати рахунок',
         'update_failed' => 'Неможливо оновити рахунок',
         'delete_failed' => 'Рахунок не може бути видалений',
+        'transaction_success' => 'Transaction was added successfully',
     ],
 
     //Online payment responses
