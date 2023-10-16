@@ -352,6 +352,7 @@
         "share_dialog_text": "نسخ الرابط أدناه ومشاركته مع العميل الخاص بك أو مسح رمز QR.",
         "create_first_invoice": "إنشاء فاتورتك الأولى",
         "no_customer": "لا يوجد عميل",
+        "add_payment": "Add payment",
         "no_payer": "No payer",
         "no_items": "لا توجد عناصر",
         "add_item": "إضافة عنصر",
