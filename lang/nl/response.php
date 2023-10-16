@@ -156,6 +156,7 @@ return [
         'send_failed' => 'Factuur kon niet worden verzonden',
         'update_failed' => 'Factuur kon niet worden bijgewerkt',
         'delete_failed' => 'Factuur kon niet worden verwijderd',
+        'transaction_success' => 'Transaction was added successfully',
     ],
 
     //Online payment responses
