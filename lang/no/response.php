@@ -156,6 +156,7 @@ return [
         'send_failed' => 'Faktura kunne ikke sendes',
         'update_failed' => 'Fakturaen kunne ikke oppdateres',
         'delete_failed' => 'Fakturaen kunne ikke slettes',
+        'transaction_success' => 'Transaction was added successfully',
     ],
 
     //Online payment responses
