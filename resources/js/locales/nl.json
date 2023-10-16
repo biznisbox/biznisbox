@@ -352,6 +352,7 @@
         "share_dialog_text": "Kopieer de onderstaande link en deel deze met uw klant of scan de QR-code.",
         "create_first_invoice": "Uw eerste factuur aanmaken",
         "no_customer": "Geen klant",
+        "add_payment": "Add payment",
         "no_payer": "No payer",
         "no_items": "Geen artikelen",
         "add_item": "Item toevoegen",
