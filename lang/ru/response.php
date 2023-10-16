@@ -156,6 +156,7 @@ return [
         'send_failed' => 'Счет не может быть отправлен',
         'update_failed' => 'Счет не может быть обновлен',
         'delete_failed' => 'Счет не может быть удален',
+        'transaction_success' => 'Transaction was added successfully',
     ],
 
     //Online payment responses
