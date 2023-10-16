@@ -119,11 +119,11 @@
 
                             <SelectInput
                                 v-if="transaction.type == 'expense'"
-                                id="vendor_input"
-                                v-model="transaction.vendor_id"
-                                :label="$t('transaction.vendor')"
+                                id="supplier_input"
+                                v-model="transaction.supplier_id"
+                                :label="$t('form.supplier')"
                                 class="col-12 md:col-6"
-                                :options="vendors"
+                                :options="suppliers"
                                 option-label="name"
                                 option-value="id"
                                 filter
@@ -182,9 +182,9 @@ export default {
         this.transaction.currency = this.$settings.default_currency
         this.getAccounts()
         this.getCustomers()
+        this.getSuppliers()
         this.getTransaction(this.$route.params.id)
         this.getTransactionCategories()
-        this.getVendors()
     },
 
     methods: {

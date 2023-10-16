@@ -120,9 +120,9 @@
 
                             <SelectInput
                                 v-if="transaction.type == 'expense'"
-                                id="vendor_input"
+                                id="supplier_input"
                                 v-model="transaction.supplier_id"
-                                :label="$t('transaction.vendor')"
+                                :label="$t('form.supplier')"
                                 class="col-12 md:col-6"
                                 :options="suppliers"
                                 option-label="name"
