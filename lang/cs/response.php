@@ -156,6 +156,7 @@ return [
         'send_failed' => 'Faktura nemohla být odeslána',
         'update_failed' => 'Fakturu nelze aktualizovat',
         'delete_failed' => 'Faktura nemohla být odstraněna',
+        'transaction_success' => 'Transaction was added successfully',
     ],
 
     //Online payment responses
