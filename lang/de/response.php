@@ -156,6 +156,7 @@ return [
         'send_failed' => 'Rechnung konnte nicht gesendet werden',
         'update_failed' => 'Rechnung konnte nicht aktualisiert werden',
         'delete_failed' => 'Rechnung konnte nicht gelöscht werden',
+        'transaction_success' => 'Transaction was added successfully',
     ],
 
     //Online payment responses
