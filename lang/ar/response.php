@@ -156,6 +156,7 @@ return [
         'send_failed' => 'تعذر إرسال الفاتورة',
         'update_failed' => 'تعذر تحديث الفاتورة',
         'delete_failed' => 'لا يمكن حذف الفاتورة',
+        'transaction_success' => 'Transaction was added successfully',
     ],
 
     //Online payment responses
