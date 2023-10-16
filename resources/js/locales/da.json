@@ -352,6 +352,7 @@
         "share_dialog_text": "Kopier linket nedenfor og del det med din kunde eller skan QR-koden.",
         "create_first_invoice": "Opret din første faktura",
         "no_customer": "Ingen kunde",
+        "add_payment": "Add payment",
         "no_payer": "No payer",
         "no_items": "Ingen elementer",
         "add_item": "Tilføj element",
