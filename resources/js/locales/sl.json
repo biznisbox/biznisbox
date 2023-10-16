@@ -216,7 +216,10 @@
         "active": "Aktiven",
         "role": "Vloga",
         "roles": "Vloge",
-        "permissions": "Pooblastila"
+        "permissions": "Pooblastila",
+        "category": "Category",
+        "categories": "Categories",
+        "active_account": "Active Account"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -536,6 +539,7 @@
             "stripe_available": "Stripe na voljo",
             "stripe_key": "Stripe API ključ",
             "stripe_key_help": "Najdete ga v vašem Stripe računu.",
+            "stripe_account_id": "Stripe internal account ID",
             "paypal": "PayPal",
             "paypal_available": "PayPal na voljo",
             "paypal_test_mode": "Testni način",
@@ -543,6 +547,7 @@
             "paypal_client_id_help": "Najdete ga v vašem PayPal računu.",
             "paypal_secret": "PayPal Secret",
             "paypal_secret_help": "Najdete ga v vašem PayPal računu.",
+            "paypal_account_id": "PayPal internal account ID",
             "open_banking": "Odprto bančništvo",
             "open_banking_available": "Odprto bančništvo na voljo",
             "open_banking_client_id": "Open Banking Client ID",
