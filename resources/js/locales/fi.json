@@ -517,7 +517,8 @@
             "settings_general": "Yleiset",
             "settings_currency": "Valuutta",
             "settings_taxes": "Verot",
-            "numbering": "Numerointi"
+            "numbering": "Numerointi",
+            "status": "Status"
         },
         "company": {
             "title": "Yrityksen Asetukset",
@@ -621,6 +622,17 @@
             "total_users": "Käyttäjiä Yhteensä",
             "active_users_today": "Aktiiviset Käyttäjät Tänään",
             "number_of_logins_today": "Kirjautumisten määrä tänään"
+        },
+        "app_status": {
+            "title": "Application Status",
+            "current_version": "Current Version",
+            "latest_version": "Latest Version",
+            "update_available": "Update Available",
+            "disk_usage": "Disk Usage",
+            "database_size": "Database Size",
+            "server_os": "Server OS",
+            "php_version": "PHP Version",
+            "hostname": "Hostname"
         },
         "numbering": {
             "title": "Numeroformaattien asetukset",
