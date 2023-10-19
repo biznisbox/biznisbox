@@ -283,4 +283,8 @@ return [
             'delete_failed_self_account' => 'Você não pode excluir sua própria conta',
         ],
     ],
+    'memory_used' => 'Memory used',
+    'memory_available' => 'Memory available',
+    'disk_used' => 'Disk used',
+    'disk_available' => 'Disk available',
 ];
