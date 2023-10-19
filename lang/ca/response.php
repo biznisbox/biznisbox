@@ -283,4 +283,8 @@ return [
             'delete_failed_self_account' => 'You cannot delete your own account',
         ],
     ],
+    'memory_used' => 'Memory used',
+    'memory_available' => 'Memory available',
+    'disk_used' => 'Disk used',
+    'disk_available' => 'Disk available',
 ];
