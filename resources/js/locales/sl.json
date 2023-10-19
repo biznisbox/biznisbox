@@ -517,7 +517,8 @@
             "settings_general": "Splošno",
             "settings_currency": "Valute",
             "settings_taxes": "Davčne stopnje",
-            "numbering": "Številčenje"
+            "numbering": "Številčenje",
+            "status": "Status"
         },
         "company": {
             "title": "Nastavitve podjetja",
@@ -621,6 +622,17 @@
             "total_users": "Skupno število uporabnikov",
             "active_users_today": "Aktivni uporabniki danes",
             "number_of_logins_today": "Število prijav danes"
+        },
+        "app_status": {
+            "title": "Application Status",
+            "current_version": "Current Version",
+            "latest_version": "Latest Version",
+            "update_available": "Update Available",
+            "disk_usage": "Disk Usage",
+            "database_size": "Database Size",
+            "server_os": "Server OS",
+            "php_version": "PHP Version",
+            "hostname": "Hostname"
         },
         "numbering": {
             "title": "Številčenje",
