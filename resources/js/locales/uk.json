@@ -517,7 +517,8 @@
             "settings_general": "Загальні налаштування",
             "settings_currency": "Валюта",
             "settings_taxes": "Податкові ставки",
-            "numbering": "Нумерація"
+            "numbering": "Нумерація",
+            "status": "Status"
         },
         "company": {
             "title": "Налаштування компанії",
@@ -621,6 +622,17 @@
             "total_users": "Всього користувачів",
             "active_users_today": "Активні користувачі сьогодні",
             "number_of_logins_today": "Кількість входів сьогодні"
+        },
+        "app_status": {
+            "title": "Application Status",
+            "current_version": "Current Version",
+            "latest_version": "Latest Version",
+            "update_available": "Update Available",
+            "disk_usage": "Disk Usage",
+            "database_size": "Database Size",
+            "server_os": "Server OS",
+            "php_version": "PHP Version",
+            "hostname": "Hostname"
         },
         "numbering": {
             "title": "Параметри числових форматів",
