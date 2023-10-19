@@ -517,7 +517,8 @@
             "settings_general": "Generelt",
             "settings_currency": "Valuta",
             "settings_taxes": "Moms Priser",
-            "numbering": "Nummerering"
+            "numbering": "Nummerering",
+            "status": "Status"
         },
         "company": {
             "title": "Virksomhedsindstillinger",
@@ -621,6 +622,17 @@
             "total_users": "Brugere I Alt",
             "active_users_today": "Aktive Brugere I Dag",
             "number_of_logins_today": "Antal logins i dag"
+        },
+        "app_status": {
+            "title": "Application Status",
+            "current_version": "Current Version",
+            "latest_version": "Latest Version",
+            "update_available": "Update Available",
+            "disk_usage": "Disk Usage",
+            "database_size": "Database Size",
+            "server_os": "Server OS",
+            "php_version": "PHP Version",
+            "hostname": "Hostname"
         },
         "numbering": {
             "title": "Indstillinger for nummerformater",
