@@ -517,7 +517,8 @@
             "settings_general": "Общие положения",
             "settings_currency": "Валюта",
             "settings_taxes": "Налоговые ставки",
-            "numbering": "Нумерация"
+            "numbering": "Нумерация",
+            "status": "Status"
         },
         "company": {
             "title": "Настройки компании",
@@ -621,6 +622,17 @@
             "total_users": "Всего пользователей",
             "active_users_today": "Активные пользователи сегодня",
             "number_of_logins_today": "Количество входов сегодня"
+        },
+        "app_status": {
+            "title": "Application Status",
+            "current_version": "Current Version",
+            "latest_version": "Latest Version",
+            "update_available": "Update Available",
+            "disk_usage": "Disk Usage",
+            "database_size": "Database Size",
+            "server_os": "Server OS",
+            "php_version": "PHP Version",
+            "hostname": "Hostname"
         },
         "numbering": {
             "title": "Параметры форматов чисел",
