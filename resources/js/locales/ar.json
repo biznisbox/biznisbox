@@ -517,7 +517,8 @@
             "settings_general": "عام",
             "settings_currency": "العملة",
             "settings_taxes": "معدلات الضريبة",
-            "numbering": "الترقيم"
+            "numbering": "الترقيم",
+            "status": "Status"
         },
         "company": {
             "title": "إعدادات الشركة",
@@ -621,6 +622,17 @@
             "total_users": "مجموع المستخدمين",
             "active_users_today": "المستخدمين النشطين اليوم",
             "number_of_logins_today": "عدد تسجيلات الدخول اليوم"
+        },
+        "app_status": {
+            "title": "Application Status",
+            "current_version": "Current Version",
+            "latest_version": "Latest Version",
+            "update_available": "Update Available",
+            "disk_usage": "Disk Usage",
+            "database_size": "Database Size",
+            "server_os": "Server OS",
+            "php_version": "PHP Version",
+            "hostname": "Hostname"
         },
         "numbering": {
             "title": "إعدادات تنسيقات الأرقام",
