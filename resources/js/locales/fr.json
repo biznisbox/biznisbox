@@ -517,7 +517,8 @@
             "settings_general": "Généraux",
             "settings_currency": "Devise",
             "settings_taxes": "Taux de taxe",
-            "numbering": "Numérotation"
+            "numbering": "Numérotation",
+            "status": "Status"
         },
         "company": {
             "title": "Paramètres de la société",
@@ -621,6 +622,17 @@
             "total_users": "Nombre total d'utilisateurs",
             "active_users_today": "Utilisateurs actifs aujourd'hui",
             "number_of_logins_today": "Nombre de connexions aujourd'hui"
+        },
+        "app_status": {
+            "title": "Application Status",
+            "current_version": "Current Version",
+            "latest_version": "Latest Version",
+            "update_available": "Update Available",
+            "disk_usage": "Disk Usage",
+            "database_size": "Database Size",
+            "server_os": "Server OS",
+            "php_version": "PHP Version",
+            "hostname": "Hostname"
         },
         "numbering": {
             "title": "Paramètres des formats de numéros",
