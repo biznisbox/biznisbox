@@ -517,7 +517,8 @@
             "settings_general": "Obecná ustanovení",
             "settings_currency": "Měna",
             "settings_taxes": "Daňové sazby",
-            "numbering": "Číslování"
+            "numbering": "Číslování",
+            "status": "Status"
         },
         "company": {
             "title": "Nastavení společnosti",
@@ -621,6 +622,17 @@
             "total_users": "Celkem uživatelů",
             "active_users_today": "Dnes aktivní uživatelé",
             "number_of_logins_today": "Počet dnešních přihlášení"
+        },
+        "app_status": {
+            "title": "Application Status",
+            "current_version": "Current Version",
+            "latest_version": "Latest Version",
+            "update_available": "Update Available",
+            "disk_usage": "Disk Usage",
+            "database_size": "Database Size",
+            "server_os": "Server OS",
+            "php_version": "PHP Version",
+            "hostname": "Hostname"
         },
         "numbering": {
             "title": "Nastavení formátů čísel",
