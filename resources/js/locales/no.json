@@ -517,7 +517,8 @@
             "settings_general": "Generelt",
             "settings_currency": "Valuta",
             "settings_taxes": "Mva satser",
-            "numbering": "Nummerering"
+            "numbering": "Nummerering",
+            "status": "Status"
         },
         "company": {
             "title": "Bedriftens innstillinger",
@@ -621,6 +622,17 @@
             "total_users": "Totalt antall brukere",
             "active_users_today": "Aktive brukere i dag",
             "number_of_logins_today": "Antall innlogginger i dag"
+        },
+        "app_status": {
+            "title": "Application Status",
+            "current_version": "Current Version",
+            "latest_version": "Latest Version",
+            "update_available": "Update Available",
+            "disk_usage": "Disk Usage",
+            "database_size": "Database Size",
+            "server_os": "Server OS",
+            "php_version": "PHP Version",
+            "hostname": "Hostname"
         },
         "numbering": {
             "title": "Antall formater innstillinger",
