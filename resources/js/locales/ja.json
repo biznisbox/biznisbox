@@ -517,7 +517,8 @@
             "settings_general": "全般",
             "settings_currency": "通貨",
             "settings_taxes": "税率：",
-            "numbering": "番号付け"
+            "numbering": "番号付け",
+            "status": "Status"
         },
         "company": {
             "title": "会社設定",
@@ -621,6 +622,17 @@
             "total_users": "合計ユーザー",
             "active_users_today": "今日のアクティブなユーザー",
             "number_of_logins_today": "今日のログイン数"
+        },
+        "app_status": {
+            "title": "Application Status",
+            "current_version": "Current Version",
+            "latest_version": "Latest Version",
+            "update_available": "Update Available",
+            "disk_usage": "Disk Usage",
+            "database_size": "Database Size",
+            "server_os": "Server OS",
+            "php_version": "PHP Version",
+            "hostname": "Hostname"
         },
         "numbering": {
             "title": "番号書式設定",
