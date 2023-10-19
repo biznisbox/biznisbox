@@ -517,7 +517,8 @@
             "settings_general": "Generalități",
             "settings_currency": "Monedă",
             "settings_taxes": "Ratele de impozitare",
-            "numbering": "Numerotarea"
+            "numbering": "Numerotarea",
+            "status": "Status"
         },
         "company": {
             "title": "Setări firmă",
@@ -621,6 +622,17 @@
             "total_users": "Total utilizatori",
             "active_users_today": "Utilizatori activi astăzi",
             "number_of_logins_today": "Numărul de conectări astăzi"
+        },
+        "app_status": {
+            "title": "Application Status",
+            "current_version": "Current Version",
+            "latest_version": "Latest Version",
+            "update_available": "Update Available",
+            "disk_usage": "Disk Usage",
+            "database_size": "Database Size",
+            "server_os": "Server OS",
+            "php_version": "PHP Version",
+            "hostname": "Hostname"
         },
         "numbering": {
             "title": "Setări formate de numere",
