@@ -517,7 +517,8 @@
             "settings_general": "Algemeen",
             "settings_currency": "valuta",
             "settings_taxes": "BTW tarieven",
-            "numbering": "Nummering"
+            "numbering": "Nummering",
+            "status": "Status"
         },
         "company": {
             "title": "Bedrijf instellingen",
@@ -621,6 +622,17 @@
             "total_users": "Totaal aantal gebruikers",
             "active_users_today": "Actieve gebruikers vandaag",
             "number_of_logins_today": "Aantal aanmeldingen vandaag"
+        },
+        "app_status": {
+            "title": "Application Status",
+            "current_version": "Current Version",
+            "latest_version": "Latest Version",
+            "update_available": "Update Available",
+            "disk_usage": "Disk Usage",
+            "database_size": "Database Size",
+            "server_os": "Server OS",
+            "php_version": "PHP Version",
+            "hostname": "Hostname"
         },
         "numbering": {
             "title": "Nummer formaten instellingen",
