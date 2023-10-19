@@ -517,7 +517,8 @@
             "settings_general": "Γενικά",
             "settings_currency": "Νόμισμα",
             "settings_taxes": "Φορολογικοί Συντελεστές",
-            "numbering": "Αρίθμηση"
+            "numbering": "Αρίθμηση",
+            "status": "Status"
         },
         "company": {
             "title": "Ρυθμίσεις Εταιρείας",
@@ -621,6 +622,17 @@
             "total_users": "Σύνολο Χρηστών",
             "active_users_today": "Ενεργοί Χρήστες Σήμερα",
             "number_of_logins_today": "Αριθμός συνδέσεων σήμερα"
+        },
+        "app_status": {
+            "title": "Application Status",
+            "current_version": "Current Version",
+            "latest_version": "Latest Version",
+            "update_available": "Update Available",
+            "disk_usage": "Disk Usage",
+            "database_size": "Database Size",
+            "server_os": "Server OS",
+            "php_version": "PHP Version",
+            "hostname": "Hostname"
         },
         "numbering": {
             "title": "Ρυθμίσεις μορφών αριθμών",
