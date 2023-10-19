@@ -283,4 +283,8 @@ return [
             'delete_failed_self_account' => 'Ви не можете видалити свій власний обліковий запис',
         ],
     ],
+    'memory_used' => 'Memory used',
+    'memory_available' => 'Memory available',
+    'disk_used' => 'Disk used',
+    'disk_available' => 'Disk available',
 ];
