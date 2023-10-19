@@ -79,5 +79,13 @@
                 "to": "/admin/settings/taxes"
             }
         ]
+    },
+    {
+        "name": "admin.menu.status",
+        "meta": ["status"],
+        "icon": "fa fa-info-circle",
+        "permission": "",
+        "permissions": [],
+        "to": "/admin/app"
     }
 ]

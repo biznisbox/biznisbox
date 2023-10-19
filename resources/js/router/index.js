@@ -69,6 +69,7 @@ const routes = [
 
     // Admin Routes
     makeRoute('/admin', 'admin-dashboard', () => import('../views/admin/Dashboard.vue'), { auth: true, admin: true }, []),
+    makeRoute('/admin/app', 'admin-app', () => import('../views/admin/AppData.vue'), { auth: true, admin: true }, []),
     makeRoute('/admin/users', 'admin-users', () => import('../views/admin/users/Users.vue'), { auth: true, admin: true }, []),
     makeRoute('/admin/users/new', 'admin-new-user', () => import('../views/admin/users/NewUser.vue'), { auth: true, admin: true }, []),
     makeRoute('/admin/users/:id', 'admin-view-user', () => import('../views/admin/users/ViewUser.vue'), { auth: true, admin: true }, []),

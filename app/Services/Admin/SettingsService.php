@@ -7,6 +7,8 @@ use App\Models\Settings;
 use App\Models\Currencies;
 use App\Models\Taxes;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\DB;
 
 class SettingsService
 {
@@ -255,5 +257,94 @@ class SettingsService
             settings(['company_logo' => '/biznisbox_logo.png']);
         }
         return api_response(null, __('response.admin.company_logo.remove_success'));
+    }
+
+    /**
+     * Get current version of the app from composer.json file used for getting the version
+     */
+    public function getVersionInternal()
+    {
+        if (file_exists(base_path('composer.json'))) {
+            $composer = json_decode(file_get_contents(base_path('composer.json')));
+            $version = $composer->version;
+            return $version;
+        }
+    }
+
+    /**
+     * Check if there is a new version of the app
+     */
+    public function checkVersion()
+    {
+        $github_latest_release = Http::get('https://api.github.com/repos/biznisbox/biznisbox/releases/latest');
+        $current_version = $this->getVersionInternal();
+        if ($github_latest_release) {
+            $github_latest_release = json_decode($github_latest_release);
+            $github_latest_release = $github_latest_release->tag_name;
+            if ($current_version != $github_latest_release) {
+                return api_response(['version' => $current_version, 'latest_version' => $github_latest_release], __('update_available'));
+            } else {
+                return api_response(['version' => $current_version, 'latest_version' => $github_latest_release], __('no_update'));
+            }
+        } else {
+            return api_response(['version' => $current_version, 'latest_version' => $this->getVersionInternal()], __('no_update'));
+        }
+    }
+
+    /**
+     * Check server status
+     */
+    public function checkServerStatus()
+    {
+        $disk_available = disk_free_space(base_path());
+        $disk_total = disk_total_space(base_path());
+        $disk_used = $disk_total - $disk_available;
+        $disk_percentage = round(($disk_used / $disk_total) * 100, 2);
+
+        $memory_total = memory_get_usage(true);
+        $memory_used = memory_get_usage(false);
+        $memory_percentage = round(($memory_used / $memory_total) * 100, 2);
+
+        $server_os = PHP_OS_FAMILY;
+        $hostname = gethostname();
+
+        $disk_graph = [
+            'labels' => [__('response.disk_used'), __('response.disk_available')],
+            'datasets' => [
+                [
+                    'data' => [$disk_used, $disk_available],
+                    'backgroundColor' => ['#f44336', '#4caf50'],
+                    'hoverBackgroundColor' => ['#f44336', '#4caf50'],
+                ],
+            ],
+        ];
+
+        $memory_graph = [
+            'labels' => [__('response.memory_used'), __('response.memory_available')],
+            'datasets' => [
+                [
+                    'data' => [$memory_used, $memory_total],
+                    'backgroundColor' => ['#f44336', '#4caf50'],
+                    'hoverBackgroundColor' => ['#f44336', '#4caf50'],
+                ],
+            ],
+        ];
+
+        return api_response(
+            [
+                'disk_available' => $disk_available,
+                'disk_total' => $disk_total,
+                'disk_used' => $disk_used,
+                'disk_graph' => $disk_graph,
+                'disk_percentage' => $disk_percentage,
+                'memory_total' => $memory_total,
+                'memory_used' => $memory_used,
+                'memory_percentage' => $memory_percentage,
+                'memory_graph' => $memory_graph,
+                'server_os' => $server_os,
+                'hostname' => $hostname,
+            ],
+            __('response.admin.server_status')
+        );
     }
 }

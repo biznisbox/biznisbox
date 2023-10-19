@@ -142,7 +142,7 @@
                         </TabPanel>
 
                         <TabPanel :header="$t('profile.change_password')">
-                            <div class="grid pt-2">
+                            <div class="grid p-3">
                                 <div class="col-12 md:col-6">
                                     <PasswordInput
                                         id="input_password"

@@ -168,7 +168,8 @@ Route::middleware('auth')->group(function () {
         ->group(function () {
             // Dashboard Routes
             Route::get('/dashboard', AdminBasicController::class . '@getDashboardData');
-
+            Route::get('/check_version', AdminSettingsController::class . '@checkVersion');
+            Route::get('/check_server_status', AdminSettingsController::class . '@checkServerStatus');
             // User Routes
             Route::middleware(['can:admin_users'])->group(function () {
                 Route::get('/users', AdminUsersController::class . '@getUsers');

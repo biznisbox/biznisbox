@@ -32,3 +32,17 @@
 .p-datatable .p-paginator {
     border-radius: 0 0 6px 6px !important;
 }
+
+.p-message-close.p-link {
+    margin-left: auto !important;
+}
+
+.p-button svg {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}
+
+.p-message-wrapper svg {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}

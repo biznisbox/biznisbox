@@ -101,4 +101,14 @@ class SettingsController extends Controller
     {
         return $this->settingsService->removeCompanyImage();
     }
+
+    public function checkVersion()
+    {
+        return $this->settingsService->checkVersion();
+    }
+
+    public function checkServerStatus()
+    {
+        return $this->settingsService->checkServerStatus();
+    }
 }
