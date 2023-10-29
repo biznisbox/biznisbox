@@ -10,7 +10,10 @@
                     >
                     <div class="grid">
                         <div class="col-6">
-                            <DisplayData :input="$t('admin.app_status.current_version')" :value="version.version" />
+                            <div class="grid">
+                                <DisplayData :input="$t('admin.app_status.current_version')" :value="version.version" class="col-6" />
+                                <DisplayData :input="$t('admin.app_status.latest_version')" :value="version.latest_version" class="col-6" />
+                            </div>
                         </div>
 
                         <div class="col-6">

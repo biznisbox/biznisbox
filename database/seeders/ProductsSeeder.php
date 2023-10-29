@@ -17,9 +17,10 @@ class ProductsSeeder extends Seeder
     {
         $units = ['pcs', 'kg', 'm', 'l', 'm2', 'm3', 'hour', 'day', 'week', 'month', 'year', 'unit', 'ml'];
         for ($i = 0; $i < 20; $i++) {
-            $productData = [
+            Product::create([
                 'id' => fake()->uuid(),
-                'name' => 'Product ' . fake()->numberBetween(100000, 999999),
+                'number' => Product::getProductNumber(),
+                'name' => fake()->randomNumber(8),
                 'description' => fake()->sentence(),
                 'sell_price' => fake()->randomFloat(2, 1, 100),
                 'buy_price' => fake()->randomFloat(2, 1, 100),
@@ -27,12 +28,11 @@ class ProductsSeeder extends Seeder
                 'unit' => fake()->randomElement($units),
                 'stock_min' => fake()->numberBetween(0, 1000),
                 'stock_max' => fake()->numberBetween(0, 1000),
-                'tax' => 0,
+                'tax' => fake()->randomFloat(2, 1, 100),
                 'type' => fake()->randomElement(['product', 'service']),
                 'barcode' => fake()->ean13(),
-            ];
-
-            Product::create($productData);
+            ]);
+            incrementLastItemNumber('product');
         }
     }
 }
