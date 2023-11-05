@@ -19,7 +19,7 @@ class InvoiceSeeder extends Seeder
             Invoice::create([
                 'id' => $id,
                 'number' => Invoice::getInvoiceNumber(),
-                'status' => fake()->randomElement(['draft', 'sent', 'paid', 'canceled']),
+                'status' => fake()->randomElement(['draft', 'sent', 'paid', 'cancelled']),
                 'date' => fake()->dateTimeBetween('-1 years', 'now'),
                 'due_date' => fake()->dateTimeBetween('-1 years', 'now'),
                 'notes' => fake()->text(200),

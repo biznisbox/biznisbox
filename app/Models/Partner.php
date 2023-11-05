@@ -49,22 +49,22 @@ class Partner extends Model implements Auditable
 
     public function invoices()
     {
-        return $this->hasMany(Invoice::class, 'payer_id');
+        return $this->hasMany(Invoice::class, 'payer_id')->union($this->hasMany(Invoice::class, 'customer_id'));
     }
 
     public function quotes()
     {
-        return $this->hasMany(Quote::class, 'customer_id');
+        return $this->hasMany(Quote::class, 'payer_id')->union($this->hasMany(Quote::class, 'customer_id'));
     }
 
     public function transactions()
     {
-        return $this->hasMany(Transaction::class, 'customer_id')->orWhere('supplier_id', $this->id);
+        return $this->hasMany(Transaction::class, 'customer_id')->union($this->hasMany(Transaction::class, 'supplier_id'));
     }
 
     public function bills()
     {
-        return $this->hasMany(Bill::class, 'supplier_id');
+        return $this->hasMany(Bill::class, 'supplier_id')->union($this->hasMany(Bill::class, 'customer_id'));
     }
 
     public function getPartners($type = null)

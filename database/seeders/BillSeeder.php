@@ -4,10 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Quote;
-use App\Models\QuoteItems;
+use App\Models\Bill;
+use App\Models\BillItems;
 
-class QuoteSeeder extends Seeder
+class BillSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,12 +16,12 @@ class QuoteSeeder extends Seeder
     {
         for ($i = 0; $i < 20; $i++) {
             $id = fake()->uuid();
-            Quote::create([
+            Bill::create([
                 'id' => $id,
-                'number' => Quote::getQuoteNumber(),
+                'number' => Bill::getBillNumber(),
                 'status' => fake()->randomElement(['draft', 'sent', 'paid', 'cancelled']),
                 'date' => fake()->dateTimeBetween('-1 years', 'now'),
-                'valid_until' => fake()->dateTimeBetween('-1 years', 'now'),
+                'due_date' => fake()->dateTimeBetween('-1 years', 'now'),
                 'notes' => fake()->text(200),
                 'footer' => fake()->text(200),
                 'currency' => fake()->randomElement(['EUR', 'USD']),
@@ -29,36 +29,36 @@ class QuoteSeeder extends Seeder
             ]);
 
             for ($j = 0; $j < 3; $j++) {
-                $product = \App\Models\Product::all()->random();
+                $product = \App\Models\Product::where('buy_price', '>', 0)
+                    ->get()
+                    ->random();
                 $quality = fake()->numberBetween(1, 10);
                 $discount = fake()->randomFloat(2, 0, 100);
-                QuoteItems::create([
+                BillItems::create([
                     'id' => fake()->uuid(),
-                    'quote_id' => $id,
+                    'bill_id' => $id,
                     'product_id' => $product->id,
                     'name' => $product->name,
                     'description' => fake()->sentence(),
-                    'price' => $product->sell_price,
+                    'price' => $product->buy_price,
                     'quantity' => $quality,
                     'unit' => $product->unit,
-                    'discount' => $discount,
-                    'total' => $product->sell_price * $quality - $product->sell_price * $quality * ($discount / 100),
+                    'total' => $product->buy_price * $quality,
                 ]);
             }
 
             // Calculate totals
-            $quote = Quote::find($id);
+            $bill = Bill::find($id);
 
-            $items = QuoteItems::where('quote_id', $id)->get();
+            $items = BillItems::where('bill_id', $id)->get();
             $total = 0;
             foreach ($items as $item) {
                 $total += $item->total;
             }
-            $discount = $quote->discount;
-            $quote->total = $total - $total * ($discount / 100);
-            $quote->save();
-
-            incrementLastItemNumber('quote');
+            $discount = $bill->discount;
+            $bill->total = $total - $total * ($discount / 100);
+            $bill->save();
+            incrementLastItemNumber('bill');
         }
     }
 }

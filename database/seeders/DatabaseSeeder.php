@@ -18,11 +18,12 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ProductsSeeder::class,
             AccountsSeeder::class,
-            TransactionSeeder::class,
             CalendarSeeder::class,
             PartnersSeeder::class,
             InvoiceSeeder::class,
             QuoteSeeder::class,
+            BillSeeder::class,
+            TransactionSeeder::class,
         ]);
     }
 }
