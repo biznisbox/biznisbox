@@ -4,7 +4,7 @@
             <div id="admin_settings_currency_page">
                 <user-header :title="$t('admin.currency.title')">
                     <template #actions>
-                        <Button :label="$t('admin.currency.new_currency')" icon="fa fa-plus" @click="showNewCurrencyDialog = true" />
+                        <Button :label="$t('admin.currency.new_currency')" icon="fa fa-plus" @click="openNewCurrencyDialog" />
                         <Button
                             v-if="$settings.default_currency === 'EUR'"
                             :label="$t('admin.currency.update_rates')"
@@ -15,7 +15,12 @@
                 </user-header>
 
                 <div id="currency_table" class="card">
-                    <DataTable :value="currencies" :loading="loadingData" column-resize-mode="expand" @row-dblclick="editCurrencyDialog">
+                    <DataTable
+                        :value="currencies"
+                        :loading="loadingData"
+                        column-resize-mode="expand"
+                        @row-dblclick="openEditCurrencyDialog"
+                    >
                         <Column field="name" :header="$t('admin.currency.name')">
                             <template #body="slotProps">
                                 <span>{{ slotProps.data.name }}</span>
@@ -34,11 +39,16 @@
                 <LoadingScreen :blocked="loadingData">
                     <form id="edit_currency_form" class="formgrid mt-3">
                         <div class="grid">
-                            <TextInput
+                            <SelectInput
                                 v-model="v$.currency.name.$model"
                                 :label="$t('admin.currency.name')"
                                 class="col-12"
                                 :validate="v$.currency.name"
+                                :options="availableCurrencies"
+                                option-label="name"
+                                option-value="name"
+                                filter
+                                disabled
                             />
                         </div>
                         <div class="grid">
@@ -86,7 +96,12 @@
                                 class="p-button-danger"
                                 @click="showEditCurrencyDialog = false"
                             />
-                            <Button :label="$t('basic.save')" icon="fa fa-floppy-disk" class="p-button-success" @click="updateCurrency" />
+                            <Button
+                                :label="$t('basic.save')"
+                                icon="fa fa-floppy-disk"
+                                class="p-button-success ml-2"
+                                @click="updateCurrency"
+                            />
                         </div>
                     </div>
                 </template>
@@ -97,11 +112,15 @@
                 <LoadingScreen :blocked="loadingData">
                     <form id="new_currency_form" class="formgrid mt-3">
                         <div class="grid">
-                            <TextInput
+                            <SelectInput
                                 v-model="v$.currency.name.$model"
                                 :label="$t('admin.currency.name')"
                                 class="col-12"
                                 :validate="v$.currency.name"
+                                :options="availableCurrencies"
+                                option-label="name"
+                                option-value="name"
+                                filter
                             />
                         </div>
                         <div class="grid">
@@ -140,7 +159,12 @@
                                 class="p-button-danger"
                                 @click="showNewCurrencyDialog = false"
                             />
-                            <Button :label="$t('basic.save')" icon="fa fa-floppy-disk" class="p-button-success" @click="createCurrency" />
+                            <Button
+                                :label="$t('basic.save')"
+                                icon="fa fa-floppy-disk"
+                                class="p-button-success ml-2"
+                                @click="createCurrency"
+                            />
                         </div>
                     </div>
                 </template>
@@ -158,6 +182,7 @@ export default {
     data() {
         return {
             currencies: [],
+            availableCurrencies: [],
             currency: {
                 id: '',
                 name: '',
@@ -183,12 +208,22 @@ export default {
 
     created() {
         this.getCurrencies()
+        this.getAvailableCurrencies()
     },
 
     methods: {
         getCurrencies() {
             this.makeHttpRequest('GET', '/api/admin/currencies').then((response) => {
                 this.currencies = response.data.data
+            })
+        },
+
+        getAvailableCurrencies() {
+            this.makeHttpRequest(
+                'GET',
+                'http://localhost/api/currencies?fields=symbol,decimal_mark,thousands_separator,precision,code,symbol_native'
+            ).then((response) => {
+                this.availableCurrencies = response.data.data
             })
         },
 
@@ -241,13 +276,35 @@ export default {
             })
         },
 
-        newCurrencyDialog() {
+        openNewCurrencyDialog() {
+            this.v$.$reset()
+            this.currency = {
+                id: '',
+                name: '',
+                code: '',
+                symbol: '',
+                rate: '',
+            }
             this.showNewCurrencyDialog = true
         },
 
-        editCurrencyDialog(event) {
+        openEditCurrencyDialog(event) {
             this.showEditCurrencyDialog = true
             this.getCurrency(event.data.id)
+        },
+    },
+
+    watch: {
+        'currency.name': function (val) {
+            // Find the currency in the available currencies
+            const currency = this.availableCurrencies.find((currency) => currency.name === val)
+            if (!currency) return
+            // Update the currency object
+            if (!this.showEditCurrencyDialog) {
+                this.currency.code = currency.code
+                this.currency.symbol = currency.symbol_native
+                this.currency.rate = 1
+            }
         },
     },
 }
