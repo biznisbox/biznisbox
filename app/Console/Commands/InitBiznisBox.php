@@ -38,6 +38,17 @@ class InitBiznisBox extends Command
             $this->info('Initializing BiznisBox...');
         }
 
+        // Migrate database
+        $this->info('Migrating database...');
+        $this->call('migrate');
+
+        if (!$this->option('update')) {
+            $this->info('Seeding database...');
+            $this->call('db:seed', [
+                '--class' => 'WorldSeeder',
+            ]);
+        }
+
         // Create default roles
         if ($this->option('update')) {
             $this->info('Updating default roles...');

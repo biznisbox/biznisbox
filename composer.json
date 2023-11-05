@@ -42,6 +42,7 @@
         "laravel/tinker": "^2.8",
         "league/omnipay": "^3.2",
         "milon/barcode": "^10.0",
+        "nnjeim/world": "^1.1",
         "nordigen/nordigen-php": "^1.1",
         "omnipay/paypal": "^3.0",
         "owen-it/laravel-auditing": "^13.0",

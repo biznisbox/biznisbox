@@ -11,6 +11,7 @@ class Currencies extends Model implements Auditable
     use HasFactory;
     use \OwenIt\Auditing\Auditable;
 
+    protected $table = 'currencies';
     protected $fillable = ['name', 'code', 'symbol', 'active', 'rate'];
 
     protected $casts = [
