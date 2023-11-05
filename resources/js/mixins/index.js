@@ -1,6 +1,6 @@
 import GlobalMixin from '@/mixins/global'
 import i18n from '@/plugins/i18n'
-import jwtDecode from 'jwt-decode'
+import { jwtDecode } from 'jwt-decode'
 import moment from 'moment/moment'
 export default {
     mixins: [GlobalMixin],

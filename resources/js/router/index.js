@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useCookies } from 'vue3-cookies'
 const { cookies } = useCookies()
-import jwtDecode from 'jwt-decode'
+import { jwtDecode } from 'jwt-decode'
 const routes = [
     // Dashboard
     makeRoute('/', 'Dashboard', () => import('../views/Dashboard.vue'), { auth: true }, []),

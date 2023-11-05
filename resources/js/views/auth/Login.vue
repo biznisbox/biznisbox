@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import jwtDecode from 'jwt-decode'
+import { jwtDecode } from 'jwt-decode'
 import { useVuelidate } from '@vuelidate/core'
 import { email, required, minLength } from '@vuelidate/validators'
 export default {
