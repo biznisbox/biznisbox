@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker'
-import moment from 'moment/moment'
 describe('Create new invoice', () => {
     it('should create new invoice', () => {
         cy.login(Cypress.env('USERNAME'), Cypress.env('PASSWORD'))
