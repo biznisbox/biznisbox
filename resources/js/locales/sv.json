@@ -368,7 +368,9 @@
         "payment_success": "Betalning slutförd",
         "payment_success_message": "Tack för din betalning. Din betalning har behandlats.",
         "payment_error": "Fel vid betalning",
-        "payment_error_message": "Det gick inte att bearbeta din betalning. Försök igen."
+        "payment_error_message": "Det gick inte att bearbeta din betalning. Försök igen.",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "Offert <unk> Offerter",
