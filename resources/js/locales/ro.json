@@ -368,7 +368,9 @@
         "payment_success": "Plată reușită",
         "payment_success_message": "Vă mulțumim pentru plată. Plata dvs. a fost procesată cu succes.",
         "payment_error": "Eroare de plată",
-        "payment_error_message": "A apărut o eroare la procesarea plății tale. Te rugăm să încerci din nou."
+        "payment_error_message": "A apărut o eroare la procesarea plății tale. Te rugăm să încerci din nou.",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "Ofertă * Oferte",
