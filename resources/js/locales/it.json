@@ -368,7 +368,9 @@
         "payment_success": "Pagamento riuscito",
         "payment_success_message": "Grazie per il tuo pagamento. Il tuo pagamento è stato elaborato con successo.",
         "payment_error": "Errore di pagamento",
-        "payment_error_message": "Si è verificato un errore nell'elaborazione del pagamento. Per favore riprova."
+        "payment_error_message": "Si è verificato un errore nell'elaborazione del pagamento. Per favore riprova.",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "Preventivo <unk> Preventivi",
