@@ -368,7 +368,9 @@
         "payment_success": "نجاح الدفع",
         "payment_success_message": "شكرا لك على دفعتك. تم بنجاح معالجة عملية الدفع الخاصة بك.",
         "payment_error": "خطأ في الدفع",
-        "payment_error_message": "حدث خطأ أثناء معالجة الدفع الخاص بك. الرجاء المحاولة مرة أخرى."
+        "payment_error_message": "حدث خطأ أثناء معالجة الدفع الخاص بك. الرجاء المحاولة مرة أخرى.",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "اقتباس <unk> اقتباس",
