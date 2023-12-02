@@ -368,7 +368,9 @@
         "payment_success": "Platba byla úspěšná",
         "payment_success_message": "Děkujeme za Vaši platbu. Vaše platba byla úspěšně zpracována.",
         "payment_error": "Chyba platby",
-        "payment_error_message": "Při zpracování vaší platby došlo k chybě. Zkuste to znovu."
+        "payment_error_message": "Při zpracování vaší platby došlo k chybě. Zkuste to znovu.",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "Cenová nabídka | Cenové nabídky",
