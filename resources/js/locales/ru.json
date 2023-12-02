@@ -368,7 +368,9 @@
         "payment_success": "Платеж выполнен",
         "payment_success_message": "Спасибо за ваш платеж. Ваш платеж был успешно обработан.",
         "payment_error": "Ошибка платежа",
-        "payment_error_message": "Произошла ошибка при обработке вашего платежа. Пожалуйста, попробуйте еще раз."
+        "payment_error_message": "Произошла ошибка при обработке вашего платежа. Пожалуйста, попробуйте еще раз.",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "Цитата | Предложения",
