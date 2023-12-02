@@ -19,7 +19,7 @@ class BillSeeder extends Seeder
             Bill::create([
                 'id' => $id,
                 'number' => Bill::getBillNumber(),
-                'status' => fake()->randomElement(['draft', 'sent', 'paid', 'cancelled']),
+                'status' => fake()->randomElement(['draft', 'unpaid', 'paid', 'cancelled']),
                 'date' => fake()->dateTimeBetween('-1 years', 'now'),
                 'due_date' => fake()->dateTimeBetween('-1 years', 'now'),
                 'notes' => fake()->text(200),

@@ -472,7 +472,7 @@
         "edit_bill": "Uredi račun",
         "no_bills": "Ni računov",
         "create_first_bill": "Ustvarite svoj prvi račun",
-        "no_vendor": "Ni dobavitelja",
+        "no_supplier": "Ni dobavitelja",
         "no_items": "Ni postavk",
         "select_item": "Izberi postavko",
         "date_and_due_date": "Datum in datum zapadlosti",
