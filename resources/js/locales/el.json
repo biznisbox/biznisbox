@@ -368,7 +368,9 @@
         "payment_success": "Επιτυχής πληρωμή",
         "payment_success_message": "Σας ευχαριστούμε για την πληρωμή σας. Η πληρωμή σας έχει ολοκληρωθεί επιτυχώς.",
         "payment_error": "Σφάλμα πληρωμής",
-        "payment_error_message": "Παρουσιάστηκε σφάλμα κατά την επεξεργασία της πληρωμής σας. Παρακαλώ δοκιμάστε ξανά."
+        "payment_error_message": "Παρουσιάστηκε σφάλμα κατά την επεξεργασία της πληρωμής σας. Παρακαλώ δοκιμάστε ξανά.",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "Προσφορά Προσφορών",
