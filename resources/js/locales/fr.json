@@ -368,7 +368,9 @@
         "payment_success": "Paiement réussi",
         "payment_success_message": "Merci pour votre paiement. Votre paiement a été traité avec succès.",
         "payment_error": "Erreur de paiement",
-        "payment_error_message": "Une erreur s'est produite lors du traitement de votre paiement. Veuillez réessayer."
+        "payment_error_message": "Une erreur s'est produite lors du traitement de votre paiement. Veuillez réessayer.",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "Devis | Devis",
