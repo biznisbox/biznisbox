@@ -368,7 +368,9 @@
         "payment_success": "支払いが完了しました",
         "payment_success_message": "お支払いありがとうございます。お支払いが正常に処理されました。",
         "payment_error": "支払いエラー",
-        "payment_error_message": "お支払い処理中にエラーが発生しました。もう一度やり直してください。"
+        "payment_error_message": "お支払い処理中にエラーが発生しました。もう一度やり直してください。",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "引用 | 引用",
