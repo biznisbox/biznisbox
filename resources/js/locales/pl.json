@@ -368,7 +368,9 @@
         "payment_success": "Płatność zakończona sukcesem",
         "payment_success_message": "Dziękujemy za płatność. Twoja płatność została pomyślnie przetworzona.",
         "payment_error": "Błąd płatności",
-        "payment_error_message": "Wystąpił błąd podczas przetwarzania płatności. Spróbuj ponownie."
+        "payment_error_message": "Wystąpił błąd podczas przetwarzania płatności. Spróbuj ponownie.",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "Oferta | Oferty",
