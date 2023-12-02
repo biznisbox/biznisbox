@@ -364,7 +364,9 @@
         "payment_success": "Plačilo uspešno",
         "payment_success_message": "Zahvaljujemo se vam za plačilo. Vaše plačilo je bilo uspešno obdelano.",
         "payment_error": "Napaka pri plačilu",
-        "payment_error_message": "Prišlo je do napake pri obdelavi vašega plačila. Prosimo, poskusite znova."
+        "payment_error_message": "Prišlo je do napake pri obdelavi vašega plačila. Prosimo, poskusite znova.",
+        "show_transactions": "Prikaži transakcije",
+        "list_of_transactions": "Seznam transakcij"
     },
     "quote": {
         "quote": "Ponudba|Ponudbe",

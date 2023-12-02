@@ -200,7 +200,7 @@ class SettingsService
     {
         $taxes = new Taxes();
         $tax = $taxes->create($data);
-        return api_response($tax, __('response.admin.taxes.create_success0'));
+        return api_response($tax, __('response.admin.taxes.create_success'));
     }
 
     /*

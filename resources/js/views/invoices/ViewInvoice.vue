@@ -24,22 +24,22 @@
                             v-if="invoice.status != 'paid' && invoice.status != 'overpaid' && invoice.status != 'refunded'"
                             :label="$t('invoice.add_payment')"
                             icon="fa fa-plus"
+                            id="add_payment_button"
                             @click="addTransactionDialog = true"
+                        />
+                        <Button
+                            :label="$t('invoice.show_transactions')"
+                            icon="fa fa-list"
+                            id="show_transactions_button"
+                            @click="showTransactionsDialog = true"
                         />
                         <Button
                             :label="$t('basic.share')"
                             icon="fa fa-share"
-                            class="p-button-info"
                             id="share_invoice_button"
                             @click="shareInvoice($route.params.id)"
                         />
-                        <Button
-                            :label="$t('basic.download')"
-                            id="download_invoice_button"
-                            icon="fa fa-download"
-                            class="p-button-info"
-                            @click="downloadInvoice"
-                        />
+                        <Button :label="$t('basic.download')" id="download_invoice_button" icon="fa fa-download" @click="downloadInvoice" />
                     </template>
                 </user-header>
 
@@ -178,55 +178,6 @@
                         </div>
                     </div>
 
-                    <div id="transactions" class="my-5">
-                        <div class="font-bold my-2">{{ $t('transaction.transaction', 2) }}</div>
-
-                        <DataTable :value="invoice.transactions">
-                            <template #empty>
-                                <div class="p-4 pl-0 text-center w-full text-gray-500">
-                                    <i class="fa fa-info-circle empty-icon"></i>
-                                    <p>{{ $t('transaction.no_transactions') }}</p>
-                                </div>
-                            </template>
-
-                            <Column field="name" :header="$t('transaction.name')">
-                                <template #body="{ data }">
-                                    <span>{{ data.name ? data.name : '-' }}</span>
-                                </template>
-                            </Column>
-
-                            <Column field="date" :header="$t('transaction.date_and_number')">
-                                <template #body="{ data }">
-                                    <span>{{ data.date ? formatDate(data.date) : '-' }}</span
-                                    ><br />
-                                    <span>{{ data.number }}</span>
-                                </template>
-                            </Column>
-
-                            <Column field="amount" :header="$t('transaction.amount')">
-                                <template #body="{ data }">
-                                    <span>{{ data.amount ? data.amount + ' ' + data.currency : '-' }}</span> <br />
-                                </template>
-                            </Column>
-                            <Column field="type" :header="$t('transaction.type')">
-                                <template #body="{ data }">
-                                    <span v-if="data.type === 'income'">
-                                        <i class="fa fa-arrow-up text-green-500 mr-2"></i>
-                                        <span>{{ $t('transaction.income') }}</span>
-                                    </span>
-                                    <span v-if="data.type === 'expense'">
-                                        <i class="fa fa-arrow-down text-red-500 mr-2"></i>
-                                        <span>{{ $t('transaction.expense') }}</span>
-                                    </span>
-                                    <span v-if="data.type === 'transfer'">
-                                        <i class="fa fa-exchange-alt text-blue-500 mr-2"></i>
-                                        <span>{{ $t('transaction.transfer') }}</span>
-                                    </span>
-                                </template>
-                            </Column>
-                        </DataTable>
-                    </div>
-
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
                         <Button :label="$t('basic.close')" icon="fa fa-times" class="p-button-danger" @click="goTo('/invoices')" />
                     </div>
@@ -270,6 +221,69 @@
                     <Button :label="$t('basic.save')" icon="fa fa-save" class="p-button-success" @click="saveTransaction" />
                 </template>
             </Dialog>
+
+            <!-- Show transactions table dialog -->
+            <Dialog
+                ref="show_transactions_dialog"
+                v-model:visible="showTransactionsDialog"
+                :header="$t('invoice.list_of_transactions')"
+                modal
+            >
+                <div id="show_transactions_dialog_content">
+                    <DataTable :value="invoice.transactions">
+                        <template #empty>
+                            <div class="p-4 pl-0 text-center w-full text-gray-500">
+                                <i class="fa fa-info-circle empty-icon"></i>
+                                <p>{{ $t('transaction.no_transactions') }}</p>
+                            </div>
+                        </template>
+
+                        <Column field="name" :header="$t('transaction.name')">
+                            <template #body="{ data }">
+                                <span>{{ data.name ? data.name : '-' }}</span>
+                            </template>
+                        </Column>
+
+                        <Column field="date" :header="$t('transaction.date_and_number')">
+                            <template #body="{ data }">
+                                <span>{{ data.date ? formatDate(data.date) : '-' }}</span
+                                ><br />
+                                <span>{{ data.number }}</span>
+                            </template>
+                        </Column>
+
+                        <Column field="amount" :header="$t('transaction.amount')">
+                            <template #body="{ data }">
+                                <span>{{ data.amount ? data.amount + ' ' + data.currency : '-' }}</span> <br />
+                            </template>
+                        </Column>
+                        <Column field="type" :header="$t('transaction.type')">
+                            <template #body="{ data }">
+                                <span v-if="data.type === 'income'">
+                                    <i class="fa fa-arrow-up text-green-500 mr-2"></i>
+                                    <span>{{ $t('transaction.income') }}</span>
+                                </span>
+                                <span v-if="data.type === 'expense'">
+                                    <i class="fa fa-arrow-down text-red-500 mr-2"></i>
+                                    <span>{{ $t('transaction.expense') }}</span>
+                                </span>
+                                <span v-if="data.type === 'transfer'">
+                                    <i class="fa fa-exchange-alt text-blue-500 mr-2"></i>
+                                    <span>{{ $t('transaction.transfer') }}</span>
+                                </span>
+                            </template>
+                        </Column>
+                    </DataTable>
+                </div>
+                <template #footer>
+                    <Button
+                        :label="$t('basic.cancel')"
+                        icon="fa fa-times"
+                        class="p-button-danger"
+                        @click="showTransactionsDialog = false"
+                    />
+                </template>
+            </Dialog>
         </div>
     </user-layout>
 </template>
@@ -288,7 +302,7 @@ export default {
         return {
             shareDialog: false,
             addTransactionDialog: false,
-
+            showTransactionsDialog: false,
             transaction: {
                 amount: 0,
             },

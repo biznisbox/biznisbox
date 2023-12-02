@@ -47,3 +47,8 @@
     margin-left: 5px !important;
     margin-right: 5px !important;
 }
+
+
+.p-datatable .p-datatable-tbody > tr > td {
+    cursor: pointer;
+}

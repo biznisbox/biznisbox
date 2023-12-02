@@ -368,7 +368,9 @@
         "payment_success": "Payment success",
         "payment_success_message": "Thank you for your payment. Your payment has been successfully processed.",
         "payment_error": "Payment error",
-        "payment_error_message": "There was an error processing your payment. Please try again."
+        "payment_error_message": "There was an error processing your payment. Please try again.",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "Quote | Quotes",
