@@ -368,7 +368,9 @@
         "payment_success": "Pago exitoso",
         "payment_success_message": "Gracias por su pago. Su pago ha sido procesado con éxito.",
         "payment_error": "Error de pago",
-        "payment_error_message": "Hubo un error al procesar su pago. Por favor, inténtelo de nuevo."
+        "payment_error_message": "Hubo un error al procesar su pago. Por favor, inténtelo de nuevo.",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "Cotización | Citas",
