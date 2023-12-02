@@ -368,7 +368,9 @@
         "payment_success": "Успішний платіж",
         "payment_success_message": "Дякуємо за ваш платіж. Ваш платіж був успішно оброблений.",
         "payment_error": "Помилка оплати",
-        "payment_error_message": "Помилка при обробці вашого платежу. Будь ласка, спробуйте ще раз."
+        "payment_error_message": "Помилка при обробці вашого платежу. Будь ласка, спробуйте ще раз.",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "Котирування | Комерційні пропозиції",
