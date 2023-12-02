@@ -368,7 +368,9 @@
         "payment_success": "Betaling succesvol",
         "payment_success_message": "Bedankt voor uw betaling. Uw betaling is succesvol verwerkt.",
         "payment_error": "Betaling fout",
-        "payment_error_message": "Er is een fout opgetreden bij het verwerken van uw betaling. Probeer het opnieuw."
+        "payment_error_message": "Er is een fout opgetreden bij het verwerken van uw betaling. Probeer het opnieuw.",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "Offerte aanhalingstekens",
