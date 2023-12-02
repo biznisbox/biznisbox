@@ -368,7 +368,9 @@
         "payment_success": "Betaling gennemført",
         "payment_success_message": "Tak for din betaling. Din betaling er blevet behandlet.",
         "payment_error": "Betaling fejl",
-        "payment_error_message": "Der opstod en fejl under behandlingen af din betaling. Prøv venligst igen."
+        "payment_error_message": "Der opstod en fejl under behandlingen af din betaling. Prøv venligst igen.",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "Tilbud - Tilbud",
