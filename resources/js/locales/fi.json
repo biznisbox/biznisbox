@@ -368,7 +368,9 @@
         "payment_success": "Maksu onnistui",
         "payment_success_message": "Kiitos maksustasi. Maksusi on käsitelty onnistuneesti.",
         "payment_error": "Maksu virhe",
-        "payment_error_message": "Maksusi käsittelyssä tapahtui virhe. Ole hyvä ja yritä uudelleen."
+        "payment_error_message": "Maksusi käsittelyssä tapahtui virhe. Ole hyvä ja yritä uudelleen.",
+        "show_transactions": "Show transactions",
+        "list_of_transactions": "List of transactions"
     },
     "quote": {
         "quote": "Tarjous - Lainaukset",
