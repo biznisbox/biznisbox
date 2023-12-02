@@ -216,7 +216,10 @@
         "active": "Aktiven",
         "role": "Vloga",
         "roles": "Vloge",
-        "permissions": "Pooblastila"
+        "permissions": "Pooblastila",
+        "category": "Category",
+        "categories": "Categories",
+        "active_account": "Active Account"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -349,6 +352,7 @@
         "share_dialog_text": "Kopiraj spodnjo povezavo in jo pošlji stranki ali pa skeniraj QR kodo.",
         "create_first_invoice": "Ustvarite prvi račun",
         "no_customer": "Ni stranke",
+        "add_payment": "Add payment",
         "no_payer": "Ni plačnika",
         "no_items": "Ni produktov",
         "add_item": "Dodaj produkt",
@@ -472,7 +476,7 @@
         "edit_bill": "Uredi račun",
         "no_bills": "Ni računov",
         "create_first_bill": "Ustvarite svoj prvi račun",
-        "no_supplier": "Ni dobavitelja",
+        "no_supplier": "No supplier",
         "no_items": "Ni postavk",
         "select_item": "Izberi postavko",
         "date_and_due_date": "Datum in datum zapadlosti",
@@ -513,7 +517,8 @@
             "settings_general": "Splošno",
             "settings_currency": "Valute",
             "settings_taxes": "Davčne stopnje",
-            "numbering": "Številčenje"
+            "numbering": "Številčenje",
+            "status": "Status"
         },
         "company": {
             "title": "Nastavitve podjetja",
@@ -536,6 +541,7 @@
             "stripe_available": "Stripe na voljo",
             "stripe_key": "Stripe API ključ",
             "stripe_key_help": "Najdete ga v vašem Stripe računu.",
+            "stripe_account_id": "Stripe internal account ID",
             "paypal": "PayPal",
             "paypal_available": "PayPal na voljo",
             "paypal_test_mode": "Testni način",
@@ -543,6 +549,7 @@
             "paypal_client_id_help": "Najdete ga v vašem PayPal računu.",
             "paypal_secret": "PayPal Secret",
             "paypal_secret_help": "Najdete ga v vašem PayPal računu.",
+            "paypal_account_id": "PayPal internal account ID",
             "open_banking": "Odprto bančništvo",
             "open_banking_available": "Odprto bančništvo na voljo",
             "open_banking_client_id": "Open Banking Client ID",
@@ -615,6 +622,17 @@
             "total_users": "Skupno število uporabnikov",
             "active_users_today": "Aktivni uporabniki danes",
             "number_of_logins_today": "Število prijav danes"
+        },
+        "app_status": {
+            "title": "Application Status",
+            "current_version": "Current Version",
+            "latest_version": "Latest Version",
+            "update_available": "Update Available",
+            "disk_usage": "Disk Usage",
+            "database_size": "Database Size",
+            "server_os": "Server OS",
+            "php_version": "PHP Version",
+            "hostname": "Hostname"
         },
         "numbering": {
             "title": "Številčenje",
