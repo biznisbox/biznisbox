@@ -219,7 +219,11 @@
         "permissions": "Дозволи",
         "category": "Category",
         "categories": "Categories",
-        "active_account": "Active Account"
+        "active_account": "Active Account",
+        "amount": "Amount",
+        "exchange_rate": "Exchange Rate",
+        "reference": "Reference",
+        "account": "Account"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -426,6 +430,11 @@
         "new_event": "Нова подія",
         "edit_event": "Редагувати подію"
     },
+    "transaction_type": {
+        "income": "Income",
+        "expense": "Expense",
+        "transfer": "Transfer"
+    },
     "transaction": {
         "transaction": "Транзакція | Операції",
         "new_transaction": "Нова транзакція",
@@ -435,22 +444,8 @@
         "date_and_number": "Дата та номер",
         "name": "Ім'я",
         "amount_and_type": "Сума і тип",
-        "income": "Дохід",
-        "expense": "Витрати",
-        "transfer": "Переказ",
-        "category": "Категорія",
-        "account": "Обліковий запис",
-        "number": "Номер",
-        "type": "Тип",
-        "amount": "Сума",
-        "date": "Дата",
-        "description": "Опис",
         "from_account": "З рахунку",
         "to_account": "На рахунок",
-        "payment_method": "Спосіб оплати",
-        "customer": "Замовник",
-        "vendor": "Постачальник",
-        "reference": "По посиланню",
         "delete_confirm_transaction": "Видалити цю операцію?",
         "transaction_details": "Деталі транзакції",
         "new_category": "Нова категорія",
@@ -903,6 +898,11 @@
     "lang": {
         "en": "Українська",
         "de": "Німецька мова",
+        "sl": "Slovenian"
+    },
+    "language": {
+        "en": "English",
+        "de": "German",
         "sl": "Slovenian"
     }
 }
