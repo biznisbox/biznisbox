@@ -219,7 +219,11 @@
         "permissions": "アクセス許可",
         "category": "Category",
         "categories": "Categories",
-        "active_account": "Active Account"
+        "active_account": "Active Account",
+        "amount": "Amount",
+        "exchange_rate": "Exchange Rate",
+        "reference": "Reference",
+        "account": "Account"
     },
     "address_types": {
         "billing": "請求",
@@ -426,6 +430,11 @@
         "new_event": "新しいイベント",
         "edit_event": "予定を編集"
     },
+    "transaction_type": {
+        "income": "Income",
+        "expense": "Expense",
+        "transfer": "Transfer"
+    },
     "transaction": {
         "transaction": "トランザクション | 取引",
         "new_transaction": "新しい取引",
@@ -435,22 +444,8 @@
         "date_and_number": "日付と番号",
         "name": "名前",
         "amount_and_type": "金額と種類",
-        "income": "収入",
-        "expense": "費用",
-        "transfer": "送金",
-        "category": "カテゴリ",
-        "account": "アカウント",
-        "number": "数値",
-        "type": "タイプ",
-        "amount": "金額",
-        "date": "日付",
-        "description": "説明",
         "from_account": "アカウントから",
         "to_account": "アカウントへ",
-        "payment_method": "支払い方法",
-        "customer": "顧客",
-        "vendor": "仕入先",
-        "reference": "参照",
         "delete_confirm_transaction": "この取引を削除してもよろしいですか？",
         "transaction_details": "トランザクションの詳細",
         "new_category": "新しいカテゴリ",
@@ -903,6 +898,11 @@
     "lang": {
         "en": "日本語",
         "de": "ドイツ",
+        "sl": "Slovenian"
+    },
+    "language": {
+        "en": "English",
+        "de": "German",
         "sl": "Slovenian"
     }
 }
