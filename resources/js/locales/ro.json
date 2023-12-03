@@ -219,7 +219,11 @@
         "permissions": "Permisiuni",
         "category": "Category",
         "categories": "Categories",
-        "active_account": "Active Account"
+        "active_account": "Active Account",
+        "amount": "Amount",
+        "exchange_rate": "Exchange Rate",
+        "reference": "Reference",
+        "account": "Account"
     },
     "address_types": {
         "billing": "Facturare",
@@ -426,6 +430,11 @@
         "new_event": "Eveniment nou",
         "edit_event": "Editare eveniment"
     },
+    "transaction_type": {
+        "income": "Income",
+        "expense": "Expense",
+        "transfer": "Transfer"
+    },
     "transaction": {
         "transaction": "Tranzacţii T",
         "new_transaction": "Tranzacție nouă",
@@ -435,22 +444,8 @@
         "date_and_number": "Data și numărul",
         "name": "Nume",
         "amount_and_type": "Sumă și tip",
-        "income": "Venituri",
-        "expense": "Cheltuială",
-        "transfer": "Transfer",
-        "category": "Categorie",
-        "account": "Cont",
-        "number": "Număr",
-        "type": "Tip",
-        "amount": "Sumă",
-        "date": "Data",
-        "description": "Descriere",
         "from_account": "Din contul",
         "to_account": "Către cont",
-        "payment_method": "Metoda de plată",
-        "customer": "Client",
-        "vendor": "Furnizor",
-        "reference": "Referință",
         "delete_confirm_transaction": "Ești sigur că vrei să ștergi această tranzacție?",
         "transaction_details": "Detaliile tranzacției",
         "new_category": "Categorie nouă",
@@ -903,6 +898,11 @@
     "lang": {
         "en": "Română",
         "de": "Deutsch",
+        "sl": "Slovenian"
+    },
+    "language": {
+        "en": "English",
+        "de": "German",
         "sl": "Slovenian"
     }
 }
