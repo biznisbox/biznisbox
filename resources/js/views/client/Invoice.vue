@@ -15,34 +15,34 @@
                     <user-header :title="$t('invoice.invoice') + ' ' + invoice.number">
                         <template #actions>
                             <Button
+                                id="download_button"
                                 v-tooltip:top="$t('invoice.click_for_download')"
                                 class="mr-2 no-print"
                                 :disabled="!invoice"
                                 icon="fa fa-download"
-                                id="download_button"
                                 @click="downloadInvoice"
                             />
                             <Button
                                 v-if="$settings.stripe_available && invoice.status != 'paid' && invoice.status != 'overpaid'"
+                                id="stripe_button"
                                 class="mr-2 no-print"
                                 icon="fa fa-credit-card"
-                                id="stripe_button"
                                 @click="payWithCard"
                             />
                             <Button
                                 v-if="$settings.paypal_available && invoice.status != 'paid' && invoice.status != 'overpaid'"
+                                id="paypal_button"
                                 class="mr-2 no-print"
                                 icon="fab fa-paypal"
-                                id="paypal_button"
                                 @click="payWithPaypal"
                             />
 
                             <Button
                                 v-if="invoice.transactions.length > 0"
+                                id="show_transactions_button"
                                 class="mr-2 no-print"
                                 icon="fa fa-list"
                                 :label="$t('invoice.show_transactions')"
-                                id="show_transactions_button"
                                 @click="showTransactionsDialog = true"
                             />
                         </template>

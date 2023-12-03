@@ -206,6 +206,20 @@ export default {
         }
     },
 
+    watch: {
+        'currency.name': function (val) {
+            // Find the currency in the available currencies
+            const currency = this.availableCurrencies.find((currency) => currency.name === val)
+            if (!currency) return
+            // Update the currency object
+            if (!this.showEditCurrencyDialog) {
+                this.currency.code = currency.code
+                this.currency.symbol = currency.symbol_native
+                this.currency.rate = 1
+            }
+        },
+    },
+
     created() {
         this.getCurrencies()
         this.getAvailableCurrencies()
@@ -291,20 +305,6 @@ export default {
         openEditCurrencyDialog(event) {
             this.showEditCurrencyDialog = true
             this.getCurrency(event.data.id)
-        },
-    },
-
-    watch: {
-        'currency.name': function (val) {
-            // Find the currency in the available currencies
-            const currency = this.availableCurrencies.find((currency) => currency.name === val)
-            if (!currency) return
-            // Update the currency object
-            if (!this.showEditCurrencyDialog) {
-                this.currency.code = currency.code
-                this.currency.symbol = currency.symbol_native
-                this.currency.rate = 1
-            }
         },
     },
 }

@@ -6,40 +6,40 @@
                     <template #actions>
                         <Button
                             v-if="invoice.status != 'paid' && invoice.status != 'overpaid' && invoice.status != 'refunded'"
+                            id="edit_invoice_button"
                             :label="$t('basic.edit')"
                             icon="fa fa-pen"
                             class="p-button-success"
-                            id="edit_invoice_button"
                             @click="editInvoiceNavigate"
                         />
                         <Button
                             v-if="invoice.status != 'paid' && invoice.status != 'overpaid' && invoice.status != 'refunded'"
+                            id="delete_invoice_button"
                             :label="$t('basic.delete')"
                             icon="fa fa-trash"
                             class="p-button-danger"
-                            id="delete_invoice_button"
                             @click="deleteInvoiceAsk($route.params.id)"
                         />
                         <Button
                             v-if="invoice.status != 'paid' && invoice.status != 'overpaid' && invoice.status != 'refunded'"
+                            id="add_payment_button"
                             :label="$t('invoice.add_payment')"
                             icon="fa fa-plus"
-                            id="add_payment_button"
                             @click="addTransactionDialog = true"
                         />
                         <Button
+                            id="show_transactions_button"
                             :label="$t('invoice.show_transactions')"
                             icon="fa fa-list"
-                            id="show_transactions_button"
                             @click="showTransactionsDialog = true"
                         />
                         <Button
+                            id="share_invoice_button"
                             :label="$t('basic.share')"
                             icon="fa fa-share"
-                            id="share_invoice_button"
                             @click="shareInvoice($route.params.id)"
                         />
-                        <Button :label="$t('basic.download')" id="download_invoice_button" icon="fa fa-download" @click="downloadInvoice" />
+                        <Button id="download_invoice_button" :label="$t('basic.download')" icon="fa fa-download" @click="downloadInvoice" />
                     </template>
                 </user-header>
 

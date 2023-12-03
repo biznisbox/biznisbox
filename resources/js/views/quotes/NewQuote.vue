@@ -109,7 +109,7 @@
                             />
                         </div>
 
-                        <div class="grid" id="item_section">
+                        <div id="item_section" class="grid">
                             <div class="col-12">
                                 <Button id="add_item_button" :label="$t('basic.add_item')" icon="fa fa-plus" @click="addItem" />
                             </div>
@@ -121,9 +121,9 @@
                                 <Column field="name" :header="$t('form.name')">
                                     <template #body="slotProps">
                                         <Dropdown
+                                            :id="`product_select_${slotProps.index}`"
                                             v-model="slotProps.data.item"
                                             :options="products"
-                                            :id="`product_select_${slotProps.index}`"
                                             data-key="id"
                                             :placeholder="$t('quote.select_item')"
                                             @change="selectItem(slotProps.index, slotProps.data)"
@@ -250,18 +250,18 @@
 
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
                         <Button
-                            :label="$t('basic.cancel')"
                             id="cancel_button"
+                            :label="$t('basic.cancel')"
                             icon="fa fa-times"
                             class="p-button-danger"
                             @click="goTo('/quotes')"
                         />
                         <Button
+                            id="save_button"
                             :label="$t('basic.save')"
                             :disabled="loadingData"
                             icon="fa fa-floppy-disk"
                             class="p-button-success"
-                            id="save_button"
                             @click="validateForm"
                         />
                     </div>
