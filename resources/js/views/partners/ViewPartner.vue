@@ -36,7 +36,7 @@
                             <DisplayData :input="$t('form.number')" :value="partner.number" />
                             <DisplayData :input="$t('form.vat_number')" :value="partner.vat_number" />
                             <DisplayData :input="$t('form.website')" :value="partner.website" is-link />
-                            <DisplayData :input="$t('form.language')" :value="partner.language" />
+                            <DisplayData :input="$t('form.language')" :value="$t('language.' + partner.language)" />
                             <DisplayData :input="$t('form.currency')" :value="partner.currency" />
                             <DisplayData :input="$t('form.size')" :value="partner.size" custom-value>
                                 <span v-if="partner.size === 'micro'">{{ $t('basic.micro') }}</span>
@@ -123,7 +123,7 @@
                                         </Column>
                                         <Column field="total" :header="$t('form.total')">
                                             <template #body="{ data }">
-                                                {{ data.total + ' ' + data.currency }}
+                                                {{ formatMoney(data.total, data.currency) }}
                                             </template>
                                         </Column>
                                         <Column filter-field="status" :header="$t('form.status')">
@@ -169,7 +169,7 @@
                                             </Column>
                                             <Column field="total" :header="$t('form.total')">
                                                 <template #body="{ data }">
-                                                    {{ data.total + ' ' + data.currency }}
+                                                    {{ formatMoney(data.total, data.currency) }}
                                                 </template>
                                             </Column>
                                             <Column filter-field="status" :header="$t('form.status')">
@@ -275,7 +275,7 @@
 
                                             <Column field="amount" :header="$t('transaction.amount')">
                                                 <template #body="{ data }">
-                                                    <span>{{ data.amount ? data.amount + ' ' + data.currency : '-' }}</span> <br />
+                                                    <span>{{ data.amount ? formatMoney(data.amount, data.currency) : '-' }}</span> <br />
                                                 </template>
                                             </Column>
 
@@ -283,15 +283,15 @@
                                                 <template #body="{ data }">
                                                     <span v-if="data.type === 'income'">
                                                         <i class="fa fa-arrow-up text-green-500 mr-2"></i>
-                                                        <span>{{ $t('transaction.income') }}</span>
+                                                        <span>{{ $t('transaction_type.income') }}</span>
                                                     </span>
                                                     <span v-if="data.type === 'expense'">
                                                         <i class="fa fa-arrow-down text-red-500 mr-2"></i>
-                                                        <span>{{ $t('transaction.expense') }}</span>
+                                                        <span>{{ $t('transaction_type.expense') }}</span>
                                                     </span>
                                                     <span v-if="data.type === 'transfer'">
                                                         <i class="fa fa-exchange-alt text-blue-500 mr-2"></i>
-                                                        <span>{{ $t('transaction.transfer') }}</span>
+                                                        <span>{{ $t('transaction_type.transfer') }}</span>
                                                     </span>
                                                 </template>
                                             </Column>

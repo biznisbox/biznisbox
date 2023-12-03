@@ -58,9 +58,9 @@
                         </template>
                     </Column>
 
-                    <Column field="amount" :header="$t('transaction.amount')">
+                    <Column field="amount" :header="$t('form.amount')">
                         <template #body="{ data }">
-                            <span>{{ data.amount ? data.amount + ' ' + data.currency : '-' }}</span> <br />
+                            <span>{{ formatMoney(data.amount, data.currency) }}</span> <br />
                         </template>
 
                         <template #filter="{ filterModel }">
@@ -70,19 +70,19 @@
                         </template>
                     </Column>
 
-                    <Column field="type" :header="$t('transaction.type')">
+                    <Column field="type" :header="$t('form.type')">
                         <template #body="{ data }">
                             <span v-if="data.type === 'income'">
                                 <i class="fa fa-arrow-up text-green-500 mr-2"></i>
-                                <span>{{ $t('transaction.income') }}</span>
+                                <span>{{ $t('transaction_type.income') }}</span>
                             </span>
                             <span v-if="data.type === 'expense'">
                                 <i class="fa fa-arrow-down text-red-500 mr-2"></i>
-                                <span>{{ $t('transaction.expense') }}</span>
+                                <span>{{ $t('transaction_type.expense') }}</span>
                             </span>
                             <span v-if="data.type === 'transfer'">
                                 <i class="fa fa-exchange-alt text-blue-500 mr-2"></i>
-                                <span>{{ $t('transaction.transfer') }}</span>
+                                <span>{{ $t('transaction_type.transfer') }}</span>
                             </span>
                         </template>
 
@@ -91,9 +91,9 @@
                                 <Dropdown
                                     v-model="filterModel.value"
                                     :options="[
-                                        { label: $t('transaction.income'), value: 'income' },
-                                        { label: $t('transaction.expense'), value: 'expense' },
-                                        { label: $t('transaction.transfer'), value: 'transfer' },
+                                        { label: $t('transaction_type.income'), value: 'income' },
+                                        { label: $t('transaction_type.expense'), value: 'expense' },
+                                        { label: $t('transaction_type.transfer'), value: 'transfer' },
                                     ]"
                                     option-label="label"
                                     option-value="value"
@@ -104,7 +104,7 @@
                         </template>
                     </Column>
 
-                    <Column field="account" :header="$t('transaction.account')">
+                    <Column field="account" :header="$t('form.account')">
                         <template #body="{ data }">
                             {{ data.account ? data.account?.name : '-' }}
                         </template>
@@ -144,15 +144,15 @@
                             <SelectInput
                                 v-model="category.description"
                                 :options="[
-                                    { label: $t('transaction.income'), value: 'income' },
-                                    { label: $t('transaction.expense'), value: 'expense' },
-                                    { label: $t('transaction.transfer'), value: 'transfer' },
+                                    { label: $t('transaction_type.income'), value: 'income' },
+                                    { label: $t('transaction_type.expense'), value: 'expense' },
+                                    { label: $t('transaction_type.transfer'), value: 'transfer' },
                                 ]"
                                 option-label="label"
                                 option-value="value"
                                 placeholder="Select type"
                                 class="col-12"
-                                :label="$t('transaction.type')"
+                                :label="$t('form.type')"
                             />
                         </div>
                     </form>

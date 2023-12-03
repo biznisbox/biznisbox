@@ -75,12 +75,12 @@
                             </Column>
                             <Column field="price" :header="$t('form.price')">
                                 <template #body="slotProps">
-                                    <span>{{ slotProps.data.price + ' ' + $settings.default_currency }}</span>
+                                    <span>{{ formatMoney(slotProps.data.price) }}</span>
                                 </template>
                             </Column>
                             <Column field="total" :header="$t('form.total')">
                                 <template #body="slotProps">
-                                    <span>{{ slotProps.data.total + ' ' + $settings.default_currency }}</span>
+                                    <span>{{ formatMoney(slotProps.data.total) }}</span>
                                 </template>
                             </Column>
                         </DataTable>
@@ -97,7 +97,7 @@
 
                                 <tr>
                                     <td class="w-6 font-bold">{{ $t('form.total') }}</td>
-                                    <td class="text-gray-700 text-right">{{ bill.total + ' ' + bill.currency }}</td>
+                                    <td class="text-gray-700 text-right">{{ formatMoney(bill.total, bill.currency) }}</td>
                                 </tr>
                             </table>
                         </div>

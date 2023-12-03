@@ -34,11 +34,14 @@
                                 <div class="col-12 sm:col-6">
                                     <DisplayData
                                         :input="$t('form.opening_balance')"
-                                        :value="account.opening_balance + ' ' + account.currency"
+                                        :value="formatMoney(account.opening_balance, account.currency)"
                                     />
                                 </div>
                                 <div class="col-12 sm:col-6">
-                                    <DisplayData :input="$t('form.balance')" :value="account.current_balance + ' ' + account.currency" />
+                                    <DisplayData
+                                        :input="$t('form.balance')"
+                                        :value="formatMoney(account.current_balance, account.currency)"
+                                    />
                                 </div>
                             </div>
 
@@ -80,19 +83,19 @@
 
                                         <Column field="amount" :header="$t('transaction.amount_and_type')">
                                             <template #body="{ data }">
-                                                <span>{{ data.amount ? data.amount : '-' }}</span> <br />
+                                                <span>{{ data.amount ? formatMoney(data.amount, data.currency) : '-' }}</span> <br />
                                                 <div>
                                                     <span v-if="data.type === 'income'">
                                                         <i class="fa fa-arrow-up text-green-500 mr-2"></i>
-                                                        <span>{{ $t('transaction.income') }}</span>
+                                                        <span>{{ $t('transaction_type.income') }}</span>
                                                     </span>
                                                     <span v-if="data.type === 'expense'">
                                                         <i class="fa fa-arrow-down text-red-500 mr-2"></i>
-                                                        <span>{{ $t('transaction.expense') }}</span>
+                                                        <span>{{ $t('transaction_type.expense') }}</span>
                                                     </span>
                                                     <span v-if="data.type === 'transfer'">
                                                         <i class="fa fa-exchange-alt text-blue-500 mr-2"></i>
-                                                        <span>{{ $t('transaction.transfer') }}</span>
+                                                        <span>{{ $t('transaction_type.transfer') }}</span>
                                                     </span>
                                                 </div>
                                             </template>

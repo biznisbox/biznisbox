@@ -1,6 +1,7 @@
 import GlobalMixin from '@/mixins/global'
 import i18n from '@/plugins/i18n'
 import { jwtDecode } from 'jwt-decode'
+import { isNumber } from 'lodash'
 import moment from 'moment/moment'
 export default {
     mixins: [GlobalMixin],
@@ -176,8 +177,15 @@ export default {
          * @returns {string} Formatted money
          */
         formatMoney(value, currency = null) {
+            if (value === null || value === undefined) {
+                return ''
+            }
             if (currency === null || currency === undefined) {
                 currency = this.$settings.default_currency
+            }
+            if (isNumber(value) === false) {
+                // If value is not number, return value as it is (bug fix)
+                return value + ' ' + currency
             }
             return value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + ' ' + currency
         },

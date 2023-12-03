@@ -21,7 +21,7 @@
                     :rows-per-page-options="[10, 20, 50]"
                     @row-dblclick="viewPartnerNavigation"
                 >
-                    <Column field="number" :header="$t('form.number')">
+                    <Column field="number" :header="$t('form.number')" sortable="">
                         <template #body="{ data }">
                             {{ data.number }}
                         </template>

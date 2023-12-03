@@ -41,7 +41,7 @@ class Bill extends Model implements Auditable
     protected $casts = [
         'date' => 'datetime',
         'due_date' => 'datetime',
-        'total' => 'float:2',
+        'total' => 'float',
         'tax' => 'float',
         'discount' => 'float',
         'currency_rate' => 'float:4',

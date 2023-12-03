@@ -9,7 +9,7 @@
                             id="edit_quote_button"
                             :label="$t('basic.edit')"
                             icon="fa fa-pen"
-                            class="p-button-success"
+                            severity="success"
                             @click="editQuoteRoute"
                         />
                         <Button
@@ -17,7 +17,7 @@
                             id="delete_quote_button"
                             :label="$t('basic.delete')"
                             icon="fa fa-trash"
-                            class="p-button-danger"
+                            severity="danger"
                             @click="deleteQuoteAsk(quote.id)"
                         />
                         <Button
@@ -25,23 +25,16 @@
                             id="convert_quote_to_invoice_button"
                             :label="$t('quote.convert_to_invoice')"
                             icon="fa fa-file-invoice-dollar"
-                            class="p-button-success"
+                            severity="success"
                             @click="convertQuoteToInvoice(quote.id)"
                         />
                         <Button
                             id="share_quote_button"
                             :label="$t('basic.share')"
                             icon="fa fa-share"
-                            class="p-button-info"
                             @click="shareQuote($route.params.id)"
                         />
-                        <Button
-                            id="download_quote_button"
-                            :label="$t('basic.download')"
-                            icon="fa fa-download"
-                            class="p-button-info"
-                            @click="downloadQuote"
-                        />
+                        <Button id="download_quote_button" :label="$t('basic.download')" icon="fa fa-download" @click="downloadQuote" />
                     </template>
                 </user-header>
 
@@ -130,7 +123,7 @@
                             </Column>
                             <Column field="price" :header="$t('form.price')">
                                 <template #body="slotProps">
-                                    <span>{{ slotProps.data.price + ' ' + quote.currency }}</span>
+                                    <span>{{ formatMoney(slotProps.data.price, quote.currency) }}</span>
                                 </template>
                             </Column>
                             <Column field="tax" :header="$t('form.tax')">
@@ -145,7 +138,7 @@
                             </Column>
                             <Column field="total" :header="$t('form.total')">
                                 <template #body="slotProps">
-                                    <span>{{ slotProps.data.total + ' ' + quote.currency }}</span>
+                                    <span>{{ formatMoney(slotProps.data.total, quote.currency) }}</span>
                                 </template>
                             </Column>
                         </DataTable>
@@ -154,11 +147,11 @@
                     <div id="quote_calculations" class="grid mt-5">
                         <div id="quote_notes" class="col-12 md:col-6">
                             <DisplayData :input="$t('form.notes')" custom-value>
-                                <span v-if="quote.notes && !loadingData" class="text-gray-700" v-html="quote.notes"></span>
+                                <span v-if="quote.notes && !loadingData" v-html="quote.notes"></span>
                             </DisplayData>
 
                             <DisplayData :input="$t('form.footer')" custom-value>
-                                <span v-if="quote.footer && !loadingData" class="text-gray-700" v-html="quote.footer"></span>
+                                <span v-if="quote.footer && !loadingData" v-html="quote.footer"></span>
                             </DisplayData>
                         </div>
 
@@ -169,14 +162,16 @@
                                     <td class="text-right">{{ quote.discount }} %</td>
                                 </tr>
 
-                                <tr v-if="quote.currency_rate != 1">
+                                <tr v-if="quote.currency != $settings.default_currency">
                                     <td class="w-6 font-bold">{{ $t('form.currency_rate') }}</td>
-                                    <td class="text-right">{{ quote.currency_rate }}</td>
+                                    <td class="text-right">
+                                        {{ `1 ${$settings.default_currency} = ${quote.currency_rate} ${quote.currency}` }}
+                                    </td>
                                 </tr>
 
                                 <tr>
                                     <td class="w-6 font-bold">{{ $t('form.total') }}</td>
-                                    <td class="text-right">{{ quote.total }} {{ quote.currency }}</td>
+                                    <td class="text-right">{{ formatMoney(quote.total, quote.currency) }}</td>
                                 </tr>
                             </table>
                         </div>
