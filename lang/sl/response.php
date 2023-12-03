@@ -70,6 +70,7 @@ return [
         'delete_error' => 'Računa ni bilo mogoče izbrisati',
         'get_success' => 'Račun je bil uspešno pridobljen',
         'get_error' => 'Računa ni bilo mogoče pridobiti',
+        'delete_default_account' => 'Prevzetega računa ni mogoče izbrisati',
     ],
 
     //Bill responses
@@ -155,6 +156,7 @@ return [
         'send_failed' => 'Računa ni bilo mogoče poslati',
         'update_failed' => 'Računa ni bilo mogoče posodobiti',
         'delete_failed' => 'Računa ni bilo mogoče izbrisati',
+        'transaction_success' => 'Transakcija je bila uspešno dodana',
     ],
 
     //Online payment responses
@@ -281,4 +283,8 @@ return [
             'delete_failed_self_account' => 'Ne morate izbrisati lastnega računa',
         ],
     ],
+    'memory_used' => 'Memory used',
+    'memory_available' => 'Memory available',
+    'disk_used' => 'Disk used',
+    'disk_available' => 'Disk available',
 ];
