@@ -451,7 +451,12 @@
         "new_category": "Nueva Categoría",
         "edit_category": "Editar Categoría",
         "category_name": "Nombre de categoría",
-        "category_created": "Categoría creada correctamente"
+        "category_created": "Categoría creada correctamente",
+        "categories": "Categories",
+        "no_categories": "No categories found",
+        "delete_category_confirmation": "Are you sure you want to delete this category?",
+        "category_deleted": "Category deleted successfully",
+        "category_updated": "Category updated successfully"
     },
     "archive": {
         "archive": "Archivo | Archivos",
