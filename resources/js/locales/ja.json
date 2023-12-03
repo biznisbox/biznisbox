@@ -451,7 +451,12 @@
         "new_category": "新しいカテゴリ",
         "edit_category": "カテゴリの編集",
         "category_name": "カテゴリ名",
-        "category_created": "カテゴリの作成に成功しました"
+        "category_created": "カテゴリの作成に成功しました",
+        "categories": "Categories",
+        "no_categories": "No categories found",
+        "delete_category_confirmation": "Are you sure you want to delete this category?",
+        "category_deleted": "Category deleted successfully",
+        "category_updated": "Category updated successfully"
     },
     "archive": {
         "archive": "Archive | アーカイブ",
