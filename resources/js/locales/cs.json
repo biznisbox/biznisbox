@@ -219,7 +219,11 @@
         "permissions": "Práva",
         "category": "Category",
         "categories": "Categories",
-        "active_account": "Active Account"
+        "active_account": "Active Account",
+        "amount": "Amount",
+        "exchange_rate": "Exchange Rate",
+        "reference": "Reference",
+        "account": "Account"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -426,6 +430,11 @@
         "new_event": "Nová událost",
         "edit_event": "Upravit událost"
     },
+    "transaction_type": {
+        "income": "Income",
+        "expense": "Expense",
+        "transfer": "Transfer"
+    },
     "transaction": {
         "transaction": "Transakce | Transakce",
         "new_transaction": "Nová transakce",
@@ -435,22 +444,8 @@
         "date_and_number": "Datum a číslo",
         "name": "Název",
         "amount_and_type": "Částka a typ",
-        "income": "Výnosy",
-        "expense": "Výdaje",
-        "transfer": "Převod",
-        "category": "Kategorie",
-        "account": "Účet",
-        "number": "Číslo",
-        "type": "Typ",
-        "amount": "Částka, která má být získána",
-        "date": "Datum:",
-        "description": "L 343, 22.12.2009, s. 1).",
         "from_account": "Z účtu",
         "to_account": "Na účet",
-        "payment_method": "Způsob platby",
-        "customer": "Zákazník",
-        "vendor": "Dodavatel",
-        "reference": "Referenční číslo",
         "delete_confirm_transaction": "Opravdu chcete odstranit tuto transakci?",
         "transaction_details": "Podrobnosti transakce",
         "new_category": "Nová kategorie",
@@ -903,6 +898,11 @@
     "lang": {
         "en": "Anglické",
         "de": "Výkřik",
+        "sl": "Slovenian"
+    },
+    "language": {
+        "en": "English",
+        "de": "German",
         "sl": "Slovenian"
     }
 }
