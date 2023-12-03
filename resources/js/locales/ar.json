@@ -219,7 +219,11 @@
         "permissions": "الأذونات",
         "category": "Category",
         "categories": "Categories",
-        "active_account": "Active Account"
+        "active_account": "Active Account",
+        "amount": "Amount",
+        "exchange_rate": "Exchange Rate",
+        "reference": "Reference",
+        "account": "Account"
     },
     "address_types": {
         "billing": "الفواتير",
@@ -426,6 +430,11 @@
         "new_event": "حدث جديد",
         "edit_event": "تعديل الحدث"
     },
+    "transaction_type": {
+        "income": "Income",
+        "expense": "Expense",
+        "transfer": "Transfer"
+    },
     "transaction": {
         "transaction": "المعاملة <unk> المعاملات",
         "new_transaction": "معاملة جديدة",
@@ -435,22 +444,8 @@
         "date_and_number": "ألف - التاريخ والرقم",
         "name": "الاسم",
         "amount_and_type": "المبلغ والنوع",
-        "income": "الدخل",
-        "expense": "المصروفات",
-        "transfer": "نقل",
-        "category": "الفئة",
-        "account": "حساب",
-        "number": "رقم",
-        "type": "نوع",
-        "amount": "المبلغ",
-        "date": "التاريخ",
-        "description": "الوصف",
         "from_account": "من الحساب",
         "to_account": "إلى الحساب",
-        "payment_method": "طريقة الدفع",
-        "customer": "عميل",
-        "vendor": "البائع",
-        "reference": "مرجع",
         "delete_confirm_transaction": "هل أنت متأكد من أنك تريد حذف هذه المعاملة؟",
         "transaction_details": "تفاصيل المعاملة",
         "new_category": "فئة جديدة",
@@ -903,6 +898,11 @@
     "lang": {
         "en": "الإنكليزية",
         "de": "ديوتش",
+        "sl": "Slovenian"
+    },
+    "language": {
+        "en": "English",
+        "de": "German",
         "sl": "Slovenian"
     }
 }
