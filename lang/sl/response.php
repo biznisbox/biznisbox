@@ -283,8 +283,8 @@ return [
             'delete_failed_self_account' => 'Ne morate izbrisati lastnega računa',
         ],
     ],
-    'memory_used' => 'Memory used',
-    'memory_available' => 'Memory available',
-    'disk_used' => 'Disk used',
-    'disk_available' => 'Disk available',
+    'memory_used' => 'Uporabljen pomnilnik',
+    'memory_available' => 'Pomnilnik na voljo',
+    'disk_used' => 'Poraba diska',
+    'disk_available' => 'Diska na voljo',
 ];
