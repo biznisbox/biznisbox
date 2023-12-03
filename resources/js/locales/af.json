@@ -219,7 +219,11 @@
         "permissions": "Permissions",
         "category": "Category",
         "categories": "Categories",
-        "active_account": "Active Account"
+        "active_account": "Active Account",
+        "amount": "Amount",
+        "exchange_rate": "Exchange Rate",
+        "reference": "Reference",
+        "account": "Account"
     },
     "address_types": {
         "billing": "Billing",
@@ -426,6 +430,11 @@
         "new_event": "New Event",
         "edit_event": "Edit Event"
     },
+    "transaction_type": {
+        "income": "Income",
+        "expense": "Expense",
+        "transfer": "Transfer"
+    },
     "transaction": {
         "transaction": "Transaction | Transactions",
         "new_transaction": "New Transaction",
@@ -435,22 +444,8 @@
         "date_and_number": "Date and number",
         "name": "Name",
         "amount_and_type": "Amount and type",
-        "income": "Income",
-        "expense": "Expense",
-        "transfer": "Transfer",
-        "category": "Category",
-        "account": "Account",
-        "number": "Number",
-        "type": "Type",
-        "amount": "Amount",
-        "date": "Date",
-        "description": "Description",
         "from_account": "From Account",
         "to_account": "To Account",
-        "payment_method": "Payment Method",
-        "customer": "Customer",
-        "vendor": "Vendor",
-        "reference": "Reference",
         "delete_confirm_transaction": "Are you sure you want to delete this transaction?",
         "transaction_details": "Transaction details",
         "new_category": "New Category",
@@ -903,6 +898,11 @@
     "lang": {
         "en": "English",
         "de": "Deutsch",
+        "sl": "Slovenian"
+    },
+    "language": {
+        "en": "English",
+        "de": "German",
         "sl": "Slovenian"
     }
 }
