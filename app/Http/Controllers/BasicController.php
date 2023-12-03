@@ -28,6 +28,12 @@ class BasicController extends Controller
         return api_response($categories, __('response.category.success'));
     }
 
+    public function getCategory($id)
+    {
+        $category = $this->dataService->getCategory($id);
+        return api_response($category, __('response.category.success'));
+    }
+
     public function createCategory(Request $request)
     {
         $categoryData = $request->all();

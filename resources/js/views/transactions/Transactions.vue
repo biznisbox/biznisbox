@@ -4,7 +4,12 @@
             <user-header :title="$t('transaction.transaction', 2)">
                 <template #actions>
                     <HeaderActionButton :label="$t('transaction.new_transaction')" icon="fa fa-plus" to="/transactions/new" />
-                    <Button icon="fa fa-folder-tree" :label="$t('transaction.new_category')" @click="showNewCategory = true" />
+                    <Button
+                        id="categories_button"
+                        icon="fa fa-folder-tree"
+                        :label="$t('transaction.categories')"
+                        @click="showCategoriesDialog = true"
+                    />
                 </template>
             </user-header>
 
@@ -128,8 +133,66 @@
                     </template>
                 </DataTable>
 
+                <!-- Categories list -->
+                <Dialog v-model:visible="showCategoriesDialog" :header="$t('transaction.categories')" modal>
+                    <DataTable :value="categories" data-key="id">
+                        <Column field="name" :header="$t('form.name')">
+                            <template #body="{ data }">
+                                <span>{{ data.name ? data.name : '-' }}</span>
+                            </template>
+                        </Column>
+
+                        <Column field="description" :header="$t('form.type')">
+                            <template #body="{ data }">
+                                <span v-if="data.description === 'income'">
+                                    <i class="fa fa-arrow-up text-green-500 mr-2"></i>
+                                    <span>{{ $t('transaction_type.income') }}</span>
+                                </span>
+                                <span v-if="data.description === 'expense'">
+                                    <i class="fa fa-arrow-down text-red-500 mr-2"></i>
+                                    <span>{{ $t('transaction_type.expense') }}</span>
+                                </span>
+                                <span v-if="data.description === 'transfer'">
+                                    <i class="fa fa-exchange-alt text-blue-500 mr-2"></i>
+                                    <span>{{ $t('transaction_type.transfer') }}</span>
+                                </span>
+                            </template>
+                        </Column>
+
+                        <Column :header="$t('basic.actions')">
+                            <template #body="{ data }">
+                                <Button id="category_edit_button" icon="fa fa-edit" @click="editCategoryDialog(data.id)" />
+                                <Button
+                                    id="category_delete_button"
+                                    icon="fa fa-trash"
+                                    class="p-button-danger ml-2"
+                                    @click="deleteCategory(data.id)"
+                                />
+                            </template>
+                        </Column>
+                    </DataTable>
+
+                    <template #footer>
+                        <div id="function_buttons" class="grid gap-2 justify-content-end">
+                            <Button
+                                id="new_category"
+                                :label="$t('transaction.new_category')"
+                                icon="fa fa-plus"
+                                @click="showNewCategory = true"
+                            />
+                            <Button
+                                id="categories_close_button"
+                                :label="$t('basic.close')"
+                                icon="fa fa-times"
+                                class="p-button-danger"
+                                @click="showCategoriesDialog = false"
+                            />
+                        </div>
+                    </template>
+                </Dialog>
+
                 <!-- New category dialog -->
-                <Dialog v-model:visible="showNewCategory" :header="$t('transaction.new_category')" modal>
+                <Dialog v-model:visible="showNewCategoryDialog" :header="$t('transaction.new_category')" modal>
                     <form id="new_category_form" class="formgrid">
                         <div class="grid">
                             <TextInput
@@ -160,17 +223,69 @@
                     <template #footer>
                         <div id="function_buttons" class="grid gap-2 justify-content-end">
                             <Button
+                                id="new_category_cancel_button"
                                 :label="$t('basic.cancel')"
                                 icon="fa fa-times"
                                 class="p-button-danger"
-                                @click="showNewCategory = false"
+                                @click="showNewCategoryDialog = false"
                             />
                             <Button
+                                id="new_category_save_button"
                                 :label="$t('basic.save')"
                                 icon="fa fa-floppy-disk"
                                 :disabled="loadingData"
                                 class="p-button-success"
-                                @click="saveCategory()"
+                                @click="saveCategory"
+                            />
+                        </div>
+                    </template>
+                </Dialog>
+
+                <!-- Edit category dialog -->
+                <Dialog v-model:visible="showEditCategoryDialog" :header="$t('transaction.edit_category')" modal>
+                    <form id="edit_category_form" class="formgrid">
+                        <div class="grid">
+                            <TextInput
+                                id="name_input"
+                                v-model="category.name"
+                                class="field col-12"
+                                :label="$t('transaction.category_name')"
+                            ></TextInput>
+                        </div>
+
+                        <div class="grid">
+                            <SelectInput
+                                v-model="category.description"
+                                :options="[
+                                    { label: $t('transaction_type.income'), value: 'income' },
+                                    { label: $t('transaction_type.expense'), value: 'expense' },
+                                    { label: $t('transaction_type.transfer'), value: 'transfer' },
+                                ]"
+                                option-label="label"
+                                option-value="value"
+                                placeholder="Select type"
+                                class="col-12"
+                                :label="$t('form.type')"
+                            />
+                        </div>
+                    </form>
+
+                    <template #footer>
+                        <div id="function_buttons" class="grid gap-2 justify-content-end">
+                            <Button
+                                id="edit_category_cancel_button"
+                                :label="$t('basic.cancel')"
+                                icon="fa fa-times"
+                                class="p-button-danger"
+                                @click="showEditCategoryDialog = false"
+                            />
+                            <Button
+                                id="edit_category_save_button"
+                                :label="$t('basic.save')"
+                                icon="fa fa-floppy-disk"
+                                :disabled="loadingData"
+                                class="p-button-success"
+                                @click="updateCategory"
                             />
                         </div>
                     </template>
@@ -190,13 +305,24 @@ export default {
     data() {
         return {
             filters: null,
-            showNewCategory: false,
+            category: {
+                name: '',
+                description: '',
+                icon: '',
+                color: '',
+                module: 'transaction',
+            },
+            categories: [],
+            showCategoriesDialog: false,
+            showNewCategoryDialog: false,
+            showEditCategoryDialog: false,
         }
     },
 
     created() {
         this.getTransactions()
         this.initFilters()
+        this.getCategories()
     },
 
     methods: {
@@ -214,6 +340,9 @@ export default {
             }
         },
 
+        /**
+         * Save new category
+         */
         saveCategory() {
             // Set icon and color based on category type
             switch (this.category.description) {
@@ -231,15 +360,101 @@ export default {
                     break
             }
             this.makeHttpRequest('POST', '/api/categories', this.category).then((response) => {
-                this.showToast(this.$t('basic.success'), this.$t('transaction.category_created'))
+                this.showToast(this.$t('transaction.category_created'))
                 this.showNewCategory = false
                 this.category = {
                     name: '',
                     description: '',
                     icon: '',
                     color: '',
+                    module: 'transaction',
                 }
-                this.getTransactions()
+                this.getCategories()
+            })
+        },
+
+        /**
+         * Get categories
+         */
+        getCategories() {
+            this.makeHttpRequest('GET', '/api/categories?module=transaction').then((response) => {
+                this.categories = response.data.data
+            })
+        },
+
+        /**
+         * Get category by id
+         * @param {UUID} id Category id
+         */
+        getCategory(id) {
+            this.makeHttpRequest('GET', `/api/categories/${id}`).then((response) => {
+                this.category = response.data.data
+            })
+        },
+
+        /**
+         * Open edit category dialog
+         * @param {UUID} id Category id
+         */
+        editCategoryDialog(id) {
+            this.category = {
+                name: '',
+                description: '',
+                icon: '',
+                color: '',
+                module: 'transaction',
+            }
+            this.getCategory(id)
+            this.showEditCategoryDialog = true
+        },
+
+        /**
+         * Delete category after confirmation
+         * @param {UUID} id Category id
+         */
+        deleteCategory(id) {
+            this.$confirm.require({
+                message: this.$t('transaction.delete_category_confirmation'),
+                header: this.$t('basic.confirmation'),
+                icon: 'pi pi-exclamation-triangle',
+                accept: () => {
+                    this.makeHttpRequest('DELETE', `/api/categories/${id}`).then((response) => {
+                        this.showToast(this.$t('transaction.category_deleted'))
+                        this.getCategories()
+                    })
+                },
+            })
+        },
+
+        /**
+         * Update category
+         */
+        updateCategory() {
+            switch (this.category.description) {
+                case 'income':
+                    this.category.icon = 'fa fa-arrow-up'
+                    this.category.color = '#4caf50'
+                    break
+                case 'expense':
+                    this.category.icon = 'fa fa-arrow-down'
+                    this.category.color = '#f44336'
+                    break
+                case 'transfer':
+                    this.category.icon = 'fa fa-exchange-alt'
+                    this.category.color = '#2196f3'
+                    break
+            }
+            this.makeHttpRequest('PUT', `/api/categories/${this.category.id}`, this.category).then((response) => {
+                this.showToast(this.$t('transaction.category_updated'))
+                this.showEditCategoryDialog = false
+                this.category = {
+                    name: '',
+                    description: '',
+                    icon: '',
+                    color: '',
+                    module: 'transaction',
+                }
+                this.getCategories()
             })
         },
     },

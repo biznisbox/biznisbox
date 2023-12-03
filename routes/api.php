@@ -81,6 +81,7 @@ Route::middleware('auth')->group(function () {
 
     // Categories Routes
     Route::get('/categories', BasicController::class . '@getCategories');
+    Route::get('/categories/{id}', BasicController::class . '@getCategory');
     Route::post('/categories', BasicController::class . '@createCategory');
     Route::put('/categories/{id}', BasicController::class . '@updateCategory');
     Route::delete('/categories/{id}', BasicController::class . '@deleteCategory');

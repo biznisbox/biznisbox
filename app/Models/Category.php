@@ -18,7 +18,7 @@ class Category extends Model implements Auditable
 
     protected $appends = ['key', 'label', 'children'];
 
-    protected $hidden = ['name', 'description', 'module', 'parent_id', 'created_at', 'updated_at'];
+    protected $hidden = ['module', 'parent_id', 'created_at', 'updated_at'];
 
     public function generateTags(): array
     {
@@ -122,5 +122,17 @@ class Category extends Model implements Auditable
             ->get();
         activity_log(user_data()->data->id, 'get categories by module', $module, 'App\Models\Category', 'getCategoriesByModule');
         return $categories;
+    }
+
+    /**
+     * Get category by id
+     * @param UUID $id Category id
+     * @return object Category object
+     */
+    public function getCategory($id)
+    {
+        $category = $this->where('id', $id)->first();
+        activity_log(user_data()->data->id, 'get category', $id, 'App\Models\Category', 'getCategory');
+        return $category;
     }
 }
