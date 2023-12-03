@@ -219,7 +219,11 @@
         "permissions": "Δικαιώματα",
         "category": "Category",
         "categories": "Categories",
-        "active_account": "Active Account"
+        "active_account": "Active Account",
+        "amount": "Amount",
+        "exchange_rate": "Exchange Rate",
+        "reference": "Reference",
+        "account": "Account"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -426,6 +430,11 @@
         "new_event": "Νέο Γεγονός",
         "edit_event": "Επεξεργασία Γεγονότος"
     },
+    "transaction_type": {
+        "income": "Income",
+        "expense": "Expense",
+        "transfer": "Transfer"
+    },
     "transaction": {
         "transaction": "Συναλλαγή - Συναλλαγές",
         "new_transaction": "Νέα Συναλλαγή",
@@ -435,22 +444,8 @@
         "date_and_number": "Ημερομηνία και αριθμός",
         "name": "Όνομα",
         "amount_and_type": "Ποσό και τύπος",
-        "income": "Έσοδα",
-        "expense": "Έξοδα",
-        "transfer": "Μεταφορά",
-        "category": "Κατηγορία",
-        "account": "Λογαριασμός",
-        "number": "Αριθμός",
-        "type": "Τύπος",
-        "amount": "Ποσό",
-        "date": "Ημερομηνία",
-        "description": "Περιγραφή",
         "from_account": "Από Λογαριασμό",
         "to_account": "Προς Λογαριασμό",
-        "payment_method": "Μέθοδος Πληρωμής",
-        "customer": "Πελάτης",
-        "vendor": "Προμηθευτής",
-        "reference": "Αναφορά",
         "delete_confirm_transaction": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή τη συναλλαγή?",
         "transaction_details": "Λεπτομέρειες συναλλαγής",
         "new_category": "Νέα Κατηγορία",
@@ -903,6 +898,11 @@
     "lang": {
         "en": "Αγγλικά",
         "de": "Γερμανικά",
+        "sl": "Slovenian"
+    },
+    "language": {
+        "en": "English",
+        "de": "German",
         "sl": "Slovenian"
     }
 }
