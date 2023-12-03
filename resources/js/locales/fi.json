@@ -451,7 +451,12 @@
         "new_category": "Uusi Kategoria",
         "edit_category": "Muokkaa Kategoriaa",
         "category_name": "Kategorian Nimi",
-        "category_created": "Kategoria luotu onnistuneesti"
+        "category_created": "Kategoria luotu onnistuneesti",
+        "categories": "Categories",
+        "no_categories": "No categories found",
+        "delete_category_confirmation": "Are you sure you want to delete this category?",
+        "category_deleted": "Category deleted successfully",
+        "category_updated": "Category updated successfully"
     },
     "archive": {
         "archive": "Arkisto Arkisto Arkisto",
