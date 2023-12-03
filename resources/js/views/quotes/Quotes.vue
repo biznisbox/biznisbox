@@ -69,7 +69,7 @@
 
                     <Column field="total" :header="$t('form.total')">
                         <template #body="{ data }">
-                            {{ data.total + ' ' + data.currency }}
+                            {{ formatMoney(data.total, data.currency) }}
                         </template>
 
                         <template #filter="{ filterModel }">

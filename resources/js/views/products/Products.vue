@@ -53,7 +53,7 @@
                     </Column>
                     <Column field="sell_price" :header="$t('form.sell_price')" sortable>
                         <template #body="{ data }">
-                            {{ data.sell_price }} {{ data.sell_price ? $settings.default_currency : '' }}
+                            {{ formatMoney(data.sell_price) }}
                         </template>
 
                         <template #filter="{ filterModel }">
@@ -61,7 +61,7 @@
                         </template>
                     </Column>
                     <Column field="buy_price" :header="$t('form.buy_price')" sortable>
-                        <template #body="{ data }"> {{ data.buy_price }} {{ data.buy_price ? $settings.default_currency : '' }} </template>
+                        <template #body="{ data }"> {{ formatMoney(data.buy_price) }} </template>
                         <template #filter="{ filterModel }">
                             <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by buy price" />
                         </template>

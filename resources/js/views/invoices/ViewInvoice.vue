@@ -9,7 +9,7 @@
                             id="edit_invoice_button"
                             :label="$t('basic.edit')"
                             icon="fa fa-pen"
-                            class="p-button-success"
+                            severity="success"
                             @click="editInvoiceNavigate"
                         />
                         <Button
@@ -17,7 +17,7 @@
                             id="delete_invoice_button"
                             :label="$t('basic.delete')"
                             icon="fa fa-trash"
-                            class="p-button-danger"
+                            severity="danger"
                             @click="deleteInvoiceAsk($route.params.id)"
                         />
                         <Button
@@ -166,9 +166,11 @@
                                     <td class="w-6 font-bold mb-1">{{ $t('form.discount') }}</td>
                                     <td class="text-right">{{ invoice.discount }} %</td>
                                 </tr>
-                                <tr v-if="invoice.currency_rate != 1">
+                                <tr v-if="invoice.currency != $settings.default_currency">
                                     <td class="w-6 font-bold mb-1">{{ $t('form.currency_rate') }}</td>
-                                    <td class="text-right">{{ invoice.currency_rate }}</td>
+                                    <td class="text-right">
+                                        {{ `1 ${$settings.default_currency} = ${invoice.currency_rate} ${invoice.currency}` }}
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="w-6 font-bold mb-1">{{ $t('form.total') }}</td>

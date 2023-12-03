@@ -142,7 +142,7 @@
                             </Column>
                             <Column field="price" :header="$t('form.price')">
                                 <template #body="slotProps">
-                                    <span>{{ slotProps.data.price + ' ' + $settings.default_currency }}</span>
+                                    <span>{{ formatMoney(slotProps.data.price) }}</span>
                                 </template>
                             </Column>
                             <Column field="tax" :header="$t('form.tax')">
@@ -157,7 +157,7 @@
                             </Column>
                             <Column field="total" :header="$t('form.total')">
                                 <template #body="slotProps">
-                                    <span>{{ slotProps.data.total + ' ' + $settings.default_currency }}</span>
+                                    <span>{{ formatMoney(slotProps.data.total) }}</span>
                                 </template>
                             </Column>
                         </DataTable>
@@ -176,7 +176,7 @@
                                     <td class="w-6 font-bold mb-1">{{ $t('form.discount') }}</td>
                                     <td class="text-gray-700 text-right">{{ invoice.discount }} %</td>
                                 </tr>
-                                <tr v-if="invoice.currency_rate != 1">
+                                <tr v-if="invoice.currency != $settings.default_currency">
                                     <td class="w-6 font-bold mb-1">{{ $t('form.currency_rate') }}</td>
                                     <td class="text-gray-700 text-right">
                                         {{ `1 ${$settings.default_currency} = ${invoice.currency_rate} ${invoice.currency}` }}
@@ -184,7 +184,7 @@
                                 </tr>
                                 <tr>
                                     <td class="w-6 font-bold mb-1">{{ $t('form.total') }}</td>
-                                    <td class="text-gray-700 text-right">{{ invoice.total }} {{ invoice.currency }}</td>
+                                    <td class="text-gray-700 text-right">{{ formatMoney(invoice.total, invoice.currency) }}</td>
                                 </tr>
                             </table>
                         </div>

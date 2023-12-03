@@ -132,7 +132,7 @@
                                 option-label="name"
                                 option-value="code"
                                 placeholder="Select country"
-                                @change="getBanks()"
+                                @change="getBanks"
                             />
                             <div v-if="selected_country" class="p-field">
                                 <label for="bank">{{ $t('form.bank') }}</label>
@@ -157,7 +157,7 @@
                 <template #footer>
                     <div class="">
                         <Button :label="$t('basic.cancel')" severity="error" icon="fa fa-times" @click="connectBankDialog = false" />
-                        <Button :label="$t('account.connect_bank')" icon="fa fa-university" @click="initSession()" />
+                        <Button :label="$t('account.connect_bank')" icon="fa fa-university" @click="initSession" />
                     </div>
                 </template>
             </Dialog>

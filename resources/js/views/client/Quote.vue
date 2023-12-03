@@ -115,7 +115,7 @@
                             </Column>
                             <Column field="price" :header="$t('form.price')">
                                 <template #body="slotProps">
-                                    <span>{{ slotProps.data.price + ' ' + $settings.default_currency }}</span>
+                                    <span>{{ formatMoney(slotProps.data.price) }}</span>
                                 </template>
                             </Column>
                             <Column field="tax" :header="$t('form.tax')">
@@ -130,7 +130,7 @@
                             </Column>
                             <Column field="total" :header="$t('form.total')">
                                 <template #body="slotProps">
-                                    <span>{{ slotProps.data.total + ' ' + $settings.default_currency }}</span>
+                                    <span>{{ formatMoney(slotProps.data.total) }}</span>
                                 </template>
                             </Column>
                         </DataTable>
@@ -149,7 +149,7 @@
                                     <td class="w-6 font-bold mb-1">{{ $t('form.discount') }}</td>
                                     <td class="text-gray-700 text-right">{{ quote.discount }} %</td>
                                 </tr>
-                                <tr>
+                                <tr v-if="quote.currency != $settings.default_currency">
                                     <td class="w-6 font-bold mb-1">{{ $t('form.currency_rate') }}</td>
                                     <td class="text-gray-700 text-right">
                                         {{ `1 ${$settings.default_currency} = ${quote.currency_rate} ${quote.currency}` }}
@@ -157,7 +157,7 @@
                                 </tr>
                                 <tr>
                                     <td class="w-6 font-bold mb-1">{{ $t('form.total') }}</td>
-                                    <td class="text-gray-700 text-right">{{ quote.total }} {{ quote.currency }}</td>
+                                    <td class="text-gray-700 text-right">{{ formatMoney(quote.total, quote.currency) }}</td>
                                 </tr>
                             </table>
                         </div>

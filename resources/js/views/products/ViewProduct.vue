@@ -30,16 +30,8 @@
 
                     <!-- Product price -->
                     <div class="grid">
-                        <DisplayData
-                            class="col-12 md:col-4"
-                            :input="$t('form.sell_price')"
-                            :value="product.sell_price + ' ' + $settings.default_currency"
-                        />
-                        <DisplayData
-                            class="col-12 md:col-4"
-                            :input="$t('form.buy_price')"
-                            :value="product.buy_price + ' ' + $settings.default_currency"
-                        />
+                        <DisplayData class="col-12 md:col-4" :input="$t('form.sell_price')" :value="formatMoney(product.sell_price)" />
+                        <DisplayData class="col-12 md:col-4" :input="$t('form.buy_price')" :value="formatMoney(product.buy_price)" />
                         <DisplayData class="col-12 md:col-4" :input="$t('form.unit')" :value="product.unit" />
                     </div>
                     <!-- Product taxes -->

@@ -93,7 +93,7 @@
                     <Column field="total" :header="$t('form.total')">
                         <template #body="{ data }">
                             <div class="total">
-                                {{ data.total + ' ' + data.currency }}
+                                {{ formatMoney(data.total, data.currency) }}
                             </div>
                         </template>
 
@@ -103,7 +103,7 @@
                     </Column>
                     <template #paginatorstart>
                         <div class="p-d-flex p-ai-center p-mr-2">
-                            <Button class="p-button-rounded p-button-text p-button-plain" icon="fa fa-sync" @click="getBills()" />
+                            <Button class="p-button-rounded p-button-text p-button-plain" icon="fa fa-sync" @click="getBills" />
                         </div>
                     </template>
                 </DataTable>

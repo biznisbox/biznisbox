@@ -10,7 +10,7 @@
                             <TextInput
                                 id="name_input"
                                 v-model="v$.transaction.name.$model"
-                                :label="$t('transaction.name')"
+                                :label="$t('form.name')"
                                 class="col-12"
                                 :validate="v$.transaction.name"
                             />
@@ -19,7 +19,7 @@
                             <TextInput
                                 id="number_input"
                                 v-model="transaction.number"
-                                :label="$t('transaction.number')"
+                                :label="$t('form.number')"
                                 class="col-12 md:col-6"
                                 disabled
                             />
@@ -27,11 +27,11 @@
                                 id="type_input"
                                 v-model="transaction.type"
                                 class="col-12 md:col-6"
-                                :label="$t('transaction.type')"
+                                :label="$t('form.type')"
                                 :options="[
-                                    { label: $t('transaction.income'), value: 'income' },
-                                    { label: $t('transaction.expense'), value: 'expense' },
-                                    { label: $t('transaction.transfer'), value: 'transfer' },
+                                    { label: $t('transaction_type.income'), value: 'income' },
+                                    { label: $t('transaction_type.expense'), value: 'expense' },
+                                    { label: $t('transaction_type.transfer'), value: 'transfer' },
                                 ]"
                             />
                         </div>
@@ -42,23 +42,23 @@
                                 v-model="transaction.amount"
                                 type="currency"
                                 :currency="transaction.currency"
-                                :label="$t('transaction.amount')"
+                                :label="$t('form.amount')"
                                 class="col-12 md:col-6"
                             />
 
-                            <DateInput id="date_input" v-model="transaction.date" :label="$t('transaction.date')" class="col-12 md:col-6" />
+                            <DateInput id="date_input" v-model="transaction.date" :label="$t('form.date')" class="col-12 md:col-6" />
                         </div>
 
                         <div v-if="transaction.type != 'transfer'" class="grid">
                             <SelectInput
                                 id="account_input"
                                 v-model="transaction.account_id"
-                                :label="$t('transaction.account')"
+                                :label="$t('form.account')"
                                 :options="accounts"
                                 class="col-12"
                                 option-label="name"
                                 option-value="id"
-                                :filter="true"
+                                filter
                             />
                         </div>
 
@@ -71,7 +71,7 @@
                                 class="col-12 md:col-6"
                                 option-label="name"
                                 option-value="id"
-                                :filter="true"
+                                filter
                             />
                             <SelectInput
                                 id="to_account_input"
@@ -81,7 +81,7 @@
                                 class="col-12 md:col-6"
                                 option-label="name"
                                 option-value="id"
-                                :filter="true"
+                                filter
                             />
                         </div>
 
@@ -89,7 +89,7 @@
                             <TextAreaInput
                                 id="description_input"
                                 v-model="transaction.description"
-                                :label="$t('transaction.description')"
+                                :label="$t('form.description')"
                                 class="col-12"
                             />
                         </div>
@@ -98,7 +98,7 @@
                             <SelectInput
                                 id="category_input"
                                 v-model="transaction.category_id"
-                                :label="$t('transaction.category')"
+                                :label="$t('form.category')"
                                 class="col-12 md:col-6"
                                 :options="transactionCategories"
                                 option-label="label"
@@ -110,7 +110,7 @@
                                 v-if="transaction.type == 'income'"
                                 id="customer_input"
                                 v-model="transaction.customer_id"
-                                :label="$t('transaction.customer')"
+                                :label="$t('form.customer')"
                                 class="col-12 md:col-6"
                                 :options="customers"
                                 option-label="name"
@@ -132,18 +132,20 @@
                         </div>
 
                         <div class="grid">
-                            <TextInput
-                                id="reference_input"
-                                v-model="transaction.reference"
-                                class="col-12"
-                                :label="$t('transaction.reference')"
-                            />
+                            <TextInput id="reference_input" v-model="transaction.reference" class="col-12" :label="$t('form.reference')" />
                         </div>
                     </form>
 
                     <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="goTo('/transactions')" />
                         <Button
+                            id="cancel_button"
+                            :label="$t('basic.cancel')"
+                            icon="fa fa-times"
+                            class="p-button-danger"
+                            @click="goTo('/transactions')"
+                        />
+                        <Button
+                            id="save_button"
                             :label="$t('basic.save')"
                             :disabled="loadingData"
                             icon="fa fa-floppy-disk"
