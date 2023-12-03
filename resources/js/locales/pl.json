@@ -451,7 +451,12 @@
         "new_category": "Nowa kategoria",
         "edit_category": "Edytuj kategorię",
         "category_name": "Nazwa kategorii",
-        "category_created": "Kategoria utworzona pomyślnie"
+        "category_created": "Kategoria utworzona pomyślnie",
+        "categories": "Categories",
+        "no_categories": "No categories found",
+        "delete_category_confirmation": "Are you sure you want to delete this category?",
+        "category_deleted": "Category deleted successfully",
+        "category_updated": "Category updated successfully"
     },
     "archive": {
         "archive": "Archiwum | Archiwum",
