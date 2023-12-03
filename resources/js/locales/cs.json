@@ -451,7 +451,12 @@
         "new_category": "Nová kategorie",
         "edit_category": "Upravit kategorii",
         "category_name": "Název kategorie",
-        "category_created": "Kategorie byla úspěšně vytvořena"
+        "category_created": "Kategorie byla úspěšně vytvořena",
+        "categories": "Categories",
+        "no_categories": "No categories found",
+        "delete_category_confirmation": "Are you sure you want to delete this category?",
+        "category_deleted": "Category deleted successfully",
+        "category_updated": "Category updated successfully"
     },
     "archive": {
         "archive": "Archiv | Archivy",
