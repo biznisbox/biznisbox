@@ -70,6 +70,7 @@ class InitBiznisBox extends Command
         Permission::firstOrCreate(['name' => 'calendar', 'display_name' => 'Calendar']);
         Permission::firstOrCreate(['name' => 'archive', 'display_name' => 'Archive']);
         Permission::firstOrCreate(['name' => 'partners', 'display_name' => 'Partners']);
+        Permission::firstOrCreate(['name' => 'transactions_categories', 'display_name' => 'Transactions Categories']);
         Permission::firstOrCreate(['name' => 'edit_own_profile', 'display_name' => 'Edit own profile']);
         Permission::firstOrCreate(['name' => 'change_own_password', 'display_name' => 'Change own password']);
 

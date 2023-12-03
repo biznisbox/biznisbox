@@ -42,6 +42,13 @@ class DataService
         return $categories;
     }
 
+    public function getCategory($id)
+    {
+        $category = new Category();
+        $category = $category->getCategory($id);
+        return $category;
+    }
+
     public function createCategory($categoryData)
     {
         $category = new Category();
@@ -56,18 +63,17 @@ class DataService
         return $category;
     }
 
-    public function updateCategory($categoryData)
+    public function updateCategory($id, $categoryData)
     {
         $category = new Category();
-        $category = $category->updateCategory($categoryData->id, $categoryData);
+        $category = $category->updateCategory($id, $categoryData);
         return $category;
     }
 
     public function deleteCategory($id)
     {
         $category = new Category();
-        $category = $category->getCategory($id);
-        $category->deleteCategory();
+        $category = $category->deleteCategory($id);
         return $category;
     }
 
