@@ -451,7 +451,12 @@
         "new_category": "Новая категория",
         "edit_category": "Изменить категорию",
         "category_name": "Название категории",
-        "category_created": "Категория успешно создана"
+        "category_created": "Категория успешно создана",
+        "categories": "Categories",
+        "no_categories": "No categories found",
+        "delete_category_confirmation": "Are you sure you want to delete this category?",
+        "category_deleted": "Category deleted successfully",
+        "category_updated": "Category updated successfully"
     },
     "archive": {
         "archive": "Архив | Архивы",
