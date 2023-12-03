@@ -219,7 +219,11 @@
         "permissions": "Pooblastila",
         "category": "Kategorija",
         "categories": "Kategorije",
-        "active_account": "Aktiven račun"
+        "active_account": "Aktiven račun",
+        "amount": "Amount",
+        "exchange_rate": "Exchange Rate",
+        "reference": "Reference",
+        "account": "Account"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -426,6 +430,11 @@
         "new_event": "Nov dogodek",
         "edit_event": "Uredi dogodek"
     },
+    "transaction_type": {
+        "income": "Income",
+        "expense": "Expense",
+        "transfer": "Transfer"
+    },
     "transaction": {
         "transaction": "Transakcija | Transakcije",
         "new_transaction": "Nova transakcija",
@@ -435,22 +444,8 @@
         "date_and_number": "Datum in številka transakcije",
         "name": "Naziv",
         "amount_and_type": "Znesek in vrsta transakcije",
-        "income": "Prihodki",
-        "expense": "Odhodki",
-        "transfer": "Prenos",
-        "category": "Kategorija",
-        "account": "Račun",
-        "number": "Številka",
-        "type": "Vrsta",
-        "amount": "Znesek",
-        "date": "Datum",
-        "description": "Opis",
         "from_account": "Z računa",
         "to_account": "Na račun",
-        "payment_method": "Način plačila",
-        "customer": "Stranka",
-        "vendor": "Prodajalec",
-        "reference": "Referenca",
         "delete_confirm_transaction": "Ali ste prepričani, da želite izbrisati to transakcijo?",
         "transaction_details": "Podrobnosti transakcije",
         "new_category": "Nova kategorija",
@@ -904,5 +899,10 @@
         "en": "Angleščina",
         "de": "Nemščina",
         "sl": "Slovenščina"
+    },
+    "language": {
+        "en": "English",
+        "de": "German",
+        "sl": "Slovenian"
     }
 }
