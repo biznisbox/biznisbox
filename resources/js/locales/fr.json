@@ -219,7 +219,11 @@
         "permissions": "Permissions",
         "category": "Category",
         "categories": "Categories",
-        "active_account": "Active Account"
+        "active_account": "Active Account",
+        "amount": "Amount",
+        "exchange_rate": "Exchange Rate",
+        "reference": "Reference",
+        "account": "Account"
     },
     "address_types": {
         "billing": "Facturation",
@@ -426,6 +430,11 @@
         "new_event": "Nouvel événement",
         "edit_event": "Modifier l'événement"
     },
+    "transaction_type": {
+        "income": "Income",
+        "expense": "Expense",
+        "transfer": "Transfer"
+    },
     "transaction": {
         "transaction": "Transaction | Transactions",
         "new_transaction": "Nouvelle transaction",
@@ -435,22 +444,8 @@
         "date_and_number": "Date et numéro",
         "name": "Nom",
         "amount_and_type": "Montant et type",
-        "income": "Revenu",
-        "expense": "Dépenses",
-        "transfer": "Transférer",
-        "category": "Catégorie",
-        "account": "Compte client",
-        "number": "Numéros",
-        "type": "Type de texte",
-        "amount": "Montant",
-        "date": "Date",
-        "description": "Libellé",
         "from_account": "Depuis le compte",
         "to_account": "Vers le compte",
-        "payment_method": "Méthode de paiement",
-        "customer": "Client",
-        "vendor": "Fournisseur",
-        "reference": "Référence",
         "delete_confirm_transaction": "Êtes-vous sûr de vouloir supprimer cette transaction ?",
         "transaction_details": "Détails de la transaction",
         "new_category": "Nouvelle catégorie",
@@ -903,6 +898,11 @@
     "lang": {
         "en": "Anglais",
         "de": "Deutsch",
+        "sl": "Slovenian"
+    },
+    "language": {
+        "en": "English",
+        "de": "German",
         "sl": "Slovenian"
     }
 }
