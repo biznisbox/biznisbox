@@ -219,7 +219,11 @@
         "permissions": "Permessi",
         "category": "Category",
         "categories": "Categories",
-        "active_account": "Active Account"
+        "active_account": "Active Account",
+        "amount": "Amount",
+        "exchange_rate": "Exchange Rate",
+        "reference": "Reference",
+        "account": "Account"
     },
     "address_types": {
         "billing": "Fatturazione",
@@ -426,6 +430,11 @@
         "new_event": "Nuovo Evento",
         "edit_event": "Modifica Evento"
     },
+    "transaction_type": {
+        "income": "Income",
+        "expense": "Expense",
+        "transfer": "Transfer"
+    },
     "transaction": {
         "transaction": "Transazione <unk> Transazioni",
         "new_transaction": "Nuova Transazione",
@@ -435,22 +444,8 @@
         "date_and_number": "Data e numero",
         "name": "Nome",
         "amount_and_type": "Importo e tipo",
-        "income": "Reddito",
-        "expense": "Spese",
-        "transfer": "Trasferisci",
-        "category": "Categoria",
-        "account": "Account",
-        "number": "Numero",
-        "type": "Tipo",
-        "amount": "Importo",
-        "date": "Data",
-        "description": "Descrizione",
         "from_account": "Da Account",
         "to_account": "Al Cliente",
-        "payment_method": "Metodo Di Pagamento",
-        "customer": "Cliente",
-        "vendor": "Fornitore",
-        "reference": "Riferimento",
         "delete_confirm_transaction": "Sei sicuro di voler eliminare questa transazione?",
         "transaction_details": "Dettagli transazione",
         "new_category": "Nuova Categoria",
@@ -903,6 +898,11 @@
     "lang": {
         "en": "Inglese",
         "de": "Deutsch",
+        "sl": "Slovenian"
+    },
+    "language": {
+        "en": "English",
+        "de": "German",
         "sl": "Slovenian"
     }
 }
