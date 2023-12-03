@@ -451,7 +451,12 @@
         "new_category": "فئة جديدة",
         "edit_category": "تحرير الفئة",
         "category_name": "اسم الفئة",
-        "category_created": "تم إنشاء الفئة بنجاح"
+        "category_created": "تم إنشاء الفئة بنجاح",
+        "categories": "Categories",
+        "no_categories": "No categories found",
+        "delete_category_confirmation": "Are you sure you want to delete this category?",
+        "category_deleted": "Category deleted successfully",
+        "category_updated": "Category updated successfully"
     },
     "archive": {
         "archive": "أرشيف <unk> أرشيف",
