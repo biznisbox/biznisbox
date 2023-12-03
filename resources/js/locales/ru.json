@@ -219,7 +219,11 @@
         "permissions": "Права доступа",
         "category": "Category",
         "categories": "Categories",
-        "active_account": "Active Account"
+        "active_account": "Active Account",
+        "amount": "Amount",
+        "exchange_rate": "Exchange Rate",
+        "reference": "Reference",
+        "account": "Account"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -426,6 +430,11 @@
         "new_event": "Новое событие",
         "edit_event": "Изменить событие"
     },
+    "transaction_type": {
+        "income": "Income",
+        "expense": "Expense",
+        "transfer": "Transfer"
+    },
     "transaction": {
         "transaction": "Транзакция | Транзакции",
         "new_transaction": "Новая транзакция",
@@ -435,22 +444,8 @@
         "date_and_number": "Дата и номер",
         "name": "Наименование",
         "amount_and_type": "Сумма и тип",
-        "income": "Поступления",
-        "expense": "Расходы",
-        "transfer": "Перевод",
-        "category": "Категория",
-        "account": "Аккаунт",
-        "number": "Номер",
-        "type": "Тип",
-        "amount": "Сумма",
-        "date": "Дата",
-        "description": "Описание",
         "from_account": "Со счета",
         "to_account": "На счет",
-        "payment_method": "Способ оплаты",
-        "customer": "Покупатель",
-        "vendor": "Поставщик",
-        "reference": "Артикул",
         "delete_confirm_transaction": "Вы уверены, что хотите удалить эту транзакцию?",
         "transaction_details": "Детали транзакции",
         "new_category": "Новая категория",
@@ -903,6 +898,11 @@
     "lang": {
         "en": "Russian",
         "de": "Немецкий",
+        "sl": "Slovenian"
+    },
+    "language": {
+        "en": "English",
+        "de": "German",
         "sl": "Slovenian"
     }
 }
