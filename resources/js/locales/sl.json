@@ -217,9 +217,9 @@
         "role": "Vloga",
         "roles": "Vloge",
         "permissions": "Pooblastila",
-        "category": "Category",
-        "categories": "Categories",
-        "active_account": "Active Account"
+        "category": "Kategorija",
+        "categories": "Kategorije",
+        "active_account": "Aktiven račun"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -352,7 +352,7 @@
         "share_dialog_text": "Kopiraj spodnjo povezavo in jo pošlji stranki ali pa skeniraj QR kodo.",
         "create_first_invoice": "Ustvarite prvi račun",
         "no_customer": "Ni stranke",
-        "add_payment": "Add payment",
+        "add_payment": "Dodaj plačilo",
         "no_payer": "Ni plačnika",
         "no_items": "Ni produktov",
         "add_item": "Dodaj produkt",
@@ -369,8 +369,8 @@
         "payment_success_message": "Zahvaljujemo se vam za plačilo. Vaše plačilo je bilo uspešno obdelano.",
         "payment_error": "Napaka pri plačilu",
         "payment_error_message": "Prišlo je do napake pri obdelavi vašega plačila. Prosimo, poskusite znova.",
-        "show_transactions": "Show transactions",
-        "list_of_transactions": "List of transactions"
+        "show_transactions": "Prikaži transakcije",
+        "list_of_transactions": "Seznam transakcij"
     },
     "quote": {
         "quote": "Ponudba|Ponudbe",
@@ -478,7 +478,7 @@
         "edit_bill": "Uredi račun",
         "no_bills": "Ni računov",
         "create_first_bill": "Ustvarite svoj prvi račun",
-        "no_supplier": "No supplier",
+        "no_supplier": "Ni dobavitelja",
         "no_items": "Ni postavk",
         "select_item": "Izberi postavko",
         "date_and_due_date": "Datum in datum zapadlosti",
@@ -543,7 +543,7 @@
             "stripe_available": "Stripe na voljo",
             "stripe_key": "Stripe API ključ",
             "stripe_key_help": "Najdete ga v vašem Stripe računu.",
-            "stripe_account_id": "Stripe internal account ID",
+            "stripe_account_id": "ID internega računa za Stripe",
             "paypal": "PayPal",
             "paypal_available": "PayPal na voljo",
             "paypal_test_mode": "Testni način",
@@ -551,7 +551,7 @@
             "paypal_client_id_help": "Najdete ga v vašem PayPal računu.",
             "paypal_secret": "PayPal Secret",
             "paypal_secret_help": "Najdete ga v vašem PayPal računu.",
-            "paypal_account_id": "PayPal internal account ID",
+            "paypal_account_id": "ID internega računa za PayPal",
             "open_banking": "Odprto bančništvo",
             "open_banking_available": "Odprto bančništvo na voljo",
             "open_banking_client_id": "Open Banking Client ID",
@@ -626,15 +626,15 @@
             "number_of_logins_today": "Število prijav danes"
         },
         "app_status": {
-            "title": "Application Status",
-            "current_version": "Current Version",
-            "latest_version": "Latest Version",
-            "update_available": "Update Available",
-            "disk_usage": "Disk Usage",
-            "database_size": "Database Size",
-            "server_os": "Server OS",
-            "php_version": "PHP Version",
-            "hostname": "Hostname"
+            "title": "Stanje aplikacije",
+            "current_version": "Trenutna različica",
+            "latest_version": "Zadnja raličica",
+            "update_available": "Posodobitev je na voljo",
+            "disk_usage": "Poraba diska",
+            "database_size": "Velikost zbirke podatkov",
+            "server_os": "Operacijski sistem strežnika",
+            "php_version": "Verzija PHP",
+            "hostname": "Ime gostitelja"
         },
         "numbering": {
             "title": "Številčenje",
