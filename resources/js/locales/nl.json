@@ -451,7 +451,12 @@
         "new_category": "Nieuwe categorie",
         "edit_category": "Categorie bewerken",
         "category_name": "Categorie Naam",
-        "category_created": "Categorie succesvol aangemaakt"
+        "category_created": "Categorie succesvol aangemaakt",
+        "categories": "Categories",
+        "no_categories": "No categories found",
+        "delete_category_confirmation": "Are you sure you want to delete this category?",
+        "category_deleted": "Category deleted successfully",
+        "category_updated": "Category updated successfully"
     },
     "archive": {
         "archive": "Archiveer veriefarchieven",
