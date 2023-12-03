@@ -219,7 +219,11 @@
         "permissions": "Käyttöoikeudet",
         "category": "Category",
         "categories": "Categories",
-        "active_account": "Active Account"
+        "active_account": "Active Account",
+        "amount": "Amount",
+        "exchange_rate": "Exchange Rate",
+        "reference": "Reference",
+        "account": "Account"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -426,6 +430,11 @@
         "new_event": "Uusi Tapahtuma",
         "edit_event": "Muokkaa Tapahtumaa"
     },
+    "transaction_type": {
+        "income": "Income",
+        "expense": "Expense",
+        "transfer": "Transfer"
+    },
     "transaction": {
         "transaction": "Tapahtuma - Tapahtumat",
         "new_transaction": "Uusi Tapahtuma",
@@ -435,22 +444,8 @@
         "date_and_number": "Päivämäärä ja numero",
         "name": "Nimi",
         "amount_and_type": "Määrä ja tyyppi",
-        "income": "Tulot",
-        "expense": "Menot",
-        "transfer": "Siirto",
-        "category": "Kategoria",
-        "account": "Tili",
-        "number": "Numero",
-        "type": "Tyyppi",
-        "amount": "Määrä",
-        "date": "Päivämäärä",
-        "description": "Kuvaus",
         "from_account": "Tililtä",
         "to_account": "Käyttäjätilille",
-        "payment_method": "Maksutapa",
-        "customer": "Asiakas",
-        "vendor": "Valmistaja",
-        "reference": "Viite",
         "delete_confirm_transaction": "Oletko varma, että haluat poistaa tämän tapahtuman?",
         "transaction_details": "Tapahtuman tiedot",
         "new_category": "Uusi Kategoria",
@@ -903,6 +898,11 @@
     "lang": {
         "en": "Englanti",
         "de": "Deutsch",
+        "sl": "Slovenian"
+    },
+    "language": {
+        "en": "English",
+        "de": "German",
         "sl": "Slovenian"
     }
 }
