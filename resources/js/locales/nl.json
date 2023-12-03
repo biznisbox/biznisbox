@@ -219,7 +219,11 @@
         "permissions": "Machtigingen",
         "category": "Category",
         "categories": "Categories",
-        "active_account": "Active Account"
+        "active_account": "Active Account",
+        "amount": "Amount",
+        "exchange_rate": "Exchange Rate",
+        "reference": "Reference",
+        "account": "Account"
     },
     "address_types": {
         "billing": "Facturering",
@@ -426,6 +430,11 @@
         "new_event": "Nieuwe gebeurtenis",
         "edit_event": "Gebeurtenis bewerken"
     },
+    "transaction_type": {
+        "income": "Income",
+        "expense": "Expense",
+        "transfer": "Transfer"
+    },
     "transaction": {
         "transaction": "Transactie format@@1- Transacties",
         "new_transaction": "Nieuwe transactie",
@@ -435,22 +444,8 @@
         "date_and_number": "Datum en nummer",
         "name": "naam",
         "amount_and_type": "Bedrag en type",
-        "income": "Inkomsten",
-        "expense": "Kosten",
-        "transfer": "Overschrijving",
-        "category": "categorie",
-        "account": "Rekening",
-        "number": "Nummer",
-        "type": "Type",
-        "amount": "Hoeveelheid",
-        "date": "Datum:",
-        "description": "Beschrijving",
         "from_account": "Van Account",
         "to_account": "Naar Account",
-        "payment_method": "Betaalmethode",
-        "customer": "Klant",
-        "vendor": "Leverancier",
-        "reference": "Referentie",
         "delete_confirm_transaction": "Weet u zeker dat u deze transactie wilt verwijderen?",
         "transaction_details": "Transactie details",
         "new_category": "Nieuwe categorie",
@@ -903,6 +898,11 @@
     "lang": {
         "en": "Nederlands",
         "de": "Duits",
+        "sl": "Slovenian"
+    },
+    "language": {
+        "en": "English",
+        "de": "German",
         "sl": "Slovenian"
     }
 }
