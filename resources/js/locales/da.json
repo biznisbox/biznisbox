@@ -219,7 +219,11 @@
         "permissions": "Rettigheder",
         "category": "Category",
         "categories": "Categories",
-        "active_account": "Active Account"
+        "active_account": "Active Account",
+        "amount": "Amount",
+        "exchange_rate": "Exchange Rate",
+        "reference": "Reference",
+        "account": "Account"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -426,6 +430,11 @@
         "new_event": "Ny Begivenhed",
         "edit_event": "Rediger Begivenhed"
     },
+    "transaction_type": {
+        "income": "Income",
+        "expense": "Expense",
+        "transfer": "Transfer"
+    },
     "transaction": {
         "transaction": "Transaktion, Transaktioner",
         "new_transaction": "Ny Transaktion",
@@ -435,22 +444,8 @@
         "date_and_number": "Dato og nummer",
         "name": "Navn",
         "amount_and_type": "Beløb og type",
-        "income": "Indkomst",
-        "expense": "Udgifter",
-        "transfer": "Overfør",
-        "category": "Kategori",
-        "account": "Konto",
-        "number": "Nummer",
-        "type": "Type",
-        "amount": "Beløb",
-        "date": "Dato",
-        "description": "Varebeskrivelse",
         "from_account": "Fra Konto",
         "to_account": "Til Konto",
-        "payment_method": "Betalingsmetode",
-        "customer": "Kunde",
-        "vendor": "Forhandler",
-        "reference": "Reference",
         "delete_confirm_transaction": "Er du sikker på du vil slette denne transaktion?",
         "transaction_details": "Transaktion detaljer",
         "new_category": "Ny Kategori",
@@ -903,6 +898,11 @@
     "lang": {
         "en": "Engelsk",
         "de": "Deutsch",
+        "sl": "Slovenian"
+    },
+    "language": {
+        "en": "English",
+        "de": "German",
         "sl": "Slovenian"
     }
 }
