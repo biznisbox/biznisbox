@@ -451,7 +451,12 @@
         "new_category": "Ny kategori",
         "edit_category": "Redigera kategori",
         "category_name": "Kategori Namn",
-        "category_created": "Kategorin har skapats"
+        "category_created": "Kategorin har skapats",
+        "categories": "Categories",
+        "no_categories": "No categories found",
+        "delete_category_confirmation": "Are you sure you want to delete this category?",
+        "category_deleted": "Category deleted successfully",
+        "category_updated": "Category updated successfully"
     },
     "archive": {
         "archive": "Arkiv <unk> Arkiv",
