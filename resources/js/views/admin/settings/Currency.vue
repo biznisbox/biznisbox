@@ -235,7 +235,7 @@ export default {
         getAvailableCurrencies() {
             this.makeHttpRequest(
                 'GET',
-                'http://localhost/api/currencies?fields=symbol,decimal_mark,thousands_separator,precision,code,symbol_native'
+                '/api/currencies?fields=symbol,decimal_mark,thousands_separator,precision,code,symbol_native'
             ).then((response) => {
                 this.availableCurrencies = response.data.data
             })
