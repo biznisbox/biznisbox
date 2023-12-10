@@ -595,7 +595,8 @@
             "default_currency": "デフォルト通貨",
             "default_date_format": "デフォルトの日付フォーマット",
             "default_time_format": "デフォルトの時刻形式",
-            "default_datetime_format": "日付の既定のフォーマット"
+            "default_datetime_format": "日付の既定のフォーマット",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "税率：",
