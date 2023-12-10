@@ -595,7 +595,8 @@
             "default_currency": "Moeda Padrão",
             "default_date_format": "Formato de data padrão",
             "default_time_format": "Formato de hora padrão",
-            "default_datetime_format": "Formato de data padrão"
+            "default_datetime_format": "Formato de data padrão",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "Taxas de imposto",
