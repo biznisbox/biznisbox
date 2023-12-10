@@ -595,7 +595,8 @@
             "default_currency": "Основна валюта",
             "default_date_format": "Формат дати за замовчуванням",
             "default_time_format": "Формат часу за замовчуванням",
-            "default_datetime_format": "Формат дати і часу за замовчуванням"
+            "default_datetime_format": "Формат дати і часу за замовчуванням",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "Податкові ставки",
