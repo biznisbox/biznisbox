@@ -350,7 +350,7 @@ class Invoice extends Model implements Auditable
      * @param double $amount amount of transaction
      * @return void
      */
-    public function addTransaction($id, $amount)
+    public function addTransaction($id, $data)
     {
         try {
             DB::beginTransaction();
@@ -359,8 +359,8 @@ class Invoice extends Model implements Auditable
             $transaction = Transaction::create([
                 'number' => Transaction::getTransactionNumber(),
                 'type' => 'income',
-                'amount' => $amount,
-                'date' => date('Y-m-d'),
+                'amount' => $data['amount'],
+                'date' => $data['date'] ?? date('Y-m-d'),
                 'invoice_id' => $id,
                 'customer_id' => $invoice->customer_id,
                 'supplier_id' => $invoice->payer_id,

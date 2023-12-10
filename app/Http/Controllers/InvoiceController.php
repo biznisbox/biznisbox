@@ -95,7 +95,7 @@ class InvoiceController extends Controller
 
     public function addTransaction(Request $request, $id)
     {
-        $transaction = $this->invoiceModel->addTransaction($id, $request->amount);
+        $transaction = $this->invoiceModel->addTransaction($id, $request->all());
 
         if ($transaction) {
             return api_response($transaction, __('response.invoice.transaction_success'), 200);

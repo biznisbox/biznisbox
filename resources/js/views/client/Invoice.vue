@@ -222,25 +222,25 @@
                             </template>
                         </Column>
 
-                        <Column field="amount" :header="$t('transaction.amount')">
+                        <Column field="amount" :header="$t('form.amount')">
                             <template #body="{ data }">
-                                <span>{{ data.amount ? data.amount + ' ' + data.currency : '-' }}</span> <br />
+                                <span>{{ formatMoney(data.amount, data.currency)}}</span> <br />
                             </template>
                         </Column>
 
-                        <Column field="type" :header="$t('transaction.type')">
+                        <Column field="type" :header="$t('form.type')">
                             <template #body="{ data }">
                                 <span v-if="data.type === 'income'">
                                     <i class="fa fa-arrow-up text-green-500 mr-2"></i>
-                                    <span>{{ $t('transaction.income') }}</span>
+                                    <span>{{ $t('transaction_type.income') }}</span>
                                 </span>
                                 <span v-if="data.type === 'expense'">
                                     <i class="fa fa-arrow-down text-red-500 mr-2"></i>
-                                    <span>{{ $t('transaction.expense') }}</span>
+                                    <span>{{ $t('transaction_type.expense') }}</span>
                                 </span>
                                 <span v-if="data.type === 'transfer'">
                                     <i class="fa fa-exchange-alt text-blue-500 mr-2"></i>
-                                    <span>{{ $t('transaction.transfer') }}</span>
+                                    <span>{{ $t('transaction_type.transfer') }}</span>
                                 </span>
                             </template>
                         </Column>
