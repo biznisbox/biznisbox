@@ -595,7 +595,8 @@
             "default_currency": "Domyślna waluta",
             "default_date_format": "Domyślny format daty",
             "default_time_format": "Domyślny format czasu",
-            "default_datetime_format": "Domyślny format daty"
+            "default_datetime_format": "Domyślny format daty",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "Stawki podatku",
