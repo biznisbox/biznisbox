@@ -595,7 +595,8 @@
             "default_currency": "Valuta Predefinita",
             "default_date_format": "Formato Di Data Predefinito",
             "default_time_format": "Formato Predefinito Ora",
-            "default_datetime_format": "Formato Predefinito Datetime"
+            "default_datetime_format": "Formato Predefinito Datetime",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "Aliquote Fiscali",
