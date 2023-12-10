@@ -595,7 +595,8 @@
             "default_currency": "Moneda por defecto",
             "default_date_format": "Formato de fecha por defecto",
             "default_time_format": "Formato de hora por defecto",
-            "default_datetime_format": "Formato de fecha por defecto"
+            "default_datetime_format": "Formato de fecha por defecto",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "Impuestos",
