@@ -595,7 +595,8 @@
             "default_currency": "Förvald valuta",
             "default_date_format": "Förvalt datumformat",
             "default_time_format": "Förvalt tidsformat",
-            "default_datetime_format": "Förvalt datumformat"
+            "default_datetime_format": "Förvalt datumformat",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "Skattesatser",
