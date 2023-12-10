@@ -595,7 +595,8 @@
             "default_currency": "Moneda implicită",
             "default_date_format": "Formatul implicit al datei",
             "default_time_format": "Formatul implicit al timpului",
-            "default_datetime_format": "Formatul implicit al Datetime"
+            "default_datetime_format": "Formatul implicit al Datetime",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "Ratele de impozitare",
