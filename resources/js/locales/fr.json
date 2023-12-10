@@ -595,7 +595,8 @@
             "default_currency": "Devise par défaut",
             "default_date_format": "Format de date par défaut",
             "default_time_format": "Format de l'heure par défaut",
-            "default_datetime_format": "Format de date par défaut"
+            "default_datetime_format": "Format de date par défaut",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "Taux de taxe",
