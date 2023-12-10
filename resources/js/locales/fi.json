@@ -595,7 +595,8 @@
             "default_currency": "Oletus Valuutta",
             "default_date_format": "Päivämäärän Oletusmuoto",
             "default_time_format": "Ajan Oletusmuoto",
-            "default_datetime_format": "Oletus Päivämäärä Muoto"
+            "default_datetime_format": "Oletus Päivämäärä Muoto",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "Verot",
