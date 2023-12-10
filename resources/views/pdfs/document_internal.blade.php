@@ -57,17 +57,19 @@
                         <h1>{{$document->name}}</h1>
                     </h1>
                 </td>
+                @if(settings('show_barcode_on_documents') == true)
                 <td widht="15%" style="right: 0">
-                    <div class="barcode" >
+                    <div class="barcode">
                         <img src="data:image/png;base64, {{!! base64_encode(Barcode2D::getBarcodeSVG($document->id, 'QRCODE')) !!}}" alt="barcode">
                     </div>
                 </td>
+                @endif
             </tr>
         </table>
     </div>
 
     <!-- Content -->
-    <div id="estimate">
+    <div id="document_internal">
         <p>
             <strong>{{ __('pdf.document.number')}}</strong> {{ $document->number }}
             <br />
@@ -78,7 +80,7 @@
             <strong>{{ __('pdf.document.version')}}</strong> {{ $document->version }}
             <br />
 
-            <strong>{{ __('pdf.estimate.status')}}</strong>
+            <strong>{{ __('pdf.document.status')}}</strong>
             @if ($document->status == 'accepted')
                 <span style="color: green;">{{ __('pdf.status.accepted')}}</span>
             @elseif($document->status == 'rejected')

@@ -233,12 +233,11 @@ export default {
         },
 
         getAvailableCurrencies() {
-            this.makeHttpRequest(
-                'GET',
-                '/api/currencies?fields=symbol,decimal_mark,thousands_separator,precision,code,symbol_native'
-            ).then((response) => {
-                this.availableCurrencies = response.data.data
-            })
+            this.makeHttpRequest('GET', '/api/currencies?fields=symbol,decimal_mark,thousands_separator,precision,code,symbol_native').then(
+                (response) => {
+                    this.availableCurrencies = response.data.data
+                }
+            )
         },
 
         getCurrency(id) {

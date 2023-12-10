@@ -16,7 +16,6 @@
                                 option-value="locale"
                                 option-label="name"
                             />
-
                             <SelectInput
                                 id="input_timezone"
                                 v-model="settings.default_timezone"
@@ -55,7 +54,6 @@
                                 ]"
                                 class="col-4"
                             />
-
                             <SelectInput
                                 id="time_format_select"
                                 v-model="settings.time_format"
@@ -80,6 +78,13 @@
                                 ]"
                                 class="col-4"
                             />
+                        </div>
+
+                        <div class="grid">
+                            <div class="flex flex-column mb-1 col-12">
+                                <label class="block text-900 font-medium mb-1"> {{ $t('admin.general.show_barcode_on_documents') }} </label>
+                                <InputSwitch v-model="settings.show_barcode_on_documents" />
+                            </div>
                         </div>
                     </form>
 

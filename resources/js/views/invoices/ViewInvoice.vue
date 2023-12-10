@@ -208,13 +208,7 @@
             <Dialog ref="add_transaction_dialog" v-model:visible="addTransactionDialog" :header="$t('invoice.add_payment')" modal>
                 <div id="add_transaction_dialog_content">
                     <form>
-
-                        <DateInput
-                            id="date_input"
-                            v-model="transaction.date"
-                            :label="$t('form.date')"
-                            class="col-12"
-                        />
+                        <DateInput id="date_input" v-model="transaction.date" :label="$t('form.date')" class="col-12" />
 
                         <NumberInput
                             id="amount_input"

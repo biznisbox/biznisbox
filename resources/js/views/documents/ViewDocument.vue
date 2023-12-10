@@ -16,12 +16,7 @@
                             class="p-button-danger"
                             @click="deleteDocumentAsk($route.params.id)"
                         />
-                        <Button
-                            :label="$t('basic.download')"
-                            icon="fa fa-download"
-                            class="p-button-info"
-                            @click="downloadDocument($route.params.id)"
-                        />
+                        <Button :label="$t('basic.download')" icon="fa fa-download" @click="downloadDocument($route.params.id)" />
                     </template>
                 </user-header>
 
@@ -36,8 +31,8 @@
                         </div>
 
                         <div class="col-12 md:col-4">
-                            <DisplayData :input="$t('document.type')" custom-value>
-                                <Tag severity="info">{{ $t(`form.${document.type}`) }}</Tag>
+                            <DisplayData :input="$t('form.type')" custom-value>
+                                <Tag severity="info">{{ $t(`document.${document.type}`) }}</Tag>
                             </DisplayData>
                         </div>
                     </div>

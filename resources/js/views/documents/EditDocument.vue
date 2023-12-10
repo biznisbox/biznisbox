@@ -63,13 +63,11 @@
                                 :options="[
                                     { label: $t('basic.private'), value: 'private' },
                                     { label: $t('basic.public'), value: 'public' },
-                                    { label: $t('basic.shared'), value: 'shared' },
                                     { label: $t('basic.internal'), value: 'internal' },
                                 ]"
                                 class="col-12 md:col-4"
                             />
-
-                            <TextInput v-model="document.version" :label="$t('form.version')" class="col-12 md:col-4" />
+                            <TextInput v-model="document.version" disabled :label="$t('form.version')" class="col-12 md:col-4" />
                         </div>
 
                         <div class="grid">

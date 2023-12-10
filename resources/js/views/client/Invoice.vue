@@ -224,7 +224,7 @@
 
                         <Column field="amount" :header="$t('form.amount')">
                             <template #body="{ data }">
-                                <span>{{ formatMoney(data.amount, data.currency)}}</span> <br />
+                                <span>{{ formatMoney(data.amount, data.currency) }}</span> <br />
                             </template>
                         </Column>
 

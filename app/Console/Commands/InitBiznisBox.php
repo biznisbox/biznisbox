@@ -168,6 +168,7 @@ class InitBiznisBox extends Command
             Settings::firstOrCreate(['key' => 'date_format'], ['value' => 'DD.MM.YYYY', 'type' => 'string', 'is_public' => 1]);
             Settings::firstOrCreate(['key' => 'time_format'], ['value' => 'HH:mm', 'type' => 'string', 'is_public' => 1]);
             Settings::firstOrCreate(['key' => 'datetime_format'], ['value' => 'DD.MM.YYYY HH:mm', 'type' => 'string', 'is_public' => 1]);
+            Settings::firstOrCreate(['key' => 'show_barcode_on_documents'], ['value' => true, 'type' => 'boolean', 'is_public' => 1]);
 
             Settings::firstOrCreate(['key' => 'stripe_available'], ['value' => false, 'type' => 'boolean', 'is_public' => 1]);
             Settings::firstOrCreate(['key' => 'stripe_key'], ['value' => null, 'type' => 'string', 'is_public' => 0]);

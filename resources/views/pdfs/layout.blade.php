@@ -57,11 +57,13 @@
                         @yield('title')
                     </h1>
                 </td>
+                @if(settings('show_barcode_on_documents') == true)
                 <td widht="10%">
                     <div class="barcode">
                         @yield('barcode')
                     </div>
                 </td>
+                @endif
             </tr>
         </table>
 

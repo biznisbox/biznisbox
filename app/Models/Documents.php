@@ -126,7 +126,10 @@ class Documents extends Model implements Auditable
     public function updateDocument($data, $id)
     {
         $document = $this->where('id', $id)->first();
-        $document->content = formatHTML($data['content']);
+
+        if (isset($data['content'])) {
+            $data['version'] = $document->version + 1;
+        }
         $document = $document->update($data);
 
         if ($document) {

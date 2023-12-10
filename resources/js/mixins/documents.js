@@ -8,7 +8,7 @@ export default {
                 number: '',
                 date: new Date().toISOString().substr(0, 10),
                 due_date: '',
-                version: '1.0',
+                version: '1',
                 content: '',
                 status: 'draft',
                 type: 'document',
