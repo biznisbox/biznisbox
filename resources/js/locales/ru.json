@@ -595,7 +595,8 @@
             "default_currency": "Валюта по умолчанию",
             "default_date_format": "Формат даты по умолчанию",
             "default_time_format": "Формат времени по умолчанию",
-            "default_datetime_format": "Формат по умолчанию"
+            "default_datetime_format": "Формат по умолчанию",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "Налоговые ставки",
