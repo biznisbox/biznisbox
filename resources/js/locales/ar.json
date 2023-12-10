@@ -595,7 +595,8 @@
             "default_currency": "العملة الافتراضية",
             "default_date_format": "تنسيق التاريخ الافتراضي",
             "default_time_format": "تنسيق الوقت الافتراضي",
-            "default_datetime_format": "تنسيق التاريخ والوقت الافتراضي"
+            "default_datetime_format": "تنسيق التاريخ والوقت الافتراضي",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "معدلات الضريبة",
