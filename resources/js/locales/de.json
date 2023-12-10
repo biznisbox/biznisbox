@@ -595,7 +595,8 @@
             "default_currency": "Standardwährung",
             "default_date_format": "Standard-Datumsformat",
             "default_time_format": "Standard-Zeitformat",
-            "default_datetime_format": "Standardformat für Datumszeit"
+            "default_datetime_format": "Standardformat für Datumszeit",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "Steuersätze",
