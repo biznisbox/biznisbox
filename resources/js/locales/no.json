@@ -595,7 +595,8 @@
             "default_currency": "Standard valuta",
             "default_date_format": "Standard datoformat",
             "default_time_format": "Standard klokkeslettformat",
-            "default_datetime_format": "Standard datoformat"
+            "default_datetime_format": "Standard datoformat",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "Mva satser",
