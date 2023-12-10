@@ -595,7 +595,8 @@
             "default_currency": "Standard Valuta",
             "default_date_format": "Standard Datoformat",
             "default_time_format": "Standard Tidsformat",
-            "default_datetime_format": "Standard Datotidsformat"
+            "default_datetime_format": "Standard Datotidsformat",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "Moms Priser",
