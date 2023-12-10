@@ -595,7 +595,8 @@
             "default_currency": "Standaard valuta",
             "default_date_format": "Standaard datumnotatie",
             "default_time_format": "Standaard Tijdsformaat",
-            "default_datetime_format": "Standaard Datumtijd Formaat"
+            "default_datetime_format": "Standaard Datumtijd Formaat",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "BTW tarieven",
