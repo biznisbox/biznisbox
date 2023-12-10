@@ -595,7 +595,8 @@
             "default_currency": "Privzeta valuta",
             "default_date_format": "Privzeti format datuma",
             "default_time_format": "Privzeti format časa",
-            "default_datetime_format": "Privzeti format datuma in časa"
+            "default_datetime_format": "Privzeti format datuma in časa",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "Davčne stopnje",
