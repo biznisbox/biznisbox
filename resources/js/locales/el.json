@@ -595,7 +595,8 @@
             "default_currency": "Προεπιλεγμένο Νόμισμα",
             "default_date_format": "Προεπιλεγμένη Μορφή Ημερομηνίας",
             "default_time_format": "Προεπιλεγμένη Μορφή Ώρας",
-            "default_datetime_format": "Προεπιλεγμένη Μορφή Ημερομηνίας"
+            "default_datetime_format": "Προεπιλεγμένη Μορφή Ημερομηνίας",
+            "show_barcode_on_documents": "Show barcode on documents"
         },
         "taxes": {
             "title": "Φορολογικοί Συντελεστές",
