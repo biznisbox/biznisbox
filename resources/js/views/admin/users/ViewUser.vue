@@ -104,7 +104,7 @@
                                                 <Button
                                                     class="p-button-rounded p-button-text p-button-plain"
                                                     icon="fa fa-sync"
-                                                    @click="getUsers"
+                                                    @click="getUser($route.params.id)"
                                                 />
                                             </div>
                                         </template>

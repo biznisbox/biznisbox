@@ -35,7 +35,6 @@ export default {
                 from_account: null,
                 to_account: null,
             },
-            customers: [],
             vendors: [],
         }
     },

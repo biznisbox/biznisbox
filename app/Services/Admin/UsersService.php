@@ -26,8 +26,8 @@ class UsersService
     {
         $user = User::find($id);
         if ($user) {
-            $user->sessions = $user->sessions;
-            $user->roles = $user->roles;
+            $user->sessions;
+            $user->roles;
             $user->permissions = $user->getPermissionsViaRoles();
             activity_log(user_data()->data->id, 'get user', $id, 'App\Services\Admin\UsersService', 'getUser');
             return api_response($user);
