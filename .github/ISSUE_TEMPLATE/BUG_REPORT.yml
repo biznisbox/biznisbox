@@ -26,6 +26,7 @@ body:
     attributes:
       description: Which version of BiznisBox did you use
       placeholder: Version
+      label: Version
     validations:
       required: true
   - type: dropdown
