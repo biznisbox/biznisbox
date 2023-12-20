@@ -17,7 +17,6 @@ class QuotationsController extends Controller
     public function getQuote(Request $request)
     {
         $key = $request->key;
-        $id = $request->id;
         return $this->quoteService->getQuote($key);
     }
 

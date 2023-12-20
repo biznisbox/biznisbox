@@ -273,13 +273,13 @@
                                                 </template>
                                             </Column>
 
-                                            <Column field="amount" :header="$t('transaction.amount')">
+                                            <Column field="amount" :header="$t('form.amount')">
                                                 <template #body="{ data }">
                                                     <span>{{ data.amount ? formatMoney(data.amount, data.currency) : '-' }}</span> <br />
                                                 </template>
                                             </Column>
 
-                                            <Column field="type" :header="$t('transaction.type')">
+                                            <Column field="type" :header="$t('form.type')">
                                                 <template #body="{ data }">
                                                     <span v-if="data.type === 'income'">
                                                         <i class="fa fa-arrow-up text-green-500 mr-2"></i>
@@ -296,7 +296,7 @@
                                                 </template>
                                             </Column>
 
-                                            <Column field="account" :header="$t('transaction.account')">
+                                            <Column field="account" :header="$t('form.account')">
                                                 <template #body="{ data }">
                                                     {{ data.account ? data.account?.name : '-' }}
                                                 </template>
