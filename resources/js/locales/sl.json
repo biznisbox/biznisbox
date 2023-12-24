@@ -220,10 +220,10 @@
         "category": "Kategorija",
         "categories": "Kategorije",
         "active_account": "Aktiven račun",
-        "amount": "Amount",
-        "exchange_rate": "Exchange Rate",
-        "reference": "Reference",
-        "account": "Account"
+        "amount": "Znesek",
+        "exchange_rate": "Menjalni tečaj",
+        "reference": "Referenca",
+        "account": "Račun"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -431,9 +431,9 @@
         "edit_event": "Uredi dogodek"
     },
     "transaction_type": {
-        "income": "Income",
-        "expense": "Expense",
-        "transfer": "Transfer"
+        "income": "Prihodek",
+        "expense": "Odhodek",
+        "transfer": "Prenos"
     },
     "transaction": {
         "transaction": "Transakcija | Transakcije",
@@ -452,11 +452,11 @@
         "edit_category": "Uredi kategorijo",
         "category_name": "Ime kategorije",
         "category_created": "Kategorija je bila uspešno ustvarjena.",
-        "categories": "Categories",
-        "no_categories": "No categories found",
-        "delete_category_confirmation": "Are you sure you want to delete this category?",
-        "category_deleted": "Category deleted successfully",
-        "category_updated": "Category updated successfully"
+        "categories": "Kategorije",
+        "no_categories": "Ni najdenih kategorij",
+        "delete_category_confirmation": "Ali ste prepričani, da želite izbrisati to kategorijo?",
+        "category_deleted": "Kategorija je bila uspešno izbrisana.",
+        "category_updated": "Kategorija je bila uspešno posodobljena."
     },
     "archive": {
         "archive": "Arhiv | Arhivi",
@@ -596,7 +596,7 @@
             "default_date_format": "Privzeti format datuma",
             "default_time_format": "Privzeti format časa",
             "default_datetime_format": "Privzeti format datuma in časa",
-            "show_barcode_on_documents": "Show barcode on documents"
+            "show_barcode_on_documents": "Prikaži črtno kodo na dokumentih"
         },
         "taxes": {
             "title": "Davčne stopnje",
@@ -907,8 +907,8 @@
         "sl": "Slovenščina"
     },
     "language": {
-        "en": "English",
-        "de": "German",
-        "sl": "Slovenian"
+        "en": "Angleščina",
+        "de": "Nemščina",
+        "sl": "Slovenščina"
     }
 }
