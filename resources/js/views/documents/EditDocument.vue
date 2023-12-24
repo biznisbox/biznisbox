@@ -81,9 +81,16 @@
                 </div>
 
                 <div id="function_buttons" class="flex gap-2 justify-content-end">
-                    <Button :label="$t('basic.cancel')" icon="fa fa-times" class="p-button-danger" @click="goTo('/documents')" />
                     <Button
-                        :label="$t('basic.save')"
+                        id="cancel_button"
+                        :label="$t('basic.cancel')"
+                        icon="fa fa-times"
+                        class="p-button-danger"
+                        @click="goTo('/documents')"
+                    />
+                    <Button
+                        id="update_button"
+                        :label="$t('basic.update')"
                         :disabled="loadingData"
                         icon="fa fa-floppy-disk"
                         class="p-button-success"

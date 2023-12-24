@@ -130,6 +130,15 @@
                                 </TabPanel>
                             </TabView>
                         </div>
+                        <div id="function_buttons" class="flex gap-2 justify-content-end">
+                            <Button
+                                id="close_button"
+                                :label="$t('basic.close')"
+                                icon="fa fa-times"
+                                class="p-button-danger"
+                                @click="goTo('/accounts')"
+                            />
+                        </div>
                     </div>
                 </div>
             </LoadingScreen>

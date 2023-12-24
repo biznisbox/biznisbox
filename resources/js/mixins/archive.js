@@ -121,6 +121,7 @@ export default {
                 .then((response) => {
                     this.showToast(response.data.message)
                     this.editDocument = false
+                    this.getDocuments(this.currentFolder || null)
                 })
                 .catch((error) => {
                     if (error.response.status === 404) {

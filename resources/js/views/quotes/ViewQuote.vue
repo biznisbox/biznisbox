@@ -176,10 +176,15 @@
                             </table>
                         </div>
                     </div>
-
-                    <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button :label="$t('basic.close')" icon="fa fa-times" class="p-button-danger" @click="goTo('/quotes')" />
-                    </div>
+                </div>
+                <div id="function_buttons" class="flex gap-2 justify-content-end">
+                    <Button
+                        id="cancel_button"
+                        :label="$t('basic.close')"
+                        icon="fa fa-times"
+                        class="p-button-danger"
+                        @click="goTo('/quotes')"
+                    />
                 </div>
             </LoadingScreen>
 

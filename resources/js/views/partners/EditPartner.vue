@@ -249,24 +249,17 @@
                                 <TextAreaInput id="notes_input" v-model="partner.notes" :label="$t('form.notes')" />
                             </div>
                         </div>
-
-                        <div id="function_buttons" class="flex gap-2 justify-content-end">
-                            <Button
-                                id="close_button"
-                                :label="$t('basic.cancel')"
-                                icon="fa fa-times"
-                                class="p-button-danger"
-                                @click="goTo('/partners')"
-                            />
-                            <Button
-                                id="save_button"
-                                :label="$t('basic.save')"
-                                icon="fa fa-save"
-                                class="p-button-success"
-                                @click="validateForm"
-                            />
-                        </div>
                     </form>
+                </div>
+                <div id="function_buttons" class="flex gap-2 justify-content-end">
+                    <Button
+                        id="close_button"
+                        :label="$t('basic.cancel')"
+                        icon="fa fa-times"
+                        class="p-button-danger"
+                        @click="goTo('/partners')"
+                    />
+                    <Button id="save_button" :label="$t('basic.save')" icon="fa fa-save" class="p-button-success" @click="validateForm" />
                 </div>
             </LoadingScreen>
         </div>

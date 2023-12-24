@@ -308,7 +308,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div id="function_buttons" class="flex gap-2 justify-content-end">
                     <Button :label="$t('basic.close')" icon="fa fa-times" class="p-button-danger" @click="goTo('/partners')" />
                 </div>

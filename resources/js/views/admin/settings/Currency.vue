@@ -57,6 +57,7 @@
                                 :label="$t('admin.currency.code')"
                                 class="col-12"
                                 :validate="v$.currency.code"
+                                disabled
                             />
                         </div>
                         <div class="grid">
@@ -65,6 +66,7 @@
                                 :label="$t('admin.currency.symbol')"
                                 class="col-12"
                                 :validate="v$.currency.symbol"
+                                disabled
                             />
                         </div>
                         <div class="grid">

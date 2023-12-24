@@ -64,7 +64,7 @@
                             <Button :label="$t('basic.delete')" icon="fa fa-trash" class="p-button-danger" @click="deleteTax(tax.id)" />
                         </div>
                         <div class="flex-grow"></div>
-                        <div class="flex justify-content-end">
+                        <div class="flex gap-2 justify-content-end">
                             <Button
                                 :label="$t('basic.cancel')"
                                 icon="fa fa-times"
@@ -113,8 +113,9 @@
 
                 <template #footer>
                     <div id="function_buttons" class="flex gap-2">
-                        <div class="flex justify-content-end">
+                        <div class="flex gap-2 justify-content-end">
                             <Button
+                                id="cancel_button"
                                 :label="$t('basic.cancel')"
                                 icon="fa fa-times"
                                 class="p-button-danger"

@@ -189,18 +189,19 @@
                         <DisplayData :input="$t('form.size')" :value="formatFileSize(document.file_size)" />
                     </div>
 
-                    <div id="functions_buttons" class="mt-4">
+                    <div id="functions_buttons" class="flex gap-2 mt-4">
                         <Button
                             v-if="editDocument"
                             id="document_save_button"
                             :label="$t('basic.save')"
                             icon="fa fa-save"
+                            class="p-button-success"
                             @click="updateDocument"
                         />
                         <Button
                             v-if="editDocument"
                             id="delete_document_button"
-                            class="p-button-danger ml-2"
+                            class="p-button-danger"
                             :label="$t('basic.delete')"
                             icon="fa fa-trash"
                             @click="deleteDocumentAsk(document)"

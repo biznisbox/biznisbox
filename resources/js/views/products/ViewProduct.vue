@@ -56,16 +56,15 @@
                             <span v-html="product.description"></span>
                         </DisplayData>
                     </div>
-
-                    <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button
-                            id="cancel_button"
-                            :label="$t('basic.cancel')"
-                            icon="fa fa-times"
-                            class="p-button-danger"
-                            @click="goTo('/products')"
-                        />
-                    </div>
+                </div>
+                <div id="function_buttons" class="flex gap-2 justify-content-end">
+                    <Button
+                        id="cancel_button"
+                        :label="$t('basic.cancel')"
+                        icon="fa fa-times"
+                        class="p-button-danger"
+                        @click="goTo('/products')"
+                    />
                 </div>
             </LoadingScreen>
         </div>

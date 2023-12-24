@@ -115,24 +115,23 @@
                             style="height: 200px"
                         />
                     </form>
-
-                    <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button
-                            id="cancel_button"
-                            :label="$t('basic.cancel')"
-                            icon="fa fa-times"
-                            class="p-button-danger"
-                            @click="goTo('/products/' + $route.params.id)"
-                        />
-                        <Button
-                            id="save_button"
-                            :label="$t('basic.update')"
-                            icon="fa fa-floppy-disk"
-                            :disabled="loadingData"
-                            class="p-button-success"
-                            @click="validateForm"
-                        />
-                    </div>
+                </div>
+                <div id="function_buttons" class="flex gap-2 justify-content-end">
+                    <Button
+                        id="cancel_button"
+                        :label="$t('basic.cancel')"
+                        icon="fa fa-times"
+                        class="p-button-danger"
+                        @click="goTo('/products/' + $route.params.id)"
+                    />
+                    <Button
+                        id="save_button"
+                        :label="$t('basic.update')"
+                        icon="fa fa-floppy-disk"
+                        :disabled="loadingData"
+                        class="p-button-success"
+                        @click="validateForm"
+                    />
                 </div>
             </LoadingScreen>
         </div>

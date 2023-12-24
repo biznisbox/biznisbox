@@ -90,13 +90,19 @@
                             />
                         </div>
                     </div>
-
-                    <div id="user_profile_buttons">
-                        <Button :label="$t('basic.update')" :disabled="loadingData" @click="saveUser" />
-                    </div>
+                </div>
+                <div id="user_profile_buttons" class="flex gap-2 justify-content-end">
+                    <Button
+                        id="update_button"
+                        :label="$t('basic.update')"
+                        :disabled="loadingData"
+                        icon="fa fa-floppy-disk"
+                        class="p-button-success"
+                        @click="saveUser"
+                    />
                 </div>
 
-                <div class="card">
+                <div class="card mt-3">
                     <TabView id="profile_tabs">
                         <TabPanel :header="$t('login_history.login_history')">
                             <DataTable :value="user_data.sessions" paginator :rows="10" :rows-per-page-options="[10, 20, 50]">

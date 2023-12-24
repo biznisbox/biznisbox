@@ -110,22 +110,23 @@
                             ></TextAreaInput>
                         </div>
                     </form>
-
-                    <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button
-                            :label="$t('basic.cancel')"
-                            icon="fa fa-times"
-                            class="p-button-danger"
-                            @click="goTo('/accounts/' + $route.params.id)"
-                        />
-                        <Button
-                            :label="$t('basic.save')"
-                            :disabled="loadingData"
-                            icon="fa fa-floppy-disk"
-                            class="p-button-success"
-                            @click="validateForm"
-                        />
-                    </div>
+                </div>
+                <div id="function_buttons" class="flex gap-2 justify-content-end">
+                    <Button
+                        id="cancel_button"
+                        :label="$t('basic.cancel')"
+                        icon="fa fa-times"
+                        class="p-button-danger"
+                        @click="goTo('/accounts/' + $route.params.id)"
+                    />
+                    <Button
+                        id="update_button"
+                        :label="$t('basic.update')"
+                        :disabled="loadingData"
+                        icon="fa fa-floppy-disk"
+                        class="p-button-success"
+                        @click="validateForm"
+                    />
                 </div>
             </LoadingScreen>
         </div>

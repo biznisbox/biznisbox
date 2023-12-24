@@ -28,7 +28,7 @@
                         <div class="col-12 md:col-6">
                             <DisplayData :input="$t('form.amount')" :value="formatMoney(transaction.amount, transaction.currency)" />
                         </div>
-                        <div class="col-12 md:col-6" v-if="transaction.exchange_rate && transaction.exchange_rate != 1">
+                        <div v-if="transaction.exchange_rate && transaction.exchange_rate != 1" class="col-12 md:col-6">
                             <DisplayData
                                 :input="$t('form.exchange_rate')"
                                 :value="formatMoney(transaction.exchange_rate, transaction.currency)"
@@ -46,20 +46,25 @@
                             </DisplayData>
                         </div>
                         <div class="col-12 md:col-6">
-                            <DisplayData :input="$t('form.status')" custom-value v-if="transaction.status">
+                            <DisplayData v-if="transaction.status" :input="$t('form.status')" custom-value>
                                 <Tag v-if="transaction.status === 'pending'" :value="$t('status.pending')" class="p-tag-warning" />
                                 <Tag v-if="transaction.status === 'completed'" :value="$t('status.completed')" class="p-tag-success" />
                                 <Tag v-if="transaction.status === 'cancelled'" :value="$t('status.cancelled')" class="p-tag-danger" />
                             </DisplayData>
                         </div>
                     </div>
-                    <DisplayData :input="$t('form.category')" :value="transaction.category?.label" v-if="transaction.category" />
+                    <DisplayData v-if="transaction.category" :input="$t('form.category')" :value="transaction.category?.label" />
                     <DisplayData :input="$t('form.account')" :value="transaction.account?.name" />
-                    <DisplayData :input="$t('form.reference')" :value="transaction.reference" v-if="transaction.reference" />
-
-                    <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button :label="$t('basic.close')" icon="fa fa-times" class="p-button-danger" @click="goTo('/transactions')" />
-                    </div>
+                    <DisplayData v-if="transaction.reference" :input="$t('form.reference')" :value="transaction.reference" />
+                </div>
+                <div id="function_buttons" class="flex gap-2 justify-content-end">
+                    <Button
+                        id="cancel_button"
+                        :label="$t('basic.close')"
+                        icon="fa fa-times"
+                        class="p-button-danger"
+                        @click="goTo('/transactions')"
+                    />
                 </div>
             </LoadingScreen>
         </div>

@@ -251,22 +251,23 @@
                             </div>
                         </div>
                     </form>
-
-                    <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button
-                            :label="$t('basic.cancel')"
-                            icon="fa fa-times"
-                            class="p-button-danger"
-                            @click="goTo('/invoices/' + invoice.id)"
-                        />
-                        <Button
-                            :label="$t('basic.update')"
-                            icon="fa fa-floppy-disk"
-                            class="p-button-success"
-                            :disabled="loadingData"
-                            @click="validateForm"
-                        />
-                    </div>
+                </div>
+                <div id="function_buttons" class="flex gap-2 justify-content-end">
+                    <Button
+                        id="cancel_button"
+                        :label="$t('basic.cancel')"
+                        icon="fa fa-times"
+                        class="p-button-danger"
+                        @click="goTo('/invoices/' + invoice.id)"
+                    />
+                    <Button
+                        id="update_button"
+                        :label="$t('basic.update')"
+                        icon="fa fa-floppy-disk"
+                        class="p-button-success"
+                        :disabled="loadingData"
+                        @click="validateForm"
+                    />
                 </div>
             </LoadingScreen>
         </div>

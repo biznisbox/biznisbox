@@ -92,20 +92,25 @@
                             <table class="w-full">
                                 <tr>
                                     <td class="w-6 font-bold">{{ $t('form.discount') }}</td>
-                                    <td class="text-gray-700 text-right">{{ bill.discount }} %</td>
+                                    <td class="text-right">{{ bill.discount }} %</td>
                                 </tr>
 
                                 <tr>
                                     <td class="w-6 font-bold">{{ $t('form.total') }}</td>
-                                    <td class="text-gray-700 text-right">{{ formatMoney(bill.total, bill.currency) }}</td>
+                                    <td class="text-right">{{ formatMoney(bill.total, bill.currency) }}</td>
                                 </tr>
                             </table>
                         </div>
                     </div>
-
-                    <div id="function_buttons" class="flex gap-2 justify-content-end">
-                        <Button :label="$t('basic.close')" icon="fa fa-times" class="p-button-danger" @click="goTo('/bills')" />
-                    </div>
+                </div>
+                <div id="function_buttons" class="flex gap-2 justify-content-end">
+                    <Button
+                        id="close_button"
+                        :label="$t('basic.close')"
+                        icon="fa fa-times"
+                        class="p-button-danger"
+                        @click="goTo('/bills')"
+                    />
                 </div>
             </LoadingScreen>
         </div>
