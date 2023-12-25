@@ -204,7 +204,17 @@ return [
         'delete_failed' => 'Event could  not be deleted successfully',
         'delete_success' => 'Event deleted successfully',
     ],
-
+    'department' => [
+        'get_success' => 'Department retrieved successfully',
+        'get_error' => 'Department could not be retrieved',
+        'not_found' => 'Department could not be found',
+        'create_failed' => 'Department could not be created',
+        'create_success' => 'Department was created successfully',
+        'update_success' => 'Department was updated successfully',
+        'update_failed' => 'Department could not be updated',
+        'delete_failed' => 'Department could  not be deleted successfully',
+        'delete_success' => 'Department deleted successfully',
+    ],
     // Email responses
     'email' => [
         'invoice_subject' => 'Invoice',
