@@ -515,6 +515,7 @@
             "integrations": "Integraties",
             "roles": "Rollen",
             "users": "Gebruikers",
+            "departments": "Departments",
             "settings": "Instellingen",
             "settings_general": "Algemeen",
             "settings_currency": "valuta",
@@ -572,6 +573,15 @@
             "never_logged_in": "Nooit ingelogd",
             "auto_generate_password": "Wachtwoord automatisch genereren",
             "delete_confirm_user": "Weet u zeker dat u deze gebruiker wilt verwijderen?"
+        },
+        "department": {
+            "title": "Departments",
+            "department": "Department | Departments",
+            "new_department": "New Department",
+            "edit_department": "Edit Department",
+            "no_departments": "No departments found",
+            "create_first_department": "Create your first department",
+            "delete_confirm_department": "Are you sure you want to delete this department?"
         },
         "currency": {
             "title": "Valuta instellingen",
