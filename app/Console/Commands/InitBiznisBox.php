@@ -80,6 +80,7 @@ class InitBiznisBox extends Command
         Permission::firstOrCreate(['name' => 'admin_roles', 'display_name' => 'Admin Roles']);
         Permission::firstOrCreate(['name' => 'admin_permissions', 'display_name' => 'Admin Permissions']);
         Permission::firstOrCreate(['name' => 'admin_integrations', 'display_name' => 'Admin Integrations']);
+        Permission::firstOrCreate(['name' => 'admin_departments', 'display_name' => 'Admin Departments']);
         Permission::firstOrCreate(['name' => 'admin_company_settings', 'display_name' => 'Admin Company Settings']);
         Permission::firstOrCreate(['name' => 'admin_general_settings', 'display_name' => 'Admin General Settings']);
         Permission::firstOrCreate(['name' => 'admin_currencies', 'display_name' => 'Admin Currencies']);

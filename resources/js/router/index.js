@@ -125,6 +125,29 @@ const routes = [
     makeRoute('/admin/roles', 'admin-roles', () => import('../views/admin/roles/Roles.vue'), { auth: true, admin: true }, []),
     makeRoute('/admin/roles/new', 'admin-new-role', () => import('../views/admin/roles/NewRole.vue'), { auth: true, admin: true }, []),
     makeRoute('/admin/roles/:id', 'admin-edit-role', () => import('../views/admin/roles/EditRole.vue'), { auth: true, admin: true }, []),
+    // Departments Routes
+    makeRoute(
+        '/admin/departments',
+        'admin-departments',
+        () => import('../views/admin/departments/Departments.vue'),
+        { auth: true, admin: true },
+        []
+    ),
+    makeRoute(
+        '/admin/departments/new',
+        'admin-new-department',
+        () => import('../views/admin/departments/NewDepartment.vue'),
+        { auth: true, admin: true },
+        []
+    ),
+    makeRoute(
+        '/admin/departments/:id',
+        'admin-edit-department',
+        () => import('../views/admin/departments/EditDepartment.vue'),
+        { auth: true, admin: true },
+        []
+    ),
+
     // Client Routes
     makeRoute('/client/invoice/:id', 'client-invoice', () => import('../views/client/Invoice.vue'), { auth: false, client: true }, []),
     makeRoute('/client/quote/:id', 'client-quote', () => import('../views/client/Quote.vue'), { auth: false, client: true }, []),

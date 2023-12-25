@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\UsersController as AdminUsersController;
 use App\Http\Controllers\Admin\PermissionController as AdminPermissionController;
 use App\Http\Controllers\Admin\SettingsController as AdminSettingsController;
 use App\Http\Controllers\Admin\BasicController as AdminBasicController;
+use App\Http\Controllers\Admin\DepartmentController as AdminDepartmentController;
 use App\Http\Controllers\Client\InvoiceController as ClientInvoiceController;
 use App\Http\Controllers\Client\QuotationsController as ClientQuotationsController;
 use App\Http\Controllers\PartnerController;
@@ -203,6 +204,16 @@ Route::middleware('auth')->group(function () {
                 Route::put('/currencies/{id}', AdminSettingsController::class . '@updateCurrency');
                 Route::delete('/currencies/{id}', AdminSettingsController::class . '@deleteCurrency');
                 Route::get('/currency/rates', AdminSettingsController::class . '@liveUpdateCurrencyRate');
+            });
+
+            // Departments Routes
+            Route::middleware(['can:admin_departments'])->group(function () {
+                Route::get('/departments', AdminDepartmentController::class . '@getDepartments');
+                Route::get('/departments/{id}', AdminDepartmentController::class . '@getDepartment');
+                Route::post('/departments', AdminDepartmentController::class . '@createDepartment');
+                Route::put('/departments/{id}', AdminDepartmentController::class . '@updateDepartment');
+                Route::delete('/departments/{id}', AdminDepartmentController::class . '@deleteDepartment');
+                Route::get('/departments/employees', AdminDepartmentController::class . '@getDepartmentsWithEmployees');
             });
 
             // Tax Routes

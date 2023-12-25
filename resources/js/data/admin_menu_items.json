@@ -24,6 +24,14 @@
         "to": "/admin/users"
     },
     {
+        "name": "admin.menu.departments",
+        "meta": ["departments"],
+        "icon": "fa fa-building-user",
+        "permission": "admin_departments",
+        "permissions": [],
+        "to": "/admin/departments"
+    },
+    {
         "name": "admin.menu.integrations",
         "meta": ["integrations"],
         "icon": "fa fa-plug",
