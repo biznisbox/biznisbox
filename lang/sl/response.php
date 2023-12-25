@@ -204,7 +204,17 @@ return [
         'delete_failed' => 'Dogodka ni bilo mogoče izbrisati',
         'delete_success' => 'Dogodek uspešno izbrisana',
     ],
-
+    'department' => [
+        'get_success' => 'Department retrieved successfully',
+        'get_error' => 'Department could not be retrieved',
+        'not_found' => 'Department could not be found',
+        'create_failed' => 'Department could not be created',
+        'create_success' => 'Department was created successfully',
+        'update_success' => 'Department was updated successfully',
+        'update_failed' => 'Department could not be updated',
+        'delete_failed' => 'Department could  not be deleted successfully',
+        'delete_success' => 'Department deleted successfully',
+    ],
     // Email responses
     'email' => [
         'invoice_subject' => 'Račun',
