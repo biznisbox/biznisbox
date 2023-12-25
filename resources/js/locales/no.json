@@ -515,6 +515,7 @@
             "integrations": "Integrasjoner",
             "roles": "Roller",
             "users": "Brukere",
+            "departments": "Departments",
             "settings": "Innstillinger",
             "settings_general": "Generelt",
             "settings_currency": "Valuta",
@@ -572,6 +573,15 @@
             "never_logged_in": "Aldri logget inn",
             "auto_generate_password": "Auto generere passord",
             "delete_confirm_user": "Er du sikker på at du vil slette denne brukeren?"
+        },
+        "department": {
+            "title": "Departments",
+            "department": "Department | Departments",
+            "new_department": "New Department",
+            "edit_department": "Edit Department",
+            "no_departments": "No departments found",
+            "create_first_department": "Create your first department",
+            "delete_confirm_department": "Are you sure you want to delete this department?"
         },
         "currency": {
             "title": "Valuta innstillinger",
