@@ -515,6 +515,7 @@
             "integrations": "Integraatiot",
             "roles": "Roolit",
             "users": "Käyttäjät",
+            "departments": "Departments",
             "settings": "Asetukset",
             "settings_general": "Yleiset",
             "settings_currency": "Valuutta",
@@ -572,6 +573,15 @@
             "never_logged_in": "Ei koskaan kirjautunut sisään",
             "auto_generate_password": "Luo salasana automaattisesti",
             "delete_confirm_user": "Oletko varma, että haluat poistaa tämän käyttäjän?"
+        },
+        "department": {
+            "title": "Departments",
+            "department": "Department | Departments",
+            "new_department": "New Department",
+            "edit_department": "Edit Department",
+            "no_departments": "No departments found",
+            "create_first_department": "Create your first department",
+            "delete_confirm_department": "Are you sure you want to delete this department?"
         },
         "currency": {
             "title": "Valuutta Asetukset",
