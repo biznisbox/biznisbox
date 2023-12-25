@@ -515,6 +515,7 @@
             "integrations": "Интеграции",
             "roles": "Роли",
             "users": "Пользователи",
+            "departments": "Departments",
             "settings": "Настройки",
             "settings_general": "Общие положения",
             "settings_currency": "Валюта",
@@ -572,6 +573,15 @@
             "never_logged_in": "Никогда не входил",
             "auto_generate_password": "Автоматически сгенерировать пароль",
             "delete_confirm_user": "Вы уверены, что хотите удалить этого пользователя?"
+        },
+        "department": {
+            "title": "Departments",
+            "department": "Department | Departments",
+            "new_department": "New Department",
+            "edit_department": "Edit Department",
+            "no_departments": "No departments found",
+            "create_first_department": "Create your first department",
+            "delete_confirm_department": "Are you sure you want to delete this department?"
         },
         "currency": {
             "title": "Настройки валюты",
