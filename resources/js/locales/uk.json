@@ -515,6 +515,7 @@
             "integrations": "Ентеграції",
             "roles": "Ролі",
             "users": "Спільноти",
+            "departments": "Departments",
             "settings": "Налаштування",
             "settings_general": "Загальні налаштування",
             "settings_currency": "Валюта",
@@ -572,6 +573,15 @@
             "never_logged_in": "Ніколи не входив",
             "auto_generate_password": "Автоматично згенерувати пароль",
             "delete_confirm_user": "Ви впевнені, що хочете видалити цього користувача?"
+        },
+        "department": {
+            "title": "Departments",
+            "department": "Department | Departments",
+            "new_department": "New Department",
+            "edit_department": "Edit Department",
+            "no_departments": "No departments found",
+            "create_first_department": "Create your first department",
+            "delete_confirm_department": "Are you sure you want to delete this department?"
         },
         "currency": {
             "title": "Налаштування валюти",
