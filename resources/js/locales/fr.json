@@ -515,6 +515,7 @@
             "integrations": "Intégrations",
             "roles": "Rôles",
             "users": "Utilisateurs",
+            "departments": "Departments",
             "settings": "Réglages",
             "settings_general": "Généraux",
             "settings_currency": "Devise",
@@ -572,6 +573,15 @@
             "never_logged_in": "Jamais connecté",
             "auto_generate_password": "Générer automatiquement le mot de passe",
             "delete_confirm_user": "Êtes-vous sûr de vouloir supprimer cet utilisateur ?"
+        },
+        "department": {
+            "title": "Departments",
+            "department": "Department | Departments",
+            "new_department": "New Department",
+            "edit_department": "Edit Department",
+            "no_departments": "No departments found",
+            "create_first_department": "Create your first department",
+            "delete_confirm_department": "Are you sure you want to delete this department?"
         },
         "currency": {
             "title": "Paramètres de la devise",
