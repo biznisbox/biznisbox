@@ -515,6 +515,7 @@
             "integrations": "التكاملات",
             "roles": "الأدوار",
             "users": "المستخدمون",
+            "departments": "Departments",
             "settings": "الإعدادات",
             "settings_general": "عام",
             "settings_currency": "العملة",
@@ -572,6 +573,15 @@
             "never_logged_in": "لم تقم أبدا بتسجيل الدخول",
             "auto_generate_password": "إنشاء كلمة مرور تلقائي",
             "delete_confirm_user": "هل أنت متأكد من أنك تريد حذف هذا المستخدم؟"
+        },
+        "department": {
+            "title": "Departments",
+            "department": "Department | Departments",
+            "new_department": "New Department",
+            "edit_department": "Edit Department",
+            "no_departments": "No departments found",
+            "create_first_department": "Create your first department",
+            "delete_confirm_department": "Are you sure you want to delete this department?"
         },
         "currency": {
             "title": "إعدادات العملة",
