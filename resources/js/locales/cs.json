@@ -515,6 +515,7 @@
             "integrations": "Integrace",
             "roles": "Role",
             "users": "Uživatelé",
+            "departments": "Departments",
             "settings": "Nastavení",
             "settings_general": "Obecná ustanovení",
             "settings_currency": "Měna",
@@ -572,6 +573,15 @@
             "never_logged_in": "Nikdy se nepřihlásilo",
             "auto_generate_password": "Automatické generování hesla",
             "delete_confirm_user": "Opravdu chcete smazat tohoto uživatele?"
+        },
+        "department": {
+            "title": "Departments",
+            "department": "Department | Departments",
+            "new_department": "New Department",
+            "edit_department": "Edit Department",
+            "no_departments": "No departments found",
+            "create_first_department": "Create your first department",
+            "delete_confirm_department": "Are you sure you want to delete this department?"
         },
         "currency": {
             "title": "Nastavení měny",
