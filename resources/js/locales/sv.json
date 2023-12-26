@@ -116,7 +116,7 @@
         "partners": "Partners",
         "reports": "Rapporter",
         "settings": "Inställningar",
-        "employees": "Employees"
+        "employees": "Anställda"
     },
     "dashboard": {
         "title": "Instrumentpanel",
@@ -218,20 +218,20 @@
         "role": "Roll",
         "roles": "Roller",
         "permissions": "Behörigheter",
-        "category": "Category",
-        "categories": "Categories",
-        "active_account": "Active Account",
-        "amount": "Amount",
-        "exchange_rate": "Exchange Rate",
-        "reference": "Reference",
-        "account": "Account",
-        "department": "Department",
-        "position": "Position",
-        "hourly_rate": "Hourly Rate",
-        "salary": "Salary",
-        "level": "Level",
-        "contract_type": "Contract Type",
-        "internal_user": "Internal User"
+        "category": "Kategori",
+        "categories": "Kategorier",
+        "active_account": "Aktivt konto",
+        "amount": "Belopp",
+        "exchange_rate": "Växelkurs",
+        "reference": "Referens",
+        "account": "Konto",
+        "department": "Avdelning",
+        "position": "Befattning",
+        "hourly_rate": "Timtaxa",
+        "salary": "Lön",
+        "level": "Nivå",
+        "contract_type": "Typ av kontrakt",
+        "internal_user": "Intern användare"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -364,7 +364,7 @@
         "share_dialog_text": "Kopiera länken nedan och dela den med din kund eller skanna QR-koden.",
         "create_first_invoice": "Skapa din första faktura",
         "no_customer": "Ingen kund",
-        "add_payment": "Add payment",
+        "add_payment": "Lägg till betalning",
         "no_payer": "No payer",
         "no_items": "Inga objekt",
         "add_item": "Lägg till objekt",
@@ -381,8 +381,8 @@
         "payment_success_message": "Tack för din betalning. Din betalning har behandlats.",
         "payment_error": "Fel vid betalning",
         "payment_error_message": "Det gick inte att bearbeta din betalning. Försök igen.",
-        "show_transactions": "Show transactions",
-        "list_of_transactions": "List of transactions"
+        "show_transactions": "Visa transaktioner",
+        "list_of_transactions": "Lista över transaktioner"
     },
     "quote": {
         "quote": "Offert <unk> Offerter",
@@ -439,9 +439,9 @@
         "edit_event": "Redigera händelse"
     },
     "transaction_type": {
-        "income": "Income",
-        "expense": "Expense",
-        "transfer": "Transfer"
+        "income": "Inkomst",
+        "expense": "Utgift",
+        "transfer": "Överföring"
     },
     "transaction": {
         "transaction": "Transaktion <unk> Transaktioner",
@@ -460,11 +460,11 @@
         "edit_category": "Redigera kategori",
         "category_name": "Kategori Namn",
         "category_created": "Kategorin har skapats",
-        "categories": "Categories",
-        "no_categories": "No categories found",
-        "delete_category_confirmation": "Are you sure you want to delete this category?",
-        "category_deleted": "Category deleted successfully",
-        "category_updated": "Category updated successfully"
+        "categories": "Kategorier",
+        "no_categories": "Inga kategorier hittades",
+        "delete_category_confirmation": "Är du säker på att du vill ta bort denna kategori?",
+        "category_deleted": "Kategorin har tagits bort",
+        "category_updated": "Kategorin har uppdaterats"
     },
     "archive": {
         "archive": "Arkiv <unk> Arkiv",
@@ -486,7 +486,7 @@
         "edit_bill": "Redigera räkningen",
         "no_bills": "Inga räkningar hittades",
         "create_first_bill": "Skapa din första räkning",
-        "no_supplier": "No supplier",
+        "no_supplier": "Ingen leverantör",
         "no_items": "Inga objekt",
         "select_item": "Välj objekt",
         "date_and_due_date": "Datum och förfallodag",
@@ -516,49 +516,49 @@
         "delete_confirm_document": "Är du säker på att du vill ta bort detta dokument?"
     },
     "employee": {
-        "employee": "Employee | Employees",
-        "new_employee": "New Employee",
-        "edit_employee": "Edit Employee",
-        "no_employees": "No employees found",
-        "create_first_employee": "Create your first employee",
-        "delete_employee_confirmation": "Are you sure you want to delete this employee?",
-        "employee_details": "Employee details",
-        "contract": "Contract"
+        "employee": "Anställd <unk> Anställda",
+        "new_employee": "Ny anställd",
+        "edit_employee": "Redigera anställd",
+        "no_employees": "Inga anställda hittades",
+        "create_first_employee": "Skapa din första anställd",
+        "delete_employee_confirmation": "Är du säker på att du vill ta bort denna anställd?",
+        "employee_details": "Information om anställda",
+        "contract": "Kontrakt"
     },
     "employee_type": {
-        "full_time": "Full time",
-        "part_time": "Part time",
-        "contractor": "Contractor",
-        "intern": "Intern",
-        "temporary": "Temporary",
-        "apprentice": "Apprentice",
-        "founder": "Founder",
-        "co_founder": "Co-founder",
-        "owner": "Owner",
-        "other": "Other"
+        "full_time": "Heltid",
+        "part_time": "Deltid",
+        "contractor": "Entreprenör",
+        "intern": "Praktikant",
+        "temporary": "Tillfällig",
+        "apprentice": "Lärling",
+        "founder": "Grundare",
+        "co_founder": "Medgrundare",
+        "owner": "Ägare",
+        "other": "Annat"
     },
     "employee_level": {
         "junior": "Junior",
-        "mid_level": "Mid Level",
+        "mid_level": "Mid Nivå",
         "senior": "Senior",
-        "executive": "Executive",
-        "director": "Director",
+        "executive": "Verkställande",
+        "director": "Direktör",
         "vice_president": "Vice President",
-        "c_level": "C-Level",
-        "owner": "Owner",
-        "other": "Other"
+        "c_level": "C-nivå",
+        "owner": "Ägare",
+        "other": "Annat"
     },
     "contract_type": {
         "permanent": "Permanent",
-        "fixed_term": "Fixed Term",
-        "temporary": "Temporary",
-        "zero_hours": "Zero Hours",
-        "freelance": "Freelance",
-        "contractor": "Contractor",
-        "apprentice": "Apprentice",
-        "intern": "Intern",
-        "volunteer": "Volunteer",
-        "other": "Other"
+        "fixed_term": "Fasta termer",
+        "temporary": "Tillfällig",
+        "zero_hours": "Noll timmar",
+        "freelance": "Frilans",
+        "contractor": "Entreprenör",
+        "apprentice": "Lärling",
+        "intern": "Praktikant",
+        "volunteer": "Volontär",
+        "other": "Annat"
     },
     "admin": {
         "menu": {
@@ -568,7 +568,7 @@
             "integrations": "Integrationer",
             "roles": "Roller",
             "users": "Användare",
-            "departments": "Departments",
+            "departments": "Avdelningar",
             "settings": "Inställningar",
             "settings_general": "Allmänt",
             "settings_currency": "Valuta",
@@ -597,7 +597,7 @@
             "stripe_available": "Rand tillgänglig",
             "stripe_key": "Rand API-nyckel",
             "stripe_key_help": "Du kan hitta dina API-nycklar i ditt Stripe-konto.",
-            "stripe_account_id": "Stripe internal account ID",
+            "stripe_account_id": "Randig internt konto-ID",
             "paypal": "PayPal",
             "paypal_available": "PayPal tillgängligt",
             "paypal_test_mode": "Testläge",
@@ -605,7 +605,7 @@
             "paypal_client_id_help": "Du hittar ditt klient-ID i ditt PayPal-konto.",
             "paypal_secret": "PayPal hemlighet",
             "paypal_secret_help": "Du kan hitta din Secret på ditt PayPal-konto.",
-            "paypal_account_id": "PayPal internal account ID",
+            "paypal_account_id": "PayPal internt konto-ID",
             "open_banking": "Öppen bank",
             "open_banking_available": "Öppen bank tillgänglig",
             "open_banking_client_id": "Öppna Bank-klient-ID",
@@ -628,13 +628,13 @@
             "delete_confirm_user": "Är du säker på att du vill ta bort denna användare?"
         },
         "department": {
-            "title": "Departments",
-            "department": "Department | Departments",
-            "new_department": "New Department",
-            "edit_department": "Edit Department",
-            "no_departments": "No departments found",
-            "create_first_department": "Create your first department",
-            "delete_confirm_department": "Are you sure you want to delete this department?"
+            "title": "Avdelningar",
+            "department": "Avdelning <unk> Avdelningar",
+            "new_department": "Ny avdelning",
+            "edit_department": "Redigera avdelning",
+            "no_departments": "Inga avdelningar hittades",
+            "create_first_department": "Skapa din första avdelning",
+            "delete_confirm_department": "Är du säker på att du vill ta bort denna avdelning?"
         },
         "currency": {
             "title": "Inställningar för valuta",
@@ -659,7 +659,7 @@
             "default_date_format": "Förvalt datumformat",
             "default_time_format": "Förvalt tidsformat",
             "default_datetime_format": "Förvalt datumformat",
-            "show_barcode_on_documents": "Show barcode on documents"
+            "show_barcode_on_documents": "Visa streckkod på dokument"
         },
         "taxes": {
             "title": "Skattesatser",
@@ -690,14 +690,14 @@
             "number_of_logins_today": "Antal inloggningar idag"
         },
         "app_status": {
-            "title": "Application Status",
-            "current_version": "Current Version",
-            "latest_version": "Latest Version",
-            "update_available": "Update Available",
-            "disk_usage": "Disk Usage",
-            "database_size": "Database Size",
+            "title": "Appens status",
+            "current_version": "Nuvarande version",
+            "latest_version": "Senaste versionen",
+            "update_available": "Uppdatering tillgänglig",
+            "disk_usage": "Diskanvändning",
+            "database_size": "Databasens storlek",
             "server_os": "Server OS",
-            "php_version": "PHP Version",
+            "php_version": "PHP-version",
             "hostname": "Hostname"
         },
         "numbering": {
@@ -711,7 +711,7 @@
             "bill": "Räkningsnummer format",
             "document": "Dokumentets nummerformat",
             "product": "Produktens nummer format",
-            "employee": "Employee number format"
+            "employee": "Formatet för anställdas nummer"
         }
     },
     "countries": {
@@ -971,8 +971,8 @@
         "sl": "Slovenian"
     },
     "language": {
-        "en": "English",
-        "de": "German",
+        "en": "Engelska",
+        "de": "Tyska",
         "sl": "Slovenian"
     }
 }
