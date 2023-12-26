@@ -100,15 +100,15 @@ return [
 
     // Employee responses
     'employee' => [
-        'not_found' => 'Employee not found',
-        'get_success' => 'Employees retrieved successfully',
-        'get_failed' => 'Employees could not be retrieved',
-        'create_success' => 'Employee created successfully',
-        'create_failed' => 'A Employee could not be created',
-        'update_success' => 'Employee updated successfully',
-        'update_failed' => 'A Employee could not be updated',
-        'delete_success' => 'Employee deleted successfully',
-        'delete_failed' => 'A Employee could not be deleted',
+        'not_found' => 'Zaposleni ni najden',
+        'get_success' => 'Zaposlen pridobljen uspešno',
+        'get_failed' => 'Zaposlenega ni bilo mogoče pridobiti',
+        'create_success' => 'Zaposlen ustvarjen uspešno',
+        'create_failed' => 'Zaposlenega ni mogoče ustvariti',
+        'update_success' => 'Zaposlen posodobljen uspešno',
+        'update_failed' => 'Zaposlenega ni mogoče posodobiti',
+        'delete_success' => 'Zaposlen uspešno izbrisan',
+        'delete_failed' => 'Zaposlenega ni mogoče izbrisati',
     ],
 
     // Archive responses
@@ -218,15 +218,15 @@ return [
         'delete_success' => 'Dogodek uspešno izbrisana',
     ],
     'department' => [
-        'get_success' => 'Department retrieved successfully',
-        'get_error' => 'Department could not be retrieved',
-        'not_found' => 'Department could not be found',
-        'create_failed' => 'Department could not be created',
-        'create_success' => 'Department was created successfully',
-        'update_success' => 'Department was updated successfully',
-        'update_failed' => 'Department could not be updated',
-        'delete_failed' => 'Department could  not be deleted successfully',
-        'delete_success' => 'Department deleted successfully',
+        'get_success' => 'Oddelek uspešno pridobljen',
+        'get_error' => 'Oddelkov ni mogoče pridobiti',
+        'not_found' => 'Oddelka ni bilo mogoče najti ',
+        'create_failed' => 'Oddelka ni mogoče ustvariti',
+        'create_success' => 'Oddelek uspešno ustvarjen',
+        'update_success' => 'Oddelek uspešno posodobljen',
+        'update_failed' => 'Oddelka ni mogoče posodobiti',
+        'delete_failed' => 'Oddelka ni mogoče izbrisati',
+        'delete_success' => 'Oddelek uspešno izbrisan',
     ],
     // Email responses
     'email' => [
