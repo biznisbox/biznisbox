@@ -28,7 +28,7 @@
         "session_timeout": "La sessione è scaduta. Effettua nuovamente il login.",
         "internal_server_error": "Errore Interno Del Server",
         "validation_error": "Errore Di Convalida",
-        "not_found_item": "Non trovato",
+        "not_found_item": "Not Found",
         "bad_request": "Richiesta Errata"
     },
     "basic": {
@@ -320,7 +320,7 @@
         "create_first_partner": "Crea il tuo primo partner",
         "add_contact": "Aggiungi contatto",
         "no_contacts": "Nessun contatto trovato",
-        "add_address": "Aggiungi indirizzo",
+        "add_address": "Add Address",
         "no_addresses": "Nessun indirizzo trovato",
         "addresses": "Indirizzi",
         "contacts": "Contatti",
@@ -330,7 +330,7 @@
     "product": {
         "product": "Prodotto <unk> Prodotti",
         "new_product": "Nuovo prodotto",
-        "edit_product": "Modifica prodotto",
+        "edit_product": "Edit Product",
         "no_products": "Nessun prodotto trovato",
         "create_first_product": "Crea il tuo primo prodotto",
         "delete_product_confirmation": "Sei sicuro di voler eliminare questo prodotto?"
@@ -527,7 +527,7 @@
     },
     "employee_type": {
         "full_time": "A tempo pieno",
-        "part_time": "Tempo di parte",
+        "part_time": "Part-time",
         "contractor": "Contrattore",
         "intern": "Interno",
         "temporary": "Temporaneo",
@@ -624,7 +624,7 @@
             "reset_password": "Reimposta Password",
             "send_details_to": "Invia dettagli a",
             "never_logged_in": "Non aver mai effettuato l'accesso",
-            "auto_generate_password": "Generazione automatica password",
+            "auto_generate_password": "Auto-generate password",
             "delete_confirm_user": "Sei sicuro di voler eliminare questo utente?"
         },
         "department": {
