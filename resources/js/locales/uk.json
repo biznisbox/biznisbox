@@ -28,7 +28,7 @@
         "session_timeout": "Час вашого сеансу минув. Будь ласка, увійдіть знову.",
         "internal_server_error": "Внутрішня помилка сервера",
         "validation_error": "Помилка перевірки",
-        "not_found_item": "Не знайдено",
+        "not_found_item": "Not Found",
         "bad_request": "Невірний запит"
     },
     "basic": {
@@ -320,7 +320,7 @@
         "create_first_partner": "Створіть свого першого партнера",
         "add_contact": "Додати контакт",
         "no_contacts": "Контактів не знайдено",
-        "add_address": "Додати адресу",
+        "add_address": "Add Address",
         "no_addresses": "Адрес не знайдено",
         "addresses": "Адреси",
         "contacts": "Контакти",
@@ -330,7 +330,7 @@
     "product": {
         "product": "Товар | Продукти",
         "new_product": "Новий товар",
-        "edit_product": "Редагувати товар",
+        "edit_product": "Edit Product",
         "no_products": "Немає жодного товару",
         "create_first_product": "Створіть свій перший товар",
         "delete_product_confirmation": "Ви дійсно бажаєте видалити цей товар?"
@@ -527,7 +527,7 @@
     },
     "employee_type": {
         "full_time": "Повний робочий день",
-        "part_time": "Час, частина",
+        "part_time": "Part-time",
         "contractor": "Виконавець",
         "intern": "Внутрішні",
         "temporary": "Тимчасово",
@@ -624,7 +624,7 @@
             "reset_password": "Скидання пароля",
             "send_details_to": "Відправити подробиці до",
             "never_logged_in": "Ніколи не входив",
-            "auto_generate_password": "Автоматично згенерувати пароль",
+            "auto_generate_password": "Auto-generate password",
             "delete_confirm_user": "Ви впевнені, що хочете видалити цього користувача?"
         },
         "department": {
