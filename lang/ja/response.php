@@ -70,7 +70,7 @@ return [
         'delete_error' => 'アカウントを削除できませんでした',
         'get_success' => 'アカウントが正常に取得されました',
         'get_error' => 'アカウントを取得できませんでした',
-        'delete_default_account' => 'Default account cannot be deleted',
+        'delete_default_account' => 'デフォルトのアカウントは削除できません',
     ],
 
     //Bill responses
@@ -100,15 +100,15 @@ return [
 
     // Employee responses
     'employee' => [
-        'not_found' => 'Employee not found',
-        'get_success' => 'Employees retrieved successfully',
-        'get_failed' => 'Employees could not be retrieved',
-        'create_success' => 'Employee created successfully',
-        'create_failed' => 'A Employee could not be created',
-        'update_success' => 'Employee updated successfully',
-        'update_failed' => 'A Employee could not be updated',
-        'delete_success' => 'Employee deleted successfully',
-        'delete_failed' => 'A Employee could not be deleted',
+        'not_found' => '従業員が見つかりません',
+        'get_success' => '従業員が正常に取得されました',
+        'get_failed' => '従業員を取得できませんでした',
+        'create_success' => '従業員の作成に成功しました',
+        'create_failed' => '従業員を作成できませんでした',
+        'update_success' => '従業員が正常に更新されました',
+        'update_failed' => '従業員を更新できませんでした',
+        'delete_success' => '従業員が正常に削除されました',
+        'delete_failed' => '従業員を削除できませんでした',
     ],
 
     // Archive responses
@@ -169,7 +169,7 @@ return [
         'send_failed' => '請求書を送信できませんでした',
         'update_failed' => '請求書を更新できませんでした',
         'delete_failed' => '請求書を削除できませんでした',
-        'transaction_success' => 'Transaction was added successfully',
+        'transaction_success' => 'トランザクションが正常に追加されました',
     ],
 
     //Online payment responses
@@ -218,15 +218,15 @@ return [
         'delete_success' => 'イベントが正常に削除されました',
     ],
     'department' => [
-        'get_success' => 'Department retrieved successfully',
-        'get_error' => 'Department could not be retrieved',
-        'not_found' => 'Department could not be found',
-        'create_failed' => 'Department could not be created',
-        'create_success' => 'Department was created successfully',
-        'update_success' => 'Department was updated successfully',
-        'update_failed' => 'Department could not be updated',
-        'delete_failed' => 'Department could  not be deleted successfully',
-        'delete_success' => 'Department deleted successfully',
+        'get_success' => '部署が正常に取得されました',
+        'get_error' => '部署を取得できませんでした',
+        'not_found' => '部署が見つかりませんでした',
+        'create_failed' => '部署を作成できませんでした',
+        'create_success' => '部署が正常に作成されました',
+        'update_success' => '部署が正常に更新されました',
+        'update_failed' => '部署を更新できませんでした',
+        'delete_failed' => '部署を正常に削除できませんでした',
+        'delete_success' => '部署が削除されました',
     ],
     // Email responses
     'email' => [
@@ -306,8 +306,8 @@ return [
             'delete_failed_self_account' => '自分のアカウントを削除することはできません',
         ],
     ],
-    'memory_used' => 'Memory used',
-    'memory_available' => 'Memory available',
-    'disk_used' => 'Disk used',
-    'disk_available' => 'Disk available',
+    'memory_used' => '使用されたメモリ',
+    'memory_available' => '利用可能なメモリ',
+    'disk_used' => 'ディスクを使用',
+    'disk_available' => 'ディスクが利用可能です',
 ];
