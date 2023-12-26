@@ -70,7 +70,7 @@ return [
         'delete_error' => 'Konto kunne ikke slettes',
         'get_success' => 'Kontoen blev hentet',
         'get_error' => 'Konto kunne ikke hentes',
-        'delete_default_account' => 'Default account cannot be deleted',
+        'delete_default_account' => 'Standardkonto kan ikke slettes',
     ],
 
     //Bill responses
@@ -100,15 +100,15 @@ return [
 
     // Employee responses
     'employee' => [
-        'not_found' => 'Employee not found',
-        'get_success' => 'Employees retrieved successfully',
-        'get_failed' => 'Employees could not be retrieved',
-        'create_success' => 'Employee created successfully',
-        'create_failed' => 'A Employee could not be created',
-        'update_success' => 'Employee updated successfully',
-        'update_failed' => 'A Employee could not be updated',
-        'delete_success' => 'Employee deleted successfully',
-        'delete_failed' => 'A Employee could not be deleted',
+        'not_found' => 'Medarbejder ikke fundet',
+        'get_success' => 'Medarbejdere hentet med succes',
+        'get_failed' => 'Medarbejdere kunne ikke hentes',
+        'create_success' => 'Medarbejder oprettet med succes',
+        'create_failed' => 'En medarbejder kunne ikke oprettes',
+        'update_success' => 'Medarbejder opdateret',
+        'update_failed' => 'En medarbejder kunne ikke opdateres',
+        'delete_success' => 'Medarbejder slettet',
+        'delete_failed' => 'En medarbejder kunne ikke slettes',
     ],
 
     // Archive responses
@@ -169,7 +169,7 @@ return [
         'send_failed' => 'Faktura kunne ikke sendes',
         'update_failed' => 'Faktura kunne ikke opdateres',
         'delete_failed' => 'Faktura kunne ikke slettes',
-        'transaction_success' => 'Transaction was added successfully',
+        'transaction_success' => 'Transaktionen blev tilføjet',
     ],
 
     //Online payment responses
@@ -218,15 +218,15 @@ return [
         'delete_success' => 'Begivenhed slettet',
     ],
     'department' => [
-        'get_success' => 'Department retrieved successfully',
-        'get_error' => 'Department could not be retrieved',
-        'not_found' => 'Department could not be found',
-        'create_failed' => 'Department could not be created',
-        'create_success' => 'Department was created successfully',
-        'update_success' => 'Department was updated successfully',
-        'update_failed' => 'Department could not be updated',
-        'delete_failed' => 'Department could  not be deleted successfully',
-        'delete_success' => 'Department deleted successfully',
+        'get_success' => 'Afdeling hentet',
+        'get_error' => 'Afdeling kunne ikke hentes',
+        'not_found' => 'Afdeling kunne ikke findes',
+        'create_failed' => 'Afdeling kunne ikke oprettes',
+        'create_success' => 'Afdeling blev oprettet',
+        'update_success' => 'Afdeling blev opdateret',
+        'update_failed' => 'Afdeling kunne ikke opdateres',
+        'delete_failed' => 'Afdeling kunne ikke slettes med succes',
+        'delete_success' => 'Afdeling slettet',
     ],
     // Email responses
     'email' => [
@@ -306,8 +306,8 @@ return [
             'delete_failed_self_account' => 'Du kan ikke slette din egen konto',
         ],
     ],
-    'memory_used' => 'Memory used',
-    'memory_available' => 'Memory available',
-    'disk_used' => 'Disk used',
-    'disk_available' => 'Disk available',
+    'memory_used' => 'Brugt hukommelse',
+    'memory_available' => 'Tilgængelig hukommelse',
+    'disk_used' => 'Brugt disk',
+    'disk_available' => 'Tilgængelig disk',
 ];
