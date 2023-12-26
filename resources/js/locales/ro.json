@@ -28,7 +28,7 @@
         "session_timeout": "Sesiunea ta a expirat. Te rugăm să te autentifici din nou.",
         "internal_server_error": "Eroare internă de server",
         "validation_error": "Eroare de validare",
-        "not_found_item": "Nu a fost găsit",
+        "not_found_item": "Not Found",
         "bad_request": "Solicitare greșită"
     },
     "basic": {
@@ -320,7 +320,7 @@
         "create_first_partner": "Creează-ți primul partener",
         "add_contact": "Adăugare contact",
         "no_contacts": "Nu s-au găsit contacte",
-        "add_address": "Adăugare adresă",
+        "add_address": "Add Address",
         "no_addresses": "Nicio adresă găsită",
         "addresses": "Adrese",
         "contacts": "Contacte",
@@ -330,7 +330,7 @@
     "product": {
         "product": "Produs Ref. Produse",
         "new_product": "Produs nou",
-        "edit_product": "Editare produs",
+        "edit_product": "Edit Product",
         "no_products": "Nici un produs găsit",
         "create_first_product": "Crează primul tău produs",
         "delete_product_confirmation": "Sigur doriți să ștergeți acest produs?"
@@ -527,7 +527,7 @@
     },
     "employee_type": {
         "full_time": "Timp întreg",
-        "part_time": "Parte de timp",
+        "part_time": "Part-time",
         "contractor": "Contractor",
         "intern": "Intern",
         "temporary": "Temporar",
@@ -624,7 +624,7 @@
             "reset_password": "Resetare parolă",
             "send_details_to": "Trimite detalii către",
             "never_logged_in": "Niciodată autentificat",
-            "auto_generate_password": "Generare automată parolă",
+            "auto_generate_password": "Auto-generate password",
             "delete_confirm_user": "Sunteţi sigur că doriţi să ştergeţi acest utilizator?"
         },
         "department": {
