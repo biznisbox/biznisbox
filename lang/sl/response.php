@@ -70,6 +70,7 @@ return [
         'delete_error' => 'Računa ni bilo mogoče izbrisati',
         'get_success' => 'Račun je bil uspešno pridobljen',
         'get_error' => 'Računa ni bilo mogoče pridobiti',
+        'delete_default_account' => 'Prevzetega računa ni mogoče izbrisati',
     ],
 
     //Bill responses
@@ -95,6 +96,19 @@ return [
         'update_error' => 'Dokument ni bil posodobljen',
         'delete_failed' => 'Dokumenta ni bilo mogoče izbrisati',
         'delete_success' => 'Dokument je bil uspešno izbrisan',
+    ],
+
+    // Employee responses
+    'employee' => [
+        'not_found' => 'Zaposleni ni najden',
+        'get_success' => 'Zaposlen pridobljen uspešno',
+        'get_failed' => 'Zaposlenega ni bilo mogoče pridobiti',
+        'create_success' => 'Zaposlen ustvarjen uspešno',
+        'create_failed' => 'Zaposlenega ni mogoče ustvariti',
+        'update_success' => 'Zaposlen posodobljen uspešno',
+        'update_failed' => 'Zaposlenega ni mogoče posodobiti',
+        'delete_success' => 'Zaposlen uspešno izbrisan',
+        'delete_failed' => 'Zaposlenega ni mogoče izbrisati',
     ],
 
     // Archive responses
@@ -155,6 +169,7 @@ return [
         'send_failed' => 'Računa ni bilo mogoče poslati',
         'update_failed' => 'Računa ni bilo mogoče posodobiti',
         'delete_failed' => 'Računa ni bilo mogoče izbrisati',
+        'transaction_success' => 'Transakcija je bila uspešno dodana',
     ],
 
     //Online payment responses
@@ -202,7 +217,17 @@ return [
         'delete_failed' => 'Dogodka ni bilo mogoče izbrisati',
         'delete_success' => 'Dogodek uspešno izbrisana',
     ],
-
+    'department' => [
+        'get_success' => 'Oddelek uspešno pridobljen',
+        'get_error' => 'Oddelkov ni mogoče pridobiti',
+        'not_found' => 'Oddelka ni bilo mogoče najti ',
+        'create_failed' => 'Oddelka ni mogoče ustvariti',
+        'create_success' => 'Oddelek uspešno ustvarjen',
+        'update_success' => 'Oddelek uspešno posodobljen',
+        'update_failed' => 'Oddelka ni mogoče posodobiti',
+        'delete_failed' => 'Oddelka ni mogoče izbrisati',
+        'delete_success' => 'Oddelek uspešno izbrisan',
+    ],
     // Email responses
     'email' => [
         'invoice_subject' => 'Račun',
@@ -281,4 +306,8 @@ return [
             'delete_failed_self_account' => 'Ne morate izbrisati lastnega računa',
         ],
     ],
+    'memory_used' => 'Uporabljen pomnilnik',
+    'memory_available' => 'Pomnilnik na voljo',
+    'disk_used' => 'Poraba diska',
+    'disk_available' => 'Diska na voljo',
 ];

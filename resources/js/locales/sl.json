@@ -115,7 +115,8 @@
         "archive": "Arhiv",
         "partners": "Partnerji",
         "reports": "Poročila",
-        "settings": "Nastavitve"
+        "settings": "Nastavitve",
+        "employees": "Zaposleni"
     },
     "dashboard": {
         "title": "Nadzorna plošča",
@@ -216,7 +217,21 @@
         "active": "Aktiven",
         "role": "Vloga",
         "roles": "Vloge",
-        "permissions": "Pooblastila"
+        "permissions": "Pooblastila",
+        "category": "Kategorija",
+        "categories": "Kategorije",
+        "active_account": "Aktiven račun",
+        "amount": "Znesek",
+        "exchange_rate": "Menjalni tečaj",
+        "reference": "Referenca",
+        "account": "Račun",
+        "department": "Oddelek",
+        "position": "Položaj",
+        "hourly_rate": "Urna postavka",
+        "salary": "Plača",
+        "level": "Raven",
+        "contract_type": "Tip pogodbe",
+        "internal_user": "Interni uporabnik"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -349,6 +364,7 @@
         "share_dialog_text": "Kopiraj spodnjo povezavo in jo pošlji stranki ali pa skeniraj QR kodo.",
         "create_first_invoice": "Ustvarite prvi račun",
         "no_customer": "Ni stranke",
+        "add_payment": "Dodaj plačilo",
         "no_payer": "Ni plačnika",
         "no_items": "Ni produktov",
         "add_item": "Dodaj produkt",
@@ -422,6 +438,11 @@
         "new_event": "Nov dogodek",
         "edit_event": "Uredi dogodek"
     },
+    "transaction_type": {
+        "income": "Prihodek",
+        "expense": "Odhodek",
+        "transfer": "Prenos"
+    },
     "transaction": {
         "transaction": "Transakcija | Transakcije",
         "new_transaction": "Nova transakcija",
@@ -431,28 +452,19 @@
         "date_and_number": "Datum in številka transakcije",
         "name": "Naziv",
         "amount_and_type": "Znesek in vrsta transakcije",
-        "income": "Prihodki",
-        "expense": "Odhodki",
-        "transfer": "Prenos",
-        "category": "Kategorija",
-        "account": "Račun",
-        "number": "Številka",
-        "type": "Vrsta",
-        "amount": "Znesek",
-        "date": "Datum",
-        "description": "Opis",
         "from_account": "Z računa",
         "to_account": "Na račun",
-        "payment_method": "Način plačila",
-        "customer": "Stranka",
-        "vendor": "Prodajalec",
-        "reference": "Referenca",
         "delete_confirm_transaction": "Ali ste prepričani, da želite izbrisati to transakcijo?",
         "transaction_details": "Podrobnosti transakcije",
         "new_category": "Nova kategorija",
         "edit_category": "Uredi kategorijo",
         "category_name": "Ime kategorije",
-        "category_created": "Kategorija je bila uspešno ustvarjena."
+        "category_created": "Kategorija je bila uspešno ustvarjena.",
+        "categories": "Kategorije",
+        "no_categories": "Ni najdenih kategorij",
+        "delete_category_confirmation": "Ali ste prepričani, da želite izbrisati to kategorijo?",
+        "category_deleted": "Kategorija je bila uspešno izbrisana.",
+        "category_updated": "Kategorija je bila uspešno posodobljena."
     },
     "archive": {
         "archive": "Arhiv | Arhivi",
@@ -503,6 +515,51 @@
         "create_first_document": "Ustvarite svoj prvi dokument",
         "delete_confirm_document": "Ali ste prepričani, da želite izbrisati ta dokument?"
     },
+    "employee": {
+        "employee": "Zaposlen | Zaposleni",
+        "new_employee": "Nov zaposlen",
+        "edit_employee": "Uredi zaposlenega",
+        "no_employees": "Ni zaposlenih",
+        "create_first_employee": "Ustvarite svojega prvega zaposlenega",
+        "delete_employee_confirmation": "Ali ste prepričani, da želite izbrisati zaposlenega?",
+        "employee_details": "Podatki o zaposlenem",
+        "contract": "Pogodba"
+    },
+    "employee_type": {
+        "full_time": "Polni delovni čas",
+        "part_time": "Polovični delovni čas",
+        "contractor": "Pogodbenik",
+        "intern": "Pripravnik",
+        "temporary": "Začasno",
+        "apprentice": "Vajenec",
+        "founder": "Ustanovitelj",
+        "co_founder": "Soustanovitelj",
+        "owner": "Lastnik",
+        "other": "Drugo"
+    },
+    "employee_level": {
+        "junior": "Junior",
+        "mid_level": "Srednja raven",
+        "senior": "Senior",
+        "executive": "Izvršni",
+        "director": "Direktor",
+        "vice_president": "Podpredsednik",
+        "c_level": "C-Level",
+        "owner": "Lastnik",
+        "other": "Drugo"
+    },
+    "contract_type": {
+        "permanent": "Trajno",
+        "fixed_term": "Določen čas",
+        "temporary": "Začasno",
+        "zero_hours": "Zero Hours",
+        "freelance": "Svobodni strokovnjak",
+        "contractor": "Pogodbenik",
+        "apprentice": "Vajenec",
+        "intern": "Pripravnik",
+        "volunteer": "Prostovoljec",
+        "other": "Drugo"
+    },
     "admin": {
         "menu": {
             "dashboard": "Nadzorna plošča",
@@ -511,11 +568,13 @@
             "integrations": "Integracije",
             "roles": "Vloge",
             "users": "Uporabniki",
+            "departments": "Oddelek",
             "settings": "Nastavitve",
             "settings_general": "Splošno",
             "settings_currency": "Valute",
             "settings_taxes": "Davčne stopnje",
-            "numbering": "Številčenje"
+            "numbering": "Številčenje",
+            "status": "Status"
         },
         "company": {
             "title": "Nastavitve podjetja",
@@ -538,6 +597,7 @@
             "stripe_available": "Stripe na voljo",
             "stripe_key": "Stripe API ključ",
             "stripe_key_help": "Najdete ga v vašem Stripe računu.",
+            "stripe_account_id": "ID internega računa za Stripe",
             "paypal": "PayPal",
             "paypal_available": "PayPal na voljo",
             "paypal_test_mode": "Testni način",
@@ -545,6 +605,7 @@
             "paypal_client_id_help": "Najdete ga v vašem PayPal računu.",
             "paypal_secret": "PayPal Secret",
             "paypal_secret_help": "Najdete ga v vašem PayPal računu.",
+            "paypal_account_id": "ID internega računa za PayPal",
             "open_banking": "Odprto bančništvo",
             "open_banking_available": "Odprto bančništvo na voljo",
             "open_banking_client_id": "Open Banking Client ID",
@@ -565,6 +626,15 @@
             "never_logged_in": "Prijava ni bila izvedena",
             "auto_generate_password": "Samodejno ustvari geslo",
             "delete_confirm_user": "Ali ste prepričani, da želite izbrisati uporabnika?"
+        },
+        "department": {
+            "title": "Oddeleki",
+            "department": "Oddelek | Oddelki",
+            "new_department": "Nov oddelek",
+            "edit_department": "Uredi oddelek",
+            "no_departments": "No departments found",
+            "create_first_department": "Create your first department",
+            "delete_confirm_department": "Are you sure you want to delete this department?"
         },
         "currency": {
             "title": "Valute",
@@ -588,7 +658,8 @@
             "default_currency": "Privzeta valuta",
             "default_date_format": "Privzeti format datuma",
             "default_time_format": "Privzeti format časa",
-            "default_datetime_format": "Privzeti format datuma in časa"
+            "default_datetime_format": "Privzeti format datuma in časa",
+            "show_barcode_on_documents": "Prikaži črtno kodo na dokumentih"
         },
         "taxes": {
             "title": "Davčne stopnje",
@@ -618,6 +689,17 @@
             "active_users_today": "Aktivni uporabniki danes",
             "number_of_logins_today": "Število prijav danes"
         },
+        "app_status": {
+            "title": "Stanje aplikacije",
+            "current_version": "Trenutna različica",
+            "latest_version": "Zadnja raličica",
+            "update_available": "Posodobitev je na voljo",
+            "disk_usage": "Poraba diska",
+            "database_size": "Velikost zbirke podatkov",
+            "server_os": "Operacijski sistem strežnika",
+            "php_version": "Verzija PHP",
+            "hostname": "Ime gostitelja"
+        },
         "numbering": {
             "title": "Številčenje",
             "numbering": "Številčenje",
@@ -628,7 +710,8 @@
             "partner": "Format številke partnerja",
             "bill": "Format številke računa",
             "document": "Format številke dokumenta",
-            "product": "Format številke produkta"
+            "product": "Format številke produkta",
+            "employee": "Employee number format"
         }
     },
     "countries": {
@@ -883,6 +966,11 @@
         "Zimbabwe": "Zimbabve"
     },
     "lang": {
+        "en": "Angleščina",
+        "de": "Nemščina",
+        "sl": "Slovenščina"
+    },
+    "language": {
         "en": "Angleščina",
         "de": "Nemščina",
         "sl": "Slovenščina"
