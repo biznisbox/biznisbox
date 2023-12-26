@@ -78,6 +78,7 @@ import TriStateCheckbox from 'primevue/tristatecheckbox'
 import TreeSelect from 'primevue/treeselect'
 import TextArea from 'primevue/textarea'
 import Chart from 'primevue/chart'
+import SpeedDial from 'primevue/speeddial'
 
 export default {
     install(app) {
@@ -155,5 +156,6 @@ export default {
         app.component('TreeSelect', TreeSelect)
         app.component('TextArea', TextArea)
         app.component('Chart', Chart)
+        app.component('SpeedDial', SpeedDial)
     },
 }

@@ -48,6 +48,17 @@
                 </div>
             </div>
         </LoadingScreen>
+        <SpeedDial
+            :model="[
+                { icon: 'fa fa-file-invoice', label: $t('invoice.new_invoice'), command: () => this.$router.push('/invoices/new') },
+                { icon: 'fa fa-money-bill', label: $t('bill.new_bill'), command: () => this.$router.push('/bills/new') },
+                { icon: 'fa fa-boxes', label: $t('product.new_product'), command: () => this.$router.push('/products/new') },
+                { icon: 'fa fa-users', label: $t('partner.new_partner'), command: () => this.$router.push('/partners/new') },
+            ]"
+            direction="up"
+            :style="{ right: '1rem', bottom: '1rem' }"
+            :tooltipOptions="{ position: 'left' }"
+        />
     </user-layout>
 </template>
 
