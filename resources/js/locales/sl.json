@@ -28,7 +28,7 @@
         "session_timeout": "Vaša seja je potekla. Prosimo, prijavite se znova.",
         "internal_server_error": "Notranja napaka strežnika",
         "validation_error": "Napaka pri validaciji",
-        "not_found_item": "Ne obstaja",
+        "not_found_item": "Not Found",
         "bad_request": "Napačna zahteva"
     },
     "basic": {
@@ -320,7 +320,7 @@
         "create_first_partner": "Ustvarite svojega prvega partnerja",
         "add_contact": "Dodaj kontakt",
         "no_contacts": "Ni najdenih kontaktov",
-        "add_address": "Dodaj naslov",
+        "add_address": "Add Address",
         "no_addresses": "Ni naslovov",
         "addresses": "Naslovi",
         "contacts": "Kontakti",
@@ -330,7 +330,7 @@
     "product": {
         "product": "Izdelek | Izdelki",
         "new_product": "Nov izdelek",
-        "edit_product": "Uredi izdelek",
+        "edit_product": "Edit Product",
         "no_products": "Ni izdelkov",
         "create_first_product": "Ustvarite prvi izdelek",
         "delete_product_confirmation": "Ali ste prepričani, da želite izbrisati ta izdelek?"
@@ -527,7 +527,7 @@
     },
     "employee_type": {
         "full_time": "Polni delovni čas",
-        "part_time": "Polovični delovni čas",
+        "part_time": "Part-time",
         "contractor": "Pogodbenik",
         "intern": "Pripravnik",
         "temporary": "Začasno",
@@ -624,7 +624,7 @@
             "reset_password": "Ponastavi geslo",
             "send_details_to": "Pošlji podrobnosti na",
             "never_logged_in": "Prijava ni bila izvedena",
-            "auto_generate_password": "Samodejno ustvari geslo",
+            "auto_generate_password": "Auto-generate password",
             "delete_confirm_user": "Ali ste prepričani, da želite izbrisati uporabnika?"
         },
         "department": {
