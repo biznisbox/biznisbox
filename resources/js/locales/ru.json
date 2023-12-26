@@ -28,7 +28,7 @@
         "session_timeout": "Время вашей сессии истекло. Пожалуйста, войдите снова.",
         "internal_server_error": "Внутренняя ошибка сервера",
         "validation_error": "Ошибка проверки",
-        "not_found_item": "Не найдено",
+        "not_found_item": "Not Found",
         "bad_request": "Плохой запрос"
     },
     "basic": {
@@ -320,7 +320,7 @@
         "create_first_partner": "Создайте своего первого партнера",
         "add_contact": "Добавить контакт",
         "no_contacts": "Контакты не найдены",
-        "add_address": "Добавить адрес",
+        "add_address": "Add Address",
         "no_addresses": "Адресов не найдено",
         "addresses": "Адреса",
         "contacts": "Контакты",
@@ -330,7 +330,7 @@
     "product": {
         "product": "Продукт | Продукты",
         "new_product": "Новый товар",
-        "edit_product": "Редактировать товар",
+        "edit_product": "Edit Product",
         "no_products": "Товары не найдены",
         "create_first_product": "Создайте свой первый товар",
         "delete_product_confirmation": "Вы уверены, что хотите удалить этот продукт?"
@@ -527,7 +527,7 @@
     },
     "employee_type": {
         "full_time": "Полное время",
-        "part_time": "Частично",
+        "part_time": "Part-time",
         "contractor": "Исполнитель",
         "intern": "Интерн",
         "temporary": "Временно",
@@ -624,7 +624,7 @@
             "reset_password": "Сбросить пароль",
             "send_details_to": "Отправить подробности",
             "never_logged_in": "Никогда не входил",
-            "auto_generate_password": "Автоматически сгенерировать пароль",
+            "auto_generate_password": "Auto-generate password",
             "delete_confirm_user": "Вы уверены, что хотите удалить этого пользователя?"
         },
         "department": {
