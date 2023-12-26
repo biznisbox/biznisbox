@@ -70,7 +70,7 @@ return [
         'delete_error' => 'Kontot kunde inte tas bort',
         'get_success' => 'Kontot har hämtats',
         'get_error' => 'Kontot kunde inte hämtas',
-        'delete_default_account' => 'Default account cannot be deleted',
+        'delete_default_account' => 'Standardkontot kan inte tas bort',
     ],
 
     //Bill responses
@@ -100,15 +100,15 @@ return [
 
     // Employee responses
     'employee' => [
-        'not_found' => 'Employee not found',
-        'get_success' => 'Employees retrieved successfully',
-        'get_failed' => 'Employees could not be retrieved',
-        'create_success' => 'Employee created successfully',
-        'create_failed' => 'A Employee could not be created',
-        'update_success' => 'Employee updated successfully',
-        'update_failed' => 'A Employee could not be updated',
-        'delete_success' => 'Employee deleted successfully',
-        'delete_failed' => 'A Employee could not be deleted',
+        'not_found' => 'Anställd hittades inte',
+        'get_success' => 'Anställda har hämtats',
+        'get_failed' => 'Anställda kunde inte hämtas',
+        'create_success' => 'Anställd har skapats',
+        'create_failed' => 'En anställd kunde inte skapas',
+        'update_success' => 'Anställd har uppdaterats',
+        'update_failed' => 'En anställd kunde inte uppdateras',
+        'delete_success' => 'Anställd har tagits bort',
+        'delete_failed' => 'En anställd kunde inte tas bort',
     ],
 
     // Archive responses
@@ -169,7 +169,7 @@ return [
         'send_failed' => 'Fakturan kunde inte skickas',
         'update_failed' => 'Fakturan kunde inte uppdateras',
         'delete_failed' => 'Fakturan kunde inte tas bort',
-        'transaction_success' => 'Transaction was added successfully',
+        'transaction_success' => 'Transaktionen har lagts till',
     ],
 
     //Online payment responses
@@ -218,15 +218,15 @@ return [
         'delete_success' => 'Händelsen har tagits bort',
     ],
     'department' => [
-        'get_success' => 'Department retrieved successfully',
-        'get_error' => 'Department could not be retrieved',
-        'not_found' => 'Department could not be found',
-        'create_failed' => 'Department could not be created',
-        'create_success' => 'Department was created successfully',
-        'update_success' => 'Department was updated successfully',
-        'update_failed' => 'Department could not be updated',
-        'delete_failed' => 'Department could  not be deleted successfully',
-        'delete_success' => 'Department deleted successfully',
+        'get_success' => 'Avdelningen har hämtats',
+        'get_error' => 'Avdelningen kunde inte hämtas',
+        'not_found' => 'Avdelningen kunde inte hittas',
+        'create_failed' => 'Avdelningen kunde inte skapas',
+        'create_success' => 'Avdelningen har skapats',
+        'update_success' => 'Avdelningen har uppdaterats',
+        'update_failed' => 'Avdelningen kunde inte uppdateras',
+        'delete_failed' => 'Avdelningen kunde inte raderas',
+        'delete_success' => 'Avdelningen har tagits bort',
     ],
     // Email responses
     'email' => [
@@ -306,8 +306,8 @@ return [
             'delete_failed_self_account' => 'Du kan inte ta bort ditt eget konto',
         ],
     ],
-    'memory_used' => 'Memory used',
-    'memory_available' => 'Memory available',
-    'disk_used' => 'Disk used',
-    'disk_available' => 'Disk available',
+    'memory_used' => 'Använt minne',
+    'memory_available' => 'Tillgängligt minne',
+    'disk_used' => 'Disk som används',
+    'disk_available' => 'Disk tillgänglig',
 ];
