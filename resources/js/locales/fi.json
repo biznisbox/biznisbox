@@ -28,7 +28,7 @@
         "session_timeout": "Istuntosi on aikakatkaistu. Kirjaudu sisään uudelleen.",
         "internal_server_error": "Sisäinen Palvelinvirhe",
         "validation_error": "Vahvistusvirhe",
-        "not_found_item": "Ei löydy",
+        "not_found_item": "Not Found",
         "bad_request": "Virheellinen Pyyntö"
     },
     "basic": {
@@ -320,7 +320,7 @@
         "create_first_partner": "Luo ensimmäinen kumppanisi",
         "add_contact": "Lisää yhteystieto",
         "no_contacts": "Yhteystietoja ei löytynyt",
-        "add_address": "Lisää osoite",
+        "add_address": "Add Address",
         "no_addresses": "Osoitteita ei löytynyt",
         "addresses": "Osoitteet",
         "contacts": "Yhteystiedot",
@@ -330,7 +330,7 @@
     "product": {
         "product": "Tuote - Tuotteet",
         "new_product": "Uusi tuote",
-        "edit_product": "Muokkaa tuotetta",
+        "edit_product": "Edit Product",
         "no_products": "Tuotteita ei löytynyt",
         "create_first_product": "Luo ensimmäinen tuotteesi",
         "delete_product_confirmation": "Oletko varma, että haluat poistaa tämän tuotteen?"
@@ -527,7 +527,7 @@
     },
     "employee_type": {
         "full_time": "Koko aika",
-        "part_time": "Osan aika",
+        "part_time": "Part-time",
         "contractor": "Alihankkija",
         "intern": "Ulkoinen",
         "temporary": "Väliaikainen",
@@ -624,7 +624,7 @@
             "reset_password": "Nollaa Salasana",
             "send_details_to": "Lähetä tiedot",
             "never_logged_in": "Ei koskaan kirjautunut sisään",
-            "auto_generate_password": "Luo salasana automaattisesti",
+            "auto_generate_password": "Auto-generate password",
             "delete_confirm_user": "Oletko varma, että haluat poistaa tämän käyttäjän?"
         },
         "department": {
