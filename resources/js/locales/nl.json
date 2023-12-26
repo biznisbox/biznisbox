@@ -115,7 +115,8 @@
         "archive": "Archief",
         "partners": "Partners",
         "reports": "Rapporten",
-        "settings": "Instellingen"
+        "settings": "Instellingen",
+        "employees": "Employees"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -223,7 +224,14 @@
         "amount": "Amount",
         "exchange_rate": "Exchange Rate",
         "reference": "Reference",
-        "account": "Account"
+        "account": "Account",
+        "department": "Department",
+        "position": "Position",
+        "hourly_rate": "Hourly Rate",
+        "salary": "Salary",
+        "level": "Level",
+        "contract_type": "Contract Type",
+        "internal_user": "Internal User"
     },
     "address_types": {
         "billing": "Facturering",
@@ -507,6 +515,51 @@
         "create_first_document": "Maak uw eerste document aan",
         "delete_confirm_document": "Weet u zeker dat u dit document wilt verwijderen?"
     },
+    "employee": {
+        "employee": "Employee | Employees",
+        "new_employee": "New Employee",
+        "edit_employee": "Edit Employee",
+        "no_employees": "No employees found",
+        "create_first_employee": "Create your first employee",
+        "delete_employee_confirmation": "Are you sure you want to delete this employee?",
+        "employee_details": "Employee details",
+        "contract": "Contract"
+    },
+    "employee_type": {
+        "full_time": "Full time",
+        "part_time": "Part time",
+        "contractor": "Contractor",
+        "intern": "Intern",
+        "temporary": "Temporary",
+        "apprentice": "Apprentice",
+        "founder": "Founder",
+        "co_founder": "Co-founder",
+        "owner": "Owner",
+        "other": "Other"
+    },
+    "employee_level": {
+        "junior": "Junior",
+        "mid_level": "Mid Level",
+        "senior": "Senior",
+        "executive": "Executive",
+        "director": "Director",
+        "vice_president": "Vice President",
+        "c_level": "C-Level",
+        "owner": "Owner",
+        "other": "Other"
+    },
+    "contract_type": {
+        "permanent": "Permanent",
+        "fixed_term": "Fixed Term",
+        "temporary": "Temporary",
+        "zero_hours": "Zero Hours",
+        "freelance": "Freelance",
+        "contractor": "Contractor",
+        "apprentice": "Apprentice",
+        "intern": "Intern",
+        "volunteer": "Volunteer",
+        "other": "Other"
+    },
     "admin": {
         "menu": {
             "dashboard": "Dashboard",
@@ -657,7 +710,8 @@
             "partner": "Nummerformaat partner",
             "bill": "Factuur nummer formaat",
             "document": "Document nummer formaat",
-            "product": "Product nummer formaat"
+            "product": "Product nummer formaat",
+            "employee": "Employee number format"
         }
     },
     "countries": {
