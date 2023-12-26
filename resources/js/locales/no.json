@@ -116,7 +116,7 @@
         "partners": "Partnere",
         "reports": "Rapporter",
         "settings": "Innstillinger",
-        "employees": "Employees"
+        "employees": "Ansatte"
     },
     "dashboard": {
         "title": "Kontrollpanel",
@@ -218,20 +218,20 @@
         "role": "Rolle",
         "roles": "Roller",
         "permissions": "Tillatelser",
-        "category": "Category",
-        "categories": "Categories",
-        "active_account": "Active Account",
-        "amount": "Amount",
-        "exchange_rate": "Exchange Rate",
-        "reference": "Reference",
-        "account": "Account",
-        "department": "Department",
-        "position": "Position",
-        "hourly_rate": "Hourly Rate",
-        "salary": "Salary",
-        "level": "Level",
-        "contract_type": "Contract Type",
-        "internal_user": "Internal User"
+        "category": "Kategori",
+        "categories": "Kategorier",
+        "active_account": "Aktiv konto",
+        "amount": "Beløp",
+        "exchange_rate": "Exchange-rate",
+        "reference": "Referanse",
+        "account": "Konto",
+        "department": "Avdeling",
+        "position": "Posisjon",
+        "hourly_rate": "Timepris",
+        "salary": "Lønn",
+        "level": "Nivå",
+        "contract_type": "Kontrakt type",
+        "internal_user": "Intern bruker"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -364,7 +364,7 @@
         "share_dialog_text": "Kopier lenken nedenfor og del den med kunden eller skanne QR-koden.",
         "create_first_invoice": "Opprett din første faktura",
         "no_customer": "Ingen kunde",
-        "add_payment": "Add payment",
+        "add_payment": "Legg til betaling",
         "no_payer": "No payer",
         "no_items": "Ingen elementer",
         "add_item": "Legg til element",
@@ -381,8 +381,8 @@
         "payment_success_message": "Takk for betalingen din. Betalingen er gjennomført.",
         "payment_error": "Feil med betaling",
         "payment_error_message": "Det oppstod en feil under behandling av betalingen. Vennligst prøv igjen.",
-        "show_transactions": "Show transactions",
-        "list_of_transactions": "List of transactions"
+        "show_transactions": "Vis transaksjoner",
+        "list_of_transactions": "Liste over transaksjoner"
     },
     "quote": {
         "quote": "Tilbud, tilbud",
@@ -439,9 +439,9 @@
         "edit_event": "Rediger hendelse"
     },
     "transaction_type": {
-        "income": "Income",
-        "expense": "Expense",
-        "transfer": "Transfer"
+        "income": "Inntekt",
+        "expense": "Utgift",
+        "transfer": "Overfør"
     },
     "transaction": {
         "transaction": "Transaksjon: Transaksjoner",
@@ -460,11 +460,11 @@
         "edit_category": "Rediger kategori",
         "category_name": "Navn på kategori",
         "category_created": "Kategori opprettet",
-        "categories": "Categories",
-        "no_categories": "No categories found",
-        "delete_category_confirmation": "Are you sure you want to delete this category?",
-        "category_deleted": "Category deleted successfully",
-        "category_updated": "Category updated successfully"
+        "categories": "Kategorier",
+        "no_categories": "Ingen kategorier funnet",
+        "delete_category_confirmation": "Er du sikker på at du vil slette denne kategorien?",
+        "category_deleted": "Kategori slettet",
+        "category_updated": "Kategorien ble oppdatert"
     },
     "archive": {
         "archive": "Arkiv: Archives",
@@ -486,7 +486,7 @@
         "edit_bill": "Rediger regning",
         "no_bills": "Ingen regninger funnet",
         "create_first_bill": "Opprett din første regning",
-        "no_supplier": "No supplier",
+        "no_supplier": "Ingen leverandør",
         "no_items": "Ingen elementer",
         "select_item": "Velg element",
         "date_and_due_date": "Forfallsdato dato og dato",
@@ -516,49 +516,49 @@
         "delete_confirm_document": "Er du sikker på at du vil slette dette dokumentet?"
     },
     "employee": {
-        "employee": "Employee | Employees",
-        "new_employee": "New Employee",
-        "edit_employee": "Edit Employee",
-        "no_employees": "No employees found",
-        "create_first_employee": "Create your first employee",
-        "delete_employee_confirmation": "Are you sure you want to delete this employee?",
-        "employee_details": "Employee details",
-        "contract": "Contract"
+        "employee": "Ansatte for ansatte",
+        "new_employee": "Ny ansatt",
+        "edit_employee": "Rediger ansatt",
+        "no_employees": "Ingen ansatte funnet",
+        "create_first_employee": "Opprett din første ansatt",
+        "delete_employee_confirmation": "Er du sikker på at du vil slette denne ansatte?",
+        "employee_details": "Opplysninger om ansatte",
+        "contract": "Kontrakt"
     },
     "employee_type": {
-        "full_time": "Full time",
-        "part_time": "Part time",
-        "contractor": "Contractor",
-        "intern": "Intern",
-        "temporary": "Temporary",
-        "apprentice": "Apprentice",
-        "founder": "Founder",
-        "co_founder": "Co-founder",
-        "owner": "Owner",
-        "other": "Other"
+        "full_time": "Heltid",
+        "part_time": "Del tid",
+        "contractor": "Entreprenør",
+        "intern": "Praktikant",
+        "temporary": "Midlertidig",
+        "apprentice": "Lærling",
+        "founder": "Grunnlegger",
+        "co_founder": "Medgrunnlegger",
+        "owner": "Eier",
+        "other": "Annet"
     },
     "employee_level": {
         "junior": "Junior",
-        "mid_level": "Mid Level",
+        "mid_level": "Middels nivå",
         "senior": "Senior",
-        "executive": "Executive",
-        "director": "Director",
+        "executive": "Utøvende",
+        "director": "Regissør",
         "vice_president": "Vice President",
-        "c_level": "C-Level",
-        "owner": "Owner",
-        "other": "Other"
+        "c_level": "C-Nivå",
+        "owner": "Eier",
+        "other": "Annet"
     },
     "contract_type": {
         "permanent": "Permanent",
-        "fixed_term": "Fixed Term",
-        "temporary": "Temporary",
-        "zero_hours": "Zero Hours",
-        "freelance": "Freelance",
-        "contractor": "Contractor",
-        "apprentice": "Apprentice",
-        "intern": "Intern",
-        "volunteer": "Volunteer",
-        "other": "Other"
+        "fixed_term": "Fast begrep",
+        "temporary": "Midlertidig",
+        "zero_hours": "Null timer",
+        "freelance": "Frilansvirksomhet",
+        "contractor": "Entreprenør",
+        "apprentice": "Lærling",
+        "intern": "Praktikant",
+        "volunteer": "Frivillig",
+        "other": "Annet"
     },
     "admin": {
         "menu": {
@@ -568,13 +568,13 @@
             "integrations": "Integrasjoner",
             "roles": "Roller",
             "users": "Brukere",
-            "departments": "Departments",
+            "departments": "Avdelinger",
             "settings": "Innstillinger",
             "settings_general": "Generelt",
             "settings_currency": "Valuta",
             "settings_taxes": "Mva satser",
             "numbering": "Nummerering",
-            "status": "Status"
+            "status": "Status:"
         },
         "company": {
             "title": "Bedriftens innstillinger",
@@ -597,7 +597,7 @@
             "stripe_available": "Stripe tilgjengelig",
             "stripe_key": "Stripe API-nøkkel",
             "stripe_key_help": "Du kan finne dine API nøkler i din Stripe konto.",
-            "stripe_account_id": "Stripe internal account ID",
+            "stripe_account_id": "Stripe intern konto-ID",
             "paypal": "PayPal",
             "paypal_available": "PayPal tilgjengelig",
             "paypal_test_mode": "Test modus",
@@ -605,7 +605,7 @@
             "paypal_client_id_help": "Du finner din klient-ID i din PayPal konto.",
             "paypal_secret": "PayPal hemmelig",
             "paypal_secret_help": "Du finner din hemmelighet i PayPal-kontoen din.",
-            "paypal_account_id": "PayPal internal account ID",
+            "paypal_account_id": "PayPal intern konto-ID",
             "open_banking": "Åpne bank",
             "open_banking_available": "Åpne banking tilgjengelig",
             "open_banking_client_id": "Åpne Banking klient-ID",
@@ -628,13 +628,13 @@
             "delete_confirm_user": "Er du sikker på at du vil slette denne brukeren?"
         },
         "department": {
-            "title": "Departments",
-            "department": "Department | Departments",
-            "new_department": "New Department",
-            "edit_department": "Edit Department",
-            "no_departments": "No departments found",
-            "create_first_department": "Create your first department",
-            "delete_confirm_department": "Are you sure you want to delete this department?"
+            "title": "Avdelinger",
+            "department": "Avdelingenes avdelingar",
+            "new_department": "Ny avdeling",
+            "edit_department": "Rediger avdeling",
+            "no_departments": "Ingen avdelinger funnet",
+            "create_first_department": "Opprett din første avdeling",
+            "delete_confirm_department": "Er du sikker på at du vil slette denne avdelingen?"
         },
         "currency": {
             "title": "Valuta innstillinger",
@@ -659,7 +659,7 @@
             "default_date_format": "Standard datoformat",
             "default_time_format": "Standard klokkeslettformat",
             "default_datetime_format": "Standard datoformat",
-            "show_barcode_on_documents": "Show barcode on documents"
+            "show_barcode_on_documents": "Vis strekkode på dokumenter"
         },
         "taxes": {
             "title": "Mva satser",
@@ -690,14 +690,14 @@
             "number_of_logins_today": "Antall innlogginger i dag"
         },
         "app_status": {
-            "title": "Application Status",
-            "current_version": "Current Version",
-            "latest_version": "Latest Version",
-            "update_available": "Update Available",
-            "disk_usage": "Disk Usage",
-            "database_size": "Database Size",
-            "server_os": "Server OS",
-            "php_version": "PHP Version",
+            "title": "Applikasjons status",
+            "current_version": "Gjeldende versjon",
+            "latest_version": "Nyeste versjon",
+            "update_available": "Oppdatering tilgjengelig",
+            "disk_usage": "Bruk av diskplass",
+            "database_size": "Database størrelse",
+            "server_os": "Operativsystem på server",
+            "php_version": "PHP versjon",
             "hostname": "Hostname"
         },
         "numbering": {
@@ -711,7 +711,7 @@
             "bill": "Format for regningsnummer",
             "document": "Dokumentnummer format",
             "product": "Produktnummer format",
-            "employee": "Employee number format"
+            "employee": "Format for ansattes"
         }
     },
     "countries": {
@@ -971,8 +971,8 @@
         "sl": "Slovenian"
     },
     "language": {
-        "en": "English",
-        "de": "German",
+        "en": "Engelsk",
+        "de": "Tysk",
         "sl": "Slovenian"
     }
 }
