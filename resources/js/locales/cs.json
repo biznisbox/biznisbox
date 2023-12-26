@@ -116,7 +116,7 @@
         "partners": "Partneři",
         "reports": "Zprávy",
         "settings": "Nastavení",
-        "employees": "Employees"
+        "employees": "Zaměstnanci"
     },
     "dashboard": {
         "title": "Nástěnka",
@@ -218,20 +218,20 @@
         "role": "Role",
         "roles": "Role",
         "permissions": "Práva",
-        "category": "Category",
-        "categories": "Categories",
-        "active_account": "Active Account",
-        "amount": "Amount",
-        "exchange_rate": "Exchange Rate",
-        "reference": "Reference",
-        "account": "Account",
-        "department": "Department",
-        "position": "Position",
-        "hourly_rate": "Hourly Rate",
-        "salary": "Salary",
-        "level": "Level",
-        "contract_type": "Contract Type",
-        "internal_user": "Internal User"
+        "category": "Kategorie",
+        "categories": "Kategorie",
+        "active_account": "Aktivní účet",
+        "amount": "Částka, která má být získána",
+        "exchange_rate": "Směnný kurz",
+        "reference": "Referenční číslo",
+        "account": "Účet",
+        "department": "Oddělení",
+        "position": "Pozice",
+        "hourly_rate": "Hodinová sazba",
+        "salary": "Plat",
+        "level": "Úrovně",
+        "contract_type": "Typ smlouvy",
+        "internal_user": "Interní uživatel"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -364,7 +364,7 @@
         "share_dialog_text": "Zkopírujte níže uvedený odkaz a sdílejte jej se svým zákazníkem nebo naskenujte QR kód.",
         "create_first_invoice": "Vytvořit svou první fakturu",
         "no_customer": "Žádný zákazník",
-        "add_payment": "Add payment",
+        "add_payment": "Přidat platbu",
         "no_payer": "No payer",
         "no_items": "Žádné položky",
         "add_item": "Přidat položku",
@@ -381,8 +381,8 @@
         "payment_success_message": "Děkujeme za Vaši platbu. Vaše platba byla úspěšně zpracována.",
         "payment_error": "Chyba platby",
         "payment_error_message": "Při zpracování vaší platby došlo k chybě. Zkuste to znovu.",
-        "show_transactions": "Show transactions",
-        "list_of_transactions": "List of transactions"
+        "show_transactions": "Zobrazit transakce",
+        "list_of_transactions": "Seznam transakcí"
     },
     "quote": {
         "quote": "Cenová nabídka | Cenové nabídky",
@@ -439,9 +439,9 @@
         "edit_event": "Upravit událost"
     },
     "transaction_type": {
-        "income": "Income",
-        "expense": "Expense",
-        "transfer": "Transfer"
+        "income": "Výnosy",
+        "expense": "Výdaje",
+        "transfer": "Převod"
     },
     "transaction": {
         "transaction": "Transakce | Transakce",
@@ -460,11 +460,11 @@
         "edit_category": "Upravit kategorii",
         "category_name": "Název kategorie",
         "category_created": "Kategorie byla úspěšně vytvořena",
-        "categories": "Categories",
-        "no_categories": "No categories found",
-        "delete_category_confirmation": "Are you sure you want to delete this category?",
-        "category_deleted": "Category deleted successfully",
-        "category_updated": "Category updated successfully"
+        "categories": "Kategorie",
+        "no_categories": "Nebyly nalezeny žádné kategorie",
+        "delete_category_confirmation": "Opravdu chcete odstranit tuto kategorii?",
+        "category_deleted": "Kategorie byla úspěšně odstraněna",
+        "category_updated": "Kategorie byla úspěšně aktualizována"
     },
     "archive": {
         "archive": "Archiv | Archivy",
@@ -486,7 +486,7 @@
         "edit_bill": "Upravit fakturu",
         "no_bills": "Nebyly nalezeny žádné účty",
         "create_first_bill": "Vytvořte svůj první účet",
-        "no_supplier": "No supplier",
+        "no_supplier": "Žádný dodavatel",
         "no_items": "Žádné položky",
         "select_item": "Vybrat položku",
         "date_and_due_date": "Datum a datum splatnosti",
@@ -516,49 +516,49 @@
         "delete_confirm_document": "Jste si jisti, že chcete odstranit tento doklad?"
     },
     "employee": {
-        "employee": "Employee | Employees",
-        "new_employee": "New Employee",
-        "edit_employee": "Edit Employee",
-        "no_employees": "No employees found",
-        "create_first_employee": "Create your first employee",
-        "delete_employee_confirmation": "Are you sure you want to delete this employee?",
-        "employee_details": "Employee details",
-        "contract": "Contract"
+        "employee": "Zaměstnanec | Zaměstnanci",
+        "new_employee": "Nový zaměstnanec",
+        "edit_employee": "Upravit zaměstnance",
+        "no_employees": "Nebyli nalezeni žádní zaměstnanci",
+        "create_first_employee": "Vytvořte svého prvního zaměstnance",
+        "delete_employee_confirmation": "Jste si jisti, že chcete odstranit tohoto zaměstnance?",
+        "employee_details": "Údaje o zaměstnanci",
+        "contract": "Smlouva"
     },
     "employee_type": {
-        "full_time": "Full time",
-        "part_time": "Part time",
-        "contractor": "Contractor",
-        "intern": "Intern",
-        "temporary": "Temporary",
-        "apprentice": "Apprentice",
-        "founder": "Founder",
-        "co_founder": "Co-founder",
-        "owner": "Owner",
-        "other": "Other"
+        "full_time": "Plný čas",
+        "part_time": "Částečný čas",
+        "contractor": "Kontraktor",
+        "intern": "Interní",
+        "temporary": "Dočasné",
+        "apprentice": "Učeň",
+        "founder": "Zakladatel",
+        "co_founder": "Spoluzakladatel",
+        "owner": "Vlastník",
+        "other": "Ostatní"
     },
     "employee_level": {
         "junior": "Junior",
-        "mid_level": "Mid Level",
-        "senior": "Senior",
-        "executive": "Executive",
-        "director": "Director",
-        "vice_president": "Vice President",
-        "c_level": "C-Level",
-        "owner": "Owner",
-        "other": "Other"
+        "mid_level": "Střední úroveň",
+        "senior": "Vrcholné vedení",
+        "executive": "Výkonný ředitel",
+        "director": "Ředitel",
+        "vice_president": "Místopředseda",
+        "c_level": "C úroveň",
+        "owner": "Vlastník",
+        "other": "Ostatní"
     },
     "contract_type": {
-        "permanent": "Permanent",
-        "fixed_term": "Fixed Term",
-        "temporary": "Temporary",
-        "zero_hours": "Zero Hours",
-        "freelance": "Freelance",
-        "contractor": "Contractor",
-        "apprentice": "Apprentice",
-        "intern": "Intern",
-        "volunteer": "Volunteer",
-        "other": "Other"
+        "permanent": "Trvalé",
+        "fixed_term": "Pevný termín",
+        "temporary": "Dočasné",
+        "zero_hours": "Nulové hodiny",
+        "freelance": "Volný prostor",
+        "contractor": "Kontraktor",
+        "apprentice": "Učeň",
+        "intern": "Interní",
+        "volunteer": "Dobrovolník",
+        "other": "Ostatní"
     },
     "admin": {
         "menu": {
@@ -568,13 +568,13 @@
             "integrations": "Integrace",
             "roles": "Role",
             "users": "Uživatelé",
-            "departments": "Departments",
+            "departments": "Oddělení",
             "settings": "Nastavení",
             "settings_general": "Obecná ustanovení",
             "settings_currency": "Měna",
             "settings_taxes": "Daňové sazby",
             "numbering": "Číslování",
-            "status": "Status"
+            "status": "Stav"
         },
         "company": {
             "title": "Nastavení společnosti",
@@ -597,7 +597,7 @@
             "stripe_available": "Stripe k dispozici",
             "stripe_key": "Stripe API klíč",
             "stripe_key_help": "Klíče API najdete ve svém Stripe účtu.",
-            "stripe_account_id": "Stripe internal account ID",
+            "stripe_account_id": "Stripe interní ID účtu",
             "paypal": "PayPal",
             "paypal_available": "PayPal je k dispozici",
             "paypal_test_mode": "Zkušební režim",
@@ -605,7 +605,7 @@
             "paypal_client_id_help": "Vaše ID klienta můžete najít ve vašem účtu PayPal.",
             "paypal_secret": "PayPal Secret",
             "paypal_secret_help": "Váš tajný účet můžete najít ve vašem PayPal účtu.",
-            "paypal_account_id": "PayPal internal account ID",
+            "paypal_account_id": "ID interního účtu PayPal",
             "open_banking": "Otevřené bankovnictví",
             "open_banking_available": "Dostupné otevřené bankovnictví",
             "open_banking_client_id": "Open Banking Client ID",
@@ -628,13 +628,13 @@
             "delete_confirm_user": "Opravdu chcete smazat tohoto uživatele?"
         },
         "department": {
-            "title": "Departments",
-            "department": "Department | Departments",
-            "new_department": "New Department",
-            "edit_department": "Edit Department",
-            "no_departments": "No departments found",
-            "create_first_department": "Create your first department",
-            "delete_confirm_department": "Are you sure you want to delete this department?"
+            "title": "Oddělení",
+            "department": "Oddělení | Departments",
+            "new_department": "Nové oddělení",
+            "edit_department": "Upravit oddělení",
+            "no_departments": "Nebyla nalezena žádná oddělení",
+            "create_first_department": "Vytvořte své první oddělení",
+            "delete_confirm_department": "Jste si jisti, že chcete odstranit toto oddělení?"
         },
         "currency": {
             "title": "Nastavení měny",
@@ -659,7 +659,7 @@
             "default_date_format": "Výchozí formát data",
             "default_time_format": "Výchozí formát času",
             "default_datetime_format": "Výchozí formát data a času",
-            "show_barcode_on_documents": "Show barcode on documents"
+            "show_barcode_on_documents": "Zobrazit čárový kód na dokumentech"
         },
         "taxes": {
             "title": "Daňové sazby",
@@ -690,14 +690,14 @@
             "number_of_logins_today": "Počet dnešních přihlášení"
         },
         "app_status": {
-            "title": "Application Status",
-            "current_version": "Current Version",
-            "latest_version": "Latest Version",
-            "update_available": "Update Available",
-            "disk_usage": "Disk Usage",
-            "database_size": "Database Size",
-            "server_os": "Server OS",
-            "php_version": "PHP Version",
+            "title": "Stav aplikace",
+            "current_version": "Aktuální verze",
+            "latest_version": "Nejnovější verze",
+            "update_available": "Dostupná aktualizace",
+            "disk_usage": "Využití disku",
+            "database_size": "Velikost databáze",
+            "server_os": "OS serveru",
+            "php_version": "Verze PHP",
             "hostname": "Hostname"
         },
         "numbering": {
@@ -711,7 +711,7 @@
             "bill": "Formát čísla faktury",
             "document": "Formát čísla dokumentu",
             "product": "Formát čísla produktu",
-            "employee": "Employee number format"
+            "employee": "Formát čísla zaměstnance"
         }
     },
     "countries": {
@@ -971,8 +971,8 @@
         "sl": "Slovenian"
     },
     "language": {
-        "en": "English",
-        "de": "German",
+        "en": "Anglické",
+        "de": "Němčina",
         "sl": "Slovenian"
     }
 }
