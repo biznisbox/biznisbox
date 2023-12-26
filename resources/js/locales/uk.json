@@ -116,7 +116,7 @@
         "partners": "Партнери",
         "reports": "Звіти",
         "settings": "Налаштування",
-        "employees": "Employees"
+        "employees": "Співробітники"
     },
     "dashboard": {
         "title": "Приладна дошка",
@@ -218,20 +218,20 @@
         "role": "Роль",
         "roles": "Ролі",
         "permissions": "Дозволи",
-        "category": "Category",
-        "categories": "Categories",
-        "active_account": "Active Account",
-        "amount": "Amount",
-        "exchange_rate": "Exchange Rate",
-        "reference": "Reference",
-        "account": "Account",
-        "department": "Department",
-        "position": "Position",
-        "hourly_rate": "Hourly Rate",
-        "salary": "Salary",
-        "level": "Level",
-        "contract_type": "Contract Type",
-        "internal_user": "Internal User"
+        "category": "Категорія",
+        "categories": "Категорії",
+        "active_account": "Активний обліковий запис",
+        "amount": "Сума",
+        "exchange_rate": "Валютний курс",
+        "reference": "По посиланню",
+        "account": "Обліковий запис",
+        "department": "Відділ",
+        "position": "Позиція",
+        "hourly_rate": "Погодинна оцінка",
+        "salary": "Тарифна ставка",
+        "level": "Рівень",
+        "contract_type": "Тип контракту",
+        "internal_user": "Внутрішній користувач"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -364,7 +364,7 @@
         "share_dialog_text": "Скопіюйте посилання нижче і поділіться ним із клієнтом або відскануйте QR-код.",
         "create_first_invoice": "Створи свій перший рахунок",
         "no_customer": "Клієнт відсутній",
-        "add_payment": "Add payment",
+        "add_payment": "Додати платіж",
         "no_payer": "No payer",
         "no_items": "Товарів немає",
         "add_item": "Додати елемент",
@@ -381,8 +381,8 @@
         "payment_success_message": "Дякуємо за ваш платіж. Ваш платіж був успішно оброблений.",
         "payment_error": "Помилка оплати",
         "payment_error_message": "Помилка при обробці вашого платежу. Будь ласка, спробуйте ще раз.",
-        "show_transactions": "Show transactions",
-        "list_of_transactions": "List of transactions"
+        "show_transactions": "Показати транзакції",
+        "list_of_transactions": "Список операцій"
     },
     "quote": {
         "quote": "Котирування | Комерційні пропозиції",
@@ -439,9 +439,9 @@
         "edit_event": "Редагувати подію"
     },
     "transaction_type": {
-        "income": "Income",
-        "expense": "Expense",
-        "transfer": "Transfer"
+        "income": "Дохід",
+        "expense": "Витрати",
+        "transfer": "Переказ"
     },
     "transaction": {
         "transaction": "Транзакція | Операції",
@@ -460,11 +460,11 @@
         "edit_category": "Змінити категорію",
         "category_name": "Назва категорії",
         "category_created": "Категорію успішно створено",
-        "categories": "Categories",
-        "no_categories": "No categories found",
-        "delete_category_confirmation": "Are you sure you want to delete this category?",
-        "category_deleted": "Category deleted successfully",
-        "category_updated": "Category updated successfully"
+        "categories": "Категорії",
+        "no_categories": "Категорій не знайдено",
+        "delete_category_confirmation": "Ви впевнені, що хочете видалити цю категорію?",
+        "category_deleted": "Розділ успішно видалено",
+        "category_updated": "Розділ успішно оновлено"
     },
     "archive": {
         "archive": "Архів | Архіви",
@@ -486,7 +486,7 @@
         "edit_bill": "Редагувати рахунок",
         "no_bills": "Рахунків не знайдено",
         "create_first_bill": "Створити свій перший рахунок",
-        "no_supplier": "No supplier",
+        "no_supplier": "Поки що відсутні",
         "no_items": "Товарів немає",
         "select_item": "Виберіть елемент",
         "date_and_due_date": "Дата і дата завершення",
@@ -516,49 +516,49 @@
         "delete_confirm_document": "Ви впевнені, що хочете видалити цей документ?"
     },
     "employee": {
-        "employee": "Employee | Employees",
-        "new_employee": "New Employee",
-        "edit_employee": "Edit Employee",
-        "no_employees": "No employees found",
-        "create_first_employee": "Create your first employee",
-        "delete_employee_confirmation": "Are you sure you want to delete this employee?",
-        "employee_details": "Employee details",
-        "contract": "Contract"
+        "employee": "Співробітники | Працівники",
+        "new_employee": "Додати співробітника",
+        "edit_employee": "Редагувати співробітника",
+        "no_employees": "Не знайдено жодного робітника",
+        "create_first_employee": "Створіть свого першого співробітника",
+        "delete_employee_confirmation": "Ви впевнені, що бажаєте видалити цього співробітника?",
+        "employee_details": "Основна інформація",
+        "contract": "Договір"
     },
     "employee_type": {
-        "full_time": "Full time",
-        "part_time": "Part time",
-        "contractor": "Contractor",
-        "intern": "Intern",
-        "temporary": "Temporary",
-        "apprentice": "Apprentice",
-        "founder": "Founder",
-        "co_founder": "Co-founder",
-        "owner": "Owner",
-        "other": "Other"
+        "full_time": "Повний робочий день",
+        "part_time": "Час, частина",
+        "contractor": "Виконавець",
+        "intern": "Внутрішні",
+        "temporary": "Тимчасово",
+        "apprentice": "Учень майстра",
+        "founder": "Засновник",
+        "co_founder": "Співзасновник",
+        "owner": "Власник",
+        "other": "Інше"
     },
     "employee_level": {
-        "junior": "Junior",
-        "mid_level": "Mid Level",
-        "senior": "Senior",
-        "executive": "Executive",
-        "director": "Director",
-        "vice_president": "Vice President",
-        "c_level": "C-Level",
-        "owner": "Owner",
-        "other": "Other"
+        "junior": "Джуніор",
+        "mid_level": "Середній рівень",
+        "senior": "Старший",
+        "executive": "Виконавча влада",
+        "director": "Директор",
+        "vice_president": "Віце-президент",
+        "c_level": "С-Рівень",
+        "owner": "Власник",
+        "other": "Інше"
     },
     "contract_type": {
-        "permanent": "Permanent",
-        "fixed_term": "Fixed Term",
-        "temporary": "Temporary",
-        "zero_hours": "Zero Hours",
-        "freelance": "Freelance",
-        "contractor": "Contractor",
-        "apprentice": "Apprentice",
-        "intern": "Intern",
-        "volunteer": "Volunteer",
-        "other": "Other"
+        "permanent": "Назавжди",
+        "fixed_term": "Фіксований термін",
+        "temporary": "Тимчасово",
+        "zero_hours": "Нульові години",
+        "freelance": "Фріланс",
+        "contractor": "Виконавець",
+        "apprentice": "Учень майстра",
+        "intern": "Внутрішні",
+        "volunteer": "Волонтер",
+        "other": "Інше"
     },
     "admin": {
         "menu": {
@@ -568,13 +568,13 @@
             "integrations": "Ентеграції",
             "roles": "Ролі",
             "users": "Спільноти",
-            "departments": "Departments",
+            "departments": "Відділи",
             "settings": "Налаштування",
             "settings_general": "Загальні налаштування",
             "settings_currency": "Валюта",
             "settings_taxes": "Податкові ставки",
             "numbering": "Нумерація",
-            "status": "Status"
+            "status": "Статус"
         },
         "company": {
             "title": "Налаштування компанії",
@@ -597,7 +597,7 @@
             "stripe_available": "Доступна смуга",
             "stripe_key": "Ключ API",
             "stripe_key_help": "Ви можете знайти свої API ключі в своєму обліковому записі Stripe.",
-            "stripe_account_id": "Stripe internal account ID",
+            "stripe_account_id": "Скорочувати внутрішній номер облікового запису",
             "paypal": "PayPal",
             "paypal_available": "Доступний PayPal",
             "paypal_test_mode": "Тестовий режим",
@@ -605,7 +605,7 @@
             "paypal_client_id_help": "Ви можете знайти ваш ідентифікатор клієнта в обліковому записі PayPal.",
             "paypal_secret": "Секрет PayPal",
             "paypal_secret_help": "Ви можете знайти ваш Secret на своєму акаунті PayPal.",
-            "paypal_account_id": "PayPal internal account ID",
+            "paypal_account_id": "Ідентифікатор внутрішнього облікового запису PayPal",
             "open_banking": "Відкрити банкінг",
             "open_banking_available": "Відкрити банківський банк доступний",
             "open_banking_client_id": "Відкрити банківський клієнт ID",
@@ -628,13 +628,13 @@
             "delete_confirm_user": "Ви впевнені, що хочете видалити цього користувача?"
         },
         "department": {
-            "title": "Departments",
-            "department": "Department | Departments",
-            "new_department": "New Department",
-            "edit_department": "Edit Department",
-            "no_departments": "No departments found",
-            "create_first_department": "Create your first department",
-            "delete_confirm_department": "Are you sure you want to delete this department?"
+            "title": "Відділи",
+            "department": "Відділ | Відділи",
+            "new_department": "Новий відділ",
+            "edit_department": "Редагувати відділ",
+            "no_departments": "Підрозділів не знайдено",
+            "create_first_department": "Створіть свій перший відділ",
+            "delete_confirm_department": "Ви впевнені, що хочете видалити цей відділ?"
         },
         "currency": {
             "title": "Налаштування валюти",
@@ -659,7 +659,7 @@
             "default_date_format": "Формат дати за замовчуванням",
             "default_time_format": "Формат часу за замовчуванням",
             "default_datetime_format": "Формат дати і часу за замовчуванням",
-            "show_barcode_on_documents": "Show barcode on documents"
+            "show_barcode_on_documents": "Показувати штрих-код на документах"
         },
         "taxes": {
             "title": "Податкові ставки",
@@ -690,14 +690,14 @@
             "number_of_logins_today": "Кількість входів сьогодні"
         },
         "app_status": {
-            "title": "Application Status",
-            "current_version": "Current Version",
-            "latest_version": "Latest Version",
-            "update_available": "Update Available",
-            "disk_usage": "Disk Usage",
-            "database_size": "Database Size",
-            "server_os": "Server OS",
-            "php_version": "PHP Version",
+            "title": "Статус додатку",
+            "current_version": "Поточна версія",
+            "latest_version": "Остання версія",
+            "update_available": "Доступне оновлення",
+            "disk_usage": "Використання диску",
+            "database_size": "Розмір бази даних",
+            "server_os": "ОС сервера",
+            "php_version": "Версія PHP",
             "hostname": "Hostname"
         },
         "numbering": {
@@ -711,7 +711,7 @@
             "bill": "Формат номера рахунку",
             "document": "Формат номера документа",
             "product": "Формат номеру товару",
-            "employee": "Employee number format"
+            "employee": "Формат номеру співробітника"
         }
     },
     "countries": {
@@ -971,8 +971,8 @@
         "sl": "Slovenian"
     },
     "language": {
-        "en": "English",
-        "de": "German",
+        "en": "Українська",
+        "de": "Німецька",
         "sl": "Slovenian"
     }
 }
