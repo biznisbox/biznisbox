@@ -70,7 +70,7 @@ return [
         'delete_error' => 'No se ha podido eliminar la cuenta',
         'get_success' => 'Cuenta recuperada con éxito',
         'get_error' => 'No se pudo recuperar la cuenta',
-        'delete_default_account' => 'Default account cannot be deleted',
+        'delete_default_account' => 'La cuenta por defecto no puede ser eliminada',
     ],
 
     //Bill responses
@@ -100,15 +100,15 @@ return [
 
     // Employee responses
     'employee' => [
-        'not_found' => 'Employee not found',
-        'get_success' => 'Employees retrieved successfully',
-        'get_failed' => 'Employees could not be retrieved',
-        'create_success' => 'Employee created successfully',
-        'create_failed' => 'A Employee could not be created',
-        'update_success' => 'Employee updated successfully',
-        'update_failed' => 'A Employee could not be updated',
-        'delete_success' => 'Employee deleted successfully',
-        'delete_failed' => 'A Employee could not be deleted',
+        'not_found' => 'Empleado no encontrado',
+        'get_success' => 'Empleados recuperados con éxito',
+        'get_failed' => 'No se pudo recuperar a los empleados',
+        'create_success' => 'Empleado creado correctamente',
+        'create_failed' => 'No se pudo crear un empleado',
+        'update_success' => 'Empleado actualizado correctamente',
+        'update_failed' => 'Un empleado no pudo ser actualizado',
+        'delete_success' => 'Empleado eliminado correctamente',
+        'delete_failed' => 'Un empleado no pudo ser eliminado',
     ],
 
     // Archive responses
@@ -169,7 +169,7 @@ return [
         'send_failed' => 'No se pudo enviar la factura',
         'update_failed' => 'No se pudo actualizar la factura',
         'delete_failed' => 'No se ha podido eliminar la factura',
-        'transaction_success' => 'Transaction was added successfully',
+        'transaction_success' => 'La transacción se ha añadido correctamente',
     ],
 
     //Online payment responses
@@ -218,15 +218,15 @@ return [
         'delete_success' => 'Evento eliminado correctamente',
     ],
     'department' => [
-        'get_success' => 'Department retrieved successfully',
-        'get_error' => 'Department could not be retrieved',
-        'not_found' => 'Department could not be found',
-        'create_failed' => 'Department could not be created',
-        'create_success' => 'Department was created successfully',
-        'update_success' => 'Department was updated successfully',
-        'update_failed' => 'Department could not be updated',
-        'delete_failed' => 'Department could  not be deleted successfully',
-        'delete_success' => 'Department deleted successfully',
+        'get_success' => 'Departamento recuperado con éxito',
+        'get_error' => 'No se pudo recuperar el departamento',
+        'not_found' => 'No se pudo encontrar el departamento',
+        'create_failed' => 'No se pudo crear el departamento',
+        'create_success' => 'Departamento creado con éxito',
+        'update_success' => 'Departamento se ha actualizado correctamente',
+        'update_failed' => 'No se pudo actualizar el departamento',
+        'delete_failed' => 'No se pudo eliminar correctamente el departamento',
+        'delete_success' => 'Departamento eliminado correctamente',
     ],
     // Email responses
     'email' => [
@@ -306,8 +306,8 @@ return [
             'delete_failed_self_account' => 'No puedes eliminar tu propia cuenta',
         ],
     ],
-    'memory_used' => 'Memory used',
-    'memory_available' => 'Memory available',
-    'disk_used' => 'Disk used',
-    'disk_available' => 'Disk available',
+    'memory_used' => 'Memoria usada',
+    'memory_available' => 'Memoria disponible',
+    'disk_used' => 'Disco usado',
+    'disk_available' => 'Disco disponible',
 ];
