@@ -70,7 +70,7 @@ return [
         'delete_error' => 'Δεν ήταν δυνατή η διαγραφή του λογαριασμού',
         'get_success' => 'Ο λογαριασμός ανακτήθηκε επιτυχώς',
         'get_error' => 'Δεν ήταν δυνατή η ανάκτηση του λογαριασμού',
-        'delete_default_account' => 'Default account cannot be deleted',
+        'delete_default_account' => 'Ο προεπιλεγμένος λογαριασμός δεν μπορεί να διαγραφεί',
     ],
 
     //Bill responses
@@ -100,15 +100,15 @@ return [
 
     // Employee responses
     'employee' => [
-        'not_found' => 'Employee not found',
-        'get_success' => 'Employees retrieved successfully',
-        'get_failed' => 'Employees could not be retrieved',
-        'create_success' => 'Employee created successfully',
-        'create_failed' => 'A Employee could not be created',
-        'update_success' => 'Employee updated successfully',
-        'update_failed' => 'A Employee could not be updated',
-        'delete_success' => 'Employee deleted successfully',
-        'delete_failed' => 'A Employee could not be deleted',
+        'not_found' => 'Δεν βρέθηκε υπάλληλος',
+        'get_success' => 'Οι υπάλληλοι ανακτήθηκαν με επιτυχία',
+        'get_failed' => 'Οι εργαζόμενοι δεν μπόρεσαν να ανακτηθούν',
+        'create_success' => 'Υπάλληλος δημιουργήθηκε με επιτυχία',
+        'create_failed' => 'Ένας Εργαζόμενος δεν μπορούσε να δημιουργηθεί',
+        'update_success' => 'Υπάλληλος ενημερώθηκε με επιτυχία',
+        'update_failed' => 'Ένας Εργαζόμενος δεν μπόρεσε να ενημερωθεί',
+        'delete_success' => 'Υπάλληλος διαγράφηκε με επιτυχία',
+        'delete_failed' => 'Ένας υπάλληλος δεν μπόρεσε να διαγραφεί',
     ],
 
     // Archive responses
@@ -169,7 +169,7 @@ return [
         'send_failed' => 'Δεν ήταν δυνατή η αποστολή τιμολογίου',
         'update_failed' => 'Το τιμολόγιο δεν μπόρεσε να ενημερωθεί',
         'delete_failed' => 'Δεν ήταν δυνατή η διαγραφή του τιμολογίου',
-        'transaction_success' => 'Transaction was added successfully',
+        'transaction_success' => 'Η συναλλαγή προστέθηκε με επιτυχία',
     ],
 
     //Online payment responses
@@ -218,15 +218,15 @@ return [
         'delete_success' => 'Το συμβάν διαγράφηκε επιτυχώς',
     ],
     'department' => [
-        'get_success' => 'Department retrieved successfully',
-        'get_error' => 'Department could not be retrieved',
-        'not_found' => 'Department could not be found',
-        'create_failed' => 'Department could not be created',
-        'create_success' => 'Department was created successfully',
-        'update_success' => 'Department was updated successfully',
-        'update_failed' => 'Department could not be updated',
-        'delete_failed' => 'Department could  not be deleted successfully',
-        'delete_success' => 'Department deleted successfully',
+        'get_success' => 'Τμήμα ανακτήθηκε με επιτυχία',
+        'get_error' => 'Το τμήμα δεν μπόρεσε να ανακτηθεί',
+        'not_found' => 'Το τμήμα δεν βρέθηκε',
+        'create_failed' => 'Δεν ήταν δυνατή η δημιουργία τμήματος',
+        'create_success' => 'Τμήμα δημιουργήθηκε με επιτυχία',
+        'update_success' => 'Τμήμα ενημερώθηκε με επιτυχία',
+        'update_failed' => 'Το τμήμα δεν μπόρεσε να ενημερωθεί',
+        'delete_failed' => 'Δεν ήταν δυνατή η διαγραφή του τμήματος με επιτυχία',
+        'delete_success' => 'Τμήμα διαγράφηκε επιτυχώς',
     ],
     // Email responses
     'email' => [
@@ -306,8 +306,8 @@ return [
             'delete_failed_self_account' => 'Δεν μπορείτε να διαγράψετε τον δικό σας λογαριασμό',
         ],
     ],
-    'memory_used' => 'Memory used',
-    'memory_available' => 'Memory available',
-    'disk_used' => 'Disk used',
-    'disk_available' => 'Disk available',
+    'memory_used' => 'Χρησιμοποιείται μνήμη',
+    'memory_available' => 'Διαθέσιμη μνήμη',
+    'disk_used' => 'Ο δίσκος χρησιμοποιείται',
+    'disk_available' => 'Διαθέσιμος δίσκος',
 ];
