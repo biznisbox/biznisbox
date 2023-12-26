@@ -28,7 +28,7 @@
         "session_timeout": "Din session er udløbet. Log venligst ind igen.",
         "internal_server_error": "Intern Serverfejl",
         "validation_error": "Valideringsfejl",
-        "not_found_item": "Ikke fundet",
+        "not_found_item": "Not Found",
         "bad_request": "Dårlig Anmodning"
     },
     "basic": {
@@ -320,7 +320,7 @@
         "create_first_partner": "Opret din første partner",
         "add_contact": "Tilføj kontakt",
         "no_contacts": "Ingen kontakter fundet",
-        "add_address": "Tilføj adresse",
+        "add_address": "Add Address",
         "no_addresses": "Ingen adresser fundet",
         "addresses": "Adresser",
         "contacts": "Kontakter",
@@ -330,7 +330,7 @@
     "product": {
         "product": "Produkt - Produkter",
         "new_product": "Nyt produkt",
-        "edit_product": "Rediger produkt",
+        "edit_product": "Edit Product",
         "no_products": "Ingen produkter fundet",
         "create_first_product": "Opret dit første produkt",
         "delete_product_confirmation": "Er du sikker på, at du vil slette dette produkt?"
@@ -527,7 +527,7 @@
     },
     "employee_type": {
         "full_time": "Fuld tid",
-        "part_time": "Del tid",
+        "part_time": "Part-time",
         "contractor": "Kontrahent",
         "intern": "Intern",
         "temporary": "Midlertidig",
@@ -624,7 +624,7 @@
             "reset_password": "Nulstil Adgangskode",
             "send_details_to": "Send detaljer til",
             "never_logged_in": "Aldrig logget ind",
-            "auto_generate_password": "Automatisk generering af adgangskode",
+            "auto_generate_password": "Auto-generate password",
             "delete_confirm_user": "Er du sikker på, at du vil slette denne bruger?"
         },
         "department": {
