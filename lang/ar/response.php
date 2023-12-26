@@ -70,7 +70,7 @@ return [
         'delete_error' => 'لا يمكن حذف الحساب',
         'get_success' => 'تم استرداد الحساب بنجاح',
         'get_error' => 'تعذر استرداد الحساب',
-        'delete_default_account' => 'Default account cannot be deleted',
+        'delete_default_account' => 'لا يمكن حذف الحساب الافتراضي',
     ],
 
     //Bill responses
@@ -100,15 +100,15 @@ return [
 
     // Employee responses
     'employee' => [
-        'not_found' => 'Employee not found',
-        'get_success' => 'Employees retrieved successfully',
-        'get_failed' => 'Employees could not be retrieved',
-        'create_success' => 'Employee created successfully',
-        'create_failed' => 'A Employee could not be created',
-        'update_success' => 'Employee updated successfully',
-        'update_failed' => 'A Employee could not be updated',
-        'delete_success' => 'Employee deleted successfully',
-        'delete_failed' => 'A Employee could not be deleted',
+        'not_found' => 'الموظف غير موجود',
+        'get_success' => 'تم استرجاع الموظفين بنجاح',
+        'get_failed' => 'تعذر استرجاع الموظفين',
+        'create_success' => 'تم إنشاء الموظف بنجاح',
+        'create_failed' => 'تعذر إنشاء موظف',
+        'update_success' => 'تم تحديث الموظف بنجاح',
+        'update_failed' => 'تعذر تحديث الموظف',
+        'delete_success' => 'تم حذف الموظف بنجاح',
+        'delete_failed' => 'لا يمكن حذف موظف',
     ],
 
     // Archive responses
@@ -169,7 +169,7 @@ return [
         'send_failed' => 'تعذر إرسال الفاتورة',
         'update_failed' => 'تعذر تحديث الفاتورة',
         'delete_failed' => 'لا يمكن حذف الفاتورة',
-        'transaction_success' => 'Transaction was added successfully',
+        'transaction_success' => 'تمت إضافة المعاملة بنجاح',
     ],
 
     //Online payment responses
@@ -218,15 +218,15 @@ return [
         'delete_success' => 'تم حذف الحدث بنجاح',
     ],
     'department' => [
-        'get_success' => 'Department retrieved successfully',
-        'get_error' => 'Department could not be retrieved',
-        'not_found' => 'Department could not be found',
-        'create_failed' => 'Department could not be created',
-        'create_success' => 'Department was created successfully',
-        'update_success' => 'Department was updated successfully',
-        'update_failed' => 'Department could not be updated',
-        'delete_failed' => 'Department could  not be deleted successfully',
-        'delete_success' => 'Department deleted successfully',
+        'get_success' => 'تم استرجاع الوزارة بنجاح',
+        'get_error' => 'تعذر استرجاع الإدارة',
+        'not_found' => 'تعذر العثور على الإدارة',
+        'create_failed' => 'لا يمكن إنشاء إدارة',
+        'create_success' => 'تم إنشاء القسم بنجاح',
+        'update_success' => 'تم تحديث الإدارة بنجاح',
+        'update_failed' => 'تعذر تحديث الإدارة',
+        'delete_failed' => 'لا يمكن حذف القسم بنجاح',
+        'delete_success' => 'تم حذف القسم بنجاح',
     ],
     // Email responses
     'email' => [
@@ -306,8 +306,8 @@ return [
             'delete_failed_self_account' => 'لا يمكنك حذف حسابك الخاص',
         ],
     ],
-    'memory_used' => 'Memory used',
-    'memory_available' => 'Memory available',
-    'disk_used' => 'Disk used',
-    'disk_available' => 'Disk available',
+    'memory_used' => 'الذاكرة المستخدمة',
+    'memory_available' => 'الذاكرة المتوفرة',
+    'disk_used' => 'القرص المستخدم',
+    'disk_available' => 'القرص متاح',
 ];
