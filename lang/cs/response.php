@@ -70,7 +70,7 @@ return [
         'delete_error' => 'Účet nelze odstranit',
         'get_success' => 'Účet byl úspěšně načten',
         'get_error' => 'Účet nelze načíst',
-        'delete_default_account' => 'Default account cannot be deleted',
+        'delete_default_account' => 'Výchozí účet nelze odstranit',
     ],
 
     //Bill responses
@@ -100,15 +100,15 @@ return [
 
     // Employee responses
     'employee' => [
-        'not_found' => 'Employee not found',
-        'get_success' => 'Employees retrieved successfully',
-        'get_failed' => 'Employees could not be retrieved',
-        'create_success' => 'Employee created successfully',
-        'create_failed' => 'A Employee could not be created',
-        'update_success' => 'Employee updated successfully',
-        'update_failed' => 'A Employee could not be updated',
-        'delete_success' => 'Employee deleted successfully',
-        'delete_failed' => 'A Employee could not be deleted',
+        'not_found' => 'Zaměstnanec nebyl nalezen',
+        'get_success' => 'Zaměstnanci úspěšně načteni',
+        'get_failed' => 'Zaměstnanci nelze získat',
+        'create_success' => 'Zaměstnanec úspěšně vytvořen',
+        'create_failed' => 'Zaměstnanec nemohl být vytvořen',
+        'update_success' => 'Zaměstnanec úspěšně aktualizován',
+        'update_failed' => 'Zaměstnanec nelze aktualizovat',
+        'delete_success' => 'Zaměstnanec byl úspěšně odstraněn',
+        'delete_failed' => 'Zaměstnanec nemohl být odstraněn',
     ],
 
     // Archive responses
@@ -169,7 +169,7 @@ return [
         'send_failed' => 'Faktura nemohla být odeslána',
         'update_failed' => 'Fakturu nelze aktualizovat',
         'delete_failed' => 'Faktura nemohla být odstraněna',
-        'transaction_success' => 'Transaction was added successfully',
+        'transaction_success' => 'Transakce byla úspěšně přidána',
     ],
 
     //Online payment responses
@@ -218,15 +218,15 @@ return [
         'delete_success' => 'Událost byla úspěšně odstraněna',
     ],
     'department' => [
-        'get_success' => 'Department retrieved successfully',
-        'get_error' => 'Department could not be retrieved',
-        'not_found' => 'Department could not be found',
-        'create_failed' => 'Department could not be created',
-        'create_success' => 'Department was created successfully',
-        'update_success' => 'Department was updated successfully',
-        'update_failed' => 'Department could not be updated',
-        'delete_failed' => 'Department could  not be deleted successfully',
-        'delete_success' => 'Department deleted successfully',
+        'get_success' => 'Oddělení úspěšně načteno',
+        'get_error' => 'Oddělení nelze získat',
+        'not_found' => 'Oddělení nebylo nalezeno',
+        'create_failed' => 'Oddělení nelze vytvořit',
+        'create_success' => 'Oddělení bylo úspěšně vytvořeno',
+        'update_success' => 'Oddělení bylo úspěšně aktualizováno',
+        'update_failed' => 'Oddělení nelze aktualizovat',
+        'delete_failed' => 'Oddělení nelze úspěšně odstranit',
+        'delete_success' => 'Oddělení bylo úspěšně odstraněno',
     ],
     // Email responses
     'email' => [
@@ -306,8 +306,8 @@ return [
             'delete_failed_self_account' => 'Nemůžete smazat svůj vlastní účet',
         ],
     ],
-    'memory_used' => 'Memory used',
-    'memory_available' => 'Memory available',
-    'disk_used' => 'Disk used',
-    'disk_available' => 'Disk available',
+    'memory_used' => 'Použitá paměť',
+    'memory_available' => 'Dostupná paměť',
+    'disk_used' => 'Použitý disk',
+    'disk_available' => 'Disk k dispozici',
 ];
