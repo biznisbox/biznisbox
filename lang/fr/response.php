@@ -70,7 +70,7 @@ return [
         'delete_error' => 'Le compte n\'a pas pu être supprimé',
         'get_success' => 'Compte récupéré avec succès',
         'get_error' => 'Le compte n\'a pas pu être récupéré',
-        'delete_default_account' => 'Default account cannot be deleted',
+        'delete_default_account' => 'Le compte par défaut ne peut pas être supprimé',
     ],
 
     //Bill responses
@@ -100,15 +100,15 @@ return [
 
     // Employee responses
     'employee' => [
-        'not_found' => 'Employee not found',
-        'get_success' => 'Employees retrieved successfully',
-        'get_failed' => 'Employees could not be retrieved',
-        'create_success' => 'Employee created successfully',
-        'create_failed' => 'A Employee could not be created',
-        'update_success' => 'Employee updated successfully',
-        'update_failed' => 'A Employee could not be updated',
-        'delete_success' => 'Employee deleted successfully',
-        'delete_failed' => 'A Employee could not be deleted',
+        'not_found' => 'Employé introuvable',
+        'get_success' => 'Employés récupérés avec succès',
+        'get_failed' => 'Les employés n\'ont pas pu être récupérés',
+        'create_success' => 'Employé créé avec succès',
+        'create_failed' => 'Un employé n\'a pas pu être créé',
+        'update_success' => 'Employé mis à jour avec succès',
+        'update_failed' => 'Un employé n\'a pas pu être mis à jour',
+        'delete_success' => 'Employé supprimé avec succès',
+        'delete_failed' => 'Un employé n\'a pas pu être supprimé',
     ],
 
     // Archive responses
@@ -169,7 +169,7 @@ return [
         'send_failed' => 'La facture n\'a pas pu être envoyée',
         'update_failed' => 'La facture n\'a pas pu être mise à jour',
         'delete_failed' => 'La facture n\'a pas pu être supprimée',
-        'transaction_success' => 'Transaction was added successfully',
+        'transaction_success' => 'La transaction a été ajoutée avec succès',
     ],
 
     //Online payment responses
@@ -218,15 +218,15 @@ return [
         'delete_success' => 'Événement supprimé avec succès',
     ],
     'department' => [
-        'get_success' => 'Department retrieved successfully',
-        'get_error' => 'Department could not be retrieved',
-        'not_found' => 'Department could not be found',
-        'create_failed' => 'Department could not be created',
-        'create_success' => 'Department was created successfully',
-        'update_success' => 'Department was updated successfully',
-        'update_failed' => 'Department could not be updated',
-        'delete_failed' => 'Department could  not be deleted successfully',
-        'delete_success' => 'Department deleted successfully',
+        'get_success' => 'Service récupéré avec succès',
+        'get_error' => 'Le service n\'a pas pu être récupéré',
+        'not_found' => 'Le service est introuvable',
+        'create_failed' => 'Le service n\'a pas pu être créé',
+        'create_success' => 'Le service a été créé avec succès',
+        'update_success' => 'Le service a été mis à jour avec succès',
+        'update_failed' => 'Le service n\'a pas pu être mis à jour',
+        'delete_failed' => 'Le service n\'a pas pu être supprimé avec succès',
+        'delete_success' => 'Service supprimé avec succès',
     ],
     // Email responses
     'email' => [
@@ -306,8 +306,8 @@ return [
             'delete_failed_self_account' => 'Vous ne pouvez pas supprimer votre propre compte',
         ],
     ],
-    'memory_used' => 'Memory used',
-    'memory_available' => 'Memory available',
-    'disk_used' => 'Disk used',
-    'disk_available' => 'Disk available',
+    'memory_used' => 'Mémoire utilisée',
+    'memory_available' => 'Mémoire disponible',
+    'disk_used' => 'Disque utilisé',
+    'disk_available' => 'Disque disponible',
 ];
