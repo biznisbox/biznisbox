@@ -28,7 +28,7 @@
         "session_timeout": "セッションがタイムアウトしました。もう一度ログインしてください。",
         "internal_server_error": "内部サーバーエラー",
         "validation_error": "検証エラー",
-        "not_found_item": "見つかりません",
+        "not_found_item": "Not Found",
         "bad_request": "不正なリクエスト"
     },
     "basic": {
@@ -320,7 +320,7 @@
         "create_first_partner": "最初のパートナーを作成する",
         "add_contact": "連絡先を追加",
         "no_contacts": "連絡先が見つかりません",
-        "add_address": "住所を追加",
+        "add_address": "Add Address",
         "no_addresses": "アドレスが見つかりません",
         "addresses": "アドレス",
         "contacts": "連絡先",
@@ -330,7 +330,7 @@
     "product": {
         "product": "製品 | 製品",
         "new_product": "新規商品",
-        "edit_product": "製品の編集",
+        "edit_product": "Edit Product",
         "no_products": "商品が見つかりません",
         "create_first_product": "最初の製品を作成",
         "delete_product_confirmation": "この製品を削除してもよろしいですか？"
@@ -527,7 +527,7 @@
     },
     "employee_type": {
         "full_time": "フルタイム",
-        "part_time": "パートタイム",
+        "part_time": "Part-time",
         "contractor": "請負業者",
         "intern": "Intern",
         "temporary": "一時的な",
@@ -624,7 +624,7 @@
             "reset_password": "パスワードのリセット",
             "send_details_to": "詳細を送信",
             "never_logged_in": "ログインしない",
-            "auto_generate_password": "パスワードを自動生成する",
+            "auto_generate_password": "Auto-generate password",
             "delete_confirm_user": "このユーザーを削除してもよろしいですか？"
         },
         "department": {
