@@ -28,7 +28,7 @@
         "session_timeout": "Uw sessie is verlopen. Log opnieuw in.",
         "internal_server_error": "Interne serverfout",
         "validation_error": "Validatie fout",
-        "not_found_item": "Niet gevonden",
+        "not_found_item": "Not Found",
         "bad_request": "Foutief verzoek"
     },
     "basic": {
@@ -320,7 +320,7 @@
         "create_first_partner": "Creëer uw eerste partner",
         "add_contact": "Contactpersoon toevoegen",
         "no_contacts": "Geen contacten gevonden",
-        "add_address": "Adres toevoegen",
+        "add_address": "Add Address",
         "no_addresses": "Geen adressen gevonden",
         "addresses": "Adres",
         "contacts": "Contactpersonen",
@@ -330,7 +330,7 @@
     "product": {
         "product": "Product Bourgogne producten",
         "new_product": "Nieuw product",
-        "edit_product": "Product bewerken",
+        "edit_product": "Edit Product",
         "no_products": "Geen producten gevonden",
         "create_first_product": "Maak je eerste product aan",
         "delete_product_confirmation": "Weet u zeker dat u dit product wilt verwijderen?"
@@ -527,7 +527,7 @@
     },
     "employee_type": {
         "full_time": "Volle tijd",
-        "part_time": "Onderdeel tijd",
+        "part_time": "Part-time",
         "contractor": "Aannemer",
         "intern": "Intern",
         "temporary": "Tijdelijk",
@@ -624,7 +624,7 @@
             "reset_password": "Wachtwoord opnieuw instellen",
             "send_details_to": "Verzend details naar",
             "never_logged_in": "Nooit ingelogd",
-            "auto_generate_password": "Wachtwoord automatisch genereren",
+            "auto_generate_password": "Auto-generate password",
             "delete_confirm_user": "Weet u zeker dat u deze gebruiker wilt verwijderen?"
         },
         "department": {
