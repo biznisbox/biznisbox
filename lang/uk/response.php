@@ -70,7 +70,7 @@ return [
         'delete_error' => 'Неможливо видалити обліковий запис',
         'get_success' => 'Обліковий запис отримано успішно',
         'get_error' => 'Не вдалося отримати рахунок',
-        'delete_default_account' => 'Default account cannot be deleted',
+        'delete_default_account' => 'Обліковий запис за замовчуванням не можна видалити',
     ],
 
     //Bill responses
@@ -100,15 +100,15 @@ return [
 
     // Employee responses
     'employee' => [
-        'not_found' => 'Employee not found',
-        'get_success' => 'Employees retrieved successfully',
-        'get_failed' => 'Employees could not be retrieved',
-        'create_success' => 'Employee created successfully',
-        'create_failed' => 'A Employee could not be created',
-        'update_success' => 'Employee updated successfully',
-        'update_failed' => 'A Employee could not be updated',
-        'delete_success' => 'Employee deleted successfully',
-        'delete_failed' => 'A Employee could not be deleted',
+        'not_found' => 'Співробітника не знайдено',
+        'get_success' => 'Співробітники успішно отримали',
+        'get_failed' => 'Співробітники не можуть бути відновлені',
+        'create_success' => 'Співробітник успішно створений',
+        'create_failed' => 'Не вдалося створити співробітника',
+        'update_success' => 'Співробітник успішно оновлений',
+        'update_failed' => 'Співробітник не зміг оновити',
+        'delete_success' => 'Співробітник успішно видалено',
+        'delete_failed' => 'Співробітник не може бути видалений',
     ],
 
     // Archive responses
@@ -169,7 +169,7 @@ return [
         'send_failed' => 'Не можливо надіслати рахунок',
         'update_failed' => 'Неможливо оновити рахунок',
         'delete_failed' => 'Рахунок не може бути видалений',
-        'transaction_success' => 'Transaction was added successfully',
+        'transaction_success' => 'Транзакція була успішно додана',
     ],
 
     //Online payment responses
@@ -218,15 +218,15 @@ return [
         'delete_success' => 'Подію видалено успішно',
     ],
     'department' => [
-        'get_success' => 'Department retrieved successfully',
-        'get_error' => 'Department could not be retrieved',
-        'not_found' => 'Department could not be found',
-        'create_failed' => 'Department could not be created',
-        'create_success' => 'Department was created successfully',
-        'update_success' => 'Department was updated successfully',
-        'update_failed' => 'Department could not be updated',
-        'delete_failed' => 'Department could  not be deleted successfully',
-        'delete_success' => 'Department deleted successfully',
+        'get_success' => 'Відділ успішно отримано',
+        'get_error' => 'Не вдалося отримати відділ',
+        'not_found' => 'Відділ не знайдено',
+        'create_failed' => 'Не вдалося створити відділ',
+        'create_success' => 'Відділ був успішно створений',
+        'update_success' => 'Відділ був успішно оновлений',
+        'update_failed' => 'Не вдалося оновити відділ',
+        'delete_failed' => 'Відділ не може бути видалений успішно',
+        'delete_success' => 'Відділ успішно видалено',
     ],
     // Email responses
     'email' => [
@@ -306,8 +306,8 @@ return [
             'delete_failed_self_account' => 'Ви не можете видалити свій власний обліковий запис',
         ],
     ],
-    'memory_used' => 'Memory used',
-    'memory_available' => 'Memory available',
-    'disk_used' => 'Disk used',
-    'disk_available' => 'Disk available',
+    'memory_used' => 'Використано пам\'яті',
+    'memory_available' => 'Доступно пам’яті',
+    'disk_used' => 'Використаний диск',
+    'disk_available' => 'Диск доступний',
 ];
