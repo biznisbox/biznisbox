@@ -28,7 +28,7 @@
         "session_timeout": "انتهت مهلة جلستك. الرجاء تسجيل الدخول مرة أخرى.",
         "internal_server_error": "خطأ خادم داخلي",
         "validation_error": "خطأ في التحقق",
-        "not_found_item": "غير موجود",
+        "not_found_item": "Not Found",
         "bad_request": "طلب خاطئ"
     },
     "basic": {
@@ -320,7 +320,7 @@
         "create_first_partner": "إنشاء شريكك الأول",
         "add_contact": "إضافة جهة اتصال",
         "no_contacts": "لم يتم العثور على جهات اتصال",
-        "add_address": "إضافة عنوان",
+        "add_address": "Add Address",
         "no_addresses": "لم يتم العثور على عناوين",
         "addresses": "العناوين",
         "contacts": "جهات",
@@ -330,7 +330,7 @@
     "product": {
         "product": "المنتج <unk> المنتجات",
         "new_product": "منتج جديد",
-        "edit_product": "تحرير المنتج",
+        "edit_product": "Edit Product",
         "no_products": "لم يتم العثور على منتجات",
         "create_first_product": "إنشاء المنتج الأول الخاص بك",
         "delete_product_confirmation": "هل أنت متأكد من أنك تريد حذف هذا المنتج؟"
@@ -527,7 +527,7 @@
     },
     "employee_type": {
         "full_time": "دفعة كاملة",
-        "part_time": "دوام جزئي",
+        "part_time": "Part-time",
         "contractor": "متعاقد",
         "intern": "متدرب",
         "temporary": "مؤقت",
@@ -624,7 +624,7 @@
             "reset_password": "إعادة تعيين كلمة المرور",
             "send_details_to": "إرسال التفاصيل إلى",
             "never_logged_in": "لم تقم أبدا بتسجيل الدخول",
-            "auto_generate_password": "إنشاء كلمة مرور تلقائي",
+            "auto_generate_password": "Auto-generate password",
             "delete_confirm_user": "هل أنت متأكد من أنك تريد حذف هذا المستخدم؟"
         },
         "department": {
