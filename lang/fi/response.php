@@ -70,7 +70,7 @@ return [
         'delete_error' => 'Tiliä ei voitu poistaa',
         'get_success' => 'Tili haettu onnistuneesti',
         'get_error' => 'Tiliä ei voitu hakea',
-        'delete_default_account' => 'Default account cannot be deleted',
+        'delete_default_account' => 'Oletustiliä ei voi poistaa',
     ],
 
     //Bill responses
@@ -100,15 +100,15 @@ return [
 
     // Employee responses
     'employee' => [
-        'not_found' => 'Employee not found',
-        'get_success' => 'Employees retrieved successfully',
-        'get_failed' => 'Employees could not be retrieved',
-        'create_success' => 'Employee created successfully',
-        'create_failed' => 'A Employee could not be created',
-        'update_success' => 'Employee updated successfully',
-        'update_failed' => 'A Employee could not be updated',
-        'delete_success' => 'Employee deleted successfully',
-        'delete_failed' => 'A Employee could not be deleted',
+        'not_found' => 'Työntekijää ei löytynyt',
+        'get_success' => 'Työntekijät nousivat onnistuneesti',
+        'get_failed' => 'Työntekijöitä ei voitu noutaa',
+        'create_success' => 'Työntekijä luotu onnistuneesti',
+        'create_failed' => 'Työntekijää ei voitu luoda',
+        'update_success' => 'Työntekijä päivitetty onnistuneesti',
+        'update_failed' => 'Työntekijää ei voitu päivittää',
+        'delete_success' => 'Työntekijän poisto onnistui',
+        'delete_failed' => 'Työntekijää ei voitu poistaa',
     ],
 
     // Archive responses
@@ -169,7 +169,7 @@ return [
         'send_failed' => 'Laskua ei voitu lähettää',
         'update_failed' => 'Laskua ei voitu päivittää',
         'delete_failed' => 'Laskua ei voitu poistaa',
-        'transaction_success' => 'Transaction was added successfully',
+        'transaction_success' => 'Tapahtuma lisättiin onnistuneesti',
     ],
 
     //Online payment responses
@@ -218,15 +218,15 @@ return [
         'delete_success' => 'Tapahtuman poisto onnistui',
     ],
     'department' => [
-        'get_success' => 'Department retrieved successfully',
-        'get_error' => 'Department could not be retrieved',
-        'not_found' => 'Department could not be found',
-        'create_failed' => 'Department could not be created',
-        'create_success' => 'Department was created successfully',
-        'update_success' => 'Department was updated successfully',
-        'update_failed' => 'Department could not be updated',
-        'delete_failed' => 'Department could  not be deleted successfully',
-        'delete_success' => 'Department deleted successfully',
+        'get_success' => 'Osasto noudettu onnistuneesti',
+        'get_error' => 'Osastoa ei voitu hakea',
+        'not_found' => 'Osastoa ei löytynyt',
+        'create_failed' => 'Osastoa ei voitu luoda',
+        'create_success' => 'Osasto luotiin onnistuneesti',
+        'update_success' => 'Osasto päivitettiin onnistuneesti',
+        'update_failed' => 'Osastoa ei voitu päivittää',
+        'delete_failed' => 'Osastoa ei voitu poistaa onnistuneesti',
+        'delete_success' => 'Osasto poistettu onnistuneesti',
     ],
     // Email responses
     'email' => [
@@ -306,8 +306,8 @@ return [
             'delete_failed_self_account' => 'Et voi poistaa omaa tiliäsi',
         ],
     ],
-    'memory_used' => 'Memory used',
-    'memory_available' => 'Memory available',
-    'disk_used' => 'Disk used',
-    'disk_available' => 'Disk available',
+    'memory_used' => 'Muistia käytetty',
+    'memory_available' => 'Muistia saatavilla',
+    'disk_used' => 'Käytetty levy',
+    'disk_available' => 'Levy saatavilla',
 ];
