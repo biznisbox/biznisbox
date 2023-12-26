@@ -70,7 +70,7 @@ return [
         'delete_error' => 'Аккаунт не может быть удален',
         'get_success' => 'Аккаунт успешно получен',
         'get_error' => 'Аккаунт не может быть получен',
-        'delete_default_account' => 'Default account cannot be deleted',
+        'delete_default_account' => 'Учетная запись по умолчанию не может быть удалена',
     ],
 
     //Bill responses
@@ -100,15 +100,15 @@ return [
 
     // Employee responses
     'employee' => [
-        'not_found' => 'Employee not found',
-        'get_success' => 'Employees retrieved successfully',
-        'get_failed' => 'Employees could not be retrieved',
-        'create_success' => 'Employee created successfully',
-        'create_failed' => 'A Employee could not be created',
-        'update_success' => 'Employee updated successfully',
-        'update_failed' => 'A Employee could not be updated',
-        'delete_success' => 'Employee deleted successfully',
-        'delete_failed' => 'A Employee could not be deleted',
+        'not_found' => 'Сотрудник не найден',
+        'get_success' => 'Сотрудники успешно извлечены',
+        'get_failed' => 'Сотрудники не могут быть извлечены',
+        'create_success' => 'Сотрудник успешно создан',
+        'create_failed' => 'Сотрудник не может быть создан',
+        'update_success' => 'Сотрудник успешно обновлен',
+        'update_failed' => 'Не удалось обновить сотрудника',
+        'delete_success' => 'Сотрудник успешно удален',
+        'delete_failed' => 'Сотрудник не может быть удален',
     ],
 
     // Archive responses
@@ -169,7 +169,7 @@ return [
         'send_failed' => 'Счет не может быть отправлен',
         'update_failed' => 'Счет не может быть обновлен',
         'delete_failed' => 'Счет не может быть удален',
-        'transaction_success' => 'Transaction was added successfully',
+        'transaction_success' => 'Транзакция успешно добавлена',
     ],
 
     //Online payment responses
@@ -218,15 +218,15 @@ return [
         'delete_success' => 'Событие успешно удалено',
     ],
     'department' => [
-        'get_success' => 'Department retrieved successfully',
-        'get_error' => 'Department could not be retrieved',
-        'not_found' => 'Department could not be found',
-        'create_failed' => 'Department could not be created',
-        'create_success' => 'Department was created successfully',
-        'update_success' => 'Department was updated successfully',
-        'update_failed' => 'Department could not be updated',
-        'delete_failed' => 'Department could  not be deleted successfully',
-        'delete_success' => 'Department deleted successfully',
+        'get_success' => 'Департамент успешно получен',
+        'get_error' => 'Не удалось получить Департамент',
+        'not_found' => 'Департамент не найден',
+        'create_failed' => 'Не удалось создать департамент',
+        'create_success' => 'Департамент успешно создан',
+        'update_success' => 'Департамент был успешно обновлен',
+        'update_failed' => 'Не удалось обновить департамент',
+        'delete_failed' => 'Департамент не может быть успешно удален',
+        'delete_success' => 'Департамент успешно удален',
     ],
     // Email responses
     'email' => [
@@ -306,8 +306,8 @@ return [
             'delete_failed_self_account' => 'Вы не можете удалить свою собственную учетную запись',
         ],
     ],
-    'memory_used' => 'Memory used',
-    'memory_available' => 'Memory available',
-    'disk_used' => 'Disk used',
-    'disk_available' => 'Disk available',
+    'memory_used' => 'Использована память',
+    'memory_available' => 'Память доступна',
+    'disk_used' => 'Диск использован',
+    'disk_available' => 'Диск доступен',
 ];
