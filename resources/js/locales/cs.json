@@ -28,7 +28,7 @@
         "session_timeout": "Vypršel časový limit relace. Přihlaste se prosím znovu.",
         "internal_server_error": "Vnitřní chyba serveru",
         "validation_error": "Chyba ověření",
-        "not_found_item": "Nenalezeno",
+        "not_found_item": "Not Found",
         "bad_request": "Chybný požadavek"
     },
     "basic": {
@@ -320,7 +320,7 @@
         "create_first_partner": "Vytvořte svého prvního partnera",
         "add_contact": "Přidat kontakt",
         "no_contacts": "Nebyly nalezeny žádné kontakty",
-        "add_address": "Přidat adresu",
+        "add_address": "Add Address",
         "no_addresses": "Nebyly nalezeny žádné adresy",
         "addresses": "Adresy",
         "contacts": "Kontakty",
@@ -330,7 +330,7 @@
     "product": {
         "product": "Produkt | Produkty",
         "new_product": "Nový produkt",
-        "edit_product": "Upravit produkt",
+        "edit_product": "Edit Product",
         "no_products": "Nebyly nalezeny žádné produkty",
         "create_first_product": "Vytvořte svůj první produkt",
         "delete_product_confirmation": "Jste si jisti, že chcete odstranit tento produkt?"
@@ -527,7 +527,7 @@
     },
     "employee_type": {
         "full_time": "Plný čas",
-        "part_time": "Částečný čas",
+        "part_time": "Part-time",
         "contractor": "Kontraktor",
         "intern": "Interní",
         "temporary": "Dočasné",
@@ -624,7 +624,7 @@
             "reset_password": "Obnovit heslo",
             "send_details_to": "Poslat podrobnosti na",
             "never_logged_in": "Nikdy se nepřihlásilo",
-            "auto_generate_password": "Automatické generování hesla",
+            "auto_generate_password": "Auto-generate password",
             "delete_confirm_user": "Opravdu chcete smazat tohoto uživatele?"
         },
         "department": {
