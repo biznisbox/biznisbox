@@ -70,7 +70,7 @@ return [
         'delete_error' => 'Contul nu a putut fi șters',
         'get_success' => 'Cont preluat cu succes',
         'get_error' => 'Contul nu a putut fi recuperat',
-        'delete_default_account' => 'Default account cannot be deleted',
+        'delete_default_account' => 'Contul implicit nu poate fi șters',
     ],
 
     //Bill responses
@@ -100,15 +100,15 @@ return [
 
     // Employee responses
     'employee' => [
-        'not_found' => 'Employee not found',
-        'get_success' => 'Employees retrieved successfully',
-        'get_failed' => 'Employees could not be retrieved',
-        'create_success' => 'Employee created successfully',
-        'create_failed' => 'A Employee could not be created',
-        'update_success' => 'Employee updated successfully',
-        'update_failed' => 'A Employee could not be updated',
-        'delete_success' => 'Employee deleted successfully',
-        'delete_failed' => 'A Employee could not be deleted',
+        'not_found' => 'Angajatul nu a fost găsit',
+        'get_success' => 'Angajații recuperați cu succes',
+        'get_failed' => 'Angajații nu au putut fi recuperați',
+        'create_success' => 'Angajat creat cu succes',
+        'create_failed' => 'Un angajat nu a putut fi creat',
+        'update_success' => 'Angajat actualizat cu succes',
+        'update_failed' => 'Un angajat nu a putut fi actualizat',
+        'delete_success' => 'Angajat şters cu succes',
+        'delete_failed' => 'Un angajat nu a putut fi șters',
     ],
 
     // Archive responses
@@ -169,7 +169,7 @@ return [
         'send_failed' => 'Factura nu a putut fi trimisă',
         'update_failed' => 'Factura nu a putut fi actualizată',
         'delete_failed' => 'Factura nu a putut fi ștearsă',
-        'transaction_success' => 'Transaction was added successfully',
+        'transaction_success' => 'Tranzacția a fost adăugată cu succes',
     ],
 
     //Online payment responses
@@ -218,15 +218,15 @@ return [
         'delete_success' => 'Eveniment șters cu succes',
     ],
     'department' => [
-        'get_success' => 'Department retrieved successfully',
-        'get_error' => 'Department could not be retrieved',
-        'not_found' => 'Department could not be found',
-        'create_failed' => 'Department could not be created',
-        'create_success' => 'Department was created successfully',
-        'update_success' => 'Department was updated successfully',
-        'update_failed' => 'Department could not be updated',
-        'delete_failed' => 'Department could  not be deleted successfully',
-        'delete_success' => 'Department deleted successfully',
+        'get_success' => 'Departamentul a fost preluat cu succes',
+        'get_error' => 'Departamentul nu a putut fi recuperat',
+        'not_found' => 'Departamentul nu a putut fi găsit',
+        'create_failed' => 'Departamentul nu a putut fi creat',
+        'create_success' => 'Departamentul a fost creat cu succes',
+        'update_success' => 'Department was updated successfully (Automatic Copy)',
+        'update_failed' => 'Departamentul nu a putut fi actualizat',
+        'delete_failed' => 'Departamentul nu a putut fi șters cu succes',
+        'delete_success' => 'Departamentul șters cu succes',
     ],
     // Email responses
     'email' => [
@@ -306,8 +306,8 @@ return [
             'delete_failed_self_account' => 'Nu vă puteți șterge propriul cont',
         ],
     ],
-    'memory_used' => 'Memory used',
-    'memory_available' => 'Memory available',
-    'disk_used' => 'Disk used',
-    'disk_available' => 'Disk available',
+    'memory_used' => 'Memorie utilizată',
+    'memory_available' => 'Memorie disponibilă',
+    'disk_used' => 'Disc folosit',
+    'disk_available' => 'Disc disponibil',
 ];
