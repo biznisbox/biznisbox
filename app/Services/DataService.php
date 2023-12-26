@@ -6,6 +6,9 @@ use App\Models\Units;
 use App\Models\Taxes;
 use App\Models\Currencies;
 use App\Models\Category;
+use App\Models\Department;
+use App\Models\User;
+use App\Models\Employee;
 
 class DataService
 {
@@ -77,6 +80,27 @@ class DataService
         return $category;
     }
 
+    public function getDepartments()
+    {
+        $departments = new Department();
+        $departments = $departments->getPublicDepartments();
+        return $departments;
+    }
+
+    public function getUsers()
+    {
+        $users = new User();
+        $users = $users->getPublicUsers();
+        return $users;
+    }
+
+    public function getEmployees()
+    {
+        $employees = new Employee();
+        $employees = $employees->getPublicEmployees();
+        return $employees;
+    }
+
     public function returnData($requiredData)
     {
         switch ($requiredData) {
@@ -88,6 +112,15 @@ class DataService
                 break;
             case 'currencies':
                 return $this->getCurrencies();
+                break;
+            case 'departments':
+                return $this->getDepartments();
+                break;
+            case 'users':
+                return $this->getUsers();
+                break;
+            case 'employees':
+                return $this->getEmployees();
                 break;
             default:
                 return null;

@@ -13,6 +13,7 @@ use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\OnlinePaymentController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\Admin\UsersController as AdminUsersController;
 use App\Http\Controllers\Admin\PermissionController as AdminPermissionController;
 use App\Http\Controllers\Admin\SettingsController as AdminSettingsController;
@@ -94,6 +95,16 @@ Route::middleware('auth')->group(function () {
         Route::put('/calendars/events/{event_id}', CalendarController::class . '@updateEvent');
         Route::delete('/calendars/events/{event_id}', CalendarController::class . '@deleteEvent');
         Route::get('/calendar/events', CalendarController::class . '@getUserEvents');
+    });
+
+    // Employees Routes
+    Route::middleware('can:employees')->group(function () {
+        Route::get('/employees', EmployeesController::class . '@getEmployees');
+        Route::get('/employees/{id}', EmployeesController::class . '@getEmployee');
+        Route::post('/employees', EmployeesController::class . '@createEmployee');
+        Route::put('/employees/{id}', EmployeesController::class . '@updateEmployee');
+        Route::delete('/employees/{id}', EmployeesController::class . '@deleteEmployee');
+        Route::get('/employee/employee_number', EmployeesController::class . '@getEmployeeNumber');
     });
 
     // Accounts routes

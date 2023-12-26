@@ -61,4 +61,10 @@ class Department extends Model implements Auditable
         $departments = $this->with('employees')->get();
         return $departments;
     }
+
+    public function getPublicDepartments()
+    {
+        $departments = $this->select('id', 'name', 'description')->get();
+        return $departments;
+    }
 }

@@ -97,6 +97,14 @@
         "to": "/archive"
     },
     {
+        "name": "user_menu_items.employees",
+        "meta": ["employees"],
+        "icon": "fa fa-users",
+        "permission": "employees",
+        "permissions": [],
+        "to": "/employees"
+    },
+    {
         "name": "user_menu_items.documents",
         "meta": ["documents"],
         "icon": "fa fa-file-alt",

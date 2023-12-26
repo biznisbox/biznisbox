@@ -67,6 +67,12 @@ const routes = [
     makeRoute('/documents/:id', 'view-document', () => import('../views/documents/ViewDocument.vue'), { auth: true }, []),
     makeRoute('/documents/:id/edit', 'edit-document', () => import('../views/documents/EditDocument.vue'), { auth: true }, []),
 
+    // Employees Routes
+    makeRoute('/employees', 'employees', () => import('../views/employees/Employees.vue'), { auth: true }, []),
+    makeRoute('/employees/new', 'new-employee', () => import('../views/employees/NewEmployee.vue'), { auth: true }, []),
+    makeRoute('/employees/:id', 'view-employee', () => import('../views/employees/ViewEmployee.vue'), { auth: true }, []),
+    makeRoute('/employees/:id/edit', 'edit-employee', () => import('../views/employees/EditEmployee.vue'), { auth: true }, []),
+
     // Admin Routes
     makeRoute('/admin', 'admin-dashboard', () => import('../views/admin/Dashboard.vue'), { auth: true, admin: true }, []),
     makeRoute('/admin/app', 'admin-app', () => import('../views/admin/AppData.vue'), { auth: true, admin: true }, []),

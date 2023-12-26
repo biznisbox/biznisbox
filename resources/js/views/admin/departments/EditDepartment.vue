@@ -3,7 +3,7 @@
         <div id="admin-edit-department">
             <loadingScreen :blocked="loadingData">
                 <user-header :title="$t('admin.department.edit_department')">
-                    <template v-slot:actions>
+                    <template #actions>
                         <Button
                             id="delete_button"
                             :label="$t('basic.delete')"

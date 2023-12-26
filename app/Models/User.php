@@ -146,4 +146,13 @@ class User extends Authenticatable implements Auditable
         }
         return false;
     }
+
+    public function getPublicUsers()
+    {
+        $users = $this->select('id', 'first_name', 'last_name', 'picture', 'email')->get();
+        foreach ($users as $user) {
+            $user->label = $user->first_name . ' ' . $user->last_name . ' (' . $user->email . ')';
+        }
+        return $users;
+    }
 }

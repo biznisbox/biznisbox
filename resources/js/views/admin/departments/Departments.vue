@@ -4,7 +4,11 @@
             <loadingScreen :blocked="loadingData">
                 <user-header :title="$t('admin.department.title')">
                     <template #actions>
-                        <header-action-button icon="fa fa-plus" to="/admin/departments/new" :label="$t('admin.department.new_department')" />
+                        <header-action-button
+                            icon="fa fa-plus"
+                            to="/admin/departments/new"
+                            :label="$t('admin.department.new_department')"
+                        />
                     </template>
                 </user-header>
 
