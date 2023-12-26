@@ -98,6 +98,19 @@ return [
         'delete_success' => 'Το έγγραφο διαγράφηκε επιτυχώς',
     ],
 
+    // Employee responses
+    'employee' => [
+        'not_found' => 'Employee not found',
+        'get_success' => 'Employees retrieved successfully',
+        'get_failed' => 'Employees could not be retrieved',
+        'create_success' => 'Employee created successfully',
+        'create_failed' => 'A Employee could not be created',
+        'update_success' => 'Employee updated successfully',
+        'update_failed' => 'A Employee could not be updated',
+        'delete_success' => 'Employee deleted successfully',
+        'delete_failed' => 'A Employee could not be deleted',
+    ],
+
     // Archive responses
     'archive' => [
         'get_success' => 'Το αρχείο ανακτήθηκε επιτυχώς',
