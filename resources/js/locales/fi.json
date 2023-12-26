@@ -116,7 +116,7 @@
         "partners": "Kumppanit",
         "reports": "Raportit",
         "settings": "Asetukset",
-        "employees": "Employees"
+        "employees": "Työntekijät"
     },
     "dashboard": {
         "title": "Hallintapaneeli",
@@ -218,20 +218,20 @@
         "role": "Rooli",
         "roles": "Roolit",
         "permissions": "Käyttöoikeudet",
-        "category": "Category",
-        "categories": "Categories",
-        "active_account": "Active Account",
-        "amount": "Amount",
-        "exchange_rate": "Exchange Rate",
-        "reference": "Reference",
-        "account": "Account",
-        "department": "Department",
-        "position": "Position",
-        "hourly_rate": "Hourly Rate",
-        "salary": "Salary",
-        "level": "Level",
-        "contract_type": "Contract Type",
-        "internal_user": "Internal User"
+        "category": "Kategoria",
+        "categories": "Kategoriat",
+        "active_account": "Aktiivinen Tili",
+        "amount": "Määrä",
+        "exchange_rate": "Valuuttakurssi",
+        "reference": "Viite",
+        "account": "Tili",
+        "department": "Osasto",
+        "position": "Sijainti",
+        "hourly_rate": "Tuntimaksu",
+        "salary": "Palkka",
+        "level": "Taso",
+        "contract_type": "Sopimuksen Tyyppi",
+        "internal_user": "Sisäinen Käyttäjä"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -364,7 +364,7 @@
         "share_dialog_text": "Kopioi alla oleva linkki ja jaa se asiakkaallesi tai skannaa QR-koodi.",
         "create_first_invoice": "Luo ensimmäinen laskusi",
         "no_customer": "Ei asiakasta",
-        "add_payment": "Add payment",
+        "add_payment": "Lisää maksu",
         "no_payer": "No payer",
         "no_items": "Ei kohteita",
         "add_item": "Lisää kohde",
@@ -381,8 +381,8 @@
         "payment_success_message": "Kiitos maksustasi. Maksusi on käsitelty onnistuneesti.",
         "payment_error": "Maksu virhe",
         "payment_error_message": "Maksusi käsittelyssä tapahtui virhe. Ole hyvä ja yritä uudelleen.",
-        "show_transactions": "Show transactions",
-        "list_of_transactions": "List of transactions"
+        "show_transactions": "Näytä tapahtumat",
+        "list_of_transactions": "Luettelo tapahtumista"
     },
     "quote": {
         "quote": "Tarjous - Lainaukset",
@@ -439,9 +439,9 @@
         "edit_event": "Muokkaa Tapahtumaa"
     },
     "transaction_type": {
-        "income": "Income",
-        "expense": "Expense",
-        "transfer": "Transfer"
+        "income": "Tulot",
+        "expense": "Menot",
+        "transfer": "Siirto"
     },
     "transaction": {
         "transaction": "Tapahtuma - Tapahtumat",
@@ -460,11 +460,11 @@
         "edit_category": "Muokkaa Kategoriaa",
         "category_name": "Kategorian Nimi",
         "category_created": "Kategoria luotu onnistuneesti",
-        "categories": "Categories",
-        "no_categories": "No categories found",
-        "delete_category_confirmation": "Are you sure you want to delete this category?",
-        "category_deleted": "Category deleted successfully",
-        "category_updated": "Category updated successfully"
+        "categories": "Kategoriat",
+        "no_categories": "Kategorioita ei löytynyt",
+        "delete_category_confirmation": "Oletko varma, että haluat poistaa tämän kategorian?",
+        "category_deleted": "Kategoria poistettu onnistuneesti",
+        "category_updated": "Kategoria päivitetty onnistuneesti"
     },
     "archive": {
         "archive": "Arkisto Arkisto Arkisto",
@@ -486,7 +486,7 @@
         "edit_bill": "Muokkaa Laskua",
         "no_bills": "Laskuja ei löytynyt",
         "create_first_bill": "Luo ensimmäinen lasku",
-        "no_supplier": "No supplier",
+        "no_supplier": "Ei toimittajaa",
         "no_items": "Ei kohteita",
         "select_item": "Valitse kohde",
         "date_and_due_date": "Päivämäärä ja eräpäivä",
@@ -516,49 +516,49 @@
         "delete_confirm_document": "Oletko varma, että haluat poistaa tämän asiakirjan?"
     },
     "employee": {
-        "employee": "Employee | Employees",
-        "new_employee": "New Employee",
-        "edit_employee": "Edit Employee",
-        "no_employees": "No employees found",
-        "create_first_employee": "Create your first employee",
-        "delete_employee_confirmation": "Are you sure you want to delete this employee?",
-        "employee_details": "Employee details",
-        "contract": "Contract"
+        "employee": "Työntekijät - Työntekijät",
+        "new_employee": "Uusi Työntekijä",
+        "edit_employee": "Muokkaa Työntekijää",
+        "no_employees": "Työntekijöitä ei löytynyt",
+        "create_first_employee": "Luo ensimmäinen työntekijäsi",
+        "delete_employee_confirmation": "Oletko varma, että haluat poistaa tämän työntekijän?",
+        "employee_details": "Työntekijän tiedot",
+        "contract": "Sopimus"
     },
     "employee_type": {
-        "full_time": "Full time",
-        "part_time": "Part time",
-        "contractor": "Contractor",
-        "intern": "Intern",
-        "temporary": "Temporary",
+        "full_time": "Koko aika",
+        "part_time": "Osan aika",
+        "contractor": "Alihankkija",
+        "intern": "Ulkoinen",
+        "temporary": "Väliaikainen",
         "apprentice": "Apprentice",
-        "founder": "Founder",
-        "co_founder": "Co-founder",
-        "owner": "Owner",
-        "other": "Other"
+        "founder": "Perustaja",
+        "co_founder": "Perustaja",
+        "owner": "Omistaja",
+        "other": "Muu"
     },
     "employee_level": {
-        "junior": "Junior",
-        "mid_level": "Mid Level",
-        "senior": "Senior",
-        "executive": "Executive",
-        "director": "Director",
-        "vice_president": "Vice President",
-        "c_level": "C-Level",
-        "owner": "Owner",
-        "other": "Other"
+        "junior": "Juniori",
+        "mid_level": "Keskitaso",
+        "senior": "Vanha",
+        "executive": "Toimeksianto",
+        "director": "Johtaja",
+        "vice_president": "Varapuheenjohtaja",
+        "c_level": "C-taso",
+        "owner": "Omistaja",
+        "other": "Muu"
     },
     "contract_type": {
-        "permanent": "Permanent",
-        "fixed_term": "Fixed Term",
-        "temporary": "Temporary",
-        "zero_hours": "Zero Hours",
+        "permanent": "Pysyvä",
+        "fixed_term": "Kiinteä Määräaika",
+        "temporary": "Väliaikainen",
+        "zero_hours": "Nolla Tuntia",
         "freelance": "Freelance",
-        "contractor": "Contractor",
+        "contractor": "Alihankkija",
         "apprentice": "Apprentice",
-        "intern": "Intern",
-        "volunteer": "Volunteer",
-        "other": "Other"
+        "intern": "Ulkoinen",
+        "volunteer": "Vapaaehtoinen",
+        "other": "Muu"
     },
     "admin": {
         "menu": {
@@ -568,13 +568,13 @@
             "integrations": "Integraatiot",
             "roles": "Roolit",
             "users": "Käyttäjät",
-            "departments": "Departments",
+            "departments": "Osastot",
             "settings": "Asetukset",
             "settings_general": "Yleiset",
             "settings_currency": "Valuutta",
             "settings_taxes": "Verot",
             "numbering": "Numerointi",
-            "status": "Status"
+            "status": "Tila"
         },
         "company": {
             "title": "Yrityksen Asetukset",
@@ -597,7 +597,7 @@
             "stripe_available": "Raita saatavilla",
             "stripe_key": "Raidan API-avain",
             "stripe_key_help": "Voit löytää oman API avaimet teidän Stripe tilillä.",
-            "stripe_account_id": "Stripe internal account ID",
+            "stripe_account_id": "Raita sisäinen tili ID",
             "paypal": "Paypal",
             "paypal_available": "PayPal saatavilla",
             "paypal_test_mode": "Testaa Tila",
@@ -605,7 +605,7 @@
             "paypal_client_id_help": "Voit löytää asiakastunnuksesi PayPal tililtäsi.",
             "paypal_secret": "Paypal Salainen",
             "paypal_secret_help": "Voit löytää salaisuutesi PayPal tililtäsi.",
-            "paypal_account_id": "PayPal internal account ID",
+            "paypal_account_id": "PayPal sisäinen tili ID",
             "open_banking": "Avoin Pankkitoiminta",
             "open_banking_available": "Avoin pankkitoiminta",
             "open_banking_client_id": "Open Banking Client ID",
@@ -628,13 +628,13 @@
             "delete_confirm_user": "Oletko varma, että haluat poistaa tämän käyttäjän?"
         },
         "department": {
-            "title": "Departments",
-            "department": "Department | Departments",
-            "new_department": "New Department",
-            "edit_department": "Edit Department",
-            "no_departments": "No departments found",
-            "create_first_department": "Create your first department",
-            "delete_confirm_department": "Are you sure you want to delete this department?"
+            "title": "Osastot",
+            "department": "Osasto ¶ Osastot",
+            "new_department": "Uusi Osasto",
+            "edit_department": "Muokkaa Osastoa",
+            "no_departments": "Yksiköitä ei löytynyt",
+            "create_first_department": "Luo ensimmäinen osasto",
+            "delete_confirm_department": "Oletko varma, että haluat poistaa tämän osaston?"
         },
         "currency": {
             "title": "Valuutta Asetukset",
@@ -659,7 +659,7 @@
             "default_date_format": "Päivämäärän Oletusmuoto",
             "default_time_format": "Ajan Oletusmuoto",
             "default_datetime_format": "Oletus Päivämäärä Muoto",
-            "show_barcode_on_documents": "Show barcode on documents"
+            "show_barcode_on_documents": "Näytä viivakoodi asiakirjoissa"
         },
         "taxes": {
             "title": "Verot",
@@ -690,14 +690,14 @@
             "number_of_logins_today": "Kirjautumisten määrä tänään"
         },
         "app_status": {
-            "title": "Application Status",
-            "current_version": "Current Version",
-            "latest_version": "Latest Version",
-            "update_available": "Update Available",
-            "disk_usage": "Disk Usage",
-            "database_size": "Database Size",
-            "server_os": "Server OS",
-            "php_version": "PHP Version",
+            "title": "Sovelluksen Tila",
+            "current_version": "Nykyinen Versio",
+            "latest_version": "Viimeisin Versio",
+            "update_available": "Päivitys Saatavilla",
+            "disk_usage": "Levyn Käyttö",
+            "database_size": "Tietokannan Koko",
+            "server_os": "Palvelimen Käyttöjärjestelmä",
+            "php_version": "Php Versio",
             "hostname": "Hostname"
         },
         "numbering": {
@@ -711,7 +711,7 @@
             "bill": "Laskun numeron muoto",
             "document": "Asiakirjan numeron muoto",
             "product": "Tuotteen numeron muoto",
-            "employee": "Employee number format"
+            "employee": "Työntekijän numeron muoto"
         }
     },
     "countries": {
@@ -971,8 +971,8 @@
         "sl": "Slovenian"
     },
     "language": {
-        "en": "English",
-        "de": "German",
+        "en": "Englanti",
+        "de": "Saksa",
         "sl": "Slovenian"
     }
 }
