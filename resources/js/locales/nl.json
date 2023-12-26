@@ -116,7 +116,7 @@
         "partners": "Partners",
         "reports": "Rapporten",
         "settings": "Instellingen",
-        "employees": "Employees"
+        "employees": "Werknemers"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -218,20 +218,20 @@
         "role": "Functie",
         "roles": "Rollen",
         "permissions": "Machtigingen",
-        "category": "Category",
-        "categories": "Categories",
-        "active_account": "Active Account",
-        "amount": "Amount",
-        "exchange_rate": "Exchange Rate",
-        "reference": "Reference",
-        "account": "Account",
-        "department": "Department",
-        "position": "Position",
-        "hourly_rate": "Hourly Rate",
-        "salary": "Salary",
-        "level": "Level",
-        "contract_type": "Contract Type",
-        "internal_user": "Internal User"
+        "category": "categorie",
+        "categories": "Categoriechar@@0n",
+        "active_account": "Actieve account",
+        "amount": "Hoeveelheid",
+        "exchange_rate": "Wisselkoers",
+        "reference": "Referentie",
+        "account": "Rekening",
+        "department": "Afdeling",
+        "position": "Positie",
+        "hourly_rate": "Tarief per uur",
+        "salary": "Salaris",
+        "level": "Niveau",
+        "contract_type": "Contract type",
+        "internal_user": "Interne gebruiker"
     },
     "address_types": {
         "billing": "Facturering",
@@ -364,7 +364,7 @@
         "share_dialog_text": "Kopieer de onderstaande link en deel deze met uw klant of scan de QR-code.",
         "create_first_invoice": "Uw eerste factuur aanmaken",
         "no_customer": "Geen klant",
-        "add_payment": "Add payment",
+        "add_payment": "Voeg betaling toe",
         "no_payer": "No payer",
         "no_items": "Geen artikelen",
         "add_item": "Item toevoegen",
@@ -381,8 +381,8 @@
         "payment_success_message": "Bedankt voor uw betaling. Uw betaling is succesvol verwerkt.",
         "payment_error": "Betaling fout",
         "payment_error_message": "Er is een fout opgetreden bij het verwerken van uw betaling. Probeer het opnieuw.",
-        "show_transactions": "Show transactions",
-        "list_of_transactions": "List of transactions"
+        "show_transactions": "Toon transacties",
+        "list_of_transactions": "Lijst van transacties"
     },
     "quote": {
         "quote": "Offerte aanhalingstekens",
@@ -439,9 +439,9 @@
         "edit_event": "Gebeurtenis bewerken"
     },
     "transaction_type": {
-        "income": "Income",
-        "expense": "Expense",
-        "transfer": "Transfer"
+        "income": "Inkomsten",
+        "expense": "Kosten",
+        "transfer": "Overschrijving"
     },
     "transaction": {
         "transaction": "Transactie format@@1- Transacties",
@@ -460,11 +460,11 @@
         "edit_category": "Categorie bewerken",
         "category_name": "Categorie Naam",
         "category_created": "Categorie succesvol aangemaakt",
-        "categories": "Categories",
-        "no_categories": "No categories found",
-        "delete_category_confirmation": "Are you sure you want to delete this category?",
-        "category_deleted": "Category deleted successfully",
-        "category_updated": "Category updated successfully"
+        "categories": "Categoriechar@@0n",
+        "no_categories": "Geen categorieën gevonden",
+        "delete_category_confirmation": "Weet u zeker dat u deze categorie wilt verwijderen?",
+        "category_deleted": "Categorie succesvol verwijderd",
+        "category_updated": "Categorie succesvol bijgewerkt"
     },
     "archive": {
         "archive": "Archiveer veriefarchieven",
@@ -486,7 +486,7 @@
         "edit_bill": "Rekening bewerken",
         "no_bills": "Geen contracten gevonden",
         "create_first_bill": "Maak je eerste contract",
-        "no_supplier": "No supplier",
+        "no_supplier": "Geen leverancier",
         "no_items": "Geen artikelen",
         "select_item": "Selecteer een item",
         "date_and_due_date": "Datum en vervaldatum",
@@ -516,49 +516,49 @@
         "delete_confirm_document": "Weet u zeker dat u dit document wilt verwijderen?"
     },
     "employee": {
-        "employee": "Employee | Employees",
-        "new_employee": "New Employee",
-        "edit_employee": "Edit Employee",
-        "no_employees": "No employees found",
-        "create_first_employee": "Create your first employee",
-        "delete_employee_confirmation": "Are you sure you want to delete this employee?",
-        "employee_details": "Employee details",
+        "employee": "Personeelsmedewerkers",
+        "new_employee": "Nieuwe werknemer",
+        "edit_employee": "Werknemer bewerken",
+        "no_employees": "Geen werknemers gevonden",
+        "create_first_employee": "Maak je eerste werknemer aan",
+        "delete_employee_confirmation": "Weet u zeker dat u deze werknemer wilt verwijderen?",
+        "employee_details": "Werknemer details",
         "contract": "Contract"
     },
     "employee_type": {
-        "full_time": "Full time",
-        "part_time": "Part time",
-        "contractor": "Contractor",
+        "full_time": "Volle tijd",
+        "part_time": "Onderdeel tijd",
+        "contractor": "Aannemer",
         "intern": "Intern",
-        "temporary": "Temporary",
-        "apprentice": "Apprentice",
-        "founder": "Founder",
-        "co_founder": "Co-founder",
-        "owner": "Owner",
-        "other": "Other"
+        "temporary": "Tijdelijk",
+        "apprentice": "Leerling",
+        "founder": "Oprichter",
+        "co_founder": "Medeoprichter",
+        "owner": "Eigenaar",
+        "other": "anders"
     },
     "employee_level": {
         "junior": "Junior",
-        "mid_level": "Mid Level",
+        "mid_level": "Midden niveau",
         "senior": "Senior",
-        "executive": "Executive",
-        "director": "Director",
+        "executive": "Uitvoerend",
+        "director": "Regisseur",
         "vice_president": "Vice President",
-        "c_level": "C-Level",
-        "owner": "Owner",
-        "other": "Other"
+        "c_level": "C-niveau",
+        "owner": "Eigenaar",
+        "other": "anders"
     },
     "contract_type": {
         "permanent": "Permanent",
-        "fixed_term": "Fixed Term",
-        "temporary": "Temporary",
-        "zero_hours": "Zero Hours",
+        "fixed_term": "Vaste term",
+        "temporary": "Tijdelijk",
+        "zero_hours": "Geen uren",
         "freelance": "Freelance",
-        "contractor": "Contractor",
-        "apprentice": "Apprentice",
+        "contractor": "Aannemer",
+        "apprentice": "Leerling",
         "intern": "Intern",
-        "volunteer": "Volunteer",
-        "other": "Other"
+        "volunteer": "Vrijwilliger",
+        "other": "anders"
     },
     "admin": {
         "menu": {
@@ -568,13 +568,13 @@
             "integrations": "Integraties",
             "roles": "Rollen",
             "users": "Gebruikers",
-            "departments": "Departments",
+            "departments": "Afdelingen",
             "settings": "Instellingen",
             "settings_general": "Algemeen",
             "settings_currency": "valuta",
             "settings_taxes": "BTW tarieven",
             "numbering": "Nummering",
-            "status": "Status"
+            "status": "status"
         },
         "company": {
             "title": "Bedrijf instellingen",
@@ -597,7 +597,7 @@
             "stripe_available": "Streep beschikbaar",
             "stripe_key": "Stripe API Sleutel",
             "stripe_key_help": "U kunt uw API-sleutels vinden in uw Stripe account.",
-            "stripe_account_id": "Stripe internal account ID",
+            "stripe_account_id": "Stripe intern account-ID",
             "paypal": "Paypal",
             "paypal_available": "PayPal beschikbaar",
             "paypal_test_mode": "Test modus",
@@ -605,7 +605,7 @@
             "paypal_client_id_help": "U vindt uw klant-ID in uw PayPal account.",
             "paypal_secret": "PayPal Geheim",
             "paypal_secret_help": "U vindt uw geheim in uw PayPal-account.",
-            "paypal_account_id": "PayPal internal account ID",
+            "paypal_account_id": "Intern PayPal-account ID",
             "open_banking": "Open Bank",
             "open_banking_available": "Open bankieren beschikbaar",
             "open_banking_client_id": "Open Bank Client ID",
@@ -628,13 +628,13 @@
             "delete_confirm_user": "Weet u zeker dat u deze gebruiker wilt verwijderen?"
         },
         "department": {
-            "title": "Departments",
-            "department": "Department | Departments",
-            "new_department": "New Department",
-            "edit_department": "Edit Department",
-            "no_departments": "No departments found",
-            "create_first_department": "Create your first department",
-            "delete_confirm_department": "Are you sure you want to delete this department?"
+            "title": "Afdelingen",
+            "department": "Aparteenheid 15.00 afdelingen",
+            "new_department": "Nieuwe afdeling",
+            "edit_department": "Afdeling bewerken",
+            "no_departments": "Geen afdelingen gevonden",
+            "create_first_department": "Maak je eerste afdeling aan",
+            "delete_confirm_department": "Weet u zeker dat u deze afdeling wilt verwijderen?"
         },
         "currency": {
             "title": "Valuta instellingen",
@@ -659,7 +659,7 @@
             "default_date_format": "Standaard datumnotatie",
             "default_time_format": "Standaard Tijdsformaat",
             "default_datetime_format": "Standaard Datumtijd Formaat",
-            "show_barcode_on_documents": "Show barcode on documents"
+            "show_barcode_on_documents": "Toon streepjescode op documenten"
         },
         "taxes": {
             "title": "BTW tarieven",
@@ -690,14 +690,14 @@
             "number_of_logins_today": "Aantal aanmeldingen vandaag"
         },
         "app_status": {
-            "title": "Application Status",
-            "current_version": "Current Version",
-            "latest_version": "Latest Version",
-            "update_available": "Update Available",
-            "disk_usage": "Disk Usage",
-            "database_size": "Database Size",
+            "title": "Applicatie Status",
+            "current_version": "Huidige versie",
+            "latest_version": "Nieuwste versie",
+            "update_available": "Update beschikbaar",
+            "disk_usage": "Schijf gebruik",
+            "database_size": "Database grootte",
             "server_os": "Server OS",
-            "php_version": "PHP Version",
+            "php_version": "PHP versie",
             "hostname": "Hostname"
         },
         "numbering": {
@@ -711,7 +711,7 @@
             "bill": "Factuur nummer formaat",
             "document": "Document nummer formaat",
             "product": "Product nummer formaat",
-            "employee": "Employee number format"
+            "employee": "Medewerker nummer formaat"
         }
     },
     "countries": {
@@ -971,8 +971,8 @@
         "sl": "Slovenian"
     },
     "language": {
-        "en": "English",
-        "de": "German",
+        "en": "Nederlands",
+        "de": "Duits",
         "sl": "Slovenian"
     }
 }
