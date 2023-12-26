@@ -116,7 +116,7 @@
         "partners": "Socios",
         "reports": "Informes",
         "settings": "Ajustes",
-        "employees": "Employees"
+        "employees": "Empleados"
     },
     "dashboard": {
         "title": "Tablero",
@@ -218,20 +218,20 @@
         "role": "Rol",
         "roles": "Roles",
         "permissions": "Permisos",
-        "category": "Category",
-        "categories": "Categories",
-        "active_account": "Active Account",
-        "amount": "Amount",
-        "exchange_rate": "Exchange Rate",
-        "reference": "Reference",
-        "account": "Account",
-        "department": "Department",
-        "position": "Position",
-        "hourly_rate": "Hourly Rate",
-        "salary": "Salary",
-        "level": "Level",
-        "contract_type": "Contract Type",
-        "internal_user": "Internal User"
+        "category": "Categoría",
+        "categories": "Categorías",
+        "active_account": "Cuenta activa",
+        "amount": "Cantidad",
+        "exchange_rate": "Tipo de cambio",
+        "reference": "Referencia",
+        "account": "Cuenta",
+        "department": "Departamento",
+        "position": "Posición",
+        "hourly_rate": "Tarifa por hora",
+        "salary": "Salario",
+        "level": "Nivel",
+        "contract_type": "Tipo de contrato",
+        "internal_user": "Usuario interno"
     },
     "address_types": {
         "billing": "Facturación",
@@ -364,7 +364,7 @@
         "share_dialog_text": "Copie el siguiente enlace y compártelo con su cliente o escanee el código QR.",
         "create_first_invoice": "Crea tu primera factura",
         "no_customer": "Ningún cliente",
-        "add_payment": "Add payment",
+        "add_payment": "Añadir pago",
         "no_payer": "No payer",
         "no_items": "No hay elementos",
         "add_item": "Añadir elemento",
@@ -381,8 +381,8 @@
         "payment_success_message": "Gracias por su pago. Su pago ha sido procesado con éxito.",
         "payment_error": "Error de pago",
         "payment_error_message": "Hubo un error al procesar su pago. Por favor, inténtelo de nuevo.",
-        "show_transactions": "Show transactions",
-        "list_of_transactions": "List of transactions"
+        "show_transactions": "Mostrar transacciones",
+        "list_of_transactions": "Lista de transacciones"
     },
     "quote": {
         "quote": "Cotización | Citas",
@@ -439,9 +439,9 @@
         "edit_event": "Editar evento"
     },
     "transaction_type": {
-        "income": "Income",
-        "expense": "Expense",
-        "transfer": "Transfer"
+        "income": "Ingresos",
+        "expense": "Gastos",
+        "transfer": "Transferir"
     },
     "transaction": {
         "transaction": "Transacción | Transacciones",
@@ -460,11 +460,11 @@
         "edit_category": "Editar Categoría",
         "category_name": "Nombre de categoría",
         "category_created": "Categoría creada correctamente",
-        "categories": "Categories",
-        "no_categories": "No categories found",
-        "delete_category_confirmation": "Are you sure you want to delete this category?",
-        "category_deleted": "Category deleted successfully",
-        "category_updated": "Category updated successfully"
+        "categories": "Categorías",
+        "no_categories": "No se encontraron categorías",
+        "delete_category_confirmation": "¿Está seguro que desea eliminar esta categoría?",
+        "category_deleted": "Categoría eliminada correctamente",
+        "category_updated": "Categoría actualizada correctamente"
     },
     "archive": {
         "archive": "Archivo | Archivos",
@@ -486,7 +486,7 @@
         "edit_bill": "Editar factura",
         "no_bills": "No se encontraron facturas",
         "create_first_bill": "Crea tu primera factura",
-        "no_supplier": "No supplier",
+        "no_supplier": "Ningún proveedor",
         "no_items": "No hay elementos",
         "select_item": "Seleccionar elemento",
         "date_and_due_date": "Fecha y fecha de fin",
@@ -516,49 +516,49 @@
         "delete_confirm_document": "¿Está seguro que desea eliminar este documento?"
     },
     "employee": {
-        "employee": "Employee | Employees",
-        "new_employee": "New Employee",
-        "edit_employee": "Edit Employee",
-        "no_employees": "No employees found",
-        "create_first_employee": "Create your first employee",
-        "delete_employee_confirmation": "Are you sure you want to delete this employee?",
-        "employee_details": "Employee details",
-        "contract": "Contract"
+        "employee": "Empleado | Empleados",
+        "new_employee": "Nuevo empleado",
+        "edit_employee": "Editar Empleado",
+        "no_employees": "No se encontraron empleados",
+        "create_first_employee": "Crea tu primer empleado",
+        "delete_employee_confirmation": "¿Está seguro de que desea eliminar a este empleado?",
+        "employee_details": "Detalles del empleado",
+        "contract": "Contrato"
     },
     "employee_type": {
-        "full_time": "Full time",
-        "part_time": "Part time",
-        "contractor": "Contractor",
-        "intern": "Intern",
-        "temporary": "Temporary",
-        "apprentice": "Apprentice",
-        "founder": "Founder",
-        "co_founder": "Co-founder",
-        "owner": "Owner",
-        "other": "Other"
+        "full_time": "Tiempo completo",
+        "part_time": "Tiempo parcial",
+        "contractor": "Contratista",
+        "intern": "Interno",
+        "temporary": "Temporal",
+        "apprentice": "Aprendiz",
+        "founder": "Fundador",
+        "co_founder": "Co-fundador",
+        "owner": "Propietario",
+        "other": "Otro"
     },
     "employee_level": {
-        "junior": "Junior",
-        "mid_level": "Mid Level",
+        "junior": "Jóvenes",
+        "mid_level": "Nivel medio",
         "senior": "Senior",
-        "executive": "Executive",
+        "executive": "Ejecutivo",
         "director": "Director",
-        "vice_president": "Vice President",
-        "c_level": "C-Level",
-        "owner": "Owner",
-        "other": "Other"
+        "vice_president": "Vice Presidente",
+        "c_level": "Nivel C",
+        "owner": "Propietario",
+        "other": "Otro"
     },
     "contract_type": {
-        "permanent": "Permanent",
-        "fixed_term": "Fixed Term",
-        "temporary": "Temporary",
-        "zero_hours": "Zero Hours",
+        "permanent": "Permanente",
+        "fixed_term": "Término fijo",
+        "temporary": "Temporal",
+        "zero_hours": "Cero horas",
         "freelance": "Freelance",
-        "contractor": "Contractor",
-        "apprentice": "Apprentice",
-        "intern": "Intern",
-        "volunteer": "Volunteer",
-        "other": "Other"
+        "contractor": "Contratista",
+        "apprentice": "Aprendiz",
+        "intern": "Interno",
+        "volunteer": "Voluntario",
+        "other": "Otro"
     },
     "admin": {
         "menu": {
@@ -568,13 +568,13 @@
             "integrations": "Integraciones",
             "roles": "Roles",
             "users": "Usuarios",
-            "departments": "Departments",
+            "departments": "Departamentos",
             "settings": "Ajustes",
             "settings_general": "General",
             "settings_currency": "Moneda",
             "settings_taxes": "Impuestos",
             "numbering": "Numeración",
-            "status": "Status"
+            "status": "Estado"
         },
         "company": {
             "title": "Configuración de la empresa",
@@ -597,7 +597,7 @@
             "stripe_available": "Stripe disponible",
             "stripe_key": "Clave API de Stripe",
             "stripe_key_help": "Puedes encontrar tus claves API en tu cuenta de Stripe.",
-            "stripe_account_id": "Stripe internal account ID",
+            "stripe_account_id": "ID de cuenta interna de Stripe",
             "paypal": "PayPal",
             "paypal_available": "PayPal disponible",
             "paypal_test_mode": "Modo de prueba",
@@ -605,7 +605,7 @@
             "paypal_client_id_help": "Puede encontrar su ID de cliente en su cuenta de PayPal.",
             "paypal_secret": "Secreto de PayPal",
             "paypal_secret_help": "Puedes encontrar tu secreto en tu cuenta de PayPal.",
-            "paypal_account_id": "PayPal internal account ID",
+            "paypal_account_id": "ID de cuenta interna de PayPal",
             "open_banking": "Abrir Banca",
             "open_banking_available": "Open Banking disponible",
             "open_banking_client_id": "Abrir ID de Cliente de Banca",
@@ -628,13 +628,13 @@
             "delete_confirm_user": "¿Está seguro que desea eliminar este usuario?"
         },
         "department": {
-            "title": "Departments",
-            "department": "Department | Departments",
-            "new_department": "New Department",
-            "edit_department": "Edit Department",
-            "no_departments": "No departments found",
-            "create_first_department": "Create your first department",
-            "delete_confirm_department": "Are you sure you want to delete this department?"
+            "title": "Departamentos",
+            "department": "Departamento | Departamentos",
+            "new_department": "Nuevo departamento",
+            "edit_department": "Editar departamento",
+            "no_departments": "No hay departamentos",
+            "create_first_department": "Crea tu primer departamento",
+            "delete_confirm_department": "¿Está seguro que desea eliminar este departamento?"
         },
         "currency": {
             "title": "Ajustes de moneda",
@@ -659,7 +659,7 @@
             "default_date_format": "Formato de fecha por defecto",
             "default_time_format": "Formato de hora por defecto",
             "default_datetime_format": "Formato de fecha por defecto",
-            "show_barcode_on_documents": "Show barcode on documents"
+            "show_barcode_on_documents": "Mostrar código de barras en documentos"
         },
         "taxes": {
             "title": "Impuestos",
@@ -690,14 +690,14 @@
             "number_of_logins_today": "Número de entradas hoy"
         },
         "app_status": {
-            "title": "Application Status",
-            "current_version": "Current Version",
-            "latest_version": "Latest Version",
-            "update_available": "Update Available",
-            "disk_usage": "Disk Usage",
-            "database_size": "Database Size",
-            "server_os": "Server OS",
-            "php_version": "PHP Version",
+            "title": "Estado de la aplicación",
+            "current_version": "Versión actual",
+            "latest_version": "Última versión",
+            "update_available": "Actualización disponible",
+            "disk_usage": "Uso del disco",
+            "database_size": "Tamaño de base de datos",
+            "server_os": "Servidor SO",
+            "php_version": "Versión PHP",
             "hostname": "Hostname"
         },
         "numbering": {
@@ -711,7 +711,7 @@
             "bill": "Formato de número de factura",
             "document": "Formato de número de documento",
             "product": "Formato de número de producto",
-            "employee": "Employee number format"
+            "employee": "Formato de número de empleado"
         }
     },
     "countries": {
@@ -971,8 +971,8 @@
         "sl": "Slovenian"
     },
     "language": {
-        "en": "English",
-        "de": "German",
+        "en": "Inglés",
+        "de": "Alemán",
         "sl": "Slovenian"
     }
 }
