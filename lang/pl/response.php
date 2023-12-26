@@ -70,7 +70,7 @@ return [
         'delete_error' => 'Konto nie może zostać usunięte',
         'get_success' => 'Konto pobrane pomyślnie',
         'get_error' => 'Konto nie może zostać pobrane',
-        'delete_default_account' => 'Default account cannot be deleted',
+        'delete_default_account' => 'Domyślne konto nie może zostać usunięte',
     ],
 
     //Bill responses
@@ -100,15 +100,15 @@ return [
 
     // Employee responses
     'employee' => [
-        'not_found' => 'Employee not found',
-        'get_success' => 'Employees retrieved successfully',
-        'get_failed' => 'Employees could not be retrieved',
-        'create_success' => 'Employee created successfully',
-        'create_failed' => 'A Employee could not be created',
-        'update_success' => 'Employee updated successfully',
-        'update_failed' => 'A Employee could not be updated',
-        'delete_success' => 'Employee deleted successfully',
-        'delete_failed' => 'A Employee could not be deleted',
+        'not_found' => 'Nie znaleziono pracownika',
+        'get_success' => 'Pracownicy pobrani pomyślnie',
+        'get_failed' => 'Pracownicy nie mogli zostać pobrani',
+        'create_success' => 'Pracownik utworzony pomyślnie',
+        'create_failed' => 'Nie można utworzyć pracownika',
+        'update_success' => 'Pracownik został pomyślnie zaktualizowany',
+        'update_failed' => 'Nie można zaktualizować pracownika',
+        'delete_success' => 'Pracownik usunięty pomyślnie',
+        'delete_failed' => 'Pracownik nie mógł zostać usunięty',
     ],
 
     // Archive responses
@@ -169,7 +169,7 @@ return [
         'send_failed' => 'Faktura nie może zostać wysłana',
         'update_failed' => 'Faktura nie może zostać zaktualizowana',
         'delete_failed' => 'Faktura nie może zostać usunięta',
-        'transaction_success' => 'Transaction was added successfully',
+        'transaction_success' => 'Transakcja została dodana pomyślnie',
     ],
 
     //Online payment responses
@@ -218,15 +218,15 @@ return [
         'delete_success' => 'Wydarzenie usunięte pomyślnie',
     ],
     'department' => [
-        'get_success' => 'Department retrieved successfully',
-        'get_error' => 'Department could not be retrieved',
-        'not_found' => 'Department could not be found',
-        'create_failed' => 'Department could not be created',
-        'create_success' => 'Department was created successfully',
-        'update_success' => 'Department was updated successfully',
-        'update_failed' => 'Department could not be updated',
-        'delete_failed' => 'Department could  not be deleted successfully',
-        'delete_success' => 'Department deleted successfully',
+        'get_success' => 'Departament pobrany pomyślnie',
+        'get_error' => 'Nie można pobrać wydziału',
+        'not_found' => 'Nie znaleziono departamentu',
+        'create_failed' => 'Nie można utworzyć departamentu',
+        'create_success' => 'Departament został utworzony pomyślnie',
+        'update_success' => 'Departament został pomyślnie zaktualizowany',
+        'update_failed' => 'Nie można zaktualizować departamentu',
+        'delete_failed' => 'Departament nie mógł zostać usunięty pomyślnie',
+        'delete_success' => 'Departament usunięty pomyślnie',
     ],
     // Email responses
     'email' => [
@@ -306,8 +306,8 @@ return [
             'delete_failed_self_account' => 'Nie możesz usunąć własnego konta',
         ],
     ],
-    'memory_used' => 'Memory used',
-    'memory_available' => 'Memory available',
-    'disk_used' => 'Disk used',
-    'disk_available' => 'Disk available',
+    'memory_used' => 'Użyta pamięć',
+    'memory_available' => 'Pamięć dostępna',
+    'disk_used' => 'Użyty dysk',
+    'disk_available' => 'Dysk dostępny',
 ];
