@@ -70,7 +70,7 @@ return [
         'delete_error' => 'Account kon niet worden verwijderd',
         'get_success' => 'Account met succes opgehaald',
         'get_error' => 'Account kon niet worden opgehaald',
-        'delete_default_account' => 'Default account cannot be deleted',
+        'delete_default_account' => 'Standaardaccount kan niet worden verwijderd',
     ],
 
     //Bill responses
@@ -100,15 +100,15 @@ return [
 
     // Employee responses
     'employee' => [
-        'not_found' => 'Employee not found',
-        'get_success' => 'Employees retrieved successfully',
-        'get_failed' => 'Employees could not be retrieved',
-        'create_success' => 'Employee created successfully',
-        'create_failed' => 'A Employee could not be created',
-        'update_success' => 'Employee updated successfully',
-        'update_failed' => 'A Employee could not be updated',
-        'delete_success' => 'Employee deleted successfully',
-        'delete_failed' => 'A Employee could not be deleted',
+        'not_found' => 'Medewerker niet gevonden',
+        'get_success' => 'Werknemers succesvol ontvangen',
+        'get_failed' => 'Werknemers konden niet worden opgehaald',
+        'create_success' => 'Werknemer succesvol aangemaakt',
+        'create_failed' => 'Een werknemer kon niet aangemaakt worden',
+        'update_success' => 'Werknemer bijgewerkt',
+        'update_failed' => 'Een werknemer kon niet worden bijgewerkt',
+        'delete_success' => 'Medewerker succesvol verwijderd',
+        'delete_failed' => 'Een werknemer kon niet worden verwijderd',
     ],
 
     // Archive responses
@@ -169,7 +169,7 @@ return [
         'send_failed' => 'Factuur kon niet worden verzonden',
         'update_failed' => 'Factuur kon niet worden bijgewerkt',
         'delete_failed' => 'Factuur kon niet worden verwijderd',
-        'transaction_success' => 'Transaction was added successfully',
+        'transaction_success' => 'Transactie is met succes toegevoegd',
     ],
 
     //Online payment responses
@@ -218,15 +218,15 @@ return [
         'delete_success' => 'Afspraak succesvol verwijderd',
     ],
     'department' => [
-        'get_success' => 'Department retrieved successfully',
-        'get_error' => 'Department could not be retrieved',
-        'not_found' => 'Department could not be found',
-        'create_failed' => 'Department could not be created',
-        'create_success' => 'Department was created successfully',
-        'update_success' => 'Department was updated successfully',
-        'update_failed' => 'Department could not be updated',
-        'delete_failed' => 'Department could  not be deleted successfully',
-        'delete_success' => 'Department deleted successfully',
+        'get_success' => 'Afdeling succesvol opgehaald',
+        'get_error' => 'Afdeling kon niet worden opgehaald',
+        'not_found' => 'Afdeling kon niet worden gevonden',
+        'create_failed' => 'Afdeling kon niet aangemaakt worden',
+        'create_success' => 'Afdeling is succesvol aangemaakt',
+        'update_success' => 'Afdeling met succes bijgewerkt',
+        'update_failed' => 'Afdeling kon niet worden bijgewerkt',
+        'delete_failed' => 'Afdeling kon niet met succes verwijderd worden',
+        'delete_success' => 'Afdeling succesvol verwijderd',
     ],
     // Email responses
     'email' => [
@@ -306,8 +306,8 @@ return [
             'delete_failed_self_account' => 'U kunt uw eigen account niet verwijderen',
         ],
     ],
-    'memory_used' => 'Memory used',
-    'memory_available' => 'Memory available',
-    'disk_used' => 'Disk used',
-    'disk_available' => 'Disk available',
+    'memory_used' => 'Geheugen gebruikt',
+    'memory_available' => 'Geheugen beschikbaar',
+    'disk_used' => 'Schijf gebruikt',
+    'disk_available' => 'Schijf beschikbaar',
 ];
