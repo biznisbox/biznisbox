@@ -39,6 +39,11 @@ class Employee extends Model implements Auditable
 
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
+    protected $casts = [
+        'contract_start_date' => 'date',
+        'contract_end_date' => 'date',
+    ];
+
     protected $dates = ['contract_start_date', 'contract_end_date'];
 
     public function generateTags(): array

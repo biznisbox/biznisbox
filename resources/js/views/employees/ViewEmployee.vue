@@ -64,10 +64,10 @@
                                     </DisplayData>
                                     <div class="grid">
                                         <div class="col-12 md:col-6">
-                                            <DisplayData :input="$t('form.start_date')" :value="formatDate(employee.start_date)" />
+                                            <DisplayData :input="$t('form.start_date')" :value="formatDate(employee.contract_start_date)" />
                                         </div>
                                         <div class="col-12 md:col-6">
-                                            <DisplayData :input="$t('form.end_date')" :value="formatDate(employee.end_date)" />
+                                            <DisplayData :input="$t('form.end_date')" :value="formatDate(employee.contract_end_date)" />
                                         </div>
                                     </div>
                                 </TabPanel>
@@ -102,4 +102,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.p-tabview-panels {
+    border: none;
+    padding: 5px !important;
+}
+</style>

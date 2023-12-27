@@ -40,12 +40,13 @@ class InitBiznisBox extends Command
 
         // Migrate database
         $this->info('Migrating database...');
-        $this->call('migrate');
+        $this->call('migrate', ['--force' => true]);
 
         if (!$this->option('update')) {
             $this->info('Seeding database...');
             $this->call('db:seed', [
                 '--class' => 'WorldSeeder',
+                '--force' => true,
             ]);
         }
 
