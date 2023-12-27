@@ -41,6 +41,7 @@ class AuthService
     private function generateToken($user)
     {
         $session = new Sessions();
+        $employee = \App\Models\Employee::where('user_id', $user->id)->first();
         $key = config('app.jwt_key');
         $hash_algo = config('app.jwt_algo');
         $login_token = Str::random(60);
@@ -63,6 +64,7 @@ class AuthService
                 'lang' => $user->language,
                 'avatar' => $user->picture,
                 'initials' => $user->getInitials(),
+                'employee_id' => $employee ? $employee->id : null,
                 'permissions' => format_permissions($user->getPermissionsViaRoles()),
             ],
         ];

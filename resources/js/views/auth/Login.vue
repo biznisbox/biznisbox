@@ -85,6 +85,9 @@ export default {
                 if (this.form.remember_me) {
                     this.$cookies.set('user_login', this.form.email, '1y') // set email in cookies
                 }
+                if (this.$cookies.get('user_login') !== this.form.email) {
+                    this.$cookies.remove('user_login') // remove email from cookies
+                }
                 this.showToast(response.data.message)
                 this.$cookies.set('token', response.data.data, '2h')
                 localStorage.setItem('lang', jwtDecode(response.data.data).data?.lang) // set language - localstorage long term

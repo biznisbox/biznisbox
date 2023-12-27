@@ -100,8 +100,10 @@ export default {
 #char_year canvas {
     max-height: 25rem !important;
 }
-
 #char_current_month canvas {
     max-height: 15rem !important;
+}
+.p-speeddial-item {
+    margin: 0.3rem 0 !important;
 }
 </style>
