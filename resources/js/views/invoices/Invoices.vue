@@ -34,9 +34,6 @@
                     </template>
 
                     <Column field="number" :header="$t('form.number')">
-                        <template #body="{ data }">
-                            {{ data.number }}
-                        </template>
                         <template #filter="{ filterModel }">
                             <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by number" />
                         </template>
@@ -47,33 +44,25 @@
                             <span>{{ formatDate(data.date) }}</span> <br />
                             <span>{{ formatDate(data.due_date) }}</span>
                         </template>
-
                         <template #filter="{ filterModel }">
-                            <div class="flex">
-                                <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by date" />
-                            </div>
+                            <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by date" />
                         </template>
                     </Column>
-
                     <Column field="customer" :header="$t('invoice.customer_and_payer')">
                         <template #body="{ data }">
                             {{ formatText(data.customer_name) }} <br />
                             {{ formatText(data.payer_name) }}
                         </template>
                     </Column>
-
                     <Column field="total" :header="$t('form.total')">
                         <template #body="{ data }">
                             {{ formatMoney(data.total, data.currency) }}
                         </template>
 
                         <template #filter="{ filterModel }">
-                            <div class="flex">
-                                <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by total" />
-                            </div>
+                            <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by total" />
                         </template>
                     </Column>
-
                     <Column field="status" :header="$t('form.status')">
                         <template #body="{ data }">
                             <Tag v-if="data.status === 'paid'" severity="success">{{ $t('status.paid') }}</Tag>
@@ -86,7 +75,6 @@
                             <Tag v-if="data.status === 'partial'" severity="warning">{{ $t('status.partial') }}</Tag>
                             <Tag v-if="data.status === 'overpaid'" severity="danger">{{ $t('status.overpaid') }}</Tag>
                         </template>
-
                         <template #filter="{ filterModel }">
                             <Dropdown
                                 v-model="filterModel.value"
@@ -107,7 +95,7 @@
                         </template>
                     </Column>
                     <template #paginatorstart>
-                        <div class="p-d-flex p-ai-center p-mr-2">
+                        <div>
                             <Button class="p-button-rounded p-button-text p-button-plain" icon="fa fa-sync" @click="getInvoices()" />
                         </div>
                     </template>

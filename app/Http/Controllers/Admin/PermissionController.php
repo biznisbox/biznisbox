@@ -26,12 +26,12 @@ class PermissionController extends Controller
 
     public function createRole(Request $request)
     {
-        return $this->permissionService->createRole($request);
+        return $this->permissionService->createRole($request->all());
     }
 
     public function updateRole(Request $request, $id)
     {
-        return $this->permissionService->updateRole($request, $id);
+        return $this->permissionService->updateRole($request->all(), $id);
     }
 
     public function deleteRole($id)

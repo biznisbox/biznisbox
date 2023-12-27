@@ -189,6 +189,7 @@ class Invoice extends Model implements Auditable
                 $invoice = $this->find($id);
                 if (isset($data['items'])) {
                     $items = $invoice->items()->each(function ($item) {
+                        // Increment stock of all items (before update) to avoid negative stock
                         $this->incrementStock($item->product_id, $item->quantity);
                         $item->delete();
                     });
@@ -401,7 +402,7 @@ class Invoice extends Model implements Auditable
 
     protected function setPayerData($data, $payerId, $payerAddressId)
     {
-        if (!$payerId || !$payerAddressId) {
+        if (!$payerId) {
             $data['payer_id'] = null;
             $data['payer_address_id'] = null;
             $data['payer_name'] = null;
@@ -412,22 +413,24 @@ class Invoice extends Model implements Auditable
             return $data;
         }
         $partner = Partner::where('id', $payerId)->get()[0];
-        $address = PartnerAddress::where('partner_id', $payerId)
-            ->where('id', $payerAddressId)
-            ->get()[0];
+        if ($payerAddressId) {
+            $address = PartnerAddress::where('partner_id', $payerId)
+                ->where('id', $payerAddressId)
+                ->get()[0];
+        }
         $data['payer_id'] = $partner->id;
         $data['payer_name'] = $partner->name;
-        $data['payer_address_id'] = $address->id;
-        $data['payer_address'] = $address->address;
-        $data['payer_city'] = $address->city;
-        $data['payer_zip_code'] = $address->zip_code;
-        $data['payer_country'] = $address->country;
+        $data['payer_address_id'] = $address->id ?? null;
+        $data['payer_address'] = $address->address ?? null;
+        $data['payer_city'] = $address->city ?? null;
+        $data['payer_zip_code'] = $address->zip_code ?? null;
+        $data['payer_country'] = $address->country ?? null;
         return $data;
     }
 
     protected function setCustomerData($data, $customerId, $customerAddressId)
     {
-        if (!$customerId || !$customerAddressId) {
+        if (!$customerId) {
             $data['customer_id'] = null;
             $data['address_id'] = null;
             $data['customer_name'] = null;
@@ -437,17 +440,19 @@ class Invoice extends Model implements Auditable
             $data['customer_country'] = null;
             return $data;
         }
-        $partner = Partner::where('id', $customerId)->get()[0];
-        $address = PartnerAddress::where('partner_id', $customerId)
-            ->where('id', $customerAddressId)
-            ->get()[0];
+        $partner = Partner::find($customerId);
+        if ($customerAddressId) {
+            $address = PartnerAddress::where('partner_id', $customerId)
+                ->where('id', $customerAddressId)
+                ->get()[0];
+        }
         $data['customer_id'] = $partner->id;
         $data['customer_name'] = $partner->name;
-        $data['customer_address_id'] = $address->id;
-        $data['customer_address'] = $address->address;
-        $data['customer_city'] = $address->city;
-        $data['customer_zip_code'] = $address->zip_code;
-        $data['customer_country'] = $address->country;
+        $data['customer_address_id'] = $address->id ?? null;
+        $data['customer_address'] = $address->address ?? null;
+        $data['customer_city'] = $address->city ?? null;
+        $data['customer_zip_code'] = $address->zip_code ?? null;
+        $data['customer_country'] = $address->country ?? null;
         return $data;
     }
 }

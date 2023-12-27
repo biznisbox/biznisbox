@@ -147,7 +147,7 @@
                             </DataTable>
                         </TabPanel>
 
-                        <TabPanel :header="$t('profile.change_password')">
+                        <TabPanel :header="$t('profile.change_password')" v-if="hasPermission('change_own_password')">
                             <div class="grid p-3">
                                 <div class="col-12 md:col-6">
                                     <PasswordInput
@@ -235,7 +235,7 @@ export default {
         saveUser() {
             this.v$.user_data.$touch()
             if (this.v$.user_data.$invalid) {
-                this.showToast(this.$t('basic.form_invalid'), '', 'error')
+                this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
                 return
             }
 

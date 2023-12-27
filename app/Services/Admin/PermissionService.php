@@ -49,6 +49,12 @@ class PermissionService
             return api_response(null, __('response.admin.role.super_admin_cannot_be_created'), 400);
         }
 
+        foreach ($request['permissions'] as $permission) {
+            if (Str::contains($permission, 'admin')) {
+                array_push($request['permissions'], 'admin');
+            }
+        }
+
         $role = Role::create([
             'name' => Str::slug($request['name'], '_'),
             'display_name' => $request['name'],
@@ -71,6 +77,12 @@ class PermissionService
 
         if ($role->name == 'super_admin') {
             return api_response(null, __('response.admin.role.super_admin_cannot_be_updated'), 400);
+        }
+
+        foreach ($request['permissions'] as $permission) {
+            if (Str::contains($permission, 'admin')) {
+                array_push($request['permissions'], 'admin');
+            }
         }
 
         // Get all users with this role
@@ -113,7 +125,7 @@ class PermissionService
      */
     public function getPermissions()
     {
-        $permissions = Permission::all();
+        $permissions = Permission::whereNotIn('name', ['admin'])->get();
         return api_response($permissions);
     }
 }

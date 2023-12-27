@@ -237,7 +237,7 @@ Route::middleware('auth')->group(function () {
             });
 
             // Roles Routes
-            Route::middleware(['can:admin_general_settings'])->group(function () {
+            Route::middleware(['can:admin_roles'])->group(function () {
                 Route::get('/roles', AdminPermissionController::class . '@getRoles');
                 Route::get('/roles/{id}', AdminPermissionController::class . '@getRoleById');
                 Route::post('/roles', AdminPermissionController::class . '@createRole');

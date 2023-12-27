@@ -35,38 +35,27 @@
                     </template>
 
                     <Column field="number" :header="$t('form.number')">
-                        <template #body="{ data }">
-                            {{ data.number }}
-                        </template>
-
                         <template #filter="{ filterModel }">
                             <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by number" />
                         </template>
                     </Column>
-
                     <Column field="date" :header="$t('quote.date_and_due_date')">
                         <template #body="{ data }">
                             <span>{{ data.date ? formatDate(data.date) : '' }}</span> <br />
                             <span>{{ data.valid_until ? formatDate(data.valid_until) : '' }}</span>
                         </template>
-
                         <template #filter="{ filterModel }">
                             <div class="flex">
                                 <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by date" />
                             </div>
                         </template>
                     </Column>
-
                     <Column field="customer" :header="$t('quote.customer_and_payer')">
                         <template #body="{ data }">
                             {{ formatText(data.customer_name) }} <br />
                             {{ formatText(data.payer_name) }}
                         </template>
-                        <template #filter="{ filterModel }">
-                            <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by customer" />
-                        </template>
                     </Column>
-
                     <Column field="total" :header="$t('form.total')">
                         <template #body="{ data }">
                             {{ formatMoney(data.total, data.currency) }}
@@ -76,7 +65,6 @@
                             <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by total" />
                         </template>
                     </Column>
-
                     <Column filter-field="status" :header="$t('form.status')">
                         <template #body="{ data }">
                             <Tag v-if="data.status === 'accepted'" severity="success">{{ $t('status.accepted') }}</Tag>
@@ -88,7 +76,6 @@
                             <Tag v-if="data.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
                             <Tag v-if="data.status === 'converted'" severity="success">{{ $t('status.converted') }}</Tag>
                         </template>
-
                         <template #filter="{ filterModel }">
                             <Dropdown
                                 v-model="filterModel.value"
@@ -110,7 +97,7 @@
                         </template>
                     </Column>
                     <template #paginatorstart>
-                        <div class="p-d-flex p-ai-center p-mr-2">
+                        <div>
                             <Button class="p-button-rounded p-button-text p-button-plain" icon="fa fa-sync" @click="getQuotes()" />
                         </div>
                     </template>
