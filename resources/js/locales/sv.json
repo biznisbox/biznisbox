@@ -231,7 +231,8 @@
         "salary": "Lön",
         "level": "Nivå",
         "contract_type": "Typ av kontrakt",
-        "internal_user": "Intern användare"
+        "internal_user": "Intern användare",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -382,7 +383,9 @@
         "payment_error": "Fel vid betalning",
         "payment_error_message": "Det gick inte att bearbeta din betalning. Försök igen.",
         "show_transactions": "Visa transaktioner",
-        "list_of_transactions": "Lista över transaktioner"
+        "list_of_transactions": "Lista över transaktioner",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Offert <unk> Offerter",
