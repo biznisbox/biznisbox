@@ -23,6 +23,7 @@ return [
         'tax' => 'Impuesto',
         'notes' => 'Notas',
         'total_amount' => 'Monto total',
+        'currency_rate' => 'Currency rate',
     ],
     'status' => [
         'paid' => 'Pagado',
@@ -67,6 +68,7 @@ return [
         'tax' => 'Impuesto',
         'notes' => 'Notas',
         'total_amount' => 'Monto total',
+        'currency_rate' => 'Currency rate',
     ],
     'document' => [
         'title' => 'Documento',
