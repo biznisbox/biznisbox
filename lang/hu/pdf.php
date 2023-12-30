@@ -45,6 +45,7 @@ return [
         'check' => 'Csekk',
         'bank_card' => 'Bankkártya',
         'paypal' => 'PayPal',
+        'stripe' => 'Stripe',
         'other' => 'Egyéb',
     ],
     'quote' => [
