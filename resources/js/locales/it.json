@@ -231,7 +231,8 @@
         "salary": "Stipendio",
         "level": "Livello",
         "contract_type": "Tipo Di Contratto",
-        "internal_user": "Utente Interno"
+        "internal_user": "Utente Interno",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Fatturazione",
@@ -382,7 +383,9 @@
         "payment_error": "Errore di pagamento",
         "payment_error_message": "Si è verificato un errore nell'elaborazione del pagamento. Per favore riprova.",
         "show_transactions": "Mostra transazioni",
-        "list_of_transactions": "Elenco delle transazioni"
+        "list_of_transactions": "Elenco delle transazioni",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Preventivo <unk> Preventivi",
