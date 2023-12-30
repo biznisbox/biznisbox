@@ -23,6 +23,7 @@ return [
         'tax' => 'Daň',
         'notes' => 'Poznámky',
         'total_amount' => 'Celková částka',
+        'currency_rate' => 'Currency rate',
     ],
     'status' => [
         'paid' => 'Zaplaceno',
@@ -67,6 +68,7 @@ return [
         'tax' => 'Daň',
         'notes' => 'Poznámky',
         'total_amount' => 'Celková částka',
+        'currency_rate' => 'Currency rate',
     ],
     'document' => [
         'title' => 'Dokument',
