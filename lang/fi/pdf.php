@@ -45,6 +45,7 @@ return [
         'check' => 'Tarkista',
         'bank_card' => 'Pankkikortti',
         'paypal' => 'Paypal',
+        'stripe' => 'Stripe',
         'other' => 'Muu',
     ],
     'quote' => [
