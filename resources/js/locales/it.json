@@ -29,7 +29,8 @@
         "internal_server_error": "Errore Interno Del Server",
         "validation_error": "Errore Di Convalida",
         "not_found_item": "Not Found",
-        "bad_request": "Richiesta Errata"
+        "bad_request": "Richiesta Errata",
+        "forbidden": "Forbidden"
     },
     "basic": {
         "cancel": "Annulla",
