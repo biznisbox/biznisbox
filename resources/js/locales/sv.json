@@ -29,7 +29,8 @@
         "internal_server_error": "Internt serverfel",
         "validation_error": "Fel vid validering",
         "not_found_item": "Not Found",
-        "bad_request": "Felaktig begäran"
+        "bad_request": "Felaktig begäran",
+        "forbidden": "Forbidden"
     },
     "basic": {
         "cancel": "Avbryt",
