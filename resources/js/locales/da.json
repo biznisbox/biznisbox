@@ -29,7 +29,8 @@
         "internal_server_error": "Intern Serverfejl",
         "validation_error": "Valideringsfejl",
         "not_found_item": "Not Found",
-        "bad_request": "Dårlig Anmodning"
+        "bad_request": "Dårlig Anmodning",
+        "forbidden": "Forbidden"
     },
     "basic": {
         "cancel": "Annuller",
