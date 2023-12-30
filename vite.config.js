@@ -13,7 +13,7 @@ export default defineConfig({
         }),
         laravel({
             input: ['resources/js/app.js', 'resources/scss/app.scss'],
-            refresh: true,
+            refresh: ['app/**/*.php', 'resources/views/**/*.php'],
         }),
     ],
     resolve: {
