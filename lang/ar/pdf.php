@@ -23,7 +23,7 @@ return [
         'tax' => 'الضريبة',
         'notes' => 'الحواشي',
         'total_amount' => 'إجمالي المبلغ',
-        'currency_rate' => 'Currency rate',
+        'currency_rate' => 'سعر العملة',
     ],
     'status' => [
         'paid' => 'مدفوع',
@@ -68,7 +68,7 @@ return [
         'tax' => 'الضريبة',
         'notes' => 'الحواشي',
         'total_amount' => 'إجمالي المبلغ',
-        'currency_rate' => 'Currency rate',
+        'currency_rate' => 'سعر العملة',
     ],
     'document' => [
         'title' => 'مستند',
