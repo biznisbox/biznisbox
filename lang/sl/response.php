@@ -1,6 +1,27 @@
 <?php
 
 return [
+    'success' => 'Uspešno',
+    'failed' => 'Neuspešno',
+    'not_found' => 'Ni najdeno',
+    'create_success' => 'Uspešno ustvarjeno',
+    'create_failed' => 'Ni bilo mogoče ustvariti',
+    'update_success' => 'Posodobitev uspešna',
+    'update_failed' => 'Ni bilo mogoče posodobiti',
+    'delete_success' => 'Uspešno izbrisano',
+    'delete_failed' => 'Brisanje ni bilo uspešno',
+    'get_success' => 'Uspešno pridobljeno',
+    'get_failed' => 'Pridobivanje ni bilo uspešno',
+    'upload_success' => 'Uspešno naloženo',
+    'upload_failed' => 'Ni bilo mogoče naložiti',
+    'remove_success' => 'Uspešno odstranjeno',
+    'remove_failed' => 'Odstranjevanje ni bilo uspešno',
+    'send_success' => 'Uspešno poslano',
+    'send_failed' => 'Pošiljanje ni bilo uspešno',
+    'share_success' => 'Uspešno deljeno',
+    'share_failed' => 'Ni bilo mogoče dati v skupno rabo',
+    'accept_reject_success' => 'Uspešno sprejeto/zavrnjeno',
+    'convert_success' => 'Uspešno pretvorjeno',
     // Auth responses
     'login' => [
         'success' => 'Prijava je bila uspešna',

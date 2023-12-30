@@ -23,6 +23,7 @@ return [
         'tax' => 'Davek',
         'notes' => 'Opombe',
         'total_amount' => 'Skupni znesek',
+        'currency_rate' => 'Menjalni tečaj',
     ],
     'status' => [
         'paid' => 'Plačano',
@@ -67,6 +68,7 @@ return [
         'tax' => 'Davek',
         'notes' => 'Opombe',
         'total_amount' => 'Skupni znesek',
+        'currency_rate' => 'Menjalni tečaj',
     ],
     'document' => [
         'title' => 'Dokument',

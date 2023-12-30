@@ -28,7 +28,7 @@
         "session_timeout": "Vaša seja je potekla. Prosimo, prijavite se znova.",
         "internal_server_error": "Notranja napaka strežnika",
         "validation_error": "Napaka pri validaciji",
-        "not_found_item": "Ne obstaja",
+        "not_found_item": "Ni najdeno",
         "bad_request": "Napačna zahteva"
     },
     "basic": {
@@ -231,7 +231,8 @@
         "salary": "Plača",
         "level": "Raven",
         "contract_type": "Tip pogodbe",
-        "internal_user": "Interni uporabnik"
+        "internal_user": "Interni uporabnik",
+        "sales_person": "Prodajalec"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -330,7 +331,7 @@
     "product": {
         "product": "Izdelek | Izdelki",
         "new_product": "Nov izdelek",
-        "edit_product": "Uredi izdelek",
+        "edit_product": "Uredite izdelek",
         "no_products": "Ni izdelkov",
         "create_first_product": "Ustvarite prvi izdelek",
         "delete_product_confirmation": "Ali ste prepričani, da želite izbrisati ta izdelek?"
@@ -382,7 +383,9 @@
         "payment_error": "Napaka pri plačilu",
         "payment_error_message": "Prišlo je do napake pri obdelavi vašega plačila. Prosimo, poskusite znova.",
         "show_transactions": "Prikaži transakcije",
-        "list_of_transactions": "Seznam transakcij"
+        "list_of_transactions": "Seznam transakcij",
+        "no_sales_person": "Ni prodajalca",
+        "no_payment_method": "Način plačila"
     },
     "quote": {
         "quote": "Ponudba|Ponudbe",
@@ -632,9 +635,9 @@
             "department": "Oddelek | Oddelki",
             "new_department": "Nov oddelek",
             "edit_department": "Uredi oddelek",
-            "no_departments": "No departments found",
-            "create_first_department": "Create your first department",
-            "delete_confirm_department": "Are you sure you want to delete this department?"
+            "no_departments": "Ni oddelkov",
+            "create_first_department": "Ustvarite svoj prvi oddelek",
+            "delete_confirm_department": "Ali ste prepričani, da želite izbrisati ta oddelek?"
         },
         "currency": {
             "title": "Valute",
@@ -711,7 +714,7 @@
             "bill": "Format številke računa",
             "document": "Format številke dokumenta",
             "product": "Format številke produkta",
-            "employee": "Employee number format"
+            "employee": "Format številke zaposlenega"
         }
     },
     "countries": {

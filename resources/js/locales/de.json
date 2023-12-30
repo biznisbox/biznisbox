@@ -231,7 +231,8 @@
         "salary": "Gehalt",
         "level": "Level",
         "contract_type": "Vertragstyp",
-        "internal_user": "Interner Benutzer"
+        "internal_user": "Interner Benutzer",
+        "sales_person": "Verkaufspersonal"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -330,7 +331,7 @@
     "product": {
         "product": "Produkt | Produkte",
         "new_product": "Neue Produkt",
-        "edit_product": "Produkt bearbeiten",
+        "edit_product": "Produkte bearbeiten",
         "no_products": "Keine Produkte gefunden",
         "create_first_product": "Erstelle dein erstes Produkt",
         "delete_product_confirmation": "Sind Sie sicher, dass Sie dieses Produkt löschen möchten?"
@@ -382,7 +383,9 @@
         "payment_error": "Zahlungsfehler",
         "payment_error_message": "Bei der Verarbeitung Ihrer Zahlung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
         "show_transactions": "Transaktionen anzeigen",
-        "list_of_transactions": "Liste der Transaktionen"
+        "list_of_transactions": "Liste der Transaktionen",
+        "no_sales_person": "Kein Verkaufspersonal",
+        "no_payment_method": "Keine Zahlungsmethode"
     },
     "quote": {
         "quote": "Angebot | Angebote",
@@ -624,7 +627,7 @@
             "reset_password": "Passwort zurücksetzen",
             "send_details_to": "Details senden an",
             "never_logged_in": "Niemals eingeloggt",
-            "auto_generate_password": "Passwort automatisch generieren",
+            "auto_generate_password": "Automatisch generiertes Passwort",
             "delete_confirm_user": "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?"
         },
         "department": {
@@ -716,7 +719,7 @@
     },
     "countries": {
         "Afghanistan": "Afghanistan",
-        "Åland Islands": "Aland Inseln",
+        "Åland Islands": "Asland Inseln",
         "Albania": "Albanien",
         "Algeria": "Algeria",
         "American Samoa": "American Samoa",
