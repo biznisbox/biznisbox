@@ -45,6 +45,7 @@ return [
         'check' => 'Kontrolléieren',
         'bank_card' => 'Bankkaart',
         'paypal' => 'PayPal',
+        'stripe' => 'Stripe',
         'other' => 'Aneren',
     ],
     'quote' => [
