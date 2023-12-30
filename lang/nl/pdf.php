@@ -23,6 +23,7 @@ return [
         'tax' => 'Belasting',
         'notes' => 'Opmerkingen',
         'total_amount' => 'Totaal bedrag',
+        'currency_rate' => 'Currency rate',
     ],
     'status' => [
         'paid' => 'Betaald',
@@ -67,6 +68,7 @@ return [
         'tax' => 'Belasting',
         'notes' => 'Opmerkingen',
         'total_amount' => 'Totaal bedrag',
+        'currency_rate' => 'Currency rate',
     ],
     'document' => [
         'title' => 'Document',
