@@ -231,7 +231,8 @@
         "salary": "Зарплата",
         "level": "Уровень",
         "contract_type": "Тип контракта",
-        "internal_user": "Внутренний пользователь"
+        "internal_user": "Внутренний пользователь",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -382,7 +383,9 @@
         "payment_error": "Ошибка платежа",
         "payment_error_message": "Произошла ошибка при обработке вашего платежа. Пожалуйста, попробуйте еще раз.",
         "show_transactions": "Показать транзакции",
-        "list_of_transactions": "Список операций"
+        "list_of_transactions": "Список операций",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Цитата | Предложения",
