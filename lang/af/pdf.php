@@ -45,6 +45,7 @@ return [
         'check' => 'Tjek',
         'bank_card' => 'Bankkaart',
         'paypal' => 'PayPal',
+        'stripe' => 'Stripe',
         'other' => 'Ander',
     ],
     'quote' => [
