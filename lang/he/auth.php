@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed' => 'הפרטים האלה אינם תואמים לרשומות שלנו.',
+    'password' => 'הסיסמה שסופקה אינה נכונה.',
+    'throttle' => 'יותר מדי ניסיונות להתחברות. אנא נסה שוב בעוד :seconds שניות.',
 ];
