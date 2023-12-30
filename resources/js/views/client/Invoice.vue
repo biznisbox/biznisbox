@@ -123,6 +123,24 @@
                         </div>
                     </div>
 
+                    <div class="grid">
+                        <div v-if="!loadingData" class="col-12 md:col-6">
+                            <DisplayData :input="$t('form.sales_person')" custom-value>
+                                <span v-if="invoice.sales_person_id">{{
+                                    invoice.sales_person?.first_name + ' ' + invoice.sales_person?.last_name
+                                }}</span>
+                                <span v-else>{{ $t('invoice.no_sales_person') }}</span>
+                            </DisplayData>
+                        </div>
+
+                        <div v-if="!loadingData" class="col-12 md:col-6">
+                            <DisplayData :input="$t('form.payment_method')" custom-value>
+                                <span v-if="invoice.payment_method">{{ $t('payment_methods.' + invoice.payment_method) }}</span>
+                                <span v-else>{{ $t('invoice.no_payment_method') }}</span>
+                            </DisplayData>
+                        </div>
+                    </div>
+
                     <div v-if="!loadingData" id="invoice_items">
                         <DataTable :value="invoice.items">
                             <template #empty>
@@ -166,7 +184,7 @@
                     <div id="invoice_calculations" class="grid mt-5">
                         <div id="invoice_footer" class="col-12 md:col-6">
                             <DisplayData :input="$t('form.footer')" custom-value>
-                                <span v-if="invoice.footer && !loadingData" v-html="invoice.notes"></span>
+                                <span v-if="invoice.footer && !loadingData" v-html="invoice.footer"></span>
                             </DisplayData>
                         </div>
 

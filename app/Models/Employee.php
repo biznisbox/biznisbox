@@ -106,6 +106,9 @@ class Employee extends Model implements Auditable
     public function getPublicEmployees()
     {
         $employees = $this->select('id', 'first_name', 'last_name', 'email', 'phone_number')->get();
+        foreach ($employees as $employee) {
+            $employee->label = $employee->first_name . ' ' . $employee->last_name . ' (' . $employee->email . ')';
+        }
         return $employees;
     }
 }

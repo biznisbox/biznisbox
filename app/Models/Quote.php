@@ -20,10 +20,12 @@ class Quote extends Model implements Auditable
 
     protected $fillable = [
         'number',
+        'sales_person_id',
         'customer_id',
         'payer_id',
         'total',
         'status',
+        'default_currency',
         'currency',
         'currency_rate',
         'date',
@@ -100,6 +102,11 @@ class Quote extends Model implements Auditable
         return $this->belongsTo(Partner::class, 'payer_id');
     }
 
+    public function salesPerson()
+    {
+        return $this->belongsTo(Employee::class, 'sales_person_id');
+    }
+
     public function getQuotes()
     {
         $quotes = $this->with('items')->get();
@@ -110,6 +117,7 @@ class Quote extends Model implements Auditable
     {
         $data = $this->setPayerData($data, $data['payer_id'], $data['payer_address_id']);
         $data = $this->setCustomerData($data, $data['customer_id'], $data['customer_address_id']);
+        $data['default_currency'] = settings('default_currency');
         $quote = $this->create($data);
         if ($quote) {
             if (isset($data['items'])) {
@@ -169,7 +177,7 @@ class Quote extends Model implements Auditable
     {
         try {
             DB::beginTransaction();
-            $quote = $this->with('items')->find($id);
+            $quote = $this->with('items', 'salesPerson:id,first_name,last_name,email')->find($id);
             DB::commit();
             activity_log(user_data()->data->id, 'get quote pdf', $id, 'App\Models\Quote', 'getQuotePdf');
             return $quote;
@@ -215,7 +223,7 @@ class Quote extends Model implements Auditable
 
     public function getClientQuote($id)
     {
-        $quote = $this->with('items')->find($id);
+        $quote = $this->with('items', 'salesPerson:id,first_name,last_name,email')->find($id);
         unset($quote->notes); // remove notes from client quote - for security reasons (notes are internal)
         // Change the status to viewed
         if ($quote->status != 'viewed' && $quote->status != 'accepted' && $quote->status != 'rejected' && $quote->status != 'converted') {

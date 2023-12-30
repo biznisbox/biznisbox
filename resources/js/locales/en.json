@@ -231,7 +231,8 @@
         "salary": "Salary",
         "level": "Level",
         "contract_type": "Contract Type",
-        "internal_user": "Internal User"
+        "internal_user": "Internal User",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Billing",
@@ -382,7 +383,9 @@
         "payment_error": "Payment error",
         "payment_error_message": "There was an error processing your payment. Please try again.",
         "show_transactions": "Show transactions",
-        "list_of_transactions": "List of transactions"
+        "list_of_transactions": "List of transactions",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Quote | Quotes",

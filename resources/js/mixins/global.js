@@ -6,6 +6,7 @@ export default {
             taxes: [],
             currencies: [],
             languages: [],
+            employees: [],
             countries: countries,
         }
     },
@@ -42,6 +43,16 @@ export default {
         getCurrencies() {
             this.makeHttpRequest('GET', '/api/data', null, { type: 'currencies' }).then((response) => {
                 this.currencies = response.data.data
+            })
+        },
+
+        /**
+         * Get employees
+         * @returns {Promise<void>}
+         **/
+        getEmployees() {
+            this.makeHttpRequest('GET', '/api/data', null, { type: 'employees' }).then((response) => {
+                this.employees = response.data.data
             })
         },
     },

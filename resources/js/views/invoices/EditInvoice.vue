@@ -31,6 +31,15 @@
                                 ]"
                                 :validate="v$.invoice.status"
                             />
+                            <SelectInput
+                                id="sales_person_input"
+                                v-model="invoice.sales_person_id"
+                                class="col-12 md:col-4"
+                                :label="$t('form.sales_person')"
+                                :options="employees"
+                                option-value="id"
+                                option-label="label"
+                            />
                         </div>
 
                         <div class="grid">
@@ -106,6 +115,33 @@
                                 :options="currencies"
                                 option-value="code"
                                 option-label="name"
+                            />
+                        </div>
+
+                        <div class="grid">
+                            <SelectInput
+                                id="sales_person_input"
+                                v-model="invoice.sales_person_id"
+                                class="col-12 md:col-6"
+                                :label="$t('form.sales_person')"
+                                :options="employees"
+                                option-value="id"
+                                option-label="label"
+                            />
+                            <SelectInput
+                                id="payment_method_input"
+                                v-model="invoice.payment_method"
+                                class="col-12 md:col-6"
+                                :label="$t('form.payment_method')"
+                                :options="[
+                                    { label: $t('payment_methods.bank_transfer'), value: 'bank_transfer' },
+                                    { label: $t('payment_methods.cash'), value: 'cash' },
+                                    { label: $t('payment_methods.check'), value: 'check' },
+                                    { label: $t('payment_methods.credit_card'), value: 'credit_card' },
+                                    { label: $t('payment_methods.paypal'), value: 'paypal' },
+                                    { label: $t('payment_methods.stripe'), value: 'stripe' },
+                                    { label: $t('payment_methods.other'), value: 'other' },
+                                ]"
                             />
                         </div>
 
@@ -276,7 +312,7 @@
 
 <script>
 import { useVuelidate } from '@vuelidate/core'
-import { required, helpers } from '@vuelidate/validators'
+import { required } from '@vuelidate/validators'
 import InvoiceMixin from '@/mixins/invoices'
 import TinyMceEditor from '@/components/form/TinyMceEditor.vue'
 export default {
@@ -303,6 +339,7 @@ export default {
     created() {
         this.getPartners()
         this.getProducts()
+        this.getEmployees()
         this.getInvoice(this.$route.params.id)
     },
 

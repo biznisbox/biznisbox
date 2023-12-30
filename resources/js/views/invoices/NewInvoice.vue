@@ -107,6 +107,32 @@
                                 option-label="name"
                             />
                         </div>
+                        <div class="grid">
+                            <SelectInput
+                                id="sales_person_input"
+                                v-model="invoice.sales_person_id"
+                                class="col-12 md:col-6"
+                                :label="$t('form.sales_person')"
+                                :options="employees"
+                                option-value="id"
+                                option-label="label"
+                            />
+                            <SelectInput
+                                id="payment_method_input"
+                                v-model="invoice.payment_method"
+                                class="col-12 md:col-6"
+                                :label="$t('form.payment_method')"
+                                :options="[
+                                    { label: $t('payment_methods.bank_transfer'), value: 'bank_transfer' },
+                                    { label: $t('payment_methods.cash'), value: 'cash' },
+                                    { label: $t('payment_methods.check'), value: 'check' },
+                                    { label: $t('payment_methods.credit_card'), value: 'credit_card' },
+                                    { label: $t('payment_methods.paypal'), value: 'paypal' },
+                                    { label: $t('payment_methods.stripe'), value: 'stripe' },
+                                    { label: $t('payment_methods.other'), value: 'other' },
+                                ]"
+                            />
+                        </div>
 
                         <div id="item_section" class="grid">
                             <div class="col-12">
@@ -293,6 +319,7 @@ export default {
         this.getPartners()
         this.getProducts()
         this.getInvoiceNumber()
+        this.getEmployees()
     },
     validations() {
         return {

@@ -22,8 +22,11 @@ class Invoice extends Model implements Auditable
     protected $fillable = [
         'customer_id',
         'payer_id',
+        'sales_person_id',
+        'type',
         'number',
         'status',
+        'default_currency',
         'currency',
         'currency_rate',
         'payment_method',
@@ -69,11 +72,6 @@ class Invoice extends Model implements Auditable
         return ['Invoice'];
     }
 
-    public function transactions()
-    {
-        return $this->hasMany(Transaction::class, 'invoice_id');
-    }
-
     public function getPreviewAttribute()
     {
         return URL::signedRoute('invoice.pdf', [
@@ -107,6 +105,16 @@ class Invoice extends Model implements Auditable
         return $this->belongsTo(Partner::class, 'payer_id');
     }
 
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'invoice_id');
+    }
+
+    public function salesPerson()
+    {
+        return $this->belongsTo(Employee::class, 'sales_person_id');
+    }
+
     public function getInvoices()
     {
         return Invoice::with('items', 'customer', 'payer')->get();
@@ -121,7 +129,7 @@ class Invoice extends Model implements Auditable
     {
         try {
             DB::beginTransaction();
-            $invoice = Invoice::with('items', 'transactions')->find($id);
+            $invoice = Invoice::with('items', 'transactions', 'salesPerson:id,first_name,last_name,email')->find($id);
             DB::commit();
             activity_log(user_data()->data->id, 'get invoice', $id, 'App\Models\Invoice', 'getInvoice');
             return $invoice;
@@ -142,6 +150,7 @@ class Invoice extends Model implements Auditable
             DB::beginTransaction();
             $data = $this->setPayerData($data, $data['payer_id'], $data['payer_address_id']);
             $data = $this->setCustomerData($data, $data['customer_id'], $data['customer_address_id']);
+            $data['default_currency'] = settings('default_currency');
             $invoice = Invoice::create($data);
             if ($invoice) {
                 if (isset($data['items'])) {
@@ -180,7 +189,6 @@ class Invoice extends Model implements Auditable
             $data = $this->setPayerData($data, $data['payer_id'], $data['payer_address_id']);
             $data = $this->setCustomerData($data, $data['customer_id'], $data['customer_address_id']);
             $invoice = $this->find($id);
-
             if ($invoice->status == 'paid') {
                 return false;
             }
@@ -311,7 +319,7 @@ class Invoice extends Model implements Auditable
     {
         try {
             DB::beginTransaction();
-            $invoice = $this->with('items', 'transactions')->find($id);
+            $invoice = $this->with('items', 'transactions', 'salesPerson:id,first_name,last_name,email')->find($id);
             $invoice->notes = null;
             $invoice->preview = URL::signedRoute('invoice.pdf', ['id' => $invoice->id, 'type' => 'preview', 'lang' => app()->getLocale()]);
             $invoice->download = URL::signedRoute('invoice.pdf', [

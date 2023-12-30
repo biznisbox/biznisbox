@@ -9,6 +9,8 @@ export default {
             customerAddresses: [],
             payerAddresses: [],
             invoice: {
+                sales_person_id: null,
+                sales_person: '',
                 number: '',
                 date: '',
                 due_date: '',

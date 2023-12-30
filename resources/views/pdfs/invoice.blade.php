@@ -166,7 +166,7 @@
                         <span> <strong>{{ __('pdf.invoice.discount')}}</strong> {{ $invoice->discount . ' %' }}</span>
                         <hr />
                         @if ($invoice->currency_rate != 1)
-                        <span><strong>{{ __('pdf.invoice.currency_rate')}}</strong> {{ $invoice->currency_rate }}</span>
+                        <span><strong>{{ __('pdf.invoice.currency_rate')}}</strong> {{ $invoice->currency_rate }}</span> <br />
                         @endif
                         <span><strong>{{ __('pdf.invoice.total_amount')}}</strong> {{ $invoice->total . ' ' . $invoice->currency }}</span>
                     </td>
