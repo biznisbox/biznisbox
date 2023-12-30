@@ -23,6 +23,7 @@ return [
         'tax' => '税',
         'notes' => 'メモ',
         'total_amount' => '合計金額',
+        'currency_rate' => 'Currency rate',
     ],
     'status' => [
         'paid' => '支払い済み',
@@ -67,6 +68,7 @@ return [
         'tax' => '税',
         'notes' => 'メモ',
         'total_amount' => '合計金額',
+        'currency_rate' => 'Currency rate',
     ],
     'document' => [
         'title' => 'ドキュメント',
