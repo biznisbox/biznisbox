@@ -231,7 +231,8 @@
         "salary": "Тарифна ставка",
         "level": "Рівень",
         "contract_type": "Тип контракту",
-        "internal_user": "Внутрішній користувач"
+        "internal_user": "Внутрішній користувач",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -382,7 +383,9 @@
         "payment_error": "Помилка оплати",
         "payment_error_message": "Помилка при обробці вашого платежу. Будь ласка, спробуйте ще раз.",
         "show_transactions": "Показати транзакції",
-        "list_of_transactions": "Список операцій"
+        "list_of_transactions": "Список операцій",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Котирування | Комерційні пропозиції",
