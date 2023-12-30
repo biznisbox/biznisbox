@@ -231,7 +231,8 @@
         "salary": "Salaris",
         "level": "Niveau",
         "contract_type": "Contract type",
-        "internal_user": "Interne gebruiker"
+        "internal_user": "Interne gebruiker",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Facturering",
@@ -382,7 +383,9 @@
         "payment_error": "Betaling fout",
         "payment_error_message": "Er is een fout opgetreden bij het verwerken van uw betaling. Probeer het opnieuw.",
         "show_transactions": "Toon transacties",
-        "list_of_transactions": "Lijst van transacties"
+        "list_of_transactions": "Lijst van transacties",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Offerte aanhalingstekens",
