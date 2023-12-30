@@ -29,7 +29,8 @@
         "internal_server_error": "Interne serverfout",
         "validation_error": "Validatie fout",
         "not_found_item": "Not Found",
-        "bad_request": "Foutief verzoek"
+        "bad_request": "Foutief verzoek",
+        "forbidden": "Forbidden"
     },
     "basic": {
         "cancel": "annuleren",
