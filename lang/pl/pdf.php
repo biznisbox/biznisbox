@@ -45,6 +45,7 @@ return [
         'check' => 'Sprawdzanie',
         'bank_card' => 'Karta bankowa',
         'paypal' => 'PayPal',
+        'stripe' => 'Stripe',
         'other' => 'Inne',
     ],
     'quote' => [
