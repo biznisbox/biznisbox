@@ -29,7 +29,8 @@
         "internal_server_error": "Eroare internă de server",
         "validation_error": "Eroare de validare",
         "not_found_item": "Not Found",
-        "bad_request": "Solicitare greșită"
+        "bad_request": "Solicitare greșită",
+        "forbidden": "Forbidden"
     },
     "basic": {
         "cancel": "Anulează",
