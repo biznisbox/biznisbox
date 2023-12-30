@@ -23,6 +23,7 @@ return [
         'tax' => 'Moms',
         'notes' => 'Noter',
         'total_amount' => 'Samlet beløb',
+        'currency_rate' => 'Currency rate',
     ],
     'status' => [
         'paid' => 'Betalt',
@@ -67,6 +68,7 @@ return [
         'tax' => 'Moms',
         'notes' => 'Noter',
         'total_amount' => 'Samlet beløb',
+        'currency_rate' => 'Currency rate',
     ],
     'document' => [
         'title' => 'Dokument',
