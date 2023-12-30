@@ -29,7 +29,8 @@
         "internal_server_error": "Erro interno do servidor",
         "validation_error": "Erro de validação",
         "not_found_item": "Not Found",
-        "bad_request": "Requisição Inválida"
+        "bad_request": "Requisição Inválida",
+        "forbidden": "Forbidden"
     },
     "basic": {
         "cancel": "cancelar",
