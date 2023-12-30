@@ -23,7 +23,7 @@ return [
         'tax' => 'Skatt',
         'notes' => 'Anteckningar',
         'total_amount' => 'Totalt belopp',
-        'currency_rate' => 'Currency rate',
+        'currency_rate' => 'Valutakurs',
     ],
     'status' => [
         'paid' => 'Betald',
@@ -68,7 +68,7 @@ return [
         'tax' => 'Skatt',
         'notes' => 'Anteckningar',
         'total_amount' => 'Totalt belopp',
-        'currency_rate' => 'Currency rate',
+        'currency_rate' => 'Valutakurs',
     ],
     'document' => [
         'title' => 'Dokument',
