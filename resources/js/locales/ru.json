@@ -29,7 +29,8 @@
         "internal_server_error": "Внутренняя ошибка сервера",
         "validation_error": "Ошибка проверки",
         "not_found_item": "Not Found",
-        "bad_request": "Плохой запрос"
+        "bad_request": "Плохой запрос",
+        "forbidden": "Forbidden"
     },
     "basic": {
         "cancel": "Отмена",
