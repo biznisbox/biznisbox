@@ -29,7 +29,8 @@
         "internal_server_error": "内部サーバーエラー",
         "validation_error": "検証エラー",
         "not_found_item": "Not Found",
-        "bad_request": "不正なリクエスト"
+        "bad_request": "不正なリクエスト",
+        "forbidden": "Forbidden"
     },
     "basic": {
         "cancel": "キャンセル",
