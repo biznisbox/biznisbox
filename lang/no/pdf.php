@@ -23,7 +23,7 @@ return [
         'tax' => 'Avgift',
         'notes' => 'Notater',
         'total_amount' => 'Totale mengden',
-        'currency_rate' => 'Currency rate',
+        'currency_rate' => 'Valutakurs',
     ],
     'status' => [
         'paid' => 'Betalt',
@@ -68,7 +68,7 @@ return [
         'tax' => 'Avgift',
         'notes' => 'Notater',
         'total_amount' => 'Totale mengden',
-        'currency_rate' => 'Currency rate',
+        'currency_rate' => 'Valutakurs',
     ],
     'document' => [
         'title' => 'Dokument',
