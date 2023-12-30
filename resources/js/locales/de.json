@@ -28,7 +28,7 @@
         "session_timeout": "Deine Sitzung ist abgelaufen. Bitte melde dich erneut an.",
         "internal_server_error": "Interner Serverfehler",
         "validation_error": "Validierungsfehler",
-        "not_found_item": "Not Found",
+        "not_found_item": "Nicht gefunden",
         "bad_request": "Falsche Anfrage"
     },
     "basic": {
@@ -232,7 +232,7 @@
         "level": "Level",
         "contract_type": "Vertragstyp",
         "internal_user": "Interner Benutzer",
-        "sales_person": "Sales Person"
+        "sales_person": "Verkaufspersonal"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -321,7 +321,7 @@
         "create_first_partner": "Erstelle deinen ersten Partner",
         "add_contact": "Kontakt hinzufügen",
         "no_contacts": "Keine Kontakte gefunden",
-        "add_address": "Add Address",
+        "add_address": "Adresse hinzufügen",
         "no_addresses": "Keine Adressen gefunden",
         "addresses": "Adressen",
         "contacts": "Kontakte",
@@ -331,7 +331,7 @@
     "product": {
         "product": "Produkt | Produkte",
         "new_product": "Neue Produkt",
-        "edit_product": "Edit Product",
+        "edit_product": "Produkte bearbeiten",
         "no_products": "Keine Produkte gefunden",
         "create_first_product": "Erstelle dein erstes Produkt",
         "delete_product_confirmation": "Sind Sie sicher, dass Sie dieses Produkt löschen möchten?"
@@ -384,8 +384,8 @@
         "payment_error_message": "Bei der Verarbeitung Ihrer Zahlung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
         "show_transactions": "Transaktionen anzeigen",
         "list_of_transactions": "Liste der Transaktionen",
-        "no_sales_person": "No sales person",
-        "no_payment_method": "No payment method"
+        "no_sales_person": "Kein Verkaufspersonal",
+        "no_payment_method": "Keine Zahlungsmethode"
     },
     "quote": {
         "quote": "Angebot | Angebote",
@@ -530,7 +530,7 @@
     },
     "employee_type": {
         "full_time": "Vollzeit",
-        "part_time": "Part-time",
+        "part_time": "Teilzeit",
         "contractor": "Auftragnehmer",
         "intern": "Intern",
         "temporary": "Temporär",
@@ -627,7 +627,7 @@
             "reset_password": "Passwort zurücksetzen",
             "send_details_to": "Details senden an",
             "never_logged_in": "Niemals eingeloggt",
-            "auto_generate_password": "Auto-generate password",
+            "auto_generate_password": "Automatisch generiertes Passwort",
             "delete_confirm_user": "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?"
         },
         "department": {
