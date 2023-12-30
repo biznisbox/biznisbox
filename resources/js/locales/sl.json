@@ -231,7 +231,8 @@
         "salary": "Plača",
         "level": "Raven",
         "contract_type": "Tip pogodbe",
-        "internal_user": "Interni uporabnik"
+        "internal_user": "Interni uporabnik",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -382,7 +383,9 @@
         "payment_error": "Napaka pri plačilu",
         "payment_error_message": "Prišlo je do napake pri obdelavi vašega plačila. Prosimo, poskusite znova.",
         "show_transactions": "Prikaži transakcije",
-        "list_of_transactions": "Seznam transakcij"
+        "list_of_transactions": "Seznam transakcij",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Ponudba|Ponudbe",
