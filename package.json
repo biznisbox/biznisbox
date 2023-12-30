@@ -17,7 +17,7 @@
         "@prettier/plugin-php": "^0.22.1",
         "@shufo/prettier-plugin-blade": "^1.13.4",
         "@vitejs/plugin-vue": "^4.6.1",
-        "axios": "^1.6.2",
+        "axios": "^1.6.3",
         "cy-verify-downloads": "^0.2.3",
         "cypress": "^13.6.2",
         "eslint": "^8.56.0",
