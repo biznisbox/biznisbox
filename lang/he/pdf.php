@@ -45,6 +45,7 @@ return [
         'check' => 'צ\'ק',
         'bank_card' => 'כרטיס בנק',
         'paypal' => 'PayPal',
+        'stripe' => 'Stripe',
         'other' => 'אחר',
     ],
     'quote' => [
