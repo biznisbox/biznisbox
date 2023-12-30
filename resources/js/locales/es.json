@@ -231,7 +231,8 @@
         "salary": "Salario",
         "level": "Nivel",
         "contract_type": "Tipo de contrato",
-        "internal_user": "Usuario interno"
+        "internal_user": "Usuario interno",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Facturación",
@@ -382,7 +383,9 @@
         "payment_error": "Error de pago",
         "payment_error_message": "Hubo un error al procesar su pago. Por favor, inténtelo de nuevo.",
         "show_transactions": "Mostrar transacciones",
-        "list_of_transactions": "Lista de transacciones"
+        "list_of_transactions": "Lista de transacciones",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Cotización | Citas",
