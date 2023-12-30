@@ -23,6 +23,7 @@ return [
         'tax' => 'Податок',
         'notes' => 'Нотатки',
         'total_amount' => 'Загальна сума',
+        'currency_rate' => 'Currency rate',
     ],
     'status' => [
         'paid' => 'Сплачено',
@@ -67,6 +68,7 @@ return [
         'tax' => 'Податок',
         'notes' => 'Нотатки',
         'total_amount' => 'Загальна сума',
+        'currency_rate' => 'Currency rate',
     ],
     'document' => [
         'title' => 'Документ',
