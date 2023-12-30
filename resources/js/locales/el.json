@@ -29,7 +29,8 @@
         "internal_server_error": "Εσωτερικό Σφάλμα Διακομιστή",
         "validation_error": "Σφάλμα Επικύρωσης",
         "not_found_item": "Not Found",
-        "bad_request": "Εσφαλμένο Αίτημα"
+        "bad_request": "Εσφαλμένο Αίτημα",
+        "forbidden": "Forbidden"
     },
     "basic": {
         "cancel": "Ακύρωση",
