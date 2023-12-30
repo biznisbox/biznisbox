@@ -231,7 +231,8 @@
         "salary": "Gehalt",
         "level": "Level",
         "contract_type": "Vertragstyp",
-        "internal_user": "Interner Benutzer"
+        "internal_user": "Interner Benutzer",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -382,7 +383,9 @@
         "payment_error": "Zahlungsfehler",
         "payment_error_message": "Bei der Verarbeitung Ihrer Zahlung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
         "show_transactions": "Transaktionen anzeigen",
-        "list_of_transactions": "Liste der Transaktionen"
+        "list_of_transactions": "Liste der Transaktionen",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Angebot | Angebote",
