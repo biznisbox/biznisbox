@@ -29,7 +29,8 @@
         "internal_server_error": "Intern serverfeil",
         "validation_error": "Feil under validering",
         "not_found_item": "Not Found",
-        "bad_request": "Feil forespørsel"
+        "bad_request": "Feil forespørsel",
+        "forbidden": "Forbidden"
     },
     "basic": {
         "cancel": "Avbryt",
