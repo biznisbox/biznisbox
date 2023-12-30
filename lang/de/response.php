@@ -3,7 +3,7 @@
 return [
     'success' => 'Success',
     'failed' => 'Failed',
-    'not_found' => 'Not found',
+    'not_found' => 'Nicht gefunden',
     'create_success' => 'Created successfully',
     'create_failed' => 'Could not be created',
     'update_success' => 'Updated successfully',
