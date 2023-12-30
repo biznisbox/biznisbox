@@ -23,6 +23,7 @@ return [
         'tax' => 'Podatek',
         'notes' => 'Uwagi',
         'total_amount' => 'Całkowita kwota',
+        'currency_rate' => 'Currency rate',
     ],
     'status' => [
         'paid' => 'Zapłacone',
@@ -67,6 +68,7 @@ return [
         'tax' => 'Podatek',
         'notes' => 'Uwagi',
         'total_amount' => 'Całkowita kwota',
+        'currency_rate' => 'Currency rate',
     ],
     'document' => [
         'title' => 'Dokument',
