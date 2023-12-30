@@ -231,7 +231,8 @@
         "salary": "Salaire",
         "level": "Niveau",
         "contract_type": "Type de contrat",
-        "internal_user": "Utilisateur Interne"
+        "internal_user": "Utilisateur Interne",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Facturation",
@@ -382,7 +383,9 @@
         "payment_error": "Erreur de paiement",
         "payment_error_message": "Une erreur s'est produite lors du traitement de votre paiement. Veuillez réessayer.",
         "show_transactions": "Afficher les transactions",
-        "list_of_transactions": "Liste des opérations"
+        "list_of_transactions": "Liste des opérations",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Devis | Devis",
