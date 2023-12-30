@@ -29,7 +29,8 @@
         "internal_server_error": "Vnitřní chyba serveru",
         "validation_error": "Chyba ověření",
         "not_found_item": "Not Found",
-        "bad_request": "Chybný požadavek"
+        "bad_request": "Chybný požadavek",
+        "forbidden": "Forbidden"
     },
     "basic": {
         "cancel": "Zrušit",
