@@ -45,6 +45,7 @@ return [
         'check' => 'تحقق',
         'bank_card' => 'بطاقة مصرفية',
         'paypal' => 'باي بال',
+        'stripe' => 'Stripe',
         'other' => 'اخرى',
     ],
     'quote' => [
