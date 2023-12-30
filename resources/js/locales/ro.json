@@ -231,7 +231,8 @@
         "salary": "Salariu",
         "level": "Nivel",
         "contract_type": "Tipul contractului",
-        "internal_user": "Utilizator intern"
+        "internal_user": "Utilizator intern",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Facturare",
@@ -382,7 +383,9 @@
         "payment_error": "Eroare de plată",
         "payment_error_message": "A apărut o eroare la procesarea plății tale. Te rugăm să încerci din nou.",
         "show_transactions": "Afișare tranzacții",
-        "list_of_transactions": "Lista tranzacţiilor"
+        "list_of_transactions": "Lista tranzacţiilor",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Ofertă * Oferte",
