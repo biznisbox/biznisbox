@@ -45,6 +45,7 @@ return [
         'check' => 'Zkontrolovat',
         'bank_card' => 'Bankovní karta',
         'paypal' => 'PayPal',
+        'stripe' => 'Stripe',
         'other' => 'Ostatní',
     ],
     'quote' => [
