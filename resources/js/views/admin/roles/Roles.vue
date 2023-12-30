@@ -9,7 +9,16 @@
                 </user-header>
 
                 <div id="roles_table" class="card">
-                    <DataTable :value="roles" @row-dblclick="editRoleNavigation">
+                    <DataTable
+                        :value="roles"
+                        :loading="loadingData"
+                        paginator
+                        data-key="id"
+                        :rows="10"
+                        paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
+                        :rows-per-page-options="[10, 20, 50]"
+                        @row-dblclick="editRoleNavigation"
+                    >
                         <template #empty>
                             <div class="p-4 pl-0 text-center w-full text-gray-500">
                                 <i class="fa fa-info-circle empty-icon"></i>

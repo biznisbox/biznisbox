@@ -114,7 +114,7 @@ class Transaction extends Model implements Auditable
                 'get transaction by invoice id',
                 $invoice_id,
                 'App\Models\Transaction',
-                'getTransactionByInvoiceId'
+                'getTransactionByInvoiceId',
             );
             return $transaction;
         }

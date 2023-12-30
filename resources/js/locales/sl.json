@@ -29,7 +29,8 @@
         "internal_server_error": "Notranja napaka strežnika",
         "validation_error": "Napaka pri validaciji",
         "not_found_item": "Ni najdeno",
-        "bad_request": "Napačna zahteva"
+        "bad_request": "Napačna zahteva",
+        "forbidden": "Zavrnjeno"
     },
     "basic": {
         "cancel": "Prekliči",

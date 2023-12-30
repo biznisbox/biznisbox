@@ -72,7 +72,7 @@ class EmployeesController extends Controller
             null,
             'App\Controllers\EmployeesController',
             'getEmployeeNumber',
-            'Employee'
+            'Employee',
         );
         if ($employeeNumber) {
             return api_response($employeeNumber, __('response.employee.get_success'));

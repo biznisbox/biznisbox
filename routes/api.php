@@ -169,11 +169,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/data', BasicController::class . '@getData');
     Route::get('/dashboard', BasicController::class . '@getDashboardData');
 
-    Route::get('/my_profile', ProfileController::class . '@getUserProfile')->middleware('can:edit_own_profile');
-    Route::put('/my_profile', ProfileController::class . '@updateUserProfile')->middleware('can:edit_own_profile');
-    Route::put('/my_profile/password', ProfileController::class . '@updateUserPassword')->middleware('can:change_own_password');
-    Route::post('/my_profile/avatar', ProfileController::class . '@changeAvatar')->middleware('can:edit_own_profile');
-    Route::delete('/my_profile/avatar', ProfileController::class . '@removeAvatar')->middleware('can:edit_own_profile');
+    Route::get('/my_profile', ProfileController::class . '@getUserProfile');
+    Route::put('/my_profile', ProfileController::class . '@updateUserProfile');
+    Route::put('/my_profile/password', ProfileController::class . '@updateUserPassword');
+    Route::post('/my_profile/avatar', ProfileController::class . '@changeAvatar');
+    Route::delete('/my_profile/avatar', ProfileController::class . '@removeAvatar');
 
     // Admin Routes (Only for Admins)
     Route::middleware(['admin.auth', 'can:admin'])

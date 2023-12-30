@@ -60,35 +60,36 @@ class InitBiznisBox extends Command
         }
 
         // User permissions
-        Permission::firstOrCreate(['name' => 'products', 'display_name' => 'Products']);
-        Permission::firstOrCreate(['name' => 'invoices', 'display_name' => 'Invoices']);
-        Permission::firstOrCreate(['name' => 'quotes', 'display_name' => 'Quotes']);
-        Permission::firstOrCreate(['name' => 'bills', 'display_name' => 'Bills']);
-        Permission::firstOrCreate(['name' => 'accounts', 'display_name' => 'Accounts']);
-        Permission::firstOrCreate(['name' => 'transactions', 'display_name' => 'Transactions']);
-        Permission::firstOrCreate(['name' => 'open_banking', 'display_name' => 'Open Banking']);
-        Permission::firstOrCreate(['name' => 'documents', 'display_name' => 'Documents']);
-        Permission::firstOrCreate(['name' => 'calendar', 'display_name' => 'Calendar']);
-        Permission::firstOrCreate(['name' => 'archive', 'display_name' => 'Archive']);
-        Permission::firstOrCreate(['name' => 'partners', 'display_name' => 'Partners']);
-        Permission::firstOrCreate(['name' => 'employees', 'display_name' => 'Employees']);
-        Permission::firstOrCreate(['name' => 'transactions_categories', 'display_name' => 'Transactions Categories']);
-        Permission::firstOrCreate(['name' => 'edit_own_profile', 'display_name' => 'Edit own profile']);
-        Permission::firstOrCreate(['name' => 'change_own_password', 'display_name' => 'Change own password']);
+        Permission::firstOrCreate(['name' => 'products', 'display_name' => 'permissions.products']);
+        Permission::firstOrCreate(['name' => 'invoices', 'display_name' => 'permissions.invoices']);
+        Permission::firstOrCreate(['name' => 'quotes', 'display_name' => 'permissions.quotes']);
+        Permission::firstOrCreate(['name' => 'bills', 'display_name' => 'permissions.bills']);
+        Permission::firstOrCreate(['name' => 'accounts', 'display_name' => 'permissions.accounts']);
+        Permission::firstOrCreate(['name' => 'transactions', 'display_name' => 'permissions.transactions']);
+        Permission::firstOrCreate(['name' => 'open_banking', 'display_name' => 'permissions.open_banking']);
+        Permission::firstOrCreate(['name' => 'documents', 'display_name' => 'permissions.documents']);
+        Permission::firstOrCreate(['name' => 'calendar', 'display_name' => 'permissions.calendar']);
+        Permission::firstOrCreate(['name' => 'archive', 'display_name' => 'permissions.archive']);
+        Permission::firstOrCreate(['name' => 'partners', 'display_name' => 'permissions.partners']);
+        Permission::firstOrCreate(['name' => 'employees', 'display_name' => 'permissions.employees']);
+        Permission::firstOrCreate(['name' => 'transactions_categories', 'display_name' => 'permissions.transactions_categories']);
 
         // Admin permissions
-        Permission::firstOrCreate(['name' => 'admin', 'display_name' => 'Admin']); // Must had this permission to access admin panel
-        Permission::firstOrCreate(['name' => 'admin_users', 'display_name' => 'Admin Users']);
-        Permission::firstOrCreate(['name' => 'admin_roles', 'display_name' => 'Admin Roles']);
-        Permission::firstOrCreate(['name' => 'admin_permissions', 'display_name' => 'Admin Permissions']);
-        Permission::firstOrCreate(['name' => 'admin_integrations', 'display_name' => 'Admin Integrations']);
-        Permission::firstOrCreate(['name' => 'admin_departments', 'display_name' => 'Admin Departments']);
-        Permission::firstOrCreate(['name' => 'admin_company_settings', 'display_name' => 'Admin Company Settings']);
-        Permission::firstOrCreate(['name' => 'admin_general_settings', 'display_name' => 'Admin General Settings']);
-        Permission::firstOrCreate(['name' => 'admin_currencies', 'display_name' => 'Admin Currencies']);
-        Permission::firstOrCreate(['name' => 'admin_tax_rates', 'display_name' => 'Admin Tax Rates']);
-        Permission::firstOrCreate(['name' => 'admin_numbering', 'display_name' => 'Admin Numbering']);
-        Permission::firstOrCreate(['name' => 'admin_payment_methods', 'display_name' => 'Admin Payment Methods']);
+        Permission::firstOrCreate(['name' => 'admin', 'display_name' => 'permissions.admin']);
+        Permission::firstOrCreate(['name' => 'admin_users', 'display_name' => 'permissions.admin_users']);
+        Permission::firstOrCreate(['name' => 'admin_roles', 'display_name' => 'permissions.admin_roles']);
+        Permission::firstOrCreate(['name' => 'admin_permissions', 'display_name' => 'permissions.admin_permissions']);
+        Permission::firstOrCreate(['name' => 'admin_integrations', 'display_name' => 'permissions.admin_integrations']);
+        Permission::firstOrCreate(['name' => 'admin_departments', 'display_name' => 'permissions.admin_departments']);
+        Permission::firstOrCreate(['name' => 'admin_company_settings', 'display_name' => 'permissions.admin_company_settings']);
+        Permission::firstOrCreate(['name' => 'admin_general_settings', 'display_name' => 'permissions.admin_general_settings']);
+        Permission::firstOrCreate(['name' => 'admin_currencies', 'display_name' => 'permissions.admin_currencies']);
+        Permission::firstOrCreate(['name' => 'admin_tax_rates', 'display_name' => 'permissions.admin_tax_rates']);
+        Permission::firstOrCreate(['name' => 'admin_numbering', 'display_name' => 'permissions.admin_numbering']);
+        Permission::firstOrCreate(['name' => 'admin_payment_methods', 'display_name' => 'permissions.admin_payment_methods']);
+
+        Permission::where('name', 'edit_own_profile')->delete();
+        Permission::where('name', 'change_own_password')->delete();
 
         // Assign all permissions to admin role
         $admin = Role::where('name', 'super_admin')->first();
@@ -110,8 +111,8 @@ class InitBiznisBox extends Command
                 'calendar',
                 'archive',
                 'partners',
-                'edit_own_profile',
-                'change_own_password',
+                'employees',
+                'transactions_categories',
             ]);
         }
 
@@ -189,39 +190,39 @@ class InitBiznisBox extends Command
 
             Settings::firstOrCreate(
                 ['key' => 'quote_number_format'],
-                ['value' => '{{TEXT:QUO}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+                ['value' => '{{TEXT:QUO}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
             );
             Settings::firstOrCreate(
                 ['key' => 'invoice_number_format'],
-                ['value' => '{{TEXT:INV}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+                ['value' => '{{TEXT:INV}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
             );
             Settings::firstOrCreate(
                 ['key' => 'payment_number_format'],
-                ['value' => '{{TEXT:PAY}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+                ['value' => '{{TEXT:PAY}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
             );
             Settings::firstOrCreate(
                 ['key' => 'transaction_number_format'],
-                ['value' => '{{TEXT:TRA}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+                ['value' => '{{TEXT:TRA}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
             );
             Settings::firstOrCreate(
                 ['key' => 'document_number_format'],
-                ['value' => '{{TEXT:DOC}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+                ['value' => '{{TEXT:DOC}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
             );
             Settings::firstOrCreate(
                 ['key' => 'bill_number_format'],
-                ['value' => '{{TEXT:BILL}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+                ['value' => '{{TEXT:BILL}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
             );
             Settings::firstOrCreate(
                 ['key' => 'product_number_format'],
-                ['value' => '{{TEXT:PRO}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+                ['value' => '{{TEXT:PRO}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
             );
             Settings::firstOrCreate(
                 ['key' => 'partner_number_format'],
-                ['value' => '{{TEXT:PAR}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+                ['value' => '{{TEXT:PAR}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
             );
             Settings::firstOrCreate(
                 ['key' => 'employee_number_format'],
-                ['value' => '{{TEXT:EMP}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+                ['value' => '{{TEXT:EMP}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
             );
         }
 

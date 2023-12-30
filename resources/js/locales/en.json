@@ -29,7 +29,8 @@
         "internal_server_error": "Internal Server Error",
         "validation_error": "Validation Error",
         "not_found_item": "Not Found",
-        "bad_request": "Bad Request"
+        "bad_request": "Bad Request",
+        "forbidden": "Forbidden"
     },
     "basic": {
         "cancel": "Cancel",

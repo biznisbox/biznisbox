@@ -18,4 +18,9 @@ class Permission extends SpatiePermission
     protected $casts = [
         'id' => 'string',
     ];
+
+    public function getDisplayNameAttribute($value)
+    {
+        return __($this->attributes['display_name']);
+    }
 }

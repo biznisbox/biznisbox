@@ -49,12 +49,8 @@
             </div>
         </LoadingScreen>
         <SpeedDial
-            :model="[
-                { icon: 'fa fa-file-invoice', label: $t('invoice.new_invoice'), command: () => this.$router.push('/invoices/new') },
-                { icon: 'fa fa-money-bill', label: $t('bill.new_bill'), command: () => this.$router.push('/bills/new') },
-                { icon: 'fa fa-boxes', label: $t('product.new_product'), command: () => this.$router.push('/products/new') },
-                { icon: 'fa fa-users', label: $t('partner.new_partner'), command: () => this.$router.push('/partners/new') },
-            ]"
+            v-if="speedDialItems.length > 0"
+            :model="speedDialItems"
             direction="up"
             :style="{ right: '1rem', bottom: '1rem' }"
             :tooltipOptions="{ position: 'left' }"
@@ -67,6 +63,7 @@ export default {
     name: 'Dashboard',
     data() {
         return {
+            speedDialItems: [],
             data: {
                 year_income_expense_char: {
                     labels: [],
@@ -85,12 +82,43 @@ export default {
     },
     created() {
         this.getDashboardData()
+        this.setSpeedDialItems()
     },
     methods: {
         getDashboardData() {
             this.makeHttpRequest('GET', '/api/dashboard').then((response) => {
                 this.data = response.data.data
             })
+        },
+        setSpeedDialItems() {
+            if (this.hasPermission('invoices')) {
+                this.speedDialItems.push({
+                    icon: 'fa fa-file-invoice',
+                    label: this.$t('invoice.new_invoice'),
+                    command: () => this.$router.push('/invoices/new'),
+                })
+            }
+            if (this.hasPermission('bills')) {
+                this.speedDialItems.push({
+                    icon: 'fa fa-money-bill',
+                    label: this.$t('bill.new_bill'),
+                    command: () => this.$router.push('/bills/new'),
+                })
+            }
+            if (this.hasPermission('products')) {
+                this.speedDialItems.push({
+                    icon: 'fa fa-boxes',
+                    label: this.$t('product.new_product'),
+                    command: () => this.$router.push('/products/new'),
+                })
+            }
+            if (this.hasPermission('partners')) {
+                this.speedDialItems.push({
+                    icon: 'fa fa-users',
+                    label: this.$t('partner.new_partner'),
+                    command: () => this.$router.push('/partners/new'),
+                })
+            }
         },
     },
 }

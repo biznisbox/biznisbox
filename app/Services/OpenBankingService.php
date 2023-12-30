@@ -120,7 +120,7 @@ class OpenBankingService
                                 now()
                                     ->subDays($bank['transaction_total_days'] ?? 90)
                                     ->format('Y-m-d'),
-                                now()->format('Y-m-d')
+                                now()->format('Y-m-d'),
                             )['transactions']['booked'];
 
                             foreach ($transactions as $transaction) {
@@ -178,7 +178,7 @@ class OpenBankingService
                     if ($account->current_balance != $balance['balances'][0]['balanceAmount']['amount']) {
                         $transactions = $accountBank->getAccountTransactions(
                             Carbon::parse($bank->last_transaction_sync)->format('Y-m-d'),
-                            now()->format('Y-m-d')
+                            now()->format('Y-m-d'),
                         )['transactions']['booked'];
                         $transactions_amount = 0;
                         foreach ($transactions as $transaction) {

@@ -66,7 +66,7 @@ class ActivityLog extends Model
         $auditable_type = null,
         $tags = null,
         $type = 'internal',
-        $external_key = null
+        $external_key = null,
     ) {
         self::create([
             'auditable_id' => $auditable_id,

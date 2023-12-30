@@ -43,10 +43,10 @@ class OnlinePaymentService
             $payment = $stripe->checkout->sessions->create([
                 'mode' => 'payment',
                 'success_url' => url(
-                    'api/online_payment/stripe/success?key=' . $key . '&status=success&lang=' . app()->getLocale() . '&type=' . $type
+                    'api/online_payment/stripe/success?key=' . $key . '&status=success&lang=' . app()->getLocale() . '&type=' . $type,
                 ),
                 'cancel_url' => url(
-                    'api/online_payment/stripe/cancel?key=' . $key . '&status=cancel&lang=' . app()->getLocale() . '&type=' . $type
+                    'api/online_payment/stripe/cancel?key=' . $key . '&status=cancel&lang=' . app()->getLocale() . '&type=' . $type,
                 ),
                 'payment_method_types' => ['card'],
                 'metadata' => [
@@ -195,10 +195,10 @@ class OnlinePaymentService
                     'currency' => $invoice->currency,
                     'description' => __('response.payment.invoice') . ' ' . $invoice->number,
                     'returnUrl' => url(
-                        'api/online_payment/paypal/success?key=' . $key . '&status=success&lang=' . app()->getLocale() . '&type=' . $type
+                        'api/online_payment/paypal/success?key=' . $key . '&status=success&lang=' . app()->getLocale() . '&type=' . $type,
                     ),
                     'cancelUrl' => url(
-                        'api/online_payment/paypal/cancel?key=' . $key . '&status=cancel&lang=' . app()->getLocale() . '&type=' . $type
+                        'api/online_payment/paypal/cancel?key=' . $key . '&status=cancel&lang=' . app()->getLocale() . '&type=' . $type,
                     ),
                 ])
                 ->send();

@@ -344,7 +344,7 @@ class SettingsService
                 'server_os' => $server_os,
                 'hostname' => $hostname,
             ],
-            __('response.admin.server_status')
+            __('response.admin.server_status'),
         );
     }
 }

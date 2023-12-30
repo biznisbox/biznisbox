@@ -51,7 +51,7 @@ class QuoteService
                 'App\Models\Estimate',
                 'ClientEstimate',
                 'external',
-                $key
+                $key,
             );
             return api_response($quote, __('response.success'));
         }

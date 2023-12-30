@@ -30,7 +30,7 @@ class DepartmentController extends Controller
             'get department',
             $department_id,
             'App\Http\Controllers\Admin\DepartmentController',
-            'getDepartment'
+            'getDepartment',
         );
         if ($department) {
             return api_response($department);
@@ -77,7 +77,7 @@ class DepartmentController extends Controller
             'get departments with employees',
             null,
             'App\Http\Controllers\Admin\DepartmentController',
-            'getDepartmentsWithEmployees'
+            'getDepartmentsWithEmployees',
         );
         return api_response($departments);
     }

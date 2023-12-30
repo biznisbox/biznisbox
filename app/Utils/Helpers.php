@@ -21,7 +21,7 @@ if (!function_exists('api_response')) {
                 'data' => $data,
                 'message' => $message,
             ],
-            $status_code
+            $status_code,
         );
     }
 }
@@ -99,7 +99,7 @@ if (!function_exists('activity_log')) {
         $auditable_type = null,
         $tags = null,
         $type = null,
-        $external_key = null
+        $external_key = null,
     ) {
         $activity = new \App\Models\ActivityLog();
         $activity->createLog($user_id, $event, $auditable_id, $auditable_type, $tags, $type, $external_key);
@@ -358,7 +358,7 @@ if (!function_exists('calculateTotalHelper')) {
         $discount_type = 'percentage',
         $currency_rate = null,
         $tax = null,
-        $tax_type = 'percentage'
+        $tax_type = 'percentage',
     ) {
         $total = 0;
         foreach ($items as $item) {

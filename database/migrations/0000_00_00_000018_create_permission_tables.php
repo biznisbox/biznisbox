@@ -23,7 +23,7 @@ class CreatePermissionTables extends Migration
         }
         if ($teams && empty($columnNames['team_foreign_key'] ?? null)) {
             throw new \Exception(
-                'Error: team_foreign_key on config/permission.php not loaded. Run [php artisan config:clear] and try again.'
+                'Error: team_foreign_key on config/permission.php not loaded. Run [php artisan config:clear] and try again.',
             );
         }
 
@@ -80,12 +80,12 @@ class CreatePermissionTables extends Migration
                         $columnNames['model_morph_key'],
                         'model_type',
                     ],
-                    'model_has_permissions_permission_model_type_primary'
+                    'model_has_permissions_permission_model_type_primary',
                 );
             } else {
                 $table->primary(
                     [PermissionRegistrar::$pivotPermission, $columnNames['model_morph_key'], 'model_type'],
-                    'model_has_permissions_permission_model_type_primary'
+                    'model_has_permissions_permission_model_type_primary',
                 );
             }
         });
@@ -108,12 +108,12 @@ class CreatePermissionTables extends Migration
 
                 $table->primary(
                     [$columnNames['team_foreign_key'], PermissionRegistrar::$pivotRole, $columnNames['model_morph_key'], 'model_type'],
-                    'model_has_roles_role_model_type_primary'
+                    'model_has_roles_role_model_type_primary',
                 );
             } else {
                 $table->primary(
                     [PermissionRegistrar::$pivotRole, $columnNames['model_morph_key'], 'model_type'],
-                    'model_has_roles_role_model_type_primary'
+                    'model_has_roles_role_model_type_primary',
                 );
             }
         });
@@ -136,7 +136,7 @@ class CreatePermissionTables extends Migration
 
             $table->primary(
                 [PermissionRegistrar::$pivotPermission, PermissionRegistrar::$pivotRole],
-                'role_has_permissions_permission_id_role_id_primary'
+                'role_has_permissions_permission_id_role_id_primary',
             );
         });
 
@@ -156,7 +156,7 @@ class CreatePermissionTables extends Migration
 
         if (empty($tableNames)) {
             throw new \Exception(
-                'Error: config/permission.php not found and defaults could not be merged. Please publish the package configuration before proceeding, or drop the tables manually.'
+                'Error: config/permission.php not found and defaults could not be merged. Please publish the package configuration before proceeding, or drop the tables manually.',
             );
         }
 

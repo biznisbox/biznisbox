@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
             QuoteSeeder::class,
             BillSeeder::class,
             TransactionSeeder::class,
+            DepartmentSeeder::class,
+            EmployeeSeeder::class,
         ]);
     }
 }

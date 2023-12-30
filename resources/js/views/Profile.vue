@@ -147,8 +147,8 @@
                             </DataTable>
                         </TabPanel>
 
-                        <TabPanel :header="$t('profile.change_password')" v-if="hasPermission('change_own_password')">
-                            <div class="grid p-3">
+                        <TabPanel :header="$t('profile.change_password')">
+                            <div class="grid p-2">
                                 <div class="col-12 md:col-6">
                                     <PasswordInput
                                         id="input_password"
@@ -247,7 +247,7 @@ export default {
         changePassword() {
             this.v$.password.$touch()
             if (this.v$.password.$invalid) {
-                return this.showToast(this.$t('basic.form_invalid'), '', 'error')
+                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
             }
 
             this.makeHttpRequest('PUT', '/api/my_profile/password', this.password).then((response) => {
