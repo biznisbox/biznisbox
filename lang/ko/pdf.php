@@ -45,6 +45,7 @@ return [
         'check' => '수표',
         'bank_card' => '은행 카드',
         'paypal' => '페이팔',
+        'stripe' => 'Stripe',
         'other' => '기타',
     ],
     'quote' => [
