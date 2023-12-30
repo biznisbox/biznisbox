@@ -10,37 +10,30 @@
             line-height: 1.3;
             color: #333;
         }
-
         h1 {
             font-size: 20px;
             margin: 0;
         }
-
         p {
             margin: 0;
         }
-
         table {
             width: 100%;
             max-width: 100%;
             margin-bottom: 20px;
         }
-
         table th {
             text-align: left;
         }
-
         table {
             border-collapse: collapse;
             border-spacing: 0;
         }
-
         #footer {
             position: fixed;
             left: 20px;
             bottom: 0;
         }
-
         #footer .page:after {
             content: counter(page);
         }
