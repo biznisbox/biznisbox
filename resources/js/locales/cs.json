@@ -231,7 +231,8 @@
         "salary": "Plat",
         "level": "Úrovně",
         "contract_type": "Typ smlouvy",
-        "internal_user": "Interní uživatel"
+        "internal_user": "Interní uživatel",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -382,7 +383,9 @@
         "payment_error": "Chyba platby",
         "payment_error_message": "Při zpracování vaší platby došlo k chybě. Zkuste to znovu.",
         "show_transactions": "Zobrazit transakce",
-        "list_of_transactions": "Seznam transakcí"
+        "list_of_transactions": "Seznam transakcí",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Cenová nabídka | Cenové nabídky",
