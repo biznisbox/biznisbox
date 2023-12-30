@@ -45,6 +45,7 @@ return [
         'check' => 'Séc',
         'bank_card' => 'Thẻ ngân hàng',
         'paypal' => 'PayPal',
+        'stripe' => 'Stripe',
         'other' => 'Khác',
     ],
     'quote' => [
