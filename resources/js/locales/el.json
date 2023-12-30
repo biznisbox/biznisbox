@@ -231,7 +231,8 @@
         "salary": "Μισθός",
         "level": "Επίπεδο",
         "contract_type": "Τύπος Συμβολαίου",
-        "internal_user": "Εσωτερικός Χρήστης"
+        "internal_user": "Εσωτερικός Χρήστης",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -382,7 +383,9 @@
         "payment_error": "Σφάλμα πληρωμής",
         "payment_error_message": "Παρουσιάστηκε σφάλμα κατά την επεξεργασία της πληρωμής σας. Παρακαλώ δοκιμάστε ξανά.",
         "show_transactions": "Εμφάνιση συναλλαγών",
-        "list_of_transactions": "Λίστα συναλλαγών"
+        "list_of_transactions": "Λίστα συναλλαγών",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Προσφορά Προσφορών",
