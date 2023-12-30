@@ -29,7 +29,8 @@
         "internal_server_error": "خطأ خادم داخلي",
         "validation_error": "خطأ في التحقق",
         "not_found_item": "Not Found",
-        "bad_request": "طلب خاطئ"
+        "bad_request": "طلب خاطئ",
+        "forbidden": "Forbidden"
     },
     "basic": {
         "cancel": "إلغاء",
