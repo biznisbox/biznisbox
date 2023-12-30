@@ -23,7 +23,7 @@ return [
         'tax' => 'Taxa',
         'notes' => 'Note',
         'total_amount' => 'Suma totală',
-        'currency_rate' => 'Currency rate',
+        'currency_rate' => 'Rată valutară',
     ],
     'status' => [
         'paid' => 'Plătit',
@@ -68,7 +68,7 @@ return [
         'tax' => 'Taxa',
         'notes' => 'Note',
         'total_amount' => 'Suma totală',
-        'currency_rate' => 'Currency rate',
+        'currency_rate' => 'Rată valutară',
     ],
     'document' => [
         'title' => 'Document',
