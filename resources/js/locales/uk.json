@@ -29,7 +29,8 @@
         "internal_server_error": "Внутрішня помилка сервера",
         "validation_error": "Помилка перевірки",
         "not_found_item": "Not Found",
-        "bad_request": "Невірний запит"
+        "bad_request": "Невірний запит",
+        "forbidden": "Forbidden"
     },
     "basic": {
         "cancel": "Скасувати",
