@@ -23,6 +23,7 @@ return [
         'tax' => 'Φόρος',
         'notes' => 'Σημειώσεις',
         'total_amount' => 'Συνολικό ποσό',
+        'currency_rate' => 'Currency rate',
     ],
     'status' => [
         'paid' => 'Πληρωμένο',
@@ -67,6 +68,7 @@ return [
         'tax' => 'Φόρος',
         'notes' => 'Σημειώσεις',
         'total_amount' => 'Συνολικό ποσό',
+        'currency_rate' => 'Currency rate',
     ],
     'document' => [
         'title' => 'Έγγραφο',
