@@ -231,7 +231,8 @@
         "salary": "Løn",
         "level": "Niveau",
         "contract_type": "Kontrakt Type",
-        "internal_user": "Intern Bruger"
+        "internal_user": "Intern Bruger",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -382,7 +383,9 @@
         "payment_error": "Betaling fejl",
         "payment_error_message": "Der opstod en fejl under behandlingen af din betaling. Prøv venligst igen.",
         "show_transactions": "Vis transaktioner",
-        "list_of_transactions": "Liste over transaktioner"
+        "list_of_transactions": "Liste over transaktioner",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Tilbud - Tilbud",
