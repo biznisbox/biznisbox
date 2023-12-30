@@ -1,6 +1,27 @@
 <?php
 
 return [
+    'success' => 'Success',
+    'failed' => 'Failed',
+    'not_found' => 'Not found',
+    'create_success' => 'Created successfully',
+    'create_failed' => 'Could not be created',
+    'update_success' => 'Updated successfully',
+    'update_failed' => 'Could not be updated',
+    'delete_success' => 'Deleted successfully',
+    'delete_failed' => 'Could not be deleted',
+    'get_success' => 'Retrieved successfully',
+    'get_failed' => 'Could not be retrieved',
+    'upload_success' => 'Uploaded successfully',
+    'upload_failed' => 'Could not be uploaded',
+    'remove_success' => 'Removed successfully',
+    'remove_failed' => 'Could not be removed',
+    'send_success' => 'Sent successfully',
+    'send_failed' => 'Could not be sent',
+    'share_success' => 'Shared successfully',
+    'share_failed' => 'Could not be shared',
+    'accept_reject_success' => 'Accepted/rejected successfully',
+    'convert_success' => 'Converted successfully',
     // Auth responses
     'login' => [
         'success' => 'Has iniciado sesión correctamente',
