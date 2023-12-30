@@ -231,7 +231,8 @@
         "salary": "給料：",
         "level": "レベル",
         "contract_type": "契約タイプ",
-        "internal_user": "内部ユーザー"
+        "internal_user": "内部ユーザー",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "請求",
@@ -382,7 +383,9 @@
         "payment_error": "支払いエラー",
         "payment_error_message": "お支払い処理中にエラーが発生しました。もう一度やり直してください。",
         "show_transactions": "取引を表示",
-        "list_of_transactions": "取引一覧"
+        "list_of_transactions": "取引一覧",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "引用 | 引用",
