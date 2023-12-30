@@ -231,7 +231,8 @@
         "salary": "Wynagrodzenie",
         "level": "Poziom",
         "contract_type": "Typ umowy",
-        "internal_user": "Użytkownik wewnętrzny"
+        "internal_user": "Użytkownik wewnętrzny",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Płatność",
@@ -382,7 +383,9 @@
         "payment_error": "Błąd płatności",
         "payment_error_message": "Wystąpił błąd podczas przetwarzania płatności. Spróbuj ponownie.",
         "show_transactions": "Pokaż transakcje",
-        "list_of_transactions": "Lista transakcji"
+        "list_of_transactions": "Lista transakcji",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Oferta | Oferty",
