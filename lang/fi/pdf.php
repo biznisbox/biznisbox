@@ -23,7 +23,7 @@ return [
         'tax' => 'Vero',
         'notes' => 'Muistiinpanot',
         'total_amount' => 'Määrä yhteensä',
-        'currency_rate' => 'Currency rate',
+        'currency_rate' => 'Valuuttakurssi',
     ],
     'status' => [
         'paid' => 'Maksettu',
@@ -68,7 +68,7 @@ return [
         'tax' => 'Vero',
         'notes' => 'Muistiinpanot',
         'total_amount' => 'Määrä yhteensä',
-        'currency_rate' => 'Currency rate',
+        'currency_rate' => 'Valuuttakurssi',
     ],
     'document' => [
         'title' => 'Asiakirja',
