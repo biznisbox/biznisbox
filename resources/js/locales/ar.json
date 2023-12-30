@@ -231,7 +231,8 @@
         "salary": "الراتب",
         "level": "المستوى",
         "contract_type": "نوع العقد",
-        "internal_user": "مستخدم داخلي"
+        "internal_user": "مستخدم داخلي",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "الفواتير",
@@ -382,7 +383,9 @@
         "payment_error": "خطأ في الدفع",
         "payment_error_message": "حدث خطأ أثناء معالجة الدفع الخاص بك. الرجاء المحاولة مرة أخرى.",
         "show_transactions": "إظهار المعاملات",
-        "list_of_transactions": "قائمة المعاملات"
+        "list_of_transactions": "قائمة المعاملات",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "اقتباس <unk> اقتباس",
