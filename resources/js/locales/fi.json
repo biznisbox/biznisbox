@@ -231,7 +231,8 @@
         "salary": "Palkka",
         "level": "Taso",
         "contract_type": "Sopimuksen Tyyppi",
-        "internal_user": "Sisäinen Käyttäjä"
+        "internal_user": "Sisäinen Käyttäjä",
+        "sales_person": "Sales Person"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -382,7 +383,9 @@
         "payment_error": "Maksu virhe",
         "payment_error_message": "Maksusi käsittelyssä tapahtui virhe. Ole hyvä ja yritä uudelleen.",
         "show_transactions": "Näytä tapahtumat",
-        "list_of_transactions": "Luettelo tapahtumista"
+        "list_of_transactions": "Luettelo tapahtumista",
+        "no_sales_person": "No sales person",
+        "no_payment_method": "No payment method"
     },
     "quote": {
         "quote": "Tarjous - Lainaukset",
