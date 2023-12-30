@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed' => 'Hierdie geloofsbriewe stem nie ooreen met ons rekords nie.',
+    'password' => 'Die verskafte wagwoord is nie korrek nie.',
+    'throttle' => 'Te veel aanmeldpogings. Probeer asseblief weer in :seconds sekondes.',
 ];
