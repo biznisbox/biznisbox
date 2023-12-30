@@ -45,6 +45,7 @@ return [
         'check' => 'Перевірити',
         'bank_card' => 'Банківська картка',
         'paypal' => 'PayPal',
+        'stripe' => 'Stripe',
         'other' => 'Інше',
     ],
     'quote' => [
