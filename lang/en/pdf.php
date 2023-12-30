@@ -23,6 +23,7 @@ return [
         'tax' => 'Tax',
         'notes' => 'Notes',
         'total_amount' => 'Total amount',
+        'currency_rate' => 'Currency rate',
     ],
     'status' => [
         'paid' => 'Paid',
@@ -67,6 +68,7 @@ return [
         'tax' => 'Tax',
         'notes' => 'Notes',
         'total_amount' => 'Total amount',
+        'currency_rate' => 'Currency rate',
     ],
     'document' => [
         'title' => 'Document',
