@@ -16,16 +16,17 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
+            TaxesSeeder::class,
             ProductsSeeder::class,
             AccountsSeeder::class,
             CalendarSeeder::class,
+            DepartmentSeeder::class,
+            EmployeeSeeder::class,
             PartnersSeeder::class,
             InvoiceSeeder::class,
             QuoteSeeder::class,
             BillSeeder::class,
             TransactionSeeder::class,
-            DepartmentSeeder::class,
-            EmployeeSeeder::class,
         ]);
     }
 }

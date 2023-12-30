@@ -69,7 +69,7 @@ class Partner extends Model implements Auditable
 
     public function getPartners($type = null)
     {
-        // type can have comma separated values
+        // type can have comma separated values (customer, supplier, both)
         if ($type) {
             $type = explode(',', $type);
             return $this->with('addresses', 'contacts')

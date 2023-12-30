@@ -31,15 +31,6 @@
                                 ]"
                                 :validate="v$.invoice.status"
                             />
-                            <SelectInput
-                                id="sales_person_input"
-                                v-model="invoice.sales_person_id"
-                                class="col-12 md:col-4"
-                                :label="$t('form.sales_person')"
-                                :options="employees"
-                                option-value="id"
-                                option-label="label"
-                            />
                         </div>
 
                         <div class="grid">

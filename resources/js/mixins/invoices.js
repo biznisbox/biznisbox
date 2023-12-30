@@ -164,7 +164,7 @@ export default {
          **/
 
         getPartners() {
-            this.makeHttpRequest('GET', '/api/partners_list?type=both,customers').then((response) => {
+            this.makeHttpRequest('GET', '/api/partners_list?type=both,customer').then((response) => {
                 this.partners = response.data.data
             })
         },

@@ -67,14 +67,15 @@ class Product extends Model implements Auditable
      */
     public function getStockStatusAttribute()
     {
+        // if product is service or type is null
         if ($this->type == 'service' || $this->type == null) {
             return null;
         }
-
+        // if stock, stock_min and stock_max are null or 0
         if ($this->stock == null && $this->stock_min == null && $this->stock_max == null) {
             return null;
         }
-
+        
         if ($this->stock <= 0) {
             return 'out_of_stock';
         } elseif ($this->stock_max > $this->stock && $this->stock > $this->stock_min) {
@@ -92,7 +93,7 @@ class Product extends Model implements Auditable
     {
         return DB::table('taxes')
             ->find($this->tax)
-            ->get(['name', 'value', 'description', 'active']);
+            ->get(['name', 'value', 'description', 'is_active']);
     }
 
     public function getProducts()

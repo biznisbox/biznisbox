@@ -21,7 +21,7 @@ class AccountsSeeder extends Seeder
             $balance = fake()->randomFloat(2, 1, 1000);
             Accounts::create([
                 'id' => $id,
-                'name' => 'Account ' . fake()->randomElement(['A', 'B', 'C', 'D', 'E']),
+                'name' => 'Account ' . fake()->randomNumber(5),
                 'description' => fake()->sentence(),
                 'currency' => 'EUR',
                 'type' => fake()->randomElement(['bank_account', 'cash', 'online_account']),

@@ -15,7 +15,6 @@ class ProductsSeeder extends Seeder
      */
     public function run()
     {
-        $units = ['pcs', 'kg', 'm', 'l', 'm2', 'm3', 'hour', 'day', 'week', 'month', 'year', 'unit', 'ml'];
         for ($i = 0; $i < 20; $i++) {
             Product::create([
                 'id' => fake()->uuid(),
@@ -25,10 +24,10 @@ class ProductsSeeder extends Seeder
                 'sell_price' => fake()->randomFloat(2, 1, 100),
                 'buy_price' => fake()->randomFloat(2, 1, 100),
                 'stock' => fake()->numberBetween(0, 1000),
-                'unit' => fake()->randomElement($units),
+                'unit' => \App\Models\Units::all()->random()->name,
                 'stock_min' => fake()->numberBetween(0, 1000),
                 'stock_max' => fake()->numberBetween(0, 1000),
-                'tax' => fake()->randomFloat(2, 1, 100),
+                'tax' => \App\Models\Taxes::all()->random()->value,
                 'type' => fake()->randomElement(['product', 'service']),
                 'barcode' => fake()->ean13(),
             ]);
