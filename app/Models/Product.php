@@ -75,7 +75,7 @@ class Product extends Model implements Auditable
         if ($this->stock == null && $this->stock_min == null && $this->stock_max == null) {
             return null;
         }
-        
+
         if ($this->stock <= 0) {
             return 'out_of_stock';
         } elseif ($this->stock_max > $this->stock && $this->stock > $this->stock_min) {
