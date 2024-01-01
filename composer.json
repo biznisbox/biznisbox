@@ -47,7 +47,7 @@
         "omnipay/paypal": "^3.0",
         "owen-it/laravel-auditing": "^13.0",
         "sentry/sentry-laravel": "^4.1",
-        "spatie/laravel-permission": "^5.9",
+        "spatie/laravel-permission": "^6.3",
         "stripe/stripe-php": "^13.7"
     },
     "require-dev": {
