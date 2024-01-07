@@ -29,7 +29,6 @@
                                     <Tag v-if="account.type === 'online_account'" :value="$t('account_types.online_account')" />
                                 </div>
                             </div>
-
                             <div class="grid">
                                 <div class="col-12 sm:col-6">
                                     <DisplayData
@@ -44,7 +43,12 @@
                                     />
                                 </div>
                             </div>
-
+                            <DisplayData :input="$t('form.opening_balance_date')" :value="formatDate(account.date_opened)" />
+                            <DisplayData :input="$t('form.currency')" :value="account.currency" />
+                            <DisplayData :input="$t('form.active_account')" custom-value>
+                                <Tag v-if="account.is_active" class="p-tag-success" :value="$t('basic.yes')" />
+                                <Tag v-else class="p-tag-danger" :value="$t('basic.no')" />
+                            </DisplayData>
                             <DisplayData :input="$t('form.description')" :value="account.description" />
                         </div>
                     </div>
@@ -66,13 +70,11 @@
                                                 <p>{{ $t('transaction.no_transactions') }}</p>
                                             </div>
                                         </template>
-
                                         <Column field="name" :header="$t('form.name')">
                                             <template #body="{ data }">
                                                 <span>{{ data.name }}</span>
                                             </template>
                                         </Column>
-
                                         <Column field="date" :header="$t('transaction.date_and_number')">
                                             <template #body="{ data }">
                                                 <span>{{ data.date ? formatDate(data.date) : '-' }}</span
@@ -80,7 +82,6 @@
                                                 <span>{{ data.number }}</span>
                                             </template>
                                         </Column>
-
                                         <Column field="amount" :header="$t('transaction.amount_and_type')">
                                             <template #body="{ data }">
                                                 <span>{{ data.amount ? formatMoney(data.amount, data.currency) : '-' }}</span> <br />
@@ -100,13 +101,6 @@
                                                 </div>
                                             </template>
                                         </Column>
-
-                                        <Column field="category" :header="$t('form.category')">
-                                            <template #body="{ data }">
-                                                <span>{{ data.category ? data.category : '-' }}</span>
-                                            </template>
-                                        </Column>
-
                                         <template #paginatorstart>
                                             <div class="p-d-flex p-ai-center p-mr-2">
                                                 <Button

@@ -111,7 +111,7 @@ class OpenBankingService
                                 'open_banking_id' => $openBanking['id'],
                                 'integration' => 'open_banking',
                                 'opening_balance' => $balance['balances'][0]['balanceAmount']['amount'] ?? 0,
-                                'current_balance' => $balance['balances'][0]['balanceAmount']['amount'] ?? 0,
+                                'date_opened' => now()->format('Y-m-d'),
                                 'currency' => $balance['balances'][0]['balanceAmount']['currency'] ?? settings('default_currency'),
                                 'is_active' => 1,
                             ]);
@@ -222,6 +222,7 @@ class OpenBankingService
 
             $transaction = Transaction::create([
                 'number' => generate_next_number(settings('transaction_number_format'), 'transactions'),
+                'bank_transaction_id' => $transaction_data['transactionId'] ?? null,
                 'type' => $transaction_data['transactionAmount']['amount'] < 0 ? 'expense' : 'income',
                 'amount' => str_replace('-', '', $transaction_data['transactionAmount']['amount']) ?? 0,
                 'currency' => $transaction_data['transactionAmount']['currency'] ?? null,

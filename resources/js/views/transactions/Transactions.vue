@@ -178,7 +178,7 @@
                                 id="new_category"
                                 :label="$t('transaction.new_category')"
                                 icon="fa fa-plus"
-                                @click="showNewCategory = true"
+                                @click="showNewCategoryDialog = true"
                             />
                             <Button
                                 id="categories_close_button"

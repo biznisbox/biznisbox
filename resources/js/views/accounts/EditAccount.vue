@@ -27,30 +27,21 @@
                             />
                         </div>
 
-                        <div id="basic_data" class="grid">
+                        <div class="grid">
                             <SelectInput
                                 id="select_currency"
                                 v-model="v$.account.currency.$model"
-                                class="col-12 md:col-4"
+                                class="col-12 md:col-6"
                                 :label="$t('form.currency')"
                                 :options="currencies"
                                 option-label="name"
                                 option-value="code"
                                 :validate="v$.account.currency"
                             />
-                            <NumberInput
-                                id="opening_balance_input"
-                                v-model="v$.account.opening_balance.$model"
-                                type="currency"
-                                :currency="account.currency"
-                                class="col-12 md:col-4"
-                                :label="$t('form.opening_balance')"
-                                :validate="v$.account.opening_balance"
-                            ></NumberInput>
                             <SelectButtonInput
                                 id="is_active_account"
                                 v-model="account.is_active"
-                                class="col-12 md:col-4"
+                                class="col-12 md:col-6"
                                 :label="$t('form.active_account')"
                                 :options="[
                                     { label: $t('basic.yes'), value: true },
@@ -148,6 +139,7 @@ export default {
                 type: { required },
                 currency: { required },
                 opening_balance: { required },
+                date_opened: { required },
             },
         }
     },

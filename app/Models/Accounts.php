@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use OwenIt\Auditing\Contracts\Auditable;
 
 class Accounts extends Model implements Auditable
@@ -23,7 +22,8 @@ class Accounts extends Model implements Auditable
         'currency',
         'description',
         'opening_balance',
-        'current_balance',
+        'date_opened',
+        'date_closed',
         'bank_name',
         'bank_address',
         'bank_contact',
@@ -39,6 +39,8 @@ class Accounts extends Model implements Auditable
         'is_default' => 'boolean',
         'is_active' => 'boolean',
     ];
+
+    protected $appends = ['current_balance'];
 
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
@@ -64,7 +66,6 @@ class Accounts extends Model implements Auditable
         if ($data['is_default'] == true) {
             $this->where('is_default', true)->update(['is_default' => false]);
         }
-        $data['current_balance'] = $data['opening_balance'];
         $account = self::create($data);
         if ($account) {
             return true;
@@ -97,7 +98,9 @@ class Accounts extends Model implements Auditable
 
     public function getAccount($id)
     {
-        $account = self::with('transactions')->find($id);
+        $account = self::with('transactions')
+            ->where('id', $id)
+            ->first();
         if ($account) {
             activity_log(user_data()->data->id, 'get account', $id, 'App\Models\Accounts', 'getAccount');
             return $account;
@@ -124,8 +127,34 @@ class Accounts extends Model implements Auditable
         return false;
     }
 
-    protected function setCurrentBalance($opening_balance)
+    public function getCurrentBalanceAttribute()
     {
-        return $opening_balance;
+        $account = $this->find($this->id);
+        if (!$account->date_opened) {
+            // if date opened is null then return opening balance as current balance -> backward compatibility
+            return $this->opening_balance;
+        }
+        $transactions = DB::table('transactions')
+            ->where('account_id', $this->id)
+            ->whereDate('date', '>=', $account->date_opened)
+            ->get();
+        $balance = $this->opening_balance;
+        foreach ($transactions as $transaction) {
+            if ($transaction->type == 'income') {
+                $balance += $transaction->amount;
+            }
+            if ($transaction->type == 'expense') {
+                $balance -= $transaction->amount;
+            }
+            if ($transaction->type == 'transfer') {
+                if ($transaction->from_account == $account->id) {
+                    $balance -= $transaction->amount;
+                }
+                if ($transaction->to_account == $account->id) {
+                    $balance += $transaction->amount;
+                }
+            }
+        }
+        return $balance;
     }
 }

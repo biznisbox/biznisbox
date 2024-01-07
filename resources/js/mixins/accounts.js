@@ -9,6 +9,8 @@ export default {
                 description: '',
                 opening_balance: 0,
                 current_balance: 0,
+                date_opened: '',
+                date_closed: '',
                 bank_name: '',
                 bank_address: '',
                 bank_contact: '',

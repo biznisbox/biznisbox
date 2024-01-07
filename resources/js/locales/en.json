@@ -233,7 +233,8 @@
         "level": "Level",
         "contract_type": "Contract Type",
         "internal_user": "Internal User",
-        "sales_person": "Sales Person"
+        "sales_person": "Sales Person",
+        "opening_balance_date": "Opening Balance Date"
     },
     "address_types": {
         "billing": "Billing",

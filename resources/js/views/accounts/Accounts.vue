@@ -85,7 +85,9 @@
                     </Column>
                     <Column field="current_balance" :header="$t('form.balance')">
                         <template #body="{ data }">
-                            <span>{{ formatMoney(data.current_balance, data.currency) }}</span>
+                            <span :class="data.current_balance < 0 ? 'text-red-500' : 'text-green-500'">
+                                {{ formatMoney(data.current_balance, data.currency) }}
+                            </span>
                         </template>
                         <template #filter="{ filterModel }">
                             <div class="flex">
@@ -155,9 +157,9 @@
                     </LoadingScreen>
                 </div>
                 <template #footer>
-                    <div class="">
-                        <Button :label="$t('basic.cancel')" severity="error" icon="fa fa-times" @click="connectBankDialog = false" />
-                        <Button :label="$t('account.connect_bank')" icon="fa fa-university" @click="initSession" />
+                    <div class="flex p-2 justify-content-end">
+                        <Button :label="$t('basic.cancel')" severity="danger" icon="fa fa-times" @click="connectBankDialog = false" />
+                        <Button :label="$t('account.connect_bank')" icon="fa fa-university" @click="initSession" class="ml-2" />
                     </div>
                 </template>
             </Dialog>

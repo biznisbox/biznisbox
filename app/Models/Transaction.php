@@ -18,6 +18,7 @@ class Transaction extends Model implements Auditable
 
     protected $fillable = [
         'name',
+        'bank_transaction_id', // bank transaction id from bank connection (e.g. 1234567890)
         'invoice_id',
         'payment_id',
         'bill_id',
@@ -177,42 +178,17 @@ class Transaction extends Model implements Auditable
         $from_account = Accounts::where('id', $from_account_id)->first();
         $to_account = Accounts::where('id', $to_account_id)->first();
         if ($from_account && $to_account) {
+            // check if from account has enough balance - if not return false
             $current_balance = $from_account->current_balance;
             if ($current_balance < $amount) {
                 return false;
             }
-
+            // Deduct amount from from account and add to to account
             $from_account->current_balance = $from_account->current_balance - $amount;
-            self::create([
-                'name' => 'Transfer to ' . $to_account->name,
-                'number' => $this->getTransactionNumber(),
-                'account_id' => $from_account_id,
-                'type' => 'expense',
-                'description' => 'Transfer to ' . $to_account->name,
-                'amount' => $amount,
-                'currency' => $from_account->currency,
-                'exchange_rate' => 1,
-                'payment_method' => 'transfer',
-                'date' => now(),
-                'reference' => $transaction_id,
-            ]);
-            incrementLastItemNumber('transaction');
             $from_account->save();
+
+            // Add amount to to account
             $to_account->current_balance = $to_account->current_balance + $amount;
-            self::create([
-                'name' => 'Transfer from ' . $from_account->name,
-                'number' => $this->getTransactionNumber(),
-                'account_id' => $to_account_id,
-                'type' => 'income',
-                'description' => 'Transfer from ' . $from_account->name,
-                'amount' => $amount,
-                'currency' => $to_account->currency,
-                'exchange_rate' => 1,
-                'payment_method' => 'transfer',
-                'date' => now(),
-                'reference' => $transaction_id,
-            ]);
-            incrementLastItemNumber('transaction');
             $to_account->save();
         }
     }
@@ -221,5 +197,21 @@ class Transaction extends Model implements Auditable
     {
         $number = generate_next_number(settings('transaction_number_format'), 'transaction');
         return $number;
+    }
+
+    public function getTransactionsByAccountId($account_id)
+    {
+        $transactions = $this->where('account_id', $account_id)->get();
+        if ($transactions) {
+            activity_log(
+                user_data()->data->id,
+                'get transactions by account id',
+                $account_id,
+                'App\Models\Transaction',
+                'getTransactionsByAccountId',
+            );
+            return $transactions;
+        }
+        return false;
     }
 }
