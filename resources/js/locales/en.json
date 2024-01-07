@@ -520,7 +520,6 @@
         "create_first_document": "Create your first document",
         "delete_confirm_document": "Are you sure you want to delete this document?"
     },
-
     "employee": {
         "employee": "Employee | Employees",
         "new_employee": "New Employee",
@@ -722,7 +721,7 @@
     },
     "countries": {
         "Afghanistan": "Afghanistan",
-        "\u00c5land Islands": "\u00c5land Islands",
+        "Åland Islands": "Åland Islands",
         "Albania": "Albania",
         "Algeria": "Algeria",
         "American Samoa": "American Samoa",
@@ -779,7 +778,7 @@
         "Costa Rica": "Costa Rica",
         "Croatia": "Croatia",
         "Cuba": "Cuba",
-        "Cura\u00e7ao": "Cura\u00e7ao",
+        "Curaçao": "Curaçao",
         "Cyprus": "Cyprus",
         "Czech Republic": "Czech Republic",
         "Denmark": "Denmark",
@@ -826,7 +825,7 @@
         "Iceland": "Iceland",
         "India": "India",
         "Indonesia": "Indonesia",
-        "C\u00f4te d'Ivoire": "C\u00f4te d'Ivoire",
+        "Côte d'Ivoire": "Côte d'Ivoire",
         "Iran (Islamic Republic of)": "Iran (Islamic Republic of)",
         "Iraq": "Iraq",
         "Ireland": "Ireland",
@@ -903,11 +902,11 @@
         "Puerto Rico": "Puerto Rico",
         "Qatar": "Qatar",
         "Republic of Kosovo": "Republic of Kosovo",
-        "R\u00e9union": "R\u00e9union",
+        "Réunion": "Réunion",
         "Romania": "Romania",
         "Russian Federation": "Russian Federation",
         "Rwanda": "Rwanda",
-        "Saint Barth\u00e9lemy": "Saint Barth\u00e9lemy",
+        "Saint Barthélemy": "Saint Barthélemy",
         "Saint Helena, Ascension and Tristan da Cunha": "Saint Helena, Ascension and Tristan da Cunha",
         "Saint Kitts and Nevis": "Saint Kitts and Nevis",
         "Saint Lucia": "Saint Lucia",
