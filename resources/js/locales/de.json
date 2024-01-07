@@ -30,7 +30,7 @@
         "validation_error": "Validierungsfehler",
         "not_found_item": "Nicht gefunden",
         "bad_request": "Falsche Anfrage",
-        "forbidden": "Verboten"
+        "forbidden": "Forbidden"
     },
     "basic": {
         "cancel": "Abbrechen",
@@ -233,7 +233,8 @@
         "level": "Level",
         "contract_type": "Vertragstyp",
         "internal_user": "Interner Benutzer",
-        "sales_person": "Verkaufspersonal"
+        "sales_person": "Verkaufspersonal",
+        "opening_balance_date": "Opening Balance Date"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -720,7 +721,7 @@
     },
     "countries": {
         "Afghanistan": "Afghanistan",
-        "Åland Islands": "Asland Inseln",
+        "Åland Islands": "A<unk> land Inseln",
         "Albania": "Albanien",
         "Algeria": "Algeria",
         "American Samoa": "American Samoa",
@@ -905,7 +906,7 @@
         "Romania": "Rumänien",
         "Russian Federation": "Russische Föderation",
         "Rwanda": "Rwanda",
-        "Saint Barthélemy": "St. Barthelemy",
+        "Saint Barthélemy": "St. Barthe<unk> lemy",
         "Saint Helena, Ascension and Tristan da Cunha": "St. Helena, Ascension und Tristan da Cunha",
         "Saint Kitts and Nevis": "St. Kitts und Nevis",
         "Saint Lucia": "St. Lucia",
