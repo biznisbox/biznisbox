@@ -387,7 +387,9 @@
         "show_transactions": "Prikaži transakcije",
         "list_of_transactions": "Seznam transakcij",
         "no_sales_person": "Ni prodajalca",
-        "no_payment_method": "Način plačila"
+        "no_payment_method": "Način plačila",
+        "click_for_pay_with_paypal": "Click here to pay with PayPal",
+        "click_for_pay": "Click here to pay"
     },
     "quote": {
         "quote": "Ponudba|Ponudbe",
