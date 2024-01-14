@@ -173,26 +173,15 @@ class OpenBankingService
                 $openBanking = OpenBanking::where('requisition_status', 'SUCCESS')->get();
                 foreach ($openBanking as $bank) {
                     $accountBank = $this->client->account($bank->account_id);
-                    $balance = $accountBank->getAccountBalances();
                     $account = Accounts::where('open_banking_id', $bank->id)->first();
-                    if ($account->current_balance != $balance['balances'][0]['balanceAmount']['amount']) {
-                        $transactions = $accountBank->getAccountTransactions(
-                            Carbon::parse($bank->last_transaction_sync)->format('Y-m-d'),
-                            now()->format('Y-m-d'),
-                        )['transactions']['booked'];
-                        $transactions_amount = 0;
-                        foreach ($transactions as $transaction) {
-                            $transactions_amount += $transaction['transactionAmount']['amount'];
-                            $this->createTransactionRecord($transaction, $account['id']);
-                        }
-
-                        $account->update([
-                            'current_balance' => $balance['balances'][0]['balanceAmount']['amount'] ?? 0,
-                        ]);
-                        $account->save();
-
-                        $this->markBankTransactionsAsSynced($bank->id);
+                    $transactions = $accountBank->getAccountTransactions(
+                        Carbon::parse($bank->last_transaction_sync)->format('Y-m-d'),
+                        now()->format('Y-m-d'),
+                    )['transactions']['booked'];
+                    foreach ($transactions as $transaction) {
+                        $this->createTransactionRecord($transaction, $account['id']);
                     }
+                    $this->markBankTransactionsAsSynced($bank->id);
                 }
                 DB::commit();
                 return true;
@@ -220,20 +209,23 @@ class OpenBankingService
                     ($transaction_data['remittanceInformationStructuredArray'][0] ??
                         ($transaction_data['remittanceInformationUnstructuredArray'][0] ?? null)));
 
-            $transaction = Transaction::create([
-                'number' => generate_next_number(settings('transaction_number_format'), 'transactions'),
-                'bank_transaction_id' => $transaction_data['transactionId'] ?? null,
-                'type' => $transaction_data['transactionAmount']['amount'] < 0 ? 'expense' : 'income',
-                'amount' => str_replace('-', '', $transaction_data['transactionAmount']['amount']) ?? 0,
-                'currency' => $transaction_data['transactionAmount']['currency'] ?? null,
-                'date' => $transaction_data['bookingDate'] ?? null,
-                'account_id' => $account_id ?? null,
-                'exchange_rate' => $transaction_data['exchangeRate'] ?? 1,
-                'name' => $transactionDescription ?? null,
-                'description' => $transactionDescription ?? null,
-                'status' => 'COMPLETED',
-            ]);
-            incrementLastItemNumber('transactions');
+            $transaction = Transaction::firstOrCreate(
+                ['bank_transaction_id' => $transaction_data['transactionId'] ?? null],
+                [
+                    'number' => generate_next_number(settings('transaction_number_format'), 'transactions'),
+                    'bank_transaction_id' => $transaction_data['transactionId'] ?? null,
+                    'type' => $transaction_data['transactionAmount']['amount'] < 0 ? 'expense' : 'income',
+                    'amount' => str_replace('-', '', $transaction_data['transactionAmount']['amount']) ?? 0,
+                    'currency' => $transaction_data['transactionAmount']['currency'] ?? null,
+                    'date' => $transaction_data['bookingDate'] ?? null,
+                    'account_id' => $account_id ?? null,
+                    'exchange_rate' => $transaction_data['exchangeRate'] ?? 1,
+                    'name' => $transactionDescription ?? null,
+                    'description' => $transactionDescription ?? null,
+                    'status' => 'completed',
+                ],
+            );
+            incrementLastItemNumber('transaction');
             DB::commit();
             return $transaction;
         } catch (\Exception $e) {

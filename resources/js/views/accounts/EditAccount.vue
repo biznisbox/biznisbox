@@ -49,7 +49,24 @@
                                 ]"
                             />
                         </div>
-
+                        <div class="grid">
+                            <NumberInput
+                                id="opening_balance_input"
+                                v-model="v$.account.opening_balance.$model"
+                                type="currency"
+                                :currency="account.currency"
+                                class="col-12 md:col-6"
+                                :label="$t('form.opening_balance')"
+                                :validate="v$.account.opening_balance"
+                            ></NumberInput>
+                            <DateInput
+                                id="opening_balance_date_input"
+                                v-model="v$.account.date_opened.$model"
+                                class="col-12 md:col-6"
+                                :label="$t('form.opening_balance_date')"
+                                :validate="v$.account.date_opened"
+                            />
+                        </div>
                         <div v-if="account.type === 'bank_account'" id="bank_data">
                             <div class="grid">
                                 <SelectButtonInput

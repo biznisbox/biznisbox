@@ -37,7 +37,7 @@ class EmployeeSeeder extends Seeder
                 'contract_start_date' => fake()->dateTimeBetween('-5 years', 'now'),
                 'contract_end_date' => fake()->dateTimeBetween('now', '+5 years'),
             ]);
-            incrementLastItemNumber('employees');
+            incrementLastItemNumber('employee');
         }
     }
 }

@@ -55,9 +55,14 @@ class OnlinePaymentService
                 ],
                 'line_items' => [
                     [
-                        'name' => __('response.payment.invoice') . ' ' . $invoice->number,
-                        'amount' => $invoice->total * 100,
-                        'currency' => $invoice->currency,
+                        'price_data' => [
+                            'currency' => $invoice->currency,
+                            'unit_amount' => $invoice->total * 100,
+                            'product_data' => [
+                                'name' => __('response.payment.invoice') . ' ' . $invoice->number,
+                                'description' => 'Payment for invoice ' . $invoice->number,
+                            ],
+                        ],
                         'quantity' => 1,
                     ],
                 ],
@@ -136,8 +141,8 @@ class OnlinePaymentService
                 ]);
 
                 if ($transaction) {
-                    Transaction::updateAccountAmount(settings('stripe_account_id'), $invoice->total, 'income');
                     $invoice->status = 'paid';
+                    $invoice->payment_method = 'stripe';
                     $invoice->save();
                     incrementLastItemNumber('transaction');
                     activity_log(null, 'validate payment stripe', $payment->id, 'Online Payment', 'payment stripe', 'external', $key);
@@ -212,8 +217,8 @@ class OnlinePaymentService
                     'payment_status' => $payment['state'],
                     'payment_response' => $payment,
                     'payment_type' => 'online',
-                    'payment_amount' => $invoice->total,
-                    'payment_currency' => $invoice->currency,
+                    'payment_amount' => $payment['transactions'][0]['amount']['total'],
+                    'payment_currency' => $payment['transactions'][0]['amount']['currency'],
                     'key' => $key,
                 ]);
 
@@ -275,6 +280,7 @@ class OnlinePaymentService
                 Transaction::create([
                     'name' => __('response.payment.invoice') . ' ' . $invoice->number,
                     'invoice_id' => $invoice->id,
+                    'payment_id' => $payment->id,
                     'account_id' => settings('paypal_account_id'),
                     'amount' => $invoice->total,
                     'customer_id' => $invoice->customer_id,
@@ -285,12 +291,11 @@ class OnlinePaymentService
                     'type' => 'income',
                     'number' => Transaction::getTransactionNumber(),
                     'date' => date('Y-m-d'),
-                    'referenced_online_payment' => $payment->id,
                 ]);
 
                 if ($transaction) {
-                    Transaction::updateAccountAmount(settings('paypal_account_id'), $invoice->total, 'income');
                     $invoice->status = 'paid';
+                    $invoice->payment_method = 'paypal';
                     $invoice->save();
                     incrementLastItemNumber('transaction');
                     activity_log(null, 'validate payment paypal', $payment->id, 'Online Payment', 'payment paypal', 'external', $key);
@@ -300,13 +305,11 @@ class OnlinePaymentService
                     }
                     return api_response(true, __('response.payment.success'));
                 }
-
                 if ($request->type == 'web') {
                     return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=error&lang=' . app()->getLocale());
                 }
                 return api_response(false, __('response.payment.failed'), 400);
             }
-
             if ($request->type == 'web') {
                 return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=error&lang=' . app()->getLocale());
             }

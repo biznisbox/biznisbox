@@ -38,6 +38,8 @@ class Accounts extends Model implements Auditable
     protected $casts = [
         'is_default' => 'boolean',
         'is_active' => 'boolean',
+        'date_opened' => 'datetime',
+        'date_closed' => 'datetime',
     ];
 
     protected $appends = ['current_balance'];
@@ -49,7 +51,7 @@ class Accounts extends Model implements Auditable
         return ['Accounts'];
     }
 
-    protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at', 'date_opened', 'date_closed'];
 
     public function transactions()
     {

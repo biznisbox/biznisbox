@@ -25,6 +25,7 @@
                             <Button
                                 v-if="$settings.stripe_available && invoice.status != 'paid' && invoice.status != 'overpaid'"
                                 id="stripe_button"
+                                v-tooltip:top="$t('invoice.click_for_pay')"
                                 class="mr-2 no-print"
                                 icon="fa fa-credit-card"
                                 @click="payWithCard"
@@ -32,6 +33,7 @@
                             <Button
                                 v-if="$settings.paypal_available && invoice.status != 'paid' && invoice.status != 'overpaid'"
                                 id="paypal_button"
+                                v-tooltip:top="$t('invoice.click_for_pay_with_paypal')"
                                 class="mr-2 no-print"
                                 icon="fab fa-paypal"
                                 @click="payWithPaypal"
@@ -48,7 +50,7 @@
                         </template>
                     </user-header>
 
-                    <div class="alert">
+                    <div class="py-3">
                         <Message v-if="$route.query.status == 'success' && invoice.status == 'paid'" severity="success" closable>
                             {{ $t('invoice.payment_success') }}
                         </Message>

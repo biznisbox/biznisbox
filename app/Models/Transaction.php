@@ -124,18 +124,10 @@ class Transaction extends Model implements Auditable
 
     public function createTransaction($data)
     {
+        $data['number'] = self::getTransactionNumber();
         $transaction = self::create($data);
-        if ($data['type'] == 'income') {
-            $this->updateAccountAmount($data['account_id'], $data['amount'], $data['type']);
-        }
-        if ($data['type'] == 'expense') {
-            $this->updateAccountAmount($data['account_id'], $data['amount'], $data['type']);
-        }
-        if ($data['type'] == 'transfer') {
-            $this->transferAmount($data['from_account'], $data['to_account'], $data['amount'], $transaction->id);
-        }
-        incrementLastItemNumber('transaction');
         if ($transaction) {
+            incrementLastItemNumber('transaction');
             return $transaction;
         }
         return false;
@@ -144,6 +136,7 @@ class Transaction extends Model implements Auditable
     public function updateTransaction($id, $data)
     {
         $transaction = $this->find($id);
+        $data['number'] = $transaction->number; // keep the same number - do not change it
         $transaction = $transaction->update($data);
         if ($transaction) {
             return $transaction;
@@ -158,39 +151,6 @@ class Transaction extends Model implements Auditable
             return $transaction;
         }
         return false;
-    }
-
-    public static function updateAccountAmount($account_id, $amount, $type)
-    {
-        $account = Accounts::find($account_id);
-        if ($account) {
-            if ($type == 'income') {
-                $account->current_balance = $account->current_balance + $amount;
-            } else {
-                $account->current_balance = $account->current_balance - $amount;
-            }
-            $account->save();
-        }
-    }
-
-    protected function transferAmount($from_account_id, $to_account_id, $amount, $transaction_id = null)
-    {
-        $from_account = Accounts::where('id', $from_account_id)->first();
-        $to_account = Accounts::where('id', $to_account_id)->first();
-        if ($from_account && $to_account) {
-            // check if from account has enough balance - if not return false
-            $current_balance = $from_account->current_balance;
-            if ($current_balance < $amount) {
-                return false;
-            }
-            // Deduct amount from from account and add to to account
-            $from_account->current_balance = $from_account->current_balance - $amount;
-            $from_account->save();
-
-            // Add amount to to account
-            $to_account->current_balance = $to_account->current_balance + $amount;
-            $to_account->save();
-        }
     }
 
     public static function getTransactionNumber()

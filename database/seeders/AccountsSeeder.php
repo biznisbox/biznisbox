@@ -24,6 +24,7 @@ class AccountsSeeder extends Seeder
                 'name' => 'Account ' . fake()->randomNumber(5),
                 'description' => fake()->sentence(),
                 'currency' => 'EUR',
+                'date_opened' => fake()->dateTimeBetween('-1 years', 'now'),
                 'type' => fake()->randomElement(['bank_account', 'cash', 'online_account']),
                 'opening_balance' => $balance,
                 'current_balance' => $balance,
