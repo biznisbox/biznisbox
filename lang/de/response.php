@@ -212,6 +212,9 @@ return [
         'password_updated' => 'Passwort wurde erfolgreich aktualisiert',
         'password_not_match' => 'Passwort stimmt nicht überein',
         'password_empty' => 'Passwortfeld ist leer',
+        'avatar_deleted' => 'Avatar was deleted successfully',
+        'avatar_not_found' => 'Avatar could not be found',
+        'avatar_updated' => 'Avatar was updated successfully',
     ],
 
     // Open Banking responses
