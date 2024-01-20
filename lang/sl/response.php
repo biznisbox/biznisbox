@@ -212,6 +212,9 @@ return [
         'password_updated' => 'Geslo je bilo uspešno posodobljeno',
         'password_not_match' => 'Geslo se ne ujema',
         'password_empty' => 'Polje za geslo ne sme biti prazno',
+        'avatar_deleted' => 'Avatar was deleted successfully',
+        'avatar_not_found' => 'Avatar could not be found',
+        'avatar_updated' => 'Avatar was updated successfully',
     ],
 
     // Open Banking responses
