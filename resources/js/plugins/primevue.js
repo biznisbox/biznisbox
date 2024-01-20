@@ -1,8 +1,6 @@
 /*
- * PRIMEVUE plugin
- * https://www.primefaces.org/primevue/
- *
- * There are imports for only the PrimeVue components used in the project.
+ * PrimeVue is a collection of rich UI components for Vue.js
+ * https://primevue.org/
  */
 import PrimeVue from 'primevue/config'
 import Button from 'primevue/button'
@@ -82,7 +80,7 @@ import SpeedDial from 'primevue/speeddial'
 
 export default {
     install(app) {
-        app.use(PrimeVue)
+        app.use(PrimeVue, { ripple: true })
         app.use(ConfirmationService)
         app.use(DialogService)
         app.use(ToastService)
