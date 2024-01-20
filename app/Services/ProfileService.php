@@ -64,12 +64,12 @@ class ProfileService
 
             $user_avatar = Str::after($user->picture, 'avatars/');
             if ($user->picture != null) {
-                Storage::disk('public')->delete('avatars/' . $user_avatar);
+                Storage::disk('local')->delete('public/avatars/' . $user_avatar);
             }
 
             $file = $request->file('picture');
             $filename = $file->hashName();
-            $file->storeAs('avatars', $filename, 'public');
+            $file->storeAs('public/avatars', $filename, 'local');
 
             $user->picture = $filename;
             $user->save();
@@ -84,7 +84,7 @@ class ProfileService
         $user = User::find(user_data()->data->id);
         if ($user->picture != null) {
             $user_avatar = Str::after($user->picture, 'avatars/');
-            Storage::disk('public')->delete('avatars/' . $user_avatar);
+            Storage::disk('local')->delete('public/avatars/' . $user_avatar);
             $user->picture = null;
             $user->save();
             return api_response(null, __('response.user.avatar_deleted'));

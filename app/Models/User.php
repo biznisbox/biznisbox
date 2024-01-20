@@ -48,7 +48,7 @@ class User extends Authenticatable implements Auditable
     public function getPictureAttribute($value)
     {
         if ($value) {
-            return url('uploads/avatars/' . $value);
+            return url('storage/avatars/' . $value);
         }
         return null;
     }

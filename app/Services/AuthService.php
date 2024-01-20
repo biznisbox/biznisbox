@@ -62,7 +62,7 @@ class AuthService
                 'email' => $user->email,
                 'role' => $user->role,
                 'lang' => $user->language,
-                'avatar' => $user->picture,
+                'picture' => $user->picture,
                 'initials' => $user->getInitials(),
                 'employee_id' => $employee ? $employee->id : null,
                 'permissions' => format_permissions($user->getPermissionsViaRoles()),

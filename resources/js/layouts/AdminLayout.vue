@@ -10,14 +10,14 @@
                 <Button v-if="theme == 'light'" icon="pi pi-moon" text rounded aria-label="Filter" @click="changeTheme()" />
 
                 <Avatar
-                    v-if="user.data.avatar == null"
+                    v-if="user.data.picture == null"
                     :label="user.data.initials"
                     class="user-avatar cursor-pointer"
                     @click="toggleUserMenu"
                 />
                 <Avatar
-                    v-if="user.data.avatar != null"
-                    :image="user.data.avatar"
+                    v-if="user.data.picture != null"
+                    :image="user.data.picture"
                     class="user-avatar cursor-pointer bg-transparent"
                     @click="toggleUserMenu"
                 />
