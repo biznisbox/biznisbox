@@ -28,9 +28,9 @@
         "session_timeout": "Su sesión ha caducado. Por favor, inicie sesión de nuevo.",
         "internal_server_error": "Error interno del servidor",
         "validation_error": "Error de validación",
-        "not_found_item": "Not Found",
+        "not_found_item": "No encontrado",
         "bad_request": "Solicitud incorrecta",
-        "forbidden": "Forbidden"
+        "forbidden": "Prohibida"
     },
     "basic": {
         "cancel": "Cancelar",
@@ -233,8 +233,8 @@
         "level": "Nivel",
         "contract_type": "Tipo de contrato",
         "internal_user": "Usuario interno",
-        "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "sales_person": "Persona de ventas",
+        "opening_balance_date": "Fecha de saldo de apertura"
     },
     "address_types": {
         "billing": "Facturación",
@@ -323,7 +323,7 @@
         "create_first_partner": "Crea tu primer socio",
         "add_contact": "Añadir contacto",
         "no_contacts": "No hay contactos",
-        "add_address": "Add Address",
+        "add_address": "Añadir dirección",
         "no_addresses": "No hay direcciones",
         "addresses": "Direcciones",
         "contacts": "Contactos",
@@ -333,7 +333,7 @@
     "product": {
         "product": "Producto | Productos",
         "new_product": "Nuevo producto",
-        "edit_product": "Edit Product",
+        "edit_product": "Editar producto",
         "no_products": "No hay productos",
         "create_first_product": "Crea tu primer producto",
         "delete_product_confirmation": "¿Está seguro que desea eliminar este producto?"
@@ -386,10 +386,10 @@
         "payment_error_message": "Hubo un error al procesar su pago. Por favor, inténtelo de nuevo.",
         "show_transactions": "Mostrar transacciones",
         "list_of_transactions": "Lista de transacciones",
-        "no_sales_person": "No sales person",
-        "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "no_sales_person": "No hay vendedores",
+        "no_payment_method": "Sin método de pago",
+        "click_for_pay_with_paypal": "Haga clic aquí para pagar con PayPal",
+        "click_for_pay": "Haga clic aquí para pagar"
     },
     "quote": {
         "quote": "Cotización | Citas",
@@ -534,7 +534,7 @@
     },
     "employee_type": {
         "full_time": "Tiempo completo",
-        "part_time": "Part-time",
+        "part_time": "Parte-tiempo",
         "contractor": "Contratista",
         "intern": "Interno",
         "temporary": "Temporal",
@@ -631,7 +631,7 @@
             "reset_password": "Restablecer contraseña",
             "send_details_to": "Enviar detalles a",
             "never_logged_in": "Nunca iniciar sesión",
-            "auto_generate_password": "Auto-generate password",
+            "auto_generate_password": "Generar contraseña automáticamente",
             "delete_confirm_user": "¿Está seguro que desea eliminar este usuario?"
         },
         "department": {
