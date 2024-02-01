@@ -2,9 +2,9 @@
 
 return [
     'permission' => 'Permission',
-    'products' => 'Produkti',
-    'invoices' => 'Izdani računi',
-    'quotes' => 'Ponudbe',
+    'products' => 'Product',
+    'invoices' => 'Invoices',
+    'quotes' => 'Quotes',
     'bills' => 'Bills',
     'accounts' => 'Accounts',
     'transactions' => 'Transactions',
