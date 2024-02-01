@@ -28,9 +28,9 @@
         "session_timeout": "U sessie het verval. Meld asseblief weer aan.",
         "internal_server_error": "Interne Server Fout",
         "validation_error": "Validasie Fout",
-        "not_found_item": "Not Found",
+        "not_found_item": "Nie Gevind",
         "bad_request": "Slegte Versoek",
-        "forbidden": "Forbidden"
+        "forbidden": "Verbode"
     },
     "basic": {
         "cancel": "Kanselleer",
@@ -117,7 +117,7 @@
         "partners": "Vennote",
         "reports": "Verslae",
         "settings": "Instellings",
-        "employees": "Employees"
+        "employees": "Werknemers"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -219,22 +219,22 @@
         "role": "Rol",
         "roles": "Role",
         "permissions": "Toestemmings",
-        "category": "Category",
-        "categories": "Categories",
-        "active_account": "Active Account",
-        "amount": "Amount",
-        "exchange_rate": "Exchange Rate",
-        "reference": "Reference",
-        "account": "Account",
-        "department": "Department",
-        "position": "Position",
-        "hourly_rate": "Hourly Rate",
-        "salary": "Salary",
-        "level": "Level",
-        "contract_type": "Contract Type",
-        "internal_user": "Internal User",
-        "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "category": "Kategorie",
+        "categories": "Kategorieë",
+        "active_account": "Aktiewe Rekening",
+        "amount": "Bedrag",
+        "exchange_rate": "Wisselkoers",
+        "reference": "Verwysing",
+        "account": "Rekening",
+        "department": "Afdeling",
+        "position": "Posisie",
+        "hourly_rate": "Uurlikse Tarief",
+        "salary": "Salaris",
+        "level": "Vlak",
+        "contract_type": "Kontrak Tipe",
+        "internal_user": "Interne Gebruiker",
+        "sales_person": "Verkoopspersoon",
+        "opening_balance_date": "Oopingsbalansedatum"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -323,7 +323,7 @@
         "create_first_partner": "Skep jou eerste vennoot",
         "add_contact": "Voeg kontak by",
         "no_contacts": "Geen kontakte gevind",
-        "add_address": "Add Address",
+        "add_address": "Voeg Adres By",
         "no_addresses": "Geen adresse gevind",
         "addresses": "Adresse",
         "contacts": "Kontakte",
@@ -333,7 +333,7 @@
     "product": {
         "product": "Produk | Produkte",
         "new_product": "Nuwe produk",
-        "edit_product": "Edit Product",
+        "edit_product": "Wysig Produk",
         "no_products": "Geen produkte gevind",
         "create_first_product": "Skep jou eerste produk",
         "delete_product_confirmation": "Is jy seker jy wil hierdie produk uitvee?"
@@ -352,10 +352,10 @@
     "document_types": {
         "document": "Dokument",
         "agreement": "Ooreenkoms",
-        "contract": "Contract",
-        "letter": "Letter",
-        "email": "Email",
-        "policy": "Policy"
+        "contract": "Kontrak",
+        "letter": "Brief",
+        "email": "E-pos",
+        "policy": "Beleid"
     },
     "invoice": {
         "invoice": "Faktuur | Fakture",
@@ -367,7 +367,7 @@
         "share_dialog_text": "Kopieer die skakel hieronder en deel dit met jou kliënt of skandeer die QR-kode.",
         "create_first_invoice": "Skep jou eerste faktuur",
         "no_customer": "Geen kliënt",
-        "add_payment": "Add payment",
+        "add_payment": "Voeg betaling by",
         "no_payer": "Geen betaler",
         "no_items": "Geen items",
         "add_item": "Voeg item by",
@@ -384,38 +384,38 @@
         "payment_success_message": "Dankie vir jou betaling. Jou betaling is suksesvol verwerk.",
         "payment_error": "Betaling fout",
         "payment_error_message": "Daar was 'n fout met die verwerking van jou betaling. Probeer asseblief weer.",
-        "show_transactions": "Show transactions",
-        "list_of_transactions": "List of transactions",
-        "no_sales_person": "No sales person",
-        "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "show_transactions": "Wys transaksies",
+        "list_of_transactions": "Lys van transaksies",
+        "no_sales_person": "Geen verkoopspersoon",
+        "no_payment_method": "Geen betalingsmetode",
+        "click_for_pay_with_paypal": "Klik hier om met PayPal te betaal",
+        "click_for_pay": "Klik hier om te betaal"
     },
     "quote": {
-        "quote": "Quote | Quotes",
-        "new_quote": "New Quote",
-        "edit_quote": "Edit Quote",
-        "no_quotes": "No quotes found",
-        "quote_number": "Quote Number",
-        "share_dialog": "Share quote",
-        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code.",
-        "create_first_quote": "Create your first quote",
-        "no_customer": "No customer",
-        "no_payer": "No payer",
-        "no_items": "No items",
-        "add_item": "Add item",
-        "select_item": "Select item",
-        "select_tax": "Select tax",
-        "quantity_and_discount": "Quantity and discount",
-        "price_and_tax": "Price and tax",
-        "date_and_due_date": "Date and due date",
-        "customer_and_payer": "Customer and payer",
-        "delete_confirm_quote": "Are you sure you want to delete this quote?",
-        "click_for_download": "Click here to download the quote",
-        "download_quote": "Download quote",
-        "convert_to_invoice": "Convert to invoice",
-        "convert_to_invoice_confirm": "Are you sure you want to convert this quote to an invoice?",
-        "converted_to_invoice": "Quote converted to invoice"
+        "quote": "Aanhaal | Aanhale",
+        "new_quote": "Nuwe Aanhaling",
+        "edit_quote": "Wysig Aanhaling",
+        "no_quotes": "Geen aanhalings gevind",
+        "quote_number": "Aanhalingnommer",
+        "share_dialog": "Deel aanhaling",
+        "share_dialog_text": "Kopieer die skakel hieronder en deel dit met jou vennoot of skandeer die QR-kode.",
+        "create_first_quote": "Skep jou eerste aanhaling",
+        "no_customer": "Geen kliënt",
+        "no_payer": "Geen betaaler",
+        "no_items": "Geen items",
+        "add_item": "Voeg item by",
+        "select_item": "Kies item",
+        "select_tax": "Kies belasting",
+        "quantity_and_discount": "Hoeveelheid en afslag",
+        "price_and_tax": "Prys en belasting",
+        "date_and_due_date": "Datum en betaaldatum",
+        "customer_and_payer": "Kliënt en betaler",
+        "delete_confirm_quote": "Is jy seker jy wil hierdie aanhaling verwyder?",
+        "click_for_download": "Kliek hier om die aanhaling af te laai",
+        "download_quote": "Laai aanhaling af",
+        "convert_to_invoice": "Omskakel na faktuur",
+        "convert_to_invoice_confirm": "Is jy seker jy wil hierdie aanhaling na 'n faktuur omskakel?",
+        "converted_to_invoice": "Aanhaling omskep na faktuur"
     },
     "status": {
         "draft": "Konsep",
@@ -436,9 +436,9 @@
         "overpaid": "Oorbetaal",
         "inactive": "Onaktief",
         "pending": "Hangende",
-        "completed": "Completed",
-        "confirmed": "Confirmed",
-        "tentative": "Tentative"
+        "completed": "Voltooid",
+        "confirmed": "Bevestig",
+        "tentative": "Voorlopig"
     },
     "calendar": {
         "calendar": "Kalender | Kalenders",
@@ -446,9 +446,9 @@
         "edit_event": "Wysig Gebeurtenis"
     },
     "transaction_type": {
-        "income": "Income",
-        "expense": "Expense",
-        "transfer": "Transfer"
+        "income": "Inkomste",
+        "expense": "Uitgawe",
+        "transfer": "Oorplasing"
     },
     "transaction": {
         "transaction": "Transaksie | Transaksies",
@@ -467,11 +467,11 @@
         "edit_category": "Wysig Kategorie",
         "category_name": "Kategorie Naam",
         "category_created": "Kategorie suksesvol geskep",
-        "categories": "Categories",
-        "no_categories": "No categories found",
-        "delete_category_confirmation": "Are you sure you want to delete this category?",
-        "category_deleted": "Category deleted successfully",
-        "category_updated": "Category updated successfully"
+        "categories": "Kategorieë",
+        "no_categories": "Geen kategorieë gevind",
+        "delete_category_confirmation": "Is jy seker jy wil hierdie kategorie verwyder?",
+        "category_deleted": "Kategorie suksesvol verwyder",
+        "category_updated": "Kategorie suksesvol opgedateer"
     },
     "archive": {
         "archive": "Argief | Argiewe",
@@ -493,7 +493,7 @@
         "edit_bill": "Wysig Rekening",
         "no_bills": "Geen rekeninge gevind",
         "create_first_bill": "Skep jou eerste rekening",
-        "no_supplier": "No supplier",
+        "no_supplier": "Geen verskaffer",
         "no_items": "Geen items",
         "select_item": "Kies item",
         "date_and_due_date": "Datum en betaaldatum",
@@ -523,49 +523,49 @@
         "delete_confirm_document": "Is jy seker jy wil hierdie dokument verwyder?"
     },
     "employee": {
-        "employee": "Employee | Employees",
-        "new_employee": "New Employee",
-        "edit_employee": "Edit Employee",
-        "no_employees": "No employees found",
-        "create_first_employee": "Create your first employee",
-        "delete_employee_confirmation": "Are you sure you want to delete this employee?",
-        "employee_details": "Employee details",
-        "contract": "Contract"
+        "employee": "Werknemer | Werknemers",
+        "new_employee": "Nuwe Werknemer",
+        "edit_employee": "Wysig Werknemer",
+        "no_employees": "Geen werknemers gevind",
+        "create_first_employee": "Skep jou eerste werknemer",
+        "delete_employee_confirmation": "Is jy seker jy wil hierdie werknemer verwyder?",
+        "employee_details": "Werknemer besonderhede",
+        "contract": "Kontrak"
     },
     "employee_type": {
-        "full_time": "Full time",
-        "part_time": "Part-time",
-        "contractor": "Contractor",
-        "intern": "Intern",
-        "temporary": "Temporary",
-        "apprentice": "Apprentice",
-        "founder": "Founder",
-        "co_founder": "Co-founder",
-        "owner": "Owner",
-        "other": "Other"
+        "full_time": "Voltyds",
+        "part_time": "Deeltyds",
+        "contractor": "Kontrakteur",
+        "intern": "Stagiair",
+        "temporary": "Tydelik",
+        "apprentice": "Leerling",
+        "founder": "Stigter",
+        "co_founder": "Mede-stigter",
+        "owner": "Eienaar",
+        "other": "Ander"
     },
     "employee_level": {
         "junior": "Junior",
-        "mid_level": "Mid Level",
+        "mid_level": "Middelvlak",
         "senior": "Senior",
-        "executive": "Executive",
-        "director": "Director",
-        "vice_president": "Vice President",
-        "c_level": "C-Level",
-        "owner": "Owner",
-        "other": "Other"
+        "executive": "Uitvoerende",
+        "director": "Direkteur",
+        "vice_president": "Vise President",
+        "c_level": "C-Vlak",
+        "owner": "Eienaar",
+        "other": "Ander"
     },
     "contract_type": {
-        "permanent": "Permanent",
-        "fixed_term": "Fixed Term",
-        "temporary": "Temporary",
-        "zero_hours": "Zero Hours",
-        "freelance": "Freelance",
-        "contractor": "Contractor",
-        "apprentice": "Apprentice",
-        "intern": "Intern",
-        "volunteer": "Volunteer",
-        "other": "Other"
+        "permanent": "Blywende",
+        "fixed_term": "Vaste Termyn",
+        "temporary": "Tydelike",
+        "zero_hours": "Geen Ure",
+        "freelance": "Vryskut",
+        "contractor": "Kontrakteur",
+        "apprentice": "Leerling",
+        "intern": "Stagiair",
+        "volunteer": "Vrywilliger",
+        "other": "Ander"
     },
     "admin": {
         "menu": {
@@ -575,7 +575,7 @@
             "integrations": "Integrasies",
             "roles": "Roles",
             "users": "Gebruikers",
-            "departments": "Departments",
+            "departments": "Departemente",
             "settings": "Instellings",
             "settings_general": "Algemeen",
             "settings_currency": "Geldeenheid",
@@ -604,7 +604,7 @@
             "stripe_available": "Stripe beskikbaar",
             "stripe_key": "Stripe API Sleutel",
             "stripe_key_help": "Jy kan jou API-sleutels in jou Stripe-rekening vind.",
-            "stripe_account_id": "Stripe internal account ID",
+            "stripe_account_id": "Stripe interne rekening ID",
             "paypal": "PayPal",
             "paypal_available": "PayPal beskikbaar",
             "paypal_test_mode": "Toetsmodus",
@@ -612,7 +612,7 @@
             "paypal_client_id_help": "Jy kan jou Kliënt-ID in jou PayPal-rekening vind.",
             "paypal_secret": "PayPal Geheim",
             "paypal_secret_help": "Jy kan jou Geheim in jou PayPal-rekening vind.",
-            "paypal_account_id": "PayPal internal account ID",
+            "paypal_account_id": "PayPal interne rekening ID",
             "open_banking": "Open Banking",
             "open_banking_available": "Open Banking beskikbaar",
             "open_banking_client_id": "Open Banking Kliënt-ID",
@@ -631,17 +631,17 @@
             "reset_password": "Stel Wagwoord Terug",
             "send_details_to": "Stuur besonderhede aan",
             "never_logged_in": "Nooit aangemeld nie",
-            "auto_generate_password": "Auto-generate password",
+            "auto_generate_password": "Genereer outomatiese wagwoord",
             "delete_confirm_user": "Is jy seker jy wil hierdie gebruiker verwyder?"
         },
         "department": {
-            "title": "Departments",
-            "department": "Department | Departments",
-            "new_department": "New Department",
-            "edit_department": "Edit Department",
-            "no_departments": "No departments found",
-            "create_first_department": "Create your first department",
-            "delete_confirm_department": "Are you sure you want to delete this department?"
+            "title": "Departemente",
+            "department": "Departement | Departemente",
+            "new_department": "Nuwe Departement",
+            "edit_department": "Wysig Departement",
+            "no_departments": "Geen departemente gevind",
+            "create_first_department": "Skep jou eerste departement",
+            "delete_confirm_department": "Is jy seker jy wil hierdie departement verwyder?"
         },
         "currency": {
             "title": "Geldeenheid Instellings",
@@ -666,7 +666,7 @@
             "default_date_format": "Verstek Datum Formaat",
             "default_time_format": "Verstek Tyd Formaat",
             "default_datetime_format": "Verstek Datum en Tyd Formaat",
-            "show_barcode_on_documents": "Show barcode on documents"
+            "show_barcode_on_documents": "Wys strepieskode op dokumente"
         },
         "taxes": {
             "title": "Belastingkoerse",
@@ -697,15 +697,15 @@
             "number_of_logins_today": "Aantal Aantekenings Vandag"
         },
         "app_status": {
-            "title": "Application Status",
-            "current_version": "Current Version",
-            "latest_version": "Latest Version",
-            "update_available": "Update Available",
-            "disk_usage": "Disk Usage",
-            "database_size": "Database Size",
-            "server_os": "Server OS",
-            "php_version": "PHP Version",
-            "hostname": "Hostname"
+            "title": "Aansoekstatus",
+            "current_version": "Huidige Weergawe",
+            "latest_version": "Nuutste Weergawe",
+            "update_available": "Opdatering Beskikbaar",
+            "disk_usage": "Skyf Gebruik",
+            "database_size": "Databasis Grootte",
+            "server_os": "Bediener BS",
+            "php_version": "PHP Weergawe",
+            "hostname": "Gasheernaam"
         },
         "numbering": {
             "title": "Aantal formaatinstellings",
@@ -713,12 +713,12 @@
             "invoice": "Faktuurnommer formaat",
             "transaction": "Transaksienommervormaat",
             "payment": "Betalingsnommervormaat",
-            "quote": "Quote number format",
-            "partner": "Partner number format",
+            "quote": "Aanhalingnommer formaat",
+            "partner": "Vennootnommer formaat",
             "bill": "Rekeningnommervormaat",
             "document": "Dokumentnommervormaat",
             "product": "Produknommer formaat",
-            "employee": "Employee number format"
+            "employee": "Werknemernommer formaat"
         }
     },
     "countries": {
@@ -978,8 +978,8 @@
         "sl": "Sloveens"
     },
     "language": {
-        "en": "English",
-        "de": "German",
-        "sl": "Slovenian"
+        "en": "Engels",
+        "de": "Duits",
+        "sl": "Sloveens"
     }
 }
