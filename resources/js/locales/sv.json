@@ -28,9 +28,9 @@
         "session_timeout": "Din session har gått ut. Logga in igen.",
         "internal_server_error": "Internt serverfel",
         "validation_error": "Fel vid validering",
-        "not_found_item": "Not Found",
+        "not_found_item": "Hittades inte",
         "bad_request": "Felaktig begäran",
-        "forbidden": "Forbidden"
+        "forbidden": "Förbjuden"
     },
     "basic": {
         "cancel": "Avbryt",
@@ -233,8 +233,8 @@
         "level": "Nivå",
         "contract_type": "Typ av kontrakt",
         "internal_user": "Intern användare",
-        "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "sales_person": "Försäljning Person",
+        "opening_balance_date": "Öppnar saldo datum"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -323,7 +323,7 @@
         "create_first_partner": "Skapa din första partner",
         "add_contact": "Lägg till kontakt",
         "no_contacts": "Inga kontakter hittades",
-        "add_address": "Add Address",
+        "add_address": "Lägg till adress",
         "no_addresses": "Inga adresser hittades",
         "addresses": "Adresser",
         "contacts": "Kontakter",
@@ -333,7 +333,7 @@
     "product": {
         "product": "Produkt <unk> Produkter",
         "new_product": "Ny produkt",
-        "edit_product": "Edit Product",
+        "edit_product": "Redigera produkt",
         "no_products": "Inga produkter hittades",
         "create_first_product": "Skapa din första produkt",
         "delete_product_confirmation": "Är du säker på att du vill ta bort denna produkt?"
@@ -386,10 +386,10 @@
         "payment_error_message": "Det gick inte att bearbeta din betalning. Försök igen.",
         "show_transactions": "Visa transaktioner",
         "list_of_transactions": "Lista över transaktioner",
-        "no_sales_person": "No sales person",
-        "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "no_sales_person": "Ingen säljare",
+        "no_payment_method": "Ingen betalningsmetod",
+        "click_for_pay_with_paypal": "Klicka här för att betala med PayPal",
+        "click_for_pay": "Klicka här för att betala"
     },
     "quote": {
         "quote": "Offert <unk> Offerter",
@@ -534,7 +534,7 @@
     },
     "employee_type": {
         "full_time": "Heltid",
-        "part_time": "Part-time",
+        "part_time": "Deltid",
         "contractor": "Entreprenör",
         "intern": "Praktikant",
         "temporary": "Tillfällig",
@@ -631,7 +631,7 @@
             "reset_password": "Återställ lösenord",
             "send_details_to": "Skicka information till",
             "never_logged_in": "Aldrig inloggad",
-            "auto_generate_password": "Auto-generate password",
+            "auto_generate_password": "Generera lösenord automatiskt",
             "delete_confirm_user": "Är du säker på att du vill ta bort denna användare?"
         },
         "department": {
