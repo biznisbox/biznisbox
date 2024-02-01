@@ -28,9 +28,9 @@
         "session_timeout": "Час вашого сеансу минув. Будь ласка, увійдіть знову.",
         "internal_server_error": "Внутрішня помилка сервера",
         "validation_error": "Помилка перевірки",
-        "not_found_item": "Not Found",
+        "not_found_item": "Не знайдено",
         "bad_request": "Невірний запит",
-        "forbidden": "Forbidden"
+        "forbidden": "Заборонено"
     },
     "basic": {
         "cancel": "Скасувати",
@@ -233,8 +233,8 @@
         "level": "Рівень",
         "contract_type": "Тип контракту",
         "internal_user": "Внутрішній користувач",
-        "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "sales_person": "Продаж",
+        "opening_balance_date": "Дата відкриття балансу"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -323,7 +323,7 @@
         "create_first_partner": "Створіть свого першого партнера",
         "add_contact": "Додати контакт",
         "no_contacts": "Контактів не знайдено",
-        "add_address": "Add Address",
+        "add_address": "Додати адресу",
         "no_addresses": "Адрес не знайдено",
         "addresses": "Адреси",
         "contacts": "Контакти",
@@ -333,7 +333,7 @@
     "product": {
         "product": "Товар | Продукти",
         "new_product": "Новий товар",
-        "edit_product": "Edit Product",
+        "edit_product": "Редагувати товар",
         "no_products": "Немає жодного товару",
         "create_first_product": "Створіть свій перший товар",
         "delete_product_confirmation": "Ви дійсно бажаєте видалити цей товар?"
@@ -386,10 +386,10 @@
         "payment_error_message": "Помилка при обробці вашого платежу. Будь ласка, спробуйте ще раз.",
         "show_transactions": "Показати транзакції",
         "list_of_transactions": "Список операцій",
-        "no_sales_person": "No sales person",
-        "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "no_sales_person": "Немає відділу з продажу",
+        "no_payment_method": "Немає способу оплати",
+        "click_for_pay_with_paypal": "Натисніть тут, щоб заплатити за допомогою PayPal",
+        "click_for_pay": "Натисніть тут, щоб заплатити"
     },
     "quote": {
         "quote": "Котирування | Комерційні пропозиції",
@@ -534,7 +534,7 @@
     },
     "employee_type": {
         "full_time": "Повний робочий день",
-        "part_time": "Part-time",
+        "part_time": "Частковий час",
         "contractor": "Виконавець",
         "intern": "Внутрішні",
         "temporary": "Тимчасово",
@@ -631,7 +631,7 @@
             "reset_password": "Скидання пароля",
             "send_details_to": "Відправити подробиці до",
             "never_logged_in": "Ніколи не входив",
-            "auto_generate_password": "Auto-generate password",
+            "auto_generate_password": "Автоматично згенерувати пароль",
             "delete_confirm_user": "Ви впевнені, що хочете видалити цього користувача?"
         },
         "department": {
