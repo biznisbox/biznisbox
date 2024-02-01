@@ -28,9 +28,9 @@
         "session_timeout": "Время вашей сессии истекло. Пожалуйста, войдите снова.",
         "internal_server_error": "Внутренняя ошибка сервера",
         "validation_error": "Ошибка проверки",
-        "not_found_item": "Not Found",
+        "not_found_item": "Не найдено",
         "bad_request": "Плохой запрос",
-        "forbidden": "Forbidden"
+        "forbidden": "Запрещено"
     },
     "basic": {
         "cancel": "Отмена",
@@ -233,8 +233,8 @@
         "level": "Уровень",
         "contract_type": "Тип контракта",
         "internal_user": "Внутренний пользователь",
-        "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "sales_person": "Продавец",
+        "opening_balance_date": "Дата открытия баланса"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -323,7 +323,7 @@
         "create_first_partner": "Создайте своего первого партнера",
         "add_contact": "Добавить контакт",
         "no_contacts": "Контакты не найдены",
-        "add_address": "Add Address",
+        "add_address": "Добавить адрес",
         "no_addresses": "Адресов не найдено",
         "addresses": "Адреса",
         "contacts": "Контакты",
@@ -333,7 +333,7 @@
     "product": {
         "product": "Продукт | Продукты",
         "new_product": "Новый товар",
-        "edit_product": "Edit Product",
+        "edit_product": "Изменить продукт",
         "no_products": "Товары не найдены",
         "create_first_product": "Создайте свой первый товар",
         "delete_product_confirmation": "Вы уверены, что хотите удалить этот продукт?"
@@ -386,10 +386,10 @@
         "payment_error_message": "Произошла ошибка при обработке вашего платежа. Пожалуйста, попробуйте еще раз.",
         "show_transactions": "Показать транзакции",
         "list_of_transactions": "Список операций",
-        "no_sales_person": "No sales person",
-        "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "no_sales_person": "Нет продавца",
+        "no_payment_method": "Нет способа оплаты",
+        "click_for_pay_with_paypal": "Нажмите здесь, чтобы оплатить через PayPal",
+        "click_for_pay": "Нажмите здесь для оплаты"
     },
     "quote": {
         "quote": "Цитата | Предложения",
@@ -534,7 +534,7 @@
     },
     "employee_type": {
         "full_time": "Полное время",
-        "part_time": "Part-time",
+        "part_time": "Частичное время",
         "contractor": "Исполнитель",
         "intern": "Интерн",
         "temporary": "Временно",
@@ -631,7 +631,7 @@
             "reset_password": "Сбросить пароль",
             "send_details_to": "Отправить подробности",
             "never_logged_in": "Никогда не входил",
-            "auto_generate_password": "Auto-generate password",
+            "auto_generate_password": "Сгенерировать пароль автоматически",
             "delete_confirm_user": "Вы уверены, что хотите удалить этого пользователя?"
         },
         "department": {
