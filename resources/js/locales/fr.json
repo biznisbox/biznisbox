@@ -28,9 +28,9 @@
         "session_timeout": "Votre session a expiré. Veuillez vous reconnecter.",
         "internal_server_error": "Erreur interne du serveur",
         "validation_error": "Erreur de validation",
-        "not_found_item": "Not Found",
+        "not_found_item": "Non Trouvé",
         "bad_request": "Mauvaise requête",
-        "forbidden": "Forbidden"
+        "forbidden": "Interdit"
     },
     "basic": {
         "cancel": "Abandonner",
@@ -233,8 +233,8 @@
         "level": "Niveau",
         "contract_type": "Type de contrat",
         "internal_user": "Utilisateur Interne",
-        "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "sales_person": "Personne commerciale",
+        "opening_balance_date": "Date du solde d'ouverture"
     },
     "address_types": {
         "billing": "Facturation",
@@ -323,7 +323,7 @@
         "create_first_partner": "Créez votre premier partenaire",
         "add_contact": "Ajouter un contact",
         "no_contacts": "Aucun contact trouvé",
-        "add_address": "Add Address",
+        "add_address": "Ajouter une adresse",
         "no_addresses": "Aucune adresse trouvée",
         "addresses": "Adresses",
         "contacts": "Contacts",
@@ -333,7 +333,7 @@
     "product": {
         "product": "Produit | Produits",
         "new_product": "Nouveau produit",
-        "edit_product": "Edit Product",
+        "edit_product": "Modifier le produit",
         "no_products": "Aucun produit trouvé",
         "create_first_product": "Créez votre premier produit",
         "delete_product_confirmation": "Êtes-vous sûr de vouloir supprimer ce produit ?"
@@ -386,10 +386,10 @@
         "payment_error_message": "Une erreur s'est produite lors du traitement de votre paiement. Veuillez réessayer.",
         "show_transactions": "Afficher les transactions",
         "list_of_transactions": "Liste des opérations",
-        "no_sales_person": "No sales person",
-        "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "no_sales_person": "Aucune personne commerciale",
+        "no_payment_method": "Aucun moyen de paiement",
+        "click_for_pay_with_paypal": "Cliquez ici pour payer avec PayPal",
+        "click_for_pay": "Cliquez ici pour payer"
     },
     "quote": {
         "quote": "Devis | Devis",
@@ -534,7 +534,7 @@
     },
     "employee_type": {
         "full_time": "Plein temps",
-        "part_time": "Part-time",
+        "part_time": "À temps partiel",
         "contractor": "Entrepreneur",
         "intern": "Interne",
         "temporary": "Temporaire",
@@ -631,7 +631,7 @@
             "reset_password": "Réinitialiser le mot de passe",
             "send_details_to": "Envoyer les détails à",
             "never_logged_in": "Jamais connecté",
-            "auto_generate_password": "Auto-generate password",
+            "auto_generate_password": "Générer automatiquement le mot de passe",
             "delete_confirm_user": "Êtes-vous sûr de vouloir supprimer cet utilisateur ?"
         },
         "department": {
