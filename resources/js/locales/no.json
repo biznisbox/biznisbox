@@ -28,9 +28,9 @@
         "session_timeout": "Økten ble tidsavbrutt. Vennligst logg inn på nytt.",
         "internal_server_error": "Intern serverfeil",
         "validation_error": "Feil under validering",
-        "not_found_item": "Not Found",
+        "not_found_item": "Ikke funnet",
         "bad_request": "Feil forespørsel",
-        "forbidden": "Forbidden"
+        "forbidden": "Forbudt"
     },
     "basic": {
         "cancel": "Avbryt",
@@ -233,8 +233,8 @@
         "level": "Nivå",
         "contract_type": "Kontrakt type",
         "internal_user": "Intern bruker",
-        "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "sales_person": "Salg Person",
+        "opening_balance_date": "Inngående saldo dato"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -323,7 +323,7 @@
         "create_first_partner": "Opprett din første partner",
         "add_contact": "Legg til kontakt",
         "no_contacts": "Finner ingen kontakter",
-        "add_address": "Add Address",
+        "add_address": "Legg til adresse",
         "no_addresses": "Ingen adresser funnet",
         "addresses": "Adresser",
         "contacts": "Kontakter",
@@ -333,7 +333,7 @@
     "product": {
         "product": "ProduktProdukt(er) produkter",
         "new_product": "Nytt produkt",
-        "edit_product": "Edit Product",
+        "edit_product": "Rediger produkt",
         "no_products": "Ingen produkter funnet",
         "create_first_product": "Opprett ditt første produkt",
         "delete_product_confirmation": "Er du sikker på at du vil slette dette produktet?"
@@ -386,10 +386,10 @@
         "payment_error_message": "Det oppstod en feil under behandling av betalingen. Vennligst prøv igjen.",
         "show_transactions": "Vis transaksjoner",
         "list_of_transactions": "Liste over transaksjoner",
-        "no_sales_person": "No sales person",
-        "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "no_sales_person": "Ingen salgsperson",
+        "no_payment_method": "Ingen betalingsmåte",
+        "click_for_pay_with_paypal": "Klikk her for å betale med PayPal",
+        "click_for_pay": "Klikk her for å betale"
     },
     "quote": {
         "quote": "Tilbud, tilbud",
@@ -534,7 +534,7 @@
     },
     "employee_type": {
         "full_time": "Heltid",
-        "part_time": "Part-time",
+        "part_time": "Deltid",
         "contractor": "Entreprenør",
         "intern": "Praktikant",
         "temporary": "Midlertidig",
@@ -631,7 +631,7 @@
             "reset_password": "Tilbakestill passord",
             "send_details_to": "Send detaljer til",
             "never_logged_in": "Aldri logget inn",
-            "auto_generate_password": "Auto-generate password",
+            "auto_generate_password": "Autogenerer passord",
             "delete_confirm_user": "Er du sikker på at du vil slette denne brukeren?"
         },
         "department": {
