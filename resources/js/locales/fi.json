@@ -28,9 +28,9 @@
         "session_timeout": "Istuntosi on aikakatkaistu. Kirjaudu sisään uudelleen.",
         "internal_server_error": "Sisäinen Palvelinvirhe",
         "validation_error": "Vahvistusvirhe",
-        "not_found_item": "Not Found",
+        "not_found_item": "Ei Löytynyt",
         "bad_request": "Virheellinen Pyyntö",
-        "forbidden": "Forbidden"
+        "forbidden": "Kielletty"
     },
     "basic": {
         "cancel": "Peruuta",
@@ -233,8 +233,8 @@
         "level": "Taso",
         "contract_type": "Sopimuksen Tyyppi",
         "internal_user": "Sisäinen Käyttäjä",
-        "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "sales_person": "Myynti Henkilö",
+        "opening_balance_date": "Avaussaldo Päivämäärä"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -323,7 +323,7 @@
         "create_first_partner": "Luo ensimmäinen kumppanisi",
         "add_contact": "Lisää yhteystieto",
         "no_contacts": "Yhteystietoja ei löytynyt",
-        "add_address": "Add Address",
+        "add_address": "Lisää Osoite",
         "no_addresses": "Osoitteita ei löytynyt",
         "addresses": "Osoitteet",
         "contacts": "Yhteystiedot",
@@ -333,7 +333,7 @@
     "product": {
         "product": "Tuote - Tuotteet",
         "new_product": "Uusi tuote",
-        "edit_product": "Edit Product",
+        "edit_product": "Muokkaa Tuotetta",
         "no_products": "Tuotteita ei löytynyt",
         "create_first_product": "Luo ensimmäinen tuotteesi",
         "delete_product_confirmation": "Oletko varma, että haluat poistaa tämän tuotteen?"
@@ -386,10 +386,10 @@
         "payment_error_message": "Maksusi käsittelyssä tapahtui virhe. Ole hyvä ja yritä uudelleen.",
         "show_transactions": "Näytä tapahtumat",
         "list_of_transactions": "Luettelo tapahtumista",
-        "no_sales_person": "No sales person",
-        "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "no_sales_person": "Ei myyntihenkilöä",
+        "no_payment_method": "Ei maksutapaa",
+        "click_for_pay_with_paypal": "Maksa PayPalilla napsauttamalla tästä",
+        "click_for_pay": "Maksa klikkaamalla tästä"
     },
     "quote": {
         "quote": "Tarjous - Lainaukset",
@@ -534,7 +534,7 @@
     },
     "employee_type": {
         "full_time": "Koko aika",
-        "part_time": "Part-time",
+        "part_time": "Osa-aikainen",
         "contractor": "Alihankkija",
         "intern": "Ulkoinen",
         "temporary": "Väliaikainen",
@@ -631,7 +631,7 @@
             "reset_password": "Nollaa Salasana",
             "send_details_to": "Lähetä tiedot",
             "never_logged_in": "Ei koskaan kirjautunut sisään",
-            "auto_generate_password": "Auto-generate password",
+            "auto_generate_password": "Luo salasana automaattisesti",
             "delete_confirm_user": "Oletko varma, että haluat poistaa tämän käyttäjän?"
         },
         "department": {
