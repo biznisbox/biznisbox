@@ -28,9 +28,9 @@
         "session_timeout": "Sesiunea ta a expirat. Te rugăm să te autentifici din nou.",
         "internal_server_error": "Eroare internă de server",
         "validation_error": "Eroare de validare",
-        "not_found_item": "Not Found",
+        "not_found_item": "Nu s-a găsit",
         "bad_request": "Solicitare greșită",
-        "forbidden": "Forbidden"
+        "forbidden": "Interzis"
     },
     "basic": {
         "cancel": "Anulează",
@@ -233,8 +233,8 @@
         "level": "Nivel",
         "contract_type": "Tipul contractului",
         "internal_user": "Utilizator intern",
-        "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "sales_person": "Agent",
+        "opening_balance_date": "Data de deschidere a soldului"
     },
     "address_types": {
         "billing": "Facturare",
@@ -323,7 +323,7 @@
         "create_first_partner": "Creează-ți primul partener",
         "add_contact": "Adăugare contact",
         "no_contacts": "Nu s-au găsit contacte",
-        "add_address": "Add Address",
+        "add_address": "Adăugare adresă",
         "no_addresses": "Nicio adresă găsită",
         "addresses": "Adrese",
         "contacts": "Contacte",
@@ -333,7 +333,7 @@
     "product": {
         "product": "Produs Ref. Produse",
         "new_product": "Produs nou",
-        "edit_product": "Edit Product",
+        "edit_product": "Editare produs",
         "no_products": "Nici un produs găsit",
         "create_first_product": "Crează primul tău produs",
         "delete_product_confirmation": "Sigur doriți să ștergeți acest produs?"
@@ -386,10 +386,10 @@
         "payment_error_message": "A apărut o eroare la procesarea plății tale. Te rugăm să încerci din nou.",
         "show_transactions": "Afișare tranzacții",
         "list_of_transactions": "Lista tranzacţiilor",
-        "no_sales_person": "No sales person",
-        "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "no_sales_person": "Fără vânzător",
+        "no_payment_method": "Nici o metodă de plată",
+        "click_for_pay_with_paypal": "Click aici pentru a plăti prin PayPal",
+        "click_for_pay": "Click aici pentru a plăti"
     },
     "quote": {
         "quote": "Ofertă * Oferte",
@@ -534,7 +534,7 @@
     },
     "employee_type": {
         "full_time": "Timp întreg",
-        "part_time": "Part-time",
+        "part_time": "Cu fracţiune de normă",
         "contractor": "Contractor",
         "intern": "Intern",
         "temporary": "Temporar",
@@ -631,7 +631,7 @@
             "reset_password": "Resetare parolă",
             "send_details_to": "Trimite detalii către",
             "never_logged_in": "Niciodată autentificat",
-            "auto_generate_password": "Auto-generate password",
+            "auto_generate_password": "Generare automată parolă",
             "delete_confirm_user": "Sunteţi sigur că doriţi să ştergeţi acest utilizator?"
         },
         "department": {
