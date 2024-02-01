@@ -30,7 +30,7 @@
         "validation_error": "Napaka pri validaciji",
         "not_found_item": "Ni najdeno",
         "bad_request": "Napačna zahteva",
-        "forbidden": "Forbidden"
+        "forbidden": "Prepovedano"
     },
     "basic": {
         "cancel": "Prekliči",
@@ -234,7 +234,7 @@
         "contract_type": "Tip pogodbe",
         "internal_user": "Interni uporabnik",
         "sales_person": "Prodajalec",
-        "opening_balance_date": "Opening Balance Date"
+        "opening_balance_date": "Datum začetnega stanja"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -388,8 +388,8 @@
         "list_of_transactions": "Seznam transakcij",
         "no_sales_person": "Ni prodajalca",
         "no_payment_method": "Način plačila",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "click_for_pay_with_paypal": "Kliknite tukaj za plačilo s PayPalom",
+        "click_for_pay": "Kliknite tukaj za plačilo"
     },
     "quote": {
         "quote": "Ponudba|Ponudbe",
