@@ -28,9 +28,9 @@
         "session_timeout": "Uw sessie is verlopen. Log opnieuw in.",
         "internal_server_error": "Interne serverfout",
         "validation_error": "Validatie fout",
-        "not_found_item": "Not Found",
+        "not_found_item": "Niet gevonden",
         "bad_request": "Foutief verzoek",
-        "forbidden": "Forbidden"
+        "forbidden": "Verboden"
     },
     "basic": {
         "cancel": "annuleren",
@@ -233,8 +233,8 @@
         "level": "Niveau",
         "contract_type": "Contract type",
         "internal_user": "Interne gebruiker",
-        "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "sales_person": "Verkoop persoon",
+        "opening_balance_date": "OpeningsSaldo Datum"
     },
     "address_types": {
         "billing": "Facturering",
@@ -323,7 +323,7 @@
         "create_first_partner": "Creëer uw eerste partner",
         "add_contact": "Contactpersoon toevoegen",
         "no_contacts": "Geen contacten gevonden",
-        "add_address": "Add Address",
+        "add_address": "Adres toevoegen",
         "no_addresses": "Geen adressen gevonden",
         "addresses": "Adres",
         "contacts": "Contactpersonen",
@@ -333,7 +333,7 @@
     "product": {
         "product": "Product Bourgogne producten",
         "new_product": "Nieuw product",
-        "edit_product": "Edit Product",
+        "edit_product": "Product bewerken",
         "no_products": "Geen producten gevonden",
         "create_first_product": "Maak je eerste product aan",
         "delete_product_confirmation": "Weet u zeker dat u dit product wilt verwijderen?"
@@ -386,10 +386,10 @@
         "payment_error_message": "Er is een fout opgetreden bij het verwerken van uw betaling. Probeer het opnieuw.",
         "show_transactions": "Toon transacties",
         "list_of_transactions": "Lijst van transacties",
-        "no_sales_person": "No sales person",
-        "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "no_sales_person": "Geen verkoper",
+        "no_payment_method": "Geen betaalmethode",
+        "click_for_pay_with_paypal": "Klik hier om te betalen met PayPal",
+        "click_for_pay": "Klik hier om te betalen"
     },
     "quote": {
         "quote": "Offerte aanhalingstekens",
@@ -534,7 +534,7 @@
     },
     "employee_type": {
         "full_time": "Volle tijd",
-        "part_time": "Part-time",
+        "part_time": "Deeltijd:",
         "contractor": "Aannemer",
         "intern": "Intern",
         "temporary": "Tijdelijk",
@@ -631,7 +631,7 @@
             "reset_password": "Wachtwoord opnieuw instellen",
             "send_details_to": "Verzend details naar",
             "never_logged_in": "Nooit ingelogd",
-            "auto_generate_password": "Auto-generate password",
+            "auto_generate_password": "Automatisch wachtwoord genereren",
             "delete_confirm_user": "Weet u zeker dat u deze gebruiker wilt verwijderen?"
         },
         "department": {
