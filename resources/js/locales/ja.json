@@ -28,9 +28,9 @@
         "session_timeout": "セッションがタイムアウトしました。もう一度ログインしてください。",
         "internal_server_error": "内部サーバーエラー",
         "validation_error": "検証エラー",
-        "not_found_item": "Not Found",
+        "not_found_item": "見つかりませんでした",
         "bad_request": "不正なリクエスト",
-        "forbidden": "Forbidden"
+        "forbidden": "アクセス禁止"
     },
     "basic": {
         "cancel": "キャンセル",
@@ -233,8 +233,8 @@
         "level": "レベル",
         "contract_type": "契約タイプ",
         "internal_user": "内部ユーザー",
-        "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "sales_person": "営業担当者:",
+        "opening_balance_date": "残高開始日"
     },
     "address_types": {
         "billing": "請求",
@@ -323,7 +323,7 @@
         "create_first_partner": "最初のパートナーを作成する",
         "add_contact": "連絡先を追加",
         "no_contacts": "連絡先が見つかりません",
-        "add_address": "Add Address",
+        "add_address": "住所を追加",
         "no_addresses": "アドレスが見つかりません",
         "addresses": "アドレス",
         "contacts": "連絡先",
@@ -333,7 +333,7 @@
     "product": {
         "product": "製品 | 製品",
         "new_product": "新規商品",
-        "edit_product": "Edit Product",
+        "edit_product": "商品を編集",
         "no_products": "商品が見つかりません",
         "create_first_product": "最初の製品を作成",
         "delete_product_confirmation": "この製品を削除してもよろしいですか？"
@@ -386,10 +386,10 @@
         "payment_error_message": "お支払い処理中にエラーが発生しました。もう一度やり直してください。",
         "show_transactions": "取引を表示",
         "list_of_transactions": "取引一覧",
-        "no_sales_person": "No sales person",
-        "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "no_sales_person": "販売担当者なし",
+        "no_payment_method": "支払い方法がありません",
+        "click_for_pay_with_paypal": "PayPalで支払うにはここをクリック",
+        "click_for_pay": "支払うにはここをクリック"
     },
     "quote": {
         "quote": "引用 | 引用",
@@ -534,7 +534,7 @@
     },
     "employee_type": {
         "full_time": "フルタイム",
-        "part_time": "Part-time",
+        "part_time": "パートタイム",
         "contractor": "請負業者",
         "intern": "Intern",
         "temporary": "一時的な",
@@ -631,7 +631,7 @@
             "reset_password": "パスワードのリセット",
             "send_details_to": "詳細を送信",
             "never_logged_in": "ログインしない",
-            "auto_generate_password": "Auto-generate password",
+            "auto_generate_password": "パスワードを自動生成する",
             "delete_confirm_user": "このユーザーを削除してもよろしいですか？"
         },
         "department": {
