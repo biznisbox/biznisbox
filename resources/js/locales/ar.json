@@ -28,9 +28,9 @@
         "session_timeout": "انتهت مهلة جلستك. الرجاء تسجيل الدخول مرة أخرى.",
         "internal_server_error": "خطأ خادم داخلي",
         "validation_error": "خطأ في التحقق",
-        "not_found_item": "Not Found",
+        "not_found_item": "غير موجود",
         "bad_request": "طلب خاطئ",
-        "forbidden": "Forbidden"
+        "forbidden": "ممنوع"
     },
     "basic": {
         "cancel": "إلغاء",
@@ -233,8 +233,8 @@
         "level": "المستوى",
         "contract_type": "نوع العقد",
         "internal_user": "مستخدم داخلي",
-        "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "sales_person": "شخص المبيعات",
+        "opening_balance_date": "تاريخ الرصيد الافتتاحي"
     },
     "address_types": {
         "billing": "الفواتير",
@@ -323,7 +323,7 @@
         "create_first_partner": "إنشاء شريكك الأول",
         "add_contact": "إضافة جهة اتصال",
         "no_contacts": "لم يتم العثور على جهات اتصال",
-        "add_address": "Add Address",
+        "add_address": "إضافة عنوان",
         "no_addresses": "لم يتم العثور على عناوين",
         "addresses": "العناوين",
         "contacts": "جهات",
@@ -333,7 +333,7 @@
     "product": {
         "product": "المنتج <unk> المنتجات",
         "new_product": "منتج جديد",
-        "edit_product": "Edit Product",
+        "edit_product": "تحرير المنتج",
         "no_products": "لم يتم العثور على منتجات",
         "create_first_product": "إنشاء المنتج الأول الخاص بك",
         "delete_product_confirmation": "هل أنت متأكد من أنك تريد حذف هذا المنتج؟"
@@ -386,10 +386,10 @@
         "payment_error_message": "حدث خطأ أثناء معالجة الدفع الخاص بك. الرجاء المحاولة مرة أخرى.",
         "show_transactions": "إظهار المعاملات",
         "list_of_transactions": "قائمة المعاملات",
-        "no_sales_person": "No sales person",
-        "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "no_sales_person": "لا يوجد شخص مبيعات",
+        "no_payment_method": "لا توجد طريقة دفع",
+        "click_for_pay_with_paypal": "انقر هنا للدفع باستخدام PayPal",
+        "click_for_pay": "انقر هنا للدفع"
     },
     "quote": {
         "quote": "اقتباس <unk> اقتباس",
@@ -534,7 +534,7 @@
     },
     "employee_type": {
         "full_time": "دفعة كاملة",
-        "part_time": "Part-time",
+        "part_time": "دوام جزئي",
         "contractor": "متعاقد",
         "intern": "متدرب",
         "temporary": "مؤقت",
@@ -631,7 +631,7 @@
             "reset_password": "إعادة تعيين كلمة المرور",
             "send_details_to": "إرسال التفاصيل إلى",
             "never_logged_in": "لم تقم أبدا بتسجيل الدخول",
-            "auto_generate_password": "Auto-generate password",
+            "auto_generate_password": "إنشاء كلمة مرور تلقائي",
             "delete_confirm_user": "هل أنت متأكد من أنك تريد حذف هذا المستخدم؟"
         },
         "department": {
