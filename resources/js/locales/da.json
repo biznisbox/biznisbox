@@ -28,9 +28,9 @@
         "session_timeout": "Din session er udløbet. Log venligst ind igen.",
         "internal_server_error": "Intern Serverfejl",
         "validation_error": "Valideringsfejl",
-        "not_found_item": "Not Found",
+        "not_found_item": "Ikke Fundet",
         "bad_request": "Dårlig Anmodning",
-        "forbidden": "Forbidden"
+        "forbidden": "Forbudt"
     },
     "basic": {
         "cancel": "Annuller",
@@ -233,8 +233,8 @@
         "level": "Niveau",
         "contract_type": "Kontrakt Type",
         "internal_user": "Intern Bruger",
-        "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "sales_person": "Salg Person",
+        "opening_balance_date": "Åbning Saldo Dato"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -323,7 +323,7 @@
         "create_first_partner": "Opret din første partner",
         "add_contact": "Tilføj kontakt",
         "no_contacts": "Ingen kontakter fundet",
-        "add_address": "Add Address",
+        "add_address": "Tilføj Adresse",
         "no_addresses": "Ingen adresser fundet",
         "addresses": "Adresser",
         "contacts": "Kontakter",
@@ -333,7 +333,7 @@
     "product": {
         "product": "Produkt - Produkter",
         "new_product": "Nyt produkt",
-        "edit_product": "Edit Product",
+        "edit_product": "Rediger Produkt",
         "no_products": "Ingen produkter fundet",
         "create_first_product": "Opret dit første produkt",
         "delete_product_confirmation": "Er du sikker på, at du vil slette dette produkt?"
@@ -386,10 +386,10 @@
         "payment_error_message": "Der opstod en fejl under behandlingen af din betaling. Prøv venligst igen.",
         "show_transactions": "Vis transaktioner",
         "list_of_transactions": "Liste over transaktioner",
-        "no_sales_person": "No sales person",
-        "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "no_sales_person": "Ingen salgsperson",
+        "no_payment_method": "Ingen betalingsmetode",
+        "click_for_pay_with_paypal": "Klik her for at betale med PayPal",
+        "click_for_pay": "Klik her for at betale"
     },
     "quote": {
         "quote": "Tilbud - Tilbud",
@@ -534,7 +534,7 @@
     },
     "employee_type": {
         "full_time": "Fuld tid",
-        "part_time": "Part-time",
+        "part_time": "Deltid",
         "contractor": "Kontrahent",
         "intern": "Intern",
         "temporary": "Midlertidig",
@@ -631,7 +631,7 @@
             "reset_password": "Nulstil Adgangskode",
             "send_details_to": "Send detaljer til",
             "never_logged_in": "Aldrig logget ind",
-            "auto_generate_password": "Auto-generate password",
+            "auto_generate_password": "Auto-generer adgangskode",
             "delete_confirm_user": "Er du sikker på, at du vil slette denne bruger?"
         },
         "department": {
