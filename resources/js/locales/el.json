@@ -28,9 +28,9 @@
         "session_timeout": "Έχει λήξει το χρονικό όριο. Παρακαλούμε συνδεθείτε ξανά.",
         "internal_server_error": "Εσωτερικό Σφάλμα Διακομιστή",
         "validation_error": "Σφάλμα Επικύρωσης",
-        "not_found_item": "Not Found",
+        "not_found_item": "Δεν Βρέθηκε",
         "bad_request": "Εσφαλμένο Αίτημα",
-        "forbidden": "Forbidden"
+        "forbidden": "Απαγορευμένο"
     },
     "basic": {
         "cancel": "Ακύρωση",
@@ -233,8 +233,8 @@
         "level": "Επίπεδο",
         "contract_type": "Τύπος Συμβολαίου",
         "internal_user": "Εσωτερικός Χρήστης",
-        "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "sales_person": "Πρόσωπο Πωλήσεων",
+        "opening_balance_date": "Ημερομηνία Έναρξης Υπολοίπου"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -323,7 +323,7 @@
         "create_first_partner": "Δημιουργήστε τον πρώτο σας συνεργάτη",
         "add_contact": "Προσθήκη επαφής",
         "no_contacts": "Δεν βρέθηκαν επαφές",
-        "add_address": "Add Address",
+        "add_address": "Προσθήκη Διεύθυνσης",
         "no_addresses": "Δεν βρέθηκαν διευθύνσεις",
         "addresses": "Διευθύνσεις",
         "contacts": "Επαφές",
@@ -333,7 +333,7 @@
     "product": {
         "product": "Προϊόν - Προϊόντα",
         "new_product": "Νέο προϊόν",
-        "edit_product": "Edit Product",
+        "edit_product": "Επεξεργασία Προϊόντος",
         "no_products": "Δεν βρέθηκαν προϊόντα",
         "create_first_product": "Δημιουργήστε το πρώτο σας προϊόν",
         "delete_product_confirmation": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το προϊόν?"
@@ -386,10 +386,10 @@
         "payment_error_message": "Παρουσιάστηκε σφάλμα κατά την επεξεργασία της πληρωμής σας. Παρακαλώ δοκιμάστε ξανά.",
         "show_transactions": "Εμφάνιση συναλλαγών",
         "list_of_transactions": "Λίστα συναλλαγών",
-        "no_sales_person": "No sales person",
-        "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "no_sales_person": "Κανένας πωλητής",
+        "no_payment_method": "Καμία μέθοδος πληρωμής",
+        "click_for_pay_with_paypal": "Κάντε κλικ εδώ για να πληρώσετε με PayPal",
+        "click_for_pay": "Κάντε κλικ εδώ για πληρωμή"
     },
     "quote": {
         "quote": "Προσφορά Προσφορών",
@@ -534,7 +534,7 @@
     },
     "employee_type": {
         "full_time": "Πλήρης χρόνος",
-        "part_time": "Part-time",
+        "part_time": "Μερική Ώρα",
         "contractor": "Ανάδοχος",
         "intern": "Πρακτορείο",
         "temporary": "Προσωρινή",
@@ -631,7 +631,7 @@
             "reset_password": "Επαναφορά Κωδικού Πρόσβασης",
             "send_details_to": "Αποστολή λεπτομερειών σε",
             "never_logged_in": "Ποτέ μη συνδεδεμένος",
-            "auto_generate_password": "Auto-generate password",
+            "auto_generate_password": "Αυτόματη δημιουργία κωδικού πρόσβασης",
             "delete_confirm_user": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον χρήστη?"
         },
         "department": {
