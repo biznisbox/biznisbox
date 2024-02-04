@@ -94,9 +94,7 @@ class OpenBankingService
                                 'bank_name' => $bank['name'] ?? null,
                                 'payment_available' => json_encode($bank['supported_payments']) ?? false,
                                 'bank_logo' => $bank['logo'] ?? null,
-                                'connection_valid_until' => now()
-                                    ->addDays(90)
-                                    ->format('Y-m-d H:i:s'),
+                                'connection_valid_until' => now()->addDays(90)->format('Y-m-d H:i:s'),
                             ]);
 
                             // Create internal account

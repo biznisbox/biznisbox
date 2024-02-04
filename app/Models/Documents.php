@@ -62,9 +62,7 @@ class Documents extends Model implements Auditable
      */
     public function getDocuments()
     {
-        $documents = $this->with('creator')
-            ->with('category')
-            ->get();
+        $documents = $this->with('creator')->with('category')->get();
 
         return $documents;
     }
@@ -77,10 +75,7 @@ class Documents extends Model implements Auditable
      */
     public function getDocument($id)
     {
-        $document = $this->with('creator')
-            ->with('category')
-            ->where('id', $id)
-            ->first();
+        $document = $this->with('creator')->with('category')->where('id', $id)->first();
 
         $document->preview = URL::signedRoute('document.pdf', ['id' => $document->id, 'type' => 'preview', 'lang' => app()->getLocale()]);
         $document->download = URL::signedRoute('document.pdf', ['id' => $document->id, 'type' => 'download', 'lang' => app()->getLocale()]);

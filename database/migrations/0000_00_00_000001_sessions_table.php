@@ -15,11 +15,7 @@ return new class extends Migration {
         Schema::dropIfExists('sessions');
         Schema::create('sessions', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table
-                ->foreignUuid('user_id')
-                ->constrained('users')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
+            $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('token')->nullable();
             $table->string('ip')->nullable();
             $table->string('device_type')->nullable();

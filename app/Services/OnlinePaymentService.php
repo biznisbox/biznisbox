@@ -105,9 +105,7 @@ class OnlinePaymentService
                 return api_response(false, __('response.invoice.not_found'));
             }
 
-            $payment = OnlinePayment::where('key', $key)
-                ->latest()
-                ->first();
+            $payment = OnlinePayment::where('key', $key)->latest()->first();
 
             if (!$payment) {
                 return api_response(false, __('response.payment.not_found'), 400);
@@ -250,9 +248,7 @@ class OnlinePaymentService
                 return api_response(false, __('response.payment.cancelled'), 400);
             }
 
-            $payment = OnlinePayment::where('key', $key)
-                ->latest()
-                ->first();
+            $payment = OnlinePayment::where('key', $key)->latest()->first();
 
             if (!$payment) {
                 return api_response(false, __('response.payment.not_found'), 400);

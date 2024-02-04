@@ -15,20 +15,8 @@ return new class extends Migration {
         Schema::dropIfExists('quotes');
         Schema::create('quotes', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table
-                ->foreignUuid('customer_id')
-                ->nullable()
-                ->references('id')
-                ->on('partners')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
-            $table
-                ->foreignUuid('payer_id')
-                ->nullable()
-                ->references('id')
-                ->on('partners')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
+            $table->foreignUuid('customer_id')->nullable()->references('id')->on('partners')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('payer_id')->nullable()->references('id')->on('partners')->nullOnDelete()->cascadeOnUpdate();
             $table->string('number')->nullable();
             $table->string('status')->default('draft'); // draft, sent, accepted, declined, cancelled
             $table->string('currency')->nullable();
@@ -63,18 +51,9 @@ return new class extends Migration {
             $table->text('notes')->nullable();
             $table->text('footer')->nullable();
             $table->string('discount_type')->nullable();
-            $table
-                ->decimal('discount', 10, 2)
-                ->default(0)
-                ->nullable();
-            $table
-                ->decimal('tax', 10, 2)
-                ->default(0)
-                ->nullable();
-            $table
-                ->decimal('total', 10, 2)
-                ->default(0)
-                ->nullable();
+            $table->decimal('discount', 10, 2)->default(0)->nullable();
+            $table->decimal('tax', 10, 2)->default(0)->nullable();
+            $table->decimal('total', 10, 2)->default(0)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -82,42 +61,15 @@ return new class extends Migration {
         Schema::dropIfExists('quote_items');
         Schema::create('quote_items', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table
-                ->foreignUuid('quote_id')
-                ->nullable()
-                ->references('id')
-                ->on('quotes')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
-            $table
-                ->foreignUuid('product_id')
-                ->nullable()
-                ->references('id')
-                ->on('products')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
+            $table->foreignUuid('quote_id')->nullable()->references('id')->on('quotes')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('product_id')->nullable()->references('id')->on('products')->nullOnDelete()->cascadeOnUpdate();
             $table->string('name')->nullable();
             $table->text('description')->nullable();
-            $table
-                ->decimal('quantity', 10, 2)
-                ->default(0)
-                ->nullable();
-            $table
-                ->decimal('tax', 10, 2)
-                ->default(0)
-                ->nullable();
-            $table
-                ->decimal('discount', 10, 2)
-                ->default(0)
-                ->nullable();
-            $table
-                ->decimal('price', 10, 2)
-                ->default(0)
-                ->nullable();
-            $table
-                ->decimal('total', 10, 2)
-                ->default(0)
-                ->nullable();
+            $table->decimal('quantity', 10, 2)->default(0)->nullable();
+            $table->decimal('tax', 10, 2)->default(0)->nullable();
+            $table->decimal('discount', 10, 2)->default(0)->nullable();
+            $table->decimal('price', 10, 2)->default(0)->nullable();
+            $table->decimal('total', 10, 2)->default(0)->nullable();
             $table->string('unit')->nullable();
             $table->timestamps();
         });

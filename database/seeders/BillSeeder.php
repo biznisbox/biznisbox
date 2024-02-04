@@ -16,14 +16,9 @@ class BillSeeder extends Seeder
     {
         for ($i = 0; $i < 20; $i++) {
             $id = fake()->uuid();
-            $supplier_id = \App\Models\Partner::where('type', 'supplier')
-                ->orWhere('type', 'both')
-                ->get()
-                ->random()->id;
+            $supplier_id = \App\Models\Partner::where('type', 'supplier')->orWhere('type', 'both')->get()->random()->id;
             $supplier_data = \App\Models\Partner::find($supplier_id);
-            $supplier_address_id = \App\Models\PartnerAddress::where('partner_id', $supplier_id)
-                ->get()
-                ->random()->id;
+            $supplier_address_id = \App\Models\PartnerAddress::where('partner_id', $supplier_id)->get()->random()->id;
             $supplier_address_data = \App\Models\PartnerAddress::find($supplier_address_id);
             Bill::create([
                 'id' => $id,
@@ -47,9 +42,7 @@ class BillSeeder extends Seeder
             ]);
 
             for ($j = 0; $j < 3; $j++) {
-                $product = \App\Models\Product::where('buy_price', '>', 0)
-                    ->get()
-                    ->random();
+                $product = \App\Models\Product::where('buy_price', '>', 0)->get()->random();
                 $quality = fake()->numberBetween(1, 10);
                 $discount = fake()->randomFloat(2, 0, 100);
                 BillItems::create([

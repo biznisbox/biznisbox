@@ -76,9 +76,7 @@ class ExternalKeys extends Model implements Auditable
      */
     public function validateKey($key, $module)
     {
-        $external_key = $this->where('key', $key)
-            ->where('module', $module)
-            ->first();
+        $external_key = $this->where('key', $key)->where('module', $module)->first();
 
         if ($external_key) {
             $external_key->used = true;
@@ -98,10 +96,7 @@ class ExternalKeys extends Model implements Auditable
      */
     public function getExternalKey($key, $module)
     {
-        $external_key = $this->where('key', $key)
-            ->where('module', $module)
-            ->limit(1)
-            ->get();
+        $external_key = $this->where('key', $key)->where('module', $module)->limit(1)->get();
 
         if ($external_key) {
             return $external_key[0];

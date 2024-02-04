@@ -157,9 +157,7 @@ class Bill extends Model implements Auditable
             return $data;
         }
         $partner = Partner::where('id', $supplier_id)->get()[0];
-        $address = PartnerAddress::where('partner_id', $supplier_id)
-            ->where('id', $address_id)
-            ->get()[0];
+        $address = PartnerAddress::where('partner_id', $supplier_id)->where('id', $address_id)->get()[0];
         $data['supplier_id'] = $partner->id;
         $data['supplier_name'] = $partner->name;
         $data['supplier_address_id'] = $address->id;

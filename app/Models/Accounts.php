@@ -100,9 +100,7 @@ class Accounts extends Model implements Auditable
 
     public function getAccount($id)
     {
-        $account = self::with('transactions')
-            ->where('id', $id)
-            ->first();
+        $account = self::with('transactions')->where('id', $id)->first();
         if ($account) {
             activity_log(user_data()->data->id, 'get account', $id, 'App\Models\Accounts', 'getAccount');
             return $account;

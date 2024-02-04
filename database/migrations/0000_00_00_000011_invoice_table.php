@@ -16,20 +16,8 @@ return new class extends Migration {
         Schema::dropIfExists('invoices');
         Schema::create('invoices', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table
-                ->foreignUuid('customer_id')
-                ->nullable()
-                ->references('id')
-                ->on('partners')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
-            $table
-                ->foreignUuid('payer_id')
-                ->nullable()
-                ->references('id')
-                ->on('partners')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
+            $table->foreignUuid('customer_id')->nullable()->references('id')->on('partners')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('payer_id')->nullable()->references('id')->on('partners')->nullOnDelete()->cascadeOnUpdate();
             $table->string('number')->nullable();
             $table->string('status')->default('draft'); // draft, sent, paid, overdue, cancelled, refunded
             $table->string('currency')->nullable(); // USD, EUR, GBP, etc.
@@ -64,18 +52,9 @@ return new class extends Migration {
             $table->text('notes')->nullable(); // Notes of the invoice (internal notes)
             $table->text('footer')->nullable(); // Footer of the invoice (terms and conditions)
             $table->string('discount_type')->nullable(); // fixed, percentage
-            $table
-                ->decimal('discount', 10, 2)
-                ->default(0)
-                ->nullable();
-            $table
-                ->decimal('tax', 10, 2)
-                ->default(0)
-                ->nullable(); // If is added to the total amount
-            $table
-                ->decimal('total', 10, 2)
-                ->default(0)
-                ->nullable();
+            $table->decimal('discount', 10, 2)->default(0)->nullable();
+            $table->decimal('tax', 10, 2)->default(0)->nullable(); // If is added to the total amount
+            $table->decimal('total', 10, 2)->default(0)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -83,37 +62,16 @@ return new class extends Migration {
         Schema::dropIfExists('invoice_items');
         Schema::create('invoice_items', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table
-                ->foreignUuid('invoice_id')
-                ->nullable()
-                ->references('id')
-                ->on('invoices')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
+            $table->foreignUuid('invoice_id')->nullable()->references('id')->on('invoices')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignUuid('product_id')->nullable();
             $table->string('name')->nullable();
             $table->string('description')->nullable();
             $table->string('unit')->nullable();
-            $table
-                ->decimal('quantity', 10, 2)
-                ->default(0)
-                ->nullable();
-            $table
-                ->decimal('price', 10, 2)
-                ->default(0)
-                ->nullable();
-            $table
-                ->decimal('tax', 10, 2)
-                ->default(0)
-                ->nullable();
-            $table
-                ->decimal('discount', 10, 2)
-                ->default(0)
-                ->nullable();
-            $table
-                ->decimal('total', 10, 2)
-                ->default(0)
-                ->nullable();
+            $table->decimal('quantity', 10, 2)->default(0)->nullable();
+            $table->decimal('price', 10, 2)->default(0)->nullable();
+            $table->decimal('tax', 10, 2)->default(0)->nullable();
+            $table->decimal('discount', 10, 2)->default(0)->nullable();
+            $table->decimal('total', 10, 2)->default(0)->nullable();
             $table->timestamps();
         });
     }

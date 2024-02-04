@@ -27,10 +27,7 @@ return new class extends Migration {
             $table->ipAddress('ip_address')->nullable();
             $table->text('user_agent', 1023)->nullable();
             $table->text('tags')->nullable();
-            $table
-                ->string('type')
-                ->nullable()
-                ->default('internal'); // type of activity log (internal, external) - default internal
+            $table->string('type')->nullable()->default('internal'); // type of activity log (internal, external) - default internal
             $table->string('external_key')->nullable(); // external key for external activity log
             $table->timestamps();
             $table->index(['user_id', 'user_type', 'auditable_id', 'auditable_type']);

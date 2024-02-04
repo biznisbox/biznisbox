@@ -97,8 +97,6 @@ class ActivityLog extends Model
 
     public function getLogsByItem($item_id, $item_type)
     {
-        return self::where('auditable_id', $item_id)
-            ->where('auditable_type', $item_type)
-            ->get();
+        return self::where('auditable_id', $item_id)->where('auditable_type', $item_type)->get();
     }
 }

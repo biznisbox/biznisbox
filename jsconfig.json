@@ -5,9 +5,9 @@
         "baseUrl": ".",
         "jsx": "preserve",
         "paths": {
-            "@/*": ["./resources/js/*"],
-        },
+            "@/*": ["./resources/js/*"]
+        }
     },
     "exclude": ["node_modules", "public"],
-    "include": ["resources/js/**/*"],
+    "include": ["resources/js/**/*"]
 }

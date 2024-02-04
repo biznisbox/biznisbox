@@ -105,10 +105,7 @@ class CalendarEvents extends Model implements Auditable
 
     public function getEventsByDate($calendar_id, $start, $end)
     {
-        $events = $this->where('calendar_id', $calendar_id)
-            ->where('start', '>=', $start)
-            ->where('end', '<=', $end)
-            ->get();
+        $events = $this->where('calendar_id', $calendar_id)->where('start', '>=', $start)->where('end', '<=', $end)->get();
         activity_log(user_data()->data->id, 'get events by date', $calendar_id, 'App\Models\CalendarEvents', 'getEventsByDate');
         return $events;
     }

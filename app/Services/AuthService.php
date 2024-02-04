@@ -45,9 +45,7 @@ class AuthService
         $key = config('app.jwt_key');
         $hash_algo = config('app.jwt_algo');
         $login_token = Str::random(60);
-        $expires_at = now()
-            ->addHour(2)
-            ->unix();
+        $expires_at = now()->addHour(2)->unix();
         $payload = [
             'iss' => 'BiznisBox',
             'aud' => 'BiznisBox',

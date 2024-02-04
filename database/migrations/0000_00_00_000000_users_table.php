@@ -19,19 +19,12 @@ return new class extends Migration {
             $table->uuid('id')->primary();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
-            $table
-                ->string('email')
-                ->unique()
-                ->index()
-                ->nullable();
+            $table->string('email')->unique()->index()->nullable();
             $table->string('password')->nullable();
             $table->boolean('active')->default(true);
             $table->string('picture')->nullable();
             $table->string('role')->default('user');
-            $table
-                ->dateTime('last_login_at')
-                ->nullable()
-                ->default(null);
+            $table->dateTime('last_login_at')->nullable()->default(null);
             $table->string('language')->default('en');
             $table->softDeletes();
             $table->timestamps();

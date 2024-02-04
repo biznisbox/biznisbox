@@ -16,13 +16,7 @@ return new class extends Migration {
         Schema::create('bills', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('number')->nullable();
-            $table
-                ->foreignUuid('supplier_id')
-                ->nullable()
-                ->references('id')
-                ->on('partners')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
+            $table->foreignUuid('supplier_id')->nullable()->references('id')->on('partners')->nullOnDelete()->cascadeOnUpdate();
             $table->string('supplier_name')->nullable();
             $table
                 ->foreignUuid('supplier_address_id')
@@ -38,10 +32,7 @@ return new class extends Migration {
             $table->string('currency')->nullable();
             $table->double('currency_rate')->default(1);
             $table->string('payment_method')->nullable();
-            $table
-                ->string('status')
-                ->default('draft')
-                ->nullable();
+            $table->string('status')->default('draft')->nullable();
             $table->date('date')->nullable();
             $table->date('due_date')->nullable();
             $table->string('notes')->nullable();
@@ -57,33 +48,15 @@ return new class extends Migration {
         Schema::dropIfExists('bill_items');
         Schema::create('bill_items', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table
-                ->foreignUuid('bill_id')
-                ->nullable()
-                ->references('id')
-                ->on('bills')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
-            $table
-                ->foreignUuid('product_id')
-                ->nullable()
-                ->references('id')
-                ->on('products')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
+            $table->foreignUuid('bill_id')->nullable()->references('id')->on('bills')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('product_id')->nullable()->references('id')->on('products')->nullOnDelete()->cascadeOnUpdate();
             $table->string('name')->nullable();
             $table->string('description')->nullable();
             $table->string('unit')->nullable();
-            $table
-                ->decimal('quantity', 10, 2)
-                ->default(0)
-                ->nullable();
+            $table->decimal('quantity', 10, 2)->default(0)->nullable();
             $table->decimal('tax', 10, 2)->nullable();
             $table->decimal('price', 10, 2)->nullable();
-            $table
-                ->decimal('total')
-                ->default(0)
-                ->nullable();
+            $table->decimal('total')->default(0)->nullable();
             $table->timestamps();
         });
     }

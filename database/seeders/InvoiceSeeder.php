@@ -16,14 +16,9 @@ class InvoiceSeeder extends Seeder
     {
         for ($i = 0; $i < 20; $i++) {
             $id = fake()->uuid();
-            $customer_id = \App\Models\Partner::where('type', 'customer')
-                ->orWhere('type', 'both')
-                ->get()
-                ->random()->id;
+            $customer_id = \App\Models\Partner::where('type', 'customer')->orWhere('type', 'both')->get()->random()->id;
             $customer_data = \App\Models\Partner::find($customer_id);
-            $customer_address_id = \App\Models\PartnerAddress::where('partner_id', $customer_id)
-                ->get()
-                ->random()->id;
+            $customer_address_id = \App\Models\PartnerAddress::where('partner_id', $customer_id)->get()->random()->id;
             $customer_address_data = \App\Models\PartnerAddress::find($customer_address_id);
             Invoice::create([
                 'id' => $id,

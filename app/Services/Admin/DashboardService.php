@@ -12,16 +12,12 @@ class DashboardService
 
     protected function getNumberOfLoginsToday()
     {
-        return DB::table('sessions')
-            ->whereDate('created_at', today())
-            ->count();
+        return DB::table('sessions')->whereDate('created_at', today())->count();
     }
 
     protected function getNumberOfActiveUsersToday()
     {
-        return DB::table('users')
-            ->where('last_login_at', '>=', today())
-            ->count();
+        return DB::table('users')->where('last_login_at', '>=', today())->count();
     }
 
     public function getDashboardData()

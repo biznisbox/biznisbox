@@ -13,26 +13,17 @@ class DashboardService
 
     private function getNumberOfCustomers()
     {
-        return DB::table('partners')
-            ->where('type', 'customer')
-            ->orWhere('type', 'both')
-            ->count();
+        return DB::table('partners')->where('type', 'customer')->orWhere('type', 'both')->count();
     }
 
     private function getNumberOfSuppliers()
     {
-        return DB::table('partners')
-            ->where('type', 'supplier')
-            ->orWhere('type', 'both')
-            ->count();
+        return DB::table('partners')->where('type', 'supplier')->orWhere('type', 'both')->count();
     }
 
     private function getNumberOfUnpaidInvoices()
     {
-        return DB::table('invoices')
-            ->where('status', 'unpaid')
-            ->orWhere('status', 'sent')
-            ->count();
+        return DB::table('invoices')->where('status', 'unpaid')->orWhere('status', 'sent')->count();
     }
 
     private function getUnpaidInvoices()
@@ -48,10 +39,7 @@ class DashboardService
 
     private function getNumberOfUnpaidBills()
     {
-        return DB::table('bills')
-            ->where('status', 'unpaid')
-            ->orWhere('status', 'sent')
-            ->count();
+        return DB::table('bills')->where('status', 'unpaid')->orWhere('status', 'sent')->count();
     }
 
     private function getUnpaidBills()
@@ -66,11 +54,7 @@ class DashboardService
 
     private function getTopSellingProducts()
     {
-        return DB::table('invoice_items')
-            ->select('id', 'name', 'price', 'quantity')
-            ->orderBy('quantity', 'desc')
-            ->limit(5)
-            ->get();
+        return DB::table('invoice_items')->select('id', 'name', 'price', 'quantity')->orderBy('quantity', 'desc')->limit(5)->get();
     }
 
     private function getLowStockProducts()
@@ -116,15 +100,9 @@ class DashboardService
             ],
         ];
         foreach ($months as $value) {
-            $income = DB::table('transactions')
-                ->whereMonth('date', $value)
-                ->where('type', 'income')
-                ->sum('amount');
+            $income = DB::table('transactions')->whereMonth('date', $value)->where('type', 'income')->sum('amount');
 
-            $expense = DB::table('transactions')
-                ->whereMonth('date', $value)
-                ->where('type', 'expense')
-                ->sum('amount');
+            $expense = DB::table('transactions')->whereMonth('date', $value)->where('type', 'expense')->sum('amount');
 
             $char_data['datasets'][0]['data'][] = $income;
             $char_data['datasets'][1]['data'][] = $expense;
@@ -137,15 +115,9 @@ class DashboardService
     {
         $month = date('m');
 
-        $income = DB::table('transactions')
-            ->whereMonth('date', $month)
-            ->where('type', 'income')
-            ->sum('amount');
+        $income = DB::table('transactions')->whereMonth('date', $month)->where('type', 'income')->sum('amount');
 
-        $expense = DB::table('transactions')
-            ->whereMonth('date', $month)
-            ->where('type', 'expense')
-            ->sum('amount');
+        $expense = DB::table('transactions')->whereMonth('date', $month)->where('type', 'expense')->sum('amount');
 
         $char_data = [
             'labels' => [__('response.dashboard.income'), __('response.dashboard.expense')],
@@ -163,15 +135,9 @@ class DashboardService
     public function getYearExpenseAndIncome()
     {
         $year = date('Y');
-        $income = DB::table('transactions')
-            ->whereYear('date', $year)
-            ->where('type', 'income')
-            ->sum('amount');
+        $income = DB::table('transactions')->whereYear('date', $year)->where('type', 'income')->sum('amount');
 
-        $expense = DB::table('transactions')
-            ->whereYear('date', $year)
-            ->where('type', 'expense')
-            ->sum('amount');
+        $expense = DB::table('transactions')->whereYear('date', $year)->where('type', 'expense')->sum('amount');
 
         return [
             'income' => $income,

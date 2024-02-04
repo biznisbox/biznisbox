@@ -19,14 +19,8 @@ return new class extends Migration {
                 ->nullOnDelete()
                 ->cascadeOnUpdate()
                 ->after('payer_id');
-            $table
-                ->string('type')
-                ->nullable()
-                ->after('sales_person_id');
-            $table
-                ->string('default_currency')
-                ->nullable()
-                ->after('status');
+            $table->string('type')->nullable()->after('sales_person_id');
+            $table->string('default_currency')->nullable()->after('status');
         });
 
         Schema::table('quotes', function (Blueprint $table) {
@@ -38,14 +32,8 @@ return new class extends Migration {
                 ->nullOnDelete()
                 ->cascadeOnUpdate()
                 ->after('payer_id');
-            $table
-                ->string('type')
-                ->nullable()
-                ->after('sales_person_id');
-            $table
-                ->string('default_currency')
-                ->nullable()
-                ->after('status');
+            $table->string('type')->nullable()->after('sales_person_id');
+            $table->string('default_currency')->nullable()->after('status');
         });
     }
 

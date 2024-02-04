@@ -111,9 +111,7 @@ class Sessions extends Model implements Auditable
 
     public function revokeSession($user_id, $token)
     {
-        $session = $this->where('user_id', $user_id)
-            ->where('token', $token)
-            ->first();
+        $session = $this->where('user_id', $user_id)->where('token', $token)->first();
         if ($session) {
             $session->is_active = false;
             $session->expires_at = null;

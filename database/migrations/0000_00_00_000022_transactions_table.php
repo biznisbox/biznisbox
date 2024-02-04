@@ -15,60 +15,15 @@ return new class extends Migration {
         Schema::dropIfExists('transactions');
         Schema::create('transactions', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table
-                ->foreignUuid('invoice_id')
-                ->nullable()
-                ->references('id')
-                ->on('invoices')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
-            $table
-                ->foreignUuid('payment_id')
-                ->nullable()
-                ->references('id')
-                ->on('online_payment')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
-            $table
-                ->foreignUuid('bill_id')
-                ->nullable()
-                ->references('id')
-                ->on('bills')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
-            $table
-                ->foreignUuid('customer_id')
-                ->nullable()
-                ->references('id')
-                ->on('partners')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
-            $table
-                ->foreignUuid('supplier_id')
-                ->nullable()
-                ->references('id')
-                ->on('partners')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
-            $table
-                ->foreignUuid('account_id')
-                ->nullable()
-                ->references('id')
-                ->on('accounts')
-                ->nullOnDelete()
-                ->cascadeOnUpdate(); // account_id is the account that the transaction is recorded in
-            $table
-                ->foreignUuid('category_id')
-                ->nullable()
-                ->references('id')
-                ->on('categories')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
+            $table->foreignUuid('invoice_id')->nullable()->references('id')->on('invoices')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('payment_id')->nullable()->references('id')->on('online_payment')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('bill_id')->nullable()->references('id')->on('bills')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('customer_id')->nullable()->references('id')->on('partners')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('supplier_id')->nullable()->references('id')->on('partners')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('account_id')->nullable()->references('id')->on('accounts')->nullOnDelete()->cascadeOnUpdate(); // account_id is the account that the transaction is recorded in
+            $table->foreignUuid('category_id')->nullable()->references('id')->on('categories')->nullOnDelete()->cascadeOnUpdate();
             $table->string('number')->nullable(); // transaction number
-            $table
-                ->string('type')
-                ->nullable()
-                ->default('expense'); // expense, income, transfer, etc
+            $table->string('type')->nullable()->default('expense'); // expense, income, transfer, etc
             $table->string('name')->nullable(); // transaction name
             $table->text('description')->nullable(); // memo
             $table->double('amount', 10, 2); // amount

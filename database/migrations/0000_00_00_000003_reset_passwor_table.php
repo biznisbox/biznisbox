@@ -16,10 +16,7 @@ return new class extends Migration {
         Schema::dropIfExists('password_resets');
         Schema::create('password_resets', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table
-                ->foreignUuid('user_id')
-                ->constrained('users')
-                ->cascadeOnDelete();
+            $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('token');
             $table->timestamp('valid_until');
             $table->timestamps();

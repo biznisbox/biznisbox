@@ -281,9 +281,7 @@ class Quote extends Model implements Auditable
         }
         $partner = Partner::find($customerId);
         if ($customerAddressId) {
-            $address = PartnerAddress::where('partner_id', $customerId)
-                ->where('id', $customerAddressId)
-                ->get()[0];
+            $address = PartnerAddress::where('partner_id', $customerId)->where('id', $customerAddressId)->get()[0];
         }
         $data['customer_id'] = $partner->id;
         $data['customer_name'] = $partner->name;
@@ -309,9 +307,7 @@ class Quote extends Model implements Auditable
         }
         $partner = Partner::find($payerId);
         if ($payerAddressId) {
-            $address = PartnerAddress::where('partner_id', $payerId)
-                ->where('id', $payerAddressId)
-                ->get()[0];
+            $address = PartnerAddress::where('partner_id', $payerId)->where('id', $payerAddressId)->get()[0];
         }
         $data['payer_id'] = $partner->id;
         $data['payer_name'] = $partner->name;

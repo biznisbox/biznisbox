@@ -16,12 +16,7 @@ return new class extends Migration {
         Schema::dropIfExists('products');
         Schema::create('products', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table
-                ->foreignUuid('category_id')
-                ->nullable()
-                ->constrained('categories')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
+            $table->foreignUuid('category_id')->nullable()->constrained('categories')->nullOnDelete()->cascadeOnUpdate();
             $table->string('number')->nullable();
             $table->string('name')->index();
             $table->longText('description')->nullable();

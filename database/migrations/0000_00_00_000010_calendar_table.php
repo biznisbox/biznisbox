@@ -16,20 +16,11 @@ return new class extends Migration {
         Schema::dropIfExists('calendar_events');
         Schema::create('calendar_events', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table
-                ->foreignUuid('user_id')
-                ->nullable()
-                ->references('id')
-                ->on('users')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
+            $table->foreignUuid('user_id')->nullable()->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title');
             $table->string('icon')->nullable();
             $table->string('type')->default('event'); // event or task
-            $table
-                ->string('color')
-                ->default('#000000')
-                ->nullable();
+            $table->string('color')->default('#000000')->nullable();
             $table->longText('description')->nullable();
             $table->dateTime('start')->nullable();
             $table->dateTime('end')->nullable();
@@ -38,18 +29,9 @@ return new class extends Migration {
             $table->string('rrule')->nullable();
             $table->string('location')->nullable();
             $table->string('reminder')->nullable();
-            $table
-                ->string('show_as')
-                ->default('busy')
-                ->nullable(); // busy or free or tentative or outofoffice
-            $table
-                ->string('status')
-                ->default('confirmed')
-                ->nullable(); // confirmed or tentative or cancelled
-            $table
-                ->string('privacy')
-                ->default('public')
-                ->nullable(); // public or private or confidential
+            $table->string('show_as')->default('busy')->nullable(); // busy or free or tentative or outofoffice
+            $table->string('status')->default('confirmed')->nullable(); // confirmed or tentative or cancelled
+            $table->string('privacy')->default('public')->nullable(); // public or private or confidential
             $table->softDeletes();
             $table->timestamps();
         });

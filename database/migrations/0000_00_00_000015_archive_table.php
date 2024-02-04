@@ -15,20 +15,8 @@ return new class extends Migration {
         Schema::dropIfExists('archive');
         Schema::create('archive', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table
-                ->foreignUuid('category_id')
-                ->nullable()
-                ->references('id')
-                ->on('categories')
-                ->nullOnDelete()
-                ->cascadeOnUpdate(); // category_id is the folder that the document is in
-            $table
-                ->foreignUuid('partner_id')
-                ->nullable()
-                ->references('id')
-                ->on('partners')
-                ->nullOnDelete()
-                ->cascadeOnUpdate(); // partner_id is the partner that the document is related to
+            $table->foreignUuid('category_id')->nullable()->references('id')->on('categories')->nullOnDelete()->cascadeOnUpdate(); // category_id is the folder that the document is in
+            $table->foreignUuid('partner_id')->nullable()->references('id')->on('partners')->nullOnDelete()->cascadeOnUpdate(); // partner_id is the partner that the document is related to
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('file_name')->nullable();

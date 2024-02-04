@@ -137,10 +137,7 @@ class SerialNumberFormatter
      */
     public function getLastItemNumber($module)
     {
-        $last_number = DB::table('numbering')
-            ->where('year', date('Y'))
-            ->where('module', $module)
-            ->first();
+        $last_number = DB::table('numbering')->where('year', date('Y'))->where('module', $module)->first();
 
         if (!$last_number) {
             $last_number = DB::table('numbering')->insert([

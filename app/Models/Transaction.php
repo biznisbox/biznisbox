@@ -86,9 +86,7 @@ class Transaction extends Model implements Auditable
 
     public function getTransactions()
     {
-        $transactions = $this->with('account')
-            ->orderBy('date', 'desc')
-            ->get();
+        $transactions = $this->with('account')->orderBy('date', 'desc')->get();
         if ($transactions) {
             activity_log(user_data()->data->id, 'get transactions', null, 'App\Models\Transaction', 'getTransactions');
             return $transactions;

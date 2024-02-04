@@ -13,20 +13,8 @@ return new class extends Migration {
         Schema::dropIfExists('employees');
         Schema::create('employees', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table
-                ->foreignUuid('department_id')
-                ->nullable()
-                ->references('id')
-                ->on('departments')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
-            $table
-                ->foreignUuid('user_id')
-                ->nullable()
-                ->references('id')
-                ->on('users')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
+            $table->foreignUuid('department_id')->nullable()->references('id')->on('departments')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('user_id')->nullable()->references('id')->on('users')->nullOnDelete()->cascadeOnUpdate();
             $table->string('number')->nullable();
             $table->string('first_name');
             $table->string('last_name');

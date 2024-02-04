@@ -85,9 +85,7 @@ class Employee extends Model implements Auditable
 
     public function getEmployee($id)
     {
-        $employee = $this->with('department', 'user')
-            ->where('id', $id)
-            ->first();
+        $employee = $this->with('department', 'user')->where('id', $id)->first();
         return $employee;
     }
 

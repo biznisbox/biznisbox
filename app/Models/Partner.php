@@ -72,9 +72,7 @@ class Partner extends Model implements Auditable
         // type can have comma separated values (customer, supplier, both)
         if ($type) {
             $type = explode(',', $type);
-            return $this->with('addresses', 'contacts')
-                ->whereIn('type', $type)
-                ->get();
+            return $this->with('addresses', 'contacts')->whereIn('type', $type)->get();
         } else {
             return $this->with('addresses', 'contacts')->get();
         }
@@ -82,9 +80,7 @@ class Partner extends Model implements Auditable
 
     public function getPartner($id)
     {
-        return $this->with('addresses', 'contacts', 'invoices', 'quotes', 'transactions', 'bills')
-            ->where('id', $id)
-            ->first();
+        return $this->with('addresses', 'contacts', 'invoices', 'quotes', 'transactions', 'bills')->where('id', $id)->first();
     }
 
     public function createPartner($data)
@@ -195,10 +191,7 @@ class Partner extends Model implements Auditable
 
     public function getPartnerAddress($partner_id, $address_id)
     {
-        $address = $this->find($partner_id)
-            ->addresses()
-            ->where('id', $address_id)
-            ->first();
+        $address = $this->find($partner_id)->addresses()->where('id', $address_id)->first();
         return $address;
     }
 }

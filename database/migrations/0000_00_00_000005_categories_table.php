@@ -19,21 +19,13 @@ return new class extends Migration {
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('color')->nullable();
-            $table
-                ->string('module')
-                ->nullable()
-                ->default('products');
+            $table->string('module')->nullable()->default('products');
             $table->string('icon')->nullable();
             $table->timestamps();
         });
 
         Schema::table('categories', function (Blueprint $table) {
-            $table
-                ->foreign('parent_id')
-                ->references('id')
-                ->on('categories')
-                ->nullOnDelete()
-                ->cascadeOnUpdate();
+            $table->foreign('parent_id')->references('id')->on('categories')->nullOnDelete()->cascadeOnUpdate();
         });
     }
 

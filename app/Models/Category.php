@@ -117,9 +117,7 @@ class Category extends Model implements Auditable
      */
     public function getCategoriesByModule($module)
     {
-        $categories = $this->where('module', $module)
-            ->whereNull('parent_id')
-            ->get();
+        $categories = $this->where('module', $module)->whereNull('parent_id')->get();
         activity_log(user_data()->data->id, 'get categories by module', $module, 'App\Models\Category', 'getCategoriesByModule');
         return $categories;
     }
