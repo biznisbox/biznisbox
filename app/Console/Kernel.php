@@ -3,7 +3,9 @@
 namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Support\Stringable;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Models\ScheduleRuns;
 
 class Kernel extends ConsoleKernel
 {
@@ -15,8 +17,29 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('biznisbox:update-currency-rates')->daily();
-        $schedule->command('biznisbox:refresh-bank-transactions')->hourly();
+        // Schedule the update currency rates command to run daily
+        $schedule
+            ->command('biznisbox:update-currency-rates')
+            ->daily()
+            ->withoutOverlapping()
+            ->onSuccess(function (Stringable $output) {
+                ScheduleRuns::createTask('biznisbox:update-currency-rates', 'success', $output);
+            })
+            ->onFailure(function (Stringable $output) {
+                ScheduleRuns::createTask('biznisbox:update-currency-rates', 'failed', $output);
+            });
+
+        // Schedule the refresh bank transactions command to run hourly
+        $schedule
+            ->command('biznisbox:refresh-bank-transactions')
+            ->hourly()
+            ->withoutOverlapping()
+            ->onSuccess(function (Stringable $output) {
+                ScheduleRuns::createTask('biznisbox:refresh-bank-transactions', 'success', $output);
+            })
+            ->onFailure(function (Stringable $output) {
+                ScheduleRuns::createTask('biznisbox:refresh-bank-transactions', 'failed', $output);
+            });
     }
 
     /**
