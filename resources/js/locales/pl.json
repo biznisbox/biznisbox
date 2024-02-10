@@ -93,7 +93,8 @@
         "small": "Mały",
         "medium": "Średni",
         "large": "Duży",
-        "add_item": "Dodaj element"
+        "add_item": "Dodaj element",
+        "move": "Przenieś"
     },
     "user_nav_menu": {
         "profile": "Profil",
@@ -234,7 +235,9 @@
         "contract_type": "Typ umowy",
         "internal_user": "Użytkownik wewnętrzny",
         "sales_person": "Osoba Sprzedaży",
-        "opening_balance_date": "Data salda otwarcia"
+        "opening_balance_date": "Data salda otwarcia",
+        "delimiter": "Separator",
+        "text": "Tekst"
     },
     "address_types": {
         "billing": "Płatność",
@@ -694,7 +697,8 @@
             "title": "Panel administracyjny",
             "total_users": "Wszystkich użytkowników",
             "active_users_today": "Aktywni użytkownicy dzisiaj",
-            "number_of_logins_today": "Liczba logowań dzisiaj"
+            "number_of_logins_today": "Liczba logowań dzisiaj",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Status aplikacji",
