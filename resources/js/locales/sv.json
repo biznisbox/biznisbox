@@ -93,7 +93,8 @@
         "small": "Liten",
         "medium": "Medel",
         "large": "Stor",
-        "add_item": "Lägg till objekt"
+        "add_item": "Lägg till objekt",
+        "move": "Flytta"
     },
     "user_nav_menu": {
         "profile": "Profil",
@@ -234,7 +235,9 @@
         "contract_type": "Typ av kontrakt",
         "internal_user": "Intern användare",
         "sales_person": "Försäljning Person",
-        "opening_balance_date": "Öppnar saldo datum"
+        "opening_balance_date": "Öppnar saldo datum",
+        "delimiter": "Avgränsare",
+        "text": "Text"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -694,7 +697,8 @@
             "title": "Admin instrumentpanel",
             "total_users": "Totalt antal användare",
             "active_users_today": "Aktiva användare idag",
-            "number_of_logins_today": "Antal inloggningar idag"
+            "number_of_logins_today": "Antal inloggningar idag",
+            "departments": "Antal avdelningar"
         },
         "app_status": {
             "title": "Appens status",
