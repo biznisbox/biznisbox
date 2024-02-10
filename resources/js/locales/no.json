@@ -698,7 +698,7 @@
             "total_users": "Totalt antall brukere",
             "active_users_today": "Aktive brukere i dag",
             "number_of_logins_today": "Antall innlogginger i dag",
-            "departments": "Number of Departments"
+            "departments": "Antall avdelinger"
         },
         "app_status": {
             "title": "Applikasjons status",
