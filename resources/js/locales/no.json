@@ -93,7 +93,8 @@
         "small": "Liten",
         "medium": "Middels",
         "large": "Stor",
-        "add_item": "Legg til element"
+        "add_item": "Legg til element",
+        "move": "Flytt"
     },
     "user_nav_menu": {
         "profile": "Profil",
@@ -234,7 +235,9 @@
         "contract_type": "Kontrakt type",
         "internal_user": "Intern bruker",
         "sales_person": "Salg Person",
-        "opening_balance_date": "Inngående saldo dato"
+        "opening_balance_date": "Inngående saldo dato",
+        "delimiter": "Skilletegn",
+        "text": "Tekst"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -694,7 +697,8 @@
             "title": "Admin skrivebord",
             "total_users": "Totalt antall brukere",
             "active_users_today": "Aktive brukere i dag",
-            "number_of_logins_today": "Antall innlogginger i dag"
+            "number_of_logins_today": "Antall innlogginger i dag",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Applikasjons status",
