@@ -93,7 +93,8 @@
         "small": "Kicsi",
         "medium": "Közepes",
         "large": "Nagy",
-        "add_item": "Tétel hozzáadása"
+        "add_item": "Tétel hozzáadása",
+        "move": "Mozgatás"
     },
     "user_nav_menu": {
         "profile": "Profil",
@@ -234,7 +235,9 @@
         "contract_type": "Szerződéstípus",
         "internal_user": "Belső felhasználó",
         "sales_person": "Értékesítési személy",
-        "opening_balance_date": "Egyenleg kezdő dátuma"
+        "opening_balance_date": "Egyenleg kezdő dátuma",
+        "delimiter": "Elválasztó",
+        "text": "Szöveg"
     },
     "address_types": {
         "billing": "Számlázás",
@@ -694,7 +697,8 @@
             "title": "Adminisztrációs vezérlőpult",
             "total_users": "Összes felhasználó",
             "active_users_today": "Ma aktív felhasználók",
-            "number_of_logins_today": "Ma bejelentkezett felhasználók száma"
+            "number_of_logins_today": "Ma bejelentkezett felhasználók száma",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Alkalmazás állapota",
