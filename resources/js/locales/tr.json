@@ -698,7 +698,7 @@
             "total_users": "Total Users",
             "active_users_today": "Active Users Today",
             "number_of_logins_today": "Number of Logins Today",
-            "departments": "Number of Departments"
+            "departments": "Bölümler Sayısı"
         },
         "app_status": {
             "title": "Uygulama Durumu",
