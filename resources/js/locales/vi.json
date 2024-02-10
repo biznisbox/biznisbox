@@ -93,7 +93,8 @@
         "small": "Nhỏ",
         "medium": "Trung bình",
         "large": "Lớn",
-        "add_item": "Thêm mục"
+        "add_item": "Thêm mục",
+        "move": "Move"
     },
     "user_nav_menu": {
         "profile": "Profile",
@@ -234,7 +235,9 @@
         "contract_type": "Loại hợp đồng",
         "internal_user": "Người dùng nội bộ",
         "sales_person": "Nhân viên bán hàng",
-        "opening_balance_date": "Ngày cân đối mở đầu"
+        "opening_balance_date": "Ngày cân đối mở đầu",
+        "delimiter": "Delimiter",
+        "text": "Text"
     },
     "address_types": {
         "billing": "Billing",
@@ -694,7 +697,8 @@
             "title": "Bảng điều khiển quản trị",
             "total_users": "Tổng số người dùng",
             "active_users_today": "Người dùng hoạt động hôm nay",
-            "number_of_logins_today": "Số lần đăng nhập hôm nay"
+            "number_of_logins_today": "Số lần đăng nhập hôm nay",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Trạng thái ứng dụng",
