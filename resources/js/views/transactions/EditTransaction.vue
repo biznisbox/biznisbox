@@ -47,7 +47,7 @@
                             <SelectInput
                                 id="account_input"
                                 v-model="transaction.account_id"
-                                :label="$t('transaction.account')"
+                                :label="$t('form.account')"
                                 :options="accounts"
                                 class="col-12"
                                 option-label="name"

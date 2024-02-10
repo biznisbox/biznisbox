@@ -1,11 +1,12 @@
 import countries from '@/data/country.json'
+import languages from '@/data/available_locales.json'
 export default {
     data() {
         return {
             units: [],
             taxes: [],
             currencies: [],
-            languages: [],
+            languages: languages,
             employees: [],
             countries: countries,
         }

@@ -83,6 +83,11 @@ class Partner extends Model implements Auditable
         return $this->with('addresses', 'contacts', 'invoices', 'quotes', 'transactions', 'bills')->where('id', $id)->first();
     }
 
+
+    /**
+     * Create partner
+     * @param $data - partner data
+     */
     public function createPartner($data)
     {
         try {
@@ -113,6 +118,11 @@ class Partner extends Model implements Auditable
         }
     }
 
+    /**
+     * Update partner
+     * @param $id - partner id
+     * @param $data - partner data
+     */
     public function updatePartner($id, $data)
     {
         try {
@@ -136,6 +146,10 @@ class Partner extends Model implements Auditable
         }
     }
 
+    /**
+     * Delete partner
+     * @param $id - partner id
+     */
     public function deletePartner($id)
     {
         try {
@@ -148,6 +162,11 @@ class Partner extends Model implements Auditable
             return false;
         }
     }
+
+    /**
+     * Force delete partner
+     * @param $id - partner id
+     */
 
     public function forceDeletePartner($id)
     {
@@ -193,5 +212,11 @@ class Partner extends Model implements Auditable
     {
         $address = $this->find($partner_id)->addresses()->where('id', $address_id)->first();
         return $address;
+    }
+
+    public function getPrimaryContacts($partner_id)
+    {
+        $contact = $this->find($partner_id)->contacts()->where('is_primary', true)->get();
+        return $contact;
     }
 }

@@ -65,7 +65,12 @@
                                                 <p>{{ $t('partner.no_contacts') }}</p>
                                             </div>
                                         </template>
-                                        <Column field="name" :header="$t('form.name')" />
+                                        <Column field="name" :header="$t('form.name')">
+                                            <template #body="{ data }" class="flex items-center">
+                                                <i v-if="data.is_primary" class="fa fa-star text-yellow-500 mr-2" />
+                                                <span>{{ data.name }}</span>
+                                            </template>
+                                        </Column>
                                         <Column field="function" :header="$t('form.function')" />
                                         <Column field="email" :header="$t('form.email')" />
                                         <Column field="phone_number" :header="$t('form.phone_number')" />

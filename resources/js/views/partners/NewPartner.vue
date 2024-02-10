@@ -95,7 +95,7 @@
                                 class="col-12 md:col-6"
                                 :options="languages"
                                 :label="$t('form.language')"
-                                option-value="name"
+                                option-value="locale"
                                 option-label="name"
                             />
                         </div>
@@ -187,6 +187,7 @@
 
                                 <Column field="name" :header="$t('form.name')">
                                     <template #body="slotProps">
+                                        <StarButton v-model="slotProps.data.is_primary" :id="`is_primary_${slotProps.index}`" />
                                         <TextInput :id="`name_${slotProps.index}`" v-model="slotProps.data.name" />
                                     </template>
                                 </Column>
@@ -289,6 +290,7 @@ export default {
     methods: {
         addContact() {
             this.partner.contacts.push({
+                is_primary: false,
                 name: '',
                 function: '',
                 email: '',

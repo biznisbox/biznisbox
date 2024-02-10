@@ -157,7 +157,9 @@
                         @dblclick="editDocument = true"
                         >{{ document.name }}</span
                     >
-                    <InputText v-if="editDocument" id="document_name" v-model="document.name" class="mt-2 w-full" />
+                    <div v-if="editDocument" class="flex gap-2">
+                        <InputText v-if="editDocument" id="document_name" v-model="document.name" class="mt-2 w-full" />
+                    </div>
 
                     <div class="mt-2 flex gap-2">
                         <Button
