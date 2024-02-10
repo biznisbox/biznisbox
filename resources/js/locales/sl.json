@@ -698,7 +698,7 @@
             "total_users": "Skupno število uporabnikov",
             "active_users_today": "Aktivni uporabniki danes",
             "number_of_logins_today": "Število prijav danes",
-            "departments": "Number of Departments"
+            "departments": "Število oddelkov"
         },
         "app_status": {
             "title": "Stanje aplikacije",
