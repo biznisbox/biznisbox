@@ -93,7 +93,8 @@
         "small": "작은",
         "medium": "중간",
         "large": "큰",
-        "add_item": "아이템 추가"
+        "add_item": "아이템 추가",
+        "move": "이동"
     },
     "user_nav_menu": {
         "profile": "프로필",
@@ -234,7 +235,9 @@
         "contract_type": "계약 유형",
         "internal_user": "내부 사용자",
         "sales_person": "Sales Person",
-        "opening_balance_date": "개설 잔액 날짜"
+        "opening_balance_date": "개설 잔액 날짜",
+        "delimiter": "구분 기호",
+        "text": "텍스트"
     },
     "address_types": {
         "billing": "청구",
@@ -694,7 +697,8 @@
             "title": "관리자 대시보드",
             "total_users": "전체 사용자",
             "active_users_today": "오늘 활성 사용자",
-            "number_of_logins_today": "오늘의 로그인 횟수"
+            "number_of_logins_today": "오늘의 로그인 횟수",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "응용 프로그램 상태",
