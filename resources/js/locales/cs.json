@@ -93,7 +93,8 @@
         "small": "Malá",
         "medium": "Střední",
         "large": "Velký",
-        "add_item": "Přidat položku"
+        "add_item": "Přidat položku",
+        "move": "Přesunout"
     },
     "user_nav_menu": {
         "profile": "Profil",
@@ -234,7 +235,9 @@
         "contract_type": "Typ smlouvy",
         "internal_user": "Interní uživatel",
         "sales_person": "Prodejní osoba",
-        "opening_balance_date": "Počáteční zůstatek"
+        "opening_balance_date": "Počáteční zůstatek",
+        "delimiter": "Oddělovač",
+        "text": "Text"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -694,7 +697,8 @@
             "title": "Admin Dashboard",
             "total_users": "Celkem uživatelů",
             "active_users_today": "Dnes aktivní uživatelé",
-            "number_of_logins_today": "Počet dnešních přihlášení"
+            "number_of_logins_today": "Počet dnešních přihlášení",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Stav aplikace",
