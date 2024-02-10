@@ -76,7 +76,7 @@ function get_last_version_github(){
 if (isset($argv[1])) {
     switch ($argv[1]) {
         case 'get':
-            echo $version;
+            echo get_version();
             break;
         case 'get-js':
             echo get_version_js();
