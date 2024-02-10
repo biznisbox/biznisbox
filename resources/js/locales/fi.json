@@ -93,7 +93,8 @@
         "small": "Pieni",
         "medium": "Keskitaso",
         "large": "Suuri",
-        "add_item": "Lisää kohde"
+        "add_item": "Lisää kohde",
+        "move": "Siirrä"
     },
     "user_nav_menu": {
         "profile": "Profiili",
@@ -234,7 +235,9 @@
         "contract_type": "Sopimuksen Tyyppi",
         "internal_user": "Sisäinen Käyttäjä",
         "sales_person": "Myynti Henkilö",
-        "opening_balance_date": "Avaussaldo Päivämäärä"
+        "opening_balance_date": "Avaussaldo Päivämäärä",
+        "delimiter": "Erotin",
+        "text": "Teksti"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -694,7 +697,8 @@
             "title": "Ylläpitäjän Hallintapaneeli",
             "total_users": "Käyttäjiä Yhteensä",
             "active_users_today": "Aktiiviset Käyttäjät Tänään",
-            "number_of_logins_today": "Kirjautumisten määrä tänään"
+            "number_of_logins_today": "Kirjautumisten määrä tänään",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Sovelluksen Tila",
