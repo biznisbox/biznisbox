@@ -93,7 +93,8 @@
         "small": "Маленький",
         "medium": "Средний",
         "large": "Большой",
-        "add_item": "Добавить элемент"
+        "add_item": "Добавить элемент",
+        "move": "Переместить"
     },
     "user_nav_menu": {
         "profile": "Профиль",
@@ -234,7 +235,9 @@
         "contract_type": "Тип контракта",
         "internal_user": "Внутренний пользователь",
         "sales_person": "Продавец",
-        "opening_balance_date": "Дата открытия баланса"
+        "opening_balance_date": "Дата открытия баланса",
+        "delimiter": "Разделитель",
+        "text": "Текст"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -694,7 +697,8 @@
             "title": "Панель администратора",
             "total_users": "Всего пользователей",
             "active_users_today": "Активные пользователи сегодня",
-            "number_of_logins_today": "Количество входов сегодня"
+            "number_of_logins_today": "Количество входов сегодня",
+            "departments": "Количество департаментов"
         },
         "app_status": {
             "title": "Статус приложения",
