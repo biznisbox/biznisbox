@@ -93,7 +93,8 @@
         "small": "Маленький",
         "medium": "Медіум",
         "large": "Великий",
-        "add_item": "Додати елемент"
+        "add_item": "Додати елемент",
+        "move": "Пересунути"
     },
     "user_nav_menu": {
         "profile": "Анкета",
@@ -234,7 +235,9 @@
         "contract_type": "Тип контракту",
         "internal_user": "Внутрішній користувач",
         "sales_person": "Продаж",
-        "opening_balance_date": "Дата відкриття балансу"
+        "opening_balance_date": "Дата відкриття балансу",
+        "delimiter": "Роздільний знак",
+        "text": "Текст"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -694,7 +697,8 @@
             "title": "Панель адміністратора",
             "total_users": "Всього користувачів",
             "active_users_today": "Активні користувачі сьогодні",
-            "number_of_logins_today": "Кількість входів сьогодні"
+            "number_of_logins_today": "Кількість входів сьогодні",
+            "departments": "Кількість відділів"
         },
         "app_status": {
             "title": "Статус додатку",
