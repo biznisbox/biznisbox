@@ -93,7 +93,8 @@
         "small": "Pequeño",
         "medium": "Medio",
         "large": "Grande",
-        "add_item": "Añadir elemento"
+        "add_item": "Añadir elemento",
+        "move": "Mover"
     },
     "user_nav_menu": {
         "profile": "Perfil",
@@ -234,7 +235,9 @@
         "contract_type": "Tipo de contrato",
         "internal_user": "Usuario interno",
         "sales_person": "Persona de ventas",
-        "opening_balance_date": "Fecha de saldo de apertura"
+        "opening_balance_date": "Fecha de saldo de apertura",
+        "delimiter": "Delimitador",
+        "text": "Texto"
     },
     "address_types": {
         "billing": "Facturación",
@@ -694,7 +697,8 @@
             "title": "Panel de administración",
             "total_users": "Total de usuarios",
             "active_users_today": "Usuarios Activos hoy",
-            "number_of_logins_today": "Número de entradas hoy"
+            "number_of_logins_today": "Número de entradas hoy",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Estado de la aplicación",
