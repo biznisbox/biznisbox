@@ -698,7 +698,7 @@
             "total_users": "Totaal aantal gebruikers",
             "active_users_today": "Actieve gebruikers vandaag",
             "number_of_logins_today": "Aantal aanmeldingen vandaag",
-            "departments": "Number of Departments"
+            "departments": "Aantal afdelingen"
         },
         "app_status": {
             "title": "Applicatie Status",
