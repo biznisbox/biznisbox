@@ -698,7 +698,7 @@
             "total_users": "전체 사용자",
             "active_users_today": "오늘 활성 사용자",
             "number_of_logins_today": "오늘의 로그인 횟수",
-            "departments": "Number of Departments"
+            "departments": "부서 수"
         },
         "app_status": {
             "title": "응용 프로그램 상태",
