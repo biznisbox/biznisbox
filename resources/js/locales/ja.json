@@ -698,7 +698,7 @@
             "total_users": "合計ユーザー",
             "active_users_today": "今日のアクティブなユーザー",
             "number_of_logins_today": "今日のログイン数",
-            "departments": "Number of Departments"
+            "departments": "部門の数"
         },
         "app_status": {
             "title": "アプリケーションの状態",
