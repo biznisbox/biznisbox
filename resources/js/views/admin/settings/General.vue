@@ -117,6 +117,7 @@ export default {
         }
     },
     created() {
+        this.getSettings()
         this.getCurrencies()
     },
 }

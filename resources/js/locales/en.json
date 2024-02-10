@@ -93,7 +93,8 @@
         "small": "Small",
         "medium": "Medium",
         "large": "Large",
-        "add_item": "Add item"
+        "add_item": "Add item",
+        "move": "Move"
     },
     "user_nav_menu": {
         "profile": "Profile",
@@ -234,7 +235,9 @@
         "contract_type": "Contract Type",
         "internal_user": "Internal User",
         "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "opening_balance_date": "Opening Balance Date",
+        "delimiter": "Delimiter",
+        "text": "Text"
     },
     "address_types": {
         "billing": "Billing",
@@ -695,7 +698,8 @@
             "title": "Admin Dashboard",
             "total_users": "Total Users",
             "active_users_today": "Active Users Today",
-            "number_of_logins_today": "Number of Logins Today"
+            "number_of_logins_today": "Number of Logins Today",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Application Status",

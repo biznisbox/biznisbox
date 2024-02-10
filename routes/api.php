@@ -207,6 +207,11 @@ Route::middleware('auth')->group(function () {
                 Route::put('/settings', AdminSettingsController::class . '@updateSettings');
             });
 
+            Route::middleware(['can:admin_numbering'])->group(function () {
+                Route::get('/settings/numbering', AdminSettingsController::class . '@getNumberingSettings');
+                Route::put('/settings/numbering', AdminSettingsController::class . '@updateNumberingSettings');
+            });
+
             // Currency Routes
             Route::middleware(['can:admin_currencies'])->group(function () {
                 Route::get('/currencies', AdminSettingsController::class . '@getCurrencies');

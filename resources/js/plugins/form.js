@@ -15,6 +15,7 @@ import DisplayData from '@/components/DisplayData.vue'
 import DashboardCard from '@/components/DashboardCard.vue'
 import TinyMceEditor from '@/components/form/TinyMceEditor.vue'
 import StarButton from '@/components/form/StarButton.vue'
+import NumberingInput from '@/components/form/NumberingInput.vue'
 export default {
     install(app) {
         app.component('TextInput', TextInput)
@@ -26,6 +27,7 @@ export default {
         app.component('PasswordInput', PasswordInput)
         app.component('CountrySelect', CountrySelect)
         app.component('TinyMceEditor', TinyMceEditor)
+        app.component('NumberingInput', NumberingInput)
 
         // Custom components
         app.component('HeaderActionButton', HeaderActionButton)

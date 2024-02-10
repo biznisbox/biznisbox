@@ -20,12 +20,18 @@ class DashboardService
         return DB::table('users')->where('last_login_at', '>=', today())->count();
     }
 
+    protected function getNumberOfDepartments()
+    {
+        return DB::table('departments')->count();
+    }
+
     public function getDashboardData()
     {
         return [
             'users' => $this->getNumberOfUsers(),
             'logins' => $this->getNumberOfLoginsToday(),
             'active_users' => $this->getNumberOfActiveUsersToday(),
+            'departments' => $this->getNumberOfDepartments(),
         ];
     }
 }

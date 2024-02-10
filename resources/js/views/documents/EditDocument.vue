@@ -75,7 +75,7 @@
                         </div>
 
                         <div class="grid">
-                            <TextAreaInput v-model="document.notes" :label="$t('document.notes')" class="col-12" />
+                            <TextAreaInput v-model="document.notes" :label="$t('form.notes')" class="col-12" />
                         </div>
                     </form>
                 </div>

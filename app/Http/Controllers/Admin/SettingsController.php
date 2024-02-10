@@ -34,6 +34,17 @@ class SettingsController extends Controller
         return $this->settingsService->updateSettings($request->all());
     }
 
+    // Numbering Settings
+    public function getNumberingSettings()
+    {
+        return $this->settingsService->getNumberingSettings();
+    }
+
+    public function updateNumberingSettings(Request $request)
+    {
+        return $this->settingsService->updateNumberingSettings($request->all());
+    }
+
     // Currency Settings
     public function getCurrencies()
     {

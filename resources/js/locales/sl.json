@@ -93,7 +93,8 @@
         "small": "Majhno",
         "medium": "Srednje",
         "large": "Veliko",
-        "add_item": "Dodaj postavko"
+        "add_item": "Dodaj postavko",
+        "move": "Premakni"
     },
     "user_nav_menu": {
         "profile": "Moj račun",
@@ -233,7 +234,10 @@
         "level": "Raven",
         "contract_type": "Tip pogodbe",
         "internal_user": "Interni uporabnik",
-        "sales_person": "Prodajalec"
+        "sales_person": "Prodajalec",
+        "opening_balance_date": "Datum začetnega stanja",
+        "delimiter": "Ločilo",
+        "text": "Besedilo"
     },
     "address_types": {
         "billing": "Obračunavanje",

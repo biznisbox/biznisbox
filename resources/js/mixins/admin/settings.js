@@ -25,9 +25,25 @@ export default {
                 this.showToast(response.data.message)
             })
         },
-    },
 
-    created() {
-        this.getSettings()
+        /**
+         * Get numbering settings
+         * @return {void} return settings
+         */
+        getNumberingSettings() {
+            this.makeHttpRequest('get', '/api/admin/settings/numbering').then((response) => {
+                this.settings = response.data.data
+            })
+        },
+
+        /**
+         * Update numbering settings
+         * @return {void} show toast
+         * */
+        updateNumberingSettings() {
+            this.makeHttpRequest('put', '/api/admin/settings/numbering', this.settings).then((response) => {
+                this.showToast(response.data.message)
+            })
+        },
     },
 }

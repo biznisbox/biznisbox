@@ -2,7 +2,9 @@
 
 namespace App\Utils;
 
+use Clockwork\Request\Log;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log as FacadesLog;
 use Illuminate\Support\Str;
 
 class SerialNumberFormatter
@@ -18,7 +20,7 @@ class SerialNumberFormatter
      * Function for get placeholders
      * @param string $string - string with placeholders
      */
-    public function getPlaceholders($string)
+    public static function getPlaceholders($string)
     {
         $placeholders = [];
         $matches = [];
@@ -149,5 +151,38 @@ class SerialNumberFormatter
             return 0;
         }
         return $last_number->number;
+    }
+
+    /**
+     * Function for convert number format to array for frontend
+     *
+     * @param string $format - number format
+     */
+    public static function convertNumberFormatToArray($item)
+    {
+        $items = SerialNumberFormatter::getPlaceholders($item);
+        $number_format = [];
+        foreach ($items as $item) {
+            $item = explode(':', $item);
+            $number_format[] = [
+                'type' => $item[0],
+                'value' => $item[1] ?? null,
+            ];
+        }
+        return $number_format;
+    }
+
+    /**
+     * Function for convert number format to string for backend
+     *
+     * @param array $number_format - number format
+     */
+    public static function convertNumberFormatToString($number_format)
+    {
+        $number_format_string = '';
+        foreach ($number_format as $item) {
+            $number_format_string .= '{{' . $item['type'] . ':' . $item['value'] . '}}';
+        }
+        return $number_format_string;
     }
 }

@@ -8,7 +8,7 @@ use App\Models\Currencies;
 use App\Models\Taxes;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\DB;
+use App\Utils\SerialNumberFormatter;
 
 class SettingsService
 {
@@ -81,6 +81,41 @@ class SettingsService
             Accounts::find($data['paypal_account_id'])->update(['is_active' => 1]);
         }
         activity_log(user_data()->data->id, 'update settings', null, 'App\Models\Settings', 'updateSettings');
+        return api_response(null, __('response.admin.settings.update_success'));
+    }
+
+    /*=============================================
+    =            Serial Number Settings           =
+    =============================================*/
+
+    /**
+     * Get serial number settings
+     * @return settings - return settings object
+     */
+
+    public function getNumberingSettings()
+    {
+        $settings = Settings::where('key', 'like', '%_number_format')->get();
+        $data = [];
+        foreach ($settings as $setting) {
+            $data[$setting->key] = SerialNumberFormatter::convertNumberFormatToArray($setting->value);
+        }
+        activity_log(user_data()->data->id, 'get serial number settings', null, 'App\Models\Settings', 'getSerialNumberSettings');
+        return api_response($data);
+    }
+
+    /**
+     * Update serial number settings
+     * @param array $data - Serial number settings data
+     * @return null - return null
+     */
+    public function updateNumberingSettings($data)
+    {
+        foreach ($data as $key => $value) {
+            $value = SerialNumberFormatter::convertNumberFormatToString($value);
+            settings([$key => $value]);
+        }
+        activity_log(user_data()->data->id, 'update serial number settings', null, 'App\Models\Settings', 'updateSerialNumberSettings');
         return api_response(null, __('response.admin.settings.update_success'));
     }
 
@@ -230,6 +265,10 @@ class SettingsService
         return api_response(null, __('response.admin.taxes.delete_success'));
     }
 
+    /*=============================================
+    =            Company Logo                     =
+    =============================================*/
+
     /**
      * Save company logo
      * @param Request $request - request object from controller
@@ -258,6 +297,10 @@ class SettingsService
         }
         return api_response(null, __('response.admin.company_logo.remove_success'));
     }
+
+    /*=============================================
+    =            App Update                       =
+    =============================================*/
 
     /**
      * Get current version of the app from composer.json file used for getting the version
@@ -290,6 +333,10 @@ class SettingsService
             return api_response(['version' => $current_version, 'latest_version' => $this->getVersionInternal()], __('no_update'));
         }
     }
+
+    /*=============================================
+    =            Server Status                    =
+    =============================================*/
 
     /**
      * Check server status

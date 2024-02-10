@@ -83,7 +83,6 @@ class Partner extends Model implements Auditable
         return $this->with('addresses', 'contacts', 'invoices', 'quotes', 'transactions', 'bills')->where('id', $id)->first();
     }
 
-
     /**
      * Create partner
      * @param $data - partner data
