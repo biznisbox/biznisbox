@@ -698,7 +698,7 @@
             "total_users": "Σύνολο Χρηστών",
             "active_users_today": "Ενεργοί Χρήστες Σήμερα",
             "number_of_logins_today": "Αριθμός συνδέσεων σήμερα",
-            "departments": "Number of Departments"
+            "departments": "Αριθμός τμημάτων"
         },
         "app_status": {
             "title": "Κατάσταση Εφαρμογής",
