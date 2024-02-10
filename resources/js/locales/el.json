@@ -93,7 +93,8 @@
         "small": "Μικρό",
         "medium": "Μεσαίο",
         "large": "Μεγάλο",
-        "add_item": "Προσθήκη στοιχείου"
+        "add_item": "Προσθήκη στοιχείου",
+        "move": "Μετακίνηση"
     },
     "user_nav_menu": {
         "profile": "Προφίλ",
@@ -234,7 +235,9 @@
         "contract_type": "Τύπος Συμβολαίου",
         "internal_user": "Εσωτερικός Χρήστης",
         "sales_person": "Πρόσωπο Πωλήσεων",
-        "opening_balance_date": "Ημερομηνία Έναρξης Υπολοίπου"
+        "opening_balance_date": "Ημερομηνία Έναρξης Υπολοίπου",
+        "delimiter": "Οριοθέτης",
+        "text": "Κείμενο"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -694,7 +697,8 @@
             "title": "Πίνακας Διαχειριστή",
             "total_users": "Σύνολο Χρηστών",
             "active_users_today": "Ενεργοί Χρήστες Σήμερα",
-            "number_of_logins_today": "Αριθμός συνδέσεων σήμερα"
+            "number_of_logins_today": "Αριθμός συνδέσεων σήμερα",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Κατάσταση Εφαρμογής",
