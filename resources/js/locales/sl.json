@@ -93,7 +93,8 @@
         "small": "Majhno",
         "medium": "Srednje",
         "large": "Veliko",
-        "add_item": "Dodaj postavko"
+        "add_item": "Dodaj postavko",
+        "move": "Premakni"
     },
     "user_nav_menu": {
         "profile": "Moj račun",
@@ -234,7 +235,9 @@
         "contract_type": "Tip pogodbe",
         "internal_user": "Interni uporabnik",
         "sales_person": "Prodajalec",
-        "opening_balance_date": "Datum začetnega stanja"
+        "opening_balance_date": "Datum začetnega stanja",
+        "delimiter": "Ločilo",
+        "text": "Besedilo"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -694,7 +697,8 @@
             "title": "Skrbniška plošča",
             "total_users": "Skupno število uporabnikov",
             "active_users_today": "Aktivni uporabniki danes",
-            "number_of_logins_today": "Število prijav danes"
+            "number_of_logins_today": "Število prijav danes",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Stanje aplikacije",
