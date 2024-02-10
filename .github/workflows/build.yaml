@@ -11,7 +11,7 @@ jobs:
             - name: Setup PHP with PECL extension
               uses: shivammathur/setup-php@v2
               with:
-                  php-version: '8.2'
+                  php-version: '8.3'
                   extensions: mbstring, intl, gd, pdo_mysql, zip, exif, pcntl, bcmath, soap, imagick, xdebug, opcache
                   tools: composer:v2
             - name: Install Composer dependencies
@@ -19,7 +19,7 @@ jobs:
             - name: Install NPM modules
               uses: actions/setup-node@v3
               with:
-                  node-version: 18
+                  node-version: 20
             - run: |
                   npm install --no-audit
                   npm run build
@@ -48,7 +48,7 @@ jobs:
             - name: Zip all files
               run: zip -r production.zip * .[^.]*
             - name: Upload artifacts
-              uses: actions/upload-artifact@v1
+              uses: actions/upload-artifact@v4
               with:
                   name: production
                   path: ${{ github.workspace }}/production.zip
