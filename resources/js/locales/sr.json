@@ -93,7 +93,8 @@
         "small": "Мали",
         "medium": "Средњи",
         "large": "Велики",
-        "add_item": "Додај ставку"
+        "add_item": "Додај ставку",
+        "move": "Премести"
     },
     "user_nav_menu": {
         "profile": "Профил",
@@ -234,7 +235,9 @@
         "contract_type": "Тип уговора",
         "internal_user": "Интерни корисник",
         "sales_person": "Продавац",
-        "opening_balance_date": "Датум отварања почетног салда"
+        "opening_balance_date": "Датум отварања почетног салда",
+        "delimiter": "Разделител",
+        "text": "Текст"
     },
     "address_types": {
         "billing": "Наплата",
@@ -694,7 +697,8 @@
             "title": "Администраторска контролнa табла",
             "total_users": "Укупно корисника",
             "active_users_today": "Активни корисници данас",
-            "number_of_logins_today": "Број пријава данас"
+            "number_of_logins_today": "Број пријава данас",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Статус апликације",
