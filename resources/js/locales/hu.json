@@ -698,7 +698,7 @@
             "total_users": "Összes felhasználó",
             "active_users_today": "Ma aktív felhasználók",
             "number_of_logins_today": "Ma bejelentkezett felhasználók száma",
-            "departments": "Number of Departments"
+            "departments": "Osztályok száma"
         },
         "app_status": {
             "title": "Alkalmazás állapota",
