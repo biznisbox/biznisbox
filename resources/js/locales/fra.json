@@ -93,7 +93,8 @@
         "small": "Klein",
         "medium": "Mittel",
         "large": "Groß",
-        "add_item": "Artikel hinzufügen"
+        "add_item": "Artikel hinzufügen",
+        "move": "Move"
     },
     "user_nav_menu": {
         "profile": "Profil",
@@ -234,7 +235,9 @@
         "contract_type": "Vertragsart",
         "internal_user": "Interner Benutzer",
         "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "opening_balance_date": "Opening Balance Date",
+        "delimiter": "Delimiter",
+        "text": "Text"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -694,7 +697,8 @@
             "title": "Admin-Dashboard",
             "total_users": "Gesamtzahl der Benutzer",
             "active_users_today": "Aktive Benutzer heute",
-            "number_of_logins_today": "Anzahl der Anmeldungen heute"
+            "number_of_logins_today": "Anzahl der Anmeldungen heute",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Anwendung Status",
