@@ -93,7 +93,8 @@
         "small": "Klein",
         "medium": "Middelgroot",
         "large": "groot",
-        "add_item": "Item toevoegen"
+        "add_item": "Item toevoegen",
+        "move": "Verplaatsen"
     },
     "user_nav_menu": {
         "profile": "Profiel",
@@ -234,7 +235,9 @@
         "contract_type": "Contract type",
         "internal_user": "Interne gebruiker",
         "sales_person": "Verkoop persoon",
-        "opening_balance_date": "OpeningsSaldo Datum"
+        "opening_balance_date": "OpeningsSaldo Datum",
+        "delimiter": "Scheidingsteken",
+        "text": "Tekstveld"
     },
     "address_types": {
         "billing": "Facturering",
@@ -694,7 +697,8 @@
             "title": "Admin Dashboard",
             "total_users": "Totaal aantal gebruikers",
             "active_users_today": "Actieve gebruikers vandaag",
-            "number_of_logins_today": "Aantal aanmeldingen vandaag"
+            "number_of_logins_today": "Aantal aanmeldingen vandaag",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Applicatie Status",
