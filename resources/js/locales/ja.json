@@ -93,7 +93,8 @@
         "small": "小",
         "medium": "ミディアム",
         "large": "大",
-        "add_item": "アイテムを追加"
+        "add_item": "アイテムを追加",
+        "move": "移動"
     },
     "user_nav_menu": {
         "profile": "プロフィール",
@@ -234,7 +235,9 @@
         "contract_type": "契約タイプ",
         "internal_user": "内部ユーザー",
         "sales_person": "営業担当者:",
-        "opening_balance_date": "残高開始日"
+        "opening_balance_date": "残高開始日",
+        "delimiter": "区切り文字",
+        "text": "テキスト"
     },
     "address_types": {
         "billing": "請求",
@@ -694,7 +697,8 @@
             "title": "管理者ダッシュボード",
             "total_users": "合計ユーザー",
             "active_users_today": "今日のアクティブなユーザー",
-            "number_of_logins_today": "今日のログイン数"
+            "number_of_logins_today": "今日のログイン数",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "アプリケーションの状態",
