@@ -698,7 +698,7 @@
             "total_users": "Benutzer gesamt",
             "active_users_today": "Heute aktive Benutzer",
             "number_of_logins_today": "Anzahl der Logins heute",
-            "departments": "Number of Departments"
+            "departments": "Anzahl der Abteilungen"
         },
         "app_status": {
             "title": "Bewerbungsstatus",
