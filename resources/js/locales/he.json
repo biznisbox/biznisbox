@@ -93,7 +93,8 @@
         "small": "קטן",
         "medium": "בינוני",
         "large": "גדול",
-        "add_item": "הוסף פריט"
+        "add_item": "הוסף פריט",
+        "move": "הזז"
     },
     "user_nav_menu": {
         "profile": "פרופיל",
@@ -234,7 +235,9 @@
         "contract_type": "סוג חוזה",
         "internal_user": "משתמש פנימי",
         "sales_person": "מוכר",
-        "opening_balance_date": "תאריך יתרת הפתיחה"
+        "opening_balance_date": "תאריך יתרת הפתיחה",
+        "delimiter": "מפריד",
+        "text": "טקסט"
     },
     "address_types": {
         "billing": "חיובים",
@@ -694,7 +697,8 @@
             "title": "לוח בקרה למנהל",
             "total_users": "סה״כ משתמשים",
             "active_users_today": "משתמשים פעילים היום",
-            "number_of_logins_today": "מספר התחברויות היום"
+            "number_of_logins_today": "מספר התחברויות היום",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "סטטוס אפליקציה",
