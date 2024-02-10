@@ -698,7 +698,7 @@
             "total_users": "Total utilizatori",
             "active_users_today": "Utilizatori activi astăzi",
             "number_of_logins_today": "Numărul de conectări astăzi",
-            "departments": "Number of Departments"
+            "departments": "Numărul departamentelor"
         },
         "app_status": {
             "title": "Starea aplicației",
