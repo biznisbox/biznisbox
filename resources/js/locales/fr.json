@@ -93,7 +93,8 @@
         "small": "Petit",
         "medium": "Moyenne",
         "large": "Gros",
-        "add_item": "Ajouter un élément"
+        "add_item": "Ajouter un élément",
+        "move": "Déplacer"
     },
     "user_nav_menu": {
         "profile": "Profil",
@@ -234,7 +235,9 @@
         "contract_type": "Type de contrat",
         "internal_user": "Utilisateur Interne",
         "sales_person": "Personne commerciale",
-        "opening_balance_date": "Date du solde d'ouverture"
+        "opening_balance_date": "Date du solde d'ouverture",
+        "delimiter": "Délimiteur",
+        "text": "Texte du texte"
     },
     "address_types": {
         "billing": "Facturation",
@@ -694,7 +697,8 @@
             "title": "Tableau de bord admin",
             "total_users": "Nombre total d'utilisateurs",
             "active_users_today": "Utilisateurs actifs aujourd'hui",
-            "number_of_logins_today": "Nombre de connexions aujourd'hui"
+            "number_of_logins_today": "Nombre de connexions aujourd'hui",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Statut de l'application",
