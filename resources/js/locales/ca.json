@@ -93,7 +93,8 @@
         "small": "Petit",
         "medium": "Mitjà",
         "large": "Gran",
-        "add_item": "Afegeix article"
+        "add_item": "Afegeix article",
+        "move": "Moure"
     },
     "user_nav_menu": {
         "profile": "Perfil",
@@ -234,7 +235,9 @@
         "contract_type": "Tipus de contracte",
         "internal_user": "Usuari intern",
         "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "opening_balance_date": "Opening Balance Date",
+        "delimiter": "Delimitador",
+        "text": "Text"
     },
     "address_types": {
         "billing": "Facturació",
@@ -694,7 +697,8 @@
             "title": "Admin Dashboard",
             "total_users": "Total Users",
             "active_users_today": "Active Users Today",
-            "number_of_logins_today": "Number of Logins Today"
+            "number_of_logins_today": "Number of Logins Today",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Estat de l'aplicació",
