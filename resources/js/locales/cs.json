@@ -698,7 +698,7 @@
             "total_users": "Celkem uživatelů",
             "active_users_today": "Dnes aktivní uživatelé",
             "number_of_logins_today": "Počet dnešních přihlášení",
-            "departments": "Number of Departments"
+            "departments": "Počet departementů"
         },
         "app_status": {
             "title": "Stav aplikace",
