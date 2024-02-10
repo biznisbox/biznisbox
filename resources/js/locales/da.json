@@ -93,7 +93,8 @@
         "small": "Lille",
         "medium": "Mellem",
         "large": "Stor",
-        "add_item": "Tilføj element"
+        "add_item": "Tilføj element",
+        "move": "Flyt"
     },
     "user_nav_menu": {
         "profile": "Profil",
@@ -234,7 +235,9 @@
         "contract_type": "Kontrakt Type",
         "internal_user": "Intern Bruger",
         "sales_person": "Salg Person",
-        "opening_balance_date": "Åbning Saldo Dato"
+        "opening_balance_date": "Åbning Saldo Dato",
+        "delimiter": "Afgrænser",
+        "text": "Tekst"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -694,7 +697,8 @@
             "title": "Admin Kontrolpanel",
             "total_users": "Brugere I Alt",
             "active_users_today": "Aktive Brugere I Dag",
-            "number_of_logins_today": "Antal logins i dag"
+            "number_of_logins_today": "Antal logins i dag",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Programmets Status",
