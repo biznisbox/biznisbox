@@ -93,7 +93,8 @@
         "small": "صغير",
         "medium": "متوسط",
         "large": "كبير",
-        "add_item": "إضافة عنصر"
+        "add_item": "إضافة عنصر",
+        "move": "نقل"
     },
     "user_nav_menu": {
         "profile": "الملف الشخصي",
@@ -234,7 +235,9 @@
         "contract_type": "نوع العقد",
         "internal_user": "مستخدم داخلي",
         "sales_person": "شخص المبيعات",
-        "opening_balance_date": "تاريخ الرصيد الافتتاحي"
+        "opening_balance_date": "تاريخ الرصيد الافتتاحي",
+        "delimiter": "محدد",
+        "text": "نص"
     },
     "address_types": {
         "billing": "الفواتير",
@@ -694,7 +697,8 @@
             "title": "لوحة تحكم المدير",
             "total_users": "مجموع المستخدمين",
             "active_users_today": "المستخدمين النشطين اليوم",
-            "number_of_logins_today": "عدد تسجيلات الدخول اليوم"
+            "number_of_logins_today": "عدد تسجيلات الدخول اليوم",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "حالة التطبيق",
