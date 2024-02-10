@@ -698,7 +698,7 @@
             "total_users": "Укупно корисника",
             "active_users_today": "Активни корисници данас",
             "number_of_logins_today": "Број пријава данас",
-            "departments": "Number of Departments"
+            "departments": "Број одељења"
         },
         "app_status": {
             "title": "Статус апликације",
