@@ -698,7 +698,7 @@
             "total_users": "Käyttäjiä Yhteensä",
             "active_users_today": "Aktiiviset Käyttäjät Tänään",
             "number_of_logins_today": "Kirjautumisten määrä tänään",
-            "departments": "Number of Departments"
+            "departments": "Osastojen lukumäärä"
         },
         "app_status": {
             "title": "Sovelluksen Tila",
