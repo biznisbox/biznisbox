@@ -159,7 +159,7 @@
                 <template #footer>
                     <div class="flex p-2 justify-content-end">
                         <Button :label="$t('basic.cancel')" severity="danger" icon="fa fa-times" @click="connectBankDialog = false" />
-                        <Button :label="$t('account.connect_bank')" icon="fa fa-university" @click="initSession" class="ml-2" />
+                        <Button :label="$t('account.connect_bank')" icon="fa fa-university" class="ml-2" @click="initSession" />
                     </div>
                 </template>
             </Dialog>

@@ -53,7 +53,7 @@
             :model="speedDialItems"
             direction="up"
             :style="{ right: '1rem', bottom: '1rem' }"
-            :tooltipOptions="{ position: 'left' }"
+            :tooltip-options="{ position: 'left' }"
         />
     </user-layout>
 </template>

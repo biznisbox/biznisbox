@@ -187,7 +187,7 @@
 
                                 <Column field="name" :header="$t('form.name')">
                                     <template #body="slotProps">
-                                        <StarButton v-model="slotProps.data.is_primary" :id="`is_primary_${slotProps.index}`" />
+                                        <StarButton :id="`is_primary_${slotProps.index}`" v-model="slotProps.data.is_primary" />
                                         <TextInput :id="`name_${slotProps.index}`" v-model="slotProps.data.name" />
                                     </template>
                                 </Column>
