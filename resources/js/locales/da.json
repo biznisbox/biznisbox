@@ -698,7 +698,7 @@
             "total_users": "Brugere I Alt",
             "active_users_today": "Aktive Brugere I Dag",
             "number_of_logins_today": "Antal logins i dag",
-            "departments": "Number of Departments"
+            "departments": "Antal afdelinger"
         },
         "app_status": {
             "title": "Programmets Status",
