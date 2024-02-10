@@ -93,7 +93,8 @@
         "small": "Klein",
         "medium": "Medium",
         "large": "Groot",
-        "add_item": "Voeg item by"
+        "add_item": "Voeg item by",
+        "move": "Skuif"
     },
     "user_nav_menu": {
         "profile": "Profile",
@@ -234,7 +235,9 @@
         "contract_type": "Kontrak Tipe",
         "internal_user": "Interne Gebruiker",
         "sales_person": "Verkoopspersoon",
-        "opening_balance_date": "Oopingsbalansedatum"
+        "opening_balance_date": "Oopingsbalansedatum",
+        "delimiter": "Skeier",
+        "text": "Teks"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -694,7 +697,8 @@
             "title": "Admin Dashboard",
             "total_users": "Totale Gebruikers",
             "active_users_today": "Aktiewe Gebruikers Vandag",
-            "number_of_logins_today": "Aantal Aantekenings Vandag"
+            "number_of_logins_today": "Aantal Aantekenings Vandag",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Aansoekstatus",
