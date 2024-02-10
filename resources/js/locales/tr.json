@@ -93,7 +93,8 @@
         "small": "Küçük",
         "medium": "Orta",
         "large": "Büyük",
-        "add_item": "Öğe ekle"
+        "add_item": "Öğe ekle",
+        "move": "Taşı"
     },
     "user_nav_menu": {
         "profile": "Profil",
@@ -234,7 +235,9 @@
         "contract_type": "Sözleşme Türü",
         "internal_user": "Dahili Kullanıcı",
         "sales_person": "Sales Person",
-        "opening_balance_date": "Opening Balance Date"
+        "opening_balance_date": "Opening Balance Date",
+        "delimiter": "Ayraç",
+        "text": "Metin"
     },
     "address_types": {
         "billing": "Faturalandırma",
@@ -694,7 +697,8 @@
             "title": "Admin Dashboard",
             "total_users": "Total Users",
             "active_users_today": "Active Users Today",
-            "number_of_logins_today": "Number of Logins Today"
+            "number_of_logins_today": "Number of Logins Today",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Uygulama Durumu",
