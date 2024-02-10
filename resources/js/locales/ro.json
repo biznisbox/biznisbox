@@ -93,7 +93,8 @@
         "small": "Mică",
         "medium": "Medie",
         "large": "Mare",
-        "add_item": "Adăugare articol"
+        "add_item": "Adăugare articol",
+        "move": "Mutare"
     },
     "user_nav_menu": {
         "profile": "Profil",
@@ -234,7 +235,9 @@
         "contract_type": "Tipul contractului",
         "internal_user": "Utilizator intern",
         "sales_person": "Agent",
-        "opening_balance_date": "Data de deschidere a soldului"
+        "opening_balance_date": "Data de deschidere a soldului",
+        "delimiter": "Delimitator",
+        "text": "Text"
     },
     "address_types": {
         "billing": "Facturare",
@@ -694,7 +697,8 @@
             "title": "Panou de administrare",
             "total_users": "Total utilizatori",
             "active_users_today": "Utilizatori activi astăzi",
-            "number_of_logins_today": "Numărul de conectări astăzi"
+            "number_of_logins_today": "Numărul de conectări astăzi",
+            "departments": "Number of Departments"
         },
         "app_status": {
             "title": "Starea aplicației",
