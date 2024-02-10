@@ -94,7 +94,7 @@
         "medium": "Trung bình",
         "large": "Lớn",
         "add_item": "Thêm mục",
-        "move": "Move"
+        "move": "Di chuyển"
     },
     "user_nav_menu": {
         "profile": "Profile",
@@ -236,8 +236,8 @@
         "internal_user": "Người dùng nội bộ",
         "sales_person": "Nhân viên bán hàng",
         "opening_balance_date": "Ngày cân đối mở đầu",
-        "delimiter": "Delimiter",
-        "text": "Text"
+        "delimiter": "Dấu phân cách",
+        "text": "Văn bản"
     },
     "address_types": {
         "billing": "Billing",
@@ -698,7 +698,7 @@
             "total_users": "Tổng số người dùng",
             "active_users_today": "Người dùng hoạt động hôm nay",
             "number_of_logins_today": "Số lần đăng nhập hôm nay",
-            "departments": "Number of Departments"
+            "departments": "Số lượng Phòng ban"
         },
         "app_status": {
             "title": "Trạng thái ứng dụng",
