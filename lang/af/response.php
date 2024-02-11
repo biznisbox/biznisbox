@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Faktuur kon nie opgedateer word nie',
         'delete_failed' => 'Faktuur kon nie uitgevee word nie',
         'transaction_success' => 'Transaksie is suksesvol bygevoeg',
+        'notification_success' => 'Kennisgewing is suksesvol gestuur',
+        'notification_failed' => 'Kennisgewing kon nie gestuur word nie',
     ],
 
     //Online payment responses
