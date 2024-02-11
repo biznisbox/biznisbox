@@ -191,6 +191,8 @@ return [
         'update_failed' => 'تعذر تحديث الفاتورة',
         'delete_failed' => 'لا يمكن حذف الفاتورة',
         'transaction_success' => 'تمت إضافة المعاملة بنجاح',
+        'notification_success' => 'تم إرسال الإشعار بنجاح',
+        'notification_failed' => 'تعذر إرسال الإشعار',
     ],
 
     //Online payment responses
