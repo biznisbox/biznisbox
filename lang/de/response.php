@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Rechnung konnte nicht aktualisiert werden',
         'delete_failed' => 'Rechnung konnte nicht gelöscht werden',
         'transaction_success' => 'Transaktion wurde erfolgreich hinzugefügt',
+        'notification_success' => 'Benachrichtigung wurde erfolgreich gesendet',
+        'notification_failed' => 'Benachrichtigung konnte nicht gesendet werden',
     ],
 
     //Online payment responses
