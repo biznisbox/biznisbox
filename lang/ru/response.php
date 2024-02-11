@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Счет не может быть обновлен',
         'delete_failed' => 'Счет не может быть удален',
         'transaction_success' => 'Транзакция успешно добавлена',
+        'notification_success' => 'Уведомление было успешно отправлено',
+        'notification_failed' => 'Уведомление не может быть отправлено',
     ],
 
     //Online payment responses
