@@ -191,6 +191,8 @@ return [
         'update_failed' => 'לא ניתן לעדכן את החשבונית',
         'delete_failed' => 'לא ניתן למחוק את החשבונית',
         'transaction_success' => 'העסקה נוספה בהצלחה',
+        'notification_success' => 'הודעת התראה נשלחה בהצלחה',
+        'notification_failed' => 'לא ניתן לשלוח הודעת התראה',
     ],
 
     //Online payment responses
