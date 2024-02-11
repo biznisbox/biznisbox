@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Το τιμολόγιο δεν μπόρεσε να ενημερωθεί',
         'delete_failed' => 'Δεν ήταν δυνατή η διαγραφή του τιμολογίου',
         'transaction_success' => 'Η συναλλαγή προστέθηκε με επιτυχία',
+        'notification_success' => 'Ειδοποίηση εστάλη με επιτυχία',
+        'notification_failed' => 'Δεν ήταν δυνατή η αποστολή ειδοποιήσεων',
     ],
 
     //Online payment responses
