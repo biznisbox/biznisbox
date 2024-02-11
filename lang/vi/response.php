@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Hóa đơn không thể cập nhật',
         'delete_failed' => 'Hóa đơn không thể xóa',
         'transaction_success' => 'Giao dịch đã được thêm thành công',
+        'notification_success' => 'Thông báo đã được gửi thành công',
+        'notification_failed' => 'Không thể gửi thông báo',
     ],
 
     //Online payment responses
