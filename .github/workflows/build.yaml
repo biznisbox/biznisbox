@@ -35,7 +35,7 @@ jobs:
                   rm -rf .gitattributes
                   rm -rf .editorconfig
                   rm -rf .env
-                  rm -rf .eslintrc.js
+                  rm -rf .eslintrc.cjs
                   rm -rf .prettierignore
                   rm -rf .prettierrc.json
                   rm -rf .jsconfig.json
