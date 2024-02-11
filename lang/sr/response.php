@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Рачун није могао бити ажуриран',
         'delete_failed' => 'Рачун није могао бити обрисан',
         'transaction_success' => 'Трансакција је успешно додата',
+        'notification_success' => 'Обавештење је успешно послато',
+        'notification_failed' => 'Обавештење није могло бити послато',
     ],
 
     //Online payment responses
