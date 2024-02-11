@@ -191,6 +191,8 @@ return [
         'update_failed' => '송장을 업데이트할 수 없습니다',
         'delete_failed' => '송장을 삭제할 수 없습니다',
         'transaction_success' => '거래가 성공적으로 추가되었습니다',
+        'notification_success' => '알림이 성공적으로 전송되었습니다',
+        'notification_failed' => '알림을 보낼 수 없습니다',
     ],
 
     //Online payment responses
