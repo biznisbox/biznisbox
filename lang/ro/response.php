@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Factura nu a putut fi actualizată',
         'delete_failed' => 'Factura nu a putut fi ștearsă',
         'transaction_success' => 'Tranzacția a fost adăugată cu succes',
+        'notification_success' => 'Notificarea a fost trimisă cu succes',
+        'notification_failed' => 'Notificarea nu a putut fi trimisă',
     ],
 
     //Online payment responses
