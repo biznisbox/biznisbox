@@ -40,7 +40,7 @@ jobs:
                   rm -rf .prettierrc.json
                   rm -rf .jsconfig.json
                   rm -rf cypress
-                  rm -rf cypress.config.js
+                  rm -rf cypress.config.cjs
                   rm -rf cypress.env.json
                   rm -rf phpunit.xml
                   rm -rf version
