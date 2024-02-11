@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Factuur kon niet worden bijgewerkt',
         'delete_failed' => 'Factuur kon niet worden verwijderd',
         'transaction_success' => 'Transactie is met succes toegevoegd',
+        'notification_success' => 'Notificatie is succesvol verzonden',
+        'notification_failed' => 'Kennisgeving kon niet worden verzonden',
     ],
 
     //Online payment responses
