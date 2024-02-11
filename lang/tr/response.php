@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Fatura güncellenemedi',
         'delete_failed' => 'Fatura silinemedi',
         'transaction_success' => 'İşlem başarıyla eklendi',
+        'notification_success' => 'Bildirim başarıyla gönderildi',
+        'notification_failed' => 'Bildirim gönderilemedi',
     ],
 
     //Online payment responses
