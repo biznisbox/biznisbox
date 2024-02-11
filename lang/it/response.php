@@ -191,6 +191,8 @@ return [
         'update_failed' => 'La fattura non può essere aggiornata',
         'delete_failed' => 'La fattura non può essere eliminata',
         'transaction_success' => 'Transazione aggiunta con successo',
+        'notification_success' => 'Notifica inviata con successo',
+        'notification_failed' => 'La notifica non può essere inviata',
     ],
 
     //Online payment responses
