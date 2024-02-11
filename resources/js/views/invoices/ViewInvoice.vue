@@ -27,25 +27,22 @@
                             icon="fa fa-plus"
                             @click="addTransactionDialog = true"
                         />
-                        <Button
-                            id="show_transactions_button"
+
+                        <SplitButton
+                            id="more_options_button"
                             :label="$t('invoice.show_transactions')"
                             icon="fa fa-list"
+                            :model="[
+                                { label: $t('basic.share'), icon: 'fa fa-share', command: () => shareInvoice($route.params.id) },
+                                {
+                                    label: $t('basic.send'),
+                                    icon: 'fa fa-paper-plane',
+                                    command: () => sendInvoiceNotification($route.params.id),
+                                },
+                                { label: $t('basic.download'), icon: 'fa fa-download', command: downloadInvoice },
+                            ]"
                             @click="showTransactionsDialog = true"
                         />
-                        <Button
-                            id="share_invoice_button"
-                            :label="$t('basic.share')"
-                            icon="fa fa-share"
-                            @click="shareInvoice($route.params.id)"
-                        />
-                        <Button
-                            id="send_invoice_button"
-                            :label="$t('basic.send')"
-                            icon="fa fa-paper-plane"
-                            @click="sendInvoiceNotification($route.params.id)"
-                        />
-                        <Button id="download_invoice_button" :label="$t('basic.download')" icon="fa fa-download" @click="downloadInvoice" />
                     </template>
                 </user-header>
 

@@ -77,6 +77,7 @@ import TreeSelect from 'primevue/treeselect'
 import TextArea from 'primevue/textarea'
 import Chart from 'primevue/chart'
 import SpeedDial from 'primevue/speeddial'
+import SplitButton from 'primevue/splitbutton'
 
 export default {
     install(app) {
@@ -155,5 +156,6 @@ export default {
         app.component('TextArea', TextArea)
         app.component('Chart', Chart)
         app.component('SpeedDial', SpeedDial)
+        app.component('SplitButton', SplitButton)
     },
 }

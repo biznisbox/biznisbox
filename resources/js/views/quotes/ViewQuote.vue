@@ -28,20 +28,16 @@
                             severity="success"
                             @click="convertQuoteToInvoice(quote.id)"
                         />
-                        <Button
-                            v-if="quote.status != 'accepted' && quote.status != 'converted'"
-                            id="send_quote_button"
-                            :label="$t('basic.send')"
-                            icon="fa fa-paper-plane"
-                            @click="sendQuoteNotification(quote.id)"
-                        />
-                        <Button
-                            id="share_quote_button"
+                        <SplitButton
+                            id="quote_actions"
                             :label="$t('basic.share')"
                             icon="fa fa-share"
                             @click="shareQuote($route.params.id)"
+                            :model="[
+                                { label: $t('basic.send'), icon: 'fa fa-paper-plane', command: () => sendQuoteNotification(quote.id) },
+                                { label: $t('basic.download'), icon: 'fa fa-download', command: () => downloadQuote() },
+                            ]"
                         />
-                        <Button id="download_quote_button" :label="$t('basic.download')" icon="fa fa-download" @click="downloadQuote" />
                     </template>
                 </user-header>
 
