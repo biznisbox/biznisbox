@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Неможливо оновити рахунок',
         'delete_failed' => 'Рахунок не може бути видалений',
         'transaction_success' => 'Транзакція була успішно додана',
+        'notification_success' => 'Повідомлення надіслано успішно',
+        'notification_failed' => 'Не вдалося надіслати повідомлення',
     ],
 
     //Online payment responses
