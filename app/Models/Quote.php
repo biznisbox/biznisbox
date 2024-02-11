@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Mail\Quote\QuoteNotification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -9,6 +10,7 @@ use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 
 class Quote extends Model implements Auditable
@@ -317,5 +319,41 @@ class Quote extends Model implements Auditable
         $data['payer_zip_code'] = $address->zip_code ?? null;
         $data['payer_country'] = $address->country ?? null;
         return $data;
+    }
+
+    public function sendQuoteNotification($quote_id)
+    {
+        $quote = $this->find($quote_id);
+
+        // Get primary contacts of customer
+        $contacts = PartnerContact::where('partner_id', $quote->customer_id)
+            ->orWhere('partner_id', $quote->payer_id)
+            ->where('is_primary', true)
+            ->whereNotNull('email')
+            ->get();
+        foreach ($contacts as $contact) {
+            $url = url(
+                '/client/quote/' .
+                    $quote->id .
+                    '?key=' .
+                    generate_external_key('quote', $quote->id, 'system', null, $contact->email, 'email') .
+                    '&lang=' .
+                    app()->getLocale(),
+            );
+            Mail::to($contact->email)->send(new QuoteNotification($quote, $url, $contact));
+
+            if (
+                $quote->status != 'accepted' &&
+                $quote->status != 'rejected' &&
+                $quote->status != 'converted' &&
+                $quote->status != 'viewed' &&
+                $quote->status != 'sent'
+            ) {
+                $quote->status = 'sent';
+                $quote->save();
+            }
+            activity_log(user_data()->data->id, 'send quote notification', $quote->id, 'App\Models\Quote', 'sendQuoteNotification');
+        }
+        return true;
     }
 }

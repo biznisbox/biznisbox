@@ -15,7 +15,18 @@ class ExternalKeys extends Model implements Auditable
 
     protected $table = 'external_keys';
 
-    protected $fillable = ['module', 'module_item_id', 'key', 'creation_method', 'created_by', 'expires_at', 'used', 'used_at'];
+    protected $fillable = [
+        'module',
+        'module_item_id',
+        'key',
+        'recipient',
+        'recipient_type',
+        'creation_method',
+        'created_by',
+        'expires_at',
+        'used',
+        'used_at',
+    ];
 
     protected $casts = [
         'used' => 'boolean',
@@ -37,8 +48,14 @@ class ExternalKeys extends Model implements Auditable
      * @param string $module
      * @param string $module_item_id
      */
-    public function createExternalKey($module, $module_item_id, $creation_method = 'manual', $expires_at = null)
-    {
+    public function createExternalKey(
+        $module,
+        $module_item_id,
+        $creation_method = 'manual',
+        $expires_at = null,
+        $recipient = null,
+        $recipient_type = null,
+    ) {
         $external_key = $this->create([
             'module' => $module,
             'module_item_id' => $module_item_id,
@@ -46,6 +63,9 @@ class ExternalKeys extends Model implements Auditable
             'creation_method' => $creation_method,
             'created_by' => user_data()->data->id,
             'expires_at' => $expires_at,
+            'used' => false,
+            'recipient' => $recipient, // The recipient of the key (e.g. email address or phone number)
+            'recipient_type' => $recipient_type, // The type of recipient (e.g. email, phone number, etc.)
         ]);
 
         if ($external_key) {

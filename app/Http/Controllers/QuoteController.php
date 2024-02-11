@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Quote;
-class QuotationsController extends Controller
+class QuoteController extends Controller
 {
     protected $quoteModel;
     public function __construct(Quote $quoteModel)
@@ -89,7 +89,7 @@ class QuotationsController extends Controller
         $quote_pdf = $this->quoteModel->getQuotePdf($request->id, $request->type);
 
         if (!$quote_pdf) {
-            return api_response(null, __('response.estimate.pdf_failed'), 500);
+            return api_response(null, __('response.quote.pdf_failed'), 500);
         }
         return $quote_pdf;
     }
@@ -99,8 +99,18 @@ class QuotationsController extends Controller
         $quote_share = $this->quoteModel->shareQuote($id);
 
         if (!$quote_share) {
-            return api_response(null, __('response.estimate.share_failed'), 500);
+            return api_response(null, __('response.quote.share_failed'), 500);
         }
-        return api_response($quote_share, __('response.estimate.share_success'));
+        return api_response($quote_share, __('response.quote.share_success'));
+    }
+
+    public function sendQuoteNotification($id)
+    {
+        $quote_send = $this->quoteModel->sendQuoteNotification($id);
+
+        if (!$quote_send) {
+            return api_response(null, __('response.quote.send_failed'), 500);
+        }
+        return api_response($quote_send, __('response.quote.send_success'));
     }
 }

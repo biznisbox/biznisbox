@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\DB;
 use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Support\Facades\URL;
 use App\Models\Transaction;
+use App\Mail\Invoice\InvoiceNotification;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class Invoice extends Model implements Auditable
 {
@@ -458,5 +461,34 @@ class Invoice extends Model implements Auditable
         $data['customer_zip_code'] = $address->zip_code ?? null;
         $data['customer_country'] = $address->country ?? null;
         return $data;
+    }
+
+    public function sendInvoiceNotification($invoice_id)
+    {
+        $invoice = $this->with('items', 'transactions', 'salesPerson:id,first_name,last_name,email')->find($invoice_id);
+
+        // Get primary contacts of customer
+        $contacts = PartnerContact::where('partner_id', $invoice->customer_id)
+            ->orWhere('partner_id', $invoice->payer_id)
+            ->where('is_primary', true)
+            ->whereNotNull('email')
+            ->get();
+        foreach ($contacts as $contact) {
+            $url = url(
+                '/client/invoice/' .
+                    $invoice->id .
+                    '?key=' .
+                    generate_external_key('invoice', $invoice->id, 'system', null, $contact->email, 'email') .
+                    '&lang=' .
+                    app()->getLocale(),
+            );
+            Mail::to($contact->email)->send(new InvoiceNotification($invoice, $url, $contact));
+        }
+        if ($invoice->status != 'paid' && $invoice->status != 'overpaid' && $invoice->status != 'partial' && $invoice->status != 'sent') {
+            $invoice->status = 'sent';
+            $invoice->save();
+        }
+        activity_log(user_data()->data->id, 'send invoice notification', $invoice->id, 'App\Models\Invoice', 'sendInvoiceNotification');
+        return true;
     }
 }

@@ -102,4 +102,14 @@ class InvoiceController extends Controller
         }
         return api_response(null, __('response.invoice.not_found'), 404);
     }
+
+    public function sendInvoiceNotification($id)
+    {
+        $invoice = $this->invoiceModel->sendInvoiceNotification($id);
+
+        if ($invoice) {
+            return api_response(null, __('response.invoice.notification_success'), 200);
+        }
+        return api_response(null, __('response.invoice.not_found'), 404);
+    }
 }

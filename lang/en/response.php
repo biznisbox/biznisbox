@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Invoice could not be updated',
         'delete_failed' => 'Invoice could not be deleted',
         'transaction_success' => 'Transaction was added successfully',
+        'notification_success' => 'Notification was sent successfully',
+        'notification_failed' => 'Notification could not be sent',
     ],
 
     //Online payment responses

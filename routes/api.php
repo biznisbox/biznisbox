@@ -4,7 +4,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BasicController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\QuotationsController;
+use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\TransactionController;
@@ -67,18 +67,20 @@ Route::middleware('auth')->group(function () {
         Route::get('/invoice/invoice_number', InvoiceController::class . '@getInvoiceNumber');
         Route::get('/invoice/share/{id}', InvoiceController::class . '@shareInvoice');
         Route::post('/invoice/transaction/{id}', InvoiceController::class . '@addTransaction');
+        Route::post('/invoice/send/{id}', InvoiceController::class . '@sendInvoiceNotification');
     });
 
     // Quotes Routes
     Route::middleware('can:quotes')->group(function () {
-        Route::get('/quotations', QuotationsController::class . '@getQuotes');
-        Route::get('/quotations/{id}', QuotationsController::class . '@getQuote');
-        Route::post('/quotations', QuotationsController::class . '@createQuote');
-        Route::put('/quotations/{id}', QuotationsController::class . '@updateQuote');
-        Route::delete('/quotations/{id}', QuotationsController::class . '@deleteQuote');
-        Route::get('/quote/convert/{id}', QuotationsController::class . '@convertQuoteToInvoice');
-        Route::get('/quote/quote_number', QuotationsController::class . '@getQuoteNumber');
-        Route::get('/quote/share/{id}', QuotationsController::class . '@shareQuote');
+        Route::get('/quotations', QuoteController::class . '@getQuotes');
+        Route::get('/quotations/{id}', QuoteController::class . '@getQuote');
+        Route::post('/quotations', QuoteController::class . '@createQuote');
+        Route::put('/quotations/{id}', QuoteController::class . '@updateQuote');
+        Route::delete('/quotations/{id}', QuoteController::class . '@deleteQuote');
+        Route::get('/quote/convert/{id}', QuoteController::class . '@convertQuoteToInvoice');
+        Route::get('/quote/quote_number', QuoteController::class . '@getQuoteNumber');
+        Route::get('/quote/share/{id}', QuoteController::class . '@shareQuote');
+        Route::post('/quote/send/{id}', QuoteController::class . '@sendQuoteNotification');
     });
 
     // Categories Routes
@@ -265,7 +267,7 @@ Route::middleware(['signed'])->group(function () {
     Route::get('/document/download', ArchiveController::class . '@downloadDocument')->name('documents.download');
     Route::get('/document/previews', ArchiveController::class . '@previewDocument')->name('documents.preview');
     Route::get('/invoice/pdf', InvoiceController::class . '@getInvoicePdf')->name('invoice.pdf');
-    Route::get('/quote/pdf', QuotationsController::class . '@getQuotePdf')->name('quote.pdf');
+    Route::get('/quote/pdf', QuoteController::class . '@getQuotePdf')->name('quote.pdf');
     Route::get('/document-internal/pdf', DocumentController::class . '@getDocumentPdf')->name('document.pdf');
 });
 

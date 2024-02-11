@@ -39,6 +39,12 @@
                             icon="fa fa-share"
                             @click="shareInvoice($route.params.id)"
                         />
+                        <Button
+                            id="send_invoice_button"
+                            :label="$t('basic.send')"
+                            icon="fa fa-paper-plane"
+                            @click="sendInvoiceNotification($route.params.id)"
+                        />
                         <Button id="download_invoice_button" :label="$t('basic.download')" icon="fa fa-download" @click="downloadInvoice" />
                     </template>
                 </user-header>

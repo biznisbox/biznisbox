@@ -113,12 +113,20 @@ if (!function_exists('generate_external_key')) {
      * @param string $module_item_id - module item id
      * @param string $creation_method - creation method (default: manual)
      * @param string $expiries_at - expiries date (default: null)
+     * @param string $recipient - recipient (default: null) - email, phone number of recipient
+     * @param string $recipient_type - recipient type (default: null) - email, phone_number
      * @return string $key
      */
-    function generate_external_key($module, $module_item_id, $creation_method = 'manual', $expires_at = null)
-    {
+    function generate_external_key(
+        $module,
+        $module_item_id,
+        $creation_method = 'manual',
+        $expires_at = null,
+        $recipient = null,
+        $recipient_type = null,
+    ) {
         $external_key = new \App\Models\ExternalKeys();
-        return $external_key->createExternalKey($module, $module_item_id, $creation_method, $expires_at);
+        return $external_key->createExternalKey($module, $module_item_id, $creation_method, $expires_at, $recipient, $recipient_type);
     }
 }
 

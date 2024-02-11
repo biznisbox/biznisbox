@@ -29,6 +29,13 @@
                             @click="convertQuoteToInvoice(quote.id)"
                         />
                         <Button
+                            v-if="quote.status != 'accepted' && quote.status != 'converted'"
+                            id="send_quote_button"
+                            :label="$t('basic.send')"
+                            icon="fa fa-paper-plane"
+                            @click="sendQuoteNotification(quote.id)"
+                        />
+                        <Button
                             id="share_quote_button"
                             :label="$t('basic.share')"
                             icon="fa fa-share"

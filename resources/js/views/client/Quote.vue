@@ -53,7 +53,7 @@
 
                         <div v-if="!loadingData" id="payer_data" class="col-12 md:col-6">
                             <DisplayData :input="$t('form.payer')" custom-value>
-                                <div v-if="quote.payer">
+                                <div v-if="quote.payer_id">
                                     <span>{{ formatText(quote.payer_name) }}</span> <br />
                                     <span>{{ formatText(quote.payer_address) }}</span>
                                     <br />
@@ -235,7 +235,8 @@ export default {
                 '/api/client/quote/accept-reject',
                 { status: status },
                 { key: this.$route.query.key },
-                { 'X-CLIENT-ROUTE': true }
+                { 'X-CLIENT-ROUTE': true },
+                false
             ).then((response) => {
                 this.showToast(response.data.message)
                 this.getQuote()

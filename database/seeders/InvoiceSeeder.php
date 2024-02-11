@@ -47,6 +47,7 @@ class InvoiceSeeder extends Seeder
                 'payer_zip_code' => $customer_address_data->zip,
                 'payer_country' => $customer_address_data->country,
                 'payment_method' => fake()->randomElement(['cash', 'bank_transfer', 'check', 'stripe', 'paypal']),
+                'default_currency' => settings('default_currency'),
             ]);
 
             for ($j = 0; $j < 3; $j++) {

@@ -177,5 +177,14 @@ export default {
                 this.partners = response.data.data
             })
         },
+
+        /**
+         * Send quote notification
+         */
+        sendQuoteNotification(id) {
+            this.makeHttpRequest('POST', '/api/quote/send/' + id, null, null, null, false).then((response) => {
+                this.showToast(response.data.message)
+            })
+        },
     },
 }

@@ -168,5 +168,14 @@ export default {
                 this.partners = response.data.data
             })
         },
+
+        /**
+         * Send invoice by email
+         */
+        sendInvoiceNotification(id) {
+            this.makeHttpRequest('POST', '/api/invoice/send/' + id, null, null, null, false).then((response) => {
+                this.showToast(response.data.message)
+            })
+        },
     },
 }
