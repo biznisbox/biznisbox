@@ -191,6 +191,8 @@ return [
         'update_failed' => 'La factura no s\'ha pogut actualitzar',
         'delete_failed' => 'La factura no s\'ha pogut eliminar',
         'transaction_success' => 'La transacció s\'ha afegit correctament',
+        'notification_success' => 'La notificació s\'ha enviat amb èxit',
+        'notification_failed' => 'No s\'ha pogut enviar la notificació',
     ],
 
     //Online payment responses
