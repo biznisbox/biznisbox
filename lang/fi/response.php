@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Laskua ei voitu päivittää',
         'delete_failed' => 'Laskua ei voitu poistaa',
         'transaction_success' => 'Tapahtuma lisättiin onnistuneesti',
+        'notification_success' => 'Ilmoitus lähetetty onnistuneesti',
+        'notification_failed' => 'Ilmoitusta ei voitu lähettää',
     ],
 
     //Online payment responses
