@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Faktura kunne ikke opdateres',
         'delete_failed' => 'Faktura kunne ikke slettes',
         'transaction_success' => 'Transaktionen blev tilføjet',
+        'notification_success' => 'Notifikation blev sendt',
+        'notification_failed' => 'Notifikation kunne ikke sendes',
     ],
 
     //Online payment responses
