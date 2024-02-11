@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Fakturu nelze aktualizovat',
         'delete_failed' => 'Faktura nemohla být odstraněna',
         'transaction_success' => 'Transakce byla úspěšně přidána',
+        'notification_success' => 'Oznámení bylo úspěšně odesláno',
+        'notification_failed' => 'Oznámení nelze odeslat',
     ],
 
     //Online payment responses
