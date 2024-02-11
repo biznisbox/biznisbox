@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Fakturaen kunne ikke oppdateres',
         'delete_failed' => 'Fakturaen kunne ikke slettes',
         'transaction_success' => 'Transaksjonen ble lagt til',
+        'notification_success' => 'Varsling ble sendt',
+        'notification_failed' => 'Varsling kunne ikke sendes',
     ],
 
     //Online payment responses
