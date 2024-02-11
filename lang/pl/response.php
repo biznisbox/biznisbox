@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Faktura nie może zostać zaktualizowana',
         'delete_failed' => 'Faktura nie może zostać usunięta',
         'transaction_success' => 'Transakcja została dodana pomyślnie',
+        'notification_success' => 'Powiadomienie zostało wysłane pomyślnie',
+        'notification_failed' => 'Nie można wysłać powiadomienia',
     ],
 
     //Online payment responses
