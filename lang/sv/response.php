@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Fakturan kunde inte uppdateras',
         'delete_failed' => 'Fakturan kunde inte tas bort',
         'transaction_success' => 'Transaktionen har lagts till',
+        'notification_success' => 'Meddelandet har skickats',
+        'notification_failed' => 'Meddelandet kunde inte skickas',
     ],
 
     //Online payment responses
