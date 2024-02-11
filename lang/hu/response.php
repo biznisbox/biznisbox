@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Számla frissítése sikertelen volt',
         'delete_failed' => 'Számla törlése sikertelen volt',
         'transaction_success' => 'Tranzakció sikeresen hozzáadva',
+        'notification_success' => 'Az értesítés sikeresen elküldve',
+        'notification_failed' => 'Az értesítést nem sikerült elküldeni',
     ],
 
     //Online payment responses
