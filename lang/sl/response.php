@@ -191,6 +191,8 @@ return [
         'update_failed' => 'Računa ni bilo mogoče posodobiti',
         'delete_failed' => 'Računa ni bilo mogoče izbrisati',
         'transaction_success' => 'Transakcija je bila uspešno dodana',
+        'notification_success' => 'Obvestilo je bilo uspešno poslano',
+        'notification_failed' => 'Obvestilo ni bilo mogoče poslati',
     ],
 
     //Online payment responses
@@ -212,6 +214,9 @@ return [
         'password_updated' => 'Geslo je bilo uspešno posodobljeno',
         'password_not_match' => 'Geslo se ne ujema',
         'password_empty' => 'Polje za geslo ne sme biti prazno',
+        'avatar_deleted' => 'Avatar je bil uspešno izbrisan',
+        'avatar_not_found' => 'Avatar ni bil mogoče najti',
+        'avatar_updated' => 'Avatar je bil uspešno posodobljen',
     ],
 
     // Open Banking responses

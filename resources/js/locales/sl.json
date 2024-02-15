@@ -30,7 +30,7 @@
         "validation_error": "Napaka pri validaciji",
         "not_found_item": "Ni najdeno",
         "bad_request": "Napačna zahteva",
-        "forbidden": "Zavrnjeno"
+        "forbidden": "Prepovedano"
     },
     "basic": {
         "cancel": "Prekliči",
@@ -390,7 +390,9 @@
         "show_transactions": "Prikaži transakcije",
         "list_of_transactions": "Seznam transakcij",
         "no_sales_person": "Ni prodajalca",
-        "no_payment_method": "Način plačila"
+        "no_payment_method": "Način plačila",
+        "click_for_pay_with_paypal": "Kliknite tukaj za plačilo s PayPalom",
+        "click_for_pay": "Kliknite tukaj za plačilo"
     },
     "quote": {
         "quote": "Ponudba|Ponudbe",
@@ -695,7 +697,8 @@
             "title": "Skrbniška plošča",
             "total_users": "Skupno število uporabnikov",
             "active_users_today": "Aktivni uporabniki danes",
-            "number_of_logins_today": "Število prijav danes"
+            "number_of_logins_today": "Število prijav danes",
+            "departments": "Število oddelkov"
         },
         "app_status": {
             "title": "Stanje aplikacije",

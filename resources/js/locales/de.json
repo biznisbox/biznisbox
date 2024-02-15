@@ -93,7 +93,8 @@
         "small": "Klein",
         "medium": "Mittel",
         "large": "Groß",
-        "add_item": "Element hinzufügen"
+        "add_item": "Element hinzufügen",
+        "move": "Bewegen"
     },
     "user_nav_menu": {
         "profile": "Profil",
@@ -233,7 +234,10 @@
         "level": "Level",
         "contract_type": "Vertragstyp",
         "internal_user": "Interner Benutzer",
-        "sales_person": "Verkaufspersonal"
+        "sales_person": "Verkaufspersonal",
+        "opening_balance_date": "Eröffnungsbilanzdatum",
+        "delimiter": "Trennzeichen",
+        "text": "Text"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -386,7 +390,9 @@
         "show_transactions": "Transaktionen anzeigen",
         "list_of_transactions": "Liste der Transaktionen",
         "no_sales_person": "Kein Verkaufspersonal",
-        "no_payment_method": "Keine Zahlungsmethode"
+        "no_payment_method": "Keine Zahlungsmethode",
+        "click_for_pay_with_paypal": "Klicken Sie hier, um mit PayPal zu bezahlen",
+        "click_for_pay": "Klicke hier, um zu bezahlen"
     },
     "quote": {
         "quote": "Angebot | Angebote",
@@ -691,7 +697,8 @@
             "title": "Admin-Übersicht",
             "total_users": "Benutzer gesamt",
             "active_users_today": "Heute aktive Benutzer",
-            "number_of_logins_today": "Anzahl der Logins heute"
+            "number_of_logins_today": "Anzahl der Logins heute",
+            "departments": "Anzahl der Abteilungen"
         },
         "app_status": {
             "title": "Bewerbungsstatus",
@@ -720,7 +727,7 @@
     },
     "countries": {
         "Afghanistan": "Afghanistan",
-        "Åland Islands": "Asland Inseln",
+        "Åland Islands": "A<unk> land Inseln",
         "Albania": "Albanien",
         "Algeria": "Algeria",
         "American Samoa": "American Samoa",
@@ -905,7 +912,7 @@
         "Romania": "Rumänien",
         "Russian Federation": "Russische Föderation",
         "Rwanda": "Rwanda",
-        "Saint Barthélemy": "St. Barthelemy",
+        "Saint Barthélemy": "St. Barthe<unk> lemy",
         "Saint Helena, Ascension and Tristan da Cunha": "St. Helena, Ascension und Tristan da Cunha",
         "Saint Kitts and Nevis": "St. Kitts und Nevis",
         "Saint Lucia": "St. Lucia",
