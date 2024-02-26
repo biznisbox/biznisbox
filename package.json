@@ -33,7 +33,7 @@
         "laravel-vite-plugin": "^1.0.1",
         "postcss": "^8.4.35",
         "prettier": "^3.2.5",
-        "sass": "^1.70.0",
+        "sass": "^1.71.1",
         "vite": "^5.1.2",
         "vue-loader": "^17.4.2"
     },
