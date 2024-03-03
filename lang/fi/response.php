@@ -22,6 +22,11 @@ return [
     'share_failed' => 'Ei voitu jakaa',
     'accept_reject_success' => 'Hyväksytty/hylätty onnistuneesti',
     'convert_success' => 'Muunnettu onnistuneesti',
+    'pdf_failed' => 'PDF: n luominen epäonnistui',
+    'notification_success' => 'Ilmoitus lähetetty onnistuneesti',
+    'notification_failed' => 'Ilmoitusta ei voitu lähettää',
+    'no_key_provided' => 'Avainta ei ole annettu',
+    'ping' => 'API toimii',
     // Auth responses
     'login' => [
         'success' => 'Olet onnistuneesti kirjautunut sisään',
@@ -174,6 +179,18 @@ return [
         'pdf_failed' => 'PDF: n luominen epäonnistui',
     ],
 
+    'support_ticket_message' => [
+        'get_success' => 'Tukipyyntöjen viestien haku onnistui',
+        'get_failed' => 'Tukipyyntöviestejä ei voitu hakea',
+        'not_found' => 'Tukipyynnön viestiä ei löytynyt',
+        'create_failed' => 'Tukipyynnön viestiä ei voitu luoda',
+        'create_success' => 'Tukipyynnön viesti luotiin onnistuneesti',
+        'update_success' => 'Tukipyynnön viesti päivitettiin onnistuneesti',
+        'update_failed' => 'Tukipyynnön viestiä ei voitu päivittää',
+        'delete_failed' => 'Tukipyynnön viestiä ei voitu poistaa onnistuneesti',
+        'delete_success' => 'Tukipyynnön viesti poistettu onnistuneesti',
+    ],
+
     //Invoice responses
     'invoice' => [
         'get_success' => 'Laskut haettu onnistuneesti',
@@ -205,6 +222,24 @@ return [
         'failed' => 'Maksu epäonnistui',
         'paypal_not_available' => 'PayPal ei saatavilla',
         'invoice' => 'Lasku',
+    ],
+
+    'support_ticket' => [
+        'get_success' => 'Tuki lippuja noudettu onnistuneesti',
+        'get_failed' => 'Tukipyyntöjä ei voitu hakea',
+        'not_found' => 'Tukipyyntöä ei löytynyt',
+        'create_failed' => 'Tukipyyntöä ei voitu luoda',
+        'create_success' => 'Tukipyyntö luotiin onnistuneesti',
+        'update_success' => 'Tukipyyntö päivitettiin onnistuneesti',
+        'update_failed' => 'Tukipyyntöä ei voitu päivittää',
+        'delete_failed' => 'Tukipyyntöä ei voitu poistaa onnistuneesti',
+        'delete_success' => 'Tukipyyntö poistettu onnistuneesti',
+        'get_number_success' => 'Tukipyynnön numero noudettu onnistuneesti',
+        'get_number_failed' => 'Tukipyynnön numeroa ei voitu hakea',
+        'send_success' => 'Tukipyynnön viesti lähetettiin onnistuneesti',
+        'send_failed' => 'Tukipyynnön viestiä ei voitu lähettää',
+        'share_success' => 'Tukipyyntö jaettiin onnistuneesti',
+        'share_failed' => 'Tukipyyntöä ei voitu jakaa',
     ],
 
     //Profile responses
