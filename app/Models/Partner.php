@@ -67,6 +67,11 @@ class Partner extends Model implements Auditable
         return $this->hasMany(Bill::class, 'supplier_id')->union($this->hasMany(Bill::class, 'customer_id'));
     }
 
+    public function support_tickets()
+    {
+        return $this->hasMany(SupportTicket::class);
+    }
+
     public function getPartners($type = null)
     {
         // type can have comma separated values (customer, supplier, both)
@@ -80,7 +85,9 @@ class Partner extends Model implements Auditable
 
     public function getPartner($id)
     {
-        return $this->with('addresses', 'contacts', 'invoices', 'quotes', 'transactions', 'bills')->where('id', $id)->first();
+        return $this->with('addresses', 'contacts', 'invoices', 'quotes', 'transactions', 'bills', 'support_tickets')
+            ->where('id', $id)
+            ->first();
     }
 
     /**

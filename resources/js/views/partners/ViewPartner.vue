@@ -111,7 +111,7 @@
                                 </TabPanel>
 
                                 <!-- Invoices table -->
-                                <TabPanel :header="$t('invoice.invoice', 2)">
+                                <TabPanel :header="$t('invoice.invoice', 2)" v-if="hasPermission('invoices')">
                                     <DataTable :value="partner.invoices" @row-dblclick="viewInvoiceNavigation">
                                         <template #empty>
                                             <div class="p-4 pl-0 text-center w-full text-gray-500">
@@ -146,7 +146,7 @@
                                 </TabPanel>
 
                                 <!-- Quotes table -->
-                                <TabPanel :header="$t('quote.quote', 2)">
+                                <TabPanel :header="$t('quote.quote', 2)" v-if="hasPermission('quotes')">
                                     <div id="quote_table">
                                         <DataTable :value="partner.quotes" @row-dblclick="viewQuoteNavigation">
                                             <template #empty>
@@ -200,7 +200,7 @@
                                 </TabPanel>
 
                                 <!-- Bills tab -->
-                                <TabPanel :header="$t('bill.bill', 2)">
+                                <TabPanel :header="$t('bill.bill', 2)" v-if="hasPermission('bills')">
                                     <div id="bills_table">
                                         <DataTable :value="partner.bills" @row-dblclick="viewBillNavigation">
                                             <template #empty>
@@ -254,7 +254,7 @@
                                 </TabPanel>
 
                                 <!-- Transactions tab -->
-                                <TabPanel :header="$t('transaction.transaction', 2)">
+                                <TabPanel :header="$t('transaction.transaction', 2)" v-if="hasPermission('transactions')">
                                     <div id="transactions_table">
                                         <DataTable :value="partner.transactions" @row-dblclick="viewTransactionNavigation">
                                             <template #empty>
@@ -309,6 +309,54 @@
                                         </DataTable>
                                     </div>
                                 </TabPanel>
+
+                                <!-- Support tab -->
+                                <TabPanel :header="$t('support.support')" v-if="hasPermission('support')">
+                                    <DataTable
+                                        :value="partner.support_tickets"
+                                        :loading="loadingData"
+                                        paginator
+                                        data-key="id"
+                                        :rows="10"
+                                        paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
+                                        :rows-per-page-options="[10, 20, 50]"
+                                        @row-dblclick="viewSupportTicketNavigation"
+                                    >
+                                        <template #empty>
+                                            <div class="p-4 pl-0 text-center w-full text-gray-500">
+                                                <i class="fa fa-info-circle empty-icon"></i>
+                                                <p>{{ $t('support.no_support_tickets') }}</p>
+                                            </div>
+                                        </template>
+                                        <Column field="number" :header="$t('form.number')" />
+                                        <Column field="subject" :header="$t('form.subject')" />
+                                        <Column field="status" :header="$t('form.status')">
+                                            <template #body="{ data }">
+                                                <Badge v-if="data.status === 'open'" :value="$t('status.open')" class="p-badge-success" />
+                                                <Badge
+                                                    v-else-if="data.status === 'closed'"
+                                                    :value="$t('status.closed')"
+                                                    class="p-badge-danger"
+                                                />
+                                                <Badge
+                                                    v-else-if="data.status === 'in_progress'"
+                                                    :value="$t('status.in_progress')"
+                                                    class="p-badge-warning"
+                                                />
+                                                <Badge
+                                                    v-else-if="data.status === 'resolved'"
+                                                    :value="$t('status.resolved')"
+                                                    class="p-badge-info"
+                                                />
+                                                <Badge
+                                                    v-else-if="data.status === 'reopened'"
+                                                    :value="$t('status.reopened')"
+                                                    class="p-badge-secondary"
+                                                />
+                                            </template>
+                                        </Column>
+                                    </DataTable>
+                                </TabPanel>
                             </TabView>
                         </div>
                     </div>
@@ -362,6 +410,13 @@ export default {
         viewTransactionNavigation(rowData) {
             this.$router.push({
                 name: 'view-transaction',
+                params: { id: rowData.data.id },
+            })
+        },
+
+        viewSupportTicketNavigation(rowData) {
+            this.$router.push({
+                name: 'view-support-ticket',
                 params: { id: rowData.data.id },
             })
         },
