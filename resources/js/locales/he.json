@@ -118,7 +118,8 @@
         "partners": "שותפים",
         "reports": "דוחות",
         "settings": "הגדרות",
-        "employees": "עובדים"
+        "employees": "עובדים",
+        "support": "Support"
     },
     "dashboard": {
         "title": "לוח בקרה",
@@ -237,7 +238,17 @@
         "sales_person": "מוכר",
         "opening_balance_date": "תאריך יתרת הפתיחה",
         "delimiter": "מפריד",
-        "text": "טקסט"
+        "text": "טקסט",
+        "priority": "Priority",
+        "subject": "Subject",
+        "message": "Message",
+        "from": "From",
+        "to": "To",
+        "cc": "CC",
+        "bcc": "BCC",
+        "assigned_to": "Assigned to",
+        "partner": "Partner",
+        "new_replay": "New Reply"
     },
     "address_types": {
         "billing": "חיובים",
@@ -302,6 +313,14 @@
         "paypal": "פייפאל",
         "stripe": "Stripe",
         "other": "אחר"
+    },
+    "support_priority": {
+        "none": "None",
+        "low": "Low",
+        "medium": "Medium",
+        "normal": "Normal",
+        "high": "High",
+        "urgent": "Urgent"
     },
     "product_type": {
         "product": "מוצר",
@@ -441,7 +460,14 @@
         "pending": "ממתין",
         "completed": "הושלם",
         "confirmed": "מאושר",
-        "tentative": "טנטטיבי"
+        "tentative": "טנטטיבי",
+        "open": "Open",
+        "closed": "Closed",
+        "archived": "Archived",
+        "in_progress": "In Progress",
+        "reopened": "Reopened",
+        "resolved": "Resolved",
+        "waiting_for_reply": "Waiting for reply"
     },
     "calendar": {
         "calendar": "יומן | יומנים",
@@ -524,6 +550,21 @@
         "no_documents": "לא נמצאו מסמכים",
         "create_first_document": "צור את המסמך הראשון שלך",
         "delete_confirm_document": "האם אתה בטוח שברצונך למחוק מסמך זה?"
+    },
+    "support": {
+        "support": "Support | Supports",
+        "support_tickets": "Support Tickets",
+        "view_ticket": "View Ticket",
+        "new_ticket": "New Ticket",
+        "edit_ticket": "Edit Ticket",
+        "no_support_tickets": "No tickets found",
+        "create_first_support_ticket": "Create your first ticket",
+        "delete_confirm_ticket": "Are you sure you want to delete this ticket?",
+        "ticket_reply_delete_confirm": "Are you sure you want to delete this ticket reply?",
+        "share_dialog": "Share ticket",
+        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code.",
+        "system": "System",
+        "delete_confirm_message": "Are you sure you want to delete this message?"
     },
     "employee": {
         "employee": "עובד | עובדים",
