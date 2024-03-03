@@ -16,6 +16,7 @@ return [
     'partners' => 'Partnerek',
     'employees' => 'Munkatársak',
     'transactions_categories' => 'Tranzakciók Kategóriái',
+    'support' => 'Támogatás',
     'admin' => 'Adminisztrátor',
     'admin_users' => 'Adminisztrátor Felhasználók',
     'admin_roles' => 'Adminisztrátor Szerepek',
