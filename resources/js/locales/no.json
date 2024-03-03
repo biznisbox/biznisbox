@@ -119,7 +119,7 @@
         "reports": "Rapporter",
         "settings": "Innstillinger",
         "employees": "Ansatte",
-        "support": "Support"
+        "support": "Brukerstøtte"
     },
     "dashboard": {
         "title": "Kontrollpanel",
@@ -239,16 +239,16 @@
         "opening_balance_date": "Inngående saldo dato",
         "delimiter": "Skilletegn",
         "text": "Tekst",
-        "priority": "Priority",
-        "subject": "Subject",
-        "message": "Message",
-        "from": "From",
-        "to": "To",
+        "priority": "Prioritet",
+        "subject": "Emne",
+        "message": "Melding",
+        "from": "Fra",
+        "to": "Til",
         "cc": "CC",
-        "bcc": "BCC",
-        "assigned_to": "Assigned to",
+        "bcc": "Blindkopi",
+        "assigned_to": "Tilordnet til",
         "partner": "Partner",
-        "new_replay": "New Reply"
+        "new_replay": "Nytt svar"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -315,12 +315,12 @@
         "other": "Annet"
     },
     "support_priority": {
-        "none": "None",
-        "low": "Low",
-        "medium": "Medium",
-        "normal": "Normal",
-        "high": "High",
-        "urgent": "Urgent"
+        "none": "Ingen",
+        "low": "Lav",
+        "medium": "Middels",
+        "normal": "Vanlig",
+        "high": "Høy",
+        "urgent": "Haster"
     },
     "product_type": {
         "product": "Produkt",
@@ -461,13 +461,13 @@
         "completed": "Fullført",
         "confirmed": "Bekreftet",
         "tentative": "Foreløpig",
-        "open": "Open",
-        "closed": "Closed",
-        "archived": "Archived",
-        "in_progress": "In Progress",
-        "reopened": "Reopened",
-        "resolved": "Resolved",
-        "waiting_for_reply": "Waiting for reply"
+        "open": "Åpne",
+        "closed": "Lukket",
+        "archived": "Arkivert",
+        "in_progress": "I progresjon",
+        "reopened": "Gjenåpnet",
+        "resolved": "Løst",
+        "waiting_for_reply": "Venter på svar"
     },
     "calendar": {
         "calendar": "Kalender: Kalendere",
@@ -552,19 +552,19 @@
         "delete_confirm_document": "Er du sikker på at du vil slette dette dokumentet?"
     },
     "support": {
-        "support": "Support | Supports",
-        "support_tickets": "Support Tickets",
-        "view_ticket": "View Ticket",
-        "new_ticket": "New Ticket",
-        "edit_ticket": "Edit Ticket",
-        "no_support_tickets": "No tickets found",
-        "create_first_support_ticket": "Create your first ticket",
-        "delete_confirm_ticket": "Are you sure you want to delete this ticket?",
-        "ticket_reply_delete_confirm": "Are you sure you want to delete this ticket reply?",
-        "share_dialog": "Share ticket",
-        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code.",
-        "system": "System",
-        "delete_confirm_message": "Are you sure you want to delete this message?"
+        "support": "Støtte iNaturSupport Support",
+        "support_tickets": "Støtt saker",
+        "view_ticket": "Vis sak",
+        "new_ticket": "Ny sak",
+        "edit_ticket": "Rediger sak",
+        "no_support_tickets": "Ingen saker funnet",
+        "create_first_support_ticket": "Opprett din første sak",
+        "delete_confirm_ticket": "Er du sikker på at du vil slette denne saken?",
+        "ticket_reply_delete_confirm": "Er du sikker på at du vil slette denne billettsvaret?",
+        "share_dialog": "Del billett",
+        "share_dialog_text": "Kopier lenken nedenfor og del den med partneren din eller skann QR-koden.",
+        "system": "Systemadministrasjon",
+        "delete_confirm_message": "Er du sikker på at du vil slette denne meldingen?"
     },
     "employee": {
         "employee": "Ansatte for ansatte",
