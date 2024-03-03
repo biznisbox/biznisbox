@@ -16,6 +16,7 @@ return [
     'partners' => 'Đối tác',
     'employees' => 'Nhân viên',
     'transactions_categories' => 'Danh mục Giao dịch',
+    'support' => 'Hỗ trợ',
     'admin' => 'Quản trị viên',
     'admin_users' => 'Người dùng quản trị viên',
     'admin_roles' => 'Vai trò quản trị viên',
