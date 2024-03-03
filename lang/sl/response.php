@@ -43,7 +43,6 @@ return [
         'success' => 'Uspešno ponastavljeno geslo',
         'failed' => 'Ponastavitev gesla ni bila uspešna',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Izdelek ni bil najden',
@@ -56,7 +55,6 @@ return [
         'delete_success' => 'Izdelek je bil uspešno izbrisan',
         'delete_failed' => 'Izdelka ni bilo mogoče izbrisati',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Partner ni najden',
@@ -69,7 +67,6 @@ return [
         'delete_success' => 'Partner uspešno izbrisan',
         'delete_failed' => 'Partnerja ni bilo mogoče izbrisati',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'Transakcija ni možno najti',
@@ -82,7 +79,6 @@ return [
         'delete_success' => 'Transakcija je bila uspešno izbrisana',
         'delete_failed' => 'Transakcije ni bilo mogoče izbrisati',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Račun je bil uspešno pridobljen',
@@ -98,7 +94,6 @@ return [
         'get_error' => 'Računa ni bilo mogoče pridobiti',
         'delete_default_account' => 'Prevzetega računa ni mogoče izbrisati',
     ],
-
     //Bill responses
     'bill' => [
         'get_success' => 'Račun je bil uspešno pridobljen',
@@ -110,7 +105,6 @@ return [
         'delete_success' => 'Račun je bil uspešno izbrisan',
         'delete_error' => 'Računa ni bilo mogoče izbrisati',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Dokument je bil uspešno pridobljen',
@@ -123,7 +117,6 @@ return [
         'delete_failed' => 'Dokumenta ni bilo mogoče izbrisati',
         'delete_success' => 'Dokument je bil uspešno izbrisan',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Zaposleni ni najden',
@@ -136,7 +129,6 @@ return [
         'delete_success' => 'Zaposlen uspešno izbrisan',
         'delete_failed' => 'Zaposlenega ni mogoče izbrisati',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'Datoteka pridobljena uspešno',
@@ -158,7 +150,6 @@ return [
         'delete_failed_folder' => 'Mape ni bilo mogoče izbrisati',
         'delete_success_folder' => 'Mapa uspešno izbrisana',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Ponudba je bil uspešno pridobljena',
@@ -178,7 +169,7 @@ return [
         'send_failed' => 'Ponudbe ni bilo mogoče poslati',
         'pdf_failed' => 'Ustvarjanje PDF datoteke ni bilo uspešno',
     ],
-
+    // Support ticket message responses
     'support_ticket_message' => [
         'get_success' => 'Sporočila podpornega vstopnice uspešno pridobljena',
         'get_failed' => 'Sporočil podpornega vstopnice ni bilo mogoče pridobiti',
@@ -190,7 +181,6 @@ return [
         'delete_failed' => 'Sporočila podpornega vstopnice ni bilo mogoče uspešno izbrisati',
         'delete_success' => 'Sporočilo podpornega vstopnice je bilo uspešno izbrisano',
     ],
-
     //Invoice responses
     'invoice' => [
         'get_success' => 'Račun je bil uspešno pridobljen',
@@ -211,7 +201,6 @@ return [
         'notification_success' => 'Obvestilo je bilo uspešno poslano',
         'notification_failed' => 'Obvestilo ni bilo mogoče poslati',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'Stripe ni na voljo',
@@ -223,7 +212,7 @@ return [
         'paypal_not_available' => 'PayPal ni na voljo',
         'invoice' => 'Račun',
     ],
-
+    //Support ticket responses
     'support_ticket' => [
         'get_success' => 'Podporni vstopnice uspešno pridobljeni',
         'get_failed' => 'Podpornih vstopnic ni bilo mogoče pridobiti',
@@ -241,7 +230,6 @@ return [
         'share_success' => 'Podpora za vstopnico je bila uspešno deljena',
         'share_failed' => 'Ponudbe ni bilo mogoče dati v skupno rabo',
     ],
-
     //Profile responses
     'user' => [
         'not_found' => 'Uporabnika ni bilo mogoče najti',
@@ -253,7 +241,6 @@ return [
         'avatar_not_found' => 'Avatar ni bil mogoče najti',
         'avatar_updated' => 'Avatar je bil uspešno posodobljen',
     ],
-
     // Open Banking responses
     'open_banking' => [
         'country_required' => 'Država je obvezna',
@@ -266,7 +253,7 @@ return [
         'session_id_required' => 'ID seje je obvezen',
         'account_id_required' => 'ID računa je obvezen',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Dogodek uspešno pridobljen',
         'get_error' => 'Dogodka ni bilo mogoče pridobiti',
@@ -293,12 +280,11 @@ return [
     'email' => [
         'invoice_subject' => 'Račun',
     ],
-
     'dashboard' => [
         'income' => 'Prihodek',
         'expense' => 'Odhodek',
     ],
-
+    // Months
     'months' => [
         'january' => 'Januar',
         'february' => 'Februar',
@@ -313,7 +299,7 @@ return [
         'november' => 'November',
         'december' => 'December',
     ],
-
+    //  Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Vloge ni bilo mogoče najti',
@@ -353,7 +339,6 @@ return [
             'delete_success' => 'Davčna stopnja je bila uspešno izbrisana',
             'delete_failed' => 'Davčne stopnje ni bilo mogoče izbrisati',
         ],
-
         'user' => [
             'not_found' => 'Uporabnika ni bilo mogoče najti',
             'create_failed' => 'Uporabnika ni bilo mogoče ustvariti',
