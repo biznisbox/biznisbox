@@ -16,6 +16,7 @@ return [
     'partners' => '파트너',
     'employees' => '직원',
     'transactions_categories' => '거래 카테고리',
+    'support' => '지원',
     'admin' => '관리자',
     'admin_users' => '관리자 사용자',
     'admin_roles' => '관리자 역할',
