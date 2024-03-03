@@ -16,6 +16,7 @@ return [
     'partners' => 'Συνεργάτες',
     'employees' => 'Υπάλληλοι',
     'transactions_categories' => 'Κατηγορίες Συναλλαγών',
+    'support' => 'Υποστήριξη',
     'admin' => 'Διαχειριστής',
     'admin_users' => 'Χρήστες Διαχειριστή',
     'admin_roles' => 'Ρόλοι Διαχειριστή',
