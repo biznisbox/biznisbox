@@ -22,6 +22,11 @@ return [
     'share_failed' => 'لا يمكن مشاركتها',
     'accept_reject_success' => 'تم قبول/رفض بنجاح',
     'convert_success' => 'تم التحويل بنجاح',
+    'pdf_failed' => 'فشل توليد PDF',
+    'notification_success' => 'تم إرسال الإشعار بنجاح',
+    'notification_failed' => 'تعذر إرسال الإشعار',
+    'no_key_provided' => 'لم يتم توفير مفتاح',
+    'ping' => 'API يعمل',
     // Auth responses
     'login' => [
         'success' => 'لقد قمت بتسجيل الدخول بنجاح',
@@ -174,6 +179,18 @@ return [
         'pdf_failed' => 'فشل توليد PDF',
     ],
 
+    'support_ticket_message' => [
+        'get_success' => 'دعم رسائل التذكرة المستردة بنجاح',
+        'get_failed' => 'تعذر استرداد رسائل التذاكر الداعمة',
+        'not_found' => 'تعذر العثور على رسالة تذكرة الدعم',
+        'create_failed' => 'لا يمكن إنشاء رسالة تذكرة الدعم',
+        'create_success' => 'تم إنشاء رسالة تذكرة الدعم بنجاح',
+        'update_success' => 'تم تحديث رسالة التذكرة الداعمة بنجاح',
+        'update_failed' => 'تعذر تحديث رسالة تذكرة الدعم',
+        'delete_failed' => 'لا يمكن حذف رسالة تذكرة الدعم بنجاح',
+        'delete_success' => 'تم حذف رسالة تذكرة الدعم بنجاح',
+    ],
+
     //Invoice responses
     'invoice' => [
         'get_success' => 'الفواتير المستردة بنجاح',
@@ -205,6 +222,24 @@ return [
         'failed' => 'فشل الدفع',
         'paypal_not_available' => 'باي بال غير متوفر',
         'invoice' => 'فاتورة',
+    ],
+
+    'support_ticket' => [
+        'get_success' => 'تم استرداد تذاكر الدعم بنجاح',
+        'get_failed' => 'لا يمكن استرداد تذاكر الدعم',
+        'not_found' => 'تعذر العثور على تذكرة الدعم',
+        'create_failed' => 'لا يمكن إنشاء تذكرة الدعم',
+        'create_success' => 'تم إنشاء تذكرة الدعم بنجاح',
+        'update_success' => 'تم تحديث تذكرة الدعم بنجاح',
+        'update_failed' => 'لا يمكن تحديث تذكرة الدعم',
+        'delete_failed' => 'لا يمكن حذف تذكرة الدعم بنجاح',
+        'delete_success' => 'تم حذف تذكرة الدعم بنجاح',
+        'get_number_success' => 'تم استرداد رقم التذكرة بنجاح',
+        'get_number_failed' => 'لا يمكن استرداد رقم تذكرة الدعم',
+        'send_success' => 'تم إرسال رسالة تذكرة الدعم بنجاح',
+        'send_failed' => 'لا يمكن إرسال رسالة تذكرة الدعم',
+        'share_success' => 'تم مشاركة تذكرة الدعم بنجاح',
+        'share_failed' => 'لا يمكن مشاركة تذكرة الدعم',
     ],
 
     //Profile responses
