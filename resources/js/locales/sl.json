@@ -119,7 +119,7 @@
         "reports": "Poročila",
         "settings": "Nastavitve",
         "employees": "Zaposleni",
-        "support": "Support"
+        "support": "Podpora"
     },
     "dashboard": {
         "title": "Nadzorna plošča",
@@ -239,16 +239,16 @@
         "opening_balance_date": "Datum začetnega stanja",
         "delimiter": "Ločilo",
         "text": "Besedilo",
-        "priority": "Priority",
-        "subject": "Subject",
-        "message": "Message",
-        "from": "From",
-        "to": "To",
+        "priority": "Prioriteta",
+        "subject": "Zadeva",
+        "message": "Sporočilo",
+        "from": "Od",
+        "to": "Za",
         "cc": "CC",
         "bcc": "BCC",
-        "assigned_to": "Assigned to",
+        "assigned_to": "Dodeljeno",
         "partner": "Partner",
-        "new_replay": "New Reply"
+        "new_replay": "Nov odgovor"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -315,12 +315,12 @@
         "other": "Drugo"
     },
     "support_priority": {
-        "none": "None",
-        "low": "Low",
-        "medium": "Medium",
-        "normal": "Normal",
-        "high": "High",
-        "urgent": "Urgent"
+        "none": "Brez",
+        "low": "Nizka",
+        "medium": "Srednja",
+        "normal": "Običajna",
+        "high": "Visoka",
+        "urgent": "Nujna"
     },
     "product_type": {
         "product": "Izdelek",
@@ -461,13 +461,13 @@
         "completed": "Zaključeno",
         "confirmed": "Potrjeno",
         "tentative": "Pogojno",
-        "open": "Open",
-        "closed": "Closed",
-        "archived": "Archived",
-        "in_progress": "In Progress",
-        "reopened": "Reopened",
-        "resolved": "Resolved",
-        "waiting_for_reply": "Waiting for reply"
+        "open": "Odpri",
+        "closed": "Zaprto",
+        "archived": "Arhivirano",
+        "in_progress": "V teku",
+        "reopened": "Ponovno odprto",
+        "resolved": "Rešeno",
+        "waiting_for_reply": "Čakam na odgovor"
     },
     "calendar": {
         "calendar": "Koledar | Koledarji",
@@ -552,19 +552,19 @@
         "delete_confirm_document": "Ali ste prepričani, da želite izbrisati ta dokument?"
     },
     "support": {
-        "support": "Support | Supports",
-        "support_tickets": "Support Tickets",
-        "view_ticket": "View Ticket",
-        "new_ticket": "New Ticket",
-        "edit_ticket": "Edit Ticket",
-        "no_support_tickets": "No tickets found",
-        "create_first_support_ticket": "Create your first ticket",
-        "delete_confirm_ticket": "Are you sure you want to delete this ticket?",
-        "ticket_reply_delete_confirm": "Are you sure you want to delete this ticket reply?",
-        "share_dialog": "Share ticket",
-        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code.",
-        "system": "System",
-        "delete_confirm_message": "Are you sure you want to delete this message?"
+        "support": "Podpora | Podpira",
+        "support_tickets": "Podporni vstopnice",
+        "view_ticket": "Ogled vstopnice",
+        "new_ticket": "Nova vstopnica",
+        "edit_ticket": "Uredi vstopnico",
+        "no_support_tickets": "Ni najdenih vstopnic",
+        "create_first_support_ticket": "Ustvarite svojo prvo vstopnico",
+        "delete_confirm_ticket": "Ali ste prepričani, da želite izbrisati to vstopnico?",
+        "ticket_reply_delete_confirm": "Ali ste prepričani, da želite izbrisati ta odgovor na vstopnico?",
+        "share_dialog": "Deli vstopnico",
+        "share_dialog_text": "Kopirajte spodnjo povezavo in jo delite s partnerjem ali skenirajte QR kodo.",
+        "system": "Sistem",
+        "delete_confirm_message": "Ali ste prepričani, da želite izbrisati to sporočilo?"
     },
     "employee": {
         "employee": "Zaposlen | Zaposleni",
