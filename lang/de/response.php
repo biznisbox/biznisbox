@@ -22,6 +22,11 @@ return [
     'share_failed' => 'Konnte nicht geteilt werden',
     'accept_reject_success' => 'Akzeptiert/abgelehnt erfolgreich',
     'convert_success' => 'Erfolgreich konvertiert',
+    'pdf_failed' => 'PDF generieren fehlgeschlagen',
+    'notification_success' => 'Benachrichtigung wurde erfolgreich gesendet',
+    'notification_failed' => 'Benachrichtigung konnte nicht gesendet werden',
+    'no_key_provided' => 'Kein Schlüssel angegeben',
+    'ping' => 'API funktioniert',
     // Auth responses
     'login' => [
         'success' => 'Sie haben sich erfolgreich angemeldet',
@@ -174,6 +179,18 @@ return [
         'pdf_failed' => 'PDF generieren fehlgeschlagen',
     ],
 
+    'support_ticket_message' => [
+        'get_success' => 'Support-Ticket-Nachrichten erfolgreich abgerufen',
+        'get_failed' => 'Support-Ticket-Nachrichten konnten nicht abgerufen werden',
+        'not_found' => 'Support Ticket Nachricht konnte nicht gefunden werden',
+        'create_failed' => 'Support-Ticket-Nachricht konnte nicht erstellt werden',
+        'create_success' => 'Support-Ticket-Nachricht wurde erfolgreich erstellt',
+        'update_success' => 'Support-Ticket-Nachricht wurde erfolgreich aktualisiert',
+        'update_failed' => 'Support-Ticket-Nachricht konnte nicht aktualisiert werden',
+        'delete_failed' => 'Support-Ticket-Nachricht konnte nicht erfolgreich gelöscht werden',
+        'delete_success' => 'Support-Ticket-Nachricht erfolgreich gelöscht',
+    ],
+
     //Invoice responses
     'invoice' => [
         'get_success' => 'Rechnungen erfolgreich abgerufen',
@@ -205,6 +222,24 @@ return [
         'failed' => 'Zahlung fehlgeschlagen',
         'paypal_not_available' => 'Paypal nicht verfügbar',
         'invoice' => 'Rechnung',
+    ],
+
+    'support_ticket' => [
+        'get_success' => 'Support-Tickets erfolgreich abgerufen',
+        'get_failed' => 'Support-Tickets konnten nicht abgerufen werden',
+        'not_found' => 'Support-Ticket wurde nicht gefunden',
+        'create_failed' => 'Support-Ticket konnte nicht erstellt werden',
+        'create_success' => 'Support-Ticket wurde erfolgreich erstellt',
+        'update_success' => 'Support-Ticket wurde erfolgreich aktualisiert',
+        'update_failed' => 'Support-Ticket konnte nicht aktualisiert werden',
+        'delete_failed' => 'Support-Ticket konnte nicht erfolgreich gelöscht werden',
+        'delete_success' => 'Support-Ticket erfolgreich gelöscht',
+        'get_number_success' => 'Support-Ticket-Nummer erfolgreich abgerufen',
+        'get_number_failed' => 'Support-Ticket-Nummer konnte nicht abgerufen werden',
+        'send_success' => 'Support-Ticket-Nachricht wurde erfolgreich gesendet',
+        'send_failed' => 'Support-Ticket-Nachricht konnte nicht gesendet werden',
+        'share_success' => 'Support-Ticket wurde erfolgreich freigegeben',
+        'share_failed' => 'Support-Ticket konnte nicht geteilt werden',
     ],
 
     //Profile responses
