@@ -22,6 +22,11 @@ return [
     'share_failed' => '共有できませんでした',
     'accept_reject_success' => '承認/却下されました',
     'convert_success' => '正常に変換',
+    'pdf_failed' => 'PDFの生成に失敗しました',
+    'notification_success' => '通知が正常に送信されました',
+    'notification_failed' => '通知を送信できませんでした',
+    'no_key_provided' => 'キーが指定されていません',
+    'ping' => 'API が動作しています',
     // Auth responses
     'login' => [
         'success' => 'ログインに成功しました',
@@ -174,6 +179,18 @@ return [
         'pdf_failed' => 'PDFの生成に失敗しました',
     ],
 
+    'support_ticket_message' => [
+        'get_success' => 'サポートチケットメッセージが正常に取得されました',
+        'get_failed' => 'サポートチケットメッセージを取得できませんでした',
+        'not_found' => 'サポートチケットメッセージが見つかりませんでした',
+        'create_failed' => 'サポートチケットメッセージを作成できませんでした',
+        'create_success' => 'サポートチケットメッセージが正常に作成されました',
+        'update_success' => 'サポートチケットのメッセージが正常に更新されました',
+        'update_failed' => 'サポートチケットメッセージを更新できませんでした',
+        'delete_failed' => 'サポートチケットのメッセージを正常に削除できませんでした',
+        'delete_success' => 'サポートチケットメッセージが正常に削除されました',
+    ],
+
     //Invoice responses
     'invoice' => [
         'get_success' => '請求書の取得に成功しました',
@@ -205,6 +222,24 @@ return [
         'failed' => '支払いに失敗しました',
         'paypal_not_available' => 'Paypalは利用できません',
         'invoice' => '請求書',
+    ],
+
+    'support_ticket' => [
+        'get_success' => 'サポートチケットが正常に取得されました',
+        'get_failed' => 'サポートチケットを取得できませんでした',
+        'not_found' => 'サポートチケットが見つかりませんでした',
+        'create_failed' => 'サポートチケットを作成できませんでした',
+        'create_success' => 'サポートチケットが正常に作成されました',
+        'update_success' => 'サポートチケットが正常に更新されました',
+        'update_failed' => 'サポートチケットを更新できませんでした',
+        'delete_failed' => 'サポートチケットを正常に削除できませんでした',
+        'delete_success' => 'サポートチケットが正常に削除されました',
+        'get_number_success' => 'サポートチケット番号が正常に取得されました',
+        'get_number_failed' => 'サポートチケット番号を取得できませんでした',
+        'send_success' => 'サポートチケットのメッセージが正常に送信されました',
+        'send_failed' => 'サポートチケットメッセージを送信できませんでした',
+        'share_success' => 'サポートチケットが正常に共有されました',
+        'share_failed' => 'サポートチケットを共有できませんでした',
     ],
 
     //Profile responses
