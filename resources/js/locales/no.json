@@ -118,7 +118,8 @@
         "partners": "Partnere",
         "reports": "Rapporter",
         "settings": "Innstillinger",
-        "employees": "Ansatte"
+        "employees": "Ansatte",
+        "support": "Support"
     },
     "dashboard": {
         "title": "Kontrollpanel",
@@ -237,7 +238,17 @@
         "sales_person": "Salg Person",
         "opening_balance_date": "Inngående saldo dato",
         "delimiter": "Skilletegn",
-        "text": "Tekst"
+        "text": "Tekst",
+        "priority": "Priority",
+        "subject": "Subject",
+        "message": "Message",
+        "from": "From",
+        "to": "To",
+        "cc": "CC",
+        "bcc": "BCC",
+        "assigned_to": "Assigned to",
+        "partner": "Partner",
+        "new_replay": "New Reply"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -302,6 +313,14 @@
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Annet"
+    },
+    "support_priority": {
+        "none": "None",
+        "low": "Low",
+        "medium": "Medium",
+        "normal": "Normal",
+        "high": "High",
+        "urgent": "Urgent"
     },
     "product_type": {
         "product": "Produkt",
@@ -441,7 +460,14 @@
         "pending": "Ventende",
         "completed": "Fullført",
         "confirmed": "Bekreftet",
-        "tentative": "Foreløpig"
+        "tentative": "Foreløpig",
+        "open": "Open",
+        "closed": "Closed",
+        "archived": "Archived",
+        "in_progress": "In Progress",
+        "reopened": "Reopened",
+        "resolved": "Resolved",
+        "waiting_for_reply": "Waiting for reply"
     },
     "calendar": {
         "calendar": "Kalender: Kalendere",
@@ -524,6 +550,21 @@
         "no_documents": "Ingen dokumenter ble funnet",
         "create_first_document": "Opprett ditt første dokument",
         "delete_confirm_document": "Er du sikker på at du vil slette dette dokumentet?"
+    },
+    "support": {
+        "support": "Support | Supports",
+        "support_tickets": "Support Tickets",
+        "view_ticket": "View Ticket",
+        "new_ticket": "New Ticket",
+        "edit_ticket": "Edit Ticket",
+        "no_support_tickets": "No tickets found",
+        "create_first_support_ticket": "Create your first ticket",
+        "delete_confirm_ticket": "Are you sure you want to delete this ticket?",
+        "ticket_reply_delete_confirm": "Are you sure you want to delete this ticket reply?",
+        "share_dialog": "Share ticket",
+        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code.",
+        "system": "System",
+        "delete_confirm_message": "Are you sure you want to delete this message?"
     },
     "employee": {
         "employee": "Ansatte for ansatte",
