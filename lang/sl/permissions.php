@@ -16,6 +16,7 @@ return [
     'partners' => 'Partnerji',
     'employees' => 'Zaposleni',
     'transactions_categories' => 'Kategorije transakcij',
+    'support' => 'Podpora',
     'admin' => 'Skrbnik',
     'admin_users' => 'Skrbniki',
     'admin_roles' => 'Vloge skrbnika',
