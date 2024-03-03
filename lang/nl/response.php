@@ -22,6 +22,11 @@ return [
     'share_failed' => 'Kan niet worden gedeeld',
     'accept_reject_success' => 'Aanvaard/Afwijzen geslaagd',
     'convert_success' => 'Succesvol geconverteerd',
+    'pdf_failed' => 'Genereren PDF mislukt',
+    'notification_success' => 'Notificatie is succesvol verzonden',
+    'notification_failed' => 'Kennisgeving kon niet worden verzonden',
+    'no_key_provided' => 'Geen sleutel opgegeven',
+    'ping' => 'API werkt',
     // Auth responses
     'login' => [
         'success' => 'Je bent succesvol ingelogd',
@@ -174,6 +179,18 @@ return [
         'pdf_failed' => 'Genereren PDF mislukt',
     ],
 
+    'support_ticket_message' => [
+        'get_success' => 'Ondersteuning van ticketberichten die met succes zijn ontvangen',
+        'get_failed' => 'Support ticketberichten konden niet worden opgehaald',
+        'not_found' => 'Support ticketbericht kon niet worden gevonden',
+        'create_failed' => 'Support ticketbericht kon niet worden gemaakt',
+        'create_success' => 'Support ticketbericht is succesvol gemaakt',
+        'update_success' => 'Support ticketbericht is succesvol bijgewerkt',
+        'update_failed' => 'Support ticketbericht kon niet worden bijgewerkt',
+        'delete_failed' => 'Support ticketbericht kon niet met succes worden verwijderd',
+        'delete_success' => 'Support ticketbericht succesvol verwijderd',
+    ],
+
     //Invoice responses
     'invoice' => [
         'get_success' => 'Facturen met succes opgehaald',
@@ -205,6 +222,24 @@ return [
         'failed' => 'Betaling mislukt',
         'paypal_not_available' => 'Paypal niet beschikbaar',
         'invoice' => 'Factuur',
+    ],
+
+    'support_ticket' => [
+        'get_success' => 'Support tickets met succes opgehaald',
+        'get_failed' => 'Support tickets konden niet worden opgehaald',
+        'not_found' => 'Support ticket kon niet worden gevonden',
+        'create_failed' => 'Support ticket kon niet worden aangemaakt',
+        'create_success' => 'Support ticket is succesvol gemaakt',
+        'update_success' => 'Support ticket is succesvol bijgewerkt',
+        'update_failed' => 'Support ticket kon niet worden bijgewerkt',
+        'delete_failed' => 'Support ticket kon niet met succes worden verwijderd',
+        'delete_success' => 'Support ticket succesvol verwijderd',
+        'get_number_success' => 'Support ticket nummer opgehaald met succes',
+        'get_number_failed' => 'Support ticketnummer kon niet worden opgehaald',
+        'send_success' => 'Support ticketbericht is succesvol verzonden',
+        'send_failed' => 'Support ticketbericht kon niet worden verzonden',
+        'share_success' => 'Support ticket werd met succes gedeeld',
+        'share_failed' => 'Support ticket kon niet worden gedeeld',
     ],
 
     //Profile responses
