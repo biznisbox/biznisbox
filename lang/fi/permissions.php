@@ -16,6 +16,7 @@ return [
     'partners' => 'Kumppanit',
     'employees' => 'Työntekijät',
     'transactions_categories' => 'Tapahtumien Kategoriat',
+    'support' => 'Tuki',
     'admin' => 'Ylläpitäjä',
     'admin_users' => 'Ylläpitäjän Käyttäjät',
     'admin_roles' => 'Ylläpitäjän Roolit',
