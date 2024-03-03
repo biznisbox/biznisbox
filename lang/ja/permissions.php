@@ -16,6 +16,7 @@ return [
     'partners' => 'パートナー',
     'employees' => '従業員数',
     'transactions_categories' => '取引カテゴリ',
+    'support' => 'サポート',
     'admin' => '管理者',
     'admin_users' => '管理者ユーザー',
     'admin_roles' => '管理者ロール',
