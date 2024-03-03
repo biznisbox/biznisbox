@@ -43,7 +43,6 @@ return [
         'success' => 'Lösenord återställt framgångsrikt',
         'failed' => 'Lösenordsåterställning misslyckades',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Produkten hittades inte',
@@ -56,7 +55,6 @@ return [
         'delete_success' => 'Produkten har tagits bort',
         'delete_failed' => 'En produkt kunde inte raderas',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Partner hittades inte',
@@ -69,7 +67,6 @@ return [
         'delete_success' => 'Partnern har tagits bort',
         'delete_failed' => 'En partner kunde inte raderas',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'Transaktionen hittades inte',
@@ -82,7 +79,6 @@ return [
         'delete_success' => 'Transaktionen har tagits bort',
         'delete_failed' => 'En transaktion kunde inte tas bort',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Konton har hämtats',
@@ -98,7 +94,6 @@ return [
         'get_error' => 'Kontot kunde inte hämtas',
         'delete_default_account' => 'Standardkontot kan inte tas bort',
     ],
-
     //Bill responses
     'bill' => [
         'get_success' => 'Bill har hämtats',
@@ -110,7 +105,6 @@ return [
         'delete_success' => 'Fakturan har tagits bort',
         'delete_error' => 'Fakturan kunde inte raderas',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Dokumenten har hämtats',
@@ -123,7 +117,6 @@ return [
         'delete_failed' => 'Dokumentet kunde inte raderas',
         'delete_success' => 'Dokumentet har tagits bort',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Anställd hittades inte',
@@ -136,7 +129,6 @@ return [
         'delete_success' => 'Anställd har tagits bort',
         'delete_failed' => 'En anställd kunde inte tas bort',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'Filen har hämtats',
@@ -158,7 +150,6 @@ return [
         'delete_failed_folder' => 'Mappen kunde inte raderas',
         'delete_success_folder' => 'Mappen har tagits bort',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Offerter har hämtats',
@@ -178,7 +169,7 @@ return [
         'send_failed' => 'Offert kunde inte skickas',
         'pdf_failed' => 'PDF-generering misslyckades',
     ],
-
+    // Support ticket message responses
     'support_ticket_message' => [
         'get_success' => 'Support ärendemeddelanden har hämtats',
         'get_failed' => 'Meddelanden om supportärenden kunde inte hämtas',
@@ -190,7 +181,6 @@ return [
         'delete_failed' => 'Meddelandet om supportärenden kunde inte raderas',
         'delete_success' => 'Meddelandet om supportärenden har tagits bort',
     ],
-
     //Invoice responses
     'invoice' => [
         'get_success' => 'Fakturor har hämtats',
@@ -211,7 +201,6 @@ return [
         'notification_success' => 'Meddelandet har skickats',
         'notification_failed' => 'Meddelandet kunde inte skickas',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'Rand är inte tillgänglig',
@@ -223,7 +212,7 @@ return [
         'paypal_not_available' => 'PayPal är inte tillgängligt',
         'invoice' => 'Faktura',
     ],
-
+    //Support ticket responses
     'support_ticket' => [
         'get_success' => 'Supportärenden har hämtats',
         'get_failed' => 'Supportärenden kunde inte hämtas',
@@ -241,7 +230,6 @@ return [
         'share_success' => 'Supportärende delades framgångsrikt',
         'share_failed' => 'Supportärende kunde inte delas',
     ],
-
     //Profile responses
     'user' => [
         'not_found' => 'Användaren kunde inte hittas',
@@ -253,7 +241,6 @@ return [
         'avatar_not_found' => 'Avatar kunde inte hittas',
         'avatar_updated' => 'Avatar har uppdaterats',
     ],
-
     // Open Banking responses
     'open_banking' => [
         'country_required' => 'Land krävs',
@@ -266,7 +253,7 @@ return [
         'session_id_required' => 'Sessions-ID krävs',
         'account_id_required' => 'Konto ID krävs',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Händelsen har hämtats',
         'get_error' => 'Händelsen kunde inte hämtas',
@@ -293,12 +280,11 @@ return [
     'email' => [
         'invoice_subject' => 'Faktura',
     ],
-
     'dashboard' => [
         'income' => 'Inkomst',
         'expense' => 'Utgift',
     ],
-
+    // Months
     'months' => [
         'january' => 'Januari',
         'february' => 'Februari',
@@ -313,7 +299,7 @@ return [
         'november' => 'november',
         'december' => 'december',
     ],
-
+    //  Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Rollen kunde inte hittas',
@@ -353,7 +339,6 @@ return [
             'delete_success' => 'Moms har tagits bort',
             'delete_failed' => 'Momsen kunde inte tas bort',
         ],
-
         'user' => [
             'not_found' => 'Användaren kunde inte hittas',
             'create_failed' => 'Användaren kunde inte skapas',
