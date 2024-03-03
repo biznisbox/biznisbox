@@ -22,6 +22,11 @@ return [
     'share_failed' => 'Nu s-a putut partaja',
     'accept_reject_success' => 'Acceptat/respins cu succes',
     'convert_success' => 'Convertit cu succes',
+    'pdf_failed' => 'Generarea PDF a eșuat',
+    'notification_success' => 'Notificarea a fost trimisă cu succes',
+    'notification_failed' => 'Notificarea nu a putut fi trimisă',
+    'no_key_provided' => 'Nicio cheie furnizată',
+    'ping' => 'API-ul funcționează',
     // Auth responses
     'login' => [
         'success' => 'V-ați conectat cu succes',
@@ -174,6 +179,18 @@ return [
         'pdf_failed' => 'Generarea PDF a eșuat',
     ],
 
+    'support_ticket_message' => [
+        'get_success' => 'Tichetele de asistență primite cu succes',
+        'get_failed' => 'Mesajele ticket-ului de asistență nu au putut fi preluate',
+        'not_found' => 'Tichetul pentru suport nu a putut fi găsit',
+        'create_failed' => 'Biletul de suport nu a putut fi creat',
+        'create_success' => 'Biletul de suport a fost creat cu succes',
+        'update_success' => 'Mesajul de suport a fost actualizat cu succes',
+        'update_failed' => 'Support ticket message could not be updated',
+        'delete_failed' => 'Support ticket message could  not be deleted successfully',
+        'delete_success' => 'Support ticket message deleted successfully',
+    ],
+
     //Invoice responses
     'invoice' => [
         'get_success' => 'Facturi preluate cu succes',
@@ -205,6 +222,24 @@ return [
         'failed' => 'Plata a eșuat',
         'paypal_not_available' => 'Paypal nu este disponibil',
         'invoice' => 'Factură',
+    ],
+
+    'support_ticket' => [
+        'get_success' => 'Support tickets retrieved successfully',
+        'get_failed' => 'Support tickets could not be retrieved',
+        'not_found' => 'Support ticket could not be found',
+        'create_failed' => 'Support ticket could not be created',
+        'create_success' => 'Support ticket was created successfully',
+        'update_success' => 'Support ticket was updated successfully',
+        'update_failed' => 'Support ticket could not be updated',
+        'delete_failed' => 'Support ticket could  not be deleted successfully',
+        'delete_success' => 'Support ticket deleted successfully',
+        'get_number_success' => 'Support ticket number retrieved successfully',
+        'get_number_failed' => 'Support ticket number could not be retrieved',
+        'send_success' => 'Support ticket message was sent successfully',
+        'send_failed' => 'Support ticket message could not be sent',
+        'share_success' => 'Support ticket was shared successfully',
+        'share_failed' => 'Support ticket could not be shared',
     ],
 
     //Profile responses
