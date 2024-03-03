@@ -43,7 +43,6 @@ return [
         'success' => 'Obnovení hesla bylo úspěšné',
         'failed' => 'Obnovení hesla se nezdařilo',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Produkt nebyl nalezen',
@@ -56,7 +55,6 @@ return [
         'delete_success' => 'Produkt byl úspěšně odstraněn',
         'delete_failed' => 'Produkt nelze odstranit',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Partner nebyl nalezen',
@@ -69,7 +67,6 @@ return [
         'delete_success' => 'Partner byl úspěšně odstraněn',
         'delete_failed' => 'Partner nemohl být odstraněn',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'Transakce nenalezena',
@@ -82,7 +79,6 @@ return [
         'delete_success' => 'Transakce byla úspěšně odstraněna',
         'delete_failed' => 'Transakci nelze odstranit',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Účty úspěšně načteny',
@@ -98,7 +94,6 @@ return [
         'get_error' => 'Účet nelze načíst',
         'delete_default_account' => 'Výchozí účet nelze odstranit',
     ],
-
     //Bill responses
     'bill' => [
         'get_success' => 'Faktura byla úspěšně načtena',
@@ -110,7 +105,6 @@ return [
         'delete_success' => 'Faktura byla úspěšně odstraněna',
         'delete_error' => 'Faktura nemohla být úspěšně odstraněna',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Dokumenty byly úspěšně načteny',
@@ -123,7 +117,6 @@ return [
         'delete_failed' => 'Doklad nemohl být úspěšně odstraněn',
         'delete_success' => 'Doklad byl úspěšně odstraněn',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Zaměstnanec nebyl nalezen',
@@ -136,7 +129,6 @@ return [
         'delete_success' => 'Zaměstnanec byl úspěšně odstraněn',
         'delete_failed' => 'Zaměstnanec nemohl být odstraněn',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'Soubor byl úspěšně načten',
@@ -158,7 +150,6 @@ return [
         'delete_failed_folder' => 'Složku nelze úspěšně odstranit',
         'delete_success_folder' => 'Složka byla úspěšně smazána',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Nabídky byly úspěšně načteny',
@@ -178,7 +169,7 @@ return [
         'send_failed' => 'Cenovou nabídku nelze odeslat',
         'pdf_failed' => 'Generování PDF selhalo',
     ],
-
+    // Support ticket message responses
     'support_ticket_message' => [
         'get_success' => 'Zprávy tiketu podpory byly úspěšně načteny',
         'get_failed' => 'Zprávy tiketu podpory nelze načíst',
@@ -190,7 +181,6 @@ return [
         'delete_failed' => 'Zpráva tiketu podpory nemohla být úspěšně odstraněna',
         'delete_success' => 'Zpráva tiketu podpory byla úspěšně smazána',
     ],
-
     //Invoice responses
     'invoice' => [
         'get_success' => 'Faktury úspěšně načteny',
@@ -211,7 +201,6 @@ return [
         'notification_success' => 'Oznámení bylo úspěšně odesláno',
         'notification_failed' => 'Oznámení nelze odeslat',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'Stripe není k dispozici',
@@ -223,7 +212,7 @@ return [
         'paypal_not_available' => 'PayPal není k dispozici',
         'invoice' => 'Faktura',
     ],
-
+    //Support ticket responses
     'support_ticket' => [
         'get_success' => 'Tikety podpory byly úspěšně načteny',
         'get_failed' => 'Nelze načíst tikety podpory',
@@ -241,7 +230,6 @@ return [
         'share_success' => 'Tiket podpory byl úspěšně sdílen',
         'share_failed' => 'Nelze sdílet tiket podpory',
     ],
-
     //Profile responses
     'user' => [
         'not_found' => 'Uživatel nebyl nalezen',
@@ -253,7 +241,6 @@ return [
         'avatar_not_found' => 'Avatar nebyl nalezen',
         'avatar_updated' => 'Avatar byl úspěšně aktualizován',
     ],
-
     // Open Banking responses
     'open_banking' => [
         'country_required' => 'Země je povinná',
@@ -266,7 +253,7 @@ return [
         'session_id_required' => 'Je vyžadováno ID relace',
         'account_id_required' => 'Je vyžadováno ID účtu',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Událost úspěšně načtena',
         'get_error' => 'Událost nelze načíst',
@@ -293,12 +280,11 @@ return [
     'email' => [
         'invoice_subject' => 'Faktura',
     ],
-
     'dashboard' => [
         'income' => 'Výnosy',
         'expense' => 'Výdaje',
     ],
-
+    // Months
     'months' => [
         'january' => 'Leden',
         'february' => 'únor',
@@ -313,7 +299,7 @@ return [
         'november' => 'Listopad',
         'december' => 'prosinec',
     ],
-
+    //  Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Role nebyla nalezena',
@@ -353,7 +339,6 @@ return [
             'delete_success' => 'Daň byla úspěšně odstraněna',
             'delete_failed' => 'Daň nelze odstranit',
         ],
-
         'user' => [
             'not_found' => 'Uživatel nebyl nalezen',
             'create_failed' => 'Uživatele nelze vytvořit',
