@@ -16,6 +16,7 @@ return [
     'partners' => 'Vennote',
     'employees' => 'Werknemers',
     'transactions_categories' => 'Transaksiekategorieë',
+    'support' => 'Ondersteuning',
     'admin' => 'Admin',
     'admin_users' => 'Admin-gebruikers',
     'admin_roles' => 'Admin-rolle',
