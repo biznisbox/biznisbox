@@ -119,7 +119,7 @@
         "reports": "Отчёты",
         "settings": "Настройки",
         "employees": "Сотрудники",
-        "support": "Support"
+        "support": "Поддержка"
     },
     "dashboard": {
         "title": "Панель",
@@ -239,16 +239,16 @@
         "opening_balance_date": "Дата открытия баланса",
         "delimiter": "Разделитель",
         "text": "Текст",
-        "priority": "Priority",
-        "subject": "Subject",
-        "message": "Message",
-        "from": "From",
-        "to": "To",
+        "priority": "Приоритет",
+        "subject": "Тема",
+        "message": "Сообщение",
+        "from": "От",
+        "to": "Кому",
         "cc": "CC",
         "bcc": "BCC",
-        "assigned_to": "Assigned to",
-        "partner": "Partner",
-        "new_replay": "New Reply"
+        "assigned_to": "Назначено",
+        "partner": "Партнер",
+        "new_replay": "Новый ответ"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -315,12 +315,12 @@
         "other": "Прочие вопросы"
     },
     "support_priority": {
-        "none": "None",
-        "low": "Low",
-        "medium": "Medium",
-        "normal": "Normal",
-        "high": "High",
-        "urgent": "Urgent"
+        "none": "Нет",
+        "low": "Низкий",
+        "medium": "Средний",
+        "normal": "Обычный",
+        "high": "Высокий",
+        "urgent": "Срочно"
     },
     "product_type": {
         "product": "Товар",
@@ -461,13 +461,13 @@
         "completed": "Выполнено",
         "confirmed": "Подтверждено",
         "tentative": "Предварительный",
-        "open": "Open",
-        "closed": "Closed",
-        "archived": "Archived",
-        "in_progress": "In Progress",
-        "reopened": "Reopened",
-        "resolved": "Resolved",
-        "waiting_for_reply": "Waiting for reply"
+        "open": "Открыть",
+        "closed": "Закрыто",
+        "archived": "Архивировано",
+        "in_progress": "В процессе",
+        "reopened": "Открыто заново",
+        "resolved": "Решена",
+        "waiting_for_reply": "Ожидание ответа"
     },
     "calendar": {
         "calendar": "Календарь | Календари",
@@ -552,19 +552,19 @@
         "delete_confirm_document": "Вы уверены, что хотите удалить этот документ?"
     },
     "support": {
-        "support": "Support | Supports",
-        "support_tickets": "Support Tickets",
-        "view_ticket": "View Ticket",
-        "new_ticket": "New Ticket",
-        "edit_ticket": "Edit Ticket",
-        "no_support_tickets": "No tickets found",
-        "create_first_support_ticket": "Create your first ticket",
-        "delete_confirm_ticket": "Are you sure you want to delete this ticket?",
-        "ticket_reply_delete_confirm": "Are you sure you want to delete this ticket reply?",
-        "share_dialog": "Share ticket",
-        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code.",
-        "system": "System",
-        "delete_confirm_message": "Are you sure you want to delete this message?"
+        "support": "Поддержка | Поддержка",
+        "support_tickets": "Заявки на поддержку",
+        "view_ticket": "Просмотр тикета",
+        "new_ticket": "Новая заявка",
+        "edit_ticket": "Редактировать тикет",
+        "no_support_tickets": "Заявки не найдены",
+        "create_first_support_ticket": "Создайте свою первую заявку",
+        "delete_confirm_ticket": "Вы уверены, что хотите удалить эту заявку?",
+        "ticket_reply_delete_confirm": "Вы уверены, что хотите удалить этот ответ на заявку?",
+        "share_dialog": "Поделиться картой",
+        "share_dialog_text": "Скопируйте ссылку ниже и поделитесь ею с вашим партнером или отсканируйте QR-код.",
+        "system": "Система",
+        "delete_confirm_message": "Вы уверены, что хотите удалить это сообщение?"
     },
     "employee": {
         "employee": "Сотрудник | Сотрудники",
