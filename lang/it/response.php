@@ -43,7 +43,6 @@ return [
         'success' => 'Password reimpostata con successo',
         'failed' => 'Reimpostazione della password non riuscita',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Prodotto non trovato',
@@ -56,7 +55,6 @@ return [
         'delete_success' => 'Prodotto eliminato con successo',
         'delete_failed' => 'Un prodotto non può essere eliminato',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Partner non trovato',
@@ -69,7 +67,6 @@ return [
         'delete_success' => 'Partner eliminato con successo',
         'delete_failed' => 'Un partner non può essere eliminato',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'Transazione non trovata',
@@ -82,7 +79,6 @@ return [
         'delete_success' => 'Transazione eliminata con successo',
         'delete_failed' => 'Una transazione non può essere eliminata',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Account recuperati con successo',
@@ -98,7 +94,6 @@ return [
         'get_error' => 'Impossibile recuperare l\'account',
         'delete_default_account' => 'L\'account predefinito non può essere eliminato',
     ],
-
     //Bill responses
     'bill' => [
         'get_success' => 'Fattura recuperata con successo',
@@ -110,7 +105,6 @@ return [
         'delete_success' => 'Fattura eliminata con successo',
         'delete_error' => 'La bolletta non può essere eliminata con successo',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Documenti recuperati correttamente',
@@ -123,7 +117,6 @@ return [
         'delete_failed' => 'Il documento non può essere eliminato con successo',
         'delete_success' => 'Documento eliminato con successo',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Dipendente non trovato',
@@ -136,7 +129,6 @@ return [
         'delete_success' => 'Dipendente eliminato con successo',
         'delete_failed' => 'Un dipendente non può essere eliminato',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'File recuperato con successo',
@@ -158,7 +150,6 @@ return [
         'delete_failed_folder' => 'La cartella non può essere eliminata correttamente',
         'delete_success_folder' => 'Cartella eliminata con successo',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Quotazioni recuperate con successo',
@@ -178,7 +169,7 @@ return [
         'send_failed' => 'Il preventivo non può essere inviato',
         'pdf_failed' => 'Generazione PDF fallita',
     ],
-
+    // Support ticket message responses
     'support_ticket_message' => [
         'get_success' => 'Supporto messaggi ticket recuperati con successo',
         'get_failed' => 'Impossibile recuperare i messaggi di ticket',
@@ -190,7 +181,6 @@ return [
         'delete_failed' => 'Il messaggio ticket di supporto non può essere eliminato con successo',
         'delete_success' => 'Messaggio ticket di supporto eliminato con successo',
     ],
-
     //Invoice responses
     'invoice' => [
         'get_success' => 'Fatture recuperate correttamente',
@@ -211,7 +201,6 @@ return [
         'notification_success' => 'Notifica inviata con successo',
         'notification_failed' => 'La notifica non può essere inviata',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'Striscia non disponibile',
@@ -223,7 +212,7 @@ return [
         'paypal_not_available' => 'Paypal non disponibile',
         'invoice' => 'Fattura',
     ],
-
+    //Support ticket responses
     'support_ticket' => [
         'get_success' => 'Supporto ticket recuperato con successo',
         'get_failed' => 'Impossibile recuperare i ticket di supporto',
@@ -241,7 +230,6 @@ return [
         'share_success' => 'Il ticket di supporto è stato condiviso con successo',
         'share_failed' => 'Il ticket di supporto non può essere condiviso',
     ],
-
     //Profile responses
     'user' => [
         'not_found' => 'Impossibile trovare l\'utente',
@@ -253,7 +241,6 @@ return [
         'avatar_not_found' => 'Impossibile trovare l\'avatar',
         'avatar_updated' => 'Avatar è stato aggiornato con successo',
     ],
-
     // Open Banking responses
     'open_banking' => [
         'country_required' => 'Il paese è obbligatorio',
@@ -266,7 +253,7 @@ return [
         'session_id_required' => 'L\'ID della sessione è obbligatorio',
         'account_id_required' => 'L\'ID dell\'account è obbligatorio',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Evento recuperato correttamente',
         'get_error' => 'Impossibile recuperare l\'evento',
@@ -293,12 +280,11 @@ return [
     'email' => [
         'invoice_subject' => 'Fattura',
     ],
-
     'dashboard' => [
         'income' => 'Reddito',
         'expense' => 'Spese',
     ],
-
+    // Months
     'months' => [
         'january' => 'Gennaio',
         'february' => 'Febbraio',
@@ -313,7 +299,7 @@ return [
         'november' => 'Novembre',
         'december' => 'Dicembre',
     ],
-
+    //  Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Impossibile trovare il ruolo',
@@ -353,7 +339,6 @@ return [
             'delete_success' => 'L\'imposta è stata eliminata con successo',
             'delete_failed' => 'La tassa non può essere eliminata',
         ],
-
         'user' => [
             'not_found' => 'Impossibile trovare l\'utente',
             'create_failed' => 'L\'utente non può essere creato',
