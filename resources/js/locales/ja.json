@@ -119,7 +119,7 @@
         "reports": "レポート",
         "settings": "設定",
         "employees": "従業員数",
-        "support": "Support"
+        "support": "サポート"
     },
     "dashboard": {
         "title": "ダッシュボード",
@@ -239,16 +239,16 @@
         "opening_balance_date": "残高開始日",
         "delimiter": "区切り文字",
         "text": "テキスト",
-        "priority": "Priority",
-        "subject": "Subject",
-        "message": "Message",
-        "from": "From",
-        "to": "To",
+        "priority": "優先度",
+        "subject": "件名",
+        "message": "メッセージ",
+        "from": "差出人:",
+        "to": "終了日",
         "cc": "CC",
         "bcc": "BCC",
-        "assigned_to": "Assigned to",
-        "partner": "Partner",
-        "new_replay": "New Reply"
+        "assigned_to": "割り当て先",
+        "partner": "パートナー",
+        "new_replay": "新しい返信"
     },
     "address_types": {
         "billing": "請求",
@@ -315,12 +315,12 @@
         "other": "その他"
     },
     "support_priority": {
-        "none": "None",
-        "low": "Low",
-        "medium": "Medium",
-        "normal": "Normal",
-        "high": "High",
-        "urgent": "Urgent"
+        "none": "なし",
+        "low": "低い",
+        "medium": "ミディアム",
+        "normal": "標準",
+        "high": "高い",
+        "urgent": "urgent"
     },
     "product_type": {
         "product": "商品",
@@ -461,13 +461,13 @@
         "completed": "完了",
         "confirmed": "確認済み",
         "tentative": "暫定的",
-        "open": "Open",
-        "closed": "Closed",
-        "archived": "Archived",
-        "in_progress": "In Progress",
-        "reopened": "Reopened",
-        "resolved": "Resolved",
-        "waiting_for_reply": "Waiting for reply"
+        "open": "開く",
+        "closed": "クローズ済み",
+        "archived": "アーカイブ済み",
+        "in_progress": "進行中",
+        "reopened": "再オープンしました",
+        "resolved": "解決済み",
+        "waiting_for_reply": "返信を待っています"
     },
     "calendar": {
         "calendar": "カレンダー | カレンダー",
@@ -552,19 +552,19 @@
         "delete_confirm_document": "このドキュメントを削除してもよろしいですか？"
     },
     "support": {
-        "support": "Support | Supports",
-        "support_tickets": "Support Tickets",
-        "view_ticket": "View Ticket",
-        "new_ticket": "New Ticket",
-        "edit_ticket": "Edit Ticket",
-        "no_support_tickets": "No tickets found",
-        "create_first_support_ticket": "Create your first ticket",
-        "delete_confirm_ticket": "Are you sure you want to delete this ticket?",
-        "ticket_reply_delete_confirm": "Are you sure you want to delete this ticket reply?",
-        "share_dialog": "Share ticket",
-        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code.",
-        "system": "System",
-        "delete_confirm_message": "Are you sure you want to delete this message?"
+        "support": "サポート | サポート",
+        "support_tickets": "サポートチケット",
+        "view_ticket": "チケットを見る",
+        "new_ticket": "新規チケット",
+        "edit_ticket": "チケットの編集",
+        "no_support_tickets": "チケットが見つかりません",
+        "create_first_support_ticket": "最初のチケットを作成する",
+        "delete_confirm_ticket": "このチケットを削除してもよろしいですか？",
+        "ticket_reply_delete_confirm": "このチケットの返信を削除してもよろしいですか？",
+        "share_dialog": "チケットを共有",
+        "share_dialog_text": "下のリンクをコピーしてパートナーと共有するか、QRコードをスキャンしてください。",
+        "system": "システム",
+        "delete_confirm_message": "このメッセージを削除してもよろしいですか？"
     },
     "employee": {
         "employee": "従業員|従業員",
