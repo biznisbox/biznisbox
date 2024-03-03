@@ -43,7 +43,6 @@ return [
         'success' => 'Пароль успешно сброшен',
         'failed' => 'Не удалось сбросить пароль',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Товар не найден',
@@ -56,7 +55,6 @@ return [
         'delete_success' => 'Товар успешно удален',
         'delete_failed' => 'Товар не может быть удален',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Партнер не найден',
@@ -69,7 +67,6 @@ return [
         'delete_success' => 'Партнер успешно удален',
         'delete_failed' => 'Партнер не может быть удален',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'Транзакция не найдена',
@@ -82,7 +79,6 @@ return [
         'delete_success' => 'Транзакция успешно удалена',
         'delete_failed' => 'Операция не может быть удалена',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Аккаунты успешно получены',
@@ -98,7 +94,6 @@ return [
         'get_error' => 'Аккаунт не может быть получен',
         'delete_default_account' => 'Учетная запись по умолчанию не может быть удалена',
     ],
-
     //Bill responses
     'bill' => [
         'get_success' => 'Счет успешно получен',
@@ -110,7 +105,6 @@ return [
         'delete_success' => 'Счет успешно удален',
         'delete_error' => 'Счет не может быть удалён',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Документы успешно восстановлены',
@@ -123,7 +117,6 @@ return [
         'delete_failed' => 'Документ не может быть успешно удален',
         'delete_success' => 'Документ успешно удален',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Сотрудник не найден',
@@ -136,7 +129,6 @@ return [
         'delete_success' => 'Сотрудник успешно удален',
         'delete_failed' => 'Сотрудник не может быть удален',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'Файл успешно получен',
@@ -158,7 +150,6 @@ return [
         'delete_failed_folder' => 'Папка не может быть удалена',
         'delete_success_folder' => 'Папка успешно удалена',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Котировки получены успешно',
@@ -178,7 +169,7 @@ return [
         'send_failed' => 'Не удалось отправить цитату',
         'pdf_failed' => 'Создание PDF не удалось',
     ],
-
+    // Support ticket message responses
     'support_ticket_message' => [
         'get_success' => 'Заявка на сообщение успешно получена',
         'get_failed' => 'Заявка не может быть получена',
@@ -190,7 +181,6 @@ return [
         'delete_failed' => 'Сообщение заявки не может быть успешно удалено',
         'delete_success' => 'Заявка успешно удалена',
     ],
-
     //Invoice responses
     'invoice' => [
         'get_success' => 'Счета получены успешно',
@@ -211,7 +201,6 @@ return [
         'notification_success' => 'Уведомление было успешно отправлено',
         'notification_failed' => 'Уведомление не может быть отправлено',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'Stripe не доступен',
@@ -223,7 +212,7 @@ return [
         'paypal_not_available' => 'Paypal недоступен',
         'invoice' => 'Счет',
     ],
-
+    //Support ticket responses
     'support_ticket' => [
         'get_success' => 'Заявки в поддержку успешно восстановлены',
         'get_failed' => 'Заявки не могут быть получены',
@@ -241,7 +230,6 @@ return [
         'share_success' => 'Заявка на поддержку успешно поделилась',
         'share_failed' => 'Заявка на поддержку не может быть предоставлена',
     ],
-
     //Profile responses
     'user' => [
         'not_found' => 'Пользователь не найден',
@@ -253,7 +241,6 @@ return [
         'avatar_not_found' => 'Аватар не найден',
         'avatar_updated' => 'Аватар успешно обновлен',
     ],
-
     // Open Banking responses
     'open_banking' => [
         'country_required' => 'Необходимо указать страну',
@@ -266,7 +253,7 @@ return [
         'session_id_required' => 'Требуется ID сессии',
         'account_id_required' => 'Требуется ID аккаунта',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Событие успешно получено',
         'get_error' => 'Не удалось получить событие',
@@ -293,12 +280,11 @@ return [
     'email' => [
         'invoice_subject' => 'Счет',
     ],
-
     'dashboard' => [
         'income' => 'Поступления',
         'expense' => 'Расходы',
     ],
-
+    // Months
     'months' => [
         'january' => 'Январь',
         'february' => 'Февраль',
@@ -313,7 +299,7 @@ return [
         'november' => 'Ноябрь',
         'december' => 'Декабрь',
     ],
-
+    //  Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Роль не найдена',
@@ -353,7 +339,6 @@ return [
             'delete_success' => 'Налог был успешно удален',
             'delete_failed' => 'Налог не может быть удален',
         ],
-
         'user' => [
             'not_found' => 'Пользователь не найден',
             'create_failed' => 'Пользователь не может быть создан',
