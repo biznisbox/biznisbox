@@ -16,6 +16,7 @@ return [
     'partners' => 'Партнери',
     'employees' => 'Запослени',
     'transactions_categories' => 'Категорије Трансакција',
+    'support' => 'Подршка',
     'admin' => 'Админ',
     'admin_users' => 'Админ Корисници',
     'admin_roles' => 'Админ Улоге',
