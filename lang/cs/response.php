@@ -22,6 +22,11 @@ return [
     'share_failed' => 'Nelze sdílet',
     'accept_reject_success' => 'Přijato/úspěšně odmítnuto',
     'convert_success' => 'Převedeno úspěšně',
+    'pdf_failed' => 'Generování PDF selhalo',
+    'notification_success' => 'Oznámení bylo úspěšně odesláno',
+    'notification_failed' => 'Oznámení nelze odeslat',
+    'no_key_provided' => 'Není zadán žádný klíč',
+    'ping' => 'API pracuje',
     // Auth responses
     'login' => [
         'success' => 'Úspěšně jste se přihlásili',
@@ -174,6 +179,18 @@ return [
         'pdf_failed' => 'Generování PDF selhalo',
     ],
 
+    'support_ticket_message' => [
+        'get_success' => 'Zprávy tiketu podpory byly úspěšně načteny',
+        'get_failed' => 'Zprávy tiketu podpory nelze načíst',
+        'not_found' => 'Zpráva o tiketu podpory nebyla nalezena',
+        'create_failed' => 'Zprávu o tiketu nelze vytvořit',
+        'create_success' => 'Zpráva zákaznické podpory byla úspěšně vytvořena',
+        'update_success' => 'Zpráva tiketu podpory byla úspěšně aktualizována',
+        'update_failed' => 'Zpráva o tiketu podpory nemohla být aktualizována',
+        'delete_failed' => 'Zpráva tiketu podpory nemohla být úspěšně odstraněna',
+        'delete_success' => 'Zpráva tiketu podpory byla úspěšně smazána',
+    ],
+
     //Invoice responses
     'invoice' => [
         'get_success' => 'Faktury úspěšně načteny',
@@ -205,6 +222,24 @@ return [
         'failed' => 'Platba se nezdařila',
         'paypal_not_available' => 'PayPal není k dispozici',
         'invoice' => 'Faktura',
+    ],
+
+    'support_ticket' => [
+        'get_success' => 'Tikety podpory byly úspěšně načteny',
+        'get_failed' => 'Nelze načíst tikety podpory',
+        'not_found' => 'Tiket podpory nebyl nalezen',
+        'create_failed' => 'Nelze vytvořit tiket podpory',
+        'create_success' => 'Tiket podpory byl úspěšně vytvořen',
+        'update_success' => 'Tiket podpory byl úspěšně aktualizován',
+        'update_failed' => 'Tiket podpory nemohl být aktualizován',
+        'delete_failed' => 'Tiket podpory nemohl být úspěšně odstraněn',
+        'delete_success' => 'Tiket podpory byl úspěšně odstraněn',
+        'get_number_success' => 'Číslo tiketu podpory bylo úspěšně načteno',
+        'get_number_failed' => 'Nelze získat číslo tiketu podpory',
+        'send_success' => 'Zpráva o tiketu podpory byla úspěšně odeslána',
+        'send_failed' => 'Zpráva o tiketu podpory nemohla být odeslána',
+        'share_success' => 'Tiket podpory byl úspěšně sdílen',
+        'share_failed' => 'Nelze sdílet tiket podpory',
     ],
 
     //Profile responses
