@@ -16,6 +16,7 @@ return [
     'partners' => 'الشركاء',
     'employees' => 'الموظفون',
     'transactions_categories' => 'فئات المعاملات',
+    'support' => 'الدعم',
     'admin' => 'المشرف',
     'admin_users' => 'مستخدمي المدير',
     'admin_roles' => 'أدوار المدير',
