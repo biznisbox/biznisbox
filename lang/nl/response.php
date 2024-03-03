@@ -43,7 +43,6 @@ return [
         'success' => 'Wachtwoord succesvol opnieuw instellen',
         'failed' => 'Wachtwoord opnieuw instellen mislukt',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Product niet gevonden',
@@ -56,7 +55,6 @@ return [
         'delete_success' => 'Product succesvol verwijderd',
         'delete_failed' => 'Een product kon niet verwijderd worden',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Partner niet gevonden',
@@ -69,7 +67,6 @@ return [
         'delete_success' => 'Partner succesvol verwijderd',
         'delete_failed' => 'Een partner kon niet verwijderd worden',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'Transactie niet gevonden',
@@ -82,7 +79,6 @@ return [
         'delete_success' => 'Transactie succesvol verwijderd',
         'delete_failed' => 'Een transactie kon niet worden verwijderd',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Accounts met succes opgehaald',
@@ -98,7 +94,6 @@ return [
         'get_error' => 'Account kon niet worden opgehaald',
         'delete_default_account' => 'Standaardaccount kan niet worden verwijderd',
     ],
-
     //Bill responses
     'bill' => [
         'get_success' => 'Factuur succesvol opgehaald',
@@ -110,7 +105,6 @@ return [
         'delete_success' => 'Factuur succesvol verwijderd',
         'delete_error' => 'Factuur kon niet met succes worden verwijderd',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Documenten met succes opgehaald',
@@ -123,7 +117,6 @@ return [
         'delete_failed' => 'Document kon niet met succes verwijderd worden',
         'delete_success' => 'Document met succes verwijderd',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Medewerker niet gevonden',
@@ -136,7 +129,6 @@ return [
         'delete_success' => 'Medewerker succesvol verwijderd',
         'delete_failed' => 'Een werknemer kon niet worden verwijderd',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'Bestand met succes opgehaald',
@@ -158,7 +150,6 @@ return [
         'delete_failed_folder' => 'Map kon niet met succes worden verwijderd',
         'delete_success_folder' => 'Map succesvol verwijderd',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Offertes met succes opgehaald',
@@ -178,7 +169,7 @@ return [
         'send_failed' => 'Prijsopgave kon niet worden verzonden',
         'pdf_failed' => 'Genereren PDF mislukt',
     ],
-
+    // Support ticket message responses
     'support_ticket_message' => [
         'get_success' => 'Ondersteuning van ticketberichten die met succes zijn ontvangen',
         'get_failed' => 'Support ticketberichten konden niet worden opgehaald',
@@ -190,7 +181,6 @@ return [
         'delete_failed' => 'Support ticketbericht kon niet met succes worden verwijderd',
         'delete_success' => 'Support ticketbericht succesvol verwijderd',
     ],
-
     //Invoice responses
     'invoice' => [
         'get_success' => 'Facturen met succes opgehaald',
@@ -211,7 +201,6 @@ return [
         'notification_success' => 'Notificatie is succesvol verzonden',
         'notification_failed' => 'Kennisgeving kon niet worden verzonden',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'Stripe is niet beschikbaar',
@@ -223,7 +212,7 @@ return [
         'paypal_not_available' => 'Paypal niet beschikbaar',
         'invoice' => 'Factuur',
     ],
-
+    //Support ticket responses
     'support_ticket' => [
         'get_success' => 'Support tickets met succes opgehaald',
         'get_failed' => 'Support tickets konden niet worden opgehaald',
@@ -241,7 +230,6 @@ return [
         'share_success' => 'Support ticket werd met succes gedeeld',
         'share_failed' => 'Support ticket kon niet worden gedeeld',
     ],
-
     //Profile responses
     'user' => [
         'not_found' => 'Gebruiker kon niet worden gevonden',
@@ -253,7 +241,6 @@ return [
         'avatar_not_found' => 'Avatar kon niet worden gevonden',
         'avatar_updated' => 'Avatar is succesvol bijgewerkt',
     ],
-
     // Open Banking responses
     'open_banking' => [
         'country_required' => 'Land is vereist',
@@ -266,7 +253,7 @@ return [
         'session_id_required' => 'Sessie-ID is vereist',
         'account_id_required' => 'Account-ID is vereist',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Afspraak met succes opgehaald',
         'get_error' => 'Gebeurtenis kon niet worden opgehaald',
@@ -293,12 +280,11 @@ return [
     'email' => [
         'invoice_subject' => 'Factuur',
     ],
-
     'dashboard' => [
         'income' => 'Inkomsten',
         'expense' => 'Kosten',
     ],
-
+    // Months
     'months' => [
         'january' => 'januari',
         'february' => 'februari',
@@ -313,7 +299,7 @@ return [
         'november' => 'november',
         'december' => 'december',
     ],
-
+    //  Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Rol kon niet worden gevonden',
@@ -353,7 +339,6 @@ return [
             'delete_success' => 'BTW is succesvol verwijderd',
             'delete_failed' => 'Belasting kon niet worden verwijderd',
         ],
-
         'user' => [
             'not_found' => 'Gebruiker kon niet worden gevonden',
             'create_failed' => 'Gebruiker kon niet worden aangemaakt',
