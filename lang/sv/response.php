@@ -22,6 +22,11 @@ return [
     'share_failed' => 'Kunde inte delas',
     'accept_reject_success' => 'Accepterade/avvisades',
     'convert_success' => 'Konverterade framgångsrikt',
+    'pdf_failed' => 'PDF-generering misslyckades',
+    'notification_success' => 'Meddelandet har skickats',
+    'notification_failed' => 'Meddelandet kunde inte skickas',
+    'no_key_provided' => 'Ingen nyckel angiven',
+    'ping' => 'API fungerar',
     // Auth responses
     'login' => [
         'success' => 'Du har loggat in',
@@ -174,6 +179,18 @@ return [
         'pdf_failed' => 'PDF-generering misslyckades',
     ],
 
+    'support_ticket_message' => [
+        'get_success' => 'Support ärendemeddelanden har hämtats',
+        'get_failed' => 'Meddelanden om supportärenden kunde inte hämtas',
+        'not_found' => 'Meddelandet om supportärenden kunde inte hittas',
+        'create_failed' => 'Meddelandet om supportärenden kunde inte skapas',
+        'create_success' => 'Meddelandet om supportärenden har skapats',
+        'update_success' => 'Support ärendemeddelande har uppdaterats',
+        'update_failed' => 'Meddelandet om supportärenden kunde inte uppdateras',
+        'delete_failed' => 'Meddelandet om supportärenden kunde inte raderas',
+        'delete_success' => 'Meddelandet om supportärenden har tagits bort',
+    ],
+
     //Invoice responses
     'invoice' => [
         'get_success' => 'Fakturor har hämtats',
@@ -205,6 +222,24 @@ return [
         'failed' => 'Betalningen misslyckades',
         'paypal_not_available' => 'PayPal är inte tillgängligt',
         'invoice' => 'Faktura',
+    ],
+
+    'support_ticket' => [
+        'get_success' => 'Supportärenden har hämtats',
+        'get_failed' => 'Supportärenden kunde inte hämtas',
+        'not_found' => 'Supportärende kunde inte hittas',
+        'create_failed' => 'Supportärende kunde inte skapas',
+        'create_success' => 'Supportärende har skapats',
+        'update_success' => 'Supportärende har uppdaterats',
+        'update_failed' => 'Supportärende kunde inte uppdateras',
+        'delete_failed' => 'Supportärende kunde inte tas bort',
+        'delete_success' => 'Supportärende har tagits bort',
+        'get_number_success' => 'Supportens ärendenummer har hämtats',
+        'get_number_failed' => 'Supportens ärendenummer kunde inte hämtas',
+        'send_success' => 'Meddelandet om supportärenden har skickats',
+        'send_failed' => 'Meddelandet om supportärenden kunde inte skickas',
+        'share_success' => 'Supportärende delades framgångsrikt',
+        'share_failed' => 'Supportärende kunde inte delas',
     ],
 
     //Profile responses
