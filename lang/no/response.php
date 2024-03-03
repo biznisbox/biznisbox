@@ -43,7 +43,6 @@ return [
         'success' => 'Tilbakestilling av passord vellykket',
         'failed' => 'Nullstilling av passord mislyktes',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Produktet ble ikke funnet',
@@ -56,7 +55,6 @@ return [
         'delete_success' => 'Produkt vellykket slettet',
         'delete_failed' => 'Et produkt kan ikke slettes',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Finner ikke partner',
@@ -69,7 +67,6 @@ return [
         'delete_success' => 'Partner slettet',
         'delete_failed' => 'En partner kan ikke slettes',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'Transaksjonen ikke funnet',
@@ -82,7 +79,6 @@ return [
         'delete_success' => 'Transaksjonen ble slettet',
         'delete_failed' => 'En transaksjon kunne ikke slettes',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Vellykket henting av kontoer',
@@ -98,7 +94,6 @@ return [
         'get_error' => 'Kontoen kunne ikke hentes',
         'delete_default_account' => 'Standard konto kan ikke slettes',
     ],
-
     //Bill responses
     'bill' => [
         'get_success' => 'Bill hentet med hell',
@@ -110,7 +105,6 @@ return [
         'delete_success' => 'Faktura ble slettet',
         'delete_error' => 'Regningen kunne ikke slettes',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Dokumenter vellykket hentet',
@@ -123,7 +117,6 @@ return [
         'delete_failed' => 'Dokumentet kunne ikke slettes',
         'delete_success' => 'Dokumentet ble slettet',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Ansatt ikke funnet',
@@ -136,7 +129,6 @@ return [
         'delete_success' => 'Ansatt slettet',
         'delete_failed' => 'En ansatt kan ikke slettes',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'Filen ble hentet',
@@ -158,7 +150,6 @@ return [
         'delete_failed_folder' => 'Mappen kunne ikke slettes',
         'delete_success_folder' => 'Mappen ble slettet',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Vellykket henting av tilbud',
@@ -178,7 +169,7 @@ return [
         'send_failed' => 'Tilbud kunne ikke sendes',
         'pdf_failed' => 'Generering av PDF mislyktes',
     ],
-
+    // Support ticket message responses
     'support_ticket_message' => [
         'get_success' => 'Brukerstøtte billettmeldinger hentet vellykket',
         'get_failed' => 'Det kunne ikke hentes støtte billettmeldinger',
@@ -190,7 +181,6 @@ return [
         'delete_failed' => 'Melding om støtte billett kunne ikke slettes',
         'delete_success' => 'Melding om støtte sak slettet',
     ],
-
     //Invoice responses
     'invoice' => [
         'get_success' => 'Fakturaer hentet hell',
@@ -211,7 +201,6 @@ return [
         'notification_success' => 'Varsling ble sendt',
         'notification_failed' => 'Varsling kunne ikke sendes',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'Stripe er ikke tilgjengelig',
@@ -223,7 +212,7 @@ return [
         'paypal_not_available' => 'Paypal ikke tilgjengelig',
         'invoice' => 'Faktura',
     ],
-
+    //Support ticket responses
     'support_ticket' => [
         'get_success' => 'Støtte ble hentet',
         'get_failed' => 'Støtte billetter kunne ikke hentes',
@@ -241,7 +230,6 @@ return [
         'share_success' => 'Supportsak ble delt',
         'share_failed' => 'Sak for støtte kunne ikke deles',
     ],
-
     //Profile responses
     'user' => [
         'not_found' => 'Bruker ble ikke funnet',
@@ -253,7 +241,6 @@ return [
         'avatar_not_found' => 'Avatar ble ikke funnet',
         'avatar_updated' => 'Avataren ble oppdatert',
     ],
-
     // Open Banking responses
     'open_banking' => [
         'country_required' => 'Land er påkrevd',
@@ -266,7 +253,7 @@ return [
         'session_id_required' => 'Økt-ID er påkrevd',
         'account_id_required' => 'Konto-ID kreves',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Hendelsen er vellykket hentet',
         'get_error' => 'Hendelsen kunne ikke hentes',
@@ -293,12 +280,11 @@ return [
     'email' => [
         'invoice_subject' => 'Faktura',
     ],
-
     'dashboard' => [
         'income' => 'Inntekt',
         'expense' => 'Utgift',
     ],
-
+    // Months
     'months' => [
         'january' => 'Januar',
         'february' => 'Februar',
@@ -313,7 +299,7 @@ return [
         'november' => 'november',
         'december' => 'Desember',
     ],
-
+    //  Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Rollen ble ikke funnet',
@@ -353,7 +339,6 @@ return [
             'delete_success' => 'Avgift ble slettet',
             'delete_failed' => 'Avgift kunne ikke slettes',
         ],
-
         'user' => [
             'not_found' => 'Bruker ble ikke funnet',
             'create_failed' => 'Brukeren kunne ikke opprettes',
