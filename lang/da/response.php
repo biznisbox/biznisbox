@@ -22,6 +22,11 @@ return [
     'share_failed' => 'Kunne ikke deles',
     'accept_reject_success' => 'Accepteret/afvist med succes',
     'convert_success' => 'Konverteret succesfuldt',
+    'pdf_failed' => 'Generering af PDF mislykkedes',
+    'notification_success' => 'Notifikation blev sendt',
+    'notification_failed' => 'Notifikation kunne ikke sendes',
+    'no_key_provided' => 'Ingen nøgle angivet',
+    'ping' => 'API arbejder',
     // Auth responses
     'login' => [
         'success' => 'Du har logget ind',
@@ -174,6 +179,18 @@ return [
         'pdf_failed' => 'Generering af PDF mislykkedes',
     ],
 
+    'support_ticket_message' => [
+        'get_success' => 'Support bestillingsmeddelelser hentet med succes',
+        'get_failed' => 'Support bestillings beskeder kunne ikke hentes',
+        'not_found' => 'Support bestillings besked kunne ikke findes',
+        'create_failed' => 'Support bestillings besked kunne ikke oprettes',
+        'create_success' => 'Support bestillings besked blev oprettet',
+        'update_success' => 'Support bestillings besked blev opdateret',
+        'update_failed' => 'Support bestillings besked kunne ikke opdateres',
+        'delete_failed' => 'Support bestillings besked kunne ikke slettes med succes',
+        'delete_success' => 'Support bestillings besked slettet',
+    ],
+
     //Invoice responses
     'invoice' => [
         'get_success' => 'Fakturaer hentet med succes',
@@ -205,6 +222,24 @@ return [
         'failed' => 'Betaling mislykkedes',
         'paypal_not_available' => 'PayPal er ikke tilgængelig',
         'invoice' => 'Faktura',
+    ],
+
+    'support_ticket' => [
+        'get_success' => 'Support billetter hentet med succes',
+        'get_failed' => 'Support billetter kunne ikke hentes',
+        'not_found' => 'Support billet kunne ikke findes',
+        'create_failed' => 'Support billet kunne ikke oprettes',
+        'create_success' => 'Support billet blev oprettet',
+        'update_success' => 'Support billet blev opdateret',
+        'update_failed' => 'Support billet kunne ikke opdateres',
+        'delete_failed' => 'Support bestilling kunne ikke slettes med succes',
+        'delete_success' => 'Support bestilling slettet',
+        'get_number_success' => 'Bestillingsnummer hentet med succes',
+        'get_number_failed' => 'Support bestillings nummer kunne ikke hentes',
+        'send_success' => 'Support bestillings besked blev sendt',
+        'send_failed' => 'Support bestillings besked kunne ikke sendes',
+        'share_success' => 'Support bestilling blev delt med succes',
+        'share_failed' => 'Support billet kunne ikke deles',
     ],
 
     //Profile responses
