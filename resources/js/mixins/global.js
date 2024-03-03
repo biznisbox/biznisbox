@@ -8,7 +8,9 @@ export default {
             currencies: [],
             languages: languages,
             employees: [],
+            departments: [],
             countries: countries,
+            partners: [],
         }
     },
 
@@ -54,6 +56,26 @@ export default {
         getEmployees() {
             this.makeHttpRequest('GET', '/api/data', null, { type: 'employees' }).then((response) => {
                 this.employees = response.data.data
+            })
+        },
+
+        /**
+         * Get departments
+         * @returns {Promise<void>}
+         **/
+        getDepartments() {
+            this.makeHttpRequest('GET', '/api/data', null, { type: 'departments' }).then((response) => {
+                this.departments = response.data.data
+            })
+        },
+
+        /**
+         * Get partners
+         * @returns {Promise<void>}
+         */
+        getPartners() {
+            this.makeHttpRequest('GET', '/api/partners_list?type=both,customer,supplier').then((response) => {
+                this.partners = response.data.data
             })
         },
     },

@@ -73,6 +73,7 @@ class InitBiznisBox extends Command
         Permission::firstOrCreate(['name' => 'partners', 'display_name' => 'permissions.partners']);
         Permission::firstOrCreate(['name' => 'employees', 'display_name' => 'permissions.employees']);
         Permission::firstOrCreate(['name' => 'transactions_categories', 'display_name' => 'permissions.transactions_categories']);
+        Permission::firstOrCreate(['name' => 'support', 'display_name' => 'permissions.support']);
 
         // Admin permissions
         Permission::firstOrCreate(['name' => 'admin', 'display_name' => 'permissions.admin']);
@@ -223,6 +224,11 @@ class InitBiznisBox extends Command
             Settings::firstOrCreate(
                 ['key' => 'employee_number_format'],
                 ['value' => '{{TEXT:EMP}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
+            );
+
+            Settings::firstOrCreate(
+                ['key' => 'support_ticket_number_format'],
+                ['value' => '{{TEXT:TICKET}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
             );
         }
 

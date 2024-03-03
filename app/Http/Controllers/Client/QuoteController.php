@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Client\QuoteService;
 
-class QuotationsController extends Controller
+class QuoteController extends Controller
 {
     protected $quoteService;
     public function __construct(QuoteService $quoteService)

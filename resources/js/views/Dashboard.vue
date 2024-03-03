@@ -119,6 +119,13 @@ export default {
                     command: () => this.$router.push('/partners/new'),
                 })
             }
+            if (this.hasPermission('support')) {
+                this.speedDialItems.push({
+                    icon: 'fa fa-life-ring',
+                    label: this.$t('support.new_ticket'),
+                    command: () => this.$router.push('/support/new'),
+                })
+            }
         },
     },
 }

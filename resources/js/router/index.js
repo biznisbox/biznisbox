@@ -61,6 +61,11 @@ const routes = [
     // Archive Routes
     makeRoute('/archive', 'archive', () => import('../views/archive/Archive.vue'), { auth: true }, []),
 
+    // Support Tickets Routes
+    makeRoute('/support', 'support-tickets', () => import('../views/support/SupportTickets.vue'), { auth: true }, []),
+    makeRoute('/support/new', 'new-support-ticket', () => import('../views/support/NewSupportTicket.vue'), { auth: true }, []),
+    makeRoute('/support/:id', 'view-support-ticket', () => import('../views/support/ViewSupportTicket.vue'), { auth: true }, []),
+
     // Documents Routes
     makeRoute('/documents', 'documents', () => import('../views/documents/Documents.vue'), { auth: true }, []),
     makeRoute('/documents/new', 'new-document', () => import('../views/documents/NewDocument.vue'), { auth: true }, []),
@@ -157,6 +162,13 @@ const routes = [
     // Client Routes
     makeRoute('/client/invoice/:id', 'client-invoice', () => import('../views/client/Invoice.vue'), { auth: false, client: true }, []),
     makeRoute('/client/quote/:id', 'client-quote', () => import('../views/client/Quote.vue'), { auth: false, client: true }, []),
+    makeRoute(
+        '/client/support/:id',
+        'client-support',
+        () => import('../views/client/SupportTicket.vue'),
+        { auth: false, client: true },
+        []
+    ),
 
     // 404
     {

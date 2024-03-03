@@ -14,13 +14,15 @@ use App\Http\Controllers\OnlinePaymentController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\SupportTicketController;
 use App\Http\Controllers\Admin\UsersController as AdminUsersController;
 use App\Http\Controllers\Admin\PermissionController as AdminPermissionController;
 use App\Http\Controllers\Admin\SettingsController as AdminSettingsController;
 use App\Http\Controllers\Admin\BasicController as AdminBasicController;
 use App\Http\Controllers\Admin\DepartmentController as AdminDepartmentController;
 use App\Http\Controllers\Client\InvoiceController as ClientInvoiceController;
-use App\Http\Controllers\Client\QuotationsController as ClientQuotationsController;
+use App\Http\Controllers\Client\QuoteController as ClientQuoteController;
+use App\Http\Controllers\Client\SupportTicketController as ClientSupportTicketController;
 use App\Http\Controllers\PartnerController;
 use Illuminate\Support\Facades\Route;
 
@@ -146,6 +148,21 @@ Route::middleware('auth')->group(function () {
             Route::put('/document/folders', ArchiveController::class . '@updateFolder');
             Route::delete('/document/folders', ArchiveController::class . '@deleteFolder');
         });
+
+    // Support Ticket Routes
+    Route::middleware('can:support')->group(function () {
+        Route::get('/support_tickets', SupportTicketController::class . '@getSupportTickets');
+        Route::get('/support_tickets/{id}', SupportTicketController::class . '@getSupportTicket');
+        Route::post('/support_tickets', SupportTicketController::class . '@createSupportTicket');
+        Route::put('/support_tickets/{id}', SupportTicketController::class . '@updateSupportTicket');
+        Route::delete('/support_tickets/{id}', SupportTicketController::class . '@deleteSupportTicket');
+        Route::post('/support_ticket/messages/{id}', SupportTicketController::class . '@createSupportTicketMessage');
+        Route::put('/support_ticket/messages/{id}', SupportTicketController::class . '@updateSupportTicketMessage');
+        Route::delete('/support_ticket/messages/{id}', SupportTicketController::class . '@deleteSupportTicketMessage');
+        Route::get('/support_ticket/messages/{id}', SupportTicketController::class . '@getSupportTicketMessages');
+        Route::get('/support_ticket/number', SupportTicketController::class . '@getSupportTicketNumber');
+        Route::get('/support_ticket/share/{id}', SupportTicketController::class . '@shareSupportTicket');
+    });
 
     // Documents routes
     Route::middleware('can:documents')->group(function () {
@@ -273,8 +290,10 @@ Route::middleware(['signed'])->group(function () {
 
 Route::prefix('/client')->group(function () {
     Route::get('/invoices', ClientInvoiceController::class . '@getInvoice');
-    Route::get('/quote', ClientQuotationsController::class . '@getQuote');
-    Route::post('/quote/accept-reject', ClientQuotationsController::class . '@acceptRejectQuote');
+    Route::get('/quote', ClientQuoteController::class . '@getQuote');
+    Route::post('/quote/accept-reject', ClientQuoteController::class . '@acceptRejectQuote');
+    Route::get('/support', ClientSupportTicketController::class . '@getTicket');
+    Route::post('/support/replay', ClientSupportTicketController::class . '@clientSendReplay');
 });
 
 Route::get('{any}', function () {
@@ -282,5 +301,5 @@ Route::get('{any}', function () {
 })->where('any', '.*');
 
 Route::get('/ping', function () {
-    return response()->json(['message' => 'API is working'], 200);
+    return response()->json(['message' => __('response.ping')], 200);
 });

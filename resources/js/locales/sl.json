@@ -118,7 +118,8 @@
         "partners": "Partnerji",
         "reports": "Poročila",
         "settings": "Nastavitve",
-        "employees": "Zaposleni"
+        "employees": "Zaposleni",
+        "support": "Podpora"
     },
     "dashboard": {
         "title": "Nadzorna plošča",
@@ -237,7 +238,17 @@
         "sales_person": "Prodajalec",
         "opening_balance_date": "Datum začetnega stanja",
         "delimiter": "Ločilo",
-        "text": "Besedilo"
+        "text": "Besedilo",
+        "priority": "Prioriteta",
+        "subject": "Zadeva",
+        "message": "Sporočilo",
+        "from": "Od",
+        "to": "Za",
+        "cc": "CC",
+        "bcc": "BCC",
+        "assigned_to": "Pripisana",
+        "partner": "Partner",
+        "new_replay": "Nov odgovor"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -302,6 +313,14 @@
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Drugo"
+    },
+    "support_priority": {
+        "none": "Nobena",
+        "low": "Nizka",
+        "medium": "Srednja",
+        "normal": "Normalna",
+        "high": "Visoka",
+        "urgent": "Urgentna"
     },
     "product_type": {
         "product": "Izdelek",
@@ -439,7 +458,14 @@
         "pending": "V teku",
         "completed": "Zaključeno",
         "confirmed": "Potrjeno",
-        "tentative": "Pogojno"
+        "tentative": "Pogojno",
+        "open": "Odprto",
+        "closed": "Zaprto",
+        "archived": "Arhivirano",
+        "in_progress": "V teku",
+        "reopened": "Ponovno odprto",
+        "resolved": "Rešeno",
+        "waiting_for_reply": "Čakanje na odgovor"
     },
     "calendar": {
         "calendar": "Koledar | Koledarji",
@@ -522,6 +548,17 @@
         "no_documents": "Ni dokumentov",
         "create_first_document": "Ustvarite svoj prvi dokument",
         "delete_confirm_document": "Ali ste prepričani, da želite izbrisati ta dokument?"
+    },
+    "support": {
+        "support": "Podpora",
+        "support_tickets": "Podporni zahtevki",
+        "view_ticket": "Ogled zahtevka",
+        "new_ticket": "Nov zahtevek",
+        "edit_ticket": "Uredi zahtevek",
+        "no_support_tickets": "Ne najdem zahtevkov",
+        "create_first_support_ticket": "Ustvarite vaš prvi zahtevek",
+        "delete_confirm_ticket": "Ali ste prepričani, da želite izbrisati zahtevek",
+        "ticket_reply_delete_confirm": "Ali ste prepričani, daželite izbrisati ta odgovor na tem zahtevku"
     },
     "employee": {
         "employee": "Zaposlen | Zaposleni",

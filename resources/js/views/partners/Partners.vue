@@ -65,9 +65,12 @@
                     </template>
 
                     <template #paginatorstart>
-                        <div class="p-d-flex p-ai-center p-mr-2">
-                            <Button class="p-button-rounded p-button-text p-button-plain" icon="fa fa-sync" @click="getPartners()" />
-                        </div>
+                        <Button
+                            class="p-button-rounded p-button-text p-button-plain"
+                            id="refresh_button"
+                            icon="fa fa-sync"
+                            @click="getPartners()"
+                        />
                     </template>
                 </DataTable>
             </div>

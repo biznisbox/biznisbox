@@ -20,12 +20,12 @@ class QuoteService
             $quote = $quote->getClientQuote($key_data->module_item_id);
 
             if (!$quote) {
-                return api_response(false, __('response.estimate.not_found'));
+                return api_response(false, __('response.quote.not_found'));
             }
-            activity_log(null, 'clientGetEstimate', $key_data->module_item_id, 'App\Models\Estimate', 'ClientEstimate', 'external', $key);
-            return api_response($quote, __('response.success'));
+            activity_log(null, 'clientGetQuote', $key_data->module_item_id, 'App\Models\Estimate', 'ClientEstimate', 'external', $key);
+            return api_response($quote, __('response.quote.get_success'));
         } else {
-            return api_response(null, __('response.estimate.not_found'), 404);
+            return api_response(null, __('response.quote.not_found'), 404);
         }
     }
 
@@ -42,20 +42,12 @@ class QuoteService
             $quote = $quote->clientAcceptRejectQuote($key_data->module_item_id, $data);
 
             if (!$quote) {
-                return api_response(false, __('response.estimate.not_found'));
+                return api_response(false, __('response.quote.not_found'));
             }
-            activity_log(
-                null,
-                'clientAcceptRejectEstimate',
-                $key_data->module_item_id,
-                'App\Models\Estimate',
-                'ClientEstimate',
-                'external',
-                $key,
-            );
-            return api_response($quote, __('response.success'));
+            activity_log(null, 'clientAcceptRejectQuote', $key_data->module_item_id, 'App\Models\Quote', 'ClientQuote', 'external', $key);
+            return api_response($quote, __('response.quote.accept_reject_success'));
         }
 
-        return api_response(null, __('response.estimate.not_found'), 404);
+        return api_response(null, __('response.quote.not_found'), 404);
     }
 }

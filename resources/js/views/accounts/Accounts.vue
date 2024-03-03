@@ -123,7 +123,7 @@
                 </DataTable>
             </div>
             <!-- Dialog connect bank account -->
-            <Dialog v-model="connectBankDialog" :header="$t('account.connect_bank')" :visible="connectBankDialog" width="500px">
+            <Dialog v-model:visible="connectBankDialog" :header="$t('account.connect_bank')" :visible="connectBankDialog" modal>
                 <div class="p-fluid">
                     <LoadingScreen :blocked="loadingData">
                         <div class="p-field">
