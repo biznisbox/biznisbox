@@ -119,7 +119,7 @@
         "reports": "Raporlar",
         "settings": "Ayarlar",
         "employees": "Çalışanlar",
-        "support": "Support"
+        "support": "Destek"
     },
     "dashboard": {
         "title": "Kontrol Paneli",
@@ -239,16 +239,16 @@
         "opening_balance_date": "Opening Balance Date",
         "delimiter": "Ayraç",
         "text": "Metin",
-        "priority": "Priority",
-        "subject": "Subject",
-        "message": "Message",
-        "from": "From",
-        "to": "To",
+        "priority": "Öncelik",
+        "subject": "Konu",
+        "message": "Mesaj",
+        "from": "Kimden",
+        "to": "Kime",
         "cc": "CC",
         "bcc": "BCC",
-        "assigned_to": "Assigned to",
-        "partner": "Partner",
-        "new_replay": "New Reply"
+        "assigned_to": "Atanan",
+        "partner": "Ortak",
+        "new_replay": "Yeni Yanıt"
     },
     "address_types": {
         "billing": "Faturalandırma",
@@ -315,12 +315,12 @@
         "other": "Diğer"
     },
     "support_priority": {
-        "none": "None",
-        "low": "Low",
-        "medium": "Medium",
+        "none": "Hiçbiri",
+        "low": "Düşük",
+        "medium": "Orta",
         "normal": "Normal",
-        "high": "High",
-        "urgent": "Urgent"
+        "high": "Yüksek",
+        "urgent": "Acil"
     },
     "product_type": {
         "product": "Ürün",
@@ -461,13 +461,13 @@
         "completed": "Tamamlandı",
         "confirmed": "Onaylandı",
         "tentative": "Geçici",
-        "open": "Open",
-        "closed": "Closed",
-        "archived": "Archived",
-        "in_progress": "In Progress",
-        "reopened": "Reopened",
-        "resolved": "Resolved",
-        "waiting_for_reply": "Waiting for reply"
+        "open": "Açık",
+        "closed": "Kapalı",
+        "archived": "Arşivlenmiş",
+        "in_progress": "Devam Ediyor",
+        "reopened": "Yeniden Açıldı",
+        "resolved": "Çözüldü",
+        "waiting_for_reply": "Yanıt Bekleniyor"
     },
     "calendar": {
         "calendar": "Takvim | Takvimler",
@@ -552,19 +552,19 @@
         "delete_confirm_document": "Bu belgeyi silmek istediğinizden emin misiniz?"
     },
     "support": {
-        "support": "Support | Supports",
-        "support_tickets": "Support Tickets",
-        "view_ticket": "View Ticket",
-        "new_ticket": "New Ticket",
-        "edit_ticket": "Edit Ticket",
-        "no_support_tickets": "No tickets found",
-        "create_first_support_ticket": "Create your first ticket",
-        "delete_confirm_ticket": "Are you sure you want to delete this ticket?",
-        "ticket_reply_delete_confirm": "Are you sure you want to delete this ticket reply?",
-        "share_dialog": "Share ticket",
-        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code.",
-        "system": "System",
-        "delete_confirm_message": "Are you sure you want to delete this message?"
+        "support": "Destek | Destekler",
+        "support_tickets": "Destek Biletleri",
+        "view_ticket": "Bileti Görüntüle",
+        "new_ticket": "Yeni Bilet",
+        "edit_ticket": "Bileti Düzenle",
+        "no_support_tickets": "Bilet bulunamadı",
+        "create_first_support_ticket": "İlk biletinizi oluşturun",
+        "delete_confirm_ticket": "Bu bileği silmek istediğinizden emin misiniz?",
+        "ticket_reply_delete_confirm": "Bu bilet yanıtını silmek istediğinizden emin misiniz?",
+        "share_dialog": "Bileti paylaş",
+        "share_dialog_text": "Aşağıdaki bağlantıyı kopyalayın ve ortağınızla paylaşın veya QR kodunu tarayın.",
+        "system": "Sistem",
+        "delete_confirm_message": "Bu mesajı silmek istediğinizden emin misiniz?"
     },
     "employee": {
         "employee": "Çalışan | Çalışanlar",
