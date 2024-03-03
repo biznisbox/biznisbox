@@ -22,6 +22,11 @@ return [
     'share_failed' => 'No se pudo compartir',
     'accept_reject_success' => 'Aceptado/rechazado con éxito',
     'convert_success' => 'Convertido con éxito',
+    'pdf_failed' => 'Error al generar PDF',
+    'notification_success' => 'La notificación se ha enviado correctamente',
+    'notification_failed' => 'No se pudo enviar la notificación',
+    'no_key_provided' => 'Ninguna clave proporcionada',
+    'ping' => 'API está funcionando',
     // Auth responses
     'login' => [
         'success' => 'Has iniciado sesión correctamente',
@@ -174,6 +179,18 @@ return [
         'pdf_failed' => 'Error al generar PDF',
     ],
 
+    'support_ticket_message' => [
+        'get_success' => 'Mensajes de ticket recuperados con éxito',
+        'get_failed' => 'No se pudieron recuperar los mensajes de ticket de soporte',
+        'not_found' => 'No se pudo encontrar el mensaje de ticket de soporte',
+        'create_failed' => 'No se pudo crear el mensaje de ticket de soporte',
+        'create_success' => 'Mensaje de ticket de soporte creado con éxito',
+        'update_success' => 'Mensaje de ticket de soporte actualizado correctamente',
+        'update_failed' => 'El mensaje de ticket de soporte no pudo ser actualizado',
+        'delete_failed' => 'El mensaje de ticket de soporte no se ha podido eliminar correctamente',
+        'delete_success' => 'Mensaje de ticket de soporte eliminado correctamente',
+    ],
+
     //Invoice responses
     'invoice' => [
         'get_success' => 'Facturas obtenidas con éxito',
@@ -205,6 +222,24 @@ return [
         'failed' => 'Pago fallido',
         'paypal_not_available' => 'Paypal no disponible',
         'invoice' => 'Factura',
+    ],
+
+    'support_ticket' => [
+        'get_success' => 'Tickets de soporte recuperados con éxito',
+        'get_failed' => 'No se pudieron recuperar los tickets de soporte',
+        'not_found' => 'No se pudo encontrar el ticket de soporte',
+        'create_failed' => 'No se pudo crear el ticket de soporte',
+        'create_success' => 'Ticket de soporte creado con éxito',
+        'update_success' => 'Ticket de soporte actualizado correctamente',
+        'update_failed' => 'No se pudo actualizar el ticket de soporte',
+        'delete_failed' => 'Support ticket could  not be deleted successfully',
+        'delete_success' => 'Support ticket deleted successfully',
+        'get_number_success' => 'Support ticket number retrieved successfully',
+        'get_number_failed' => 'Support ticket number could not be retrieved',
+        'send_success' => 'Support ticket message was sent successfully',
+        'send_failed' => 'Support ticket message could not be sent',
+        'share_success' => 'Support ticket was shared successfully',
+        'share_failed' => 'Support ticket could not be shared',
     ],
 
     //Profile responses
