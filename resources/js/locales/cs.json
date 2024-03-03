@@ -119,7 +119,7 @@
         "reports": "Zprávy",
         "settings": "Nastavení",
         "employees": "Zaměstnanci",
-        "support": "Support"
+        "support": "Podpora"
     },
     "dashboard": {
         "title": "Nástěnka",
@@ -239,16 +239,16 @@
         "opening_balance_date": "Počáteční zůstatek",
         "delimiter": "Oddělovač",
         "text": "Text",
-        "priority": "Priority",
-        "subject": "Subject",
-        "message": "Message",
-        "from": "From",
-        "to": "To",
+        "priority": "Priorita",
+        "subject": "Předmět",
+        "message": "Zpráva",
+        "from": "Od",
+        "to": "Komu",
         "cc": "CC",
         "bcc": "BCC",
-        "assigned_to": "Assigned to",
+        "assigned_to": "Přiřazeno k",
         "partner": "Partner",
-        "new_replay": "New Reply"
+        "new_replay": "Nová odpověď"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -315,12 +315,12 @@
         "other": "Ostatní"
     },
     "support_priority": {
-        "none": "None",
-        "low": "Low",
-        "medium": "Medium",
-        "normal": "Normal",
-        "high": "High",
-        "urgent": "Urgent"
+        "none": "Nic",
+        "low": "Nízká",
+        "medium": "Střední",
+        "normal": "Normální",
+        "high": "Vysoká",
+        "urgent": "Naléhavé"
     },
     "product_type": {
         "product": "Produkt",
@@ -461,13 +461,13 @@
         "completed": "Dokončeno",
         "confirmed": "Potvrzeno",
         "tentative": "Tentoativní",
-        "open": "Open",
-        "closed": "Closed",
-        "archived": "Archived",
-        "in_progress": "In Progress",
-        "reopened": "Reopened",
-        "resolved": "Resolved",
-        "waiting_for_reply": "Waiting for reply"
+        "open": "Otevřít",
+        "closed": "Uzavřeno",
+        "archived": "Archivováno",
+        "in_progress": "Probíhá",
+        "reopened": "Znovu otevřeno",
+        "resolved": "Vyřešeno",
+        "waiting_for_reply": "Čekání na odpověď"
     },
     "calendar": {
         "calendar": "Kalendář | Kalendáře",
@@ -552,19 +552,19 @@
         "delete_confirm_document": "Jste si jisti, že chcete odstranit tento doklad?"
     },
     "support": {
-        "support": "Support | Supports",
-        "support_tickets": "Support Tickets",
-        "view_ticket": "View Ticket",
-        "new_ticket": "New Ticket",
-        "edit_ticket": "Edit Ticket",
-        "no_support_tickets": "No tickets found",
-        "create_first_support_ticket": "Create your first ticket",
-        "delete_confirm_ticket": "Are you sure you want to delete this ticket?",
-        "ticket_reply_delete_confirm": "Are you sure you want to delete this ticket reply?",
-        "share_dialog": "Share ticket",
-        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code.",
-        "system": "System",
-        "delete_confirm_message": "Are you sure you want to delete this message?"
+        "support": "Podpora | Podpora",
+        "support_tickets": "Podpora tiketů",
+        "view_ticket": "Zobrazit tiket",
+        "new_ticket": "Nový požadavek",
+        "edit_ticket": "Upravit tiket",
+        "no_support_tickets": "Nenalezeny žádné tikety",
+        "create_first_support_ticket": "Vytvořte svůj první tiket",
+        "delete_confirm_ticket": "Jste si jisti, že chcete odstranit tento tiket?",
+        "ticket_reply_delete_confirm": "Jste si jisti, že chcete odstranit tuto odpověď na tiket?",
+        "share_dialog": "Sdílet tiket",
+        "share_dialog_text": "Zkopírujte níže uvedený odkaz a sdílejte jej s partnerem nebo naskenujte QR kód.",
+        "system": "Systém",
+        "delete_confirm_message": "Jste si jisti, že chcete odstranit tuto zprávu?"
     },
     "employee": {
         "employee": "Zaměstnanec | Zaměstnanci",
