@@ -16,6 +16,7 @@ return [
     'partners' => 'Ortaklar',
     'employees' => 'Çalışanlar',
     'transactions_categories' => 'İşlem Kategorileri',
+    'support' => 'Destek',
     'admin' => 'Yönetici',
     'admin_users' => 'Yönetici Kullanıcıları',
     'admin_roles' => 'Yönetici Rolleri',
