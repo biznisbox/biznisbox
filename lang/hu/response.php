@@ -43,7 +43,6 @@ return [
         'success' => 'Jelszó visszaállítása sikeres',
         'failed' => 'Jelszó visszaállítása sikertelen',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Termék nem található',
@@ -56,7 +55,6 @@ return [
         'delete_success' => 'Termék sikeresen törölve',
         'delete_failed' => 'Termék törlése sikertelen',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Partner nem található',
@@ -69,7 +67,6 @@ return [
         'delete_success' => 'Partner sikeresen törölve',
         'delete_failed' => 'Egy partner nem törölhető',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'Tranzakció nem található',
@@ -82,7 +79,6 @@ return [
         'delete_success' => 'Tranzakció sikeresen törölve',
         'delete_failed' => 'Tranzakció törlése sikertelen',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Számlák sikeresen lekérve',
@@ -98,7 +94,6 @@ return [
         'get_error' => 'Számla nem kérhető le',
         'delete_default_account' => 'Alapértelmezett fiók nem törölhető',
     ],
-
     //Bill responses
     'bill' => [
         'get_success' => 'Számla sikeresen lekérve',
@@ -110,7 +105,6 @@ return [
         'delete_success' => 'Számla sikeresen törölve',
         'delete_error' => 'Számla nem törölhető',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Dokumentumok sikeresen lekérve',
@@ -123,7 +117,6 @@ return [
         'delete_failed' => 'Dokumentum nem törölhető',
         'delete_success' => 'Dokumentum sikeresen törölve',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Munkatárs nem található',
@@ -136,7 +129,6 @@ return [
         'delete_success' => 'Munkatárs sikeresen törölve',
         'delete_failed' => 'A munkatárs nem törölhető',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'Fájl sikeresen lekérve',
@@ -158,7 +150,6 @@ return [
         'delete_failed_folder' => 'A mappa sikeresen törölve',
         'delete_success_folder' => 'A mappa sikeresen törölve',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Árajánlatok sikeresen lekérve',
@@ -178,7 +169,7 @@ return [
         'send_failed' => 'Árajánlat nem küldhető el',
         'pdf_failed' => 'A PDF létrehozása sikertelen',
     ],
-
+    // Support ticket message responses
     'support_ticket_message' => [
         'get_success' => 'A támogatási jegyüzenetek sikeresen lekérve',
         'get_failed' => 'A támogatási jegyüzenetek nem kérhetők le',
@@ -190,7 +181,6 @@ return [
         'delete_failed' => 'A támogatási jegyüzenet nem törölhető sikeresen',
         'delete_success' => 'A támogatási jegyüzenet sikeresen törölve',
     ],
-
     //Invoice responses
     'invoice' => [
         'get_success' => 'A számlák sikeresen visszakerültek',
@@ -211,7 +201,6 @@ return [
         'notification_success' => 'Az értesítés sikeresen elküldve',
         'notification_failed' => 'Az értesítést nem sikerült elküldeni',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'A Stripe nem elérhető',
@@ -223,7 +212,7 @@ return [
         'paypal_not_available' => 'A Paypal nem elérhető',
         'invoice' => 'Számla',
     ],
-
+    //Support ticket responses
     'support_ticket' => [
         'get_success' => 'A támogatási jegyek sikeresen lekérve',
         'get_failed' => 'A támogatási jegyek nem kérhetők le',
@@ -241,7 +230,6 @@ return [
         'share_success' => 'A támogatási jegyet sikeresen megosztották',
         'share_failed' => 'A támogatási jegyet nem sikerült megosztani',
     ],
-
     //Profile responses
     'user' => [
         'not_found' => 'A felhasználó nem található',
@@ -253,7 +241,6 @@ return [
         'avatar_not_found' => 'A profilkép nem található',
         'avatar_updated' => 'A profilkép sikeresen frissítve lett',
     ],
-
     // Open Banking responses
     'open_banking' => [
         'country_required' => 'Az ország kötelező',
@@ -266,7 +253,7 @@ return [
         'session_id_required' => 'Munkamenet azonosító szükséges',
         'account_id_required' => 'Számla azonosító szükséges',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Esemény sikeresen visszaállítva',
         'get_error' => 'Nem sikerült az esemény visszaállítása',
@@ -293,12 +280,11 @@ return [
     'email' => [
         'invoice_subject' => 'Számla',
     ],
-
     'dashboard' => [
         'income' => 'Bevétel',
         'expense' => 'Kiadás',
     ],
-
+    // Months
     'months' => [
         'january' => 'Január',
         'february' => 'Február',
@@ -313,7 +299,7 @@ return [
         'november' => 'November',
         'december' => 'December',
     ],
-
+    //  Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Szerep nem található',
@@ -353,7 +339,6 @@ return [
             'delete_success' => 'Adó sikeresen törölve',
             'delete_failed' => 'Az adó nem törölhető',
         ],
-
         'user' => [
             'not_found' => 'A felhasználó nem található',
             'create_failed' => 'A felhasználó nem hozható létre',
