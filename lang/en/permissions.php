@@ -16,6 +16,7 @@ return [
     'partners' => 'Partners',
     'employees' => 'Employees',
     'transactions_categories' => 'Transactions Categories',
+    'support' => 'Support',
     'admin' => 'Admin',
     'admin_users' => 'Admin Users',
     'admin_roles' => 'Admin Roles',
