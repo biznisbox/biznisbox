@@ -118,7 +118,8 @@
         "partners": "Συνεργάτες",
         "reports": "Αναφορές",
         "settings": "Ρυθμίσεις",
-        "employees": "Υπάλληλοι"
+        "employees": "Υπάλληλοι",
+        "support": "Support"
     },
     "dashboard": {
         "title": "Ταμπλό",
@@ -237,7 +238,17 @@
         "sales_person": "Πρόσωπο Πωλήσεων",
         "opening_balance_date": "Ημερομηνία Έναρξης Υπολοίπου",
         "delimiter": "Οριοθέτης",
-        "text": "Κείμενο"
+        "text": "Κείμενο",
+        "priority": "Priority",
+        "subject": "Subject",
+        "message": "Message",
+        "from": "From",
+        "to": "To",
+        "cc": "CC",
+        "bcc": "BCC",
+        "assigned_to": "Assigned to",
+        "partner": "Partner",
+        "new_replay": "New Reply"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -302,6 +313,14 @@
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Άλλο"
+    },
+    "support_priority": {
+        "none": "None",
+        "low": "Low",
+        "medium": "Medium",
+        "normal": "Normal",
+        "high": "High",
+        "urgent": "Urgent"
     },
     "product_type": {
         "product": "Προϊόν",
@@ -441,7 +460,14 @@
         "pending": "Εκκρεμεί",
         "completed": "Ολοκληρώθηκε",
         "confirmed": "Επιβεβαιωμένο",
-        "tentative": "Αβέβαιο"
+        "tentative": "Αβέβαιο",
+        "open": "Open",
+        "closed": "Closed",
+        "archived": "Archived",
+        "in_progress": "In Progress",
+        "reopened": "Reopened",
+        "resolved": "Resolved",
+        "waiting_for_reply": "Waiting for reply"
     },
     "calendar": {
         "calendar": "Ημερολόγιο \"Ημερολόγια\"",
@@ -524,6 +550,21 @@
         "no_documents": "Δεν βρέθηκαν έγγραφα",
         "create_first_document": "Δημιουργήστε το πρώτο σας έγγραφο",
         "delete_confirm_document": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το έγγραφο?"
+    },
+    "support": {
+        "support": "Support | Supports",
+        "support_tickets": "Support Tickets",
+        "view_ticket": "View Ticket",
+        "new_ticket": "New Ticket",
+        "edit_ticket": "Edit Ticket",
+        "no_support_tickets": "No tickets found",
+        "create_first_support_ticket": "Create your first ticket",
+        "delete_confirm_ticket": "Are you sure you want to delete this ticket?",
+        "ticket_reply_delete_confirm": "Are you sure you want to delete this ticket reply?",
+        "share_dialog": "Share ticket",
+        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code.",
+        "system": "System",
+        "delete_confirm_message": "Are you sure you want to delete this message?"
     },
     "employee": {
         "employee": "Υπάλληλος \"Εργαζόμενοι\"",
