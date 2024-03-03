@@ -43,7 +43,6 @@ return [
         'success' => 'Password reset successfully',
         'failed' => 'Password reset failed',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Product not found',
@@ -56,7 +55,6 @@ return [
         'delete_success' => 'Product deleted successfully',
         'delete_failed' => 'A product could not be deleted',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Partner not found',
@@ -69,7 +67,6 @@ return [
         'delete_success' => 'Partner deleted successfully',
         'delete_failed' => 'A Partner could not be deleted',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'Transaction not found',
@@ -82,7 +79,6 @@ return [
         'delete_success' => 'Transaction deleted successfully',
         'delete_failed' => 'A transaction could not be deleted',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Accounts retrieved successfully',
@@ -98,7 +94,6 @@ return [
         'get_error' => 'Account could not be retrieved',
         'delete_default_account' => 'Default account cannot be deleted',
     ],
-
     //Bill responses
     'bill' => [
         'get_success' => 'Bill retrieved successfully',
@@ -110,7 +105,6 @@ return [
         'delete_success' => 'Bill deleted successfully',
         'delete_error' => 'Bill could not be deleted successfully',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Documents retrieved successfully',
@@ -123,7 +117,6 @@ return [
         'delete_failed' => 'Document could  not be deleted successfully',
         'delete_success' => 'Document deleted successfully',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Employee not found',
@@ -136,7 +129,6 @@ return [
         'delete_success' => 'Employee deleted successfully',
         'delete_failed' => 'A Employee could not be deleted',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'File retrieved successfully',
@@ -158,7 +150,6 @@ return [
         'delete_failed_folder' => 'Folder could not be deleted successfully',
         'delete_success_folder' => 'Folder deleted successfully',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Quotes retrieved successfully',
@@ -178,7 +169,7 @@ return [
         'send_failed' => 'Quote could not be sent',
         'pdf_failed' => 'Generating PDF failed',
     ],
-
+    // Support ticket message responses
     'support_ticket_message' => [
         'get_success' => 'Support ticket messages retrieved successfully',
         'get_failed' => 'Support ticket messages could not be retrieved',
@@ -190,7 +181,6 @@ return [
         'delete_failed' => 'Support ticket message could  not be deleted successfully',
         'delete_success' => 'Support ticket message deleted successfully',
     ],
-
     //Invoice responses
     'invoice' => [
         'get_success' => 'Invoices retrieved successfully',
@@ -211,7 +201,6 @@ return [
         'notification_success' => 'Notification was sent successfully',
         'notification_failed' => 'Notification could not be sent',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'Stripe is not available',
@@ -223,7 +212,7 @@ return [
         'paypal_not_available' => 'Paypal not available',
         'invoice' => 'Invoice',
     ],
-
+    //Support ticket responses
     'support_ticket' => [
         'get_success' => 'Support tickets retrieved successfully',
         'get_failed' => 'Support tickets could not be retrieved',
@@ -241,7 +230,6 @@ return [
         'share_success' => 'Support ticket was shared successfully',
         'share_failed' => 'Support ticket could not be shared',
     ],
-
     //Profile responses
     'user' => [
         'not_found' => 'User could not be found',
@@ -253,7 +241,6 @@ return [
         'avatar_not_found' => 'Avatar could not be found',
         'avatar_updated' => 'Avatar was updated successfully',
     ],
-
     // Open Banking responses
     'open_banking' => [
         'country_required' => 'Country is required',
@@ -266,7 +253,7 @@ return [
         'session_id_required' => 'Session ID is required',
         'account_id_required' => 'Account ID is required',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Event retrieved successfully',
         'get_error' => 'Event could not be retrieved',
@@ -293,12 +280,11 @@ return [
     'email' => [
         'invoice_subject' => 'Invoice',
     ],
-
     'dashboard' => [
         'income' => 'Income',
         'expense' => 'Expense',
     ],
-
+    // Months
     'months' => [
         'january' => 'January',
         'february' => 'February',
@@ -313,7 +299,7 @@ return [
         'november' => 'November',
         'december' => 'December',
     ],
-
+    //  Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Role could not be found',
@@ -353,7 +339,6 @@ return [
             'delete_success' => 'Tax was deleted successfully',
             'delete_failed' => 'Tax could not be deleted',
         ],
-
         'user' => [
             'not_found' => 'User could not be found',
             'create_failed' => 'User could not be created',
