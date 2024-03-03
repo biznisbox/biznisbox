@@ -43,7 +43,6 @@ return [
         'success' => 'Hasło zostało zresetowane',
         'failed' => 'Resetowanie hasła nie powiodło się',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Nie znaleziono produktu',
@@ -56,7 +55,6 @@ return [
         'delete_success' => 'Produkt usunięty pomyślnie',
         'delete_failed' => 'Produkt nie może zostać usunięty',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Nie znaleziono partnera',
@@ -69,7 +67,6 @@ return [
         'delete_success' => 'Partner usunięty pomyślnie',
         'delete_failed' => 'Partner nie mógł zostać usunięty',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'Transakcja nie znaleziona',
@@ -82,7 +79,6 @@ return [
         'delete_success' => 'Transakcja usunięta pomyślnie',
         'delete_failed' => 'Nie można usunąć transakcji',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Konta pobrane pomyślnie',
@@ -98,7 +94,6 @@ return [
         'get_error' => 'Konto nie może zostać pobrane',
         'delete_default_account' => 'Domyślne konto nie może zostać usunięte',
     ],
-
     //Bill responses
     'bill' => [
         'get_success' => 'Płatność pobrana pomyślnie',
@@ -110,7 +105,6 @@ return [
         'delete_success' => 'Pomyślnie usunięto rachunek',
         'delete_error' => 'Rachunek nie mógł zostać usunięty pomyślnie',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Dokumenty pobrane pomyślnie',
@@ -123,7 +117,6 @@ return [
         'delete_failed' => 'Dokument nie mógł zostać usunięty pomyślnie',
         'delete_success' => 'Dokument usunięty pomyślnie',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Nie znaleziono pracownika',
@@ -136,7 +129,6 @@ return [
         'delete_success' => 'Pracownik usunięty pomyślnie',
         'delete_failed' => 'Pracownik nie mógł zostać usunięty',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'Plik pobrany pomyślnie',
@@ -158,7 +150,6 @@ return [
         'delete_failed_folder' => 'Folder nie mógł zostać usunięty pomyślnie',
         'delete_success_folder' => 'Folder usunięty pomyślnie',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Oferty pobrane pomyślnie',
@@ -178,7 +169,7 @@ return [
         'send_failed' => 'Oferta nie mogła zostać wysłana',
         'pdf_failed' => 'Generowanie PDF nie powiodło się',
     ],
-
+    // Support ticket message responses
     'support_ticket_message' => [
         'get_success' => 'Pomyślnie pobrano wiadomości dotyczące zgłoszenia',
         'get_failed' => 'Nie można pobrać wiadomości zgłoszenia pomocy technicznej',
@@ -190,7 +181,6 @@ return [
         'delete_failed' => 'Nie udało się usunąć wiadomości o zgłoszeniu',
         'delete_success' => 'Wiadomość zgłoszenia została usunięta',
     ],
-
     //Invoice responses
     'invoice' => [
         'get_success' => 'Faktury pobrane pomyślnie',
@@ -211,7 +201,6 @@ return [
         'notification_success' => 'Powiadomienie zostało wysłane pomyślnie',
         'notification_failed' => 'Nie można wysłać powiadomienia',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'Pasek nie jest dostępny',
@@ -223,7 +212,7 @@ return [
         'paypal_not_available' => 'PayPal niedostępny',
         'invoice' => 'Faktura',
     ],
-
+    //Support ticket responses
     'support_ticket' => [
         'get_success' => 'Bilety wsparcia zostały pobrane pomyślnie',
         'get_failed' => 'Bilety wsparcia nie mogły zostać pobrane',
@@ -241,7 +230,6 @@ return [
         'share_success' => 'Bilet pomocy technicznej został udostępniony pomyślnie',
         'share_failed' => 'Nie można udostępnić zgłoszenia',
     ],
-
     //Profile responses
     'user' => [
         'not_found' => 'Nie można odnaleźć użytkownika',
@@ -253,7 +241,6 @@ return [
         'avatar_not_found' => 'Nie znaleziono awatara',
         'avatar_updated' => 'Awatar został pomyślnie zaktualizowany',
     ],
-
     // Open Banking responses
     'open_banking' => [
         'country_required' => 'Kraj jest wymagany',
@@ -266,7 +253,7 @@ return [
         'session_id_required' => 'Identyfikator sesji jest wymagany',
         'account_id_required' => 'Identyfikator konta jest wymagany',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Wydarzenie pobrane pomyślnie',
         'get_error' => 'Nie można pobrać zdarzenia',
@@ -293,12 +280,11 @@ return [
     'email' => [
         'invoice_subject' => 'Faktura',
     ],
-
     'dashboard' => [
         'income' => 'Dochód',
         'expense' => 'Wydatki',
     ],
-
+    // Months
     'months' => [
         'january' => 'Styczeń',
         'february' => 'Luty',
@@ -313,7 +299,7 @@ return [
         'november' => 'Listopad',
         'december' => 'Grudzień',
     ],
-
+    //  Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Nie można odnaleźć roli',
@@ -353,7 +339,6 @@ return [
             'delete_success' => 'Podatek został usunięty pomyślnie',
             'delete_failed' => 'Podatek nie może zostać usunięty',
         ],
-
         'user' => [
             'not_found' => 'Nie można odnaleźć użytkownika',
             'create_failed' => 'Nie można utworzyć użytkownika',
