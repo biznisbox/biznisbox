@@ -43,7 +43,6 @@ return [
         'success' => 'Adgangskode nulstillet',
         'failed' => 'Nulstilling af adgangskode mislykkedes',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Produktet blev ikke fundet',
@@ -56,7 +55,6 @@ return [
         'delete_success' => 'Produktet blev slettet',
         'delete_failed' => 'Et produkt kunne ikke slettes',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Partner ikke fundet',
@@ -69,7 +67,6 @@ return [
         'delete_success' => 'Partner slettet',
         'delete_failed' => 'En partner kunne ikke slettes',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'Transaktionen blev ikke fundet',
@@ -82,7 +79,6 @@ return [
         'delete_success' => 'Transaktionen blev slettet',
         'delete_failed' => 'En transaktion kunne ikke slettes',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Konti hentet',
@@ -98,7 +94,6 @@ return [
         'get_error' => 'Konto kunne ikke hentes',
         'delete_default_account' => 'Standardkonto kan ikke slettes',
     ],
-
     //Bill responses
     'bill' => [
         'get_success' => 'Bill hentet succesfuldt',
@@ -110,7 +105,6 @@ return [
         'delete_success' => 'Faktura slettet',
         'delete_error' => 'Faktura kunne ikke slettes',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Dokumenter hentet',
@@ -123,7 +117,6 @@ return [
         'delete_failed' => 'Dokumentet kunne ikke slettes',
         'delete_success' => 'Dokument slettet',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Medarbejder ikke fundet',
@@ -136,7 +129,6 @@ return [
         'delete_success' => 'Medarbejder slettet',
         'delete_failed' => 'En medarbejder kunne ikke slettes',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'Fil hentet',
@@ -158,7 +150,6 @@ return [
         'delete_failed_folder' => 'Mappen kunne ikke slettes',
         'delete_success_folder' => 'Mappen blev slettet',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Tilbud blev hentet',
@@ -178,7 +169,7 @@ return [
         'send_failed' => 'Tilbud kunne ikke sendes',
         'pdf_failed' => 'Generering af PDF mislykkedes',
     ],
-
+    // Support ticket message responses
     'support_ticket_message' => [
         'get_success' => 'Support bestillingsmeddelelser hentet med succes',
         'get_failed' => 'Support bestillings beskeder kunne ikke hentes',
@@ -190,7 +181,6 @@ return [
         'delete_failed' => 'Support bestillings besked kunne ikke slettes med succes',
         'delete_success' => 'Support bestillings besked slettet',
     ],
-
     //Invoice responses
     'invoice' => [
         'get_success' => 'Fakturaer hentet med succes',
@@ -211,7 +201,6 @@ return [
         'notification_success' => 'Notifikation blev sendt',
         'notification_failed' => 'Notifikation kunne ikke sendes',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'Stripe er ikke tilgængelig',
@@ -223,7 +212,7 @@ return [
         'paypal_not_available' => 'PayPal er ikke tilgængelig',
         'invoice' => 'Faktura',
     ],
-
+    //Support ticket responses
     'support_ticket' => [
         'get_success' => 'Support billetter hentet med succes',
         'get_failed' => 'Support billetter kunne ikke hentes',
@@ -241,7 +230,6 @@ return [
         'share_success' => 'Support bestilling blev delt med succes',
         'share_failed' => 'Support billet kunne ikke deles',
     ],
-
     //Profile responses
     'user' => [
         'not_found' => 'Brugeren kunne ikke findes',
@@ -253,7 +241,6 @@ return [
         'avatar_not_found' => 'Avatar kunne ikke findes',
         'avatar_updated' => 'Avatar blev opdateret',
     ],
-
     // Open Banking responses
     'open_banking' => [
         'country_required' => 'Land er påkrævet',
@@ -266,7 +253,7 @@ return [
         'session_id_required' => 'Session ID er påkrævet',
         'account_id_required' => 'Konto ID er påkrævet',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Begivenhed blev hentet',
         'get_error' => 'Begivenheden kunne ikke hentes',
@@ -293,12 +280,11 @@ return [
     'email' => [
         'invoice_subject' => 'Faktura',
     ],
-
     'dashboard' => [
         'income' => 'Indkomst',
         'expense' => 'Udgifter',
     ],
-
+    // Months
     'months' => [
         'january' => 'Januar',
         'february' => 'Februar',
@@ -313,7 +299,7 @@ return [
         'november' => 'November',
         'december' => 'December',
     ],
-
+    //  Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Rolle kunne ikke findes',
@@ -353,7 +339,6 @@ return [
             'delete_success' => 'Moms blev slettet',
             'delete_failed' => 'Moms kunne ikke slettes',
         ],
-
         'user' => [
             'not_found' => 'Brugeren kunne ikke findes',
             'create_failed' => 'Brugeren kunne ikke oprettes',
