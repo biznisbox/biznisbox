@@ -119,7 +119,7 @@
         "reports": "Извештаји",
         "settings": "Подешавања",
         "employees": "Запослени",
-        "support": "Support"
+        "support": "Подршка"
     },
     "dashboard": {
         "title": "Контролна табла",
@@ -239,16 +239,16 @@
         "opening_balance_date": "Датум отварања почетног салда",
         "delimiter": "Разделител",
         "text": "Текст",
-        "priority": "Priority",
-        "subject": "Subject",
-        "message": "Message",
-        "from": "From",
-        "to": "To",
-        "cc": "CC",
-        "bcc": "BCC",
-        "assigned_to": "Assigned to",
-        "partner": "Partner",
-        "new_replay": "New Reply"
+        "priority": "Приоритет",
+        "subject": "Тема",
+        "message": "Порука",
+        "from": "Од",
+        "to": "За",
+        "cc": "Копија",
+        "bcc": "Скривено копија",
+        "assigned_to": "Додељено",
+        "partner": "Партнер",
+        "new_replay": "Нов одговор"
     },
     "address_types": {
         "billing": "Наплата",
@@ -315,12 +315,12 @@
         "other": "Остало"
     },
     "support_priority": {
-        "none": "None",
-        "low": "Low",
-        "medium": "Medium",
-        "normal": "Normal",
-        "high": "High",
-        "urgent": "Urgent"
+        "none": "Ништа",
+        "low": "Ниско",
+        "medium": "Средње",
+        "normal": "Нормално",
+        "high": "Високо",
+        "urgent": "Хитно"
     },
     "product_type": {
         "product": "Производ",
@@ -461,13 +461,13 @@
         "completed": "Завршено",
         "confirmed": "Потврђено",
         "tentative": "Привремено",
-        "open": "Open",
-        "closed": "Closed",
-        "archived": "Archived",
-        "in_progress": "In Progress",
-        "reopened": "Reopened",
-        "resolved": "Resolved",
-        "waiting_for_reply": "Waiting for reply"
+        "open": "Отворено",
+        "closed": "Затворено",
+        "archived": "Архивирано",
+        "in_progress": "У току",
+        "reopened": "Поново отворено",
+        "resolved": "Решено",
+        "waiting_for_reply": "Чека на одговор"
     },
     "calendar": {
         "calendar": "Календар | Календари",
@@ -552,19 +552,19 @@
         "delete_confirm_document": "Да ли сте сигурни да желите да обришете овај документ?"
     },
     "support": {
-        "support": "Support | Supports",
-        "support_tickets": "Support Tickets",
-        "view_ticket": "View Ticket",
-        "new_ticket": "New Ticket",
-        "edit_ticket": "Edit Ticket",
-        "no_support_tickets": "No tickets found",
-        "create_first_support_ticket": "Create your first ticket",
-        "delete_confirm_ticket": "Are you sure you want to delete this ticket?",
-        "ticket_reply_delete_confirm": "Are you sure you want to delete this ticket reply?",
-        "share_dialog": "Share ticket",
-        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code.",
-        "system": "System",
-        "delete_confirm_message": "Are you sure you want to delete this message?"
+        "support": "Подршка | Подршке",
+        "support_tickets": "Тикети за подршку",
+        "view_ticket": "Погледај тикет",
+        "new_ticket": "Нови тикет",
+        "edit_ticket": "Уреди тикет",
+        "no_support_tickets": "Нису пронађени тикети",
+        "create_first_support_ticket": "Креирајте свој први тикет",
+        "delete_confirm_ticket": "Да ли сте сигурни да желите да обришете овај тикет?",
+        "ticket_reply_delete_confirm": "Да ли сте сигурни да желите да обришете одговор на овај тикет?",
+        "share_dialog": "Дели тикет",
+        "share_dialog_text": "Копирајте линк испод и поделите га са својим партнером или скенирајте QR код.",
+        "system": "Систем",
+        "delete_confirm_message": "Да ли сте сигурни да желите да обришете ову поруку?"
     },
     "employee": {
         "employee": "Запослени | Запослени",
