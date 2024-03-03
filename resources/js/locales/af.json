@@ -119,7 +119,7 @@
         "reports": "Verslae",
         "settings": "Instellings",
         "employees": "Werknemers",
-        "support": "Support"
+        "support": "Ondersteuning"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -239,16 +239,16 @@
         "opening_balance_date": "Oopingsbalansedatum",
         "delimiter": "Skeier",
         "text": "Teks",
-        "priority": "Priority",
-        "subject": "Subject",
-        "message": "Message",
-        "from": "From",
-        "to": "To",
+        "priority": "Prioriteit",
+        "subject": "Onderwerp",
+        "message": "Boodskap",
+        "from": "Van",
+        "to": "Aan",
         "cc": "CC",
         "bcc": "BCC",
-        "assigned_to": "Assigned to",
-        "partner": "Partner",
-        "new_replay": "New Reply"
+        "assigned_to": "Toegewys aan",
+        "partner": "Vennoot",
+        "new_replay": "Nuwe Antwoord"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -315,12 +315,12 @@
         "other": "Ander"
     },
     "support_priority": {
-        "none": "None",
-        "low": "Low",
+        "none": "Geen",
+        "low": "Laag",
         "medium": "Medium",
-        "normal": "Normal",
-        "high": "High",
-        "urgent": "Urgent"
+        "normal": "Normaal",
+        "high": "Hoog",
+        "urgent": "Dringend"
     },
     "product_type": {
         "product": "Produk",
@@ -461,13 +461,13 @@
         "completed": "Voltooid",
         "confirmed": "Bevestig",
         "tentative": "Voorlopig",
-        "open": "Open",
-        "closed": "Closed",
-        "archived": "Archived",
-        "in_progress": "In Progress",
-        "reopened": "Reopened",
-        "resolved": "Resolved",
-        "waiting_for_reply": "Waiting for reply"
+        "open": "Oop",
+        "closed": "Gesluit",
+        "archived": "Gearchiveer",
+        "in_progress": "Besig",
+        "reopened": "Heropen",
+        "resolved": "Opgelos",
+        "waiting_for_reply": "Wag vir antwoord"
     },
     "calendar": {
         "calendar": "Kalender | Kalenders",
@@ -552,19 +552,19 @@
         "delete_confirm_document": "Is jy seker jy wil hierdie dokument verwyder?"
     },
     "support": {
-        "support": "Support | Supports",
-        "support_tickets": "Support Tickets",
-        "view_ticket": "View Ticket",
-        "new_ticket": "New Ticket",
-        "edit_ticket": "Edit Ticket",
-        "no_support_tickets": "No tickets found",
-        "create_first_support_ticket": "Create your first ticket",
-        "delete_confirm_ticket": "Are you sure you want to delete this ticket?",
-        "ticket_reply_delete_confirm": "Are you sure you want to delete this ticket reply?",
-        "share_dialog": "Share ticket",
-        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code.",
-        "system": "System",
-        "delete_confirm_message": "Are you sure you want to delete this message?"
+        "support": "Ondersteuning | Ondersteun",
+        "support_tickets": "Ondersteuningstikette",
+        "view_ticket": "Sien Sticket",
+        "new_ticket": "Nuwe Sticket",
+        "edit_ticket": "Wysig Sticket",
+        "no_support_tickets": "Geen stikette gevind",
+        "create_first_support_ticket": "Skep jou eerste sticket",
+        "delete_confirm_ticket": "Is jy seker jy wil hierdie sticket verwyder?",
+        "ticket_reply_delete_confirm": "Is jy seker jy wil hierdie sticket antwoord verwyder?",
+        "share_dialog": "Deel sticket",
+        "share_dialog_text": "Kopieer die skakel hieronder en deel dit met jou maat of skandeer die QR-kode.",
+        "system": "Stelsel",
+        "delete_confirm_message": "Is jy seker jy wil hierdie boodskap verwyder?"
     },
     "employee": {
         "employee": "Werknemer | Werknemers",
