@@ -22,6 +22,11 @@ return [
     'share_failed' => 'Impossible de partager',
     'accept_reject_success' => 'Accepté/rejeté avec succès',
     'convert_success' => 'Converti avec succès',
+    'pdf_failed' => 'La génération du PDF a échoué',
+    'notification_success' => 'La notification a été envoyée avec succès',
+    'notification_failed' => 'La notification n\'a pas pu être envoyée',
+    'no_key_provided' => 'Aucune clé fournie',
+    'ping' => 'L\'API fonctionne',
     // Auth responses
     'login' => [
         'success' => 'Vous vous êtes connecté avec succès',
@@ -174,6 +179,18 @@ return [
         'pdf_failed' => 'La génération du PDF a échoué',
     ],
 
+    'support_ticket_message' => [
+        'get_success' => 'Les messages de ticket d\'assistance ont été récupérés avec succès',
+        'get_failed' => 'Les messages de ticket de support n\'ont pas pu être récupérés',
+        'not_found' => 'Le message de ticket de support est introuvable',
+        'create_failed' => 'Le message de ticket de support n\'a pas pu être créé',
+        'create_success' => 'Le message de ticket de support a été créé avec succès',
+        'update_success' => 'Le message du ticket d\'assistance a été mis à jour avec succès',
+        'update_failed' => 'Le message de ticket de support n\'a pas pu être mis à jour',
+        'delete_failed' => 'Le message de ticket de support n\'a pas pu être supprimé avec succès',
+        'delete_success' => 'Message de ticket de support supprimé avec succès',
+    ],
+
     //Invoice responses
     'invoice' => [
         'get_success' => 'Factures récupérées avec succès',
@@ -205,6 +222,24 @@ return [
         'failed' => 'Le paiement a échoué',
         'paypal_not_available' => 'Paypal non disponible',
         'invoice' => 'Facture',
+    ],
+
+    'support_ticket' => [
+        'get_success' => 'Tickets d\'assistance récupérés avec succès',
+        'get_failed' => 'Les tickets de support n\'ont pas pu être récupérés',
+        'not_found' => 'Ticket de support introuvable',
+        'create_failed' => 'Le ticket de support n\'a pas pu être créé',
+        'create_success' => 'Ticket de support a été créé avec succès',
+        'update_success' => 'Le ticket d\'assistance a été mis à jour avec succès',
+        'update_failed' => 'Support ticket could not be updated',
+        'delete_failed' => 'Support ticket could  not be deleted successfully',
+        'delete_success' => 'Support ticket deleted successfully',
+        'get_number_success' => 'Support ticket number retrieved successfully',
+        'get_number_failed' => 'Support ticket number could not be retrieved',
+        'send_success' => 'Support ticket message was sent successfully',
+        'send_failed' => 'Support ticket message could not be sent',
+        'share_success' => 'Support ticket was shared successfully',
+        'share_failed' => 'Support ticket could not be shared',
     ],
 
     //Profile responses
