@@ -118,7 +118,8 @@
         "partners": "Parteneri",
         "reports": "Rapoarte",
         "settings": "Setări",
-        "employees": "Angajați"
+        "employees": "Angajați",
+        "support": "Support"
     },
     "dashboard": {
         "title": "Panou",
@@ -237,7 +238,17 @@
         "sales_person": "Agent",
         "opening_balance_date": "Data de deschidere a soldului",
         "delimiter": "Delimitator",
-        "text": "Text"
+        "text": "Text",
+        "priority": "Priority",
+        "subject": "Subject",
+        "message": "Message",
+        "from": "From",
+        "to": "To",
+        "cc": "CC",
+        "bcc": "BCC",
+        "assigned_to": "Assigned to",
+        "partner": "Partner",
+        "new_replay": "New Reply"
     },
     "address_types": {
         "billing": "Facturare",
@@ -302,6 +313,14 @@
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Altele"
+    },
+    "support_priority": {
+        "none": "None",
+        "low": "Low",
+        "medium": "Medium",
+        "normal": "Normal",
+        "high": "High",
+        "urgent": "Urgent"
     },
     "product_type": {
         "product": "Produs",
@@ -441,7 +460,14 @@
         "pending": "In asteptare",
         "completed": "Completat",
         "confirmed": "Confirmare",
-        "tentative": "Tentativ"
+        "tentative": "Tentativ",
+        "open": "Open",
+        "closed": "Closed",
+        "archived": "Archived",
+        "in_progress": "In Progress",
+        "reopened": "Reopened",
+        "resolved": "Resolved",
+        "waiting_for_reply": "Waiting for reply"
     },
     "calendar": {
         "calendar": "Calendar <unk> Calendare",
@@ -524,6 +550,21 @@
         "no_documents": "Niciun document găsit",
         "create_first_document": "Creează primul tău document",
         "delete_confirm_document": "Sunteţi sigur că doriţi să ştergeţi acest document?"
+    },
+    "support": {
+        "support": "Support | Supports",
+        "support_tickets": "Support Tickets",
+        "view_ticket": "View Ticket",
+        "new_ticket": "New Ticket",
+        "edit_ticket": "Edit Ticket",
+        "no_support_tickets": "No tickets found",
+        "create_first_support_ticket": "Create your first ticket",
+        "delete_confirm_ticket": "Are you sure you want to delete this ticket?",
+        "ticket_reply_delete_confirm": "Are you sure you want to delete this ticket reply?",
+        "share_dialog": "Share ticket",
+        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code.",
+        "system": "System",
+        "delete_confirm_message": "Are you sure you want to delete this message?"
     },
     "employee": {
         "employee": "Angajat <unk> Angajați",
