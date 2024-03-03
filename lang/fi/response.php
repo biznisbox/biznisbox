@@ -43,7 +43,6 @@ return [
         'success' => 'Salasanan vaihtaminen onnistui',
         'failed' => 'Salasanan vaihtaminen epäonnistui',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Tuotetta ei löydy',
@@ -56,7 +55,6 @@ return [
         'delete_success' => 'Tuote poistettu onnistuneesti',
         'delete_failed' => 'Tuotetta ei voitu poistaa',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Kumppania ei löytynyt',
@@ -69,7 +67,6 @@ return [
         'delete_success' => 'Kumppanin poisto onnistui',
         'delete_failed' => 'Kumppania ei voitu poistaa',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'Tapahtumaa ei löytynyt',
@@ -82,7 +79,6 @@ return [
         'delete_success' => 'Tapahtuma poistettu onnistuneesti',
         'delete_failed' => 'Tapahtumaa ei voitu poistaa',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Tilit noudettu onnistuneesti',
@@ -98,7 +94,6 @@ return [
         'get_error' => 'Tiliä ei voitu hakea',
         'delete_default_account' => 'Oletustiliä ei voi poistaa',
     ],
-
     //Bill responses
     'bill' => [
         'get_success' => 'Laskua haettu onnistuneesti',
@@ -110,7 +105,6 @@ return [
         'delete_success' => 'Lasku poistettu onnistuneesti',
         'delete_error' => 'Laskua ei voitu poistaa onnistuneesti',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Asiakirjat noudettu onnistuneesti',
@@ -123,7 +117,6 @@ return [
         'delete_failed' => 'Asiakirjaa ei voitu poistaa onnistuneesti',
         'delete_success' => 'Asiakirjan poisto onnistui',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Työntekijää ei löytynyt',
@@ -136,7 +129,6 @@ return [
         'delete_success' => 'Työntekijän poisto onnistui',
         'delete_failed' => 'Työntekijää ei voitu poistaa',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'Tiedosto noudettu onnistuneesti',
@@ -158,7 +150,6 @@ return [
         'delete_failed_folder' => 'Kansiota ei voitu poistaa onnistuneesti',
         'delete_success_folder' => 'Kansio poistettu onnistuneesti',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Lainaukset haettu onnistuneesti',
@@ -178,7 +169,7 @@ return [
         'send_failed' => 'Tarjousta ei voitu lähettää',
         'pdf_failed' => 'PDF: n luominen epäonnistui',
     ],
-
+    // Support ticket message responses
     'support_ticket_message' => [
         'get_success' => 'Tukipyyntöjen viestien haku onnistui',
         'get_failed' => 'Tukipyyntöviestejä ei voitu hakea',
@@ -190,7 +181,6 @@ return [
         'delete_failed' => 'Tukipyynnön viestiä ei voitu poistaa onnistuneesti',
         'delete_success' => 'Tukipyynnön viesti poistettu onnistuneesti',
     ],
-
     //Invoice responses
     'invoice' => [
         'get_success' => 'Laskut haettu onnistuneesti',
@@ -211,7 +201,6 @@ return [
         'notification_success' => 'Ilmoitus lähetetty onnistuneesti',
         'notification_failed' => 'Ilmoitusta ei voitu lähettää',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'Raita ei ole saatavilla',
@@ -223,7 +212,7 @@ return [
         'paypal_not_available' => 'PayPal ei saatavilla',
         'invoice' => 'Lasku',
     ],
-
+    //Support ticket responses
     'support_ticket' => [
         'get_success' => 'Tuki lippuja noudettu onnistuneesti',
         'get_failed' => 'Tukipyyntöjä ei voitu hakea',
@@ -241,7 +230,6 @@ return [
         'share_success' => 'Tukipyyntö jaettiin onnistuneesti',
         'share_failed' => 'Tukipyyntöä ei voitu jakaa',
     ],
-
     //Profile responses
     'user' => [
         'not_found' => 'Käyttäjää ei löytynyt',
@@ -253,7 +241,6 @@ return [
         'avatar_not_found' => 'Profiilikuvaa ei löydy',
         'avatar_updated' => 'Hahmo päivitettiin onnistuneesti',
     ],
-
     // Open Banking responses
     'open_banking' => [
         'country_required' => 'Maa vaaditaan',
@@ -266,7 +253,7 @@ return [
         'session_id_required' => 'Istunnon tunnus vaaditaan',
         'account_id_required' => 'Tilin tunnus vaaditaan',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Tapahtuma noudettu onnistuneesti',
         'get_error' => 'Tapahtumaa ei voitu noutaa',
@@ -293,12 +280,11 @@ return [
     'email' => [
         'invoice_subject' => 'Lasku',
     ],
-
     'dashboard' => [
         'income' => 'Tulot',
         'expense' => 'Menot',
     ],
-
+    // Months
     'months' => [
         'january' => 'Tammikuu',
         'february' => 'Helmikuu',
@@ -313,7 +299,7 @@ return [
         'november' => 'Marraskuu',
         'december' => 'Joulukuu',
     ],
-
+    //  Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Roolia ei löytynyt',
@@ -353,7 +339,6 @@ return [
             'delete_success' => 'Vero poistettu onnistuneesti',
             'delete_failed' => 'Veroa ei voitu poistaa',
         ],
-
         'user' => [
             'not_found' => 'Käyttäjää ei löytynyt',
             'create_failed' => 'Käyttäjää ei voitu luoda',
