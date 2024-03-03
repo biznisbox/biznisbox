@@ -22,6 +22,11 @@ return [
     'share_failed' => 'Kunne ikke deles',
     'accept_reject_success' => 'Godkjent/avvist',
     'convert_success' => 'Konvertering vellykket',
+    'pdf_failed' => 'Generering av PDF mislyktes',
+    'notification_success' => 'Varsling ble sendt',
+    'notification_failed' => 'Varsling kunne ikke sendes',
+    'no_key_provided' => 'Ingen nøkkel gitt',
+    'ping' => 'API jobber',
     // Auth responses
     'login' => [
         'success' => 'Du har nå logget inn',
@@ -174,6 +179,18 @@ return [
         'pdf_failed' => 'Generering av PDF mislyktes',
     ],
 
+    'support_ticket_message' => [
+        'get_success' => 'Brukerstøtte billettmeldinger hentet vellykket',
+        'get_failed' => 'Det kunne ikke hentes støtte billettmeldinger',
+        'not_found' => 'Finner ikke en melding med støtte sak',
+        'create_failed' => 'Saksmelding kunne ikke opprettes',
+        'create_success' => 'Melding om støtte sak ble opprettet',
+        'update_success' => 'Supportsaks melding ble oppdatert',
+        'update_failed' => 'Klarte ikke oppdatere melding for støtte billett',
+        'delete_failed' => 'Melding om støtte billett kunne ikke slettes',
+        'delete_success' => 'Melding om støtte sak slettet',
+    ],
+
     //Invoice responses
     'invoice' => [
         'get_success' => 'Fakturaer hentet hell',
@@ -205,6 +222,24 @@ return [
         'failed' => 'Betaling mislyktes',
         'paypal_not_available' => 'Paypal ikke tilgjengelig',
         'invoice' => 'Faktura',
+    ],
+
+    'support_ticket' => [
+        'get_success' => 'Støtte ble hentet',
+        'get_failed' => 'Støtte billetter kunne ikke hentes',
+        'not_found' => 'Støtte sak ble ikke funnet',
+        'create_failed' => 'Saken om støtte kunne ikke opprettes',
+        'create_success' => 'Supportsak ble opprettet',
+        'update_success' => 'Supportsak ble oppdatert',
+        'update_failed' => 'Sak for støtte kunne ikke oppdateres',
+        'delete_failed' => 'Supportsak kunne ikke slettes',
+        'delete_success' => 'Supportsak slettet',
+        'get_number_success' => 'Støtt billettnummer hentet vellykket',
+        'get_number_failed' => 'Kunne ikke hente saksnummer',
+        'send_success' => 'Melding om support sak ble sendt',
+        'send_failed' => 'Klarte ikke å sende supportsaks melding',
+        'share_success' => 'Supportsak ble delt',
+        'share_failed' => 'Sak for støtte kunne ikke deles',
     ],
 
     //Profile responses
