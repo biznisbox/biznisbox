@@ -119,7 +119,7 @@
         "reports": "Relazioni",
         "settings": "Impostazioni",
         "employees": "Dipendenti",
-        "support": "Support"
+        "support": "Supporto"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -239,16 +239,16 @@
         "opening_balance_date": "Data Saldo Apertura",
         "delimiter": "Delimitatore",
         "text": "Testo",
-        "priority": "Priority",
-        "subject": "Subject",
-        "message": "Message",
-        "from": "From",
-        "to": "To",
+        "priority": "Priorità",
+        "subject": "Oggetto",
+        "message": "Messaggio",
+        "from": "Da",
+        "to": "A",
         "cc": "CC",
-        "bcc": "BCC",
-        "assigned_to": "Assigned to",
+        "bcc": "CCN",
+        "assigned_to": "Assegnato a",
         "partner": "Partner",
-        "new_replay": "New Reply"
+        "new_replay": "Nuova Risposta"
     },
     "address_types": {
         "billing": "Fatturazione",
@@ -315,12 +315,12 @@
         "other": "Altro"
     },
     "support_priority": {
-        "none": "None",
-        "low": "Low",
-        "medium": "Medium",
-        "normal": "Normal",
-        "high": "High",
-        "urgent": "Urgent"
+        "none": "Nessuno",
+        "low": "Basso",
+        "medium": "Medio",
+        "normal": "Normale",
+        "high": "Alto",
+        "urgent": "Urgente"
     },
     "product_type": {
         "product": "Prodotto",
@@ -461,13 +461,13 @@
         "completed": "Completato",
         "confirmed": "Confermato",
         "tentative": "Provvisorio",
-        "open": "Open",
-        "closed": "Closed",
-        "archived": "Archived",
-        "in_progress": "In Progress",
-        "reopened": "Reopened",
-        "resolved": "Resolved",
-        "waiting_for_reply": "Waiting for reply"
+        "open": "Apri",
+        "closed": "Chiuso",
+        "archived": "Archiviato",
+        "in_progress": "In Corso",
+        "reopened": "Riaperto",
+        "resolved": "Risolto",
+        "waiting_for_reply": "In attesa di risposta"
     },
     "calendar": {
         "calendar": "Calendario <unk> Calendari",
@@ -552,19 +552,19 @@
         "delete_confirm_document": "Sei sicuro di voler eliminare questo documento?"
     },
     "support": {
-        "support": "Support | Supports",
-        "support_tickets": "Support Tickets",
-        "view_ticket": "View Ticket",
-        "new_ticket": "New Ticket",
-        "edit_ticket": "Edit Ticket",
-        "no_support_tickets": "No tickets found",
-        "create_first_support_ticket": "Create your first ticket",
-        "delete_confirm_ticket": "Are you sure you want to delete this ticket?",
-        "ticket_reply_delete_confirm": "Are you sure you want to delete this ticket reply?",
-        "share_dialog": "Share ticket",
-        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code.",
-        "system": "System",
-        "delete_confirm_message": "Are you sure you want to delete this message?"
+        "support": "Supporto <unk> Supporta",
+        "support_tickets": "Ticket Di Supporto",
+        "view_ticket": "Visualizza Ticket",
+        "new_ticket": "Nuovo Ticket",
+        "edit_ticket": "Modifica Ticket",
+        "no_support_tickets": "Nessun ticket trovato",
+        "create_first_support_ticket": "Crea il tuo primo ticket",
+        "delete_confirm_ticket": "Sei sicuro di voler eliminare questo ticket?",
+        "ticket_reply_delete_confirm": "Sei sicuro di voler eliminare questa risposta al ticket?",
+        "share_dialog": "Condividi ticket",
+        "share_dialog_text": "Copia il link qui sotto e condividilo con il tuo partner o scansiona il codice QR.",
+        "system": "Sistema",
+        "delete_confirm_message": "Sei sicuro di voler eliminare questo messaggio?"
     },
     "employee": {
         "employee": "Dipendente <unk> Dipendenti",
