@@ -16,6 +16,7 @@ return [
     'partners' => 'Parteneri',
     'employees' => 'Angajați',
     'transactions_categories' => 'Categorii de tranzacții',
+    'support' => 'Suport',
     'admin' => 'Admin',
     'admin_users' => 'Utilizatori Admin',
     'admin_roles' => 'Roluri de Admin',
