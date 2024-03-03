@@ -43,7 +43,6 @@ return [
         'success' => 'Пароль успішно скинуто',
         'failed' => 'Не вдалося скинути пароль',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Товар не знайдено',
@@ -56,7 +55,6 @@ return [
         'delete_success' => 'Продукт успішно видалено',
         'delete_failed' => 'Товар не може бути видалений',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Партнер не знайдено',
@@ -69,7 +67,6 @@ return [
         'delete_success' => 'Партнер успішно видалено',
         'delete_failed' => 'Партнер не може бути видалений',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'Транзакцію не знайдено',
@@ -82,7 +79,6 @@ return [
         'delete_success' => 'Транзакція успішно видалена',
         'delete_failed' => 'Операція не може бути видалена',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Облікові записи отримано успішно',
@@ -98,7 +94,6 @@ return [
         'get_error' => 'Не вдалося отримати рахунок',
         'delete_default_account' => 'Обліковий запис за замовчуванням не можна видалити',
     ],
-
     //Bill responses
     'bill' => [
         'get_success' => 'Рахунок отримано успішно',
@@ -110,7 +105,6 @@ return [
         'delete_success' => 'Рахунок видалено успішно',
         'delete_error' => 'Рахунок не може бути видалений успішно',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Документи успішно отримано',
@@ -123,7 +117,6 @@ return [
         'delete_failed' => 'Документ не вдалося видалити',
         'delete_success' => 'Документ успішно видалено',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Співробітника не знайдено',
@@ -136,7 +129,6 @@ return [
         'delete_success' => 'Співробітник успішно видалено',
         'delete_failed' => 'Співробітник не може бути видалений',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'Файл отримано успішно',
@@ -158,7 +150,6 @@ return [
         'delete_failed_folder' => 'Папка не може бути видалена успішно',
         'delete_success_folder' => 'Папка успішно видалена',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Цитати успішно отримані',
@@ -178,7 +169,7 @@ return [
         'send_failed' => 'Цитувати не вдалося відправити',
         'pdf_failed' => 'Не вдалося згенерувати PDF',
     ],
-
+    // Support ticket message responses
     'support_ticket_message' => [
         'get_success' => 'Повідомлення про технічну підтримку отримано успішно',
         'get_failed' => 'Не вдалося отримати повідомлення заявок із підтримкою',
@@ -190,7 +181,6 @@ return [
         'delete_failed' => 'Повідомлення тікету підтримки не може бути успішно видаленим',
         'delete_success' => 'Повідомлення тікету підтримки успішно видалено',
     ],
-
     //Invoice responses
     'invoice' => [
         'get_success' => 'Рахунок отримано успішно',
@@ -211,7 +201,6 @@ return [
         'notification_success' => 'Повідомлення надіслано успішно',
         'notification_failed' => 'Не вдалося надіслати повідомлення',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'Смуга недоступна',
@@ -223,7 +212,7 @@ return [
         'paypal_not_available' => 'PayPal не доступний',
         'invoice' => 'Інвойс',
     ],
-
+    //Support ticket responses
     'support_ticket' => [
         'get_success' => 'Заявки успішно отримано',
         'get_failed' => 'Не вдалося отримати квитки підтримки',
@@ -241,7 +230,6 @@ return [
         'share_success' => 'Заявку на підтримку успішно поділено',
         'share_failed' => 'Не вдалося поділитися квитком підтримки',
     ],
-
     //Profile responses
     'user' => [
         'not_found' => 'Користувач не знайдений',
@@ -253,7 +241,6 @@ return [
         'avatar_not_found' => 'Аватар не знайдено',
         'avatar_updated' => 'Аватар був успішно оновлений',
     ],
-
     // Open Banking responses
     'open_banking' => [
         'country_required' => 'Країна обов\'язкова',
@@ -266,7 +253,7 @@ return [
         'session_id_required' => 'Необхідно вказати ID сесії',
         'account_id_required' => 'Необхідно вказати ID рахунку',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Подію отримано успішно',
         'get_error' => 'Подія не може бути отримана',
@@ -293,12 +280,11 @@ return [
     'email' => [
         'invoice_subject' => 'Інвойс',
     ],
-
     'dashboard' => [
         'income' => 'Дохід',
         'expense' => 'Витрати',
     ],
-
+    // Months
     'months' => [
         'january' => 'Січень',
         'february' => 'Лютий',
@@ -313,7 +299,7 @@ return [
         'november' => 'Листопад',
         'december' => 'Грудень',
     ],
-
+    //  Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Роль не знайдена',
@@ -353,7 +339,6 @@ return [
             'delete_success' => 'Податок видалено успішно',
             'delete_failed' => 'Податок не може бути видалено',
         ],
-
         'user' => [
             'not_found' => 'Користувач не знайдений',
             'create_failed' => 'Не вдалося створити користувача',
