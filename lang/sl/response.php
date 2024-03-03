@@ -22,6 +22,11 @@ return [
     'share_failed' => 'Ni bilo mogoče dati v skupno rabo',
     'accept_reject_success' => 'Uspešno sprejeto/zavrnjeno',
     'convert_success' => 'Uspešno pretvorjeno',
+    'pdf_failed' => 'Ustvarjanje PDF ni bilo uspešno',
+    'notification_success' => 'Obvestilo je bilo uspešno poslano',
+    'notification_failed' => 'Pošiljanje obvestila ni bilo uspešno',
+    'no_key_provided' => 'Ključ ni bil posredovan',
+    'ping' => 'Aplikacija deluje',
     // Auth responses
     'login' => [
         'success' => 'Prijava je bila uspešna',
@@ -38,7 +43,6 @@ return [
         'success' => 'Uspešno ponastavljeno geslo',
         'failed' => 'Ponastavitev gesla ni bila uspešna',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Izdelek ni bil najden',
@@ -51,7 +55,6 @@ return [
         'delete_success' => 'Izdelek je bil uspešno izbrisan',
         'delete_failed' => 'Izdelka ni bilo mogoče izbrisati',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Partner ni najden',
@@ -64,7 +67,6 @@ return [
         'delete_success' => 'Partner uspešno izbrisan',
         'delete_failed' => 'Partnerja ni bilo mogoče izbrisati',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'Transakcija ni možno najti',
@@ -77,7 +79,6 @@ return [
         'delete_success' => 'Transakcija je bila uspešno izbrisana',
         'delete_failed' => 'Transakcije ni bilo mogoče izbrisati',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Račun je bil uspešno pridobljen',
@@ -93,19 +94,17 @@ return [
         'get_error' => 'Računa ni bilo mogoče pridobiti',
         'delete_default_account' => 'Prevzetega računa ni mogoče izbrisati',
     ],
-
     //Bill responses
     'bill' => [
-        'get_success' => 'Račun je bil uspešno pridobljen',
-        'get_error' => 'Računa ni bilo mogoče pridobiti',
-        'create_success' => 'Račun je bil uspešno ustvarjen',
-        'create_error' => 'Računa ni bilo mogoče ustvariti',
-        'update_success' => 'Račun je bil uspešno posodobljen',
-        'update_error' => 'Računa ni bilo mogoče posodobiti',
-        'delete_success' => 'Račun je bil uspešno izbrisan',
-        'delete_error' => 'Računa ni bilo mogoče izbrisati',
+        'get_success' => 'Prejeti račun je bil uspešno pridobljen',
+        'get_error' => 'Prejetega računa ni bilo mogoče pridobiti',
+        'create_success' => 'Prejeti račun je bil uspešno ustvarjen',
+        'create_error' => 'Prejetega računa ni bilo mogoče ustvariti',
+        'update_success' => 'Prejeti račun je bil uspešno posodobljen',
+        'update_error' => 'Prejetega računa ni bilo mogoče posodobiti',
+        'delete_success' => 'Prejeti račun je bil uspešno izbrisan',
+        'delete_error' => 'Prejetega računa ni bilo mogoče izbrisati',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Dokument je bil uspešno pridobljen',
@@ -118,7 +117,6 @@ return [
         'delete_failed' => 'Dokumenta ni bilo mogoče izbrisati',
         'delete_success' => 'Dokument je bil uspešno izbrisan',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Zaposleni ni najden',
@@ -131,7 +129,6 @@ return [
         'delete_success' => 'Zaposlen uspešno izbrisan',
         'delete_failed' => 'Zaposlenega ni mogoče izbrisati',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'Datoteka pridobljena uspešno',
@@ -153,7 +150,6 @@ return [
         'delete_failed_folder' => 'Mape ni bilo mogoče izbrisati',
         'delete_success_folder' => 'Mapa uspešno izbrisana',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Ponudba je bil uspešno pridobljena',
@@ -173,7 +169,18 @@ return [
         'send_failed' => 'Ponudbe ni bilo mogoče poslati',
         'pdf_failed' => 'Ustvarjanje PDF datoteke ni bilo uspešno',
     ],
-
+    // Support ticket message responses
+    'support_ticket_message' => [
+        'get_success' => 'Uspešno pridobljena sporočila podpore',
+        'get_failed' => 'Sporočil podpore ni bilo mogoče pridobiti',
+        'not_found' => 'Sporočila podpore ni bilo mogoče najti',
+        'create_failed' => 'Sporočila podpore ni bilo mogoče ustvariti',
+        'create_success' => 'Sporočila podpore so bila uspešno ustvarjena',
+        'update_success' => 'Sporočila podpore so bila uspešno posodobljena',
+        'update_failed' => 'Sporočila podpore ni bilo mogoče posodobiti',
+        'delete_failed' => 'Sporočila podpore ni bilo mogoče izbrisati',
+        'delete_success' => 'Sporočila podpore so bila uspešno izbrisana',
+    ],
     //Invoice responses
     'invoice' => [
         'get_success' => 'Račun je bil uspešno pridobljen',
@@ -192,7 +199,6 @@ return [
         'delete_failed' => 'Računa ni bilo mogoče izbrisati',
         'transaction_success' => 'Transakcija je bila uspešno dodana',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'Stripe ni na voljo',
@@ -204,7 +210,24 @@ return [
         'paypal_not_available' => 'PayPal ni na voljo',
         'invoice' => 'Račun',
     ],
-
+    //Support ticket responses
+    'support_ticket' => [
+        'get_success' => 'Podporni zahtevki so bili uspešno pridobljeni',
+        'get_failed' => 'Podpornih zahtevkov ni bilo mogoče pridobiti',
+        'not_found' => 'Podpornega zahtevka ni bilo mogoče najti',
+        'create_failed' => 'Podpornega zahtevka ni bilo mogoče ustvariti',
+        'create_success' => 'Podporni zahtevek je bil uspešno ustvarjen',
+        'update_success' => 'Podporni zahtevk je bil uspešno posodobljen',
+        'update_failed' => 'Podpornega zahtevka ni bilo mogoče posodobiti',
+        'delete_failed' => 'Podpornega zahtevka ni bilo mogoče izbrisati',
+        'delete_success' => 'Podporni zahtevek je bil uspešno izbrisan',
+        'get_number_success' => 'Številka podpornega zahtevka je bila uspešno pridobljena',
+        'get_number_failed' => 'Številke podpornega zahtevka ni bilo mogoče pridobiti',
+        'send_success' => 'Obvestilo podpornega zahtevka je bilo uspešno poslano',
+        'send_failed' => 'Obvestilo podpornega zahtevka ni bilo mogoče poslati',
+        'share_success' => 'Skupna raba podpornega zahtevka je bila uspešna',
+        'share_failed' => 'Skupna raba podpornega zahtevka ni bila uspešna',
+    ],
     //Profile responses
     'user' => [
         'not_found' => 'Uporabnika ni bilo mogoče najti',
@@ -226,7 +249,7 @@ return [
         'session_id_required' => 'ID seje je obvezen',
         'account_id_required' => 'ID računa je obvezen',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Dogodek uspešno pridobljen',
         'get_error' => 'Dogodka ni bilo mogoče pridobiti',
@@ -253,12 +276,11 @@ return [
     'email' => [
         'invoice_subject' => 'Račun',
     ],
-
     'dashboard' => [
         'income' => 'Prihodek',
         'expense' => 'Odhodek',
     ],
-
+    // Language responses
     'months' => [
         'january' => 'Januar',
         'february' => 'Februar',
@@ -273,7 +295,7 @@ return [
         'november' => 'November',
         'december' => 'December',
     ],
-
+    // Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Vloge ni bilo mogoče najti',
@@ -313,7 +335,6 @@ return [
             'delete_success' => 'Davčna stopnja je bila uspešno izbrisana',
             'delete_failed' => 'Davčne stopnje ni bilo mogoče izbrisati',
         ],
-
         'user' => [
             'not_found' => 'Uporabnika ni bilo mogoče najti',
             'create_failed' => 'Uporabnika ni bilo mogoče ustvariti',

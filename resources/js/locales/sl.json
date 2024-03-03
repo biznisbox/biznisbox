@@ -107,7 +107,7 @@
         "invoices": "Računi",
         "purchases": "Nakupi",
         "quotes": "Ponudba",
-        "bills": "Računi",
+        "bills": "Prejeti računi",
         "banking": "Bančništvo",
         "transactions": "Transakcije",
         "accounts": "Računi",
@@ -126,7 +126,7 @@
         "total_customers": "Skupno število strank",
         "total_products": "Skupno število izdelkov",
         "total_unpaid_invoices": "Skupno število neplačanih računov",
-        "total_unpaid_bills": "Skupno število neplačanih računov",
+        "total_unpaid_bills": "Skupno število neplačanih prejetih računov",
         "year_income_expense_chart": "Prihodki in stroški za letošnje leto",
         "current_month_income_expense_chart": "Prihodki in stroški za trenutni mesec"
     },
@@ -515,16 +515,16 @@
         "delete_confirm_folder": "Ali ste prepričani, da želite izbrisati to mapo?"
     },
     "bill": {
-        "bill": "Račun | Računi",
-        "new_bill": "Nov račun",
-        "edit_bill": "Uredi račun",
-        "no_bills": "Ni računov",
-        "create_first_bill": "Ustvarite svoj prvi račun",
+        "bill": "Prejeti račun | Prejeti računi",
+        "new_bill": "Nov prejeti račun",
+        "edit_bill": "Uredi prejeti račun",
+        "no_bills": "Ni prejetih računov",
+        "create_first_bill": "Ustvarite svoj prvi prejeti račun",
         "no_supplier": "Ni dobavitelja",
         "no_items": "Ni postavk",
         "select_item": "Izberi postavko",
         "date_and_due_date": "Datum in datum zapadlosti",
-        "delete_confirm_bill": "Ali ste prepričani, da želite izbrisati ta račun?"
+        "delete_confirm_bill": "Ali ste prepričani, da želite izbrisati izbrani prejeti račun?"
     },
     "account": {
         "account": "Račun | Računi",
@@ -753,7 +753,7 @@
             "payment": "Format številke plačila",
             "quote": "Format številke ponudbe",
             "partner": "Format številke partnerja",
-            "bill": "Format številke računa",
+            "bill": "Format številke prejetega računa",
             "document": "Format številke dokumenta",
             "product": "Format številke produkta",
             "employee": "Format številke zaposlenega"
