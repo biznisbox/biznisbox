@@ -43,7 +43,6 @@ return [
         'success' => 'Επιτυχής επαναφορά κωδικού πρόσβασης',
         'failed' => 'Αποτυχία επαναφοράς κωδικού πρόσβασης',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Το προϊόν δεν βρέθηκε',
@@ -56,7 +55,6 @@ return [
         'delete_success' => 'Το προϊόν διαγράφηκε επιτυχώς',
         'delete_failed' => 'Δεν ήταν δυνατή η διαγραφή του προϊόντος',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Ο συνεργάτης δεν βρέθηκε',
@@ -69,7 +67,6 @@ return [
         'delete_success' => 'Ο συνεργάτης διαγράφηκε επιτυχώς',
         'delete_failed' => 'Δεν ήταν δυνατή η διαγραφή ενός συνεργάτη',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'Η συναλλαγή δεν βρέθηκε',
@@ -82,7 +79,6 @@ return [
         'delete_success' => 'Η συναλλαγή διαγράφηκε επιτυχώς',
         'delete_failed' => 'Δεν ήταν δυνατή η διαγραφή μιας συναλλαγής',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Οι λογαριασμοί ανακτήθηκαν με επιτυχία',
@@ -98,7 +94,6 @@ return [
         'get_error' => 'Δεν ήταν δυνατή η ανάκτηση του λογαριασμού',
         'delete_default_account' => 'Ο προεπιλεγμένος λογαριασμός δεν μπορεί να διαγραφεί',
     ],
-
     //Bill responses
     'bill' => [
         'get_success' => 'Ο λογαριασμός ανακτήθηκε με επιτυχία',
@@ -110,7 +105,6 @@ return [
         'delete_success' => 'Ο λογαριασμός διαγράφηκε επιτυχώς',
         'delete_error' => 'Ο λογαριασμός δεν μπόρεσε να διαγραφεί με επιτυχία',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Έγγραφα ανακτήθηκαν με επιτυχία',
@@ -123,7 +117,6 @@ return [
         'delete_failed' => 'Το έγγραφο δεν μπόρεσε να διαγραφεί με επιτυχία',
         'delete_success' => 'Το έγγραφο διαγράφηκε επιτυχώς',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Δεν βρέθηκε υπάλληλος',
@@ -136,7 +129,6 @@ return [
         'delete_success' => 'Υπάλληλος διαγράφηκε με επιτυχία',
         'delete_failed' => 'Ένας υπάλληλος δεν μπόρεσε να διαγραφεί',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'Το αρχείο ανακτήθηκε επιτυχώς',
@@ -158,7 +150,6 @@ return [
         'delete_failed_folder' => 'Ο φάκελος δεν μπόρεσε να διαγραφεί με επιτυχία',
         'delete_success_folder' => 'Ο φάκελος διαγράφηκε επιτυχώς',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Τα εισαγωγικά ανακτήθηκαν με επιτυχία',
@@ -178,7 +169,7 @@ return [
         'send_failed' => 'Η προσφορά δεν μπόρεσε να σταλεί',
         'pdf_failed' => 'Η δημιουργία PDF απέτυχε',
     ],
-
+    // Support ticket message responses
     'support_ticket_message' => [
         'get_success' => 'Τα μηνύματα υποστήριξης ανακτήθηκαν με επιτυχία',
         'get_failed' => 'Τα μηνύματα των εισιτηρίων υποστήριξης δεν μπόρεσαν να ανακτηθούν',
@@ -190,7 +181,6 @@ return [
         'delete_failed' => 'Το μήνυμα του αιτήματος υποστήριξης δεν μπόρεσε να διαγραφεί με επιτυχία',
         'delete_success' => 'Το μήνυμα του αιτήματος υποστήριξης διαγράφηκε με επιτυχία',
     ],
-
     //Invoice responses
     'invoice' => [
         'get_success' => 'Επιτυχής ανάκτηση τιμολογίων',
@@ -211,7 +201,6 @@ return [
         'notification_success' => 'Ειδοποίηση εστάλη με επιτυχία',
         'notification_failed' => 'Δεν ήταν δυνατή η αποστολή ειδοποιήσεων',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'Το Stripe δεν είναι διαθέσιμο',
@@ -223,7 +212,7 @@ return [
         'paypal_not_available' => 'Paypal δεν είναι διαθέσιμο',
         'invoice' => 'Τιμολόγιο',
     ],
-
+    //Support ticket responses
     'support_ticket' => [
         'get_success' => 'Τα εισιτήρια υποστήριξης ανακτήθηκαν με επιτυχία',
         'get_failed' => 'Τα εισιτήρια υποστήριξης δεν μπόρεσαν να ανακτηθούν',
@@ -241,7 +230,6 @@ return [
         'share_success' => 'Το αίτημα υποστήριξης κοινοποιήθηκε με επιτυχία',
         'share_failed' => 'Το εισιτήριο υποστήριξης δεν ήταν δυνατό να κοινοποιηθεί',
     ],
-
     //Profile responses
     'user' => [
         'not_found' => 'Δεν ήταν δυνατή η εύρεση του χρήστη',
@@ -253,7 +241,6 @@ return [
         'avatar_not_found' => 'Το Avatar δεν βρέθηκε',
         'avatar_updated' => 'Avatar ενημερώθηκε με επιτυχία',
     ],
-
     // Open Banking responses
     'open_banking' => [
         'country_required' => 'Η χώρα απαιτείται',
@@ -266,7 +253,7 @@ return [
         'session_id_required' => 'Απαιτείται ID συνεδρίας',
         'account_id_required' => 'Απαιτείται ID λογαριασμού',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Το συμβάν ανακτήθηκε επιτυχώς',
         'get_error' => 'Δεν ήταν δυνατή η ανάκτηση του συμβάντος',
@@ -293,12 +280,11 @@ return [
     'email' => [
         'invoice_subject' => 'Τιμολόγιο',
     ],
-
     'dashboard' => [
         'income' => 'Έσοδα',
         'expense' => 'Έξοδα',
     ],
-
+    // Months
     'months' => [
         'january' => 'Ιανουάριος',
         'february' => 'Φεβρουάριος',
@@ -313,7 +299,7 @@ return [
         'november' => 'Νοέμβριος',
         'december' => 'Δεκέμβριος',
     ],
-
+    //  Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Ο ρόλος δεν βρέθηκε',
@@ -353,7 +339,6 @@ return [
             'delete_success' => 'Ο φόρος διαγράφηκε με επιτυχία',
             'delete_failed' => 'Δεν ήταν δυνατή η διαγραφή του φόρου',
         ],
-
         'user' => [
             'not_found' => 'Δεν ήταν δυνατή η εύρεση του χρήστη',
             'create_failed' => 'Ο χρήστης δεν μπόρεσε να δημιουργηθεί',
