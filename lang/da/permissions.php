@@ -16,6 +16,7 @@ return [
     'partners' => 'Partnere',
     'employees' => 'Medarbejdere',
     'transactions_categories' => 'Transaktioner Kategorier',
+    'support' => 'Support',
     'admin' => 'Administrator',
     'admin_users' => 'Admin Brugere',
     'admin_roles' => 'Admin Roller',
