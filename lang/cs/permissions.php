@@ -16,6 +16,7 @@ return [
     'partners' => 'Partneři',
     'employees' => 'Zaměstnanci',
     'transactions_categories' => 'Kategorie transakcí',
+    'support' => 'Podpora',
     'admin' => 'Admin',
     'admin_users' => 'Admin uživatelé',
     'admin_roles' => 'Admin role',
