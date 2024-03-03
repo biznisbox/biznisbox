@@ -22,6 +22,11 @@ return [
     'share_failed' => 'Nie można udostępnić',
     'accept_reject_success' => 'Zaakceptowane/odrzucone pomyślnie',
     'convert_success' => 'Przekonwertowano pomyślnie',
+    'pdf_failed' => 'Generowanie PDF nie powiodło się',
+    'notification_success' => 'Powiadomienie zostało wysłane pomyślnie',
+    'notification_failed' => 'Nie można wysłać powiadomienia',
+    'no_key_provided' => 'Nie podano klucza',
+    'ping' => 'API działa',
     // Auth responses
     'login' => [
         'success' => 'Zalogowano pomyślnie',
@@ -174,6 +179,18 @@ return [
         'pdf_failed' => 'Generowanie PDF nie powiodło się',
     ],
 
+    'support_ticket_message' => [
+        'get_success' => 'Pomyślnie pobrano wiadomości dotyczące zgłoszenia',
+        'get_failed' => 'Nie można pobrać wiadomości zgłoszenia pomocy technicznej',
+        'not_found' => 'Nie można odnaleźć wiadomości o zgłoszeniu',
+        'create_failed' => 'Nie można utworzyć wiadomości o zgłoszeniu',
+        'create_success' => 'Wiadomość zgłoszenia została utworzona pomyślnie',
+        'update_success' => 'Wiadomość zgłoszenia została pomyślnie zaktualizowana',
+        'update_failed' => 'Nie można zaktualizować wiadomości zgłoszenia pomocy technicznej',
+        'delete_failed' => 'Nie udało się usunąć wiadomości o zgłoszeniu',
+        'delete_success' => 'Wiadomość zgłoszenia została usunięta',
+    ],
+
     //Invoice responses
     'invoice' => [
         'get_success' => 'Faktury pobrane pomyślnie',
@@ -205,6 +222,24 @@ return [
         'failed' => 'Płatność nie powiodła się',
         'paypal_not_available' => 'PayPal niedostępny',
         'invoice' => 'Faktura',
+    ],
+
+    'support_ticket' => [
+        'get_success' => 'Bilety wsparcia zostały pobrane pomyślnie',
+        'get_failed' => 'Bilety wsparcia nie mogły zostać pobrane',
+        'not_found' => 'Nie można odnaleźć zgłoszenia',
+        'create_failed' => 'Nie można utworzyć zgłoszenia pomocy technicznej',
+        'create_success' => 'Bilet pomocy technicznej został utworzony pomyślnie',
+        'update_success' => 'Bilet pomocy technicznej został pomyślnie zaktualizowany',
+        'update_failed' => 'Nie można zaktualizować zgłoszenia pomocy technicznej',
+        'delete_failed' => 'Nie można usunąć zgłoszenia pomocy technicznej',
+        'delete_success' => 'Pomyślnie usunięto zgłoszenie',
+        'get_number_success' => 'Numer zgłoszenia pomocy technicznej pomyślnie pobrany',
+        'get_number_failed' => 'Nie można pobrać numeru zgłoszenia',
+        'send_success' => 'Wiadomość zgłoszenia została wysłana pomyślnie',
+        'send_failed' => 'Nie można wysłać wiadomości o zgłoszeniu',
+        'share_success' => 'Bilet pomocy technicznej został udostępniony pomyślnie',
+        'share_failed' => 'Nie można udostępnić zgłoszenia',
     ],
 
     //Profile responses
