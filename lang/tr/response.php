@@ -43,7 +43,6 @@ return [
         'success' => 'Şifre sıfırlama başarılı',
         'failed' => 'Şifre sıfırlama başarısız oldu',
     ],
-
     // Product responses
     'product' => [
         'not_found' => 'Ürün bulunamadı',
@@ -56,7 +55,6 @@ return [
         'delete_success' => 'Ürün başarıyla silindi',
         'delete_failed' => 'Bir ürün silinemedi',
     ],
-
     // Partner responses
     'partner' => [
         'not_found' => 'Ortak bulunamadı',
@@ -69,7 +67,6 @@ return [
         'delete_success' => 'Ortak başarıyla silindi',
         'delete_failed' => 'Bir ortak silinemedi',
     ],
-
     // Transaction responses
     'transaction' => [
         'not_found' => 'İşlem bulunamadı',
@@ -82,7 +79,6 @@ return [
         'delete_success' => 'İşlem başarıyla silindi',
         'delete_failed' => 'Bir işlem silinemedi',
     ],
-
     //Account responses
     'accounts' => [
         'get_success' => 'Hesaplar başarıyla alındı',
@@ -98,7 +94,6 @@ return [
         'get_error' => 'Hesap alınamadı',
         'delete_default_account' => 'Varsayılan hesap silinemez',
     ],
-
     //Bill responses
     'bill' => [
         'get_success' => 'Fatura başarıyla alındı',
@@ -110,7 +105,6 @@ return [
         'delete_success' => 'Fatura başarıyla silindi',
         'delete_error' => 'Fatura silinemedi',
     ],
-
     //Document responses
     'document' => [
         'get_success' => 'Belgeler başarıyla alındı',
@@ -123,7 +117,6 @@ return [
         'delete_failed' => 'Belge başarıyla silinemedi',
         'delete_success' => 'Belge başarıyla silindi',
     ],
-
     // Employee responses
     'employee' => [
         'not_found' => 'Çalışan bulunamadı',
@@ -136,7 +129,6 @@ return [
         'delete_success' => 'Çalışan başarıyla silindi',
         'delete_failed' => 'Bir çalışan silinemedi',
     ],
-
     // Archive responses
     'archive' => [
         'get_success' => 'Dosya başarıyla alındı',
@@ -158,7 +150,6 @@ return [
         'delete_failed_folder' => 'Klasör başarıyla silinemedi',
         'delete_success_folder' => 'Klasör başarıyla silindi',
     ],
-
     //Quote responses
     'quote' => [
         'get_success' => 'Teklifler başarıyla alındı',
@@ -178,7 +169,7 @@ return [
         'send_failed' => 'Teklif gönderilemedi',
         'pdf_failed' => 'PDF oluşturma başarısız oldu',
     ],
-
+    // Support ticket message responses
     'support_ticket_message' => [
         'get_success' => 'Destek talebi mesajları başarıyla alındı',
         'get_failed' => 'Destek talebi mesajları alınamadı',
@@ -190,7 +181,6 @@ return [
         'delete_failed' => 'Destek talebi mesajı başarıyla silinemedi',
         'delete_success' => 'Destek talebi mesajı başarıyla silindi',
     ],
-
     //Invoice responses
     'invoice' => [
         'get_success' => 'Faturalar başarıyla alındı',
@@ -211,7 +201,6 @@ return [
         'notification_success' => 'Bildirim başarıyla gönderildi',
         'notification_failed' => 'Bildirim gönderilemedi',
     ],
-
     //Online payment responses
     'payment' => [
         'stripe_not_available' => 'Stripe mevcut değil',
@@ -223,7 +212,7 @@ return [
         'paypal_not_available' => 'Paypal mevcut değil',
         'invoice' => 'Fatura',
     ],
-
+    //Support ticket responses
     'support_ticket' => [
         'get_success' => 'Destek talepleri başarıyla alındı',
         'get_failed' => 'Destek talepleri alınamadı',
@@ -241,7 +230,6 @@ return [
         'share_success' => 'Destek talebi başarıyla paylaşıldı',
         'share_failed' => 'Destek talebi paylaşılamadı',
     ],
-
     //Profile responses
     'user' => [
         'not_found' => 'Kullanıcı bulunamadı',
@@ -253,7 +241,6 @@ return [
         'avatar_not_found' => 'Avatar bulunamadı',
         'avatar_updated' => 'Avatar başarıyla güncellendi',
     ],
-
     // Open Banking responses
     'open_banking' => [
         'country_required' => 'Ülke gereklidir',
@@ -266,7 +253,7 @@ return [
         'session_id_required' => 'Oturum kimlik numarası gereklidir',
         'account_id_required' => 'Hesap kimlik numarası gereklidir',
     ],
-
+    // Calendar responses
     'calendar' => [
         'get_success' => 'Etkinlik başarıyla alındı',
         'get_error' => 'Etkinlik alınamadı',
@@ -293,12 +280,11 @@ return [
     'email' => [
         'invoice_subject' => 'Fatura',
     ],
-
     'dashboard' => [
         'income' => 'Gelir',
         'expense' => 'Gider',
     ],
-
+    // Months
     'months' => [
         'january' => 'Ocak',
         'february' => 'Şubat',
@@ -313,7 +299,7 @@ return [
         'november' => 'Kasım',
         'december' => 'Aralık',
     ],
-
+    //  Admin responses
     'admin' => [
         'role' => [
             'not_found' => 'Rol bulunamadı',
@@ -353,7 +339,6 @@ return [
             'delete_success' => 'Vergi başarıyla silindi',
             'delete_failed' => 'Vergi silinemedi',
         ],
-
         'user' => [
             'not_found' => 'Kullanıcı bulunamadı',
             'create_failed' => 'Kullanıcı oluşturulamadı',
