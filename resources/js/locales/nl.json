@@ -564,7 +564,11 @@
         "share_dialog": "Deel ticket",
         "share_dialog_text": "Kopieer de onderstaande link en deel deze met uw partner of scan de QR-code.",
         "system": "Systeem",
-        "delete_confirm_message": "Weet u zeker dat u dit bericht wilt verwijderen?"
+        "delete_confirm_message": "Weet u zeker dat u dit bericht wilt verwijderen?",
+        "ticket_details": "Ticket Details",
+        "mark_as_resolved": "Markeren als opgelost",
+        "mark_as_closed": "Markeren als gesloten",
+        "reopen_ticket": "Ticket heropenen"
     },
     "employee": {
         "employee": "Personeelsmedewerkers",
@@ -750,7 +754,8 @@
             "database_size": "Database grootte",
             "server_os": "Server OS",
             "php_version": "PHP versie",
-            "hostname": "Hostname"
+            "hostname": "Hostname",
+            "send_test_email": "Testmail verzenden"
         },
         "numbering": {
             "title": "Nummer formaten instellingen",
