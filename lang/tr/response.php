@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'Şifre sıfırlanamadı',
             'delete_failed_self_account' => 'Kendi hesabınızı silemezsiniz',
         ],
+        'email' => [
+            'test_email_sent' => 'Test email gönderimi başarılı bir şekilde gerçekleştirildi',
+            'test_email_failed' => 'Test email gönderilemedi',
+        ],
     ],
     'memory_used' => 'Kullanılan bellek',
     'memory_available' => 'Kullanılabilir bellek',
