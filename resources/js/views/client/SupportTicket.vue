@@ -16,7 +16,7 @@
                     <div class="card">
                         <DisplayData :input="$t('form.number')" :value="supportTicket.number" />
                         <DisplayData :input="$t('form.subject')" :value="supportTicket.subject" />
-                        <DisplayData :input="$t('form.department')" :value="supportTicket.department?.name" />
+                        <DisplayData :input="$t('form.department')" :value="supportTicket.department?.name" v-if="supportTicket.department_id" />
                         <DisplayData :input="$t('form.status')" custom-value>
                             <Badge v-if="supportTicket.status === 'open'" :value="$t('status.open')" class="p-badge-success" />
                             <Badge v-else-if="supportTicket.status === 'closed'" :value="$t('status.closed')" class="p-badge-danger" />
@@ -41,27 +41,27 @@
                             <Badge
                                 v-else-if="supportTicket.priority === 'low'"
                                 :value="$t('support_priority.low')"
-                                class="p-badge-secondary"
+                                class="p-badge-info"
                             />
                             <Badge
                                 v-else-if="supportTicket.priority === 'medium'"
                                 :value="$t('support_priority.medium')"
-                                class="p-badge-secondary"
+                                class="p-badge-warning"
                             />
                             <Badge
                                 v-else-if="supportTicket.priority === 'normal'"
                                 :value="$t('support_priority.normal')"
-                                class="p-badge-secondary"
+                                class="p-badge-success"
                             />
                             <Badge
                                 v-else-if="supportTicket.priority === 'high'"
                                 :value="$t('support_priority.high')"
-                                class="p-badge-secondary"
+                                class="p-badge-danger"
                             />
                             <Badge
                                 v-else-if="supportTicket.priority === 'urgent'"
                                 :value="$t('support_priority.urgent')"
-                                class="p-badge-secondary"
+                                class="p-badge-danger"
                             />
                         </DisplayData>
                     </div>
@@ -75,7 +75,7 @@
                                 <div id="content_{{ index }}_from" class="mt-4" v-if="content.from !== null">
                                     <div v-if="content.from === 'system'">
                                         <b>{{ $t('form.from') }}: </b>
-                                        <span class="p-badge p-badge-secondary">{{ $t('form.system') }}</span>
+                                        <span class="p-badge p-badge-secondary">{{ $t('support.system') }}</span>
                                     </div>
                                     <div v-else>
                                         <b>{{ $t('form.from') }}: </b>
@@ -97,7 +97,7 @@
                         </div>
 
                         <div>
-                            <div id="new_replay" class="card p-4 mb-4" v-if="supportTicket.status !== 'closed'">
+                            <div id="new_replay" class="card p-4 mb-4" v-if="supportTicket.status !== 'closed' && supportTicket.status !== 'resolved'">
                                 <TinyMceEditor id="content_input" v-model="supportTicketMessage.message" :label="$t('form.new_replay')" />
                                 <Button
                                     id="add_content_button"
