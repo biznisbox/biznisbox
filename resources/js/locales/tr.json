@@ -564,7 +564,11 @@
         "share_dialog": "Bileti paylaş",
         "share_dialog_text": "Aşağıdaki bağlantıyı kopyalayın ve ortağınızla paylaşın veya QR kodunu tarayın.",
         "system": "Sistem",
-        "delete_confirm_message": "Bu mesajı silmek istediğinizden emin misiniz?"
+        "delete_confirm_message": "Bu mesajı silmek istediğinizden emin misiniz?",
+        "ticket_details": "Bilet detayları",
+        "mark_as_resolved": "Çözüldü olarak işaretle",
+        "mark_as_closed": "Kapalı olarak işaretle",
+        "reopen_ticket": "Bileti yeniden aç"
     },
     "employee": {
         "employee": "Çalışan | Çalışanlar",
@@ -750,7 +754,8 @@
             "database_size": "Veritabanı Boyutu",
             "server_os": "Sunucu İşletim Sistemi",
             "php_version": "PHP Sürümü",
-            "hostname": "Ana Bilgisayar Adı"
+            "hostname": "Ana Bilgisayar Adı",
+            "send_test_email": "Test e-postası gönder"
         },
         "numbering": {
             "title": "Sayı formatı ayarları",
