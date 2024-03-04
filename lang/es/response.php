@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'No se pudo restablecer la contraseña',
             'delete_failed_self_account' => 'No puedes eliminar tu propia cuenta',
         ],
+        'email' => [
+            'test_email_sent' => 'Email de prueba enviado correctamente',
+            'test_email_failed' => 'No se pudo enviar el email de prueba',
+        ],
     ],
     'memory_used' => 'Memoria usada',
     'memory_available' => 'Memoria disponible',
