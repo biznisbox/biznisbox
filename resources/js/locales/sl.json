@@ -564,7 +564,11 @@
         "share_dialog": "Deli vstopnico",
         "share_dialog_text": "Kopirajte spodnjo povezavo in jo delite s partnerjem ali skenirajte QR kodo.",
         "system": "Sistem",
-        "delete_confirm_message": "Ali ste prepričani, da želite izbrisati to sporočilo?"
+        "delete_confirm_message": "Ali ste prepričani, da želite izbrisati to sporočilo?",
+        "ticket_details": "Podrobnosti vstopnice",
+        "mark_as_resolved": "Označi kot rešeno",
+        "mark_as_closed": "Označi kot zaprto",
+        "reopen_ticket": "Ponovno odprite vstopnico"
     },
     "employee": {
         "employee": "Zaposlen | Zaposleni",
@@ -750,7 +754,8 @@
             "database_size": "Velikost zbirke podatkov",
             "server_os": "Operacijski sistem strežnika",
             "php_version": "Verzija PHP",
-            "hostname": "Ime gostitelja"
+            "hostname": "Ime gostitelja",
+            "send_test_email": "Pošlji testno e-pošto"
         },
         "numbering": {
             "title": "Številčenje",
