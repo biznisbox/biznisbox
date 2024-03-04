@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'Gesla ni bilo mogoče ponastaviti',
             'delete_failed_self_account' => 'Ne morate izbrisati lastnega računa',
         ],
+        'email' => [
+            'test_email_sent' => 'Test email was sent successfully',
+            'test_email_failed' => 'Ponudbe ni bilo mogoče poslati',
+        ],
     ],
     'memory_used' => 'Uporabljen pomnilnik',
     'memory_available' => 'Pomnilnik na voljo',
