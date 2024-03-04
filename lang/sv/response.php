@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'Lösenordet kunde inte återställas',
             'delete_failed_self_account' => 'Du kan inte ta bort ditt eget konto',
         ],
+        'email' => [
+            'test_email_sent' => 'Testmeddelandet har skickats',
+            'test_email_failed' => 'Testmeddelandet kunde inte skickas',
+        ],
     ],
     'memory_used' => 'Använt minne',
     'memory_available' => 'Tillgängligt minne',
