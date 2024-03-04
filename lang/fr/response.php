@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'Le mot de passe n\'a pas pu être réinitialisé',
             'delete_failed_self_account' => 'Vous ne pouvez pas supprimer votre propre compte',
         ],
+        'email' => [
+            'test_email_sent' => 'L\'e-mail de test a été envoyé avec succès',
+            'test_email_failed' => 'L\'e-mail de test n\'a pas pu être envoyé',
+        ],
     ],
     'memory_used' => 'Mémoire utilisée',
     'memory_available' => 'Mémoire disponible',
