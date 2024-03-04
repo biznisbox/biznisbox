@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'Wachtwoord kon niet worden gereset',
             'delete_failed_self_account' => 'U kunt uw eigen account niet verwijderen',
         ],
+        'email' => [
+            'test_email_sent' => 'Test e-mail is succesvol verzonden',
+            'test_email_failed' => 'Test e-mail kon niet worden verzonden',
+        ],
     ],
     'memory_used' => 'Geheugen gebruikt',
     'memory_available' => 'Geheugen beschikbaar',
