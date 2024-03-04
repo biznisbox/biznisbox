@@ -564,7 +564,11 @@
         "share_dialog": "Del regning",
         "share_dialog_text": "Kopier linket nedenfor og del det med din partner eller skan QR-koden.",
         "system": "System",
-        "delete_confirm_message": "Er du sikker på, at du vil slette denne besked?"
+        "delete_confirm_message": "Er du sikker på, at du vil slette denne besked?",
+        "ticket_details": "Billet detaljer",
+        "mark_as_resolved": "Marker som løst",
+        "mark_as_closed": "Marker som lukket",
+        "reopen_ticket": "Genåbn bestilling"
     },
     "employee": {
         "employee": "Medarbejder _ Medarbejdere",
@@ -750,7 +754,8 @@
             "database_size": "Database Størrelse",
             "server_os": "Server OS",
             "php_version": "PHP Version",
-            "hostname": "Hostname"
+            "hostname": "Hostname",
+            "send_test_email": "Send test e-mail"
         },
         "numbering": {
             "title": "Indstillinger for nummerformater",
