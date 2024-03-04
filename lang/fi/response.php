@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'Salasanaa ei voitu nollata',
             'delete_failed_self_account' => 'Et voi poistaa omaa tiliäsi',
         ],
+        'email' => [
+            'test_email_sent' => 'Testi sähköposti lähetettiin onnistuneesti',
+            'test_email_failed' => 'Testi sähköpostia ei voitu lähettää',
+        ],
     ],
     'memory_used' => 'Muistia käytetty',
     'memory_available' => 'Muistia saatavilla',
