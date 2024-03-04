@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'Adgangskoden kunne ikke nulstilles',
             'delete_failed_self_account' => 'Du kan ikke slette din egen konto',
         ],
+        'email' => [
+            'test_email_sent' => 'Test e-mail blev sendt',
+            'test_email_failed' => 'Test e-mail kunne ikke sendes',
+        ],
     ],
     'memory_used' => 'Brugt hukommelse',
     'memory_available' => 'Tilgængelig hukommelse',
