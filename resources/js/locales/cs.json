@@ -565,10 +565,10 @@
         "share_dialog_text": "Zkopírujte níže uvedený odkaz a sdílejte jej s partnerem nebo naskenujte QR kód.",
         "system": "Systém",
         "delete_confirm_message": "Jste si jisti, že chcete odstranit tuto zprávu?",
-        "ticket_details": "Ticket details",
-        "mark_as_resolved": "Mark as resolved",
-        "mark_as_closed": "Mark as closed",
-        "reopen_ticket": "Reopen ticket"
+        "ticket_details": "Podrobnosti tiketu",
+        "mark_as_resolved": "Označit jako vyřešený",
+        "mark_as_closed": "Označit jako uzavřené",
+        "reopen_ticket": "Znovu otevřít tiket"
     },
     "employee": {
         "employee": "Zaměstnanec | Zaměstnanci",
@@ -755,7 +755,7 @@
             "server_os": "OS serveru",
             "php_version": "Verze PHP",
             "hostname": "Hostname",
-            "send_test_email": "Send test email"
+            "send_test_email": "Odeslat testovací e-mail"
         },
         "numbering": {
             "title": "Nastavení formátů čísel",
