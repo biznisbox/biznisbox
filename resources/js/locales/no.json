@@ -564,7 +564,11 @@
         "share_dialog": "Del billett",
         "share_dialog_text": "Kopier lenken nedenfor og del den med partneren din eller skann QR-koden.",
         "system": "Systemadministrasjon",
-        "delete_confirm_message": "Er du sikker på at du vil slette denne meldingen?"
+        "delete_confirm_message": "Er du sikker på at du vil slette denne meldingen?",
+        "ticket_details": "Saks detaljer",
+        "mark_as_resolved": "Merk som løst",
+        "mark_as_closed": "Marker som lukket",
+        "reopen_ticket": "Åpne sak"
     },
     "employee": {
         "employee": "Ansatte for ansatte",
@@ -750,7 +754,8 @@
             "database_size": "Database størrelse",
             "server_os": "Operativsystem på server",
             "php_version": "PHP versjon",
-            "hostname": "Hostname"
+            "hostname": "Hostname",
+            "send_test_email": "Send test-e-post"
         },
         "numbering": {
             "title": "Antall formater innstillinger",
