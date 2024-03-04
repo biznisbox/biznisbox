@@ -564,7 +564,11 @@
         "share_dialog": "Поделиться картой",
         "share_dialog_text": "Скопируйте ссылку ниже и поделитесь ею с вашим партнером или отсканируйте QR-код.",
         "system": "Система",
-        "delete_confirm_message": "Вы уверены, что хотите удалить это сообщение?"
+        "delete_confirm_message": "Вы уверены, что хотите удалить это сообщение?",
+        "ticket_details": "Детали заявки",
+        "mark_as_resolved": "Отметить как разрешенное",
+        "mark_as_closed": "Пометить как закрытые",
+        "reopen_ticket": "Открыть заявку заново"
     },
     "employee": {
         "employee": "Сотрудник | Сотрудники",
@@ -750,7 +754,8 @@
             "database_size": "Размер базы данных",
             "server_os": "ОС сервера",
             "php_version": "Версия PHP",
-            "hostname": "Hostname"
+            "hostname": "Hostname",
+            "send_test_email": "Отправить тестовое письмо"
         },
         "numbering": {
             "title": "Параметры форматов чисел",
