@@ -565,10 +565,10 @@
         "share_dialog_text": "Másold le az alábbi linket, és oszd meg partnereddel, vagy olvasd be a QR kódot.",
         "system": "Rendszer",
         "delete_confirm_message": "Biztosan törölni szeretnéd ezt az üzenetet?",
-        "ticket_details": "Ticket details",
-        "mark_as_resolved": "Mark as resolved",
-        "mark_as_closed": "Mark as closed",
-        "reopen_ticket": "Reopen ticket"
+        "ticket_details": "Jegy részletei",
+        "mark_as_resolved": "Megjelölés megoldottként",
+        "mark_as_closed": "Megjelölés lezártként",
+        "reopen_ticket": "Jegy újranyitása"
     },
     "employee": {
         "employee": "Munkavállaló | Munkavállalók",
@@ -755,7 +755,7 @@
             "server_os": "Szerver operációs rendszer",
             "php_version": "PHP verzió",
             "hostname": "Hosztnév",
-            "send_test_email": "Send test email"
+            "send_test_email": "Teszt e-mail küldése"
         },
         "numbering": {
             "title": "Számformátum beállítások",
