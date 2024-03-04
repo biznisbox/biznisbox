@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'Nie można zresetować hasła',
             'delete_failed_self_account' => 'Nie możesz usunąć własnego konta',
         ],
+        'email' => [
+            'test_email_sent' => 'Wiadomość testowa została wysłana pomyślnie',
+            'test_email_failed' => 'Testowy e-mail nie mógł zostać wysłany',
+        ],
     ],
     'memory_used' => 'Użyta pamięć',
     'memory_available' => 'Pamięć dostępna',
