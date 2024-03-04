@@ -564,7 +564,11 @@
         "share_dialog": "Ticket teilen",
         "share_dialog_text": "Kopieren Sie den unten stehenden Link und teilen Sie ihn mit Ihrem Partner oder scannen Sie den QR-Code.",
         "system": "System",
-        "delete_confirm_message": "Sind Sie sicher, dass Sie diese Nachricht löschen möchten?"
+        "delete_confirm_message": "Sind Sie sicher, dass Sie diese Nachricht löschen möchten?",
+        "ticket_details": "Ticket-Details",
+        "mark_as_resolved": "Als gelöst markieren",
+        "mark_as_closed": "Als geschlossen markieren",
+        "reopen_ticket": "Ticket erneut öffnen"
     },
     "employee": {
         "employee": "Mitarbeiter | Mitarbeiter",
@@ -750,7 +754,8 @@
             "database_size": "Datenbankgröße",
             "server_os": "Server OS",
             "php_version": "PHP-Version",
-            "hostname": "Hostname"
+            "hostname": "Hostname",
+            "send_test_email": "Test-E-Mail senden"
         },
         "numbering": {
             "title": "Zahlenformatierungseinstellungen",
