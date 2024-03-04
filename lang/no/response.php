@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'Passord kunne ikke tilbakestilles',
             'delete_failed_self_account' => 'Du kan ikke slette din egen konto',
         ],
+        'email' => [
+            'test_email_sent' => 'Test e-post ble sendt',
+            'test_email_failed' => 'E-posttest kunne ikke sendes',
+        ],
     ],
     'memory_used' => 'Minne brukt',
     'memory_available' => 'Minne tilgjengelig',
