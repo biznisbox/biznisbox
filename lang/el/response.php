@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'Αδυναμία επαναφοράς του κωδικού πρόσβασης',
             'delete_failed_self_account' => 'Δεν μπορείτε να διαγράψετε τον δικό σας λογαριασμό',
         ],
+        'email' => [
+            'test_email_sent' => 'Δοκιμαστικό email εστάλη με επιτυχία',
+            'test_email_failed' => 'Δεν ήταν δυνατή η αποστολή δοκιμαστικού email',
+        ],
     ],
     'memory_used' => 'Χρησιμοποιείται μνήμη',
     'memory_available' => 'Διαθέσιμη μνήμη',
