@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'Heslo nelze obnovit',
             'delete_failed_self_account' => 'Nemůžete smazat svůj vlastní účet',
         ],
+        'email' => [
+            'test_email_sent' => 'Testovací e-mail byl úspěšně odeslán',
+            'test_email_failed' => 'Testovací e-mail nelze odeslat',
+        ],
     ],
     'memory_used' => 'Použitá paměť',
     'memory_available' => 'Dostupná paměť',
