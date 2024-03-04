@@ -564,7 +564,11 @@
         "share_dialog": "Condividi ticket",
         "share_dialog_text": "Copia il link qui sotto e condividilo con il tuo partner o scansiona il codice QR.",
         "system": "Sistema",
-        "delete_confirm_message": "Sei sicuro di voler eliminare questo messaggio?"
+        "delete_confirm_message": "Sei sicuro di voler eliminare questo messaggio?",
+        "ticket_details": "Dettagli del ticket",
+        "mark_as_resolved": "Segna come risolto",
+        "mark_as_closed": "Segna come chiuso",
+        "reopen_ticket": "Riapri ticket"
     },
     "employee": {
         "employee": "Dipendente <unk> Dipendenti",
@@ -750,7 +754,8 @@
             "database_size": "Dimensione Del Database",
             "server_os": "Server OS",
             "php_version": "Versione PHP",
-            "hostname": "Hostname"
+            "hostname": "Hostname",
+            "send_test_email": "Invia email di prova"
         },
         "numbering": {
             "title": "Impostazioni dei formati numerici",
