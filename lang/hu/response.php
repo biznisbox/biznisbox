@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'A jelszó nem állítható vissza',
             'delete_failed_self_account' => 'Nem törölheti saját fiókját',
         ],
+        'email' => [
+            'test_email_sent' => 'A teszt e-mail sikeresen elküldve volt',
+            'test_email_failed' => 'A teszt e-mail nem küldhető el',
+        ],
     ],
     'memory_used' => 'Használt memória',
     'memory_available' => 'Elérhető memória',
