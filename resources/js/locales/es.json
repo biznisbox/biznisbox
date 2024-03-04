@@ -564,7 +564,11 @@
         "share_dialog": "Compartir ticket",
         "share_dialog_text": "Copie el siguiente enlace y compártelo con su socio o escanee el código QR.",
         "system": "Sistema",
-        "delete_confirm_message": "¿Está seguro que desea eliminar este mensaje?"
+        "delete_confirm_message": "¿Está seguro que desea eliminar este mensaje?",
+        "ticket_details": "Ticket details",
+        "mark_as_resolved": "Mark as resolved",
+        "mark_as_closed": "Mark as closed",
+        "reopen_ticket": "Reopen ticket"
     },
     "employee": {
         "employee": "Empleado | Empleados",
@@ -750,7 +754,8 @@
             "database_size": "Tamaño de base de datos",
             "server_os": "Servidor SO",
             "php_version": "Versión PHP",
-            "hostname": "Hostname"
+            "hostname": "Hostname",
+            "send_test_email": "Send test email"
         },
         "numbering": {
             "title": "Configuración de formatos numéricos",
