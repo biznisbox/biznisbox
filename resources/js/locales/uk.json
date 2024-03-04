@@ -564,7 +564,11 @@
         "share_dialog": "Поділитися тікетом",
         "share_dialog_text": "Скопіюйте посилання нижче та поділіться ним із партнером або відскануйте QR-код.",
         "system": "Система",
-        "delete_confirm_message": "Ви впевнені, що хочете видалити це повідомлення?"
+        "delete_confirm_message": "Ви впевнені, що хочете видалити це повідомлення?",
+        "ticket_details": "Деталі заявки",
+        "mark_as_resolved": "Позначити як вирішене",
+        "mark_as_closed": "Позначити як закрите",
+        "reopen_ticket": "Відкрити тікет знову"
     },
     "employee": {
         "employee": "Співробітники | Працівники",
@@ -750,7 +754,8 @@
             "database_size": "Розмір бази даних",
             "server_os": "ОС сервера",
             "php_version": "Версія PHP",
-            "hostname": "Hostname"
+            "hostname": "Hostname",
+            "send_test_email": "Надіслати тестовий лист"
         },
         "numbering": {
             "title": "Параметри числових форматів",
