@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'A senha não pode ser redefinida',
             'delete_failed_self_account' => 'Você não pode excluir sua própria conta',
         ],
+        'email' => [
+            'test_email_sent' => 'E-mail de teste enviado com sucesso',
+            'test_email_failed' => 'Não foi possível enviar o e-mail de teste',
+        ],
     ],
     'memory_used' => 'Memória usada',
     'memory_available' => 'Memória disponível',
