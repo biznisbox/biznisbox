@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'Passwort konnte nicht zurückgesetzt werden',
             'delete_failed_self_account' => 'Sie können Ihr eigenes Konto nicht löschen',
         ],
+        'email' => [
+            'test_email_sent' => 'Test-E-Mail wurde erfolgreich gesendet',
+            'test_email_failed' => 'Test-E-Mail konnte nicht gesendet werden',
+        ],
     ],
     'memory_used' => 'Verwendeter Speicher',
     'memory_available' => 'Speicher verfügbar',
