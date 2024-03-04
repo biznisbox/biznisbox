@@ -564,7 +564,11 @@
         "share_dialog": "Udostępnij zgłoszenie",
         "share_dialog_text": "Skopiuj poniższy link i udostępnij go partnerowi lub zeskanuj kod QR.",
         "system": "System",
-        "delete_confirm_message": "Czy na pewno chcesz usunąć tę wiadomość?"
+        "delete_confirm_message": "Czy na pewno chcesz usunąć tę wiadomość?",
+        "ticket_details": "Szczegóły zgłoszenia",
+        "mark_as_resolved": "Oznacz jako rozwiązane",
+        "mark_as_closed": "Oznacz jako zamknięte",
+        "reopen_ticket": "Otwórz ponownie paragon"
     },
     "employee": {
         "employee": "Pracownik | Pracownicy",
@@ -750,7 +754,8 @@
             "database_size": "Rozmiar bazy danych",
             "server_os": "System operacyjny serwera",
             "php_version": "Wersja PHP",
-            "hostname": "Hostname"
+            "hostname": "Hostname",
+            "send_test_email": "Wyślij wiadomość testową"
         },
         "numbering": {
             "title": "Ustawienia formatów numerów",
