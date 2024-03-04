@@ -564,7 +564,11 @@
         "share_dialog": "Dela ärende",
         "share_dialog_text": "Kopiera länken nedan och dela den med din partner eller skanna QR-koden.",
         "system": "System",
-        "delete_confirm_message": "Är du säker på att du vill ta bort detta meddelande?"
+        "delete_confirm_message": "Är du säker på att du vill ta bort detta meddelande?",
+        "ticket_details": "Ärende detaljer",
+        "mark_as_resolved": "Markera som löst",
+        "mark_as_closed": "Markera som stängd",
+        "reopen_ticket": "Öppna ärende igen"
     },
     "employee": {
         "employee": "Anställd <unk> Anställda",
@@ -750,7 +754,8 @@
             "database_size": "Databasens storlek",
             "server_os": "Server OS",
             "php_version": "PHP-version",
-            "hostname": "Hostname"
+            "hostname": "Hostname",
+            "send_test_email": "Skicka testmail"
         },
         "numbering": {
             "title": "Inställningar för antal format",
