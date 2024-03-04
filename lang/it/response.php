@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'La password non può essere reimpostata',
             'delete_failed_self_account' => 'Non puoi eliminare il tuo account',
         ],
+        'email' => [
+            'test_email_sent' => 'Email di prova inviata con successo',
+            'test_email_failed' => 'Impossibile inviare email di prova',
+        ],
     ],
     'memory_used' => 'Memoria utilizzata',
     'memory_available' => 'Memoria disponibile',
