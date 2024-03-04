@@ -564,7 +564,11 @@
         "share_dialog": "Jaa lippu",
         "share_dialog_text": "Kopioi alla oleva linkki ja jaa se kumppanisi kanssa tai skannaa QR-koodi.",
         "system": "Järjestelmä",
-        "delete_confirm_message": "Oletko varma, että haluat poistaa tämän viestin?"
+        "delete_confirm_message": "Oletko varma, että haluat poistaa tämän viestin?",
+        "ticket_details": "Lipun tiedot",
+        "mark_as_resolved": "Merkitse selvitetyksi",
+        "mark_as_closed": "Merkitse suljetuksi",
+        "reopen_ticket": "Avaa lippu uudelleen"
     },
     "employee": {
         "employee": "Työntekijät - Työntekijät",
@@ -750,7 +754,8 @@
             "database_size": "Tietokannan Koko",
             "server_os": "Palvelimen Käyttöjärjestelmä",
             "php_version": "Php Versio",
-            "hostname": "Hostname"
+            "hostname": "Hostname",
+            "send_test_email": "Lähetä testisähköposti"
         },
         "numbering": {
             "title": "Numeroformaattien asetukset",
