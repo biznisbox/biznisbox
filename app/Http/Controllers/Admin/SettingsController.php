@@ -122,4 +122,10 @@ class SettingsController extends Controller
     {
         return $this->settingsService->checkServerStatus();
     }
+
+    public function sendTestEmail(Request $request)
+    {
+        $email = $request->input('email');
+        return $this->settingsService->sendTestEmail($email);
+    }
 }

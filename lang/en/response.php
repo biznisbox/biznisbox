@@ -351,6 +351,10 @@ return [
             'password_reset_failed' => 'Password could not be reset',
             'delete_failed_self_account' => 'You cannot delete your own account',
         ],
+        'email' => [
+            'test_email_sent' => 'Test email was sent successfully',
+            'test_email_failed' => 'Test email could not be sent',
+        ],
     ],
     'memory_used' => 'Memory used',
     'memory_available' => 'Memory available',

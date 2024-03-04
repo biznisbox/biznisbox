@@ -9,6 +9,8 @@ use App\Models\Taxes;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use App\Utils\SerialNumberFormatter;
+use App\Mail\Admin\TestEmail;
+use Illuminate\Support\Facades\Mail;
 
 class SettingsService
 {
@@ -393,5 +395,23 @@ class SettingsService
             ],
             __('response.admin.server_status'),
         );
+    }
+
+    /*=============================================
+    =            Email Settings                   =
+    =============================================*/
+
+    /**
+     * Send test email
+     * @param array $data - Email data
+     * @return null - return response
+     */
+    public function sendTestEmail($email)
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return api_response(null, __('response.admin.email.test_email_failed'), 400);
+        }
+        Mail::to($email)->send(new TestEmail());
+        return api_response(null, __('response.admin.email.test_email_sent'));
     }
 }

@@ -750,7 +750,8 @@
             "database_size": "Database Size",
             "server_os": "Server OS",
             "php_version": "PHP Version",
-            "hostname": "Hostname"
+            "hostname": "Hostname",
+            "send_test_email": "Send test email"
         },
         "numbering": {
             "title": "Number formats settings",

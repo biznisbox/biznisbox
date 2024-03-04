@@ -743,7 +743,8 @@
             "database_size": "Velikost zbirke podatkov",
             "server_os": "Operacijski sistem strežnika",
             "php_version": "Verzija PHP",
-            "hostname": "Ime gostitelja"
+            "hostname": "Ime gostitelja",
+            "send_test_email": "Pošlji testno e-pošto"
         },
         "numbering": {
             "title": "Številčenje",
