@@ -41,6 +41,16 @@
                             <Badge v-else-if="data.status === 'reopened'" :value="$t('status.reopened')" class="p-badge-secondary" />
                         </template>
                     </Column>
+                    <Column field="priority" :header="$t('form.priority')">
+                        <template #body="{ data }">
+                            <Badge v-if="data.priority === 'none'" :value="$t('support_priority.none')" class="p-badge-secondary" />
+                            <Badge v-else-if="data.priority === 'low'" :value="$t('support_priority.low')" class="p-badge-info" />
+                            <Badge v-else-if="data.priority === 'medium'" :value="$t('support_priority.medium')" class="p-badge-warning" />
+                            <Badge v-else-if="data.priority === 'normal'" :value="$t('support_priority.normal')" class="p-badge-success" />
+                            <Badge v-else-if="data.priority === 'high'" :value="$t('support_priority.high')" class="p-badge-danger" />
+                            <Badge v-else-if="data.priority === 'urgent'" :value="$t('support_priority.urgent')" class="p-badge-danger" />
+                        </template>
+                    </Column>
                     <Column :header="$t('form.assigned_to')">
                         <template #body="{ data }">
                             <span v-if="data.assignee_id">{{ `${data.assignee.first_name} ${data.assignee.last_name}` }}</span>

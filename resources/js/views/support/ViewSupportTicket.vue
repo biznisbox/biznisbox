@@ -17,6 +17,30 @@
                             icon="fa fa-share"
                             @click="shareSupportTicket(supportTicket.id)"
                         />
+                        <SplitButton
+                            id="more_options_button"
+                            :label="$t('support.mark_as_resolved')"
+                            icon="fa fa-check"
+                            :disabled="supportTicket.status === 'closed' || supportTicket.status === 'resolved'"
+                            class="p-button-success"
+                            :model="[
+                                {
+                                    label: $t('support.mark_as_resolved'),
+                                    icon: 'fa fa-check',
+                                    command: () => markSupportTicketAsResolved(),
+                                },
+                                { label: $t('support.mark_as_closed'), icon: 'fa fa-times', command: () => markSupportTicketAsClosed() },
+                            ]"
+                            @click="markSupportTicketAsResolved"
+                        />
+
+                        <Button
+                            id="reopen_button"
+                            :label="$t('support.reopen_ticket')"
+                            icon="fa fa-undo"
+                            :disabled="supportTicket.status !== 'closed' && supportTicket.status !== 'resolved'"
+                            @click="markSupportTicketAsReopened"
+                        />
                     </template>
                 </user-header>
 
@@ -24,18 +48,19 @@
                     <!-- Metadata view -->
                     <div class="col-12 md:col-5">
                         <div class="formgrid card">
+                            <h1 class="text-xl font-bold mb-4">{{ $t('support.ticket_details') }}</h1>
                             <TextInput
                                 id="number_input"
                                 v-model="supportTicket.number"
                                 disabled
                                 :label="$t('form.number')"
-                                :disabled="supportTicket.status === 'closed'"
+                                :disabled="supportTicket.status === 'closed' || supportTicket.status === 'resolved'"
                             />
                             <TextInput
                                 id="subject_input"
                                 v-model="supportTicket.subject"
                                 :label="$t('form.subject')"
-                                :disabled="supportTicket.status === 'closed'"
+                                :disabled="supportTicket.status === 'closed' || supportTicket.status === 'resolved'"
                             />
                             <SelectInput
                                 id="department_input"
@@ -46,7 +71,7 @@
                                 optionValue="id"
                                 showClear
                                 filter
-                                :disabled="supportTicket.status === 'closed'"
+                                :disabled="supportTicket.status === 'closed' || supportTicket.status === 'resolved'"
                             />
                             <SelectInput
                                 id="employee_input"
@@ -57,7 +82,7 @@
                                 optionValue="id"
                                 showClear
                                 filter
-                                :disabled="supportTicket.status === 'closed'"
+                                :disabled="supportTicket.status === 'closed' || supportTicket.status === 'resolved'"
                             />
                             <SelectInput
                                 id="partner_input"
@@ -68,7 +93,7 @@
                                 optionValue="id"
                                 showClear
                                 filter
-                                :disabled="supportTicket.status === 'closed'"
+                                :disabled="supportTicket.status === 'closed' || supportTicket.status === 'resolved'"
                             />
                             <div class="grid">
                                 <SelectInput
@@ -83,7 +108,7 @@
                                         { label: $t('status.reopened'), value: 'reopened' },
                                         { label: $t('status.resolved'), value: 'resolved' },
                                     ]"
-                                    :disabled="supportTicket.status === 'closed'"
+                                    :disabled="supportTicket.status === 'closed' || supportTicket.status === 'resolved'"
                                 />
                                 <SelectInput
                                     id="priority_input"
@@ -98,7 +123,7 @@
                                         { label: $t('support_priority.high'), value: 'high' },
                                         { label: $t('support_priority.urgent'), value: 'urgent' },
                                     ]"
-                                    :disabled="supportTicket.status === 'closed'"
+                                    :disabled="supportTicket.status === 'closed' || supportTicket.status === 'resolved'"
                                 />
                             </div>
                             <div class="grid">
@@ -107,7 +132,7 @@
                                     v-model="supportTicket.notes"
                                     class="col-12"
                                     :label="$t('form.notes')"
-                                    :disabled="supportTicket.status === 'closed'"
+                                    :disabled="supportTicket.status === 'closed' || supportTicket.status === 'resolved'"
                                 />
                             </div>
 
@@ -115,7 +140,7 @@
                                 <Button
                                     id="save_button"
                                     :label="$t('basic.update')"
-                                    :disabled="loadingData || supportTicket.status === 'closed'"
+                                    :disabled="loadingData || supportTicket.status === 'closed' || supportTicket.status === 'resolved'"
                                     icon="fa fa-floppy-disk"
                                     class="p-button-success ml-2"
                                     @click="updateSupportTicket"
@@ -135,7 +160,7 @@
                                         <div class="flex justify-between">
                                             <div class="flex gap-2">
                                                 <Button
-                                                    v-if="supportTicket.status !== 'closed'"
+                                                    v-if="supportTicket.status !== 'closed' && supportTicket.status !== 'resolved'"
                                                     icon="fa fa-trash"
                                                     class="p-button-danger p-button-outlined"
                                                     @click="deleteSupportTicketMessageAsk(content.id)"
@@ -146,7 +171,7 @@
                                     <div id="content_{{ index }}_from" class="mt-4" v-if="content.from !== null">
                                         <div v-if="content.from === 'system'">
                                             <b>{{ $t('form.from') }}: </b>
-                                            <span class="p-badge p-badge-secondary">{{ $t('form.system') }}</span>
+                                            <span class="p-badge p-badge-secondary">{{ $t('support.system') }}</span>
                                         </div>
                                         <div v-else>
                                             <b>{{ $t('form.from') }}: </b>
@@ -168,7 +193,11 @@
                             </div>
 
                             <div>
-                                <div id="new_replay" class="card p-4 mb-4" v-if="supportTicket.status !== 'closed'">
+                                <div
+                                    id="new_replay"
+                                    class="card p-4 mb-4"
+                                    v-if="supportTicket.status !== 'closed' && supportTicket.status !== 'resolved'"
+                                >
                                     <TinyMceEditor
                                         id="content_input"
                                         v-model="supportTicketMessage.message"

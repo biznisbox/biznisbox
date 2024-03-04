@@ -63,6 +63,12 @@
                             <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by name" />
                         </template>
                     </Column>
+
+                    <template #paginatorstart>
+                        <div>
+                            <Button class="p-button-rounded p-button-text p-button-plain" icon="fa fa-sync" @click="getDocuments" />
+                        </div>
+                    </template>
                 </DataTable>
             </div>
         </div>

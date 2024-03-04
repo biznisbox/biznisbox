@@ -87,6 +87,10 @@ export default {
             })
         },
 
+        /**
+         * Update support ticket
+         * @returns {void}
+         */
         updateSupportTicket() {
             this.makeHttpRequest('PUT', '/api/support_tickets/' + this.supportTicket.id, this.supportTicket).then((response) => {
                 this.showToast(response.data.message)
@@ -94,6 +98,10 @@ export default {
             })
         },
 
+        /**
+         * Create support ticket
+         * @returns {void}
+         */
         createSupportTicket() {
             this.makeHttpRequest('POST', '/api/support_tickets', this.supportTicket).then((response) => {
                 this.showToast(response.data.message)
@@ -101,6 +109,11 @@ export default {
             })
         },
 
+        /**
+         * Delete support ticket
+         * @param {string} id uuid of support ticket
+         * @returns {void}
+         */
         deleteSupportTicket(id) {
             this.makeHttpRequest('DELETE', '/api/support_tickets/' + id).then((response) => {
                 this.showToast(response.data.message)
@@ -108,6 +121,11 @@ export default {
             })
         },
 
+        /**
+         * Delete support ticket ask
+         * @param {string} id uuid of support ticket
+         * @returns {void}
+         */
         deleteSupportTicketAsk(id) {
             this.$confirm.require({
                 message: this.$t('support.delete_confirm_ticket'),
@@ -119,12 +137,20 @@ export default {
             })
         },
 
+        /**
+         * Get support ticket messages
+         * @returns {void}
+         */
         getSupportTicketMessages() {
             this.makeHttpRequest('GET', '/api/support_tickets/messages/' + this.supportTicket.id).then((response) => {
                 this.supportTicket.content = response.data.data
             })
         },
 
+        /**
+         * Create support ticket message
+         * @returns {void}
+         */
         createSupportTicketMessage() {
             if (this.supportTicketMessage.message === '' && this.supportTicketMessage.attachment === '') {
                 return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
@@ -144,12 +170,21 @@ export default {
             )
         },
 
+        /**
+         * Update support ticket message
+         * @returns {void}
+         */
         updateSupportTicketMessage() {
             this.makeHttpRequest('PUT', '/api/support_ticket/messages/' + this.supportTicket.id, this.supportTicket).then((response) => {
                 this.supportTicket = response.data.data
             })
         },
 
+        /**
+         * Delete support ticket message
+         * @param {string} id uuid of support ticket message
+         * @returns {void}
+         */
         deleteSupportTicketMessage(id) {
             this.makeHttpRequest('DELETE', '/api/support_ticket/messages/' + id).then((response) => {
                 this.showToast(response.data.message)
@@ -157,6 +192,11 @@ export default {
             })
         },
 
+        /**
+         * Share support ticket
+         * @param {string} id uuid of support ticket
+         * @returns {void} - open share dialog with url
+         */
         shareSupportTicket(id) {
             this.makeHttpRequest('GET', '/api/support_ticket/share/' + id, null, null, null, false).then((response) => {
                 this.shareUrl = response.data.data
@@ -164,6 +204,11 @@ export default {
             })
         },
 
+        /**
+         * Delete support ticket message ask
+         * @param {string} id uuid of support ticket message
+         * @returns {void} - open delete confirmation dialog
+         */
         deleteSupportTicketMessageAsk(id) {
             this.$confirm.require({
                 message: this.$t('support.delete_confirm_message'),
@@ -175,12 +220,50 @@ export default {
             })
         },
 
+        /**
+         * Mark support ticket as resolved
+         * @returns {void}
+         */
+        markSupportTicketAsResolved() {
+            this.supportTicket.status = 'resolved'
+            this.updateSupportTicket()
+            this.supportTicket = this.getSupportTicket(this.supportTicket.id)
+        },
+
+        /**
+         * Mark support ticket as closed
+         * @returns {void}
+         */
+        markSupportTicketAsClosed() {
+            this.supportTicket.status = 'closed'
+            this.updateSupportTicket()
+            this.supportTicket = this.getSupportTicket(this.supportTicket.id)
+        },
+
+        /**
+         * Mark support ticket as reopened
+         * @returns {void}
+         */
+        markSupportTicketAsReopened() {
+            this.supportTicket.status = 'reopened'
+            this.updateSupportTicket()
+            this.supportTicket = this.getSupportTicket(this.supportTicket.id)
+        },
+
+        /**
+         * Get client support tickets
+         * @returns {void}
+         */
         getClientSupportTicket() {
             this.makeHttpRequest('GET', '/api/client/support?key=' + this.$route.query.key).then((response) => {
                 this.supportTicket = response.data.data
             })
         },
 
+        /**
+         * Function to send reply to client support ticket
+         * @returns {void}
+         */
         clientSendReply() {
             if (this.supportTicketMessage.message === '') {
                 return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')

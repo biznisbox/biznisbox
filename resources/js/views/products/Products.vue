@@ -94,9 +94,7 @@
                     </Column>
 
                     <template #paginatorstart>
-                        <div class="p-d-flex p-ai-center p-mr-2">
-                            <Button class="p-button-rounded p-button-text p-button-plain" icon="fa fa-sync" @click="getProducts()" />
-                        </div>
+                        <Button class="p-button-rounded p-button-text p-button-plain" icon="fa fa-sync" @click="getProducts()" />
                     </template>
                 </DataTable>
             </div>

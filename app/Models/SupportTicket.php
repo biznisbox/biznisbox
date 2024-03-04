@@ -109,6 +109,19 @@ class SupportTicket extends Model implements Auditable
     public function updateSupportTicket($id, $data)
     {
         $supportTicket = self::find($id);
+
+        if (isset($data['status']) && $data['status'] == 'closed') {
+            self::generateSystemMessage($id, 'This ticket has been closed');
+        }
+
+        if (isset($data['status']) && $data['status'] == 'reopened') {
+            self::generateSystemMessage($id, 'This ticket has been reopened');
+        }
+
+        if (isset($data['status']) && $data['status'] == 'resolved') {
+            self::generateSystemMessage($id, 'This ticket has been resolved');
+        }
+
         $supportTicket->update($data);
 
         if ($supportTicket) {
@@ -199,5 +212,16 @@ class SupportTicket extends Model implements Auditable
             return $ticket;
         }
         return false;
+    }
+
+    protected static function generateSystemMessage($ticket_id, $message)
+    {
+        SupportTicketContent::create([
+            'ticket_id' => $ticket_id,
+            'from' => 'system',
+            'message' => $message,
+            'type' => 'text',
+            'status' => 'sent',
+        ]);
     }
 }

@@ -564,7 +564,11 @@
         "share_dialog": "Share ticket",
         "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code.",
         "system": "System",
-        "delete_confirm_message": "Are you sure you want to delete this message?"
+        "delete_confirm_message": "Are you sure you want to delete this message?",
+        "ticket_details": "Ticket details",
+        "mark_as_resolved": "Mark as resolved",
+        "mark_as_closed": "Mark as closed",
+        "reopen_ticket": "Reopen ticket"
     },
     "employee": {
         "employee": "Employee | Employees",

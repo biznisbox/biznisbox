@@ -558,7 +558,11 @@
         "no_support_tickets": "Ne najdem zahtevkov",
         "create_first_support_ticket": "Ustvarite vaš prvi zahtevek",
         "delete_confirm_ticket": "Ali ste prepričani, da želite izbrisati zahtevek",
-        "ticket_reply_delete_confirm": "Ali ste prepričani, daželite izbrisati ta odgovor na tem zahtevku"
+        "ticket_reply_delete_confirm": "Ali ste prepričani, daželite izbrisati ta odgovor na tem zahtevku",
+        "ticket_details": "Podrobnosti zahtevka",
+        "mark_as_resolved": "Označi kot rešeno",
+        "mark_as_closed": "Označi kot zaprto",
+        "reopen_ticket": "Ponovno odpri"
     },
     "employee": {
         "employee": "Zaposlen | Zaposleni",
