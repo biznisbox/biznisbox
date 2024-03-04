@@ -565,10 +565,10 @@
         "share_dialog_text": "Copie el siguiente enlace y compártelo con su socio o escanee el código QR.",
         "system": "Sistema",
         "delete_confirm_message": "¿Está seguro que desea eliminar este mensaje?",
-        "ticket_details": "Ticket details",
-        "mark_as_resolved": "Mark as resolved",
-        "mark_as_closed": "Mark as closed",
-        "reopen_ticket": "Reopen ticket"
+        "ticket_details": "Detalles del ticket",
+        "mark_as_resolved": "Marcar como resuelto",
+        "mark_as_closed": "Marcar como cerrado",
+        "reopen_ticket": "Reabrir ticket"
     },
     "employee": {
         "employee": "Empleado | Empleados",
@@ -755,7 +755,7 @@
             "server_os": "Servidor SO",
             "php_version": "Versión PHP",
             "hostname": "Hostname",
-            "send_test_email": "Send test email"
+            "send_test_email": "Enviar email de prueba"
         },
         "numbering": {
             "title": "Configuración de formatos numéricos",
