@@ -114,6 +114,7 @@ class InitBiznisBox extends Command
                 'partners',
                 'employees',
                 'transactions_categories',
+                'support'
             ]);
         }
 
@@ -126,7 +127,6 @@ class InitBiznisBox extends Command
                 'is_default' => 1,
                 'is_active' => 1,
                 'opening_balance' => 0,
-                'current_balance' => 0,
                 'description' => 'Default account',
                 'currency' => 'EUR',
             ]);
@@ -137,7 +137,6 @@ class InitBiznisBox extends Command
                 'is_active' => 0,
                 'integration' => 'paypal',
                 'opening_balance' => 0,
-                'current_balance' => 0,
                 'description' => 'PayPal account',
                 'currency' => 'EUR',
             ]);
@@ -148,7 +147,6 @@ class InitBiznisBox extends Command
                 'is_active' => 0,
                 'integration' => 'stripe',
                 'opening_balance' => 0,
-                'current_balance' => 0,
                 'description' => 'Stripe account',
                 'currency' => 'EUR',
             ]);
