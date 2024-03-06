@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b6f28214fb1d45543b1ba366389e7ab",
+    "content-hash": "4d584aa2eb1c3feadd8233e849cd7196",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -2747,20 +2747,20 @@
         },
         {
             "name": "milon/barcode",
-            "version": "v10.0.1",
+            "version": "v11.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/milon/barcode.git",
-                "reference": "e643a713466f0109aa3ad7d29dae4900444187a5"
+                "reference": "1f4031adb52146bb7fbe88ef42214011376f9cbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/milon/barcode/zipball/e643a713466f0109aa3ad7d29dae4900444187a5",
-                "reference": "e643a713466f0109aa3ad7d29dae4900444187a5",
+                "url": "https://api.github.com/repos/milon/barcode/zipball/1f4031adb52146bb7fbe88ef42214011376f9cbe",
+                "reference": "1f4031adb52146bb7fbe88ef42214011376f9cbe",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "^7.0|^8.0|^9.0|^10.0",
+                "illuminate/support": "^7.0|^8.0|^9.0|^10.0 | ^11.0",
                 "php": "^7.3 | ^8.0"
             },
             "type": "library",
@@ -2805,7 +2805,7 @@
             ],
             "support": {
                 "issues": "https://github.com/milon/barcode/issues",
-                "source": "https://github.com/milon/barcode/tree/v10.0.1"
+                "source": "https://github.com/milon/barcode/tree/v11.0.0"
             },
             "funding": [
                 {
@@ -2817,7 +2817,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-16T13:03:37+00:00"
+            "time": "2024-02-28T18:14:32+00:00"
         },
         {
             "name": "moneyphp/money",
@@ -10729,5 +10729,5 @@
         "ext-zip": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
