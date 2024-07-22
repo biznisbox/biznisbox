@@ -24,7 +24,7 @@
         "@shufo/prettier-plugin-blade": "^1.14.1",
         "@vitejs/plugin-vue": "^5.0.4",
         "axios": "^1.6.7",
-        "cy-verify-downloads": "^0.2.3",
+        "cy-verify-downloads": "^0.2.5",
         "cypress": "^13.6.6",
         "eslint": "^8.57.0",
         "eslint-config-prettier": "^9.1.0",
