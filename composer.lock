@@ -3323,16 +3323,16 @@
         },
         {
             "name": "nnjeim/world",
-            "version": "1.1.30",
+            "version": "1.1.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nnjeim/world.git",
-                "reference": "10ca54b0152a1d9fa55a4beed0d3764b5822c564"
+                "reference": "5d76a937d37723d5f57842bb3b3d11b6375354d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nnjeim/world/zipball/10ca54b0152a1d9fa55a4beed0d3764b5822c564",
-                "reference": "10ca54b0152a1d9fa55a4beed0d3764b5822c564",
+                "url": "https://api.github.com/repos/nnjeim/world/zipball/5d76a937d37723d5f57842bb3b3d11b6375354d6",
+                "reference": "5d76a937d37723d5f57842bb3b3d11b6375354d6",
                 "shasum": ""
             },
             "require": {
@@ -3383,9 +3383,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nnjeim/world/issues",
-                "source": "https://github.com/nnjeim/world/tree/1.1.30"
+                "source": "https://github.com/nnjeim/world/tree/1.1.31"
             },
-            "time": "2024-02-08T17:03:36+00:00"
+            "time": "2024-07-15T03:36:17+00:00"
         },
         {
             "name": "nordigen/nordigen-php",
