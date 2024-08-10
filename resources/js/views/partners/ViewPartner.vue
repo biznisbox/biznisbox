@@ -1,73 +1,76 @@
 <template>
-    <user-layout>
-        <div id="view_partner_page">
-            <LoadingScreen :blocked="loadingData">
-                <user-header :title="partner.name">
-                    <template #actions>
-                        <Button :label="$t('basic.edit')" icon="fa fa-pen" class="p-button-success" @click="editPartnerNavigate" />
-                        <Button
-                            :label="$t('basic.delete')"
-                            icon="fa fa-trash"
-                            class="p-button-danger"
-                            @click="deletePartnerAsk($route.params.id)"
-                        />
-                    </template>
-                </user-header>
+    <DefaultLayout>
+        <LoadingScreen :blocked="loadingData">
+            <PageHeader :title="partner.name">
+                <template #actions>
+                    <Button :label="$t('basic.edit')" icon="fa fa-pen" @click="editPartnerNavigation" severity="success" />
+                    <Button :label="$t('basic.delete')" icon="fa fa-trash" severity="danger" @click="deletePartnerAsk($route.params.id)" />
+                    <Button :label="$t('audit_log.audit_log')" icon="fa fa-history" @click="showAuditLogDialog = true" />
+                </template>
+            </PageHeader>
 
-                <div class="grid">
-                    <div class="col-12 md:col-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>{{ $t('partner.partner_details') }}</h3>
-                            </div>
-                            <DisplayData :input="$t('form.name')" :value="partner.name" />
-                            <div class="grid">
-                                <div class="col-12 md:col-6">
-                                    <Tag v-if="partner.type === 'customer'" :value="$t('partner_types.customer')" />
-                                    <Tag v-if="partner.type === 'supplier'" :value="$t('partner_types.supplier')" />
-                                    <Tag v-if="partner.type === 'both'" :value="$t('partner_types.both')" />
-                                    <Tag v-if="partner.type === 'other'" :value="$t('basic.other')" />
-                                </div>
-                                <div class="col-12 md:col-6">
-                                    <Tag v-if="partner.entity_type == 'company'" :value="$t('entity_types.company')" />
-                                    <Tag v-if="partner.entity_type == 'individual'" :value="$t('entity_types.individual')" />
-                                </div>
-                            </div>
-                            <DisplayData :input="$t('form.number')" :value="partner.number" />
-                            <DisplayData :input="$t('form.vat_number')" :value="partner.vat_number" />
-                            <DisplayData :input="$t('form.website')" :value="partner.website" is-link />
-                            <DisplayData :input="$t('form.language')" :value="$t('language.' + partner.language)" />
-                            <DisplayData :input="$t('form.currency')" :value="partner.currency" />
-                            <DisplayData :input="$t('form.size')" :value="partner.size" custom-value>
-                                <span v-if="partner.size === 'micro'">{{ $t('basic.micro') }}</span>
-                                <span v-if="partner.size === 'small'">{{ $t('basic.small') }}</span>
-                                <span v-if="partner.size === 'medium'">{{ $t('basic.medium') }}</span>
-                                <span v-if="partner.size === 'large'">{{ $t('basic.large') }}</span>
-                            </DisplayData>
-                            <DisplayData :input="$t('form.notes')" :value="partner.notes" />
-                            <DisplayData
-                                v-if="partner.industry != null"
-                                :input="$t('form.industry')"
-                                :value="$t(`industries.${partner.industry}`)"
-                            />
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-3">
+                <div class="grid grid-cols-1 lg:col-span-4">
+                    <div class="card">
+                        <div class="font-bold mb-4">
+                            <h3>{{ $t('partner.partner_details') }}</h3>
                         </div>
+                        <DisplayData :input="$t('form.number')" :value="partner.number" />
+                        <DisplayData :input="$t('form.name')" :value="partner.name" />
+                        <div class="grid md:grid-cols-2 gap-2">
+                            <div>
+                                <Tag v-if="partner.type === 'customer'" :value="$t('partner_types.customer')" />
+                                <Tag v-if="partner.type === 'supplier'" :value="$t('partner_types.supplier')" />
+                                <Tag v-if="partner.type === 'both'" :value="$t('partner_types.both')" />
+                                <Tag v-if="partner.type === 'other'" :value="$t('basic.other')" />
+                            </div>
+                            <div>
+                                <Tag v-if="partner.entity_type == 'company'" :value="$t('entity_types.company')" />
+                                <Tag v-if="partner.entity_type == 'individual'" :value="$t('entity_types.individual')" />
+                            </div>
+                        </div>
+                        <DisplayData :input="$t('form.vat_number')" :value="partner.vat_number" />
+                        <DisplayData :input="$t('form.website')" :value="partner.website" is-link />
+                        <DisplayData :input="$t('form.language')" v-if="partner.language" :value="$t('language.' + partner.language)" />
+                        <DisplayData :input="$t('form.currency')" :value="partner.currency" />
+                        <DisplayData :input="$t('form.size')" :value="partner.size" custom-value>
+                            <span v-if="partner.size === 'micro'">{{ $t('basic.micro') }}</span>
+                            <span v-if="partner.size === 'small'">{{ $t('basic.small') }}</span>
+                            <span v-if="partner.size === 'medium'">{{ $t('basic.medium') }}</span>
+                            <span v-if="partner.size === 'large'">{{ $t('basic.large') }}</span>
+                        </DisplayData>
+                        <DisplayData :input="$t('form.notes')" :value="partner.notes" />
+                        <DisplayData v-if="partner.industry" :input="$t('form.industry')" :value="$t(`industries.${partner.industry}`)" />
                     </div>
+                </div>
 
-                    <div class="col-12 md:col-8">
-                        <div class="card">
-                            <TabView id="partner_tabs">
+                <div class="grid grid-cols-1 lg:col-span-8">
+                    <div class="card">
+                        <Tabs value="contact_informations">
+                            <TabList>
+                                <Tab value="contact_informations">{{ $t('partner.contact_informations') }}</Tab>
+                                <Tab value="addresses">{{ $t('partner.addresses') }}</Tab>
+                                <Tab v-if="hasPermission('invoices')" value="invoices">{{ $t('invoice.invoice', 2) }}</Tab>
+                                <Tab v-if="hasPermission('quotes')" value="quotes">{{ $t('quote.quote', 2) }}</Tab>
+                                <Tab v-if="hasPermission('bills')" value="bills">{{ $t('bill.bill', 2) }}</Tab>
+                                <Tab v-if="hasPermission('transactions')" value="transactions">{{ $t('transaction.transaction', 2) }}</Tab>
+                                <Tab v-if="hasPermission('support')" value="support">{{ $t('support.support') }}</Tab>
+                                <Tab v-if="hasPermission('archive')" value="archive_documents">{{ $t('archive.archive') }}</Tab>
+                            </TabList>
+
+                            <TabPanels>
                                 <!-- Contacts table -->
-                                <TabPanel :header="$t('partner.contacts')">
-                                    <DataTable id="contacts_table" class="col-12" :value="partner.contacts">
+                                <TabPanel value="contact_informations">
+                                    <DataTable id="contacts_table" :value="partner.contacts">
                                         <template #empty>
-                                            <div class="p-4 pl-0 text-center w-full text-gray-500">
+                                            <div class="p-4 pl-0 text-center w-full">
                                                 <i class="fa fa-info-circle empty-icon"></i>
                                                 <p>{{ $t('partner.no_contacts') }}</p>
                                             </div>
                                         </template>
                                         <Column field="name" :header="$t('form.name')">
-                                            <template #body="{ data }" class="flex items-center">
-                                                <i v-if="data.is_primary" class="fa fa-star text-yellow-500 mr-2" />
+                                            <template #body="{ data }" class="flex gap-2">
+                                                <i v-if="data.is_primary" class="fa fa-star text-yellow-500 mr-2"></i>
                                                 <span>{{ data.name }}</span>
                                             </template>
                                         </Column>
@@ -81,10 +84,10 @@
                                 </TabPanel>
 
                                 <!-- Addresses table -->
-                                <TabPanel :header="$t('partner.addresses')">
+                                <TabPanel value="addresses">
                                     <DataTable id="addresses_table" class="col-12" :value="partner.addresses">
                                         <template #empty>
-                                            <div class="p-4 pl-0 text-center w-full text-gray-500">
+                                            <div class="p-4 pl-0 text-center w-full">
                                                 <i class="fa fa-info-circle empty-icon"></i>
                                                 <p>{{ $t('partner.no_addresses') }}</p>
                                             </div>
@@ -111,10 +114,10 @@
                                 </TabPanel>
 
                                 <!-- Invoices table -->
-                                <TabPanel :header="$t('invoice.invoice', 2)" v-if="hasPermission('invoices')">
+                                <TabPanel value="invoices" v-if="hasPermission('invoices')">
                                     <DataTable :value="partner.invoices" @row-dblclick="viewInvoiceNavigation">
                                         <template #empty>
-                                            <div class="p-4 pl-0 text-center w-full text-gray-500">
+                                            <div class="p-4 pl-0 text-center w-full">
                                                 <i class="fa fa-info-circle empty-icon"></i>
                                                 <p>{{ $t('invoice.no_invoices') }}</p>
                                             </div>
@@ -138,19 +141,19 @@
                                                 <Tag v-if="data.status === 'overdue'" severity="danger">{{ $t('status.overdue') }}</Tag>
                                                 <Tag v-if="data.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
                                                 <Tag v-if="data.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
-                                                <Tag v-if="data.status === 'refunded'" severity="">{{ $t('status.refunded') }}</Tag>
-                                                <Tag v-if="data.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
+                                                <Tag v-if="data.status === 'refunded'">{{ $t('status.refunded') }}</Tag>
+                                                <Tag v-if="data.status === 'cancelled'">{{ $t('status.cancelled') }}</Tag>
                                             </template>
                                         </Column>
                                     </DataTable>
                                 </TabPanel>
 
                                 <!-- Quotes table -->
-                                <TabPanel :header="$t('quote.quote', 2)" v-if="hasPermission('quotes')">
+                                <TabPanel value="quotes" v-if="hasPermission('quotes')">
                                     <div id="quote_table">
                                         <DataTable :value="partner.quotes" @row-dblclick="viewQuoteNavigation">
                                             <template #empty>
-                                                <div class="p-4 pl-0 text-center w-full text-gray-500">
+                                                <div class="p-4 pl-0 text-center w-full">
                                                     <i class="fa fa-info-circle empty-icon"></i>
                                                     <p>{{ $t('quote.no_quotes') }}</p>
                                                 </div>
@@ -189,7 +192,7 @@
                                                     <Tag v-if="data.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
                                                     <Tag v-if="data.status === 'viewed'" severity="warning">{{ $t('status.viewed') }}</Tag>
                                                     <Tag v-if="data.status === 'expired'" severity="danger">{{ $t('status.expired') }}</Tag>
-                                                    <Tag v-if="data.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
+                                                    <Tag v-if="data.status === 'cancelled'">{{ $t('status.cancelled') }}</Tag>
                                                     <Tag v-if="data.status === 'converted'" severity="success">{{
                                                         $t('status.converted')
                                                     }}</Tag>
@@ -200,11 +203,11 @@
                                 </TabPanel>
 
                                 <!-- Bills tab -->
-                                <TabPanel :header="$t('bill.bill', 2)" v-if="hasPermission('bills')">
+                                <TabPanel value="bills" v-if="hasPermission('bills')">
                                     <div id="bills_table">
                                         <DataTable :value="partner.bills" @row-dblclick="viewBillNavigation">
                                             <template #empty>
-                                                <div class="p-4 pl-0 text-center w-full text-gray-500">
+                                                <div class="p-4 pl-0 text-center w-full">
                                                     <i class="fa fa-info-circle empty-icon"></i>
                                                     <p>{{ $t('bill.no_bills') }}</p>
                                                 </div>
@@ -237,9 +240,7 @@
                                                         <Tag v-if="slotProps.data.status === 'draft'" severity="warning">{{
                                                             $t('status.draft')
                                                         }}</Tag>
-                                                        <Tag v-if="slotProps.data.status === 'cancelled'" severity="">{{
-                                                            $t('status.cancelled')
-                                                        }}</Tag>
+                                                        <Tag v-if="slotProps.data.status === 'cancelled'">{{ $t('status.cancelled') }}</Tag>
                                                     </div>
                                                 </template>
                                             </Column>
@@ -254,11 +255,11 @@
                                 </TabPanel>
 
                                 <!-- Transactions tab -->
-                                <TabPanel :header="$t('transaction.transaction', 2)" v-if="hasPermission('transactions')">
+                                <TabPanel value="transactions" v-if="hasPermission('transactions')">
                                     <div id="transactions_table">
                                         <DataTable :value="partner.transactions" @row-dblclick="viewTransactionNavigation">
                                             <template #empty>
-                                                <div class="p-4 pl-0 text-center w-full text-gray-500">
+                                                <div class="p-4 pl-0 text-center w-full">
                                                     <i class="fa fa-info-circle empty-icon"></i>
                                                     <p>{{ $t('transaction.no_transactions') }}</p>
                                                 </div>
@@ -311,19 +312,10 @@
                                 </TabPanel>
 
                                 <!-- Support tab -->
-                                <TabPanel :header="$t('support.support')" v-if="hasPermission('support')">
-                                    <DataTable
-                                        :value="partner.support_tickets"
-                                        :loading="loadingData"
-                                        paginator
-                                        data-key="id"
-                                        :rows="10"
-                                        paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
-                                        :rows-per-page-options="[10, 20, 50]"
-                                        @row-dblclick="viewSupportTicketNavigation"
-                                    >
+                                <TabPanel value="support" v-if="hasPermission('support')">
+                                    <DataTable :value="partner.support_tickets" @row-dblclick="viewSupportTicketNavigation">
                                         <template #empty>
-                                            <div class="p-4 pl-0 text-center w-full text-gray-500">
+                                            <div class="p-4 pl-0 text-center w-full">
                                                 <i class="fa fa-info-circle empty-icon"></i>
                                                 <p>{{ $t('support.no_support_tickets') }}</p>
                                             </div>
@@ -332,104 +324,111 @@
                                         <Column field="subject" :header="$t('form.subject')" />
                                         <Column field="status" :header="$t('form.status')">
                                             <template #body="{ data }">
-                                                <Badge v-if="data.status === 'open'" :value="$t('status.open')" class="p-badge-success" />
-                                                <Badge
+                                                <Tag v-if="data.status === 'open'" :value="$t('status.open')" severity="success" />
+                                                <Tag
                                                     v-else-if="data.status === 'closed'"
                                                     :value="$t('status.closed')"
-                                                    class="p-badge-danger"
+                                                    severity="secondary"
                                                 />
-                                                <Badge
+                                                <Tag
                                                     v-else-if="data.status === 'in_progress'"
                                                     :value="$t('status.in_progress')"
-                                                    class="p-badge-warning"
+                                                    severity="warning"
                                                 />
-                                                <Badge
+                                                <Tag
                                                     v-else-if="data.status === 'resolved'"
                                                     :value="$t('status.resolved')"
-                                                    class="p-badge-info"
+                                                    severity="success"
                                                 />
-                                                <Badge
+                                                <Tag
                                                     v-else-if="data.status === 'reopened'"
                                                     :value="$t('status.reopened')"
-                                                    class="p-badge-secondary"
+                                                    severity="secondary"
                                                 />
                                             </template>
                                         </Column>
                                     </DataTable>
                                 </TabPanel>
-                            </TabView>
-                        </div>
+
+                                <!-- Archive documents tab -->
+                                <TabPanel value="archive_documents" v-if="hasPermission('archive')">
+                                    <div id="archive_documents_table">
+                                        <DataTable :value="partner.archive_documents" @row-dblclick="downloadFile">
+                                            <template #empty>
+                                                <div class="p-4 pl-0 text-center w-full">
+                                                    <i class="fa fa-info-circle empty-icon"></i>
+                                                    <p>{{ $t('archive.no_documents') }}</p>
+                                                </div>
+                                            </template>
+                                            <Column field="name" :header="$t('form.name')" sortable>
+                                                <template #body="{ data }">
+                                                    <div class="flex items-center">
+                                                        <span :class="`fiv-viv fiv-icon-${data.file_extension} icon-file`"></span>
+                                                        <span class="ml-2">{{ data.name }}</span>
+                                                    </div>
+                                                </template>
+                                            </Column>
+                                            <Column field="created_at" :header="$t('form.created_at')">
+                                                <template #body="{ data }">
+                                                    <span>{{ formatDateTime(data.created_at) }}</span>
+                                                </template>
+                                            </Column>
+                                            <Column field="file_size" :header="$t('form.size')">
+                                                <template #body="{ data }">
+                                                    <span>{{ formatFileSize(data.file_size) }}</span>
+                                                </template>
+                                            </Column>
+                                        </DataTable>
+                                    </div>
+                                </TabPanel>
+                            </TabPanels>
+                        </Tabs>
                     </div>
                 </div>
-                <div id="function_buttons" class="flex gap-2 justify-content-end">
-                    <Button :label="$t('basic.close')" icon="fa fa-times" class="p-button-danger" @click="goTo('/partners')" />
-                </div>
-            </LoadingScreen>
-        </div>
-    </user-layout>
-</template>
+            </div>
+            <div id="function_buttons" class="flex justify-end mt-4">
+                <Button :label="$t('basic.close')" icon="fa fa-times" @click="goTo('/partners')" severity="secondary" />
+            </div>
 
+            <!--Audit log dialog -->
+            <Dialog
+                v-model:visible="showAuditLogDialog"
+                modal
+                maximizable
+                class="w-full m-2 lg:w-1/2"
+                :header="$t('audit_log.audit_log')"
+                :draggable="false"
+            >
+                <AuditLog :item_id="$route.params.id" item_type="Partner" />
+            </Dialog>
+        </LoadingScreen>
+    </DefaultLayout>
+</template>
 <script>
 import PartnerMixin from '@/mixins/partners'
 export default {
     name: 'ViewPartnerPage',
     mixins: [PartnerMixin],
+
     created() {
         this.getPartner(this.$route.params.id)
     },
 
+    data() {
+        return {
+            showAuditLogDialog: false,
+        }
+    },
+
     methods: {
-        viewInvoiceNavigation(rowData) {
-            this.$router.push({
-                name: 'view-invoice',
-                params: { id: rowData.data.id },
-            })
+        editPartnerNavigation() {
+            this.$router.push({ name: 'partner-edit', params: { id: this.$route.params.id } })
         },
 
-        viewQuoteNavigation(rowData) {
-            this.$router.push({
-                name: 'view-quote',
-                params: { id: rowData.data.id },
-            })
-        },
-
-        editPartnerNavigate() {
-            this.$router.push({
-                name: 'edit-partner',
-                params: { id: this.$route.params.id },
-            })
-        },
-
-        viewBillNavigation(rowData) {
-            this.$router.push({
-                name: 'view-bill',
-                params: { id: rowData.data.id },
-            })
-        },
-
-        viewTransactionNavigation(rowData) {
-            this.$router.push({
-                name: 'view-transaction',
-                params: { id: rowData.data.id },
-            })
-        },
-
-        viewSupportTicketNavigation(rowData) {
-            this.$router.push({
-                name: 'view-support-ticket',
-                params: { id: rowData.data.id },
-            })
+        downloadFile(rowData) {
+            window.open(rowData.data.download_link, '_blank')
         },
     },
 }
 </script>
-
-<style>
-#partner_tabs .p-tabview-panels {
-    padding: 0 !important;
-}
-
-#partner_tabs .p-datatable {
-    padding: 0 !important;
-}
-</style>
+<style></style>

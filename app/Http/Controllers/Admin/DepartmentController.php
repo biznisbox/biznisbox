@@ -4,81 +4,61 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Department;
+use App\Services\Admin\DepartmentService;
 
 class DepartmentController extends Controller
 {
-    protected $departmentsModel;
-    public function __construct(Department $departmentsModel)
+    private $departmentService;
+
+    public function __construct(DepartmentService $departmentService)
     {
-        $this->departmentsModel = $departmentsModel;
+        $this->departmentService = $departmentService;
     }
 
     public function getDepartments()
     {
-        $departments = $this->departmentsModel->getDepartments();
-        activity_log(user_data()->data->id, 'get departments', null, 'App\Http\Controllers\Admin\DepartmentController', 'getDepartments');
-        return api_response($departments);
+        $departments = $this->departmentService->getDepartments();
+        if (!$departments) {
+            return api_response($departments, __('responses.item_not_found'), 404);
+        }
+        return api_response($departments, __('responses.data_retrieved_successfully'), 200);
     }
 
-    public function getDepartment(Request $request)
+    public function getDepartment($id)
     {
-        $department_id = $request->id;
-        $department = $this->departmentsModel->getDepartment($department_id);
-        activity_log(
-            user_data()->data->id,
-            'get department',
-            $department_id,
-            'App\Http\Controllers\Admin\DepartmentController',
-            'getDepartment',
-        );
-        if ($department) {
-            return api_response($department);
+        $department = $this->departmentService->getDepartment($id);
+        if (!$department) {
+            return api_response($department, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response(null, __('response.department.not_found'), 404);
+        return api_response($department, __('responses.data_retrieved_successfully'), 200);
     }
 
     public function createDepartment(Request $request)
     {
         $data = $request->all();
-        $department = $this->departmentsModel->createDepartment($data);
-        if ($department) {
-            return api_response($department, __('response.department.create_success'), 201);
+        $department = $this->departmentService->createDepartment($data);
+        if (!$department) {
+            return api_response($department, __('messages.item_not_created'), 400);
         }
-        return api_response(null, __('response.department.create_failed'), 400);
+        return api_response($department, __('messages.item_created_successfully'), 200);
     }
 
-    public function updateDepartment(Request $request)
+    public function updateDepartment(Request $request, $id)
     {
-        $department_id = $request->id;
         $data = $request->all();
-        $department = $this->departmentsModel->updateDepartment($department_id, $data);
-        if ($department) {
-            return api_response($department, __('response.department.update_success'));
+        $department = $this->departmentService->updateDepartment($id, $data);
+        if (!$department) {
+            return api_response($department, __('responses.item_not_found'), 404);
         }
-        return api_response(null, __('response.department.update_failed'), 400);
+        return api_response($department, __('responses.item_updated_successfully'), 200);
     }
 
-    public function deleteDepartment(Request $request)
+    public function deleteDepartment($id)
     {
-        $department_id = $request->id;
-        $department = $this->departmentsModel->deleteDepartment($department_id);
-        if ($department) {
-            return api_response($department, __('response.department.delete_success'));
+        $department = $this->departmentService->deleteDepartment($id);
+        if (!$department) {
+            return api_response($department, __('responses.item_not_found'), 404);
         }
-        return api_response(null, __('response.department.delete_failed'), 400);
-    }
-
-    public function getDepartmentsWithEmployees()
-    {
-        $departments = $this->departmentsModel->getDepartmentsWithEmployees();
-        activity_log(
-            user_data()->data->id,
-            'get departments with employees',
-            null,
-            'App\Http\Controllers\Admin\DepartmentController',
-            'getDepartmentsWithEmployees',
-        );
-        return api_response($departments);
+        return api_response($department, __('responses.item_deleted_successfully'), 200);
     }
 }

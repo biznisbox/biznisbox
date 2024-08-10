@@ -2,104 +2,115 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\InvoiceRequest;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
-
+use App\Services\InvoiceService;
 class InvoiceController extends Controller
 {
-    protected $invoiceModel;
-    public function __construct(Invoice $invoiceModel)
+    private $invoiceService;
+    public function __construct(InvoiceService $invoiceService)
     {
-        $this->invoiceModel = $invoiceModel;
+        $this->invoiceService = $invoiceService;
     }
 
     public function getInvoices()
     {
-        $invoices = $this->invoiceModel->getInvoices();
-        return api_response($invoices, __('response.invoice.get_success'), 200);
+        $invoices = $this->invoiceService->getInvoices();
+        if (!$invoices) {
+            return api_response(null, __('responses.item_not_found'), 400);
+        }
+        return api_response($invoices, __('responses.data_retrieved_successfully'), 200);
     }
 
     public function getInvoice($id)
     {
-        $invoice = $this->invoiceModel->getInvoice($id);
-
-        if ($invoice) {
-            return api_response($invoice, __('response.invoice.get_success'), 200);
+        $invoice = $this->invoiceService->getInvoice($id);
+        if (!$invoice) {
+            return api_response(null, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response(null, __('response.invoice.not_found'), 404);
+        return api_response($invoice, __('responses.data_retrieved_successfully'), 200);
     }
 
-    public function createInvoice(Request $request)
+    public function createInvoice(InvoiceRequest $request)
     {
-        $invoiceData = $request->all();
-        $invoice = $this->invoiceModel->createInvoice($invoiceData);
-
-        if ($invoice) {
-            return api_response($invoice, __('response.invoice.create_success'), 201);
+        $invoice = $this->invoiceService->createInvoice($request->all());
+        if (!$invoice) {
+            return api_response(null, __('responses.item_not_created'), 400);
         }
-        return api_response(null, __('response.invoice.create_failed'), 400);
+        return api_response($invoice, __('responses.item_created_successfully'), 200);
     }
 
-    public function updateInvoice(Request $request, $id)
+    public function updateInvoice(InvoiceRequest $request, $id)
     {
-        $invoiceData = $request->all();
-        $invoice = $this->invoiceModel->updateInvoice($id, $invoiceData);
-
-        if ($invoice) {
-            return api_response($invoice, __('response.invoice.update_success'), 200);
+        $invoice = $this->invoiceService->updateInvoice($id, $request->all());
+        if (!$invoice) {
+            return api_response(null, __('responses.item_not_updated'), 400);
         }
-        return api_response(null, __('response.invoice.not_found'), 404);
+        return api_response($invoice, __('responses.item_updated_successfully'), 200);
     }
 
     public function deleteInvoice($id)
     {
-        $invoice = $this->invoiceModel->deleteInvoice($id);
-
-        if ($invoice) {
-            return api_response($invoice, __('response.invoice.delete_success'), 200);
+        $invoice = $this->invoiceService->deleteInvoice($id);
+        if (!$invoice) {
+            return api_response(null, __('responses.item_not_deleted'), 400);
         }
-        return api_response(null, __('response.invoice.not_found'), 404);
+        return api_response($invoice, __('responses.item_deleted_successfully'), 200);
     }
 
     public function getInvoiceNumber()
     {
-        $invoice_number = $this->invoiceModel->getInvoiceNumber();
-        return api_response($invoice_number, __('response.invoice.get_success'), 200);
+        $invoice = $this->invoiceService->getInvoiceNumber();
+        if (!$invoice) {
+            return api_response(null, __('responses.item_not_found'), 400);
+        }
+        return api_response($invoice, __('responses.data_retrieved_successfully'), 200);
     }
 
     public function shareInvoice($id)
     {
-        $invoice_link = $this->invoiceModel->shareInvoice($id);
-        return api_response($invoice_link, __('response.invoice.share_success'), 200);
+        $invoice = $this->invoiceService->shareInvoice($id);
+        if (!$invoice) {
+            return api_response(null, __('responses.item_not_shared'), 400);
+        }
+        return api_response($invoice, __('responses.item_shared_successfully'), 200);
     }
 
-    public function getInvoicePdf(Request $request)
+    public function getInvoicePdf(Request $request, $id)
     {
-        $invoice_pdf = $this->invoiceModel->getInvoicePdf($request->id, $request->type);
-
-        if ($invoice_pdf) {
-            return $invoice_pdf;
-        }
-        return api_response(null, __('response.invoice.not_found'), 404);
+        $type = $request->input('type', 'stream');
+        $pdf = $this->invoiceService->getInvoicePdf($id, $type);
+        return $pdf;
     }
 
-    public function addTransaction(Request $request, $id)
+    public function addInvoicePayment(Request $request, $id)
     {
-        $transaction = $this->invoiceModel->addTransaction($id, $request->all());
-
-        if ($transaction) {
-            return api_response($transaction, __('response.invoice.transaction_success'), 200);
+        $invoice = $this->invoiceService->addInvoicePayment($id, $request->all());
+        if (!$invoice) {
+            return api_response(null, __('responses.payment_not_added'), 400);
         }
-        return api_response(null, __('response.invoice.not_found'), 404);
+        return api_response($invoice, __('responses.payment_added_successfully'), 200);
     }
 
-    public function sendInvoiceNotification($id)
-    {
-        $invoice = $this->invoiceModel->sendInvoiceNotification($id);
+    /**
+     * Send invoice notification
+     * @param Request $request
+     * @param $id Invoice ID
+     * @return \Illuminate\Http\JsonResponse
+     */
 
-        if ($invoice) {
-            return api_response(null, __('response.invoice.notification_success'), 200);
+    public function sendInvoiceNotification(Request $request, $id)
+    {
+        if ($request->has('contact')) {
+            $contact = $request->input('contact');
+        } else {
+            $contact = null;
         }
-        return api_response(null, __('response.invoice.not_found'), 404);
+        $invoice = $this->invoiceService->sendInvoiceNotification($id, $contact);
+        if (!$invoice) {
+            return api_response(null, __('responses.notification_not_sent'), 400);
+        }
+        return api_response($invoice, __('responses.notification_sent_successfully'), 200);
     }
 }

@@ -3,75 +3,71 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Transaction;
+use App\Http\Requests\TransactionRequest;
+use App\Services\TransactionService;
 
 class TransactionController extends Controller
 {
-    protected $transactionModel;
+    private $transactionService;
 
-    public function __construct(Transaction $transactionModel)
+    public function __construct(TransactionService $transactionService)
     {
-        $this->transactionModel = $transactionModel;
+        $this->transactionService = $transactionService;
     }
 
     public function getTransactions()
     {
-        $transactions = $this->transactionModel->getTransactions();
-
-        if ($transactions) {
-            return api_response($transactions, __('response.transactions.get_success'));
+        $transactions = $this->transactionService->getTransactions();
+        if (!$transactions) {
+            return api_response($transactions, __('responses.item_not_found'), 400);
         }
-        return api_response(null, __('response.transactions.get_failed'), 400);
+        return api_response($transactions, __('responses.data_retrieved_successfully'));
     }
 
     public function getTransaction($id)
     {
-        $transaction = $this->transactionModel->getTransaction($id);
-
-        if ($transaction) {
-            return api_response($transaction, __('response.transaction.get_success'));
+        $transaction = $this->transactionService->getTransaction($id);
+        if (!$transaction) {
+            return api_response($transaction, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response(null, __('response.transaction.not_found'), 404);
+        return api_response($transaction, __('responses.data_retrieved_successfully'));
     }
 
-    public function createTransaction(Request $request)
+    public function createTransaction(TransactionRequest $request)
     {
         $data = $request->all();
-        $transaction = $this->transactionModel->createTransaction($data);
-
-        if ($transaction) {
-            return api_response($transaction, __('response.transaction.create_success'), 201);
+        $transaction = $this->transactionService->createTransaction($data);
+        if (!$transaction) {
+            return api_response($transaction, __('responses.item_not_created'), 400);
         }
-        return api_response(null, __('response.transaction.create_failed'), 400);
+        return api_response($transaction, __('responses.item_created_successfully'));
     }
 
-    public function updateTransaction(Request $request, $id)
+    public function updateTransaction(TransactionRequest $request, $id)
     {
         $data = $request->all();
-        $transaction = $this->transactionModel->updateTransaction($id, $data);
-
-        if ($transaction) {
-            return api_response($transaction, __('response.transaction.update_success'));
+        $transaction = $this->transactionService->updateTransaction($id, $data);
+        if (!$transaction) {
+            return api_response($transaction, __('responses.item_not_updated'), 400);
         }
-        return api_response(null, __('response.transaction.update_failed'), 400);
+        return api_response($transaction, __('responses.item_updated_successfully'));
     }
 
     public function deleteTransaction($id)
     {
-        $transaction = $this->transactionModel->deleteTransaction($id);
-
-        if ($transaction) {
-            return api_response(null, __('response.transaction.delete_success'));
+        $transaction = $this->transactionService->deleteTransaction($id);
+        if (!$transaction) {
+            return api_response($transaction, __('responses.item_not_deleted'), 400);
         }
-        return api_response(null, __('response.transaction.delete_failed'), 400);
+        return api_response($transaction, __('responses.item_deleted_successfully'));
     }
 
     public function getTransactionNumber()
     {
-        $transaction = $this->transactionModel->getTransactionNumber();
-        if ($transaction) {
-            return api_response($transaction, __('response.transaction.get_success'));
+        $number = $this->transactionService->getTransactionNumber();
+        if (!$number) {
+            return api_response($number, __('responses.item_not_found'), 400);
         }
-        return api_response(null, __('response.transaction.not_found'), 404);
+        return api_response($number, __('responses.data_retrieved_successfully'));
     }
 }

@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Illuminate\Support\Facades\DB;
 use OwenIt\Auditing\Contracts\Auditable;
+use Illuminate\Support\Facades\URL;
 
 class Bill extends Model implements Auditable
 {
@@ -41,15 +41,17 @@ class Bill extends Model implements Auditable
     protected $casts = [
         'date' => 'datetime',
         'due_date' => 'datetime',
-        'total' => 'float',
-        'tax' => 'float',
-        'discount' => 'float',
-        'currency_rate' => 'float:4',
+        'total' => 'float:2',
+        'tax' => 'float:2',
+        'discount' => 'float:2',
+        'currency_rate' => 'float:2',
     ];
 
     protected $dates = ['date', 'due_date', 'deleted_at', 'updated_at', 'created_at'];
 
     protected $hidden = ['deleted_at', 'updated_at', 'created_at'];
+
+    protected $appends = ['preview', 'download'];
 
     public function generateTags(): array
     {
@@ -58,7 +60,7 @@ class Bill extends Model implements Auditable
 
     public function items()
     {
-        return $this->hasMany(BillItems::class);
+        return $this->hasMany(BillItem::class);
     }
 
     public function partner()
@@ -68,66 +70,87 @@ class Bill extends Model implements Auditable
 
     public function getBills()
     {
-        return $this->with(['items', 'partner', 'partner.addresses'])->get();
+        $bill = $this->with(['items'])->get();
+        createActivityLog('retrieve', null, 'App\Models\Bill', 'Bill');
+        return $bill;
     }
 
     public function getBill($id)
     {
-        return $this->with(['items', 'partner'])->find($id);
+        $bill = $this->with(['items'])->find($id);
+        createActivityLog('retrieve', $id, 'App\Models\Bill', 'Bill');
+        return $bill;
+    }
+
+    public function getPreviewAttribute()
+    {
+        return URL::signedRoute('getBillPdf', [
+            'id' => $this->id,
+            'type' => 'preview',
+            'lang' => app()->getLocale(),
+        ]);
+    }
+
+    public function getDownloadAttribute()
+    {
+        return URL::signedRoute('getBillPdf', [
+            'id' => $this->id,
+            'type' => 'download',
+            'lang' => app()->getLocale(),
+        ]);
     }
 
     public function createBill($data)
     {
-        try {
-            DB::beginTransaction();
-            $data = $this->setSupplierData($data, $data['supplier_id'], $data['supplier_address_id']);
-            $bill = $this->create($data);
-            if ($bill) {
-                if (isset($data['items'])) {
-                    foreach ($data['items'] as $item) {
-                        $item['total'] = calculateItemTotalHelper($item);
-                        $bill->items()->create($item);
-                    }
+        $data = setSupplierData($data, $data['supplier_id'], $data['supplier_address_id']);
+        $bill = $this->create($data);
+        if ($bill) {
+            if (isset($data['items'])) {
+                foreach ($data['items'] as $item) {
+                    $item['total'] = calculateItemTotalHelper($item);
+                    $bill->items()->create($item);
                 }
-
-                $items = $bill->items()->get();
-                $total = calculateTotalHelper($items, $data['discount'], $data['discount_type']);
-                $bill->total = $total;
-                $bill->save();
-                incrementLastItemNumber('bill');
-                DB::commit();
-                return $bill;
             }
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return false;
+
+            $items = $bill->items()->get();
+            $total = calculateTotalHelper($items, $data['discount'], $data['discount_type']);
+
+            if ($total == 0) {
+                $bill->status = 'paid';
+            }
+
+            $bill->total = $total;
+            $bill->save();
+            sendWebhookForEvent('bill:created', $bill->toArray());
+            incrementLastItemNumber('bill');
+            return $bill;
         }
+        return false;
     }
 
     public function updateBill($id, $data)
     {
-        try {
-            $bill = $this->find($id);
-            if ($bill) {
-                $data = $this->setSupplierData($data, $data['supplier_id'], $data['supplier_address_id']);
-                $bill->update($data);
-                if (isset($data['items'])) {
-                    $bill->items()->delete(); // delete old items (for update) - to avoid duplicate items
-                    foreach ($data['items'] as $item) {
-                        $item['total'] = calculateItemTotalHelper($item);
-                        $bill->items()->create($item);
-                    }
+        $bill = $this->find($id);
+        if ($bill) {
+            $data = setSupplierData($data, $data['supplier_id'], $data['supplier_address_id']);
+            $data['number'] = $bill['number'];
+            $bill->update($data);
+            if (isset($data['items'])) {
+                $bill->items()->delete(); // delete old items (for update) - to avoid duplicate items
+                foreach ($data['items'] as $item) {
+                    $item['total'] = calculateItemTotalHelper($item);
+                    $bill->items()->create($item);
                 }
-
-                $items = $bill->items()->get();
-                $total = calculateTotalHelper($items, $data['discount'], $data['discount_type']);
-                $bill->total = $total;
-                $bill->save();
-                return true;
             }
-        } catch (\Exception $e) {
-            return false;
+
+            $items = $bill->items()->get();
+            $total = calculateTotalHelper($items, $data['discount'], $data['discount_type']);
+            $bill->total = $total;
+            $bill->save();
+            sendWebhookForEvent('bill:updated', $bill->toArray());
+            return true;
         }
+        return false;
     }
 
     public function deleteBill($id)
@@ -135,36 +158,13 @@ class Bill extends Model implements Auditable
         $bill = $this->find($id);
         $bill->items()->delete();
         $bill->delete();
+        sendWebhookForEvent('bill:deleted', ['id' => $id]);
         return $bill;
     }
 
     public static function getBillNumber()
     {
-        $number = generate_next_number(settings('bill_number_format'), 'bill');
+        $number = generateNextNumber(settings('bill_number_format'), 'bill');
         return $number;
-    }
-
-    protected function setSupplierData($data, $supplier_id = null, $address_id = null)
-    {
-        if (!$supplier_id || !$address_id) {
-            $data['supplier_id'] = null;
-            $data['supplier_address_id'] = null;
-            $data['supplier_name'] = null;
-            $data['supplier_address'] = null;
-            $data['supplier_city'] = null;
-            $data['supplier_zip_code'] = null;
-            $data['supplier_country'] = null;
-            return $data;
-        }
-        $partner = Partner::where('id', $supplier_id)->get()[0];
-        $address = PartnerAddress::where('partner_id', $supplier_id)->where('id', $address_id)->get()[0];
-        $data['supplier_id'] = $partner->id;
-        $data['supplier_name'] = $partner->name;
-        $data['supplier_address_id'] = $address->id;
-        $data['supplier_address'] = $address->address;
-        $data['supplier_city'] = $address->city;
-        $data['supplier_zip_code'] = $address->zip_code;
-        $data['supplier_country'] = $address->country;
-        return $data;
     }
 }

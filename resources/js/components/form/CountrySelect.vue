@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-column mb-1">
-        <label :for="id" class="block text-900 font-medium mb-1"> {{ label }} </label>
-        <Dropdown
+    <div class="flex flex-col gap-2">
+        <label :for="id" class="dark:text-surface-200">{{ label }}</label>
+        <Select
             :id="id"
             :name="id"
             :model-value="modelValue"
@@ -15,35 +15,37 @@
             :placeholder="placeholder"
             :editable="editable"
             :show-clear="showClear"
-            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
+            :invalid="validate?.$dirty && validate?.$invalid"
             @change="updateValue"
             @blur="validate?.$touch()"
         >
             <template #value="slotProps">
                 <div v-if="slotProps.value">
-                    <span>{{ $t('countries.' + slotProps.value) }}</span>
+                    {{ $t(`countries.${slotProps.value}`) }}
                 </div>
                 <span v-else>
                     {{ slotProps.placeholder }}
                 </span>
             </template>
             <template #option="slotProps">
-                <div>
-                    <span :class="'fi fi-' + slotProps.option.code.toLowerCase()"></span>
-                    <span class="ml-2">{{ $t('countries.' + slotProps.option.name) }}</span>
-                </div>
+                <span :class="`fi fi-${slotProps.option.iso2.toLowerCase()}`"></span>
+                <span class="ml-2">{{ $t(`countries.${slotProps.option.name}`) }}</span>
             </template>
-        </Dropdown>
+        </Select>
         <div v-if="validate && validate?.$dirty" class="flex flex-column">
-            <div v-for="error in validate.$errors" v-if="validate.$invalid" class="p-error">{{ error.$message }}</div>
+            <div v-if="validate.$invalid" v-for="error in validate.$errors" class="text-red-500 text-sm">{{ error.$message }}</div>
         </div>
     </div>
 </template>
 
 <script>
-import countries from '@/data/country.json'
 export default {
     name: 'CountrySelectComponent',
+    data() {
+        return {
+            countries: [],
+        }
+    },
     props: {
         id: {
             type: String,
@@ -95,6 +97,12 @@ export default {
         updateValue(event) {
             this.$emit('update:modelValue', event.value)
         },
+    },
+
+    created() {
+        this.makeHttpRequest('GET', '/api/countries?fields=iso2,iso3,region').then((response) => {
+            this.countries = response.data.data
+        })
     },
 }
 </script>

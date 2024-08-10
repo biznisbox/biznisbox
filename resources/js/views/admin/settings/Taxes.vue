@@ -1,141 +1,93 @@
 <template>
-    <div>
-        <admin-layout>
-            <div id="admin_settings_tax_page">
-                <user-header :title="$t('admin.taxes.title')">
-                    <template #actions>
-                        <Button :label="$t('admin.taxes.new_tax')" icon="fa fa-plus" @click="newTaxDialog" />
+    <DefaultLayout menu_type="admin">
+        <PageHeader :title="$t('admin.taxes.title')">
+            <template #actions>
+                <Button :label="$t('admin.taxes.new_tax')" icon="fa fa-plus" @click="openNewTaxDialog" />
+            </template>
+        </PageHeader>
+
+        <div id="tax_table" class="card">
+            <DataTable
+                :value="taxes"
+                :loading="loadingData"
+                column-resize-mode="expand"
+                @row-dblclick="openEditTaxDialog"
+                :paginator="true"
+                :rows="10"
+                :rowsPerPageOptions="[5, 10, 20, 50]"
+                dataKey="id"
+            >
+                <template #empty>
+                    <div class="p-4 pl-0 text-center w-full">
+                        <i class="fa fa-info-circle empty-icon"></i>
+                        <p>{{ $t('admin.taxes.no_taxes') }}</p>
+                        <Button class="mt-3" :label="$t('admin.taxes.create_first_tax')" icon="fa fa-plus" @click="openNewTaxDialog" />
+                    </div>
+                </template>
+                <Column field="name" :header="$t('admin.taxes.name')" />
+                <Column field="description" :header="$t('admin.taxes.description')" />
+                <Column field="type" :header="$t('form.type')">
+                    <template #body="slotProps">
+                        <Tag v-if="slotProps.data.type === 'percent'">{{ $t('tax_types.percent') }}</Tag>
+                        <Tag v-else>{{ $t('tax_types.fixed') }}</Tag>
                     </template>
-                </user-header>
+                </Column>
+                <Column field="rate" :header="$t('form.rate')" />
+            </DataTable>
+        </div>
 
-                <div id="tax_table" class="card">
-                    <DataTable :value="taxes" :loading="loadingData" column-resize-mode="expand" @row-dblclick="editTaxDialog">
-                        <template #empty>
-                            <div class="p-4 pl-0 text-center w-full text-gray-500">
-                                <i class="fa fa-info-circle empty-icon"></i>
-                                <p>{{ $t('admin.taxes.no_taxes') }}</p>
-                                <Button class="mt-3" :label="$t('admin.taxes.create_first_tax')" icon="fa fa-plus" @click="newTaxDialog" />
-                            </div>
-                        </template>
-                        <Column field="name" :header="$t('admin.taxes.name')" />
-                        <Column field="description" :header="$t('admin.taxes.description')" />
-                        <Column field="value" :header="$t('admin.taxes.value')" />
-                    </DataTable>
+        <!-- Edit new tax modal -->
+        <Dialog
+            v-model:visible="showNewEditTaxDialog"
+            :header="dialogMethod === 'edit' ? $t('admin.taxes.edit_tax') : $t('admin.taxes.new_tax')"
+            modal
+        >
+            <LoadingScreen :blocked="loadingData">
+                <form>
+                    <TextInput v-model="tax.name" :label="$t('form.name')" />
+                    <TextAreaInput v-model="tax.description" :label="$t('form.description')" />
+                    <SelectInput
+                        v-model="tax.type"
+                        :label="$t('form.type')"
+                        :options="[
+                            { label: $t('tax_types.percent'), value: 'percent' },
+                            { label: $t('tax_types.fixed'), value: 'fixed' },
+                        ]"
+                    />
+                    <NumberInput v-model="tax.rate" :label="$t('form.rate')" type="float" :min-fraction="2" :max-fraction="2" />
+                </form>
+            </LoadingScreen>
+
+            <template #footer>
+                <div id="function_buttons" class="flex flex-wrap gap-2">
+                    <div class="flex justify-end">
+                        <Button
+                            :label="$t('basic.delete')"
+                            icon="fa fa-trash"
+                            severity="danger"
+                            @click="deleteTaxAsk(tax.id)"
+                            v-if="dialogMethod === 'edit' && tax.id !== ''"
+                        />
+                    </div>
+                    <div class="flex-grow"></div>
+                    <div class="flex gap-2 flex-wrap justify-end">
+                        <Button :label="$t('basic.cancel')" icon="fa fa-times" severity="secondary" @click="showNewEditTaxDialog = false" />
+                        <Button
+                            :label="dialogMethod === 'edit' ? $t('basic.update') : $t('basic.save')"
+                            severity="success"
+                            icon="fa fa-save"
+                            @click="dialogMethod === 'edit' ? updateTax() : createTax()"
+                        />
+                    </div>
                 </div>
-            </div>
-
-            <!-- Edit tax modal -->
-            <Dialog v-model:visible="showEditTaxDialog" :header="$t('admin.taxes.edit_tax')" modal>
-                <LoadingScreen :blocked="loadingData">
-                    <form id="edit_tax_form" class="formgrid">
-                        <div class="grid">
-                            <TextInput
-                                v-model="v$.tax.name.$model"
-                                :label="$t('admin.taxes.name')"
-                                class="col-12"
-                                :validate="v$.tax.name"
-                            />
-                        </div>
-                        <div class="grid">
-                            <TextAreaInput
-                                v-model="v$.tax.description.$model"
-                                :label="$t('admin.taxes.description')"
-                                class="col-12"
-                                :validate="v$.tax.description"
-                            />
-                        </div>
-                        <div class="grid">
-                            <NumberInput
-                                v-model="v$.tax.value.$model"
-                                :label="$t('admin.taxes.value')"
-                                type="float"
-                                :min-fraction="2"
-                                :max-fraction="2"
-                                class="col-12"
-                                :validate="v$.tax.value"
-                            />
-                        </div>
-                    </form>
-                </LoadingScreen>
-
-                <template #footer>
-                    <div id="function_buttons" class="flex gap-2">
-                        <div class="flex justify-content-end">
-                            <Button :label="$t('basic.delete')" icon="fa fa-trash" class="p-button-danger" @click="deleteTax(tax.id)" />
-                        </div>
-                        <div class="flex-grow"></div>
-                        <div class="flex gap-2 justify-content-end">
-                            <Button
-                                :label="$t('basic.cancel')"
-                                icon="fa fa-times"
-                                class="p-button-danger"
-                                @click="showEditTaxDialog = false"
-                            />
-                            <Button :label="$t('basic.save')" icon="fa fa-floppy-disk" class="p-button-success" @click="updateTax" />
-                        </div>
-                    </div>
-                </template>
-            </Dialog>
-
-            <!-- New tax modal -->
-            <Dialog v-model:visible="showNewTaxDialog" :header="$t('admin.taxes.new_tax')" modal>
-                <LoadingScreen :blocked="loadingData">
-                    <form id="new_tax_form" class="formgrid mt-3">
-                        <div class="grid">
-                            <TextInput
-                                v-model="v$.tax.name.$model"
-                                :label="$t('admin.taxes.name')"
-                                class="col-12"
-                                :validate="v$.tax.name"
-                            />
-                        </div>
-                        <div class="grid">
-                            <TextAreaInput
-                                v-model="v$.tax.description.$model"
-                                :label="$t('admin.taxes.description')"
-                                class="col-12"
-                                :validate="v$.tax.description"
-                            />
-                        </div>
-                        <div class="grid">
-                            <NumberInput
-                                v-model="v$.tax.value.$model"
-                                :label="$t('admin.taxes.value')"
-                                type="float"
-                                :min-fraction="2"
-                                :max-fraction="2"
-                                class="col-12"
-                                :validate="v$.tax.value"
-                            />
-                        </div>
-                    </form>
-                </LoadingScreen>
-
-                <template #footer>
-                    <div id="function_buttons" class="flex gap-2">
-                        <div class="flex gap-2 justify-content-end">
-                            <Button
-                                id="cancel_button"
-                                :label="$t('basic.cancel')"
-                                icon="fa fa-times"
-                                class="p-button-danger"
-                                @click="showNewTaxDialog = false"
-                            />
-                            <Button :label="$t('basic.save')" icon="fa fa-floppy-disk" class="p-button-success" @click="createTax" />
-                        </div>
-                    </div>
-                </template>
-            </Dialog>
-        </admin-layout>
-    </div>
+            </template>
+        </Dialog>
+    </DefaultLayout>
 </template>
 
 <script>
-import { useVuelidate } from '@vuelidate/core'
-import { required } from '@vuelidate/validators'
 export default {
     name: 'AdminSettingsTaxPage',
-    setup: () => ({ v$: useVuelidate() }),
     data() {
         return {
             taxes: [],
@@ -143,27 +95,32 @@ export default {
                 id: '',
                 name: '',
                 description: '',
-                value: null,
+                rate: null,
+                type: 'percent',
             },
-            showEditTaxDialog: false,
-            showNewTaxDialog: false,
+            showNewEditTaxDialog: false,
+            dialogMethod: 'create',
         }
     },
 
-    validations() {
-        return {
-            tax: {
-                name: { required },
-                description: { required },
-                value: { required },
-            },
-        }
-    },
     created() {
         this.getTaxes()
     },
 
     methods: {
+        openEditTaxDialog(event) {
+            this.dialogMethod = 'edit'
+            this.resetTaxForm()
+            this.getTax(event.data.id)
+            this.showNewEditTaxDialog = true
+        },
+
+        openNewTaxDialog() {
+            this.dialogMethod = 'create'
+            this.resetTaxForm()
+            this.showNewEditTaxDialog = true
+        },
+
         getTaxes() {
             this.makeHttpRequest('GET', '/api/admin/taxes').then((response) => {
                 this.taxes = response.data.data
@@ -177,57 +134,48 @@ export default {
         },
 
         updateTax() {
-            this.v$.$touch()
-            if (this.v$.$error) {
-                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
-            }
-
             this.makeHttpRequest('PUT', `/api/admin/taxes/${this.tax.id}`, this.tax).then((response) => {
-                this.v$.$reset()
                 this.getTaxes()
                 this.showToast(response.data.message)
-                this.showEditTaxDialog = false
+                this.showNewEditTaxDialog = false
             })
         },
 
         deleteTax(id) {
             this.makeHttpRequest('DELETE', `/api/admin/taxes/${id}`).then((response) => {
-                this.showEditTaxDialog = false
+                this.showNewEditTaxDialog = false
                 this.showToast(response.data.message)
                 this.getTaxes()
             })
         },
 
         createTax() {
-            this.v$.$touch()
-            if (this.v$.$error) {
-                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
-            }
-
             this.makeHttpRequest('POST', '/api/admin/taxes', this.tax).then((response) => {
-                this.v$.$reset()
                 this.showToast(response.data.message)
                 this.getTaxes()
-                this.showNewTaxDialog = false
+                this.showNewEditTaxDialog = false
             })
         },
 
-        newTaxDialog() {
-            this.v$.$reset()
+        resetTaxForm() {
             this.tax = {
                 id: '',
                 name: '',
                 description: '',
                 value: '',
-                type: '',
+                type: 'percent',
             }
-            this.showNewTaxDialog = true
         },
 
-        editTaxDialog(event) {
-            this.v$.$reset()
-            this.showEditTaxDialog = true
-            this.getTax(event.data.id)
+        deleteTaxAsk(id) {
+            this.$confirm.require({
+                message: this.$t('admin.taxes.delete_confirm_tax'),
+                header: this.$t('basic.confirmation'),
+                icon: 'fa fa-circle-exclamation',
+                accept: () => {
+                    this.deleteTax(id)
+                },
+            })
         },
     },
 }

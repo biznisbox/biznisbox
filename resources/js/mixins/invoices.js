@@ -40,7 +40,9 @@ export default {
                         unit: '',
                         price: 0,
                         tax: null,
+                        tax_type: 'percent', // percent, fixed
                         discount: 0,
+                        discount_type: 'percent', // percent, fixed
                         total: 0,
                     },
                 ],
@@ -49,7 +51,7 @@ export default {
                 payment_method: '',
                 notes: '',
                 discount: 0,
-                discount_type: 'percentage', // 'percentage' or 'fixed
+                discount_type: 'percent', // percent, fixed
                 tax: '',
                 total: 0.0,
             },
@@ -89,7 +91,7 @@ export default {
          * Create new invoice
          * @returns {void} redirect to invoices page
          **/
-        saveInvoice() {
+        createInvoice() {
             this.makeHttpRequest('POST', '/api/invoices', this.invoice).then((response) => {
                 this.showToast(response.data.message)
                 this.$router.push({ name: 'invoices' })
@@ -104,7 +106,7 @@ export default {
         updateInvoice(id) {
             this.makeHttpRequest('PUT', '/api/invoices/' + id, this.invoice).then((response) => {
                 this.showToast(response.data.message)
-                this.$router.push({ name: 'view-invoice', params: { id: id } })
+                this.$router.push({ name: 'invoice-view', params: { id: id } })
             })
         },
 
@@ -141,7 +143,7 @@ export default {
          * @returns {string} number new invoice number
          **/
         getInvoiceNumber() {
-            this.makeHttpRequest('GET', '/api/invoice/invoice_number').then((response) => {
+            this.makeHttpRequest('GET', '/api/invoice/number').then((response) => {
                 this.invoice.number = response.data.data
             })
         },
@@ -152,7 +154,7 @@ export default {
          * @returns {string} share url
          **/
         shareInvoice(id) {
-            this.makeHttpRequest('GET', '/api/invoice/share/' + id, null, null, null, false).then((response) => {
+            this.makeHttpRequest('GET', `/api/invoice/${id}/share`, null, null, null, false).then((response) => {
                 this.shareUrl = response.data.data
                 this.shareDialog = true
             })
@@ -164,16 +166,17 @@ export default {
          **/
 
         getPartners() {
-            this.makeHttpRequest('GET', '/api/partners_list?type=both,customer').then((response) => {
+            this.makeHttpRequest('GET', '/api/partner/limited?type=customer,both').then((response) => {
                 this.partners = response.data.data
             })
         },
 
         /**
          * Send invoice by email
+         * @param {UUID} id uuid of invoice
          */
         sendInvoiceNotification(id) {
-            this.makeHttpRequest('POST', '/api/invoice/send/' + id, null, null, null, false).then((response) => {
+            this.makeHttpRequest('POST', `/api/invoice/${id}/send`, null, null, null, false).then((response) => {
                 this.showToast(response.data.message)
             })
         },

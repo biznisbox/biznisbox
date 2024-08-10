@@ -2,42 +2,86 @@
 
 namespace App\Services;
 
-use App\Models\Units;
-use App\Models\Taxes;
-use App\Models\Currencies;
+use App\Models\ActivityLog;
+use App\Models\Tax;
+use App\Models\Unit;
 use App\Models\Category;
-use App\Models\Department;
-use App\Models\User;
-use App\Models\Employee;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class DataService
 {
-    public function __construct()
+    public function getTaxes()
     {
-        //
+        return Tax::all()->where('active', true);
     }
 
     public function getUnits()
     {
-        $units = new Units();
-        $units = $units->getUnits();
-        return $units;
+        return Unit::all()->where('active', true);
     }
 
-    public function getTaxes()
+    public function getPublicEmployees()
     {
-        $taxes = new Taxes();
-        $taxes = $taxes->getTaxes();
-        return $taxes;
+        $employees = new \App\Models\Employee();
+        $employees = $employees->getPublicEmployees();
+        return $employees;
+    }
+
+    public function getPublicUsers()
+    {
+        $users = new \App\Models\User();
+        $users = $users->getPublicUsers();
+        return $users;
+    }
+
+    public function getDepartments()
+    {
+        $departments = new \App\Models\Department();
+        $departments = $departments->getPublicDepartments();
+        return $departments;
+    }
+
+    public function getProducts()
+    {
+        $products = new \App\Models\Product();
+        $products = $products->getPublicProducts();
+        return $products;
+    }
+
+    public function getAvailableLocales()
+    {
+        $locales = config('app.available_locales');
+        return $locales;
+    }
+
+    public function getLogs($item_id, $item_type)
+    {
+        if (!$item_id || !$item_type) {
+            return null;
+        }
+
+        $logs = ActivityLog::where([
+            'auditable_type' => 'App\Models\\' . $item_type,
+            'auditable_id' => $item_id,
+        ])
+            ->with('user:id,first_name,last_name,picture,email', 'externalKeyData')
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return $logs;
     }
 
     public function getCurrencies()
     {
-        $currencies = new Currencies();
-        $currencies = $currencies->getCurrencies();
+        $currencies = new \App\Models\Currency();
+        $currencies = $currencies->where('status', 'active')->get(['id', 'name', 'code', 'symbol', 'exchange_rate']);
         return $currencies;
     }
 
+    /****************************************
+     * Category services
+     ****************************************/
     public function getCategories($module)
     {
         $categories = new Category();
@@ -61,8 +105,9 @@ class DataService
         $color = $categoryData['color'] ?? null;
         $parent_id = $categoryData['parent_id'] ?? null;
         $icon = $categoryData['icon'] ?? null;
+        $additional_info = $categoryData['additional_info'] ?? null;
 
-        $category = $category->createCategory($name, $module, $description, $color, $parent_id, $icon);
+        $category = $category->createCategory($name, $module, $description, $color, $parent_id, $icon, $additional_info);
         return $category;
     }
 
@@ -80,25 +125,49 @@ class DataService
         return $category;
     }
 
-    public function getDepartments()
+    /****************************************
+     * Dashboard related functions
+     ****************************************/
+    public function getDashboardLayout($type = 'user')
     {
-        $departments = new Department();
-        $departments = $departments->getPublicDepartments();
-        return $departments;
+        $dashboard_layout = DB::table('dashboard')
+            ->where([
+                'user_id' => auth()->id(),
+                'type' => $type,
+            ])
+            ->first();
+
+        if (!$dashboard_layout) {
+            $dashboard_layout = DB::table('dashboard')->insert([
+                'id' => Str::uuid(),
+                'user_id' => auth()->id(),
+                'content' => '[]',
+                'created_at' => now(),
+                'updated_at' => now(),
+                'type' => $type,
+            ]);
+            $dashboard_layout = DB::table('dashboard')
+                ->where([
+                    'user_id' => auth()->id(),
+                    'type' => $type,
+                ])
+                ->first();
+        }
+        return $dashboard_layout;
     }
 
-    public function getUsers()
+    public function updateDashboardLayout($data, $type = 'user')
     {
-        $users = new User();
-        $users = $users->getPublicUsers();
-        return $users;
-    }
-
-    public function getEmployees()
-    {
-        $employees = new Employee();
-        $employees = $employees->getPublicEmployees();
-        return $employees;
+        $dashboard_layout = DB::table('dashboard')
+            ->where([
+                'user_id' => auth()->id(),
+                'type' => $type,
+            ])
+            ->update([
+                'content' => $data,
+                'updated_at' => now(),
+            ]);
+        return $dashboard_layout;
     }
 
     public function returnData($requiredData)
@@ -110,17 +179,20 @@ class DataService
             case 'taxes':
                 return $this->getTaxes();
                 break;
-            case 'currencies':
-                return $this->getCurrencies();
+            case 'employees':
+                return $this->getPublicEmployees();
+                break;
+            case 'users':
+                return $this->getPublicUsers();
                 break;
             case 'departments':
                 return $this->getDepartments();
                 break;
-            case 'users':
-                return $this->getUsers();
+            case 'products':
+                return $this->getProducts();
                 break;
-            case 'employees':
-                return $this->getEmployees();
+            case 'locales':
+                return $this->getAvailableLocales();
                 break;
             default:
                 return null;

@@ -3,126 +3,126 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\SupportTicket;
+use App\Services\SupportTicketService;
 
 class SupportTicketController extends Controller
 {
-    protected $supportTicketModel;
+    protected $supportTicketService;
 
-    public function __construct(SupportTicket $supportTicketModel)
+    public function __construct(SupportTicketService $supportTicketService)
     {
-        $this->supportTicketModel = $supportTicketModel;
+        $this->supportTicketService = $supportTicketService;
     }
 
-    public function getSupportTickets()
+    public function getTickets()
     {
-        $supportTickets = $this->supportTicketModel->getSupportTickets();
-
-        if ($supportTickets) {
-            return api_response($supportTickets, __('response.support_ticket.get_success'));
+        $tickets = $this->supportTicketService->getTickets();
+        if ($tickets) {
+            return api_response($tickets, __('responses.data_retrieved_successfully'));
         }
-        return api_response(null, __('response.support_ticket.get_failed'), 400);
+        return api_response(null, __('responses.item_not_found'), 400);
     }
 
-    public function getSupportTicket($id)
+    public function getTicket($id)
     {
-        $supportTicket = $this->supportTicketModel->getSupportTicket($id);
-
-        if ($supportTicket) {
-            return api_response($supportTicket, __('response.support_ticket.get_success'));
+        $ticket = $this->supportTicketService->getTicket($id);
+        if ($ticket) {
+            return api_response($ticket, __('responses.data_retrieved_successfully'));
         }
-        return api_response(null, __('response.support_ticket.not_found'), 404);
+        return api_response(null, __('responses.item_not_found_with_id'), 404);
     }
 
-    public function createSupportTicket(Request $request)
+    public function getTicketContents($id)
+    {
+        $contents = $this->supportTicketService->getTicketContents($id);
+        if ($contents) {
+            return api_response($contents, __('responses.data_retrieved_successfully'));
+        }
+        return api_response(null, __('responses.item_not_found'), 400);
+    }
+
+    public function createTicket(Request $request)
     {
         $data = $request->all();
-        $supportTicket = $this->supportTicketModel->createSupportTicket($data);
-
-        if ($supportTicket) {
-            return api_response($supportTicket, __('response.support_ticket.create_success'), 201);
+        $ticket = $this->supportTicketService->createTicket($data);
+        if ($ticket) {
+            return api_response($ticket, __('responses.item_created_successfully'));
         }
-        return api_response(null, __('response.support_ticket.create_failed'), 400);
+        return api_response(null, __('responses.item_not_created'), 400);
     }
 
-    public function updateSupportTicket(Request $request, $id)
+    public function updateTicket(Request $request, $id)
     {
         $data = $request->all();
-        $supportTicket = $this->supportTicketModel->updateSupportTicket($id, $data);
-
-        if ($supportTicket) {
-            return api_response($supportTicket, __('response.support_ticket.update_success'));
+        $ticket = $this->supportTicketService->updateSupportTicket($id, $data);
+        if ($ticket) {
+            return api_response($ticket, __('responses.item_updated_successfully'));
         }
-        return api_response(null, __('response.support_ticket.update_failed'), 400);
+        return api_response(null, __('responses.item_not_updated'), 400);
     }
 
-    public function deleteSupportTicket($id)
+    public function deleteTicket($id)
     {
-        $supportTicket = $this->supportTicketModel->deleteSupportTicket($id);
-
-        if ($supportTicket) {
-            return api_response($supportTicket, __('response.support_ticket.delete_success'));
+        $ticket = $this->supportTicketService->deleteSupportTicket($id);
+        if ($ticket) {
+            return api_response($ticket, __('responses.item_deleted_successfully'));
         }
-        return api_response(null, __('response.support_ticket.delete_failed'), 400);
+        return api_response(null, __('responses.item_not_deleted'), 400);
     }
 
-    public function getSupportTicketMessages($id)
+    public function getTicketMessages($id)
     {
-        $supportTicketMessages = $this->supportTicketModel->getSupportTicketMessages($id);
-
-        if ($supportTicketMessages) {
-            return api_response($supportTicketMessages, __('response.support_ticket_message.get_success'));
+        $messages = $this->supportTicketService->getTicketMessages($id);
+        if ($messages) {
+            return api_response($messages, __('responses.data_retrieved_successfully'));
         }
-        return api_response(null, __('response.support_ticket_message.get_failed'), 400);
+        return api_response(null, __('responses.item_not_found'), 400);
     }
 
-    public function createSupportTicketMessage(Request $request, $id)
+    public function createTicketMessage(Request $request, $id)
     {
         $data = $request->all();
-        $supportTicketMessage = $this->supportTicketModel->createSupportTicketMessage($id, $data);
-
-        if ($supportTicketMessage) {
-            return api_response($supportTicketMessage, __('response.support_ticket_message.create_success'), 201);
+        $message = $this->supportTicketService->createTicketMessage($id, $data);
+        if ($message) {
+            return api_response($message, __('responses.item_created_successfully'));
         }
-        return api_response(null, __('response.support_ticket_message.create_failed'), 400);
+        return api_response(null, __('responses.item_not_created'), 400);
     }
 
-    public function updateSupportTicketMessage(Request $request, $id)
+    public function updateTicketMessage(Request $request, $id)
     {
         $data = $request->all();
-        $supportTicketMessage = $this->supportTicketModel->updateSupportTicketMessage($id, $data);
-
-        if ($supportTicketMessage) {
-            return api_response($supportTicketMessage, __('response.support_ticket_message.update_success'));
+        $message = $this->supportTicketService->updateTicketMessage($id, $data);
+        if ($message) {
+            return api_response($message, __('responses.item_updated_successfully'));
         }
-        return api_response(null, __('response.support_ticket_message.update_failed'), 400);
+        return api_response(null, __('responses.item_not_updated'), 400);
     }
 
-    public function deleteSupportTicketMessage($id)
+    public function deleteTicketMessage($id)
     {
-        $supportTicketMessage = $this->supportTicketModel->deleteSupportTicketMessage($id);
-
-        if ($supportTicketMessage) {
-            return api_response($supportTicketMessage, __('response.support_ticket_message.delete_success'));
+        $message = $this->supportTicketService->deleteTicketMessage($id);
+        if ($message) {
+            return api_response($message, __('responses.item_deleted_successfully'));
         }
-        return api_response(null, __('response.support_ticket_message.delete_failed'), 400);
+        return api_response(null, __('responses.item_not_deleted'), 400);
     }
 
-    public function getSupportTicketNumber()
+    public function getTicketNumber()
     {
-        $supportTicket = $this->supportTicketModel->getSupportTicketNumber();
-        if ($supportTicket) {
-            return api_response($supportTicket, __('response.support_ticket.get_number_success'));
+        $number = $this->supportTicketService->getTicketNumber();
+        if ($number) {
+            return api_response($number, __('responses.data_retrieved_successfully'));
         }
-        return api_response(null, __('response.support_ticket.get_number_failed'), 400);
+        return api_response(null, __('responses.item_not_found'), 400);
     }
 
-    public function shareSupportTicket($id)
+    public function shareTicket(Request $request, $id)
     {
-        $ticket_link = $this->supportTicketModel->shareSupportTicket($id);
-        if (!$ticket_link) {
-            return api_response(null, __('response.support_ticket.share_failed'), 400);
+        $ticket = $this->supportTicketService->shareTicket($id);
+        if ($ticket) {
+            return api_response($ticket, __('responses.item_shared_successfully'));
         }
-        return api_response($ticket_link, __('response.support_ticket.share_success'), 200);
+        return api_response(null, __('responses.item_not_shared'), 400);
     }
 }

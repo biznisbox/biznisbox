@@ -61,7 +61,7 @@ return [
          *
          * The directory specified must be writeable by the webserver process.
          * The temporary directory is required to download remote images and when
-         * using the PFDLib back end.
+         * using the PDFLib back end.
          */
         'temp_dir' => sys_get_temp_dir(),
 
@@ -185,7 +185,7 @@ return [
          * Used if no suitable fonts can be found. This must exist in the font folder.
          * @var string
          */
-        'default_font' => 'sans-serif',
+        'default_font' => 'serif',
 
         /**
          * Image DPI setting

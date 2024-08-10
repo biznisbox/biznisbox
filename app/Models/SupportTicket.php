@@ -5,19 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use OwenIt\Auditing\Contracts\Auditable;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
 class SupportTicket extends Model implements Auditable
 {
     use HasFactory, SoftDeletes, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
-    protected $table = 'support_tickets';
-
     protected $fillable = [
         'assignee_id',
         'partner_id',
+        'contact_id',
         'category_id',
         'department_id',
         'number',
@@ -28,6 +27,16 @@ class SupportTicket extends Model implements Auditable
         'source',
         'notes',
         'tags',
+        'channel',
+        'custom_contact',
+        'contact_name',
+        'contact_email',
+        'contact_phone_number',
+    ];
+
+    protected $casts = [
+        'tags' => 'array',
+        'custom_contact' => 'boolean',
     ];
 
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
@@ -47,6 +56,11 @@ class SupportTicket extends Model implements Auditable
         return $this->belongsTo(Partner::class, 'partner_id');
     }
 
+    public function contact()
+    {
+        return $this->belongsTo(PartnerContact::class, 'contact_id');
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
@@ -59,14 +73,14 @@ class SupportTicket extends Model implements Auditable
 
     public function content()
     {
-        return $this->hasMany(SupportTicketContent::class, 'ticket_id');
+        return $this->hasMany(SupportTicketContent::class, 'ticket_id')->orderBy('created_at', 'asc');
     }
 
     public function getSupportTickets()
     {
         $supportTickets = self::with('assignee:id,first_name,last_name,email', 'partner', 'category', 'content')->get();
         if ($supportTickets) {
-            activity_log(user_data()->data->id, 'get support tickets', null, 'App\Models\SupportTicket', 'getSupportTickets');
+            createActivityLog('retrieve', null, 'App\Models\SupportTicket', 'getSupportTickets');
             return $supportTickets;
         }
         return false;
@@ -74,9 +88,14 @@ class SupportTicket extends Model implements Auditable
 
     public function getSupportTicket($id)
     {
-        $supportTicket = self::with('assignee', 'partner', 'category', 'content')->find($id);
+        $supportTicket = self::with(
+            'assignee:id,first_name,last_name,email,department_id,position,user_id',
+            'partner',
+            'category',
+            'content'
+        )->find($id);
         if ($supportTicket) {
-            activity_log(user_data()->data->id, 'get support ticket', $id, 'App\Models\SupportTicket', 'getSupportTicket');
+            createActivityLog('retrieve', $id, 'App\Models\SupportTicket', 'getSupportTicket');
             return $supportTicket;
         }
         return false;
@@ -84,16 +103,20 @@ class SupportTicket extends Model implements Auditable
 
     public function createSupportTicket($data)
     {
+        $data['number'] = self::getTicketNumber();
+
         $supportTicket = self::create($data);
 
         if (isset($data['content'])) {
             foreach ($data['content'] as $content) {
+                if ($content['message'] == null) {
+                    continue;
+                }
                 $content['ticket_id'] = $supportTicket->id;
                 $content['type'] = 'text';
                 $content['status'] = 'sent';
                 $content['from'] =
-                    $content['from'] ??
-                    (user_data()->data->first_name . ' ' . user_data()->data->last_name . ' <' . user_data()->data->email . '>' ?? null);
+                    $content['from'] ?? auth()->user()->first_name . ' ' . auth()->user()->last_name . ' <' . auth()->user()->email . '>';
                 $content['message'] = $content['message'];
                 SupportTicketContent::create($content);
             }
@@ -101,6 +124,7 @@ class SupportTicket extends Model implements Auditable
 
         if ($supportTicket) {
             incrementLastItemNumber('support_ticket');
+            sendWebhookForEvent('support_ticket:created', $supportTicket->toArray());
             return $supportTicket;
         }
         return false;
@@ -122,10 +146,27 @@ class SupportTicket extends Model implements Auditable
             self::generateSystemMessage($id, 'This ticket has been resolved');
         }
 
+        // Clear contact details if custom contact is true
+        if ($data['custom_contact'] == true) {
+            $data['contact_id'] = null;
+            $data['partner_id'] = null;
+        }
+
+        // Clear custom contact details if custom contact is false
+        if ($data['custom_contact'] == false) {
+            $data['contact_name'] = null;
+            $data['contact_email'] = null;
+            $data['contact_phone_number'] = null;
+        }
+
+        $data['number'] = $supportTicket['number'];
+
         $supportTicket->update($data);
 
         if ($supportTicket) {
-            return self::with('assignee', 'partner', 'category', 'content')->find($id);
+            $supportTicket = $this->getSupportTicket($id);
+            sendWebhookForEvent('support_ticket:updated', $supportTicket->toArray());
+            return $supportTicket;
         }
         return false;
     }
@@ -136,78 +177,31 @@ class SupportTicket extends Model implements Auditable
         $supportTicket->delete();
 
         if ($supportTicket) {
+            sendWebhookForEvent('support_ticket:deleted', $supportTicket->toArray());
             return $supportTicket;
         }
         return false;
     }
 
-    public function getSupportTicketMessages($id)
+    public static function getTicketNumber()
     {
-        $supportTicket = SupportTicketContent::where('ticket_id', $id)->get();
-        if ($supportTicket) {
-            return $supportTicket;
-        }
-        return false;
-    }
-
-    public function createSupportTicketMessage($ticket_id, $data)
-    {
-        $content = new SupportTicketContent();
-        $content->ticket_id = $ticket_id;
-        $content->to = $data['to'] ?? null;
-        $content->from =
-            $data['from'] ??
-            (user_data()->data->first_name . ' ' . user_data()->data->last_name . ' <' . user_data()->data->email . '>' ?? null);
-        $content->message = $data['message'];
-        $content->type = 'text';
-        $content->status = 'sent';
-        $content->save();
-
-        if ($content) {
-            return self::with('assignee', 'partner', 'category', 'content')->find($ticket_id);
-        }
-        return false;
-    }
-
-    public function updateSupportTicketMessage($id, $data)
-    {
-        $content = SupportTicketContent::find($id);
-        $content->update($data);
-
-        if ($content) {
-            return $content;
-        }
-        return false;
-    }
-
-    public function deleteSupportTicketMessage($id)
-    {
-        $content = SupportTicketContent::find($id);
-        $content->delete();
-
-        if ($content) {
-            return $content;
-        }
-        return false;
-    }
-
-    public static function getSupportTicketNumber()
-    {
-        $number = generate_next_number(settings('support_ticket_number_format'), 'support_ticket');
+        $number = generateNextNumber(settings('support_ticket_number_format'), 'support_ticket');
         return $number;
     }
 
-    public function shareSupportTicket($id)
+    public function shareTicket($id)
     {
         $ticket = $this->find($id);
-        $key = generate_external_key('support', $ticket->id);
+        $key = generateExternalKey('support', $ticket->id);
         $url = url('/client/support/' . $id . '?key=' . $key . '&lang=' . app()->getLocale());
+        createActivityLog('share', $ticket->id, 'App\Models\SupportTicket', 'shareTicket');
+        sendWebhookForEvent('support_ticket:shared', ['id' => $ticket->id, 'url' => $url]);
         return $url;
     }
 
     public function getClientTicket($id)
     {
-        $ticket = self::with('partner', 'category', 'content')->find($id);
+        $ticket = self::with('partner', 'category', 'content', 'department:name,email,phone_number,type,id')->find($id);
         if ($ticket) {
             return $ticket;
         }

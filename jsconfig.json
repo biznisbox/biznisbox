@@ -8,6 +8,6 @@
             "@/*": ["./resources/js/*"]
         }
     },
-    "exclude": ["node_modules", "public"],
+    "exclude": ["node_modules", "public", "vendor"],
     "include": ["resources/js/**/*"]
 }

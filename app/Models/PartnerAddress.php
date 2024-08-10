@@ -16,16 +16,18 @@ class PartnerAddress extends Model implements Auditable
 
     protected $fillable = ['partner_id', 'is_primary', 'type', 'address', 'city', 'zip_code', 'country', 'notes'];
 
-    protected $hidden = ['partner_id', 'created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
+
+    protected function casts(): array
+    {
+        return [
+            'is_primary' => 'boolean',
+        ];
+    }
 
     public function generateTags(): array
     {
         return ['PartnerAddress'];
-    }
-
-    public function partner()
-    {
-        return $this->belongsTo(Partner::class);
     }
 
     public function formatAddresses()

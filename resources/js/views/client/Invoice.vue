@@ -2,7 +2,7 @@
     <div id="client_view_invoice_page" class="p-2">
         <LoadingScreen :blocked="loadingData">
             <div>
-                <div id="company_data" class="mb-2 d-block p-3">
+                <div id="company_data" class="p-3">
                     <span class="font-bold">{{ formatText($settings.company_name) }}</span
                     ><br />
                     <span>{{ formatText($settings.company_address) }}</span> <br />
@@ -11,8 +11,8 @@
                     <span v-if="$settings.company_vat">{{ $t('form.tax_id') + ': ' + $settings.company_vat }}</span>
                 </div>
 
-                <div v-if="!no_found" class="card">
-                    <user-header :title="$t('invoice.invoice') + ' ' + invoice.number">
+                <div v-if="!no_found" class="card m-2">
+                    <PageHeader :title="$t('invoice.invoice') + ' ' + invoice.number">
                         <template #actions>
                             <Button
                                 id="download_button"
@@ -48,7 +48,7 @@
                                 @click="showTransactionsDialog = true"
                             />
                         </template>
-                    </user-header>
+                    </PageHeader>
 
                     <div class="py-3">
                         <Message v-if="$route.query.status == 'success' && invoice.status == 'paid'" severity="success" closable>
@@ -60,8 +60,8 @@
                         </Message>
                     </div>
 
-                    <div id="payer_customer_data" class="grid">
-                        <div v-if="!loadingData" id="customer_data" class="col-12 md:col-6">
+                    <div id="payer_customer_data" class="grid grid-cols-1 md:grid-cols-2">
+                        <div v-if="!loadingData" id="customer_data">
                             <DisplayData :input="$t('form.customer')" custom-value>
                                 <div v-if="invoice.customer_id != null">
                                     <span>{{ formatText(invoice.customer_name) }}</span>
@@ -79,7 +79,7 @@
                             </DisplayData>
                         </div>
 
-                        <div v-if="!loadingData" id="payer_data" class="col-12 md:col-6">
+                        <div v-if="!loadingData" id="payer_data">
                             <DisplayData :input="$t('form.payer')" custom-value>
                                 <div v-if="invoice.payer_id != null">
                                     <span>{{ formatText(invoice.payer_name) }}</span> <br />
@@ -97,56 +97,41 @@
                         </div>
                     </div>
 
-                    <div id="invoice_data" class="grid">
-                        <div v-if="!loadingData" class="col-6 md:col-3">
-                            <DisplayData :input="$t('form.date')" :value="formatDate(invoice.date)" />
-                        </div>
-
-                        <div v-if="!loadingData" class="col-6 md:col-3">
-                            <DisplayData :input="$t('form.due_date')" :value="formatDate(invoice.due_date)" />
-                        </div>
-
-                        <div v-if="!loadingData" class="col-6 md:col-3">
-                            <DisplayData :input="$t('form.status')" custom-value>
-                                <Tag v-if="invoice.status === 'paid'" severity="success">{{ $t('status.paid') }}</Tag>
-                                <Tag v-if="invoice.status === 'unpaid'" severity="danger">{{ $t('status.unpaid') }}</Tag>
-                                <Tag v-if="invoice.status === 'overdue'" severity="danger">{{ $t('status.overdue') }}</Tag>
-                                <Tag v-if="invoice.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
-                                <Tag v-if="invoice.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
-                                <Tag v-if="invoice.status === 'refunded'" severity="">{{ $t('status.refunded') }}</Tag>
-                                <Tag v-if="invoice.status === 'partial'" severity="warning">{{ $t('status.partial') }}</Tag>
-                                <Tag v-if="invoice.status === 'overpaid'" severity="danger">{{ $t('status.overpaid') }}</Tag>
-                                <Tag v-if="invoice.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
-                            </DisplayData>
-                        </div>
-
-                        <div v-if="!loadingData" class="col-6 md:col-3">
-                            <DisplayData :input="$t('form.currency')" :value="formatText(invoice.currency)" />
-                        </div>
+                    <div id="invoice_data" class="grid grid-cols-1 md:grid-cols-4">
+                        <DisplayData v-if="!loadingData" :input="$t('form.date')" :value="formatDate(invoice.date)" />
+                        <DisplayData v-if="!loadingData" :input="$t('form.due_date')" :value="formatDate(invoice.due_date)" />
+                        <DisplayData v-if="!loadingData" :input="$t('form.status')" custom-value>
+                            <Tag v-if="invoice.status === 'paid'" severity="success">{{ $t('status.paid') }}</Tag>
+                            <Tag v-if="invoice.status === 'unpaid'" severity="danger">{{ $t('status.unpaid') }}</Tag>
+                            <Tag v-if="invoice.status === 'overdue'" severity="danger">{{ $t('status.overdue') }}</Tag>
+                            <Tag v-if="invoice.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
+                            <Tag v-if="invoice.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
+                            <Tag v-if="invoice.status === 'refunded'" severity="">{{ $t('status.refunded') }}</Tag>
+                            <Tag v-if="invoice.status === 'partial'" severity="warning">{{ $t('status.partial') }}</Tag>
+                            <Tag v-if="invoice.status === 'overpaid'" severity="danger">{{ $t('status.overpaid') }}</Tag>
+                            <Tag v-if="invoice.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
+                        </DisplayData>
+                        <DisplayData v-if="!loadingData" :input="$t('form.currency')" :value="formatText(invoice.currency)" />
                     </div>
 
-                    <div class="grid">
-                        <div v-if="!loadingData" class="col-12 md:col-6">
-                            <DisplayData :input="$t('form.sales_person')" custom-value>
-                                <span v-if="invoice.sales_person_id">{{
-                                    invoice.sales_person?.first_name + ' ' + invoice.sales_person?.last_name
-                                }}</span>
-                                <span v-else>{{ $t('invoice.no_sales_person') }}</span>
-                            </DisplayData>
-                        </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <DisplayData v-if="!loadingData" :input="$t('form.sales_person')" custom-value>
+                            <span v-if="invoice.sales_person_id">{{
+                                invoice.sales_person?.first_name + ' ' + invoice.sales_person?.last_name
+                            }}</span>
+                            <span v-else>{{ $t('invoice.no_sales_person') }}</span>
+                        </DisplayData>
 
-                        <div v-if="!loadingData" class="col-12 md:col-6">
-                            <DisplayData :input="$t('form.payment_method')" custom-value>
-                                <span v-if="invoice.payment_method">{{ $t('payment_methods.' + invoice.payment_method) }}</span>
-                                <span v-else>{{ $t('invoice.no_payment_method') }}</span>
-                            </DisplayData>
-                        </div>
+                        <DisplayData v-if="!loadingData" :input="$t('form.payment_method')" custom-value>
+                            <span v-if="invoice.payment_method">{{ $t('payment_methods.' + invoice.payment_method) }}</span>
+                            <span v-else>{{ $t('invoice.no_payment_method') }}</span>
+                        </DisplayData>
                     </div>
 
                     <div v-if="!loadingData" id="invoice_items">
                         <DataTable :value="invoice.items">
                             <template #empty>
-                                <div class="p-3 text-center w-full text-gray-500">
+                                <div class="p-3 text-center w-full">
                                     <i class="fa fa-info-circle empty-icon"></i>
                                     <p>
                                         {{ $t('invoice.no_items') }}
@@ -183,28 +168,33 @@
                         </DataTable>
                     </div>
 
-                    <div id="invoice_calculations" class="grid mt-5">
-                        <div id="invoice_footer" class="col-12 md:col-6">
-                            <DisplayData :input="$t('form.footer')" custom-value>
-                                <span v-if="invoice.footer && !loadingData" v-html="invoice.footer"></span>
+                    <div id="invoice_calculations" class="grid mt-5 grid-cols-1 md:grid-cols-2">
+                        <div id="invoice_footer">
+                            <DisplayData v-if="invoice.footer && !loadingData" :input="$t('form.footer')" custom-value>
+                                <span v-html="invoice.footer"></span>
                             </DisplayData>
                         </div>
 
-                        <div class="col-12 md:col-6">
+                        <div>
                             <table class="w-full">
                                 <tr>
                                     <td class="w-6 font-bold mb-1">{{ $t('form.discount') }}</td>
-                                    <td class="text-gray-700 text-right">{{ invoice.discount }} %</td>
+                                    <td class="text-right">
+                                        <span v-if="invoice.discount_type === 'percent'">{{ invoice.discount + ' %' }}</span>
+                                        <span v-if="invoice.discount_type === 'fixed'">{{
+                                            invoice.discount + ' ' + $settings.default_currency
+                                        }}</span>
+                                    </td>
                                 </tr>
                                 <tr v-if="invoice.currency != $settings.default_currency">
                                     <td class="w-6 font-bold mb-1">{{ $t('form.currency_rate') }}</td>
-                                    <td class="text-gray-700 text-right">
+                                    <td class="text-right">
                                         {{ `1 ${$settings.default_currency} = ${invoice.currency_rate} ${invoice.currency}` }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="w-6 font-bold mb-1">{{ $t('form.total') }}</td>
-                                    <td class="text-gray-700 text-right">{{ formatMoney(invoice.total, invoice.currency) }}</td>
+                                    <td class="text-right">{{ formatMoney(invoice.total, invoice.currency) }}</td>
                                 </tr>
                             </table>
                         </div>
@@ -267,12 +257,7 @@
                     </DataTable>
                 </div>
                 <template #footer>
-                    <Button
-                        :label="$t('basic.cancel')"
-                        icon="fa fa-times"
-                        class="p-button-danger"
-                        @click="showTransactionsDialog = false"
-                    />
+                    <Button :label="$t('basic.cancel')" icon="fa fa-times" severity="secondary" @click="showTransactionsDialog = false" />
                 </template>
             </Dialog>
         </LoadingScreen>
@@ -321,7 +306,7 @@ export default {
     },
     methods: {
         getInvoice() {
-            this.makeHttpRequest('GET', '/api/client/invoices', null, { key: this.$route.query.key }, { 'X-CLIENT-ROUTE': true })
+            this.makeHttpRequest('GET', '/api/client/invoice', null, { key: this.$route.query.key }, { 'X-CLIENT-ROUTE': true })
                 .then((response) => {
                     this.invoice = response.data.data
                 })
@@ -338,33 +323,21 @@ export default {
         },
 
         payWithCard() {
-            this.makeHttpRequest(
-                'POST',
-                '/api/online_payment/stripe',
-                { key: this.$route.query.key, type: 'web' },
-                null,
-                {
-                    'X-CLIENT-ROUTE': true,
-                },
-                false
-            ).then((response) => {
-                window.open(response.data.url, '_blank')
-            })
+            this.makeHttpRequest('POST', '/api/online-payment/invoice/stripe', { key: this.$route.query.key }, null, null, false).then(
+                (response) => {
+                    this.$cookies.set('payment_id', response.data.data.payment_id, '1h')
+                    window.open(response.data.data.redirect_url, '_blank')
+                }
+            )
         },
 
         payWithPaypal() {
-            this.makeHttpRequest(
-                'POST',
-                '/api/online_payment/paypal',
-                { key: this.$route.query.key, type: 'web' },
-                null,
-                {
-                    'X-CLIENT-ROUTE': true,
-                },
-                false
-            ).then((response) => {
-                window.open(response.data.url, '_blank')
-            })
+            this.makeHttpRequest('POST', '/api/online-payment/invoice/paypal', { key: this.$route.query.key }, null, null, false).then(
+                (response) => {
+                    this.$cookies.set('payment_id', response.data.data.payment_id, '1h')
+                    window.open(response.data.data.redirect_url, '_blank')
+                }
+            )
         },
     },
 }

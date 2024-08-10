@@ -4,5 +4,13 @@
     "tabWidth": 4,
     "semi": false,
     "singleQuote": true,
-    "plugins": ["@prettier/plugin-php", "@shufo/prettier-plugin-blade"]
+    "plugins": ["@prettier/plugin-php", "prettier-plugin-blade"],
+    "overrides": [
+        {
+            "files": ["*.blade.php"],
+            "options": {
+                "parser": "blade"
+            }
+        }
+    ]
 }

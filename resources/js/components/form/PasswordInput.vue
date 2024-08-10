@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-column mb-1">
-        <label :for="id" class="block text-900 font-medium mb-1"> {{ label }} </label>
+    <div class="flex flex-col gap-2 mb-2">
+        <label :for="id" class="dark:text-surface-200">{{ label }}</label>
         <Password
             :id="id"
             :name="id"
@@ -12,12 +12,15 @@
             :feedback="feedback"
             :toggle-mask="true"
             :input-id="id"
-            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
+            :invalid="validate?.$dirty && validate?.$invalid"
             @input="updateValue"
             @blur="validate?.$touch()"
+            :inputProps="{ autocomplete: autocomplete }"
         />
         <div v-if="validate && validate?.$dirty" class="flex flex-column">
-            <div v-for="error in validate.$errors" v-if="validate.$invalid" class="p-error">{{ error.$message }}</div>
+            <div v-if="validate.$invalid" v-for="error in validate.$errors" class="text-red-500 text-sm">
+                {{ error.$message }}
+            </div>
         </div>
     </div>
 </template>
@@ -58,6 +61,10 @@ export default {
         modelValue: {
             type: String,
             default: '',
+        },
+        autocomplete: {
+            type: String,
+            default: 'current-password',
         },
     },
     methods: {

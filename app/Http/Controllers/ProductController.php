@@ -2,73 +2,83 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Http\Requests\ProductRequest;
+use App\Services\ProductService;
 
 class ProductController extends Controller
 {
-    private $productModel;
-
-    public function __construct(Product $productModel)
+    private $productService;
+    public function __construct(ProductService $productService)
     {
-        $this->productModel = $productModel;
+        $this->productService = $productService;
+    }
+
+    public function createProduct(ProductRequest $request)
+    {
+        $product = $this->productService->createProduct($request->all());
+        if (!$product) {
+            return api_response(null, __('responses.item_not_created'), 400);
+        }
+        return api_response($product, __('responses.item_created_successfully'));
+    }
+
+    public function updateProduct(ProductRequest $request, string $id)
+    {
+        $product = $this->productService->updateProduct($id, $request->all());
+        if (!$product) {
+            return api_response(null, __('responses.item_not_updated'), 400);
+        }
+        return api_response($product, __('responses.item_updated_successfully'));
+    }
+
+    public function deleteProduct(string $id)
+    {
+        $product = $this->productService->deleteProduct($id);
+        if (!$product) {
+            return api_response(null, __('responses.item_not_deleted'), 400);
+        }
+        return api_response($product, __('responses.item_deleted_successfully'));
     }
 
     public function getProducts()
     {
-        $products = $this->productModel->getProducts();
-
-        if ($products) {
-            return api_response($products, __('response.products.get_success'));
+        $products = $this->productService->getProducts();
+        if (!$products) {
+            return api_response(null, __('responses.item_not_found'), 400);
         }
-        return api_response(null, __('response.products.get_failed'), 400);
+        return api_response($products, __('responses.data_retrieved_successfully'));
     }
 
-    public function getProduct($id)
+    public function getProduct(string $id)
     {
-        $product = $this->productModel->getProduct($id);
-
-        if ($product) {
-            return api_response($product, __('response.product.get_success'));
+        $product = $this->productService->getProduct($id);
+        if (!$product) {
+            return api_response(null, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response(null, __('response.product.not_found'), 404);
+        return api_response($product, __('responses.data_retrieved_successfully'));
     }
 
-    public function createProduct(Request $request)
+    public function getProductsByCategory(string $id)
     {
-        $productData = $request->all();
-        $product = $this->productModel->createProduct($productData);
-
-        if ($product) {
-            return api_response($product, __('response.product.create_success'), 201);
+        $products = $this->productService->getProductsByCategory($id);
+        if (!$products) {
+            return api_response(null, __('responses.item_not_found'), 400);
         }
-        return api_response(null, __('response.product.create_failed'), 400);
+        return api_response($products, __('responses.data_retrieved_successfully'));
     }
 
-    public function updateProduct(Request $request, $id)
+    public function getProductByBarcode(string $barcode)
     {
-        $productData = $request->all();
-        $product = $this->productModel->updateProduct($id, $productData);
-
-        if ($product) {
-            return api_response($product, __('response.product.update_success'));
+        $product = $this->productService->getProductByBarcode($barcode);
+        if (!$product) {
+            return api_response(null, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response(null, __('response.product.not_found'), 404);
-    }
-
-    public function deleteProduct($id)
-    {
-        $product = $this->productModel->deleteProduct($id);
-
-        if ($product) {
-            return api_response(null, __('response.product.delete_success'));
-        }
-        return api_response(null, __('response.product.not_found'), 404);
+        return api_response($product, __('responses.data_retrieved_successfully'));
     }
 
     public function getProductNumber()
     {
-        $productNumber = $this->productModel->getProductNumber();
-        return api_response($productNumber, __('response.product.get_success'));
+        $number = $this->productService->getProductNumber();
+        return api_response($number, __('responses.data_retrieved_successfully'));
     }
 }

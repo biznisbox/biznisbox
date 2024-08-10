@@ -27,7 +27,7 @@ export default {
          * @return {void} return events
          */
         getEvents() {
-            this.makeHttpRequest('get', '/api/events').then((response) => {
+            this.makeHttpRequest('GET', '/api/calendar/events').then((response) => {
                 this.all_events = response.data.data
             })
         },
@@ -36,9 +36,10 @@ export default {
          * Save event
          * @return {void} show toast and refetch events
          **/
-        saveEvent() {
-            this.makeHttpRequest('post', '/api/calendars/events', this.event).then((response) => {
+        createEvent() {
+            this.makeHttpRequest('POST', '/api/calendar/events', this.event).then((response) => {
                 this.showToast(response.data.message)
+                this.showEventDialog = false
                 this.$refs.calendar.getApi().refetchEvents()
             })
         },
@@ -49,8 +50,10 @@ export default {
          * @return {void} show toast and refetch events
          */
         updateEvent(id) {
-            this.makeHttpRequest('PUT', '/api/calendars/events/' + id, this.event).then((response) => {
+            this.makeHttpRequest('PUT', '/api/calendar/events/' + id, this.event).then((response) => {
                 this.showToast(response.data.message)
+                this.showEventDialog = false
+                this.resetEvent()
                 this.$refs.calendar.getApi().refetchEvents()
             })
         },
@@ -61,7 +64,7 @@ export default {
          * @return {void} return event
          */
         getEvent(id) {
-            this.makeHttpRequest('get', '/api/calendars/events/' + id).then((response) => {
+            this.makeHttpRequest('GET', '/api/calendar/events/' + id).then((response) => {
                 this.event = response.data.data
             })
         },
@@ -72,10 +75,51 @@ export default {
          * @return {void} show toast and refetch events
          */
         deleteEvent(id) {
-            this.makeHttpRequest('DELETE', '/api/calendars/events/' + id).then((response) => {
+            this.makeHttpRequest('DELETE', '/api/calendar/events/' + id).then((response) => {
                 this.showToast(response.data.message)
                 this.$refs.calendar.getApi().refetchEvents()
             })
+        },
+
+        /**
+         * Delete event ask for confirmation
+         * @param {string} id UUID of event
+         * @return {void} show toast and refetch events
+         */
+        deleteEventAsk(id) {
+            this.$confirm.require({
+                message: this.$t('calendar.delete_event_confirmation'),
+                header: this.$t('basic.confirmation'),
+                icon: 'fa fa-circle-exclamation',
+                accept: () => {
+                    this.deleteEvent(id)
+                    this.$refs.calendar.getApi().refetchEvents()
+                    this.showEventDialog = false
+                },
+            })
+        },
+
+        /**
+         * Reset event
+         * @return {void} reset event
+         */
+        resetEvent(start, end) {
+            this.event = {
+                id: null,
+                title: '',
+                start: start || '',
+                end: end || '',
+                all_day: false,
+                color: '#007bff',
+                description: '',
+                location: '',
+                attendees: [],
+                reminders: [],
+                rrule: '',
+                status: 'confirmed',
+                privacy: 'private',
+                show_as: 'busy',
+            }
         },
     },
 }

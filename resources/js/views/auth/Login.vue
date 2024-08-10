@@ -1,101 +1,82 @@
 <template>
     <div id="auth_login_page">
-        <div class="flex justify-content-center mt-5 mx-5">
-            <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
-                <div>
-                    <form @submit.prevent="login">
-                        <TextInput id="email" v-model="v$.form.email.$model" :label="$t('auth.email')" :validate="v$.form.email" />
+        <div class="flex justify-center items-center h-screen">
+            <div class="p-4 shadow-md border border-surface-300 rounded-md w-full md:w-96 mx-4">
+                <img
+                    v-if="$settings['company_logo'] != undefined && $settings['company_logo'] != null"
+                    :src="`/storage/${$settings['company_logo']}`"
+                    class="w-32 h-32 mx-auto"
+                    alt="logo"
+                />
 
-                        <PasswordInput
-                            id="password"
-                            v-model="v$.form.password.$model"
-                            :label="$t('auth.password')"
-                            :validate="v$.form.password"
-                            type="password"
+                <h1 class="text-center text-2xl font-bold mb-4 dark:text-surface-200">
+                    {{ $t('auth.login') }}
+                </h1>
+                <form @submit.prevent="login">
+                    <LoadingScreen :blocked="loadingData">
+                        <TextInput v-model="form.email" :label="$t('auth.email')" autocomplete="username" />
+                        <PasswordInput v-model="form.password" :label="$t('auth.password')" />
+
+                        <OtpInput v-model="form.otp" :label="$t('auth.otp')" v-if="otp_required" />
+                        <Button
+                            @click="login"
+                            :label="$t('auth.login')"
+                            class="mt-4"
+                            type="submit"
+                            :disabled="!form.email || !form.password || loadingData"
                         />
-
-                        <div class="flex align-items-center justify-content-between mb-6">
-                            <div class="flex align-items-center">
-                                <Checkbox id="remember_me" v-model="form.remember_me" binary class="mr-2"></Checkbox>
-                                <label for="remember_me"> {{ $t('auth.remember_me') }} </label>
-                            </div>
-
-                            <RouterLink
-                                to="/auth/reset-password"
-                                class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer"
-                                >{{ $t('auth.reset_password.reset_password') }}
-                            </RouterLink>
-                        </div>
-
-                        <Button :disabled="loadingData" :label="$t('auth.login')" type="submit" class="w-full"></Button>
-                    </form>
-                </div>
+                    </LoadingScreen>
+                </form>
             </div>
         </div>
     </div>
 </template>
-
 <script>
 import { jwtDecode } from 'jwt-decode'
-import { useVuelidate } from '@vuelidate/core'
-import { email, required, minLength } from '@vuelidate/validators'
 export default {
-    name: 'AuthLogin',
-    setup: () => ({ v$: useVuelidate() }),
-
+    name: 'AuthLoginPage',
     data() {
         return {
             form: {
                 email: '',
                 password: '',
-                remember_me: false,
+                otp: '',
             },
-        }
-    },
-
-    created() {
-        this.form.email = this.$cookies.get('user_login') || '' // set email from cookies
-        if (this.$cookies.get('token')) {
-            this.$router.push({ name: 'Dashboard' })
-        }
-    },
-    validations() {
-        return {
-            form: {
-                email: {
-                    required,
-                    email,
-                },
-                password: {
-                    required,
-                    minLength: minLength(8),
-                },
-            },
+            otp_required: false,
         }
     },
 
     methods: {
         login() {
-            this.v$.$touch()
-            if (this.v$.$error) {
-                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
-            }
-
             this.makeHttpRequest('POST', '/api/auth/login', this.form).then((response) => {
-                if (this.form.remember_me) {
-                    this.$cookies.set('user_login', this.form.email, '1y') // set email in cookies
+                if (response.data.data.active == false) {
+                    this.showToast(this.$t('auth.account_disabled'), this.$t('auth.login_failed'), 'error')
+                    return
                 }
-                if (this.$cookies.get('user_login') !== this.form.email) {
-                    this.$cookies.remove('user_login') // remove email from cookies
+
+                if (response.data.data.two_factor_auth == true) {
+                    this.otp_required = true
+                    return
                 }
-                this.showToast(response.data.message)
-                this.$cookies.set('token', response.data.data, '2h')
-                localStorage.setItem('lang', jwtDecode(response.data.data).data?.lang) // set language - localstorage long term
-                this.$router.push({ name: 'Dashboard' })
+
+                if (response.data.data.otp == false) {
+                    this.showToast(this.$t('auth.invalid_otp'), this.$t('auth.login_failed'), 'error')
+                    return
+                }
+
+                if (response.data.data.access_token) {
+                    this.$cookies.set('theme', jwtDecode(response.data.data.access_token).data?.theme, '1y')
+                    this.showToast(this.$t('auth.login_success'), this.$t('auth.welcome_back'), 'success')
+                    this.$cookies.set('token', response.data.data.access_token, '2h')
+                    this.$cookies.set('lang', jwtDecode(response.data.data.access_token).data?.language, '1y')
+                    if (this.$route.query.redirect) {
+                        this.$router.push(this.$route.query.redirect)
+                    } else {
+                        this.$router.push({ name: 'dashboard' })
+                    }
+                }
             })
         },
     },
 }
 </script>
-
-<style></style>

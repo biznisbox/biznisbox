@@ -1,176 +1,124 @@
 <template>
-    <user-layout>
-        <div id="edit_product_page">
-            <LoadingScreen :blocked="loadingData">
-                <user-header :title="$t('product.edit_product')" />
-                <div class="card">
-                    <form class="formgrid">
-                        <!-- Product basic -->
-                        <div class="grid">
-                            <TextInput
-                                id="number_input"
-                                v-model="v$.product.number.$model"
-                                :validate="v$.product.number"
-                                class="col-12 md:col-3"
-                                :label="$t('form.number')"
-                                disabled
-                            />
-                            <TextInput
-                                id="name_input"
-                                v-model="v$.product.name.$model"
-                                :validate="v$.product.name"
-                                class="field col-12 md:col-6"
-                                :label="$t('form.name')"
-                            ></TextInput>
-                            <SelectButtonInput
-                                id="select_product_type"
-                                v-model="v$.product.type.$model"
-                                class="col-12 md:col-3"
-                                :label="$t('form.type')"
-                                :options="[
-                                    { label: $t('product_type.product'), value: 'product' },
-                                    { label: $t('product_type.service'), value: 'service' },
-                                ]"
-                                :validate="v$.product.type"
-                            />
-                        </div>
-
-                        <!-- Product price -->
-                        <div class="grid">
-                            <NumberInput
-                                id="sell_price_input"
-                                v-model="v$.product.sell_price.$model"
-                                class="col-12 md:col-4"
-                                :label="$t('form.sell_price')"
-                                type="currency"
-                                :validate="v$.product.sell_price"
-                            ></NumberInput>
-
-                            <NumberInput
-                                id="buy_price_input"
-                                v-model="v$.product.buy_price.$model"
-                                class="col-12 md:col-4"
-                                :label="$t('form.buy_price')"
-                                type="currency"
-                                :validate="v$.product.buy_price"
-                            ></NumberInput>
-
-                            <SelectInput
-                                id="select_unit"
-                                v-model="product.unit"
-                                class="field col-12 md:col-4"
-                                :options="units"
-                                :label="$t('form.unit')"
-                                option-value="name"
-                                option-label="name"
-                            />
-                        </div>
-
-                        <!-- Product taxes -->
+    <DefaultLayout>
+        <LoadingScreen :blocked="loadingData">
+            <PageHeader :title="$t('product.edit_product', { name: product.name })" />
+            <div class="card">
+                <form>
+                    <div class="grid lg:grid-cols-3 grid-cols-1 gap-2">
+                        <TextInput
+                            id="number_input"
+                            v-model="v$.product.number.$model"
+                            :label="$t('form.number')"
+                            disabled
+                            :validate="v$.product.number"
+                        />
+                        <TextInput id="name_input" v-model="v$.product.name.$model" :label="$t('form.name')" :validate="v$.product.name" />
+                        <SelectButtonInput
+                            id="select_product_type"
+                            v-model="v$.product.type.$model"
+                            :label="$t('form.type')"
+                            :options="[
+                                { label: $t('product_type.product'), value: 'product' },
+                                { label: $t('product_type.service'), value: 'service' },
+                            ]"
+                            :validate="v$.product.type"
+                        />
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <NumberInput
+                            id="sell_price_input"
+                            v-model="v$.product.sell_price.$model"
+                            :label="$t('form.sell_price')"
+                            type="currency"
+                            :validate="v$.product.sell_price"
+                        />
+                        <NumberInput
+                            id="buy_price_input"
+                            v-model="v$.product.buy_price.$model"
+                            :label="$t('form.buy_price')"
+                            type="currency"
+                            :validate="v$.product.buy_price"
+                        />
                         <SelectInput
-                            id="select_product_tax"
-                            v-model="product.tax"
-                            :label="$t('form.tax')"
-                            :options="taxes"
+                            id="select_unit"
+                            v-model="v$.product.unit.$model"
+                            :options="units"
+                            :label="$t('form.unit')"
+                            option-value="name"
                             option-label="name"
-                            option-value="value"
+                            :validate="v$.product.unit"
                         />
-
-                        <!-- Stock -->
-                        <div v-if="product.type == 'product'" class="grid">
-                            <NumberInput
-                                id="stock_input"
-                                v-model="product.stock"
-                                class="col-12 md:col-4"
-                                :label="$t('form.stock')"
-                                type="items"
-                            ></NumberInput>
-
-                            <NumberInput
-                                id="min_stock_input"
-                                v-model="product.stock_min"
-                                class="col-12 md:col-4"
-                                :label="$t('form.min_stock')"
-                                type="items"
-                            ></NumberInput>
-
-                            <NumberInput
-                                id="max_stock_input"
-                                v-model="product.stock_max"
-                                class="col-12 md:col-4"
-                                :label="$t('form.max_stock')"
-                                type="items"
-                            ></NumberInput>
-                        </div>
-
-                        <!-- Barcode input -->
-                        <TextInput id="barcode_input" v-model="product.barcode" :label="$t('form.barcode')"></TextInput>
-
-                        <!-- Product description -->
-                        <TinyMceEditor
-                            id="description_editor"
-                            v-model="product.description"
-                            :label="$t('form.description')"
-                            toolbar="bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link"
-                            style="height: 200px"
-                        />
-                    </form>
-                </div>
-                <div id="function_buttons" class="flex gap-2 justify-content-end">
-                    <Button
-                        id="cancel_button"
-                        :label="$t('basic.cancel')"
-                        icon="fa fa-times"
-                        class="p-button-danger"
-                        @click="goTo('/products/' + $route.params.id)"
+                    </div>
+                    <SelectInput
+                        id="select_product_tax"
+                        v-model="product.tax"
+                        :label="$t('form.tax')"
+                        :options="taxes"
+                        option-label="name"
+                        option-value="value"
                     />
-                    <Button
-                        id="save_button"
-                        :label="$t('basic.update')"
-                        icon="fa fa-floppy-disk"
-                        :disabled="loadingData"
-                        class="p-button-success"
-                        @click="validateForm"
+                    <div v-if="product.type == 'product'" class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <NumberInput id="stock_input" v-model="product.stock" :label="$t('form.stock')" type="items" />
+                        <NumberInput id="min_stock_input" v-model="product.stock_min" :label="$t('form.min_stock')" type="items" />
+                        <NumberInput id="max_stock_input" v-model="product.stock_max" :label="$t('form.max_stock')" type="items" />
+                    </div>
+                    <TextInput id="barcode_input" v-model="product.barcode" :label="$t('form.barcode')" />
+                    <TinyMceEditor
+                        id="description_editor"
+                        v-model="product.description"
+                        :label="$t('form.description')"
+                        toolbar="bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link"
+                        style="height: 200px"
                     />
-                </div>
-            </LoadingScreen>
-        </div>
-    </user-layout>
+                </form>
+            </div>
+
+            <div class="flex justify-end mt-4 gap-2">
+                <Button :label="$t('basic.cancel')" @click="goTo('/products')" severity="secondary" id="cancel_button" icon="fa fa-times" />
+                <Button :label="$t('basic.update')" @click="validateForm" severity="success" id="update_button" icon="fa fa-save" />
+            </div>
+        </LoadingScreen>
+    </DefaultLayout>
 </template>
 
 <script>
+import { required } from '@/plugins/i18n-validators'
 import { useVuelidate } from '@vuelidate/core'
-import { required, decimal } from '@vuelidate/validators'
 import ProductMixin from '@/mixins/products'
 export default {
-    name: 'EditProductPage',
+    name: 'ProductEditPage',
     mixins: [ProductMixin],
-
-    setup: () => ({ v$: useVuelidate() }),
-
+    setup() {
+        return { v$: useVuelidate() }
+    },
     created() {
+        this.getUnits()
+        this.getTaxes()
         this.getProduct(this.$route.params.id)
     },
-    validations: {
-        product: {
-            number: { required },
-            name: { required },
-            type: { required },
-            sell_price: { decimal },
-            buy_price: { decimal },
-        },
+
+    validations() {
+        return {
+            product: {
+                number: { required },
+                name: { required },
+                type: { required },
+                sell_price: { required },
+                buy_price: { required },
+                unit: { required },
+            },
+        }
     },
 
     methods: {
         validateForm() {
             this.v$.product.$touch()
-            if (this.v$.product.$error) {
-                return this.showToast(this.$t('basic.error'), this.$t('basic.invalid_form'), 'error')
+            if (this.v$.product.$invalid) {
+                return this.showToast(this.$t('basic.invalid_form'), this.$t('basic.error'), 'error')
             }
-            return this.updateProduct(this.$route.params.id)
+
+            this.updateProduct(this.$route.params.id)
         },
     },
 }
 </script>
-
-<style></style>

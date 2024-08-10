@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-column mb-1">
-        <label :for="id" class="block text-900 font-medium mb-1"> {{ label }} </label>
+    <div class="flex flex-col gap-2 mb-2">
+        <label :for="id" class="dark:text-surface-200">{{ label }}</label>
         <SelectButton
             :id="id"
             :name="id"
@@ -11,12 +11,12 @@
             :validate="validate"
             :multiple="multiple"
             :disabled="disabled"
-            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
+            :invalid="validate?.$dirty && validate?.$invalid"
             @change="updateValue"
             @blur="validate?.$touch()"
         />
         <div v-if="validate && validate?.$dirty" class="flex flex-column">
-            <div v-for="error in validate.$errors" v-if="validate.$invalid" class="p-error">{{ error.$message }}</div>
+            <div v-if="validate.$invalid" v-for="error in validate.$errors" class="text-red-500 text-sm">{{ error.$message }}</div>
         </div>
     </div>
 </template>

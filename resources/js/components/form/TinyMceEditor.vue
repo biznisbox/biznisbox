@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-column mb-1">
-        <label :for="id" class="block text-900 font-medium mb-1"> {{ label }} </label>
+    <div class="flex flex-col gap-2 mb-2">
+        <label :for="id" class="dark:text-surface-200">{{ label }}</label>
         <Editor :id="id" ref="editor" v-model="contentValue" :init="init" model-events="change keydown blur focus paste" />
     </div>
 </template>
@@ -27,6 +27,7 @@ import 'tinymce/plugins/lists/plugin'
 import 'tinymce/plugins/link/plugin'
 import 'tinymce/plugins/anchor/plugin'
 import 'tinymce/plugins/charmap/plugin'
+import 'tinymce/plugins/insertdatetime/plugin'
 
 // TinyMCE Vue component
 import Editor from '@tinymce/tinymce-vue'
@@ -61,7 +62,7 @@ export default {
         toolbar: {
             type: String,
             default:
-                'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect fontsizeselect formatselect |forecolor backcolor removeformat | charmap |  bullist numlist outdent indent | link image table | wordcount',
+                'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect fontsizeselect formatselect |forecolor backcolor removeformat | charmap |  bullist numlist outdent indent | link image table | wordcount | charmap insertdatetime',
         },
     },
 
@@ -73,15 +74,17 @@ export default {
                 content_css: false,
                 content_style: contentUiCss,
                 branding: false,
-                plugins: 'lists link image table wordcount advlist autolink lists link anchor charmap',
+                plugins: 'lists link image table wordcount advlist autolink lists link anchor charmap insertdatetime',
                 toolbar: this.toolbar,
                 menubar: false,
+                license_key: 'gpl',
                 statusbar: false,
                 paste_data_images: true,
                 images_upload_handler: function (blobInfo, success, failure) {
                     console.log(blobInfo.base64())
                     let image = 'data:' + blobInfo.blob().type + ';base64,' + blobInfo.base64()
                     success({ location: image })
+                    failure('Error uploading image')
                 },
             },
         }

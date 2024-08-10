@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Bill;
-use App\Models\BillItems;
 
 class BillSeeder extends Seeder
 {
@@ -14,61 +12,62 @@ class BillSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 50; $i++) {
             $id = fake()->uuid();
-            $supplier_id = \App\Models\Partner::where('type', 'supplier')->orWhere('type', 'both')->get()->random()->id;
-            $supplier_data = \App\Models\Partner::find($supplier_id);
-            $supplier_address_id = \App\Models\PartnerAddress::where('partner_id', $supplier_id)->get()->random()->id;
-            $supplier_address_data = \App\Models\PartnerAddress::find($supplier_address_id);
-            Bill::create([
+
+            $supplier = \App\Models\Partner::where('type', 'supplier')->orWhere('type', 'both')->get()->random();
+            $supplier_address = $supplier->addresses->random();
+            $discount = fake()->randomFloat(2, 0, 100);
+            \App\Models\Bill::create([
                 'id' => $id,
-                'number' => Bill::getBillNumber(),
-                'status' => fake()->randomElement(['draft', 'unpaid', 'paid', 'cancelled']),
-                'date' => fake()->dateTimeBetween('-1 years', 'now'),
-                'due_date' => fake()->dateTimeBetween('-1 years', 'now'),
+                'number' => \App\Models\Bill::getBillNumber(),
+                'supplier_id' => $supplier->id,
+                'supplier_name' => $supplier->name,
+                'supplier_address' => $supplier_address->address,
+                'supplier_city' => $supplier_address->city,
+                'supplier_zip_code' => $supplier_address->zip_code,
+                'supplier_country' => $supplier_address->country,
+                'supplier_address_id' => $supplier_address->id,
+                'date' => fake()->dateTimeBetween('-1 year', 'now')->format('Y-m-d'),
+                'due_date' => fake()->dateTimeBetween('now', '+1 year')->format('Y-m-d'),
+                'status' => fake()->randomElement(['draft', 'paid', 'cancelled', 'partial', 'overdue', 'refunded', 'unpaid']),
+                'currency' => settings('default_currency'),
+                'currency_rate' => 1,
                 'notes' => fake()->text(200),
                 'footer' => fake()->text(200),
-                'currency' => fake()->randomElement(['EUR', 'USD', 'GBP']),
-                'discount' => fake()->randomFloat(2, 0, 100),
+                'discount' => $discount,
+                'payment_method' => fake()->randomElement(['cash', 'bank_transfer', 'credit_card', 'paypal', 'stripe', 'other']),
+                'discount_type' => 'percent',
                 'total' => 0,
-                'supplier_id' => $supplier_id,
-                'supplier_name' => $supplier_data->name,
-                'supplier_address_id' => $supplier_address_id,
-                'supplier_address' => $supplier_address_data->address,
-                'supplier_city' => $supplier_address_data->city,
-                'supplier_zip_code' => $supplier_address_data->zip,
-                'supplier_country' => $supplier_address_data->country,
-                'payment_method' => fake()->randomElement(['cash', 'bank_transfer', 'check', 'stripe', 'paypal']),
             ]);
 
-            for ($j = 0; $j < 3; $j++) {
-                $product = \App\Models\Product::where('buy_price', '>', 0)->get()->random();
-                $quality = fake()->numberBetween(1, 10);
-                $discount = fake()->randomFloat(2, 0, 100);
-                BillItems::create([
+            $total = 0;
+            for ($j = 0; $j < fake()->numberBetween(1, 10); $j++) {
+                $quantity = fake()->numberBetween(1, 10);
+                $discount = fake()->randomFloat(2, 0, 50);
+                $product = \App\Models\Product::all()->random();
+                $total += $quantity * $product->sell_price - ($quantity * $product->sell_price * $discount) / 100;
+                \App\Models\BillItem::create([
                     'id' => fake()->uuid(),
-                    'bill_id' => $id,
                     'product_id' => $product->id,
+                    'bill_id' => $id,
                     'name' => $product->name,
-                    'description' => fake()->sentence(),
-                    'price' => $product->buy_price,
-                    'quantity' => $quality,
+                    'description' => fake()->text(200),
+                    'quantity' => $quantity,
                     'unit' => $product->unit,
-                    'total' => $product->buy_price * $quality,
+                    'price' => $product->sell_price,
+                    'discount' => $discount,
+                    'discount_type' => 'percent',
+                    'total' => $quantity * $product->sell_price - ($quantity * $product->sell_price * $discount) / 100,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ]);
             }
 
-            // Calculate totals
-            $bill = Bill::find($id);
+            $invoice = \App\Models\Bill::find($id);
+            $invoice->total = $total - ($total * $discount) / 100;
+            $invoice->save();
 
-            $items = BillItems::where('bill_id', $id)->get();
-            $total = 0;
-            foreach ($items as $item) {
-                $total += $item->total;
-            }
-            $discount = $bill->discount;
-            $bill->total = $total - $total * ($discount / 100);
-            $bill->save();
             incrementLastItemNumber('bill');
         }
     }

@@ -1,11 +1,6 @@
 <template>
-    <button
-        type="button"
-        class="p-button p-button-rounded p-button-text p-button-icon-only p-button-sm p-mr-2 p-button-outlined"
-        :class="{ 'text-yellow-500': modelValue }"
-        @click="toggleStar"
-    >
-        <i class="pi pi-star"></i>
+    <button type="button" :class="{ 'text-yellow-500': modelValue }" @click="toggleStar">
+        <i class="fa fa-star"></i>
     </button>
 </template>
 

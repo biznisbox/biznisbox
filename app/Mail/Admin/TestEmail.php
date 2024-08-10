@@ -26,7 +26,7 @@ class TestEmail extends Mailable
      */
     public function envelope(): Envelope
     {
-        return new Envelope(subject: 'Test Email');
+        return new Envelope(subject: __('email.subject_test_email'), tags: ['test']);
     }
 
     /**

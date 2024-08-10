@@ -1,8 +1,8 @@
 <template>
-    <Button :label="$t('basic.add')" icon="fa fa-plus" @click="addNumbering" />
+    <Button :label="$t('basic.add')" icon="fa fa-plus" @click="addNumbering" class="mt-2" />
     <div v-for="(format, index) in modelValue" :key="index">
         <div :id="`modelValue_${index}`" class="flex gap-2 py-2">
-            <Button icon="fa fa-arrows" class="p-button-info" @click="moveNumbering(index, 'up')" />
+            <Button icon="fa fa-arrows" severity="secondary" @click="moveNumbering(index, 'up')" class="cursor-pointer" />
             <SelectInput
                 v-model="format.type"
                 :options="[
@@ -13,16 +13,17 @@
                 ]"
             />
             <TextInput v-if="format.type !== 'DELIMITER'" v-model="format.value" />
-            <Button icon="fa fa-trash" class="p-button-danger" @click="deleteNumbering(index)" />
+            <Button icon="fa fa-trash" severity="danger" @click="deleteNumbering(index)" />
         </div>
 
         <div v-if="index === modelValue.length - 1">
+            <label>{{ $t('basic.preview') }}</label>
             <TextInput v-model="previewText" aria-disabled="true" disabled />
         </div>
     </div>
 </template>
 <script>
-import moment from 'moment'
+import dayjs from 'dayjs'
 export default {
     name: 'NumberingInput',
     props: {
@@ -33,6 +34,10 @@ export default {
         id: {
             type: String,
             default: 'input_' + Math.random().toString(36).substr(2, 9), // random generated
+        },
+        module: {
+            type: String,
+            default: 'invoice',
         },
     },
 
@@ -48,6 +53,10 @@ export default {
             },
             deep: true,
         },
+    },
+
+    mounted() {
+        this.generatePreview()
     },
 
     methods: {
@@ -91,20 +100,11 @@ export default {
         },
 
         generatePreview() {
-            let preview = ''
-            for (const format of this.modelValue) {
-                if (format.type === 'TEXT') {
-                    preview += format.value
-                } else if (format.type === 'NUMBER') {
-                    const number = '45'
-                    preview += number.padStart(format.value, '0')
-                } else if (format.type === 'DELIMITER') {
-                    preview += '-'
-                } else if (format.type === 'DATE') {
-                    preview += moment().format(format.value)
+            this.makeHttpRequest('POST', '/api/admin/settings/number/preview', { format: this.modelValue, module: this.module }).then(
+                (response) => {
+                    this.previewText = response.data.data
                 }
-            }
-            return (this.previewText = preview)
+            )
         },
     },
 }

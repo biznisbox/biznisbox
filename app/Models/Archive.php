@@ -4,310 +4,144 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\URL;
 use OwenIt\Auditing\Contracts\Auditable;
-use App\Models\Category;
-use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\URL;
 
 class Archive extends Model implements Auditable
 {
-    use HasFactory, SoftDeletes, HasUuids;
+    use HasFactory, HasUuids, SoftDeletes;
     use \OwenIt\Auditing\Auditable;
 
     protected $table = 'archive';
 
     protected $fillable = [
-        'category_id',
+        'number',
+        'folder_id',
+        'user_id',
+        'partner_id',
+        'storage_location_id',
+        'connected_document_id',
+        'connected_document_type',
         'name',
+        'type',
         'description',
         'file_name',
         'file_type',
         'file_size',
+        'file_mime',
+        'file_path',
         'file_hash_sha256',
         'file_hash_md5',
-        'file_path',
-        'file_mime',
+        'file_extension',
+        'status',
+        'visibility',
+        'protection_level',
+        'archived_until',
     ];
-    protected $dates = ['deleted_at'];
 
-    protected $hidden = ['file_hash_sha256', 'file_hash_md5', 'file_path', 'deleted_at'];
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
+
+    protected $appends = ['download_link', 'preview_link'];
 
     public function generateTags(): array
     {
-        return ['Document'];
+        return ['Archive'];
     }
 
-    public function createdBy()
+    public function folder()
     {
-        return $this->belongsTo(User::class, 'created_by');
+        return $this->belongsTo(Category::class, 'folder_id');
     }
 
-    public function category()
+    public function partner()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(Partner::class, 'partner_id');
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Document Methods
-    |--------------------------------------------------------------------------
-    */
-
-    /**
-     * Create a new document
-     * @param Request $request
-     * @return Document
-     */
-    public function createDocument($request)
+    public function connectedDocument()
     {
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $fileName = $file->getClientOriginalName();
-            $diskFileName = Str::uuid() . '.' . $file->getClientOriginalExtension();
+        return $this->morphTo('connected_document');
+    }
 
-            $fileStore = $file->storeAs('documents/' . $diskFileName);
+    public function storageLocation()
+    {
+        return $this->belongsTo(Department::class, 'storage_location_id');
+    }
 
-            if (!$fileStore) {
-                Storage::delete('documents/' . $diskFileName); // Delete the file if it was created but not stored
-                DB::rollBack();
-                return false;
-            }
+    public function getDownloadLinkAttribute()
+    {
+        return URL::SignedRoute('downloadDocument', ['id' => $this->id]);
+    }
 
-            if ($request->folder_id == 'null') {
-                $request->folder_id = null;
-            }
+    public function getPreviewLinkAttribute()
+    {
+        return URL::SignedRoute('previewDocument', ['id' => $this->id]);
+    }
 
-            $document = $this->create([
-                'category_id' => $request->folder_id,
-                'name' => $fileName,
-                'description' => $request->description,
-                'file_name' => $fileName,
-                'file_type' => $file->getClientOriginalExtension(),
-                'file_size' => $file->getSize(),
-                'file_mime' => $file->getClientMimeType(),
-                'file_hash_sha256' => hash_file('sha256', $file),
-                'file_hash_md5' => hash_file('md5', $file),
-                'file_path' => $diskFileName,
-            ]);
-            activity_log(user_data()->data->id, 'create document', $document->id, 'Document', $document->name, null, null);
-            return true;
+    public function getTrashedDocuments()
+    {
+        return $this->onlyTrashed()->get();
+    }
+
+    public function getDocument($id)
+    {
+        $document = $this->with('connectedDocument', 'partner', 'storageLocation')->find($id);
+        createActivityLog('retrieve', $id, 'App\Models\Archive', 'Archive');
+        return $document;
+    }
+
+    public function getDocumentsByFolder($folderId = null)
+    {
+        // Get trashed documents
+        if ($folderId == 'trash') {
+            createActivityLog('retrieve', null, 'App\Models\Archive', 'Archive');
+            return $this->getTrashedDocuments();
         }
-    }
-
-    /**
-     * Update a document
-     * @param uuid document_id UUID of the document to update
-     * @param array $data Array of data to update
-     * @return bool True if updated, false if not found
-     */
-    public function updateDocument($document_id, $data)
-    {
-        $document = $this->where('id', $document_id)->first();
-
-        if ($document) {
-            $document->name = $data['name'];
-            $document->description = $data['description'];
-            $document->save();
-            return true;
+        // Get all documents
+        if ($folderId == 'all') {
+            createActivityLog('retrieve', null, 'App\Models\Archive', 'Archive');
+            return $this->with('connectedDocument', 'partner', 'storageLocation')->get();
         }
-        return false;
+        // Get documents without folder
+        if ($folderId == 'null' || $folderId == null) {
+            createActivityLog('retrieve', null, 'App\Models\Archive', 'Archive');
+            return $this->with('connectedDocument', 'partner', 'storageLocation')->whereNull('folder_id')->get();
+        }
+        // Get documents by folder id
+        createActivityLog('retrieve', null, 'App\Models\Archive', 'Archive');
+        return $this->with('connectedDocument', 'partner', 'storageLocation')->where('folder_id', $folderId)->get();
     }
 
-    /**
-     * Delete a document (soft delete)
-     * @param uuid $document_id UUID of the document
-     * @return bool True if deleted, false if not found
-     */
-    public function deleteDocument($document_id)
+    public function deleteDocument($id)
     {
-        try {
-            $document = $this->where('id', $document_id)->first();
-            if ($document) {
-                $document->delete();
-                activity_log(user_data()->data->id, 'delete document', $document->id, 'Document');
-                return true;
-            }
-        } catch (\Exception $e) {
+        $document = $this->find($id);
+        if (!$document) {
             return false;
         }
+        $document->delete();
+        sendWebhookForEvent('archive:document_deleted', ['id' => $id]);
+        return true;
     }
 
-    /**
-     * Get a document
-     * @param UUID $document_id  of the document
-     * @return object|bool Document object or false if not found
-     */
-    public function getDocument($document_id)
+    public function restoreDocument($id)
     {
-        try {
-            $document = $this->where('id', $document_id)->first();
-            if ($document) {
-                $document->preview_url = URL::signedRoute('documents.preview', ['document_id' => $document->id]);
-                $document->download_url = URL::signedRoute('documents.download', ['document_id' => $document->id]);
-                activity_log(user_data()->data->id, 'get document', $document->id, 'Document', 'Document');
-                return $document;
-            }
-        } catch (\Exception $e) {
-            return false;
+        $document = $this->withTrashed()->find($id);
+        if (!$document) {
+            return [
+                'error' => __('responses.item_not_restored'),
+                'status' => 400,
+            ];
         }
+        $document->restore();
+        sendWebhookForEvent('archive:document_restored', ['id' => $id]);
+        return true;
     }
 
-    /**
-     * Preview a document by id and return the file
-     * @param $id UUID of the document
-     * @return object|bool Document object or false if not found
-     */
-    public function previewDocument($id)
+    public static function getArchiveNumber()
     {
-        $document = $this->where('id', $id)->first();
-
-        if ($document) {
-            $file = Storage::get('documents/' . $document->file_path);
-
-            return response($file, 200)
-                ->header('Content-Type', $document->file_mime)
-                ->header('Content-Length', $document->file_size)
-                ->header('Content-Disposition', 'inline; filename="' . $document->file_name . '"');
-        }
-        return false;
-    }
-
-    /**
-     * Download a document by id and return the file
-     * @param $id UUID of the document
-     * @return object|bool Document object or false if not found
-     */
-    public function downloadDocument($id)
-    {
-        $document = $this->where('id', $id)->first();
-
-        if ($document) {
-            $file = Storage::get('documents/' . $document->file_path);
-
-            return response($file, 200)
-                ->header('Content-Type', $document->file_mime)
-                ->header('Content-Length', $document->file_size)
-                ->header('Content-Disposition', 'attachment; filename="' . $document->file_name . '"');
-        }
-        return false;
-    }
-
-    /**
-     * Get all documents in the trash
-     * @return object Documents object
-     */
-
-    public function getTrashFiles()
-    {
-        $documents = $this->onlyTrashed()->get();
-        activity_log(user_data()->data->id, 'get trash documents', null, 'Document', 'Documents');
-        return $documents;
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Folder functions
-    |--------------------------------------------------------------------------
-    */
-
-    /**
-     * Get all documents in a folder or root folder
-     * @param uuid|null $folder_id UUID of the folder or null for root folder
-     * @return object Documents object
-     */
-    public function getDocuments($folder_id)
-    {
-        if ($folder_id == null) {
-            $documents = $this->where('category_id', null)->get();
-        } else {
-            $documents = $this->where('category_id', $folder_id)->get();
-        }
-        activity_log(user_data()->data->id, 'get documents', null, 'Document', 'Documents');
-        return $documents;
-    }
-
-    /**
-     * Get all folders
-     * @return object Folders object
-     */
-    public function getFolders()
-    {
-        $folders = new Category();
-        $folders = $folders->getCategoriesByModule('archive');
-
-        $folders[] = [
-            'id' => null,
-            'label' => '/',
-            'parent_category' => null,
-        ];
-        activity_log(user_data()->data->id, 'get folders', null, 'Document', 'Folders');
-        return $folders;
-    }
-
-    /**
-     * Get a folder
-     * @param uuid $folder_id UUID of the folder
-     * @return object Folder object
-     */
-    public function getFolder($folder_id)
-    {
-        $folder = Category::where('id', $folder_id)->first();
-        activity_log(user_data()->data->id, 'get folder', $folder_id, 'Document', 'Folder');
-        return $folder;
-    }
-
-    /**
-     * Create a new folder
-     * @param uuid|null $parent_category UUID of the parent folder or null for root folder
-     * @param string $name Name of the folder
-     * @return bool True if folder was created, false if not
-     */
-    public function createFolder($parent_category, $name)
-    {
-        $category = new Category();
-        $category = $category->createCategory($name, 'archive', 'folder', null, $parent_category);
-        if ($category) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * Update a folder
-     * @param uuid $folder_id UUID of the folder
-     * @param uuid|null $parent_category UUID of the parent folder or null for root folder
-     * @param string $name Name of the folder
-     * @return bool True if folder was updated, false if not
-     */
-    public function updateFolder($folder_id, $data)
-    {
-        $category = new Category();
-        $data = [
-            'name' => $data['label'],
-        ];
-        $category = $category->updateCategory($folder_id, $data);
-        if ($category) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * Delete a folder
-     * @param uuid $folder_id UUID of the folder
-     * @return bool True if folder was deleted, false if not
-     */
-    public function deleteFolder($folder_id)
-    {
-        $category = new Category();
-        $category = $category->deleteCategory($folder_id);
-        if ($category) {
-            return true;
-        }
-        return false;
+        $number = generateNextNumber(settings('archive_number_format'), 'archive');
+        return $number;
     }
 }

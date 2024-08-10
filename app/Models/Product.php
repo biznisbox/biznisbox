@@ -4,14 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use OwenIt\Auditing\Contracts\Auditable;
 
 class Product extends Model implements Auditable
 {
-    use HasFactory, SoftDeletes, HasUuids;
+    use HasFactory, HasUuids, SoftDeletes;
     use \OwenIt\Auditing\Auditable;
 
     protected $table = 'products';
@@ -31,24 +30,25 @@ class Product extends Model implements Auditable
         'active',
         'type',
         'barcode',
-        'sku',
         'tax',
     ];
 
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
-    protected $appends = ['stock_status'];
+    protected $appends = ['stock_status', 'plain_text'];
 
-    protected $casts = [
-        'active' => 'boolean',
-        'buy_price' => 'float',
-        'sell_price' => 'float',
-        'stock' => 'float',
-        'stock_min' => 'float',
-        'stock_max' => 'float',
-        'tax' => 'float',
-        'unit' => 'string',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'active' => 'boolean',
+            'buy_price' => 'float:2',
+            'sell_price' => 'float:2',
+            'stock' => 'float',
+            'stock_min' => 'float',
+            'stock_max' => 'float',
+            'tax' => 'float',
+        ];
+    }
 
     public function generateTags(): array
     {
@@ -61,9 +61,17 @@ class Product extends Model implements Auditable
     }
 
     /**
+     * Function to get plain text description - remove html tags
+     * @return string description Return plain text description
+     */
+    public function getPlainTextAttribute()
+    {
+        return strip_tags($this->description);
+    }
+
+    /**
      * Function to return stock status
-     *
-     * @return string status (out_of_stock, in_stock, over_stock, low_stock, unknown, null )
+     * @return string status Return status of stock (out_of_stock, in_stock, over_stock, low_stock, unknown, null)
      */
     public function getStockStatusAttribute()
     {
@@ -89,56 +97,140 @@ class Product extends Model implements Auditable
         }
     }
 
-    public function tax()
-    {
-        return DB::table('taxes')
-            ->find($this->tax)
-            ->get(['name', 'value', 'description', 'is_active']);
-    }
-
+    /**
+     * Function to get products with category
+     * @return void Return products with category
+     */
     public function getProducts()
     {
-        activity_log(user_data()->data->id, 'get products', null, 'App\Models\Product', 'getProducts');
-        return $this->with(['category'])->get();
+        $products = $this->with(['category'])->get();
+        createActivityLog('retrieve', null, 'App\Models\Product', 'Product');
+        return $products;
     }
 
+    /**
+     * Function to get product with category
+     * @param string $id Product id
+     * @return void Return product with category
+     */
     public function getProduct($id)
     {
-        activity_log(user_data()->data->id, 'get product', $id, 'App\Models\Product', 'getProduct');
-        return $this->with(['category'])->find($id);
+        $product = $this->with(['category'])->find($id);
+        if (!$product) {
+            return false;
+        }
+        createActivityLog('retrieve', $id, 'App\Models\Product', 'Product');
+        return $product;
     }
 
-    public function createProduct($productData)
+    /**
+     * Function to create product
+     * @param array $data Product data
+     * @return void Return created product
+     */
+    public function createProduct($data)
     {
-        $product = $this->create($productData);
+        $data = array_merge($data, ['number' => $this->getProductNumber()]);
+        $product = $this->create($data);
         if (!$product) {
             return false;
         }
         incrementLastItemNumber('product');
+        sendWebhookForEvent('product:created', $product->toArray());
         return $product;
     }
 
-    public function updateProduct($id, $productData)
+    /**
+     * Function to update product
+     * @param string $id Product id
+     * @param array $data Product data
+     * @return void Return updated product
+     */
+    public function updateProduct($id, $data)
     {
         $product = $this->find($id);
         if (!$product) {
             return false;
         }
-        return $product->update($productData);
+        $product->update($data);
+        $product->save();
+        sendWebhookForEvent('product:updated', $product->toArray());
+        return $product;
     }
 
+    /**
+     * Function to delete product
+     * @param string $id Product id
+     * @return void Return deleted product
+     */
     public function deleteProduct($id)
     {
         $product = $this->find($id);
         if (!$product) {
             return false;
         }
-        return $product->delete();
+        $product->delete();
+        sendWebhookForEvent('product:deleted', $product->toArray());
+        return $product;
     }
 
+    /**
+     * Function to get product by barcode
+     * @param string $barcode Product barcode
+     * @return void Return product
+     */
+    public function getProductByBarcode($barcode)
+    {
+        $product = $this->where('barcode', $barcode)->first();
+        createActivityLog('retrieveBarcode', $product->id, 'App\Models\Product', 'Product');
+        return $product;
+    }
+
+    /**
+     * Function to get product number
+     * @return void Return product number
+     */
     public static function getProductNumber()
     {
-        $number = generate_next_number(settings('product_number_format'), 'product');
+        $number = generateNextNumber(settings('product_number_format'), 'product');
         return $number;
+    }
+
+    /**
+     * Function for get public products
+     * @return void Return public products
+     */
+    public function getPublicProducts()
+    {
+        $products = $this->get([
+            'id',
+            'number',
+            'name',
+            'description',
+            'sell_price',
+            'buy_price',
+            'stock',
+            'stock_min',
+            'stock_max',
+            'unit',
+            'active',
+            'type',
+            'barcode',
+            'tax',
+        ])->where('active', true);
+        createActivityLog('retrievePublic', null, 'App\Models\Product', 'Product');
+        return $products;
+    }
+
+    /**
+     * Function to get products by category
+     * @param string $id Category id
+     * @return void Return products by category
+     */
+    public function getProductsByCategory($id)
+    {
+        $products = $this->where('category_id', $id)->get();
+        createActivityLog('retrieveByCategory', null, 'App\Models\Product', 'Product');
+        return $products;
     }
 }

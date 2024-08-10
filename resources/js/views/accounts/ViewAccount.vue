@@ -1,71 +1,62 @@
 <template>
-    <user-layout>
-        <div id="view_account_page">
-            <user-header :title="account.name">
+    <DefaultLayout>
+        <LoadingScreen :blocked="loadingData">
+            <PageHeader :title="account.name">
                 <template #actions>
-                    <Button :label="$t('basic.edit')" icon="fa fa-edit" class="p-button-success" @click="editAccountNavigation" />
-                    <Button
-                        :label="$t('basic.delete')"
-                        icon="fa fa-trash"
-                        class="p-button-danger"
-                        @click="deleteAccountAsk($route.params.id)"
-                    />
+                    <Button :label="$t('basic.edit')" icon="fa fa-edit" severity="success" @click="editAccountNavigation" />
+                    <Button :label="$t('basic.delete')" icon="fa fa-trash" severity="danger" @click="deleteAccountAsk($route.params.id)" />
+                    <Button :label="$t('audit_log.audit_log')" icon="fa fa-history" severity="info" @click="showAuditLogDialog = true" />
                 </template>
-            </user-header>
-            <LoadingScreen :blocked="loadingData">
-                <div class="grid">
-                    <div class="col-12 md:col-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>{{ $t('account.account_details') }}</h3>
-                            </div>
-                            <div class="grid">
-                                <div class="col-12 sm:col-6">
-                                    <DisplayData :input="$t('form.name')" :value="account.name" />
-                                </div>
-                                <div class="col-12 sm:col-6">
-                                    <Tag v-if="account.type === 'bank_account'" :value="$t('account_types.bank_account')" />
-                                    <Tag v-if="account.type === 'cash'" :value="$t('account_types.cash')" />
-                                    <Tag v-if="account.type === 'online_account'" :value="$t('account_types.online_account')" />
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="col-12 sm:col-6">
-                                    <DisplayData
-                                        :input="$t('form.opening_balance')"
-                                        :value="formatMoney(account.opening_balance, account.currency)"
-                                    />
-                                </div>
-                                <div class="col-12 sm:col-6">
-                                    <DisplayData
-                                        :input="$t('form.balance')"
-                                        :value="formatMoney(account.current_balance, account.currency)"
-                                    />
-                                </div>
-                            </div>
-                            <DisplayData :input="$t('form.opening_balance_date')" :value="formatDate(account.date_opened)" />
-                            <DisplayData :input="$t('form.currency')" :value="account.currency" />
-                            <DisplayData :input="$t('form.active_account')" custom-value>
-                                <Tag v-if="account.is_active" class="p-tag-success" :value="$t('basic.yes')" />
-                                <Tag v-else class="p-tag-danger" :value="$t('basic.no')" />
-                            </DisplayData>
-                            <DisplayData :input="$t('form.description')" :value="account.description" />
+            </PageHeader>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+                <div class="col-span-12 md:col-span-4">
+                    <div class="card">
+                        <div class="mb-2 font-bold">
+                            <h3>{{ $t('account.account_details') }}</h3>
                         </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2">
+                            <DisplayData :input="$t('form.name')" :value="account.name" />
+                            <div>
+                                <Tag v-if="account.type === 'bank_account'" :value="$t('account_types.bank_account')" />
+                                <Tag v-if="account.type === 'cash'" :value="$t('account_types.cash')" />
+                                <Tag v-if="account.type === 'online_account'" :value="$t('account_types.online_account')" />
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2">
+                            <DisplayData
+                                :input="$t('form.opening_balance')"
+                                :value="formatMoney(account.opening_balance, account.currency)"
+                            />
+                            <DisplayData :input="$t('form.balance')" :value="formatMoney(account.current_balance, account.currency)" />
+                        </div>
+                        <DisplayData :input="$t('form.opening_balance_date')" :value="formatDate(account.date_opened)" />
+                        <DisplayData :input="$t('form.currency')" :value="account.currency" />
+                        <DisplayData :input="$t('form.active_account')" custom-value>
+                            <Tag v-if="account.is_active" :value="$t('basic.yes')" severity="success" />
+                            <Tag v-else :value="$t('basic.no')" severity="danger" />
+                        </DisplayData>
+                        <DisplayData :input="$t('form.description')" :value="account.description" />
                     </div>
-                    <div class="col-12 md:col-8">
-                        <div class="card">
-                            <TabView id="account_tabs">
-                                <TabPanel :header="$t('transaction.transaction', 2)">
+                </div>
+                <div class="col-span-12 md:col-span-8">
+                    <div class="card">
+                        <Tabs value="transactions">
+                            <TabList>
+                                <Tab value="transactions">{{ $t('transaction.transaction', 2) }}</Tab>
+                                <Tab v-if="account.type === 'bank_account'" value="bank_details">{{ $t('account.bank_details') }}</Tab>
+                            </TabList>
+
+                            <TabPanels>
+                                <TabPanel value="transactions">
                                     <DataTable
                                         :value="account.transactions"
                                         paginator
                                         :rows="10"
-                                        paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                                         :rows-per-page-options="[10, 20, 50]"
                                         @row-dblclick="viewTransactionNavigation"
                                     >
                                         <template #empty>
-                                            <div class="p-3 pl-0 text-center w-full text-gray-500">
+                                            <div class="p-3 pl-0 text-center w-full">
                                                 <i class="fa fa-info-circle empty-icon"></i>
                                                 <p>{{ $t('transaction.no_transactions') }}</p>
                                             </div>
@@ -102,42 +93,46 @@
                                             </template>
                                         </Column>
                                         <template #paginatorstart>
-                                            <div class="p-d-flex p-ai-center p-mr-2">
-                                                <Button
-                                                    class="p-button-rounded p-button-text p-button-plain"
-                                                    icon="fa fa-sync"
-                                                    @click="getAccount($route.params.id)"
-                                                />
-                                            </div>
+                                            <Button icon="fa fa-sync" @click="getAccount($route.params.id)" />
                                         </template>
                                     </DataTable>
                                 </TabPanel>
 
-                                <TabPanel :header="$t('account.bank_details')">
-                                    <div class="p-2">
-                                        <DisplayData :input="$t('form.bank_name')" :value="account.bank_name" />
-                                        <DisplayData :input="$t('form.iban')" :value="account.iban" />
-                                        <DisplayData :input="$t('form.bic')" :value="account.bic" />
-                                        <DisplayData :input="$t('form.address')" :value="account.bank_address" />
-                                        <DisplayData :input="$t('form.contact')" :value="account.bank_contact" />
-                                    </div>
+                                <TabPanel value="bank_details" v-if="account.type === 'bank_account'" class="p-2">
+                                    <DisplayData :input="$t('form.bank_name')" :value="account.bank_name" />
+                                    <DisplayData :input="$t('form.iban')" :value="account.iban" />
+                                    <DisplayData :input="$t('form.bic')" :value="account.bic" />
+                                    <DisplayData :input="$t('form.address')" :value="account.bank_address" />
+                                    <DisplayData :input="$t('form.contact')" :value="account.bank_contact" />
                                 </TabPanel>
-                            </TabView>
-                        </div>
-                        <div id="function_buttons" class="flex gap-2 justify-content-end">
-                            <Button
-                                id="close_button"
-                                :label="$t('basic.close')"
-                                icon="fa fa-times"
-                                class="p-button-danger"
-                                @click="goTo('/accounts')"
-                            />
-                        </div>
+                            </TabPanels>
+                        </Tabs>
+                    </div>
+                    <div id="function_buttons" class="flex justify-end mt-2">
+                        <Button
+                            id="close_button"
+                            :label="$t('basic.close')"
+                            icon="fa fa-times"
+                            severity="secondary"
+                            @click="goTo('/accounts')"
+                        />
                     </div>
                 </div>
-            </LoadingScreen>
-        </div>
-    </user-layout>
+            </div>
+        </LoadingScreen>
+
+        <!-- Audit log dialog -->
+        <Dialog
+            v-model:visible="showAuditLogDialog"
+            modal
+            maximizable
+            class="w-full m-2 lg:w-1/2"
+            :header="$t('audit_log.audit_log')"
+            :draggable="false"
+        >
+            <AuditLog :item_id="$route.params.id" item_type="Account" />
+        </Dialog>
+    </DefaultLayout>
 </template>
 
 <script>
@@ -148,6 +143,12 @@ export default {
 
     created() {
         this.getAccount(this.$route.params.id)
+    },
+
+    data() {
+        return {
+            showAuditLogDialog: false,
+        }
     },
 
     methods: {

@@ -1,7 +1,7 @@
 @extends('emails.layout')
 @section('content')
-<p>Hi,</p>  
-<p style="color: red;">This is a test email, please ignore it.</p>
-<p>If you are receiving this email, it means that the email configuration is working fine.</p>
-<br />
+    <p>{{ __('email.hi') }}</p>
+    <p style="color: red">{{ __('email.this_is_a_test_email') }}</p>
+    <p>{{ __('email.config_is_working') }}</p>
+    <br />
 @endsection

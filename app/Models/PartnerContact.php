@@ -18,9 +18,12 @@ class PartnerContact extends Model implements Auditable
 
     protected $hidden = ['partner_id', 'created_at', 'updated_at'];
 
-    protected $casts = [
-        'is_primary' => 'boolean',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'is_primary' => 'boolean',
+        ];
+    }
 
     public function generateTags(): array
     {

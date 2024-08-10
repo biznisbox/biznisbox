@@ -10,36 +10,30 @@ use OwenIt\Auditing\Contracts\Auditable;
 class OpenBanking extends Model implements Auditable
 {
     use HasFactory, HasUuids;
-
-    protected $table = 'open_banking';
     use \OwenIt\Auditing\Auditable;
 
+    protected $table = 'open_banking';
     protected $fillable = [
         'bank_id',
         'iban',
         'bank_name',
         'bank_logo',
         'payment_available',
+        'account_id',
         'agreement_id',
         'agreement_status',
-        'account_id',
         'requisition_id',
         'requisition_status',
         'connection_valid_until',
         'last_transaction_sync',
     ];
 
-    protected $hidden = [
-        'account_id',
-        'created_at',
-        'updated_at',
-        'requisition_id',
-        'requisition_status',
-        'agreement_id',
-        'agreement_status',
+    protected $casts = [
+        'connection_valid_until' => 'datetime',
+        'last_transaction_sync' => 'datetime',
     ];
 
-    protected $dates = ['connection_valid_until', 'last_transaction_sync'];
+    protected $hidden = ['id', 'created_at', 'updated_at', 'agreement_id', 'requisition_id'];
 
     public function generateTags(): array
     {

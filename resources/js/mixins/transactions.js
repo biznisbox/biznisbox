@@ -7,6 +7,7 @@ export default {
             customers: [],
             suppliers: [],
             category: {
+                id: '',
                 name: '',
                 description: '',
                 module: 'transaction',
@@ -35,7 +36,6 @@ export default {
                 from_account: null,
                 to_account: null,
             },
-            vendors: [],
         }
     },
 
@@ -86,7 +86,7 @@ export default {
         updateTransaction() {
             this.makeHttpRequest('PUT', '/api/transactions/' + this.transaction.id, this.transaction).then((response) => {
                 this.showToast(response.data.message)
-                this.$router.push({ name: 'transactions' })
+                this.$router.push({ name: 'transactions-view', params: { id: this.transaction.id } })
             })
         },
 
@@ -123,7 +123,7 @@ export default {
          * @returns {string}  return transaction number
          **/
         getTransactionNumber() {
-            this.makeHttpRequest('GET', '/api/transaction/transaction_number').then((response) => {
+            this.makeHttpRequest('GET', '/api/transaction/number').then((response) => {
                 this.transaction.number = response.data.data
             })
         },
@@ -133,8 +133,8 @@ export default {
          * @returns {array}  return transaction categories
          * */
         getTransactionCategories() {
-            this.makeHttpRequest('GET', '/api/categories?module=transaction').then((response) => {
-                this.transactionCategories = response.data.data
+            this.getCategories('transaction').then((response) => {
+                this.transactionCategories = response
             })
         },
 
@@ -143,7 +143,7 @@ export default {
          * @returns {array}  return customers
          * */
         getCustomers() {
-            this.makeHttpRequest('GET', '/api/partners_list?type=customer,both').then((response) => {
+            this.makeHttpRequest('GET', '/api/partner/limited?type=customer,both').then((response) => {
                 this.customers = response.data.data
             })
         },
@@ -153,7 +153,7 @@ export default {
          * @returns {array}  return suppliers
          * */
         getSuppliers() {
-            this.makeHttpRequest('GET', '/api/partners_list?type=supplier,both').then((response) => {
+            this.makeHttpRequest('GET', '/api/partner/limited?type=supplier,both').then((response) => {
                 this.suppliers = response.data.data
             })
         },

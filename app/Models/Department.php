@@ -12,9 +12,29 @@ class Department extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
-    protected $table = 'departments';
-    protected $fillable = ['name', 'description', 'address', 'city', 'zip_code', 'country', 'phone_number', 'email'];
-    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'name',
+        'parent_id',
+        'description',
+        'type',
+        'address',
+        'city',
+        'zip_code',
+        'country',
+        'phone_number',
+        'email',
+        'longitude',
+        'latitude',
+    ];
+
+    protected $hidden = ['created_at', 'updated_at'];
+
+    protected $casts = [
+        'longitude' => 'float',
+        'latitude' => 'float',
+    ];
+
+    protected $appends = ['location'];
 
     public function generateTags(): array
     {
@@ -26,45 +46,22 @@ class Department extends Model implements Auditable
         return $this->hasMany(Employee::class, 'department_id', 'id');
     }
 
-    public function createDepartment($data)
+    public function getLocationAttribute()
     {
-        $department = $this->create($data);
-        return $department;
-    }
-
-    public function updateDepartment($id, $data)
-    {
-        $department = $this->where('id', $id)->update($data);
-        return $department;
-    }
-
-    public function deleteDepartment($id)
-    {
-        $department = $this->where('id', $id)->delete();
-        return $department;
-    }
-
-    public function getDepartment($id)
-    {
-        $department = $this->where('id', $id)->first();
-        return $department;
-    }
-
-    public function getDepartments()
-    {
-        $departments = $this->all();
-        return $departments;
+        return [$this->longitude, $this->latitude];
     }
 
     public function getDepartmentsWithEmployees()
     {
         $departments = $this->with('employees')->get();
+        createActivityLog('retrieve', null, 'App\Models\Department', 'Department');
         return $departments;
     }
 
     public function getPublicDepartments()
     {
-        $departments = $this->select('id', 'name', 'description')->get();
+        $departments = $this->select(['id', 'name', 'description', 'type'])->get();
+        createActivityLog('retrievePublic', null, 'App\Models\Department', 'Department');
         return $departments;
     }
 }

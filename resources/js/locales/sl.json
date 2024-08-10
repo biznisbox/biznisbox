@@ -15,6 +15,10 @@
             "enter_email": "Vnesite vaš e-poštni naslov in vam bomo poslali povezavo za ponastavitev gesla."
         }
     },
+    "validations": {
+        "required": "Polje je obvezno.",
+        "minLength": "Polje mora vsebovati vsaj {min} znakov."
+    },
     "errors": {
         "invalid_credentials": "Napačni podatki za prijavo.",
         "throttle": "Preveč poskusov prijave. Prosimo, poskusite ponovno čez :seconds sekund.",

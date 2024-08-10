@@ -19,24 +19,19 @@ class RefreshBankTransactions extends Command
      *
      * @var string
      */
-    protected $description = 'Refresh bank transactions from Open Banking API';
+    protected $description = 'Refresh bank transactions of all bank accounts in the system';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        $this->info('Refreshing bank transactions...');
-
         $openBankingService = new OpenBankingService();
-        $openBanking = $openBankingService->refreshBankTransactions();
-
-        if ($openBanking) {
-            $this->info('Bank transactions refreshed!');
-            Command::SUCCESS;
+        $result = $openBankingService->refreshBankTransactions();
+        if ($result) {
+            $this->info('Bank transactions refreshed successfully');
         } else {
-            $this->error('Bank transactions not refreshed!');
-            Command::FAILURE;
+            $this->error('Failed to refresh bank transactions');
         }
     }
 }

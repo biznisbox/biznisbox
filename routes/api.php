@@ -1,306 +1,323 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\BasicController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\DataController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BillController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\OpenBankingController;
 use App\Http\Controllers\ArchiveController;
-use App\Http\Controllers\OnlinePaymentController;
-use App\Http\Controllers\BillController;
-use App\Http\Controllers\DocumentController;
-use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\SupportTicketController;
-use App\Http\Controllers\Admin\UsersController as AdminUsersController;
-use App\Http\Controllers\Admin\PermissionController as AdminPermissionController;
-use App\Http\Controllers\Admin\SettingsController as AdminSettingsController;
-use App\Http\Controllers\Admin\BasicController as AdminBasicController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\DepartmentController as AdminDepartmentController;
+use App\Http\Controllers\Admin\PermissionRoleController as AdminPermissionRoleController;
+use App\Http\Controllers\Admin\TaxController as AdminTaxController;
+use App\Http\Controllers\Admin\SettingController as AdminSettingController;
+use App\Http\Controllers\Admin\CurrencyController as AdminCurrencyController;
+use App\Http\Controllers\Admin\UnitController as AdminUnitController;
+use App\Http\Controllers\Admin\WebhookSubscriptionController as AdminWebhookSubscriptionController;
+use App\Http\Controllers\Admin\DashboardDataController as AdminDashboardDataController;
 use App\Http\Controllers\Client\InvoiceController as ClientInvoiceController;
 use App\Http\Controllers\Client\QuoteController as ClientQuoteController;
 use App\Http\Controllers\Client\SupportTicketController as ClientSupportTicketController;
-use App\Http\Controllers\PartnerController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Install\InstallerController;
+use App\Http\Middleware\CheckIfInstalled;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-*/
-Route::post('/auth/login', AuthController::class . '@Login');
-Route::post('/auth/reset_password', AuthController::class . '@SelfResetPassword');
-Route::post('/auth/set_new_password', AuthController::class . '@setNewPassword');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/auth/logout', AuthController::class . '@Logout')->middleware('auth');
-
-    // Products Routes
-    Route::get('/products', ProductController::class . '@getProducts');
-    Route::middleware('can:products')->group(function () {
-        Route::get('/products/{id}', ProductController::class . '@getProduct');
-        Route::post('/products', ProductController::class . '@createProduct');
-        Route::put('/products/{id}', ProductController::class . '@updateProduct');
-        Route::delete('/products/{id}', ProductController::class . '@deleteProduct');
-        Route::get('/product/product_number', ProductController::class . '@getProductNumber');
-    });
-
-    // Partners Routes
-    Route::get('/partners_list', PartnerController::class . '@getPartnersLimitedData');
-    Route::middleware(['can:partners'])->group(function () {
-        Route::get('/partners', PartnerController::class . '@getPartners');
-        Route::get('/partners/{id}', PartnerController::class . '@getPartner');
-        Route::post('/partners', PartnerController::class . '@createPartner');
-        Route::put('/partners/{id}', PartnerController::class . '@updatePartner');
-        Route::delete('/partners/{id}', PartnerController::class . '@deletePartner');
-        Route::get('/partner/partner_number', PartnerController::class . '@getPartnerNumber');
-    });
-
-    // Invoice Routes
-    Route::middleware('can:invoices')->group(function () {
-        Route::get('/invoices', InvoiceController::class . '@getInvoices');
-        Route::get('/invoices/{id}', InvoiceController::class . '@getInvoice');
-        Route::post('/invoices', InvoiceController::class . '@createInvoice');
-        Route::put('/invoices/{id}', InvoiceController::class . '@updateInvoice');
-        Route::delete('/invoices/{id}', InvoiceController::class . '@deleteInvoice');
-        Route::get('/invoice/invoice_number', InvoiceController::class . '@getInvoiceNumber');
-        Route::get('/invoice/share/{id}', InvoiceController::class . '@shareInvoice');
-        Route::post('/invoice/transaction/{id}', InvoiceController::class . '@addTransaction');
-        Route::post('/invoice/send/{id}', InvoiceController::class . '@sendInvoiceNotification');
-    });
-
-    // Quotes Routes
-    Route::middleware('can:quotes')->group(function () {
-        Route::get('/quotations', QuoteController::class . '@getQuotes');
-        Route::get('/quotations/{id}', QuoteController::class . '@getQuote');
-        Route::post('/quotations', QuoteController::class . '@createQuote');
-        Route::put('/quotations/{id}', QuoteController::class . '@updateQuote');
-        Route::delete('/quotations/{id}', QuoteController::class . '@deleteQuote');
-        Route::get('/quote/convert/{id}', QuoteController::class . '@convertQuoteToInvoice');
-        Route::get('/quote/quote_number', QuoteController::class . '@getQuoteNumber');
-        Route::get('/quote/share/{id}', QuoteController::class . '@shareQuote');
-        Route::post('/quote/send/{id}', QuoteController::class . '@sendQuoteNotification');
-    });
-
-    // Categories Routes
-    Route::get('/categories', BasicController::class . '@getCategories');
-    Route::get('/categories/{id}', BasicController::class . '@getCategory');
-    Route::post('/categories', BasicController::class . '@createCategory');
-    Route::put('/categories/{id}', BasicController::class . '@updateCategory');
-    Route::delete('/categories/{id}', BasicController::class . '@deleteCategory');
-
-    // Calendar Routes
-    Route::middleware('can:calendar')->group(function () {
-        Route::get('/calendars/events/{event_id}', CalendarController::class . '@getEvent');
-        Route::post('/calendars/events', CalendarController::class . '@createEvent');
-        Route::put('/calendars/events/{event_id}', CalendarController::class . '@updateEvent');
-        Route::delete('/calendars/events/{event_id}', CalendarController::class . '@deleteEvent');
-        Route::get('/calendar/events', CalendarController::class . '@getUserEvents');
-    });
-
-    // Employees Routes
-    Route::middleware('can:employees')->group(function () {
-        Route::get('/employees', EmployeesController::class . '@getEmployees');
-        Route::get('/employees/{id}', EmployeesController::class . '@getEmployee');
-        Route::post('/employees', EmployeesController::class . '@createEmployee');
-        Route::put('/employees/{id}', EmployeesController::class . '@updateEmployee');
-        Route::delete('/employees/{id}', EmployeesController::class . '@deleteEmployee');
-        Route::get('/employee/employee_number', EmployeesController::class . '@getEmployeeNumber');
-    });
-
-    // Accounts routes
-    Route::get('/accounts', AccountController::class . '@getAccounts');
-    Route::middleware('can:accounts')->group(function () {
-        Route::get('/accounts/{id}', AccountController::class . '@getAccount');
-        Route::post('/accounts', AccountController::class . '@createAccount');
-        Route::put('/accounts/{id}', AccountController::class . '@updateAccount');
-        Route::delete('/accounts/{id}', AccountController::class . '@deleteAccount');
-        Route::get('/open_banking/banks', OpenBankingController::class . '@getBanks');
-        Route::post('/open_banking/init_session', OpenBankingController::class . '@initSession');
-        Route::post('/open_banking/get_requisition', OpenBankingController::class . '@getRequisition');
-    });
-
-    // Transactions routes
-    Route::middleware('can:transactions')->group(function () {
-        Route::get('/transactions', TransactionController::class . '@getTransactions');
-        Route::get('/transactions/{id}', TransactionController::class . '@getTransaction');
-        Route::post('/transactions', TransactionController::class . '@createTransaction');
-        Route::put('/transactions/{id}', TransactionController::class . '@updateTransaction');
-        Route::delete('/transactions/{id}', TransactionController::class . '@deleteTransaction');
-        Route::get('/transaction/transaction_number', TransactionController::class . '@getTransactionNumber');
-    });
-
-    // Archive routes
-    Route::middleware('can:archive')
-        ->prefix('/archive')
-        ->group(function () {
-            Route::get('/documents', ArchiveController::class . '@getDocuments');
-            Route::get('/documents/file', ArchiveController::class . '@getDocument');
-            Route::post('/documents', ArchiveController::class . '@createDocument');
-            Route::put('/documents/file', ArchiveController::class . '@updateDocument');
-            Route::delete('/documents/file', ArchiveController::class . '@deleteDocument');
-            Route::get('/document/folders', ArchiveController::class . '@getFolders');
-            Route::get('/document/folders/{id}', ArchiveController::class . '@getFolder');
-            Route::post('/document/folders', ArchiveController::class . '@createFolder');
-            Route::put('/document/folders', ArchiveController::class . '@updateFolder');
-            Route::delete('/document/folders', ArchiveController::class . '@deleteFolder');
-        });
-
-    // Support Ticket Routes
-    Route::middleware('can:support')->group(function () {
-        Route::get('/support_tickets', SupportTicketController::class . '@getSupportTickets');
-        Route::get('/support_tickets/{id}', SupportTicketController::class . '@getSupportTicket');
-        Route::post('/support_tickets', SupportTicketController::class . '@createSupportTicket');
-        Route::put('/support_tickets/{id}', SupportTicketController::class . '@updateSupportTicket');
-        Route::delete('/support_tickets/{id}', SupportTicketController::class . '@deleteSupportTicket');
-        Route::post('/support_ticket/messages/{id}', SupportTicketController::class . '@createSupportTicketMessage');
-        Route::put('/support_ticket/messages/{id}', SupportTicketController::class . '@updateSupportTicketMessage');
-        Route::delete('/support_ticket/messages/{id}', SupportTicketController::class . '@deleteSupportTicketMessage');
-        Route::get('/support_ticket/messages/{id}', SupportTicketController::class . '@getSupportTicketMessages');
-        Route::get('/support_ticket/number', SupportTicketController::class . '@getSupportTicketNumber');
-        Route::get('/support_ticket/share/{id}', SupportTicketController::class . '@shareSupportTicket');
-    });
-
-    // Documents routes
-    Route::middleware('can:documents')->group(function () {
-        Route::get('/documents', DocumentController::class . '@getDocuments');
-        Route::get('/documents/{id}', DocumentController::class . '@getDocument');
-        Route::post('/documents', DocumentController::class . '@createDocument');
-        Route::put('/documents/{id}', DocumentController::class . '@updateDocument');
-        Route::delete('/documents/{id}', DocumentController::class . '@deleteDocument');
-        Route::get('/document/number', DocumentController::class . '@getDocumentNumber');
-    });
-
-    // Bills Routes
-    Route::middleware(['can:bills'])->group(function () {
-        Route::get('/bills', BillController::class . '@getBills');
-        Route::get('/bills/{id}', BillController::class . '@getBill');
-        Route::post('/bills', BillController::class . '@createBill');
-        Route::put('/bills/{id}', BillController::class . '@updateBill');
-        Route::delete('/bills/{id}', BillController::class . '@deleteBill');
-        Route::get('/bill/bill_number', BillController::class . '@getBillNumber');
-    });
-
-    // Basic Routes
-    Route::get('/data', BasicController::class . '@getData');
-    Route::get('/dashboard', BasicController::class . '@getDashboardData');
-
-    Route::get('/my_profile', ProfileController::class . '@getUserProfile');
-    Route::put('/my_profile', ProfileController::class . '@updateUserProfile');
-    Route::put('/my_profile/password', ProfileController::class . '@updateUserPassword');
-    Route::post('/my_profile/avatar', ProfileController::class . '@changeAvatar');
-    Route::delete('/my_profile/avatar', ProfileController::class . '@removeAvatar');
-
-    // Admin Routes (Only for Admins)
-    Route::middleware(['admin.auth', 'can:admin'])
-        ->prefix('/admin')
-        ->group(function () {
-            // Dashboard Routes
-            Route::get('/dashboard', AdminBasicController::class . '@getDashboardData');
-            Route::get('/check_version', AdminSettingsController::class . '@checkVersion');
-            Route::get('/check_server_status', AdminSettingsController::class . '@checkServerStatus');
-            Route::post('/send_test_email', AdminSettingsController::class . '@sendTestEmail');
-            // User Routes
-            Route::middleware(['can:admin_users'])->group(function () {
-                Route::get('/users', AdminUsersController::class . '@getUsers');
-                Route::get('/users/{id}', AdminUsersController::class . '@getUser');
-                Route::post('/users', AdminUsersController::class . '@createUser');
-                Route::put('/users/{id}', AdminUsersController::class . '@updateUser');
-                Route::delete('/users/{id}', AdminUsersController::class . '@deleteUser');
-                Route::post('/user/{id}/reset-password', AdminUsersController::class . '@resetUserPassword');
-            });
-
-            // Company Routes
-            Route::middleware(['can:admin_company_settings'])->group(function () {
-                Route::get('/company', AdminSettingsController::class . '@getCompanySettings');
-                Route::put('/company', AdminSettingsController::class . '@updateCompanySettings');
-                Route::post('/company_logo', AdminSettingsController::class . '@saveCompanyImage');
-                Route::delete('/company_logo', AdminSettingsController::class . '@removeCompanyImage');
-            });
-
-            // Settings Routes
-            Route::middleware(['can:admin_general_settings'])->group(function () {
-                Route::get('/settings', AdminSettingsController::class . '@getSettings');
-                Route::put('/settings', AdminSettingsController::class . '@updateSettings');
-            });
-
-            Route::middleware(['can:admin_numbering'])->group(function () {
-                Route::get('/settings/numbering', AdminSettingsController::class . '@getNumberingSettings');
-                Route::put('/settings/numbering', AdminSettingsController::class . '@updateNumberingSettings');
-            });
-
-            // Currency Routes
-            Route::middleware(['can:admin_currencies'])->group(function () {
-                Route::get('/currencies', AdminSettingsController::class . '@getCurrencies');
-                Route::get('/currencies/{id}', AdminSettingsController::class . '@getCurrency');
-                Route::post('/currencies', AdminSettingsController::class . '@createCurrency');
-                Route::put('/currencies/{id}', AdminSettingsController::class . '@updateCurrency');
-                Route::delete('/currencies/{id}', AdminSettingsController::class . '@deleteCurrency');
-                Route::get('/currency/rates', AdminSettingsController::class . '@liveUpdateCurrencyRate');
-            });
-
-            // Departments Routes
-            Route::middleware(['can:admin_departments'])->group(function () {
-                Route::get('/departments', AdminDepartmentController::class . '@getDepartments');
-                Route::get('/departments/{id}', AdminDepartmentController::class . '@getDepartment');
-                Route::post('/departments', AdminDepartmentController::class . '@createDepartment');
-                Route::put('/departments/{id}', AdminDepartmentController::class . '@updateDepartment');
-                Route::delete('/departments/{id}', AdminDepartmentController::class . '@deleteDepartment');
-                Route::get('/departments/employees', AdminDepartmentController::class . '@getDepartmentsWithEmployees');
-            });
-
-            // Tax Routes
-            Route::middleware(['can:admin_tax_rates'])->group(function () {
-                Route::get('/taxes', AdminSettingsController::class . '@getTaxes');
-                Route::get('/taxes/{id}', AdminSettingsController::class . '@getTax');
-                Route::post('/taxes', AdminSettingsController::class . '@createTax');
-                Route::put('/taxes/{id}', AdminSettingsController::class . '@updateTax');
-                Route::delete('/taxes/{id}', AdminSettingsController::class . '@deleteTax');
-            });
-
-            // Roles Routes
-            Route::middleware(['can:admin_roles'])->group(function () {
-                Route::get('/roles', AdminPermissionController::class . '@getRoles');
-                Route::get('/roles/{id}', AdminPermissionController::class . '@getRoleById');
-                Route::post('/roles', AdminPermissionController::class . '@createRole');
-                Route::put('/roles/{id}', AdminPermissionController::class . '@updateRole');
-                Route::delete('/roles/{id}', AdminPermissionController::class . '@deleteRole');
-                Route::get('/permissions', AdminPermissionController::class . '@getPermissions');
-            });
-        });
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('/login', [AuthController::class, 'Login'])->name('login_api');
+    Route::post('/logout', [AuthController::class, 'Logout'])->name('logout');
 });
 
-Route::prefix('/online_payment')->group(function () {
-    Route::post('/stripe', OnlinePaymentController::class . '@makeStripePayment');
-    Route::get('/stripe/{status}', OnlinePaymentController::class . '@validateStripePayment');
-    Route::post('/paypal', OnlinePaymentController::class . '@makePaypalPayment');
-    Route::get('/paypal/{status}', OnlinePaymentController::class . '@validatePaypalPayment');
+Route::middleware('auth:api')->group(function () {
+    Route::post('/auth/refresh', [AuthController::class, 'Refresh'])->name('refresh');
+    Route::get('/data', [DataController::class, 'getData'])->name('getData');
+    Route::get('/me', [AuthController::class, 'Me'])->name('me'); // Get current user data
+    Route::get('/logs', [DataController::class, 'getLogs'])->name('getLogs');
+    // Category routes
+    Route::get('/categories', [DataController::class, 'getCategories'])->name('getCategories');
+    Route::get('/categories/{id}', [DataController::class, 'getCategory'])->name('getCategory');
+    Route::post('/categories', [DataController::class, 'createCategory'])->name('createCategory');
+    Route::put('/categories/{id}', [DataController::class, 'updateCategory'])->name('updateCategory');
+    Route::delete('/categories/{id}', [DataController::class, 'deleteCategory'])->name('deleteCategory');
+
+    // Profile
+    Route::post('/profile/theme', [ProfileController::class, 'changeTheme'])->name('changeTheme');
+    Route::get('/profile', [ProfileController::class, 'getProfile'])->name('getProfile');
+    Route::put('/profile', [ProfileController::class, 'updateProfile'])->name('updateProfile');
+    Route::put('/profile/password', [ProfileController::class, 'updatePassword'])->name('updatePassword');
+    Route::post('/profile/2fa', [ProfileController::class, 'set2FactorAuth'])->name('set2FactorAuth');
+    Route::delete('/profile/2fa', [ProfileController::class, 'disable2FactorAuth'])->name('disable2FactorAuth');
+    Route::post('/profile/2fa/verify', [ProfileController::class, 'enable2FactorAuth'])->name('enable2FactorAuth');
+    Route::post('/profile/avatar', [ProfileController::class, 'setProfilePicture'])->name('setProfilePicture');
+    Route::delete('/profile/avatar', [ProfileController::class, 'deleteProfilePicture'])->name('deleteProfilePicture');
+
+    // Notification
+    Route::get('/notifications', [ProfileController::class, 'getCurrentUserNotifications'])->name('getCurrentUserNotifications');
+    Route::post('/notifications/{id}', [ProfileController::class, 'markNotificationAsRead'])->name('markNotificationAsRead');
+    Route::delete('/notifications/{id}', [ProfileController::class, 'deleteNotification'])->name('deleteNotification');
+
+    // Dashboard Layout
+    Route::get('/dashboard', [DataController::class, 'getDashboardLayout'])->name('getDashboardLayout');
+    Route::post('/dashboard', [DataController::class, 'updateDashboardLayout'])->name('updateDashboardLayout');
+
+    // Dashboard Data
+    Route::get('/dashboard/data', [DataController::class, 'getDashboardData'])->name('getDashboardData');
+
+    // Product
+    Route::post('/products', [ProductController::class, 'createProduct'])->name('createProduct');
+    Route::put('/products/{id}', [ProductController::class, 'updateProduct'])->name('updateProduct');
+    Route::delete('/products/{id}', [ProductController::class, 'deleteProduct'])->name('deleteProduct');
+    Route::get('/products', [ProductController::class, 'getProducts'])->name('getProducts');
+    Route::get('/products/{id}', [ProductController::class, 'getProduct'])->name('getProduct');
+    Route::get('/product/number', [ProductController::class, 'getProductNumber'])->name('getProductNumber');
+
+    // Partner
+    Route::post('/partners', [PartnerController::class, 'createPartner'])->name('createPartner');
+    Route::put('/partners/{id}', [PartnerController::class, 'updatePartner'])->name('updatePartner');
+    Route::delete('/partners/{id}', [PartnerController::class, 'deletePartner'])->name('deletePartner');
+    Route::get('/partners', [PartnerController::class, 'getPartners'])->name('getPartners');
+    Route::get('/partners/{id}', [PartnerController::class, 'getPartner'])->name('getPartner');
+    Route::get('/partner/number', [PartnerController::class, 'getPartnerNumber'])->name('getPartnerNumber');
+    Route::get('/partner/limited', [PartnerController::class, 'getPartnersLimitedData'])->name('getPartnersLimitedData');
+
+    // Calendar
+    Route::group(['prefix' => 'calendar'], function () {
+        Route::post('/events', [CalendarController::class, 'createEvent'])->name('createEvent');
+        Route::put('/events/{id}', [CalendarController::class, 'updateEvent'])->name('updateEvent');
+        Route::delete('/events/{id}', [CalendarController::class, 'deleteEvent'])->name('deleteEvent');
+        Route::get('/events', [CalendarController::class, 'getEvents'])->name('getEvents');
+        Route::get('/events/{id}', [CalendarController::class, 'getEvent'])->name('getEvent');
+    });
+
+    // Invoice
+    Route::get('/invoices', [InvoiceController::class, 'getInvoices'])->name('getInvoices');
+    Route::get('/invoices/{id}', [InvoiceController::class, 'getInvoice'])->name('getInvoice');
+    Route::post('/invoices', [InvoiceController::class, 'createInvoice'])->name('createInvoice');
+    Route::put('/invoices/{id}', [InvoiceController::class, 'updateInvoice'])->name('updateInvoice');
+    Route::delete('/invoices/{id}', [InvoiceController::class, 'deleteInvoice'])->name('deleteInvoice');
+    Route::get('/invoice/number', [InvoiceController::class, 'getInvoiceNumber'])->name('getInvoiceNumber');
+    Route::get('/invoice/{id}/share/', [InvoiceController::class, 'shareInvoice'])->name('shareInvoice');
+    Route::post('/invoice/{id}/send', [InvoiceController::class, 'sendInvoiceNotification'])->name('sendInvoiceNotification');
+    Route::post('/invoice/{id}/payment', [InvoiceController::class, 'addInvoicePayment'])->name('addInvoicePayment');
+
+    // Quote
+    Route::get('/quotes', [QuoteController::class, 'getQuotes'])->name('getQuotes');
+    Route::get('/quotes/{id}', [QuoteController::class, 'getQuote'])->name('getQuote');
+    Route::post('/quotes', [QuoteController::class, 'createQuote'])->name('createQuote');
+    Route::put('/quotes/{id}', [QuoteController::class, 'updateQuote'])->name('updateQuote');
+    Route::delete('/quotes/{id}', [QuoteController::class, 'deleteQuote'])->name('deleteQuote');
+    Route::get('/quote/number', [QuoteController::class, 'getQuoteNumber'])->name('getQuoteNumber');
+    Route::get('/quote/share/{id}', [QuoteController::class, 'shareQuote'])->name('shareQuote');
+    Route::get('/quote/convert/{id}', [QuoteController::class, 'convertQuoteToInvoice'])->name('convertQuoteToInvoice');
+    Route::post('/quote/{id}/send', [QuoteController::class, 'sendQuoteNotification'])->name('sendQuoteNotification');
+
+    // Employee
+    Route::get('/employees', [EmployeeController::class, 'getEmployees'])->name('getEmployees');
+    Route::get('/employees/{id}', [EmployeeController::class, 'getEmployee'])->name('getEmployee');
+    Route::post('/employees', [EmployeeController::class, 'createEmployee'])->name('createEmployee');
+    Route::put('/employees/{id}', [EmployeeController::class, 'updateEmployee'])->name('updateEmployee');
+    Route::delete('/employees/{id}', [EmployeeController::class, 'deleteEmployee'])->name('deleteEmployee');
+    Route::get('/employee/number', [EmployeeController::class, 'getEmployeeNumber'])->name('getEmployeeNumber');
+
+    // Bill
+    Route::get('/bills', [BillController::class, 'getBills'])->name('getBills');
+    Route::get('/bills/{id}', [BillController::class, 'getBill'])->name('getBill');
+    Route::post('/bills', [BillController::class, 'createBill'])->name('createBill');
+    Route::put('/bills/{id}', [BillController::class, 'updateBill'])->name('updateBill');
+    Route::delete('/bills/{id}', [BillController::class, 'deleteBill'])->name('deleteBill');
+    Route::get('/bill/number', [BillController::class, 'getBillNumber'])->name('getBillNumber');
+
+    // Account
+    Route::get('/accounts', [AccountController::class, 'getAccounts'])->name('getAccounts');
+    Route::get('/accounts/{id}', [AccountController::class, 'getAccount'])->name('getAccount');
+    Route::post('/accounts', [AccountController::class, 'createAccount'])->name('createAccount');
+    Route::put('/accounts/{id}', [AccountController::class, 'updateAccount'])->name('updateAccount');
+    Route::delete('/accounts/{id}', [AccountController::class, 'deleteAccount'])->name('deleteAccount');
+
+    // Open Banking
+    Route::get('/open-banking/countries', [OpenBankingController::class, 'listAvailableCountries'])->name('listAvailableCountries');
+    Route::get('/open-banking/banks', [OpenBankingController::class, 'listBanks'])->name('listBanks');
+    Route::post('/open-banking/session', [OpenBankingController::class, 'initSession'])->name('initSession');
+    Route::post('/open-banking/account', [OpenBankingController::class, 'createOpenBankingAccount'])->name('createOpenBankingAccount');
+
+    // Transaction
+    Route::get('/transactions', [TransactionController::class, 'getTransactions'])->name('getTransactions');
+    Route::get('/transactions/{id}', [TransactionController::class, 'getTransaction'])->name('getTransaction');
+    Route::post('/transactions', [TransactionController::class, 'createTransaction'])->name('createTransaction');
+    Route::put('/transactions/{id}', [TransactionController::class, 'updateTransaction'])->name('updateTransaction');
+    Route::delete('/transactions/{id}', [TransactionController::class, 'deleteTransaction'])->name('deleteTransaction');
+    Route::get('/transaction/number', [TransactionController::class, 'getTransactionNumber'])->name('getTransactionNumber');
+
+    // Archive
+    Route::get('/archive/documents', [ArchiveController::class, 'getDocuments'])->name('getDocuments');
+    Route::get('/archive/documents/{id}', [ArchiveController::class, 'getDocument'])->name('getDocument');
+    Route::post('/archive/documents', [ArchiveController::class, 'createDocument'])->name('createDocument');
+    Route::put('/archive/documents/{id}', [ArchiveController::class, 'updateDocument'])->name('updateDocument');
+    Route::delete('/archive/documents/{id}', [ArchiveController::class, 'deleteDocument'])->name('deleteDocument');
+    Route::put('/archive/documents/{id}/restore', [ArchiveController::class, 'restoreDocument'])->name('restoreDocument');
+    Route::put('/archive/documents/{id}/force-delete', [ArchiveController::class, 'forceDeleteDocument'])->name('forceDeleteDocument');
+
+    // Support Ticket
+    Route::get('/support-tickets', [SupportTicketController::class, 'getTickets'])->name('getTickets');
+    Route::get('/support-tickets/{id}', [SupportTicketController::class, 'getTicket'])->name('getTicket');
+    Route::get('/support-tickets/{id}/contents', [SupportTicketController::class, 'getSupportTicketContents'])->name(
+        'getSupportTicketContents'
+    );
+    Route::post('/support-tickets', [SupportTicketController::class, 'createTicket'])->name('createSupportTicket');
+    Route::put('/support-tickets/{id}', [SupportTicketController::class, 'updateTicket'])->name('updateTicket');
+    Route::delete('/support-tickets/{id}', [SupportTicketController::class, 'deleteTicket'])->name('deleteTicket');
+    Route::get('/support-tickets/{id}/messages', [SupportTicketController::class, 'getTicketMessages'])->name('getTicketMessages');
+    Route::post('/support-tickets/{id}/messages', [SupportTicketController::class, 'createTicketMessage'])->name('createTicketMessage');
+    Route::put('/support-tickets/messages/{id}', [SupportTicketController::class, 'updateTicketMessage'])->name('updateTicketMessage');
+    Route::delete('/support-tickets/messages/{id}', [SupportTicketController::class, 'deleteTicketMessage'])->name('deleteTicketMessage');
+    Route::get('/support-ticket/number', [SupportTicketController::class, 'getTicketNumber'])->name('getTicketNumber');
+    Route::get('/support-ticket/share/{id}', [SupportTicketController::class, 'shareTicket'])->name('shareTicket');
+
+    // Payments
+    Route::get('/payments', [PaymentController::class, 'getPayments'])->name('getPayments');
+    Route::get('/payments/{id}', [PaymentController::class, 'getPayment'])->name('getPayment');
+
+    Route::group(['prefix' => 'admin'], function () {
+        // Dashboard Data
+        Route::get('/dashboard', [AdminDashboardDataController::class, 'returnData'])->name('adminReturnDashboardData');
+        // User
+        Route::get('/users', [AdminUserController::class, 'getUsers'])->name('adminGetUsers');
+        Route::get('/users/{id}', [AdminUserController::class, 'getUser'])->name('adminGetUser');
+        Route::post('/users', [AdminUserController::class, 'createUser'])->name('adminCreateUser');
+        Route::put('/users/{id}', [AdminUserController::class, 'updateUser'])->name('adminUpdateUser');
+        Route::delete('/users/{id}', [AdminUserController::class, 'deleteUser'])->name('adminDeleteUser');
+        Route::put('/users/{id}/reset-password', [AdminUserController::class, 'resetPassword'])->name('adminResetPassword');
+        Route::post('/users/{id}/disable-2fa', [AdminUserController::class, 'disable2fa'])->name('adminDisable2fa');
+
+        // Department
+        Route::get('/departments', [AdminDepartmentController::class, 'getDepartments'])->name('adminGetDepartments');
+        Route::get('/departments/{id}', [AdminDepartmentController::class, 'getDepartment'])->name('adminGetDepartment');
+        Route::post('/departments', [AdminDepartmentController::class, 'createDepartment'])->name('adminCreateDepartment');
+        Route::put('/departments/{id}', [AdminDepartmentController::class, 'updateDepartment'])->name('adminUpdateDepartment');
+        Route::delete('/departments/{id}', [AdminDepartmentController::class, 'deleteDepartment'])->name('adminDeleteDepartment');
+
+        // Role
+        Route::get('/roles', [AdminPermissionRoleController::class, 'getRoles'])->name('adminGetRoles');
+        Route::get('/roles/{id}', [AdminPermissionRoleController::class, 'getRole'])->name('adminGetRole');
+        Route::post('/roles', [AdminPermissionRoleController::class, 'createRole'])->name('adminCreateRole');
+        Route::put('/roles/{id}', [AdminPermissionRoleController::class, 'updateRole'])->name('adminUpdateRole');
+        Route::delete('/roles/{id}', [AdminPermissionRoleController::class, 'deleteRole'])->name('adminDeleteRole');
+        Route::get('/permissions', [AdminPermissionRoleController::class, 'getPermissions'])->name('getPermissions');
+
+        // Tax
+        Route::get('/taxes', [AdminTaxController::class, 'getTaxes'])->name('adminGetTaxes');
+        Route::get('/taxes/{id}', [AdminTaxController::class, 'getTax'])->name('adminGetTax');
+        Route::post('/taxes', [AdminTaxController::class, 'createTax'])->name('adminCreateTax');
+        Route::put('/taxes/{id}', [AdminTaxController::class, 'updateTax'])->name('adminUpdateTax');
+        Route::delete('/taxes/{id}', [AdminTaxController::class, 'deleteTax'])->name('adminDeleteTax');
+
+        // Settings
+        Route::get('/settings', [AdminSettingController::class, 'getSettings'])->name('adminGetSettings');
+        Route::put('/settings', [AdminSettingController::class, 'updateSettings'])->name('adminUpdateSettings');
+        Route::get('/settings/company', [AdminSettingController::class, 'getCompanySettings'])->name('adminGetCompanySettings');
+        Route::put('/settings/company', [AdminSettingController::class, 'updateCompanySettings'])->name('adminUpdateCompanySettings');
+        Route::get('/settings/numbering', [AdminSettingController::class, 'getNumberingSettings'])->name('adminGetNumberingSettings');
+        Route::put('/settings/numbering', [AdminSettingController::class, 'updateNumberingSettings'])->name('adminUpdateNumberingSettings');
+        Route::post('/settings/number/preview', [AdminSettingController::class, 'generatePreviewNumber'])->name(
+            'adminGeneratePreviewNumber'
+        );
+        Route::post('/settings/company/logo', [AdminSettingController::class, 'setCompanyLogo'])->name('adminSetCompanyLogo');
+        Route::delete('/settings/company/logo', [AdminSettingController::class, 'removeCompanyLogo'])->name('adminRemoveCompanyLogo');
+        Route::get('/settings/email', [AdminSettingController::class, 'getEmailSettings'])->name('adminGetEmailSettings');
+        Route::put('/settings/email', [AdminSettingController::class, 'updateEmailSettings'])->name('adminUpdateEmailSettings');
+        Route::post('/settings/email/test', [AdminSettingController::class, 'sentTestEmail'])->name('adminSentTestEmail');
+
+        // Unit
+        Route::get('/units', [AdminUnitController::class, 'getUnits'])->name('adminGetUnits');
+        Route::get('/units/{id}', [AdminUnitController::class, 'getUnit'])->name('adminGetUnit');
+        Route::post('/units', [AdminUnitController::class, 'createUnit'])->name('adminCreateUnit');
+        Route::put('/units/{id}', [AdminUnitController::class, 'updateUnit'])->name('adminUpdateUnit');
+        Route::delete('/units/{id}', [AdminUnitController::class, 'deleteUnit'])->name('adminDeleteUnit');
+
+        // Currency
+        Route::get('/currency/live-update', [AdminCurrencyController::class, 'liveUpdateCurrencyRate'])->name(
+            'adminLiveUpdateCurrencyRate'
+        );
+        Route::get('/currencies', [AdminCurrencyController::class, 'getCurrencies'])->name('adminGetCurrencies');
+        Route::get('/currencies/{id}', [AdminCurrencyController::class, 'getCurrency'])->name('adminGetCurrency');
+        Route::post('/currencies', [AdminCurrencyController::class, 'createCurrency'])->name('adminCreateCurrency');
+        Route::put('/currencies/{id}', [AdminCurrencyController::class, 'updateCurrency'])->name('adminUpdateCurrency');
+        Route::delete('/currencies/{id}', [AdminCurrencyController::class, 'deleteCurrency'])->name('adminDeleteCurrency');
+
+        // Webhooks
+        Route::get('/webhook_subscriptions', [AdminWebhookSubscriptionController::class, 'getWebhookSubscriptions'])->name(
+            'adminGetWebhookSubscriptions'
+        );
+        Route::get('/webhook_subscriptions/{id}', [AdminWebhookSubscriptionController::class, 'getWebhookSubscription'])->name(
+            'adminGetWebhookSubscription'
+        );
+        Route::post('/webhook_subscriptions', [AdminWebhookSubscriptionController::class, 'createWebhookSubscription'])->name(
+            'adminCreateWebhookSubscription'
+        );
+        Route::put('/webhook_subscriptions/{id}', [AdminWebhookSubscriptionController::class, 'updateWebhookSubscription'])->name(
+            'adminUpdateWebhookSubscription'
+        );
+        Route::delete('/webhook_subscriptions/{id}', [AdminWebhookSubscriptionController::class, 'deleteWebhookSubscription'])->name(
+            'adminDeleteWebhookSubscription'
+        );
+    });
 });
 
-// Signed Routes
-Route::middleware(['signed'])->group(function () {
-    Route::get('/document/download', ArchiveController::class . '@downloadDocument')->name('documents.download');
-    Route::get('/document/previews', ArchiveController::class . '@previewDocument')->name('documents.preview');
-    Route::get('/invoice/pdf', InvoiceController::class . '@getInvoicePdf')->name('invoice.pdf');
-    Route::get('/quote/pdf', QuoteController::class . '@getQuotePdf')->name('quote.pdf');
-    Route::get('/document-internal/pdf', DocumentController::class . '@getDocumentPdf')->name('document.pdf');
+// Anonymous routes
+Route::group(['prefix' => 'client'], function () {
+    Route::get('/invoice', [ClientInvoiceController::class, 'getInvoice'])->name('clientGetInvoice');
+    Route::get('/quote', [ClientQuoteController::class, 'getQuote'])->name('clientGetQuote');
+    Route::post('/quote/accept-reject', [ClientQuoteController::class, 'acceptRejectQuote'])->name('clientAcceptRejectQuote');
+    Route::get('/support-ticket', [ClientSupportTicketController::class, 'getTicket'])->name('clientGetTicket');
+    Route::post('/support-ticket', [ClientSupportTicketController::class, 'replayOnTicket'])->name('clientReplayOnTicket');
 });
 
-Route::prefix('/client')->group(function () {
-    Route::get('/invoices', ClientInvoiceController::class . '@getInvoice');
-    Route::get('/quote', ClientQuoteController::class . '@getQuote');
-    Route::post('/quote/accept-reject', ClientQuoteController::class . '@acceptRejectQuote');
-    Route::get('/support', ClientSupportTicketController::class . '@getTicket');
-    Route::post('/support/replay', ClientSupportTicketController::class . '@clientSendReplay');
+Route::post('/online-payment/invoice/stripe', [ClientInvoiceController::class, 'payInvoiceStripe'])->name('clientPayInvoiceStripe');
+Route::get('/online-payment/invoice/stripe', [ClientInvoiceController::class, 'validateInvoiceStripePayment'])->name(
+    'validateStripePayment'
+);
+Route::post('/online-payment/invoice/paypal', [ClientInvoiceController::class, 'payInvoicePayPal'])->name('clientPayInvoicePayPal');
+Route::get('/online-payment/invoice/paypal', [ClientInvoiceController::class, 'validateInvoicePayPalPayment'])->name(
+    'validatePayPalPayment'
+);
+// Installation routes
+
+Route::get('/install/check-app-installed', [InstallerController::class, 'checkAppInstalled'])->name('checkAppInstalled');
+Route::group(['prefix' => 'install', 'middleware' => CheckIfInstalled::class], function () {
+    Route::get('/check-requirements', [InstallerController::class, 'checkRequirements'])->name('checkRequirements');
+    Route::post('/check-db-connection', [InstallerController::class, 'checkDbConnection'])->name('checkDbConnection');
+    Route::post('/save-db-connection', [InstallerController::class, 'updateEnvFileWithDbInfo'])->name('updateEnvFileWithDbInfo');
+    Route::post('/migrate-seed', [InstallerController::class, 'migrateAndSeed'])->name('migrateAndSeed');
+    Route::post('/set-settings', [InstallerController::class, 'setSettingsInDb'])->name('setSettingsInDb');
+    Route::post('/create-user', [InstallerController::class, 'createAdminUser'])->name('createAdminUser');
 });
 
-Route::get('{any}', function () {
-    return response()->json(['message' => 'API route not available.'], 404);
-})->where('any', '.*');
+// Signed URLs
+Route::get('/archive/documents/{id}/preview', [ArchiveController::class, 'previewDocument'])
+    ->name('previewDocument')
+    ->middleware('signed');
 
-Route::get('/ping', function () {
-    return response()->json(['message' => __('response.ping')], 200);
-});
+Route::get('/archive/documents/{id}/download', [ArchiveController::class, 'downloadDocument'])
+    ->name('downloadDocument')
+    ->middleware('signed');
+
+Route::get('/invoice/{id}/pdf', [InvoiceController::class, 'getInvoicePdf'])
+    ->name('getInvoicePdf')
+    ->middleware('signed');
+
+Route::get('/quote/{id}/pdf', [QuoteController::class, 'getQuotePdf'])
+    ->name('getQuotePdf')
+    ->middleware('signed');
+
+Route::get('/bill/{id}/pdf', [BillController::class, 'getBillPdf'])
+    ->name('getBillPdf')
+    ->middleware('signed');

@@ -5,18 +5,30 @@ export default {
             folders: [],
             currentFolder: null,
             currentDocument: null,
+            selectDocumentArray: [],
             document: {
                 id: '',
+                number: '',
                 name: '',
                 type: '',
-                category_id: '',
+                folder_id: '',
                 description: '',
                 preview_url: '',
                 download_url: '',
+                partner_id: '',
+                connected_document_id: '',
+                connected_document_type: 'App\\Models\\Archive',
+                storage_location_id: '',
+                protection_level: '',
+                preview_link: '',
+                download_link: '',
             },
             folder: {
                 id: '',
+                module: 'archive',
                 name: '',
+                icon: null,
+                parent_id: '',
             },
         }
     },
@@ -30,7 +42,11 @@ export default {
         getDocuments(folder_id) {
             this.makeHttpRequest('GET', '/api/archive/documents', null, { folder_id: folder_id })
                 .then((response) => {
-                    this.documents = response.data.data
+                    if (folder_id === 'all') {
+                        this.selectDocumentArray = response.data.data
+                    } else {
+                        this.documents = response.data.data
+                    }
                 })
                 .catch((error) => {
                     if (error.response.status === 404) {
@@ -42,39 +58,24 @@ export default {
         },
 
         /**
-         * Function for format file size
-         * @param {number} bytes size in bytes
-         * @param {number} decimals number of decimals
-         * @returns {string} size
-         **/
-        formatFileSize(bytes, decimals = 2) {
-            if (!+bytes) return '0 Bytes'
-
-            const k = 1024
-            const dm = decimals < 0 ? 0 : decimals
-            const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-
-            const i = Math.floor(Math.log(bytes) / Math.log(k))
-
-            return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
-        },
-
-        /**
          * Function for open document
          * @param {object} document document object
          * @returns {void}
          **/
         openDocument(document) {
-            this.makeHttpRequest('GET', '/api/archive/documents/file', null, { document_id: document.data.id })
-                .then((response) => {
-                    this.document = response.data.data
-                    this.sidebarFileShow = true
+            if (this.currentFolder === 'trash') {
+                this.$confirm.require({
+                    message: this.$t('archive.restore_confirm_document'),
+                    header: this.$t('basic.confirmation'),
+                    icon: 'fa fa-circle-exclamation',
+                    accept: () => {
+                        this.restoreDocument(document.data.id)
+                    },
                 })
-                .catch((error) => {
-                    if (error.response.status === 404) {
-                        this.showToast('Error', error.response.data.message, 'error')
-                    }
-                })
+            } else {
+                this.getDocument(document.data.id)
+                this.sidebarFileShow = true
+            }
         },
 
         /**
@@ -83,7 +84,7 @@ export default {
          * @returns {void}  set document data to document object
          **/
         getDocument(id) {
-            this.makeHttpRequest('GET', '/api/archive/documents/file', null, { document_id: id })
+            this.makeHttpRequest('GET', `/api/archive/documents/${id}`)
                 .then((response) => {
                     this.document = response.data.data
                     this.sidebarFileShow = true
@@ -96,15 +97,23 @@ export default {
         },
 
         getFolders() {
-            this.makeHttpRequest('GET', '/api/archive/document/folders')
-                .then((response) => {
-                    this.folders = response.data.data
+            this.getCategories('archive').then((response) => {
+                this.folders = response
+
+                // Add root folder
+                this.folders.unshift({
+                    id: null,
+                    label: '/',
+                    parent_id: null,
                 })
-                .catch((error) => {
-                    if (error.response.status === 404) {
-                        this.showToast('Error', error.response.data.message, 'error')
-                    }
+
+                // Add trash folder
+                this.folders.push({
+                    id: 'trash',
+                    label: 'Trash',
+                    parent_id: null,
                 })
+            })
         },
 
         folderSelected(folder) {
@@ -113,12 +122,9 @@ export default {
         },
 
         updateDocument() {
-            this.makeHttpRequest('PUT', '/api/archive/documents/file', {
-                id: this.document.id,
-                name: this.document.name,
-                description: this.document.description,
-            })
+            this.makeHttpRequest('PUT', `/api/archive/documents/${this.document.id}`, this.document)
                 .then((response) => {
+                    this.getDocument(this.document.id)
                     this.showToast(response.data.message)
                     this.editDocument = false
                     this.getDocuments(this.currentFolder || null)
@@ -135,13 +141,16 @@ export default {
          * @returns {void}
          **/
         createFolder() {
-            this.makeHttpRequest('POST', '/api/archive/document/folders', {
-                name: this.newFolderName,
-                parent_folder_id: this.currentFolder || null,
-            }).then((response) => {
-                this.showNewFolderDialog = false
+            let data = {
+                name: this.folder.name,
+                module: 'archive',
+                parent_id: this.currentFolder || null,
+            }
+            this.createCategory(data).then((response) => {
+                this.showToast(response)
+                this.showNewEditFolderDialog = false
                 this.newFolderName = ''
-                this.showToast(response.data.message)
+                this.resetFolder()
                 this.getFolders()
             })
         },
@@ -152,7 +161,7 @@ export default {
          * @returns {void}
          **/
         deleteDocument(document) {
-            this.makeHttpRequest('DELETE', '/api/archive/documents/file', null, { document_id: document.id })
+            this.makeHttpRequest('DELETE', `/api/archive/documents/${document.id}`)
                 .then((response) => {
                     this.showToast(response.data.message)
                     this.getDocuments(this.currentFolder || null)
@@ -171,6 +180,13 @@ export default {
                         this.showToast('Error', error.response.data.message, 'error')
                     }
                 })
+        },
+
+        restoreDocument(id) {
+            this.makeHttpRequest('PUT', `/api/archive/documents/${id}/restore`).then((response) => {
+                this.showToast(response.data.message)
+                this.getDocuments(this.currentFolder || null)
+            })
         },
 
         /**
@@ -194,20 +210,42 @@ export default {
          * @returns {void}
          */
         updateFolder() {
-            this.makeHttpRequest('PUT', '/api/archive/document/folders', {
+            let data = {
                 id: this.folder.id,
-                label: this.folder.label,
-            }).then((response) => {
-                this.showToast(response.data.message)
-                this.showEditFolderDialog = false
+                name: this.folder.name,
+                module: 'archive',
+                parent_id: this.folder.parent_id || null,
+            }
+
+            this.updateCategory(this.folder.id, data).then((response) => {
+                this.showToast(response)
+                this.resetFolder()
+                this.showNewEditFolderDialog = false
                 this.getFolders()
             })
         },
 
         getFolder() {
-            this.makeHttpRequest('GET', '/api/archive/document/folders/' + this.currentFolder).then((response) => {
-                this.folder = response.data.data
+            this.getCategory(this.currentFolder).then((response) => {
+                this.folder = response
             })
+        },
+
+        resetFolder() {
+            this.folder = {
+                id: '',
+                module: 'archive',
+                name: '',
+                parent_id: '',
+            }
+        },
+
+        resetDocument() {
+            this.document = {
+                name: '',
+                description: '',
+                file: null,
+            }
         },
 
         /**
@@ -216,19 +254,13 @@ export default {
          * @returns {void}
          **/
         deleteFolder() {
-            this.makeHttpRequest('DELETE', '/api/archive/document/folders', null, { folder_id: this.currentFolder })
-                .then((response) => {
-                    this.showToast(response.data.message)
-                    this.getFolders()
-                    this.currentFolder = null
-                    this.getDocuments(null)
-                    this.showEditFolderDialog = false
-                })
-                .catch((error) => {
-                    if (error.response.status === 404) {
-                        this.showToast('Error', error.response.data.message, 'error')
-                    }
-                })
+            this.deleteCategory(this.currentFolder).then((response) => {
+                this.showNewEditFolderDialog = false
+                this.showToast(response)
+                this.getFolders()
+                this.currentFolder = null
+                this.getDocuments(null)
+            })
         },
 
         /**

@@ -12,6 +12,9 @@ export default {
                 country: '',
                 phone_number: '',
                 email: '',
+                longitude: '',
+                latitude: '',
+                location: '',
             },
         }
     },
@@ -51,12 +54,12 @@ export default {
 
         /*
          * Update department
-         * @return {void} show toast and redirect to departments
+         * @return {void} show toast and redirect to view department
          */
         updateDepartment() {
             this.makeHttpRequest('PUT', '/api/admin/departments/' + this.department.id, this.department).then((response) => {
                 this.showToast(response.data.message)
-                this.$router.push({ name: 'admin-departments' })
+                this.$router.push({ name: 'admin-department-view', params: { id: this.department.id } })
             })
         },
 
@@ -86,6 +89,20 @@ export default {
                     this.deleteDepartment(id)
                 },
             })
+        },
+
+        /*
+         * Get current location
+         * @return {void} set latitude and longitude
+         */
+
+        getCurrentLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    this.department.latitude = position.coords.latitude
+                    this.department.longitude = position.coords.longitude
+                })
+            }
         },
     },
 }

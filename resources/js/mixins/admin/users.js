@@ -1,5 +1,3 @@
-import locales from '@/data/available_locales.json'
-import timezones from '@/data/timezones.json'
 export default {
     data() {
         return {
@@ -20,9 +18,8 @@ export default {
                 roles: [],
                 last_login_at: '',
                 active: true,
+                two_factor_auth: false,
             },
-            locales: locales,
-            timezones: timezones,
         }
     },
 
@@ -57,7 +54,7 @@ export default {
         updateUser(id) {
             this.makeHttpRequest('PUT', '/api/admin/users/' + id, this.user).then((response) => {
                 this.showToast(response.data.message)
-                this.$router.push({ name: 'admin-view-user', params: { id: id } })
+                this.$router.push({ name: 'admin-user-view', params: { id: id } })
             })
         },
 
@@ -80,7 +77,7 @@ export default {
         },
 
         resetPassword(id, data) {
-            this.makeHttpRequest('POST', '/api/admin/user/' + id + '/reset-password', data, '', '', false).then((response) => {
+            this.makeHttpRequest('PUT', '/api/admin/users/' + id + '/reset-password', data, '', '', false).then((response) => {
                 this.showToast(response.data.message)
             })
         },
@@ -88,6 +85,13 @@ export default {
         getRoles() {
             this.makeHttpRequest('GET', '/api/admin/roles').then((response) => {
                 this.roles = response.data.data
+            })
+        },
+
+        disable2fa(id) {
+            this.makeHttpRequest('POST', `/api/admin/users/${id}/disable-2fa`).then((response) => {
+                this.showToast(response.data.message)
+                this.getUser(id)
             })
         },
     },

@@ -3,21 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Spatie\Permission\Models\Permission as SpatiePermission;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Permission extends SpatiePermission
+class Permission extends SpatiePermission implements Auditable
 {
     use HasFactory, HasUuids;
-
-    protected $primaryKey = 'id';
+    use \OwenIt\Auditing\Auditable;
 
     protected $fillable = ['id', 'name', 'guard_name', 'display_name', 'description'];
-
-    protected $casts = [
-        'id' => 'string',
-    ];
 
     public function getDisplayNameAttribute($value)
     {

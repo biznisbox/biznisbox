@@ -14,19 +14,14 @@ export default {
                 stock_max: 0,
                 unit: '',
                 active: true,
-                type: 'service',
+                type: 'product',
                 barcode: '',
-                sku: '',
                 tax: '',
             },
         }
     },
 
-    created() {
-        this.getUnits()
-        this.getTaxes()
-        this.getCurrencies()
-    },
+    created() {},
 
     methods: {
         /**
@@ -52,7 +47,6 @@ export default {
                 })
                 .catch((error) => {
                     if (error.response.status === 404) {
-                        this.showToast(this.$t('errors.not_found_item'), '', 'error')
                         this.$router.push({ name: 'products' })
                     }
                 })
@@ -69,7 +63,7 @@ export default {
                 })
                 .catch((error) => {
                     if (error.response.status === 404) {
-                        this.showToast(this.$t('errors.not_found_item'), '', 'error')
+                        this.showToast(this.$t('errors.not_found_item'), this.$t('basic.error'), 'error')
                         this.$router.push({ name: 'products' })
                     }
                 })
@@ -83,7 +77,7 @@ export default {
         updateProduct(id) {
             this.makeHttpRequest('PUT', '/api/products/' + id, this.product).then((response) => {
                 this.showToast(response.data.message)
-                this.$router.push({ name: 'view-product', params: { id: id } })
+                this.$router.push({ name: 'product-view', params: { id: id } })
             })
         },
 
@@ -117,11 +111,10 @@ export default {
 
         /**
          * Get product number
-         *
          * @returns {void}
          */
         getProductNumber() {
-            this.makeHttpRequest('GET', '/api/product/product_number').then((response) => {
+            this.makeHttpRequest('GET', '/api/product/number').then((response) => {
                 this.product.number = response.data.data
             })
         },

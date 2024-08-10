@@ -2,62 +2,50 @@
 
 namespace App\Models;
 
-use App\Mail\Quote\QuoteNotification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use OwenIt\Auditing\Contracts\Auditable;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\DB;
-use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 
 class Quote extends Model implements Auditable
 {
-    use HasFactory, HasUuids, SoftDeletes;
+    use HasFactory, SoftDeletes, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
     protected $table = 'quotes';
-
     protected $fillable = [
-        'number',
-        'sales_person_id',
         'customer_id',
         'payer_id',
-        'total',
+        'sales_person_id',
+        'type',
+        'number',
         'status',
-        'default_currency',
         'currency',
+        'default_currency',
         'currency_rate',
-        'date',
-        'valid_until',
-        'footer',
-        'tax',
-        'discount',
-        'discount_type',
-        'notes',
-        'customer_address_id',
+        'payment_method',
         'customer_name',
+        'customer_address_id',
         'customer_address',
         'customer_city',
         'customer_zip_code',
         'customer_country',
-        'payer_address_id',
         'payer_name',
+        'payer_address_id',
         'payer_address',
         'payer_city',
         'payer_zip_code',
         'payer_country',
-    ];
-
-    protected $casts = [
-        'date' => 'date',
-        'valid_until' => 'date',
-        'discount' => 'float',
-        'tax' => 'float',
-        'total' => 'float',
-        'currency_rate' => 'float',
+        'date',
+        'valid_until',
+        'notes',
+        'footer',
+        'discount_type',
+        'discount',
+        'tax',
+        'total',
     ];
 
     protected $dates = ['date', 'valid_until', 'deleted_at', 'updated_at', 'created_at'];
@@ -66,24 +54,17 @@ class Quote extends Model implements Auditable
 
     protected $appends = ['preview', 'download'];
 
-    public function getPreviewAttribute()
+    protected function casts(): array
     {
-        return URL::signedRoute('quote.pdf', [
-            'id' => $this->id,
-            'type' => 'preview',
-            'lang' => app()->getLocale(),
-        ]);
+        return [
+            'discount' => 'double',
+            'tax' => 'double',
+            'total' => 'double',
+            'currency_rate' => 'double',
+            'valid_until' => 'datetime',
+            'date' => 'datetime',
+        ];
     }
-
-    public function getDownloadAttribute()
-    {
-        return URL::signedRoute('quote.pdf', [
-            'id' => $this->id,
-            'type' => 'download',
-            'lang' => app()->getLocale(),
-        ]);
-    }
-
     public function generateTags(): array
     {
         return ['Quote'];
@@ -91,7 +72,7 @@ class Quote extends Model implements Auditable
 
     public function items()
     {
-        return $this->hasMany(QuoteItems::class);
+        return $this->hasMany(QuoteItem::class);
     }
 
     public function customer()
@@ -109,17 +90,37 @@ class Quote extends Model implements Auditable
         return $this->belongsTo(Employee::class, 'sales_person_id');
     }
 
+    public function getPreviewAttribute()
+    {
+        return URL::signedRoute('getQuotePdf', [
+            'id' => $this->id,
+            'type' => 'preview',
+            'lang' => app()->getLocale(),
+        ]);
+    }
+
+    public function getDownloadAttribute()
+    {
+        return URL::signedRoute('getQuotePdf', [
+            'id' => $this->id,
+            'type' => 'download',
+            'lang' => app()->getLocale(),
+        ]);
+    }
+
     public function getQuotes()
     {
         $quotes = $this->with('items')->get();
+        createActivityLog('retrieve', null, 'App\Models\Quote', 'Quote');
         return $quotes;
     }
 
     public function createQuote($data)
     {
-        $data = $this->setPayerData($data, $data['payer_id'], $data['payer_address_id']);
-        $data = $this->setCustomerData($data, $data['customer_id'], $data['customer_address_id']);
+        $data = setPayerData($data, $data['payer_id'], $data['payer_address_id']);
+        $data = setCustomerData($data, $data['customer_id'], $data['customer_address_id']);
         $data['default_currency'] = settings('default_currency');
+        $data['number'] = $this->getQuoteNumber();
         $quote = $this->create($data);
         if ($quote) {
             if (isset($data['items'])) {
@@ -133,14 +134,15 @@ class Quote extends Model implements Auditable
             $quote->total = $total;
             $quote->save();
             incrementLastItemNumber('quote');
+            sendWebhookForEvent('quote:created', $quote->toArray());
             return $quote;
         }
     }
 
     public function updateQuote($id, $data)
     {
-        $data = $this->setPayerData($data, $data['payer_id'], $data['payer_address_id']);
-        $data = $this->setCustomerData($data, $data['customer_id'], $data['customer_address_id']);
+        $data = setPayerData($data, $data['payer_id'], $data['payer_address_id']);
+        $data = setCustomerData($data, $data['customer_id'], $data['customer_address_id']);
         $quote = $this->find($id);
 
         $quote = $quote->update($data);
@@ -163,6 +165,7 @@ class Quote extends Model implements Auditable
             $total = calculateTotalHelper($items, $quote['discount'], $quote['discount_type'], $quote['currency_rate']);
             $quote->total = $total;
             $quote->save();
+            sendWebhookForEvent('quote:updated', $quote->toArray());
             return $quote;
         }
     }
@@ -172,188 +175,99 @@ class Quote extends Model implements Auditable
         $quote = $this->find($id);
         $quote->items()->delete();
         $quote->delete();
+        sendWebhookForEvent('quote:deleted', $quote->toArray());
         return $quote;
     }
 
     public function getQuote($id)
     {
-        try {
-            DB::beginTransaction();
-            $quote = $this->with('items', 'salesPerson:id,first_name,last_name,email')->find($id);
-            DB::commit();
-            activity_log(user_data()->data->id, 'get quote pdf', $id, 'App\Models\Quote', 'getQuotePdf');
-            return $quote;
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return $e->getMessage();
-        }
+        $quote = $this->with('items')->find($id);
+        createActivityLog('retrieve', $id, 'App\Models\Quote', 'Quote');
+        return $quote;
     }
 
     public static function getQuoteNumber()
     {
-        $number = generate_next_number(settings('quote_number_format'), 'quote');
+        $number = generateNextNumber(settings('quote_number_format'), 'quote');
         return $number;
     }
 
     public function convertQuoteToInvoice($id)
     {
-        try {
-            DB::beginTransaction();
-            $quote = $this->with('items')->find($id);
+        $quote = $this->with('items')->find($id);
 
-            $quote->status = 'converted';
-            $quote->save();
+        $quote->status = 'converted';
+        $quote->save();
 
-            $invoice = new Invoice();
-            $quote->number = Invoice::getInvoiceNumber();
-            $quote->status = 'unpaid';
+        $invoice = new Invoice();
+        $quote->number = Invoice::getInvoiceNumber();
+        $quote->status = 'unpaid';
 
-            $invoice = $invoice->create($quote->toArray());
+        $invoice = $invoice->create($quote->toArray());
 
-            foreach ($quote['items'] as $item) {
-                $invoice->items()->create($item->toArray());
-            }
-            incrementLastItemNumber('invoice');
-            DB::commit();
-            activity_log(user_data()->data->id, 'convert quote to invoice', $id, 'App\Models\Quote', 'convertQuoteToInvoice');
-            return $invoice->id;
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return $e->getMessage();
+        foreach ($quote['items'] as $item) {
+            $invoice->items()->create($item->toArray());
         }
+        incrementLastItemNumber('invoice');
+        createActivityLog('convert_to_invoice', $id, 'App\Models\Quote', 'Quote');
+        sendWebhookForEvent('quote:converted', $invoice->toArray());
+        return $invoice->id;
     }
 
-    public function getClientQuote($id)
+    public function getClientQuote($id, $log = false, $update_viewed = false)
     {
         $quote = $this->with('items', 'salesPerson:id,first_name,last_name,email')->find($id);
-        unset($quote->notes); // remove notes from client quote - for security reasons (notes are internal)
-        // Change the status to viewed
-        if ($quote->status != 'viewed' && $quote->status != 'accepted' && $quote->status != 'rejected' && $quote->status != 'converted') {
-            $quote->status = 'viewed';
-            $quote->save();
+        unset($quote->notes);
+
+        if ($log) {
+            createActivityLog('retrieve', $id, 'App\Models\Quote', 'Quote');
+        }
+
+        if ($update_viewed) {
+            if (
+                $quote->status != 'viewed' &&
+                $quote->status != 'accepted' &&
+                $quote->status != 'rejected' &&
+                $quote->status != 'converted'
+            ) {
+                $quote->status = 'viewed';
+                $quote->save();
+            }
         }
         return $quote;
     }
 
-    public function getQuotePdf($id, $type = 'stream')
+    /**
+     * Share invoice by unique key
+     * @param UUID $invoice_id
+     * @return string url
+     */
+    public function shareQuote($quote_id)
     {
-        $quote = $this->with('items')->find($id);
-        $pdf = PDF::loadView('pdfs.quote', compact('quote'));
-
-        if ($type == 'attach') {
-            return $pdf->output();
+        if ($this->find($quote_id)) {
+            $key = generateExternalKey('quote', $quote_id);
+            $url = url('/client/quote/' . $quote_id . '?key=' . $key . '&lang=' . app()->getLocale());
+            createActivityLog('ShareQuote', $quote_id, 'App\Models\Quote', 'Quote');
+            sendWebhookForEvent('quote:shared', ['quote_id' => $quote_id, 'url' => $url]);
+            return $url;
         }
-
-        if ($type == 'download') {
-            activity_log(null, 'DownloadQuote', $quote->id, 'Quote', 'Quote');
-            return $pdf->download('Quote ' . $quote->number . '.pdf');
-        } else {
-            activity_log(null, 'StreamQuote', $quote->id, 'Quote', 'Quote');
-            return $pdf->stream('Quote ' . $quote->number . '.pdf');
-        }
+        return null;
     }
 
-    public function shareQuote($id)
-    {
-        $quote = $this->find($id);
-        $key = generate_external_key('quote', $quote->id);
-        $url = url('/client/quote/' . $id . '?key=' . $key);
-        return $url;
-    }
-
-    public function clientAcceptRejectQuote($id, $status)
+    /**
+     * Quote accept or reject by client
+     * @param UUID $id
+     * @param UUID $status
+     * @param string $key
+     * @return boolean
+     */
+    public function clientAcceptRejectQuote($id, $status, $key = null)
     {
         $quote = $this->find($id);
         $quote->status = $status; // accepted or rejected
         $quote->save();
+        createActivityLog('AcceptRejectQuoteByClient', $id, 'App\Models\Quote', 'Quote', null, null, 'external', $key);
+        sendWebhookForEvent('quote:accepted_rejected', ['quote_id' => $id, 'status' => $status, 'key' => $key]);
         return $quote;
-    }
-
-    protected function setCustomerData($data, $customerId, $customerAddressId)
-    {
-        if (!$customerId) {
-            $data['customer_id'] = null;
-            $data['address_id'] = null;
-            $data['customer_name'] = null;
-            $data['customer_address'] = null;
-            $data['customer_city'] = null;
-            $data['customer_zip_code'] = null;
-            $data['customer_country'] = null;
-            return $data;
-        }
-        $partner = Partner::find($customerId);
-        if ($customerAddressId) {
-            $address = PartnerAddress::where('partner_id', $customerId)->where('id', $customerAddressId)->get()[0];
-        }
-        $data['customer_id'] = $partner->id;
-        $data['customer_name'] = $partner->name;
-        $data['customer_address_id'] = $address->id ?? null;
-        $data['customer_address'] = $address->address ?? null;
-        $data['customer_city'] = $address->city ?? null;
-        $data['customer_zip_code'] = $address->zip_code ?? null;
-        $data['customer_country'] = $address->country ?? null;
-        return $data;
-    }
-
-    protected function setPayerData($data, $payerId, $payerAddressId)
-    {
-        if (!$payerId) {
-            $data['payer_id'] = null;
-            $data['payer_address_id'] = null;
-            $data['payer_name'] = null;
-            $data['payer_address'] = null;
-            $data['payer_city'] = null;
-            $data['payer_zip_code'] = null;
-            $data['payer_country'] = null;
-            return $data;
-        }
-        $partner = Partner::find($payerId);
-        if ($payerAddressId) {
-            $address = PartnerAddress::where('partner_id', $payerId)->where('id', $payerAddressId)->get()[0];
-        }
-        $data['payer_id'] = $partner->id;
-        $data['payer_name'] = $partner->name;
-        $data['payer_address_id'] = $address->id ?? null;
-        $data['payer_address'] = $address->address ?? null;
-        $data['payer_city'] = $address->city ?? null;
-        $data['payer_zip_code'] = $address->zip_code ?? null;
-        $data['payer_country'] = $address->country ?? null;
-        return $data;
-    }
-
-    public function sendQuoteNotification($quote_id)
-    {
-        $quote = $this->find($quote_id);
-
-        // Get primary contacts of customer
-        $contacts = PartnerContact::where('partner_id', $quote->customer_id)
-            ->orWhere('partner_id', $quote->payer_id)
-            ->where('is_primary', true)
-            ->whereNotNull('email')
-            ->get();
-        foreach ($contacts as $contact) {
-            $url = url(
-                '/client/quote/' .
-                    $quote->id .
-                    '?key=' .
-                    generate_external_key('quote', $quote->id, 'system', null, $contact->email, 'email') .
-                    '&lang=' .
-                    app()->getLocale(),
-            );
-            Mail::to($contact->email)->send(new QuoteNotification($quote, $url, $contact));
-
-            if (
-                $quote->status != 'accepted' &&
-                $quote->status != 'rejected' &&
-                $quote->status != 'converted' &&
-                $quote->status != 'viewed' &&
-                $quote->status != 'sent'
-            ) {
-                $quote->status = 'sent';
-                $quote->save();
-            }
-            activity_log(user_data()->data->id, 'send quote notification', $quote->id, 'App\Models\Quote', 'sendQuoteNotification');
-        }
-        return true;
     }
 }

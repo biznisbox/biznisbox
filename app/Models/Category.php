@@ -14,7 +14,7 @@ class Category extends Model implements Auditable
 
     protected $table = 'categories';
 
-    protected $fillable = ['name', 'description', 'color', 'module', 'parent_id'];
+    protected $fillable = ['name', 'description', 'color', 'module', 'parent_id', 'icon', 'additional_info'];
 
     protected $appends = ['key', 'label', 'children'];
 
@@ -27,15 +27,14 @@ class Category extends Model implements Auditable
 
     public function parent()
     {
-        return $this->belongsTo(Category::class, 'parent_id');
+        return $this->belongsTo(self::class, 'parent_id');
     }
 
     public function children()
     {
-        return $this->hasMany(Category::class, 'parent_id')->with('children');
+        return $this->hasMany(self::class, 'parent_id')->with('children');
     }
 
-    // Getter for get key and label attributes (frontend)
     public function getKeyAttribute()
     {
         return $this->attributes['id'];
@@ -58,11 +57,19 @@ class Category extends Model implements Auditable
      * @param string $description Description of the category
      * @param string $color Color of the category (hexadecimal)
      * @param string $parent_id Parent category id
-     * @param string $icon Icon of the category (ex. 'pi pi-folder')
+     * @param string $icon Icon of the category (ex. 'fa fa-folder')
+     * @param string $additional_info Additional info of the category (ex. 'transfer')
      * @return boolean True if category is created, false if not
      */
-    public function createCategory($name, $module, $description = null, $color = null, $parent_id = null, $icon = null)
-    {
+    public function createCategory(
+        $name,
+        $module,
+        $description = null,
+        $color = null,
+        $parent_id = null,
+        $icon = null,
+        $additional_info = null
+    ) {
         $category = $this->create([
             'name' => $name,
             'description' => $description,
@@ -70,6 +77,7 @@ class Category extends Model implements Auditable
             'module' => $module,
             'icon' => $icon,
             'parent_id' => $parent_id,
+            'additional_info' => $additional_info,
         ]);
 
         if ($category) {
@@ -93,6 +101,8 @@ class Category extends Model implements Auditable
             'color' => $data['color'] ?? $category->color,
             'module' => $data['module'] ?? $category->module,
             'parent_id' => $data['parent_id'] ?? $category->parent_id,
+            'icon' => $data['icon'] ?? $category->icon,
+            'additional_info' => $data['additional_info'] ?? $category->additional_info,
         ]);
         if ($category) {
             return true;
@@ -117,8 +127,8 @@ class Category extends Model implements Auditable
      */
     public function getCategoriesByModule($module)
     {
-        $categories = $this->where('module', $module)->whereNull('parent_id')->get();
-        activity_log(user_data()->data->id, 'get categories by module', $module, 'App\Models\Category', 'getCategoriesByModule');
+        $categories = $this->with('children')->where('module', $module)->whereNull('parent_id')->get();
+        createActivityLog('retrieve', null, 'App\Models\Category', 'Category');
         return $categories;
     }
 
@@ -130,7 +140,10 @@ class Category extends Model implements Auditable
     public function getCategory($id)
     {
         $category = $this->where('id', $id)->first();
-        activity_log(user_data()->data->id, 'get category', $id, 'App\Models\Category', 'getCategory');
-        return $category;
+        if ($category) {
+            createActivityLog('retrieve', $id, 'App\Models\Category', 'Category');
+            return $category;
+        }
+        return false;
     }
 }

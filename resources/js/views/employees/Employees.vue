@@ -1,68 +1,77 @@
 <template>
-    <user-layout>
-        <div id="employees">
-            <user-header :title="$t('employee.employee', 2)">
-                <template #actions>
-                    <HeaderActionButton :label="$t('employee.new_employee')" icon="fa fa-plus" to="/employees/new" />
-                </template>
-            </user-header>
-            <div id="employee_table" class="card">
-                <DataTable
-                    :value="employees"
-                    :loading="loadingData"
-                    paginator
-                    data-key="id"
-                    :rows="10"
-                    paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
-                    :rows-per-page-options="[10, 20, 50]"
-                    @row-dblclick="viewEmployeeNavigation"
-                >
-                    <template #empty>
-                        <div class="p-4 pl-0 text-center w-full text-gray-500">
-                            <i class="fa fa-info-circle empty-icon"></i>
-                            <p>{{ $t('employee.no_employees') }}</p>
-                            <Button
-                                class="mt-3"
-                                :label="$t('employee.create_first_employee')"
-                                icon="fa fa-plus"
-                                @click="$router.push('/employees/new')"
-                            />
-                        </div>
-                    </template>
+    <DefaultLayout>
+        <PageHeader :title="$t('employee.employee', 3)">
+            <template v-slot:actions>
+                <Button :label="$t('employee.new_employee')" icon="fa fa-plus" @click="$router.push({ name: 'employee-create' })" />
+            </template>
+        </PageHeader>
 
-                    <Column field="number" :header="$t('form.number')" />
-                    <Column :header="$t('form.name')">
-                        <template #body="{ data }">
-                            <span>{{ data.first_name }} {{ data.last_name }}</span>
-                        </template>
-                    </Column>
-                    <Column field="email" :header="$t('form.email')" />
-                    <template #paginatorstart>
-                        <div>
-                            <Button class="p-button-rounded p-button-text p-button-plain" icon="fa fa-sync" @click="getEmployees" />
-                        </div>
+        <div id="employee_table" class="card">
+            <DataTable
+                :value="employees"
+                paginator
+                dataKey="id"
+                :rows="10"
+                :rowsPerPageOptions="[5, 10, 20, 50, 100]"
+                :loading="loadingData"
+                @row-dblclick="viewEmployeeNavigation"
+                filter-display="menu"
+                v-model:filters="filters"
+            >
+                <template #empty>
+                    <div class="p-4 pl-0 text-center w-full">
+                        <i class="fa fa-info-circle empty-icon"></i>
+                        <p>{{ $t('employee.no_employees') }}</p>
+                        <Button
+                            class="mt-3"
+                            :label="$t('employee.create_first_employee')"
+                            icon="fa fa-plus"
+                            @click="$router.push('/employees/create')"
+                        />
+                    </div>
+                </template>
+
+                <Column field="number" :header="$t('form.number')" />
+                <Column :header="$t('form.name')">
+                    <template #body="{ data }">
+                        <span>{{ data.first_name }} {{ data.last_name }}</span>
                     </template>
-                </DataTable>
-            </div>
+                </Column>
+                <Column field="email" :header="$t('form.email')" />
+                <template #paginatorstart>
+                    <div>
+                        <Button icon="fa fa-sync" @click="getEmployees" id="refresh_button" />
+                    </div>
+                </template>
+            </DataTable>
         </div>
-    </user-layout>
+    </DefaultLayout>
 </template>
 
 <script>
-import EmployeeMixin from '@/mixins/employee'
+import { FilterMatchMode, FilterOperator } from '@primevue/core/api'
+import EmployeesMixin from '@/mixins/employees'
 export default {
     name: 'EmployeesPage',
-    mixins: [EmployeeMixin],
+    mixins: [EmployeesMixin],
     created() {
         this.getEmployees()
     },
+    data() {
+        return {
+            filters: null,
+        }
+    },
 
     methods: {
-        viewEmployeeNavigation(rowData) {
-            this.$router.push(`/employees/${rowData.data.id}`)
+        initFilters() {
+            this.filters = {
+                number: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
+                name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
+                email: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
+            }
         },
     },
 }
 </script>
-
 <style></style>

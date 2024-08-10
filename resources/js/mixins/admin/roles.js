@@ -6,6 +6,7 @@ export default {
                 name: '',
                 description: '',
                 display_name: '',
+                system: false,
                 permissions: [],
             },
             permissions: [],
@@ -50,10 +51,6 @@ export default {
          * @return {void} show toast and redirect to roles
          */
         createRole() {
-            if (this.role.name == 'Super Admin') {
-                return this.showToast('Error', 'Super Admin is a default role and cannot be created', 'error')
-            }
-
             this.makeHttpRequest('POST', '/api/admin/roles', this.role).then((response) => {
                 this.showToast(response.data.message)
                 this.$router.push({ name: 'admin-roles' })
@@ -66,9 +63,6 @@ export default {
          * @return {void} show toast and redirect to roles
          */
         deleteRole(id) {
-            if (this.role.name == 'Super Admin') {
-                return this.showToast('Error', 'Super Admin is a default role and cannot be deleted', 'error')
-            }
             this.makeHttpRequest('DELETE', '/api/admin/roles/' + id).then((response) => {
                 this.showToast(response.data.message)
                 this.$router.push({ name: 'admin-roles' })
@@ -92,12 +86,9 @@ export default {
          * @return {void} show toast and redirect to roles
          */
         updateRole(id) {
-            if (this.role.name == 'Super Admin') {
-                return this.showToast('Error', 'Super Admin is a default role and cannot be updated', 'error')
-            }
             this.makeHttpRequest('PUT', '/api/admin/roles/' + id, this.role).then((response) => {
                 this.showToast(response.data.message)
-                this.$router.push({ name: 'admin-roles' })
+                this.$router.push({ name: 'admin-role-view', params: { id: id } })
             })
         },
     },

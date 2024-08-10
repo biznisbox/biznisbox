@@ -2,93 +2,213 @@
 
 namespace App\Services;
 
+use PragmaRX\Google2FA\Google2FA;
 use App\Models\User;
-use App\Models\Sessions;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use App\Models\Notification;
 
 class ProfileService
 {
-    public function getUserProfile()
+    /**
+     * Change the theme
+     *
+     * @param $theme
+     */
+    public function changeTheme($theme)
     {
-        $user = User::find(user_data()->data->id);
-        $user->initials = $user->getInitials();
-        $user->sessions = Sessions::where('user_id', $user->id)
-            ->latest()
-            ->get();
-        activity_log(user_data()->data->id, 'get own profile', $user->id, 'App\Services\ProfileService', 'getUserProfile', 'User');
-        if ($user) {
-            return api_response($user);
-        }
-        return api_response(null, __('response.user.not_found'), 404);
+        $user = User::find(auth()->id());
+        $user->theme = $theme;
+        $user->save();
     }
 
-    public function updateProfile($request)
+    /**
+     * Get the profile
+     *
+     * @return mixed
+     */
+    public function getProfile()
     {
-        $user = User::find(user_data()->data->id);
+        $user = User::with('sessions', 'roles', 'permissions')->find(auth()->id());
+        return $user;
+    }
 
-        $user = $user->update([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'timezone' => $request->timezone,
-            'language' => $request->language,
+    /**
+     * Update the profile
+     *
+     * @param $data
+     */
+    public function updateProfile($data)
+    {
+        $user = User::find(auth()->id());
+
+        $user->update([
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'language' => $data['language'],
         ]);
-        if ($user) {
-            return api_response($user, __('response.user.update_success'));
-        }
-        return api_response(null, __('response.user.not_found'), 404);
     }
 
-    public function updatePassword($request)
+    /**
+     * Update the password
+     *
+     * @param $data
+     */
+    public function updatePassword($data)
     {
-        $user = User::find(user_data()->data->id);
-        if ($user) {
-            if ($request->password != '' && $request->confirm_password != '') {
-                if ($request->password == $request->confirm_password) {
-                    $user->password = Hash::make($request->password);
-                    $user->save();
-                    return api_response($user, __('response.user.password_updated'));
-                }
-                return api_response(null, __('response.user.password_not_match'), 400);
-            }
-            return api_response(null, __('response.user.password_empty'), 400);
-        }
-        return api_response(null, __('response.user.not_found'), 404);
+        $user = User::find(auth()->id());
+        $user->update([
+            'password' => $data['password'],
+        ]);
     }
 
-    public function changeAvatar($request)
+    /**
+     * Set 2 factor authentication
+     *
+     * @return array
+     */
+    public function set2FactorAuth()
+    {
+        $user = User::find(auth()->id());
+        $google2fa = new Google2FA();
+        $secret = $google2fa->generateSecretKey();
+
+        DB::table('2fa')->insert([
+            'id' => Str::uuid(),
+            'user_id' => $user->id,
+            'secret' => $secret,
+        ]);
+
+        $url = $google2fa->getQRCodeUrl(settings('company_name'), $user->email, $secret);
+
+        return [
+            'secret' => $secret,
+            'url' => $url,
+        ];
+    }
+
+    /**
+     * Enable 2 factor authentication
+     *
+     * @param $data
+     * @return bool
+     */
+    public function enable2FactorAuth($data)
+    {
+        $user = User::find(auth()->id());
+
+        $google2fa = new Google2FA();
+        $secret = DB::table('2fa')
+            ->where([
+                'user_id' => $user->id,
+                'enabled' => false,
+                'secret' => $data['secret'],
+            ])
+            ->first()->secret;
+        $valid = $google2fa->verifyKey($secret, $data['code'], 2);
+
+        if ($valid) {
+            DB::table('2fa')
+                ->where('user_id', $user->id)
+                ->where('secret', $secret)
+                ->update([
+                    'enabled' => true,
+                ]);
+
+            DB::table('2fa')
+                ->where('user_id', $user->id)
+                ->where('secret', '!=', $secret)
+                ->delete();
+
+            User::find(auth()->id())->update(['two_factor_auth' => true]);
+
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Disable 2 factor authentication
+     */
+    public function disable2FactorAuth()
+    {
+        $user = User::find(auth()->id());
+
+        DB::table('2fa')
+            ->where('user_id', $user->id)
+            ->delete();
+
+        User::find(auth()->id())->update(['two_factor_auth' => false]);
+    }
+
+    /**
+     * Set the profile picture
+     *
+     * @param Request $request
+     */
+    public function setProfilePicture($request)
     {
         if ($request->hasFile('picture')) {
-            $user = User::find(user_data()->data->id);
-
-            $user_avatar = Str::after($user->picture, 'avatars/');
-            if ($user->picture != null) {
-                Storage::disk('local')->delete('public/avatars/' . $user_avatar);
+            $user = User::find(auth()->id());
+            if ($user->picture && $user->picture !== $user->id . '.png') {
+                Storage::disk('public')->delete($user->picture);
             }
-
             $file = $request->file('picture');
             $filename = $file->hashName();
-            $file->storeAs('public/avatars', $filename, 'local');
-
+            $file->storeAs('public', $filename);
             $user->picture = $filename;
             $user->save();
-
-            return api_response(null, __('response.user.avatar_updated'));
         }
-        return api_response(null, __('response.user.avatar_not_found'), 404);
     }
 
-    public function removeAvatar()
+    /**
+     * Delete the profile picture
+     */
+    public function deleteProfilePicture()
     {
-        $user = User::find(user_data()->data->id);
-        if ($user->picture != null) {
-            $user_avatar = Str::after($user->picture, 'avatars/');
-            Storage::disk('local')->delete('public/avatars/' . $user_avatar);
-            $user->picture = null;
-            $user->save();
-            return api_response(null, __('response.user.avatar_deleted'));
+        $user = User::find(auth()->id());
+        if ($user->picture && $user->picture !== $user->id . '.png') {
+            Storage::disk('public')->delete($user->picture);
         }
-        return api_response(null, __('response.user.avatar_not_found'), 404);
+        $user->picture = $user->id . '.png';
+        $user->save();
+    }
+
+    /****************************************************
+     *                     Notifications
+     ****************************************************/
+
+    /**
+     * Get all notifications for the current user
+     *
+     * @return mixed
+     */
+    public function getCurrentUserNotifications()
+    {
+        $notification = new Notification();
+        return $notification->getUserNotifications(auth()->id());
+    }
+
+    /**
+     * Mark a notification as read
+     *
+     * @param $notification_id
+     */
+    public function markNotificationAsRead($notification_id)
+    {
+        $notification = Notification::where('id', $notification_id)->where('user_id', auth()->id())->first();
+        return $notification->markAsRead();
+    }
+
+    /**
+     * Delete a notification
+     *
+     * @param $notification_id
+     */
+    public function deleteNotification($notification_id)
+    {
+        $notification = Notification::where('id', $notification_id)->where('user_id', auth()->id())->first();
+        return $notification->delete();
     }
 }

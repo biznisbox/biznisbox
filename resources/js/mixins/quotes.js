@@ -44,10 +44,11 @@ export default {
                 ],
                 currency: 'EUR',
                 currency_rate: 1,
-                payment_method: '',
                 notes: '',
+                sales_person_id: '',
+                payment_method: '',
                 discount: 0,
-                discount_type: 'percentage', // percentage or fixed
+                discount_type: 'percent', // percent or fixed
                 tax: '',
                 total: 0.0,
                 footer: '',
@@ -60,7 +61,7 @@ export default {
          * @returns {array} quotes
          */
         getQuotes() {
-            this.makeHttpRequest('GET', '/api/quotations').then((response) => {
+            this.makeHttpRequest('GET', '/api/quotes').then((response) => {
                 this.quotes = response.data.data
             })
         },
@@ -71,7 +72,7 @@ export default {
          * @returns {object} quote quote object
          **/
         getQuote(id) {
-            this.makeHttpRequest('GET', '/api/quotations/' + id)
+            this.makeHttpRequest('GET', '/api/quotes/' + id)
                 .then((response) => {
                     this.quote = response.data.data
                 })
@@ -88,7 +89,7 @@ export default {
          * @returns {void} show toast and redirect to quotes
          **/
         createQuote() {
-            this.makeHttpRequest('POST', '/api/quotations', this.quote).then((response) => {
+            this.makeHttpRequest('POST', '/api/quotes', this.quote).then((response) => {
                 this.showToast(response.data.message)
                 this.$router.push({ name: 'quotes' })
             })
@@ -100,9 +101,9 @@ export default {
          * @returns {void} show toast and redirect to quotes
          **/
         updateQuote(id) {
-            this.makeHttpRequest('PUT', '/api/quotations/' + id, this.quote).then((response) => {
+            this.makeHttpRequest('PUT', '/api/quotes/' + id, this.quote).then((response) => {
                 this.showToast(response.data.message)
-                this.$router.push({ name: 'view-quote', params: { id: id } })
+                this.$router.push({ name: 'quote-view', params: { id: id } })
             })
         },
 
@@ -139,7 +140,7 @@ export default {
          * @returns {void} quote number
          **/
         getQuoteNumber() {
-            this.makeHttpRequest('GET', '/api/quote/quote_number').then((response) => {
+            this.makeHttpRequest('GET', '/api/quote/number').then((response) => {
                 this.quote.number = response.data.data
             })
         },
@@ -152,7 +153,7 @@ export default {
         convertQuoteToInvoice(id) {
             this.makeHttpRequest('GET', '/api/quote/convert/' + id, '', '', '', false).then((response) => {
                 this.showToast(response.data.message)
-                this.$router.push({ name: 'view-invoice', params: { id: response.data.data } })
+                this.$router.push({ name: 'invoice-view', params: { id: response.data.data } })
             })
         },
 
@@ -173,7 +174,7 @@ export default {
          * @returns {array} partners
          **/
         getPartners() {
-            this.makeHttpRequest('GET', '/api/partners_list?type=both,customer').then((response) => {
+            this.makeHttpRequest('GET', '/api/partner/limited?type=customer,both').then((response) => {
                 this.partners = response.data.data
             })
         },
@@ -182,7 +183,7 @@ export default {
          * Send quote notification
          */
         sendQuoteNotification(id) {
-            this.makeHttpRequest('POST', '/api/quote/send/' + id, null, null, null, false).then((response) => {
+            this.makeHttpRequest('POST', `/api/quote/${id}/send`, null, null, null, false).then((response) => {
                 this.showToast(response.data.message)
             })
         },

@@ -1,12 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\CheckInstallation;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-*/
+// Fix for redirecting to login page when user is not authenticated
+Route::get('/auth/login', function () {
+    return view('app');
+})->name('login');
+
+// Install route
+Route::get('/install', function () {
+    return view('app');
+})->name('install');
+
 Route::get('{any}', function () {
     return view('app');
 })->where('any', '.*');

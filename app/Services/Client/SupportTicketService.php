@@ -2,99 +2,71 @@
 
 namespace App\Services\Client;
 
-use App\Models\SupportTicketContent;
 use App\Models\SupportTicket;
-use App\Models\ExternalKeys;
+use App\Models\SupportTicketContent;
+use App\Models\ExternalKey;
+use Illuminate\Support\Str;
+use App\Models\Employee;
 
 class SupportTicketService
 {
-    /**
-     * Get ticket by key
-     *
-     * @param string $key External key
-     * @return void
-     */
     public function getTicket($key)
     {
         if (!$key) {
-            return api_response(null, __('response.no_key_provided'), 404);
+            return null;
         }
 
-        if (validate_external_key($key, 'support')) {
-            $key_data = new ExternalKeys();
+        if (validateExternalKey($key, 'support')) {
+            $key_data = new ExternalKey();
             $key_data = $key_data->getExternalKey($key, 'support');
             $ticket = new SupportTicket();
             $ticket = $ticket->getClientTicket($key_data->module_item_id);
 
             if (!$ticket) {
-                return api_response(false, __('response.support_tickets.get_failed'), 400);
+                return false;
             }
-            activity_log(
-                null,
-                'clientGetTicket',
-                $key_data->module_item_id,
-                'App\Models\SupportTicket',
-                'ClientSupportTicket',
-                'external',
-                $key,
-            );
-            return api_response($ticket, __('response.support_tickets.get_success'));
+            return $ticket;
         } else {
-            return api_response(null, __('response.support_tickets.get_failed'), 400);
+            return false;
         }
     }
 
-    /**
-     * Send replay to ticket by key
-     *
-     * @param string $key External key
-     * @param object $data Request data
-     * @return response json
-     */
-    public function clientSendReplay($key, $data)
+    public function replayOnTicket($key, $data)
     {
         if (!$key) {
-            return api_response(null, __('response.no_key_provided'), 404);
+            return null;
         }
 
-        if (validate_external_key($key, 'support')) {
-            $key_data = new ExternalKeys();
+        if (validateExternalKey($key, 'support')) {
+            $key_data = new ExternalKey();
             $key_data = $key_data->getExternalKey($key, 'support');
             $ticket = new SupportTicket();
-            $ticket = $ticket->getClientTicket($key_data->module_item_id);
-
+            $ticket = $ticket->find($key_data->module_item_id);
             if (!$ticket) {
-                return api_response(false, __('response.support.not_found'), 404);
+                return false;
             }
+            $content = new SupportTicketContent();
 
-            $content = [
-                'ticket_id' => $ticket->id,
-                'type' => 'text',
-                'status' => 'sent',
-                'from' => $data['from'] ?? null,
+            $response = [
+                'from' => $data['from'] ?? ($key_data->recipient_id ?? 'Client'),
                 'message' => $data['message'],
             ];
 
-            $reply = SupportTicketContent::create($content);
-
-            if ($reply) {
-                activity_log(
-                    null,
-                    'clientSendReplay',
-                    $key_data->module_item_id,
-                    'App\Models\SupportTicket',
-                    'ClientSupportTicket',
-                    'external',
-                    $key,
+            $content = $content->createTicketMessage($ticket->id, $response);
+            if ($content) {
+                createNotification(
+                    getUserIdFromEmployeeId($ticket->assignee_id),
+                    'NewTicketMessage',
+                    Str::limit($data['message'], 150),
+                    'info',
+                    'view',
+                    'support/' . $ticket->id
                 );
-                $ticket = new SupportTicket();
-                $ticket = $ticket->getClientTicket($key_data->module_item_id);
-                return api_response($ticket, __('response.success'));
-            } else {
-                return api_response(null, __('response.support.not_found'), 404);
+                return $content;
             }
+            return false;
         } else {
-            return api_response(null, __('response.support.not_found'), 404);
+            return false;
         }
     }
 }

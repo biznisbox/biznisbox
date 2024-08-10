@@ -2,66 +2,77 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\BillService;
+use App\Http\Requests\BillRequest;
 use Illuminate\Http\Request;
-use App\Models\Bill;
 
 class BillController extends Controller
 {
-    protected $billModel;
-    public function __construct(Bill $billModel)
+    private $billService;
+
+    public function __construct(BillService $billService)
     {
-        $this->billModel = $billModel;
+        $this->billService = $billService;
     }
 
     public function getBills()
     {
-        $bills = $this->billModel->getBills();
-        return api_response($bills, __('response.bill.get_success'), 200);
+        $bills = $this->billService->getBills();
+        if (!$bills) {
+            return api_response($bills, __('responses.item_not_found'), 404);
+        }
+        return api_response($bills, __('responses.data_retrieved_successfully'), 200);
     }
 
     public function getBill($id)
     {
-        $bills = $this->billModel->getBill($id);
-        if ($bills) {
-            return api_response($bills, __('response.bill.get_success'), 200);
+        $bill = $this->billService->getBill($id);
+        if (!$bill) {
+            return api_response($bill, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response(null, __('response.bill.get_error'), 500);
+        return api_response($bill, __('responses.item_retrieved_successfully'), 200);
     }
 
-    public function createBill(Request $request)
+    public function createBill(BillRequest $request)
     {
-        $bill = $this->billModel->createBill($request->all());
-
-        if ($bill) {
-            return api_response($bill, __('response.bill.create_success'));
+        $bill = $this->billService->createBill($request->all());
+        if (!$bill) {
+            return api_response($bill, __('responses.item_not_created'), 400);
         }
-        return api_response(null, __('response.bill.create_error'), 500);
+        return api_response($bill, __('responses.item_created_successfully'), 200);
     }
 
-    public function updateBill(Request $request, $id)
+    public function updateBill(BillRequest $request, $id)
     {
-        $bill = $this->billModel->updateBill($id, $request->all());
-
-        if ($bill) {
-            return api_response($bill, __('response.bill.update_success'));
+        $bill = $this->billService->updateBill($id, $request->all());
+        if (!$bill) {
+            return api_response($bill, __('responses.item_not_updated'), 400);
         }
-        return api_response(null, __('response.bill.update_error'), 500);
+        return api_response($bill, __('responses.item_updated_successfully'), 200);
     }
 
     public function deleteBill($id)
     {
-        $bill = $this->billModel->deleteBill($id);
-
-        if ($bill) {
-            return api_response(null, __('response.bill.delete_success'));
+        $bill = $this->billService->deleteBill($id);
+        if (!$bill) {
+            return api_response($bill, __('responses.item_not_deleted'), 400);
         }
-        return api_response(null, __('response.bill.delete_error'), 500);
+        return api_response($bill, __('responses.item_deleted_successfully'), 200);
     }
 
     public function getBillNumber()
     {
-        $bill_number = $this->billModel->getBillNumber();
+        $bill = $this->billService->getBillNumber();
+        if (!$bill) {
+            return api_response($bill, __('responses.item_not_found'), 404);
+        }
+        return api_response($bill, __('responses.data_retrieved_successfully'), 200);
+    }
 
-        return api_response($bill_number, __('response.bill.get_success'), 200);
+    public function getBillPdf(Request $request, $id)
+    {
+        $type = $request->input('type', 'stream');
+        $pdf = $this->billService->getBillPdf($id, $type);
+        return $pdf;
     }
 }

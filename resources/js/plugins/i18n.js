@@ -3,7 +3,6 @@ import { createI18n } from 'vue-i18n'
 // Lang files
 import en from '@/locales/en.json' // English
 import sl from '@/locales/sl.json' // Slovenian
-import de from '@/locales/de.json' // German
 
 const i18n = createI18n({
     locale: 'en', // set locale
@@ -11,7 +10,6 @@ const i18n = createI18n({
     messages: {
         en,
         sl,
-        de,
     },
 })
 

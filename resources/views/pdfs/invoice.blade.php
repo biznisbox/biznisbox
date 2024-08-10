@@ -1,143 +1,162 @@
 @extends('pdfs.layout')
 <!-- Document title -->
-@section('title', __('pdf.invoice.title'))
+@section('title', __('pdf.invoice') . ' ' . $invoice->number)
 <!-- Barcode -->
 @section('barcode')
-<img src="data:image/png;base64, {{!! base64_encode(Barcode2D::getBarcodeSVG($invoice->id, 'QRCODE')) !!}}" alt="barcode">
+    <!-- prettier-ignore -->
+    <img src="data:image/png;base64, {{!! DNS2D::getBarcodePNG($invoice->id, 'QRCODE') !!}}"  alt="barcode"  width="100"  height="100"  style="margin-top: 10px"  />
 @endsection
+
 <!-- Content -->
 @section('content')
-<div style="margin-top: 15px;">
-   <p>
-      <strong>{{ __('pdf.invoice.number')}}</strong> {{ $invoice->number }}
-      <br />
-      <strong>{{ __('pdf.invoice.date')}}</strong> {{ format_datetime($invoice->date, settings('date_format')) }}
-      <br />
-      <strong>{{ __('pdf.invoice.due_date')}}</strong> {{ format_datetime($invoice->due_date, settings('date_format')) }}
-      <br />
-      <strong>{{ __('pdf.invoice.status')}}</strong>
-      @if ($invoice->status == 'paid')
-      <span style="color: green;">{{ __('pdf.status.paid')}}</span>
-      @elseif($invoice->status == 'unpaid')
-      <span style="color: red;">{{ __('pdf.status.unpaid')}}</span>
-      @elseif($invoice->status == 'overdue')
-      <span style="color: red;">{{ __('pdf.status.overdue')}}</span>
-      @elseif($invoice->status == 'partially_paid')
-      <span style="color: yellow;">{{ __('pdf.status.partially_paid')}}</span>
-      @elseif($invoice->status == 'cancelled')
-      <span style="color: grey;">{{ __('pdf.status.cancelled')}}</span>
-      @elseif($invoice->status == 'draft')
-      <span style="color: orange;">{{ __('pdf.status.draft')}}</span>
-      @else
-      <span style="color: blue;">{{ __('pdf.status.other') }}</span>
-      @endif
-      <br />
-      <strong>{{ __('pdf.invoice.payment_method')}}</strong>
-      @if ($invoice->payment_method == 'bank_transfer')
-      <span style="color: blue;">{{ __('pdf.payment_method.bank_transfer') }}</span>
-      @elseif($invoice->payment_method == 'cash')
-      <span style="color: blue;">{{ __('pdf.payment_method.cash') }}</span>
-      @elseif($invoice->payment_method == 'bank_card')
-      <span style="color: blue;">{{ __('pdf.payment_method.bank_card') }}</span>
-      @elseif($invoice->payment_method == 'paypal')
-      <span style="color: blue;">{{ __('pdf.payment_method.paypal') }}</span>
-      @elseif($invoice->payment_method == 'stripe')
-      <span style="color: blue;">{{ __('pdf.payment_method.stripe') }}</span>
-      @else
-      <span style="color: blue;">{{ __('pdf.payment_method.other') }}</span>  
-      @endif
-   </p>
-   <!-- Data about client and payer -->
-   <table id="customer_payer_data" width="100%" style="margin-top: 20px">
-      <tbody>
-         <tr width="45%">
-            <td>
-               <p>
-                  <strong>{{ __('pdf.invoice.customer')}}</strong>
-                  <br />
-                  @if ($invoice->customer != null)
-                  {{ $invoice->customer_name }}
-                  <br />
-                  {{ $invoice->customer_address }}
-                  <br />
-                  {{ $invoice->customer_zip_code }} {{ $invoice->customer_city }}
-                  <br />
-                  {{ $invoice->customer_country }}
-                  @else
-                  <span>{{ __('pdf.invoice.no_customer')}}</span>
-                  @endif
-               </p>
-            </td>
-            <td width="10%">&nbsp;</td>
-            <td width="45%">
-               <p>
-                  <strong>{{ __('pdf.invoice.payer')}}</strong>
-                  <br />
-                  @if ($invoice->payer != null)
-                  {{ $invoice->payer_name }}
-                  <br />
-                  {{ $invoice->payer_address }}
-                  <br />
-                  {{ $invoice->payer_zip_code }} {{ $invoice->payer_city }}
-                  <br />
-                  {{ $invoice->payer_country }}
-                  @else
-                  <span>{{ __('pdf.invoice.no_payer')}}</span>
-                  @endif
-               </p>
-            </td>
-         </tr>
-      </tbody>
-   </table>
-   <!-- Table with items -->
-   <table id="invoice_items" class="items" width="100%">
-      <thead>
-         <tr>
-            <td width="20%"><strong>{{ __('pdf.invoice.name')}}</strong></td>
-            <td width="20%"><strong>{{ __('pdf.invoice.description')}}</strong></td>
-            <td width="10%"><strong>{{ __('pdf.invoice.price')}} ({{ settings('default_currency') }})</strong></td>
-            <td width="10%"><strong>{{ __('pdf.invoice.quantity')}}</strong></td>
-            <td width="10%"><strong>{{ __('pdf.invoice.tax')}}</strong></td>
-            <td with="10%"><strong>{{ __('pdf.invoice.discount')}}</strong></td>
-            <td width="10%"><strong>{{ __('pdf.invoice.total')}} ({{ settings('default_currency') }})</strong></td>
-         </tr>
-      </thead>
-      <tbody>
-         @foreach ($invoice->items as $item)
-         <tr>
-            <td>{{ $item['name'] }}</td>
-            <td>{{ $item['description'] }}</td>
-            <td>{{ $item['price'] . ' ' . settings('default_currency') }}</td>
-            <td>{{ $item['quantity'] }}</td>
-            <td>{{ $item['tax'] . ' %' }}</td>
-            <td>{{ $item['discount'] . ' %' }}</td>
-            <td>{{ $item['total'] . ' ' . settings('default_currency') }}</td>
-         </tr>
-         @endforeach
-      </tbody>
-   </table>
-   <!-- Table with totals -->
-   <!-- Total price -->
-   <table id="invoice_footer" width="100%" style="margin-top: 20px">
-      <tbody>
-         <tr>
-            <td width="70%">
-               @if ($invoice->footer != null)
-               <span><strong>{{ __('pdf.invoice.notes')}}</strong></span>
-               <br />
-               <span>{!! $invoice->footer !!}</span>
-               @endif
-            </td>
-            <td width="30%" align="right" style="vertical-align:top">
-               <span> <strong>{{ __('pdf.invoice.discount')}}</strong> {{ $invoice->discount . ' %' }}</span>
-               <hr />
-               @if ($invoice->currency_rate != 1)
-               <span><strong>{{ __('pdf.invoice.currency_rate')}}</strong> {{ $invoice->currency_rate }}</span> <br />
-               @endif
-               <span><strong>{{ __('pdf.invoice.total_amount')}}</strong> {{ $invoice->total . ' ' . $invoice->currency }}</span>
-            </td>
-         </tr>
-      </tbody>
-   </table>
-</div>
+    <div style="margin-top: 15px">
+        <p>
+            <strong>{{ __('pdf.number') }}</strong>
+            {{ $invoice->number }}
+            <br />
+            <strong>{{ __('pdf.date') }}</strong>
+            {{ formatDateTime($invoice->date, settings('date_format')) }}
+            <br />
+            <strong>{{ __('pdf.due_date') }}</strong>
+            {{ formatDateTime($invoice->due_date, settings('date_format')) }}
+            <br />
+            <strong>{{ __('pdf.currency') }}</strong>
+            {{ $invoice->currency }}
+            <br />
+            <strong>{{ __('pdf.status') }}</strong>
+
+            @if ($invoice->status == 'paid')
+                <span style="color: rgb(45, 173, 45)">{{ __('pdf.statuses.paid') }}</span>
+            @elseif ($invoice->status == 'unpaid')
+                <span style="color: rgb(196, 41, 41)">{{ __('pdf.statuses.unpaid') }}</span>
+            @elseif ($invoice->status == 'overdue')
+                <span style="color: rgb(170, 50, 50)">{{ __('pdf.statuses.overdue') }}</span>
+            @elseif ($invoice->status == 'partially_paid')
+                <span style="color: rgb(238, 238, 79)">{{ __('pdf.statuses.partially_paid') }}</span>
+            @elseif ($invoice->status == 'cancelled')
+                <span style="color: rgb(49, 97, 129)">{{ __('pdf.statuses.cancelled') }}</span>
+            @elseif ($invoice->status == 'refunded')
+                <span style="color: rgb(105, 155, 188)">{{ __('pdf.statuses.refunded') }}</span>
+            @elseif ($invoice->status == 'overpaid')
+                <span style="color: rgb(32, 100, 57)">{{ __('pdf.statuses.overpaid') }}</span>
+            @elseif ($invoice->status == 'draft')
+                <span style="color: rgb(219, 169, 75)">{{ __('pdf.statuses.draft') }}</span>
+            @else
+                <span style="color: rgb(105, 105, 188)">{{ __('pdf.statuses.other') }}</span>
+            @endif
+            <br />
+            <strong>{{ __('pdf.payment_method') }}</strong>
+            <span style="color: rgb(28, 118, 220)">{{ __('pdf.payment_methods.' . $invoice->payment_method) }}</span>
+        </p>
+        <!-- Data about client and payer -->
+        <table id="customer_payer_data" width="100%" style="margin-top: 20px">
+            <tbody>
+                <tr width="45%">
+                    <td>
+                        <p>
+                            <strong>{{ __('pdf.customer') }}</strong>
+                            <br />
+                            @if ($invoice->customer != null)
+                                {{ $invoice->customer_name }}
+                                <br />
+                                {{ $invoice->customer_address }}
+                                <br />
+                                {{ $invoice->customer_zip_code }} {{ $invoice->customer_city }}
+                                <br />
+                                {{ $invoice->customer_country }}
+                            @else
+                                <span>{{ __('pdf.no_customer') }}</span>
+                            @endif
+                        </p>
+                    </td>
+                    <td width="10%">&nbsp;</td>
+                    <td width="45%">
+                        <p>
+                            <strong>{{ __('pdf.payer') }}</strong>
+                            <br />
+                            @if ($invoice->payer != null)
+                                {{ $invoice->payer_name }}
+                                <br />
+                                {{ $invoice->payer_address }}
+                                <br />
+                                {{ $invoice->payer_zip_code }} {{ $invoice->payer_city }}
+                                <br />
+                                {{ $invoice->payer_country }}
+                            @else
+                                <span>{{ __('pdf.no_payer') }}</span>
+                            @endif
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Table with items -->
+        <table id="invoice_items" class="items" width="100%">
+            <thead>
+                <tr>
+                    <td width="20%"><strong>{{ __('pdf.product_name') }}</strong></td>
+                    <td width="20%"><strong>{{ __('pdf.description') }}</strong></td>
+                    <td width="10%"><strong>{{ __('pdf.price') }} ({{ $settings['default_currency'] }})</strong></td>
+                    <td width="10%"><strong>{{ __('pdf.quantity') }}</strong></td>
+                    <td width="10%"><strong>{{ __('pdf.tax') }}</strong></td>
+                    <td with="10%"><strong>{{ __('pdf.discount') }}</strong></td>
+                    <td width="10%"><strong>{{ __('pdf.total') }} ({{ $settings['default_currency'] }})</strong></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($invoice->items as $item)
+                    <tr>
+                        <td style="word-break: break-word">{{ $item['name'] }}</td>
+                        <td style="word-break: break-word">{{ $item['description'] }}</td>
+                        <td style="word-break: break-word">{{ formatMoney($item['price'], $settings['default_currency']) }}</td>
+                        <td style="word-break: break-word">{{ $item['quantity'] . ' '. $item['unit'] }}</td>
+                        <td style="word-break: break-word">{{ $item['tax'] . ' %' }}</td>
+                        <td style="word-break: break-word">{{ $item['discount'] . ' %' }}</td>
+                        <td style="word-break: break-word">{{ formatMoney($item['total'], $settings['default_currency']) }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <table id="invoice_footer" width="100%" style="margin-top: 20px">
+            <tbody>
+                <tr>
+                    <td width="70%">
+                        @if ($invoice->footer != null)
+                            <span><strong>{{ __('pdf.notes') }}</strong></span>
+                            <br />
+                            <span>{!! $invoice->footer !!}</span>
+                        @endif
+                    </td>
+                    <td width="30%">
+                        @if ($invoice->discount != null || $invoice->discount >= 0)
+                            <span><strong>{{ __('pdf.discount') }}</strong></span>
+                            <br />
+                            @if ($invoice->discount_type == 'fixed')
+                                {{ $invoice->discount . ' ' . $invoice->default_currency }}
+                            @endif
+
+                            @if ($invoice->discount_type == 'percentage')
+                                {{ $invoice->discount . ' %' }}
+                            @endif
+
+                            <hr />
+                        @endif
+
+                        @if ($invoice->currency_rate != 1)
+                            <span>
+                                <strong>{{ __('pdf.currency_rate') }}</strong>
+                                1 {{ $invoice->default_currency }} = {{ $invoice->currency_rate }} {{ $invoice->currency }}
+                            </span>
+                            <br />
+                        @endif
+
+                        <span>
+                            <strong>{{ __('pdf.total_amount') }}</strong>
+                            {{ formatMoney($invoice->total, $invoice->currency) }}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 @endsection

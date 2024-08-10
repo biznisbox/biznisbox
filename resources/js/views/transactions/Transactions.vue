@@ -1,303 +1,242 @@
 <template>
-    <user-layout>
-        <div id="transactions_page">
-            <user-header :title="$t('transaction.transaction', 2)">
-                <template #actions>
-                    <HeaderActionButton :label="$t('transaction.new_transaction')" icon="fa fa-plus" to="/transactions/new" />
-                    <Button
-                        id="categories_button"
-                        icon="fa fa-folder-tree"
-                        :label="$t('transaction.categories')"
-                        @click="showCategoriesDialog = true"
-                    />
-                </template>
-            </user-header>
+    <DefaultLayout>
+        <PageHeader :title="$t('transaction.transaction', 2)">
+            <template #actions>
+                <Button :label="$t('transaction.new_transaction')" icon="fa fa-plus" @click="$router.push('/transactions/create')" />
+                <Button
+                    id="categories_button"
+                    icon="fa fa-folder-tree"
+                    :label="$t('transaction.categories')"
+                    @click="showCategoriesDialog = true"
+                />
+            </template>
+        </PageHeader>
 
-            <div id="transactions_table" class="card">
-                <DataTable
-                    v-model:filters="filters"
-                    :value="transactions"
-                    :loading="loadingData"
-                    paginator
-                    data-key="id"
-                    filter-display="menu"
-                    :rows="10"
-                    paginator-template="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
-                    :rows-per-page-options="[10, 20, 50]"
-                    @row-dblclick="viewTransactionNavigation"
-                >
+        <div id="transactions_table" class="card">
+            <DataTable
+                :value="transactions"
+                paginator
+                dataKey="id"
+                :rows="10"
+                :rowsPerPageOptions="[5, 10, 20, 50, 100]"
+                :loading="loadingData"
+                @row-dblclick="viewTransactionNavigation"
+                filter-display="menu"
+                v-model:filters="filters"
+            >
+                <template #empty>
+                    <div class="p-4 pl-0 text-center w-full">
+                        <i class="fa fa-info-circle empty-icon"></i>
+                        <p>{{ $t('transaction.no_transactions') }}</p>
+                        <Button
+                            class="mt-3"
+                            :label="$t('transaction.create_first_transaction')"
+                            icon="fa fa-plus"
+                            @click="$router.push('/transactions/create')"
+                        />
+                    </div>
+                </template>
+
+                <Column field="name" :header="$t('transaction.name')">
+                    <template #body="{ data }">
+                        <span>{{ data.name ? data.name : '-' }}</span>
+                    </template>
+
+                    <template #filter="{ filterModel }">
+                        <InputText v-model="filterModel.value" placeholder="Search by name" />
+                    </template>
+                </Column>
+
+                <Column field="date" :header="$t('transaction.date_and_number')">
+                    <template #body="{ data }">
+                        <span>{{ data.date ? formatDate(data.date) : '-' }}</span
+                        ><br />
+                        <span>{{ data.number }}</span>
+                    </template>
+
+                    <template #filter="{ filterModel }">
+                        <InputText v-model="filterModel.value" placeholder="Search by date" />
+                    </template>
+                </Column>
+
+                <Column field="amount" :header="$t('form.amount')">
+                    <template #body="{ data }">
+                        <span>{{ formatMoney(data.amount, data.currency) }}</span> <br />
+                    </template>
+
+                    <template #filter="{ filterModel }">
+                        <InputText v-model="filterModel.value" placeholder="Search by amount" />
+                    </template>
+                </Column>
+
+                <Column field="type" :header="$t('form.type')">
+                    <template #body="{ data }">
+                        <span v-if="data.type === 'income'">
+                            <i class="fa fa-arrow-up text-green-500 mr-2"></i>
+                            <span>{{ $t('transaction_type.income') }}</span>
+                        </span>
+                        <span v-if="data.type === 'expense'">
+                            <i class="fa fa-arrow-down text-red-500 mr-2"></i>
+                            <span>{{ $t('transaction_type.expense') }}</span>
+                        </span>
+                        <span v-if="data.type === 'transfer'">
+                            <i class="fa fa-exchange-alt text-blue-500 mr-2"></i>
+                            <span>{{ $t('transaction_type.transfer') }}</span>
+                        </span>
+                    </template>
+
+                    <template #filter="{ filterModel }">
+                        <Dropdown
+                            v-model="filterModel.value"
+                            :options="[
+                                { label: $t('transaction_type.income'), value: 'income' },
+                                { label: $t('transaction_type.expense'), value: 'expense' },
+                                { label: $t('transaction_type.transfer'), value: 'transfer' },
+                            ]"
+                            option-label="label"
+                            option-value="value"
+                            placeholder="Search by type"
+                        />
+                    </template>
+                </Column>
+
+                <Column field="account" :header="$t('form.account')">
+                    <template #body="{ data }">
+                        {{ data.account ? data.account?.name : '-' }}
+                    </template>
+
+                    <template #filter="{ filterModel }">
+                        <InputText v-model="filterModel.value" placeholder="Search by account" />
+                    </template>
+                </Column>
+
+                <template #paginatorstart>
+                    <Button icon="fa fa-sync" @click="getTransactions" />
+                </template>
+            </DataTable>
+
+            <!-- Categories list -->
+            <Dialog v-model:visible="showCategoriesDialog" :header="$t('transaction.categories')" modal>
+                <DataTable :value="categories" data-key="id">
                     <template #empty>
-                        <div class="p-4 pl-0 text-center w-full text-gray-500">
+                        <div class="p-4 pl-0 text-center w-full">
                             <i class="fa fa-info-circle empty-icon"></i>
-                            <p>{{ $t('transaction.no_transactions') }}</p>
-                            <Button
-                                class="mt-3"
-                                :label="$t('transaction.create_first_transaction')"
-                                icon="fa fa-plus"
-                                @click="$router.push('/transactions/new')"
-                            />
+                            <p>{{ $t('transaction.no_categories') }}</p>
                         </div>
                     </template>
 
-                    <Column field="name" :header="$t('transaction.name')">
+                    <Column field="name" :header="$t('form.name')">
                         <template #body="{ data }">
                             <span>{{ data.name ? data.name : '-' }}</span>
                         </template>
-
-                        <template #filter="{ filterModel }">
-                            <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by name" />
-                        </template>
                     </Column>
 
-                    <Column field="date" :header="$t('transaction.date_and_number')">
+                    <Column field="description" :header="$t('form.type')">
                         <template #body="{ data }">
-                            <span>{{ data.date ? formatDate(data.date) : '-' }}</span
-                            ><br />
-                            <span>{{ data.number }}</span>
-                        </template>
-
-                        <template #filter="{ filterModel }">
-                            <div class="flex">
-                                <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by date" />
-                            </div>
-                        </template>
-                    </Column>
-
-                    <Column field="amount" :header="$t('form.amount')">
-                        <template #body="{ data }">
-                            <span>{{ formatMoney(data.amount, data.currency) }}</span> <br />
-                        </template>
-
-                        <template #filter="{ filterModel }">
-                            <div class="flex">
-                                <InputText v-model="filterModel.value" type="text" class="p-column-filter" placeholder="Search by amount" />
-                            </div>
-                        </template>
-                    </Column>
-
-                    <Column field="type" :header="$t('form.type')">
-                        <template #body="{ data }">
-                            <span v-if="data.type === 'income'">
+                            <span v-if="data.description === 'income'">
                                 <i class="fa fa-arrow-up text-green-500 mr-2"></i>
                                 <span>{{ $t('transaction_type.income') }}</span>
                             </span>
-                            <span v-if="data.type === 'expense'">
+                            <span v-if="data.description === 'expense'">
                                 <i class="fa fa-arrow-down text-red-500 mr-2"></i>
                                 <span>{{ $t('transaction_type.expense') }}</span>
                             </span>
-                            <span v-if="data.type === 'transfer'">
+                            <span v-if="data.description === 'transfer'">
                                 <i class="fa fa-exchange-alt text-blue-500 mr-2"></i>
                                 <span>{{ $t('transaction_type.transfer') }}</span>
                             </span>
                         </template>
-
-                        <template #filter="{ filterModel }">
-                            <div class="flex">
-                                <Dropdown
-                                    v-model="filterModel.value"
-                                    :options="[
-                                        { label: $t('transaction_type.income'), value: 'income' },
-                                        { label: $t('transaction_type.expense'), value: 'expense' },
-                                        { label: $t('transaction_type.transfer'), value: 'transfer' },
-                                    ]"
-                                    option-label="label"
-                                    option-value="value"
-                                    class="p-column-filter"
-                                    placeholder="Search by type"
-                                />
-                            </div>
-                        </template>
                     </Column>
 
-                    <Column field="account" :header="$t('form.account')">
+                    <Column :header="$t('basic.actions')">
                         <template #body="{ data }">
-                            {{ data.account ? data.account?.name : '-' }}
-                        </template>
-
-                        <template #filter="{ filterModel }">
-                            <div class="flex">
-                                <InputText
-                                    v-model="filterModel.value"
-                                    type="text"
-                                    class="p-column-filter"
-                                    placeholder="Search by account"
-                                />
-                            </div>
+                            <Button
+                                id="category_edit_button"
+                                icon="fa fa-edit"
+                                severity="success"
+                                @click="openNewEditCategoryDialog('edit', data.id)"
+                            />
+                            <Button
+                                id="category_delete_button"
+                                icon="fa fa-trash"
+                                class="ml-2"
+                                severity="danger"
+                                @click="deleteCategoryAsk(data.id)"
+                            />
                         </template>
                     </Column>
-
-                    <template #paginatorstart>
-                        <div class="p-d-flex p-ai-center p-mr-2">
-                            <Button class="p-button-rounded p-button-text p-button-plain" icon="fa fa-sync" @click="getTransactions()" />
-                        </div>
-                    </template>
                 </DataTable>
 
-                <!-- Categories list -->
-                <Dialog v-model:visible="showCategoriesDialog" :header="$t('transaction.categories')" modal>
-                    <DataTable :value="categories" data-key="id">
-                        <Column field="name" :header="$t('form.name')">
-                            <template #body="{ data }">
-                                <span>{{ data.name ? data.name : '-' }}</span>
-                            </template>
-                        </Column>
+                <template #footer>
+                    <div id="function_buttons" class="flex justify-end mt-2 gap-2">
+                        <Button
+                            id="new_category"
+                            :label="$t('transaction.new_category')"
+                            icon="fa fa-plus"
+                            @click="openNewEditCategoryDialog('create')"
+                        />
+                        <Button
+                            id="categories_close_button"
+                            :label="$t('basic.close')"
+                            icon="fa fa-times"
+                            severity="secondary"
+                            @click="showCategoriesDialog = false"
+                        />
+                    </div>
+                </template>
+            </Dialog>
 
-                        <Column field="description" :header="$t('form.type')">
-                            <template #body="{ data }">
-                                <span v-if="data.description === 'income'">
-                                    <i class="fa fa-arrow-up text-green-500 mr-2"></i>
-                                    <span>{{ $t('transaction_type.income') }}</span>
-                                </span>
-                                <span v-if="data.description === 'expense'">
-                                    <i class="fa fa-arrow-down text-red-500 mr-2"></i>
-                                    <span>{{ $t('transaction_type.expense') }}</span>
-                                </span>
-                                <span v-if="data.description === 'transfer'">
-                                    <i class="fa fa-exchange-alt text-blue-500 mr-2"></i>
-                                    <span>{{ $t('transaction_type.transfer') }}</span>
-                                </span>
-                            </template>
-                        </Column>
-
-                        <Column :header="$t('basic.actions')">
-                            <template #body="{ data }">
-                                <Button id="category_edit_button" icon="fa fa-edit" @click="editCategoryDialog(data.id)" />
-                                <Button
-                                    id="category_delete_button"
-                                    icon="fa fa-trash"
-                                    class="p-button-danger ml-2"
-                                    @click="deleteCategory(data.id)"
-                                />
-                            </template>
-                        </Column>
-                    </DataTable>
-
-                    <template #footer>
-                        <div id="function_buttons" class="grid gap-2 justify-content-end">
-                            <Button
-                                id="new_category"
-                                :label="$t('transaction.new_category')"
-                                icon="fa fa-plus"
-                                @click="showNewCategoryDialog = true"
-                            />
-                            <Button
-                                id="categories_close_button"
-                                :label="$t('basic.close')"
-                                icon="fa fa-times"
-                                class="p-button-danger"
-                                @click="showCategoriesDialog = false"
-                            />
-                        </div>
-                    </template>
-                </Dialog>
-
-                <!-- New category dialog -->
-                <Dialog v-model:visible="showNewCategoryDialog" :header="$t('transaction.new_category')" modal>
-                    <form id="new_category_form" class="formgrid">
-                        <div class="grid">
-                            <TextInput
-                                id="name_input"
-                                v-model="category.name"
-                                class="field col-12"
-                                :label="$t('transaction.category_name')"
-                            ></TextInput>
-                        </div>
-
-                        <div class="grid">
-                            <SelectInput
-                                v-model="category.description"
-                                :options="[
-                                    { label: $t('transaction_type.income'), value: 'income' },
-                                    { label: $t('transaction_type.expense'), value: 'expense' },
-                                    { label: $t('transaction_type.transfer'), value: 'transfer' },
-                                ]"
-                                option-label="label"
-                                option-value="value"
-                                placeholder="Select type"
-                                class="col-12"
-                                :label="$t('form.type')"
-                            />
-                        </div>
+            <!-- New/Edit category dialog -->
+            <Dialog
+                v-model:visible="showNewEditCategoryDialog"
+                :header="categoryMethod === 'create' ? $t('transaction.new_category') : $t('transaction.edit_category')"
+                modal
+            >
+                <LoadingScreen :blocked="loadingData">
+                    <form id="category_form">
+                        <TextInput id="name_input" v-model="category.name" :label="$t('transaction.category_name')"></TextInput>
+                        <SelectInput
+                            v-model="category.description"
+                            :options="[
+                                { label: $t('transaction_type.income'), value: 'income' },
+                                { label: $t('transaction_type.expense'), value: 'expense' },
+                                { label: $t('transaction_type.transfer'), value: 'transfer' },
+                            ]"
+                            option-label="label"
+                            option-value="value"
+                            placeholder="Select type"
+                            :label="$t('form.type')"
+                        />
                     </form>
+                </LoadingScreen>
 
-                    <template #footer>
-                        <div id="function_buttons" class="grid gap-2 justify-content-end">
-                            <Button
-                                id="new_category_cancel_button"
-                                :label="$t('basic.cancel')"
-                                icon="fa fa-times"
-                                class="p-button-danger"
-                                @click="showNewCategoryDialog = false"
-                            />
-                            <Button
-                                id="new_category_save_button"
-                                :label="$t('basic.save')"
-                                icon="fa fa-floppy-disk"
-                                :disabled="loadingData"
-                                class="p-button-success"
-                                @click="saveCategory"
-                            />
-                        </div>
-                    </template>
-                </Dialog>
-
-                <!-- Edit category dialog -->
-                <Dialog v-model:visible="showEditCategoryDialog" :header="$t('transaction.edit_category')" modal>
-                    <form id="edit_category_form" class="formgrid">
-                        <div class="grid">
-                            <TextInput
-                                id="name_input"
-                                v-model="category.name"
-                                class="field col-12"
-                                :label="$t('transaction.category_name')"
-                            ></TextInput>
-                        </div>
-
-                        <div class="grid">
-                            <SelectInput
-                                v-model="category.description"
-                                :options="[
-                                    { label: $t('transaction_type.income'), value: 'income' },
-                                    { label: $t('transaction_type.expense'), value: 'expense' },
-                                    { label: $t('transaction_type.transfer'), value: 'transfer' },
-                                ]"
-                                option-label="label"
-                                option-value="value"
-                                placeholder="Select type"
-                                class="col-12"
-                                :label="$t('form.type')"
-                            />
-                        </div>
-                    </form>
-
-                    <template #footer>
-                        <div id="function_buttons" class="grid gap-2 justify-content-end">
-                            <Button
-                                id="edit_category_cancel_button"
-                                :label="$t('basic.cancel')"
-                                icon="fa fa-times"
-                                class="p-button-danger"
-                                @click="showEditCategoryDialog = false"
-                            />
-                            <Button
-                                id="edit_category_save_button"
-                                :label="$t('basic.save')"
-                                icon="fa fa-floppy-disk"
-                                :disabled="loadingData"
-                                class="p-button-success"
-                                @click="updateCategory"
-                            />
-                        </div>
-                    </template>
-                </Dialog>
-            </div>
+                <template #footer>
+                    <div id="function_buttons" class="flex justify-end gap-2">
+                        <Button
+                            id="category_cancel_button"
+                            :label="$t('basic.cancel')"
+                            icon="fa fa-times"
+                            severity="secondary"
+                            @click="showNewEditCategoryDialog = false"
+                        />
+                        <Button
+                            id="category_save_button"
+                            :label="categoryMethod === 'create' ? $t('basic.save') : $t('basic.update')"
+                            icon="fa fa-floppy-disk"
+                            :disabled="loadingData || !category.name || !category.description"
+                            severity="success"
+                            @click="saveEditCategory"
+                        />
+                    </div>
+                </template>
+            </Dialog>
         </div>
-    </user-layout>
+    </DefaultLayout>
 </template>
 
 <script>
 import TransactionsMixin from '@/mixins/transactions'
-import { FilterMatchMode, FilterOperator } from 'primevue/api'
+import { FilterMatchMode, FilterOperator } from '@primevue/core/api'
 export default {
     name: 'TransactionsPage',
     mixins: [TransactionsMixin],
@@ -305,31 +244,25 @@ export default {
     data() {
         return {
             filters: null,
-            category: {
-                name: '',
-                description: '',
-                icon: '',
-                color: '',
-                module: 'transaction',
-            },
             categories: [],
             showCategoriesDialog: false,
-            showNewCategoryDialog: false,
-            showEditCategoryDialog: false,
+            showNewEditCategoryDialog: false,
+            categoryMethod: 'create', // create or edit
         }
     },
 
     created() {
         this.getTransactions()
         this.initFilters()
-        this.getCategories()
+        this.getCategories('transaction').then((response) => {
+            this.categories = response
+        })
     },
 
     methods: {
-        viewTransactionNavigation(rowData) {
-            this.$router.push(`/transactions/${rowData.data.id}`)
-        },
-
+        /**
+         * Initialize filters
+         */
         initFilters() {
             this.filters = {
                 name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
@@ -340,10 +273,7 @@ export default {
             }
         },
 
-        /**
-         * Save new category
-         */
-        saveCategory() {
+        saveEditCategory() {
             // Set icon and color based on category type
             switch (this.category.description) {
                 case 'income':
@@ -359,102 +289,66 @@ export default {
                     this.category.color = '#2196f3'
                     break
             }
-            this.makeHttpRequest('POST', '/api/categories', this.category).then((response) => {
-                this.showToast(this.$t('transaction.category_created'))
-                this.showNewCategory = false
-                this.category = {
-                    name: '',
-                    description: '',
-                    icon: '',
-                    color: '',
-                    module: 'transaction',
-                }
-                this.getCategories()
-            })
+            if (this.categoryMethod === 'create') {
+                this.createCategory(this.category).then(() => {
+                    this.showToast(this.$t('transaction.category_created'))
+                    this.getCategories('transaction').then((response) => {
+                        this.categories = response
+                    })
+                })
+            } else {
+                this.updateCategory(this.category.id, this.category).then(() => {
+                    this.showToast(this.$t('transaction.category_updated'))
+                    this.getCategories('transaction').then((response) => {
+                        this.categories = response
+                    })
+                })
+            }
+            this.resetCategoryForm()
+            this.showNewEditCategoryDialog = false
         },
 
-        /**
-         * Get categories
-         */
-        getCategories() {
-            this.makeHttpRequest('GET', '/api/categories?module=transaction').then((response) => {
-                this.categories = response.data.data
-            })
+        openNewEditCategoryDialog(method, id) {
+            this.resetCategoryForm()
+            this.categoryMethod = method
+            if (method === 'create') {
+                this.showNewEditCategoryDialog = true
+            } else {
+                this.getCategory(id).then((response) => {
+                    this.category = response
+                })
+                this.showNewEditCategoryDialog = true
+            }
         },
 
-        /**
-         * Get category by id
-         * @param {UUID} id Category id
-         */
-        getCategory(id) {
-            this.makeHttpRequest('GET', `/api/categories/${id}`).then((response) => {
-                this.category = response.data.data
-            })
-        },
-
-        /**
-         * Open edit category dialog
-         * @param {UUID} id Category id
-         */
-        editCategoryDialog(id) {
+        resetCategoryForm() {
             this.category = {
+                id: '',
                 name: '',
                 description: '',
                 icon: '',
                 color: '',
                 module: 'transaction',
             }
-            this.getCategory(id)
-            this.showEditCategoryDialog = true
         },
 
         /**
          * Delete category after confirmation
          * @param {UUID} id Category id
          */
-        deleteCategory(id) {
+        deleteCategoryAsk(id) {
             this.$confirm.require({
                 message: this.$t('transaction.delete_category_confirmation'),
                 header: this.$t('basic.confirmation'),
-                icon: 'pi pi-exclamation-triangle',
+                icon: 'fa fa-exclamation-triangle',
                 accept: () => {
-                    this.makeHttpRequest('DELETE', `/api/categories/${id}`).then((response) => {
+                    this.deleteCategory(id).then(() => {
                         this.showToast(this.$t('transaction.category_deleted'))
-                        this.getCategories()
+                        this.getCategories('transaction').then((response) => {
+                            this.categories = response
+                        })
                     })
                 },
-            })
-        },
-
-        /**
-         * Update category
-         */
-        updateCategory() {
-            switch (this.category.description) {
-                case 'income':
-                    this.category.icon = 'fa fa-arrow-up'
-                    this.category.color = '#4caf50'
-                    break
-                case 'expense':
-                    this.category.icon = 'fa fa-arrow-down'
-                    this.category.color = '#f44336'
-                    break
-                case 'transfer':
-                    this.category.icon = 'fa fa-exchange-alt'
-                    this.category.color = '#2196f3'
-                    break
-            }
-            this.makeHttpRequest('PUT', `/api/categories/${this.category.id}`, this.category).then((response) => {
-                this.showToast(this.$t('transaction.category_updated'))
-                this.showEditCategoryDialog = false
-                this.category = {
-                    name: '',
-                    description: '',
-                    icon: '',
-                    color: '',
-                    module: 'transaction',
-                }
-                this.getCategories()
             })
         },
     },

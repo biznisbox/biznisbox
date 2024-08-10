@@ -10,7 +10,7 @@
     {
         "name": "admin.menu.admin_dashboard",
         "meta": ["admin-dashboard"],
-        "icon": "fa fa-dashboard",
+        "icon": "fa fa-cogs",
         "permission": "admin",
         "permissions": [],
         "to": "/admin"
@@ -22,6 +22,14 @@
         "permission": "admin_users",
         "permissions": [],
         "to": "/admin/users"
+    },
+    {
+        "name": "admin.menu.company",
+        "meta": ["company"],
+        "icon": "fa fa-building",
+        "permission": "admin_company_settings",
+        "permissions": [],
+        "to": "/admin/company"
     },
     {
         "name": "admin.menu.departments",
@@ -48,12 +56,12 @@
         "to": "/admin/roles"
     },
     {
-        "name": "admin.menu.company",
-        "meta": ["company"],
-        "icon": "fa fa-building",
-        "permission": "admin_company_settings",
+        "name": "admin.menu.webhooks",
+        "meta": ["webhooks"],
+        "icon": "fa fa-link",
+        "permission": "admin_webhooks",
         "permissions": [],
-        "to": "/admin/company"
+        "to": "/admin/webhooks"
     },
     {
         "name": "admin.menu.settings",
@@ -72,7 +80,7 @@
                 "name": "admin.menu.settings_currency",
                 "meta": ["settings-currency"],
                 "permission": "admin_currencies",
-                "to": "/admin/settings/currency"
+                "to": "/admin/settings/currencies"
             },
             {
                 "name": "admin.menu.numbering",
@@ -85,15 +93,19 @@
                 "meta": ["settings-taxes"],
                 "permission": "admin_tax_rates",
                 "to": "/admin/settings/taxes"
+            },
+            {
+                "name": "admin.menu.units",
+                "meta": ["settings-units"],
+                "permission": "admin_units",
+                "to": "/admin/settings/units"
+            },
+            {
+                "name": "admin.menu.email",
+                "meta": ["settings-email"],
+                "permission": "admin_email_settings",
+                "to": "/admin/settings/email"
             }
         ]
-    },
-    {
-        "name": "admin.menu.status",
-        "meta": ["status"],
-        "icon": "fa fa-info-circle",
-        "permission": "",
-        "permissions": [],
-        "to": "/admin/app"
     }
 ]

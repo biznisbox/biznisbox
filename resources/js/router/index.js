@@ -1,176 +1,172 @@
+import { jwtDecode } from 'jwt-decode'
 import { createRouter, createWebHistory } from 'vue-router'
 import { useCookies } from 'vue3-cookies'
 const { cookies } = useCookies()
-import { jwtDecode } from 'jwt-decode'
+
 const routes = [
-    // Dashboard
-    makeRoute('/', 'Dashboard', () => import('../views/Dashboard.vue'), { auth: true }, []),
-    makeRoute('/profile', 'Profile', () => import('../views/Profile.vue'), { auth: true }, []),
-
     // Auth
-    makeRoute('/auth/login', 'AuthLogin', () => import('../views/auth/Login.vue')),
-    makeRoute('/auth/logout', 'AuthLogout', () => import('../views/auth/Logout.vue')),
-    makeRoute('/auth/reset-password', 'AuthResetPassword', () => import('../views/auth/ResetPassword.vue')),
-    makeRoute('/auth/set-password/:email', 'AuthSetPassword', () => import('../views/auth/SetNewPassword.vue')),
+    makeRoute('/auth/login', 'auth-login', () => import('../views/auth/Login.vue'), { auth: false }),
+    makeRoute('/auth/logout', 'auth-logout', () => import('../views/auth/Logout.vue'), { auth: true }),
+    // Dashboard
+    makeRoute('/', 'dashboard', () => import('../views/Dashboard.vue'), { auth: true }),
+    makeRoute('/profile', 'profile', () => import('../views/Profile.vue'), { auth: true }),
 
-    // Products Routes
-    makeRoute('/products', 'products', () => import('../views/products/Products.vue'), { auth: true }, []),
-    makeRoute('/products/new', 'new-product', () => import('../views/products/NewProduct.vue'), { auth: true }, []),
-    makeRoute('/products/:id', 'view-product', () => import('../views/products/ViewProduct.vue'), { auth: true }, []),
-    makeRoute('/products/:id/edit', 'edit-product', () => import('../views/products/EditProduct.vue'), { auth: true }, []),
+    // Products
+    makeRoute('/products', 'products', () => import('../views/products/Products.vue'), { auth: true }),
+    makeRoute('/products/create', 'product-create', () => import('../views/products/CreateProduct.vue'), { auth: true }),
+    makeRoute('/products/:id', 'product-view', () => import('../views/products/ViewProduct.vue'), { auth: true }),
+    makeRoute('/products/:id/edit', 'product-edit', () => import('../views/products/EditProduct.vue'), { auth: true }),
 
-    // Partners Routes
-    makeRoute('/partners', 'partners', () => import('../views/partners/Partners.vue'), { auth: true }, []),
-    makeRoute('/partners/new', 'new-partner', () => import('../views/partners/NewPartner.vue'), { auth: true }, []),
-    makeRoute('/partners/:id', 'view-partner', () => import('../views/partners/ViewPartner.vue'), { auth: true }, []),
-    makeRoute('/partners/:id/edit', 'edit-partner', () => import('../views/partners/EditPartner.vue'), { auth: true }, []),
+    // Partners
+    makeRoute('/partners', 'partners', () => import('../views/partners/Partners.vue'), { auth: true }),
+    makeRoute('/partners/create', 'partner-create', () => import('../views/partners/CreatePartner.vue'), { auth: true }),
+    makeRoute('/partners/:id', 'partner-view', () => import('../views/partners/ViewPartner.vue'), { auth: true }),
+    makeRoute('/partners/:id/edit', 'partner-edit', () => import('../views/partners/EditPartner.vue'), { auth: true }),
 
-    // Calendar Routes
-    makeRoute('/calendar', 'calendar', () => import('../views/calendar/Calendar.vue'), { auth: true }, []),
+    // Invoices
+    makeRoute('/invoices', 'invoices', () => import('../views/invoices/Invoices.vue'), { auth: true }),
+    makeRoute('/invoices/create', 'invoice-create', () => import('../views/invoices/CreateInvoice.vue'), { auth: true }),
+    makeRoute('/invoices/:id', 'invoice-view', () => import('../views/invoices/ViewInvoice.vue'), { auth: true }),
+    makeRoute('/invoices/:id/edit', 'invoice-edit', () => import('../views/invoices/EditInvoice.vue'), { auth: true }),
 
-    // Invoice Routes
-    makeRoute('/invoices', 'invoices', () => import('../views/invoices/Invoices.vue'), { auth: true }, []),
-    makeRoute('/invoices/new', 'new-invoice', () => import('../views/invoices/NewInvoice.vue'), { auth: true }, []),
-    makeRoute('/invoices/:id', 'view-invoice', () => import('../views/invoices/ViewInvoice.vue'), { auth: true }, []),
-    makeRoute('/invoices/:id/edit', 'edit-invoice', () => import('../views/invoices/EditInvoice.vue'), { auth: true }, []),
+    // Quotes
+    makeRoute('/quotes', 'quotes', () => import('../views/quotes/Quotes.vue'), { auth: true }),
+    makeRoute('/quotes/create', 'quote-create', () => import('../views/quotes/CreateQuote.vue'), { auth: true }),
+    makeRoute('/quotes/:id', 'quote-view', () => import('../views/quotes/ViewQuote.vue'), { auth: true }),
+    makeRoute('/quotes/:id/edit', 'quote-edit', () => import('../views/quotes/EditQuote.vue'), { auth: true }),
 
-    // Quotes Routes
-    makeRoute('/quotes', 'quotes', () => import('../views/quotes/Quotes.vue'), { auth: true }, []),
-    makeRoute('/quotes/new', 'new-quote', () => import('../views/quotes/NewQuote.vue'), { auth: true }, []),
-    makeRoute('/quotes/:id', 'view-quote', () => import('../views/quotes/ViewQuote.vue'), { auth: true }, []),
-    makeRoute('/quotes/:id/edit', 'edit-quote', () => import('../views/quotes/EditQuote.vue'), { auth: true }, []),
+    // Bills
+    makeRoute('/bills', 'bills', () => import('../views/bills/Bills.vue'), { auth: true }),
+    makeRoute('/bills/create', 'bill-create', () => import('../views/bills/CreateBill.vue'), { auth: true }),
+    makeRoute('/bills/:id', 'bill-view', () => import('../views/bills/ViewBill.vue'), { auth: true }),
+    makeRoute('/bills/:id/edit', 'bill-edit', () => import('../views/bills/EditBill.vue'), { auth: true }),
 
-    // Account Routes
-    makeRoute('/accounts', 'accounts', () => import('../views/accounts/Accounts.vue'), { auth: true }, []),
-    makeRoute('/accounts/new', 'new-account', () => import('../views/accounts/NewAccount.vue'), { auth: true }, []),
-    makeRoute('/accounts/:id', 'view-account', () => import('../views/accounts/ViewAccount.vue'), { auth: true }, []),
-    makeRoute('/accounts/:id/edit', 'edit-account', () => import('../views/accounts/EditAccount.vue'), { auth: true }, []),
+    // Employees
+    makeRoute('/employees', 'employees', () => import('../views/employees/Employees.vue'), { auth: true }),
+    makeRoute('/employees/create', 'employee-create', () => import('../views/employees/CreateEmployee.vue'), { auth: true }),
+    makeRoute('/employees/:id', 'employee-view', () => import('../views/employees/ViewEmployee.vue'), { auth: true }),
+    makeRoute('/employees/:id/edit', 'employee-edit', () => import('../views/employees/EditEmployee.vue'), { auth: true }),
 
-    // Transactions Routes
-    makeRoute('/transactions', 'transactions', () => import('../views/transactions/Transactions.vue'), { auth: true }, []),
-    makeRoute('/transactions/new', 'new-transaction', () => import('../views/transactions/NewTransaction.vue'), { auth: true }, []),
-    makeRoute('/transactions/:id', 'view-transaction', () => import('../views/transactions/ViewTransaction.vue'), { auth: true }, []),
-    makeRoute('/transactions/:id/edit', 'edit-transaction', () => import('../views/transactions/EditTransaction.vue'), { auth: true }, []),
+    // Account
+    makeRoute('/accounts', 'accounts', () => import('../views/accounts/Accounts.vue'), { auth: true }),
+    makeRoute('/accounts/create', 'account-create', () => import('../views/accounts/CreateAccount.vue'), { auth: true }),
+    makeRoute('/accounts/:id', 'account-view', () => import('../views/accounts/ViewAccount.vue'), { auth: true }),
+    makeRoute('/accounts/:id/edit', 'account-edit', () => import('../views/accounts/EditAccount.vue'), { auth: true }),
 
-    // Bills Routes
-    makeRoute('/bills', 'bills', () => import('../views/bills/Bills.vue'), { auth: true }, []),
-    makeRoute('/bills/new', 'new-bill', () => import('../views/bills/NewBill.vue'), { auth: true }, []),
-    makeRoute('/bills/:id', 'view-bill', () => import('../views/bills/ViewBill.vue'), { auth: true }, []),
-    makeRoute('/bills/:id/edit', 'edit-bill', () => import('../views/bills/EditBill.vue'), { auth: true }, []),
+    // Transactions
+    makeRoute('/transactions', 'transactions', () => import('../views/transactions/Transactions.vue'), { auth: true }),
+    makeRoute('/transactions/create', 'transaction-create', () => import('../views/transactions/CreateTransaction.vue'), { auth: true }),
+    makeRoute('/transactions/:id', 'transaction-view', () => import('../views/transactions/ViewTransaction.vue'), { auth: true }),
+    makeRoute('/transactions/:id/edit', 'transaction-edit', () => import('../views/transactions/EditTransaction.vue'), { auth: true }),
 
-    // Archive Routes
-    makeRoute('/archive', 'archive', () => import('../views/archive/Archive.vue'), { auth: true }, []),
+    // Payments
+    makeRoute('/payments', 'payments', () => import('../views/payments/Payments.vue'), { auth: true }),
+    makeRoute('/payments/:id', 'payment-view', () => import('../views/payments/ViewPayment.vue'), { auth: true }),
 
-    // Support Tickets Routes
-    makeRoute('/support', 'support-tickets', () => import('../views/support/SupportTickets.vue'), { auth: true }, []),
-    makeRoute('/support/new', 'new-support-ticket', () => import('../views/support/NewSupportTicket.vue'), { auth: true }, []),
-    makeRoute('/support/:id', 'view-support-ticket', () => import('../views/support/ViewSupportTicket.vue'), { auth: true }, []),
+    // Calendar
+    makeRoute('/calendar', 'calendar', () => import('../views/Calendar.vue'), { auth: true }),
 
-    // Documents Routes
-    makeRoute('/documents', 'documents', () => import('../views/documents/Documents.vue'), { auth: true }, []),
-    makeRoute('/documents/new', 'new-document', () => import('../views/documents/NewDocument.vue'), { auth: true }, []),
-    makeRoute('/documents/:id', 'view-document', () => import('../views/documents/ViewDocument.vue'), { auth: true }, []),
-    makeRoute('/documents/:id/edit', 'edit-document', () => import('../views/documents/EditDocument.vue'), { auth: true }, []),
+    // Archive
+    makeRoute('/archive', 'archive', () => import('../views/archive/Archive.vue'), { auth: true }),
 
-    // Employees Routes
-    makeRoute('/employees', 'employees', () => import('../views/employees/Employees.vue'), { auth: true }, []),
-    makeRoute('/employees/new', 'new-employee', () => import('../views/employees/NewEmployee.vue'), { auth: true }, []),
-    makeRoute('/employees/:id', 'view-employee', () => import('../views/employees/ViewEmployee.vue'), { auth: true }, []),
-    makeRoute('/employees/:id/edit', 'edit-employee', () => import('../views/employees/EditEmployee.vue'), { auth: true }, []),
+    // Support Tickets
+    makeRoute('/support', 'support-tickets', () => import('../views/support/SupportTickets.vue'), { auth: true }),
+    makeRoute('/support/create', 'support-ticket-create', () => import('../views/support/CreateSupportTicket.vue'), { auth: true }),
+    makeRoute('/support/:id', 'support-ticket-view', () => import('../views/support/ViewSupportTicket.vue'), { auth: true }),
 
-    // Admin Routes
-    makeRoute('/admin', 'admin-dashboard', () => import('../views/admin/Dashboard.vue'), { auth: true, admin: true }, []),
-    makeRoute('/admin/app', 'admin-app', () => import('../views/admin/AppData.vue'), { auth: true, admin: true }, []),
-    makeRoute('/admin/users', 'admin-users', () => import('../views/admin/users/Users.vue'), { auth: true, admin: true }, []),
-    makeRoute('/admin/users/new', 'admin-new-user', () => import('../views/admin/users/NewUser.vue'), { auth: true, admin: true }, []),
-    makeRoute('/admin/users/:id', 'admin-view-user', () => import('../views/admin/users/ViewUser.vue'), { auth: true, admin: true }, []),
-    makeRoute(
-        '/admin/users/:id/edit',
-        'admin-edit-user',
-        () => import('../views/admin/users/EditUser.vue'),
-        { auth: true, admin: true },
-        []
-    ),
-    makeRoute(
-        '/admin/integrations',
-        'admin-integrations',
-        () => import('../views/admin/Integrations.vue'),
-        { auth: true, admin: true },
-        []
-    ),
-    makeRoute('/admin/company', 'admin-company', () => import('../views/admin/Company.vue'), { auth: true, admin: true }, []),
-    makeRoute(
-        '/admin/settings/general',
-        'admin-settings-general',
-        () => import('../views/admin/settings/General.vue'),
-        { auth: true, admin: true },
-        []
-    ),
-    makeRoute(
-        '/admin/settings/currency',
-        'admin-settings-currency',
-        () => import('../views/admin/settings/Currency.vue'),
-        {
-            auth: true,
-            admin: true,
-        },
-        []
-    ),
-    makeRoute(
-        '/admin/settings/taxes',
-        'admin-settings-taxes',
-        () => import('../views/admin/settings/Taxes.vue'),
-        { auth: true, admin: true },
-        []
-    ),
-    makeRoute(
-        '/admin/settings/numbering',
-        'admin-settings-number',
-        () => import('../views/admin/settings/Numbering.vue'),
-        {
-            auth: true,
-            admin: true,
-        },
-        []
-    ),
-    makeRoute('/admin/roles', 'admin-roles', () => import('../views/admin/roles/Roles.vue'), { auth: true, admin: true }, []),
-    makeRoute('/admin/roles/new', 'admin-new-role', () => import('../views/admin/roles/NewRole.vue'), { auth: true, admin: true }, []),
-    makeRoute('/admin/roles/:id', 'admin-edit-role', () => import('../views/admin/roles/EditRole.vue'), { auth: true, admin: true }, []),
-    // Departments Routes
-    makeRoute(
-        '/admin/departments',
-        'admin-departments',
-        () => import('../views/admin/departments/Departments.vue'),
-        { auth: true, admin: true },
-        []
-    ),
-    makeRoute(
-        '/admin/departments/new',
-        'admin-new-department',
-        () => import('../views/admin/departments/NewDepartment.vue'),
-        { auth: true, admin: true },
-        []
-    ),
-    makeRoute(
-        '/admin/departments/:id',
-        'admin-edit-department',
-        () => import('../views/admin/departments/EditDepartment.vue'),
-        { auth: true, admin: true },
-        []
-    ),
+    // Admin
+    makeRoute('/admin', 'admin', () => import('../views/admin/AdminDashboard.vue'), { auth: true, admin: true }),
 
-    // Client Routes
-    makeRoute('/client/invoice/:id', 'client-invoice', () => import('../views/client/Invoice.vue'), { auth: false, client: true }, []),
-    makeRoute('/client/quote/:id', 'client-quote', () => import('../views/client/Quote.vue'), { auth: false, client: true }, []),
-    makeRoute(
-        '/client/support/:id',
-        'client-support',
-        () => import('../views/client/SupportTicket.vue'),
-        { auth: false, client: true },
-        []
-    ),
+    // Admin - Users
+    makeRoute('/admin/users', 'admin-users', () => import('../views/admin/users/Users.vue'), { auth: true, admin: true }),
+    makeRoute('/admin/users/create', 'admin-user-create', () => import('../views/admin/users/CreateUser.vue'), { auth: true, admin: true }),
+    makeRoute('/admin/users/:id', 'admin-user-view', () => import('../views/admin/users/ViewUser.vue'), { auth: true, admin: true }),
+    makeRoute('/admin/users/:id/edit', 'admin-user-edit', () => import('../views/admin/users/EditUser.vue'), { auth: true, admin: true }),
 
-    // 404
+    // Admin - Departments
+    makeRoute('/admin/departments', 'admin-departments', () => import('../views/admin/departments/Departments.vue'), {
+        auth: true,
+        admin: true,
+    }),
+    makeRoute('/admin/departments/create', 'admin-department-create', () => import('../views/admin/departments/CreateDepartment.vue'), {
+        auth: true,
+        admin: true,
+    }),
+
+    makeRoute('/admin/departments/:id', 'admin-department-view', () => import('../views/admin/departments/ViewDepartment.vue'), {
+        auth: true,
+        admin: true,
+    }),
+
+    makeRoute('/admin/departments/:id/edit', 'admin-department-edit', () => import('../views/admin/departments/EditDepartment.vue'), {
+        auth: true,
+        admin: true,
+    }),
+
+    // Admin - Roles
+    makeRoute('/admin/roles', 'admin-roles', () => import('../views/admin/roles/Roles.vue'), { auth: true, admin: true }),
+    makeRoute('/admin/roles/create', 'admin-role-create', () => import('../views/admin/roles/CreateRole.vue'), { auth: true, admin: true }),
+    makeRoute('/admin/roles/:id', 'admin-role-view', () => import('../views/admin/roles/ViewRole.vue'), { auth: true, admin: true }),
+    makeRoute('/admin/roles/:id/edit', 'admin-role-edit', () => import('../views/admin/roles/EditRole.vue'), { auth: true, admin: true }),
+
+    // Admin - Settings
+    makeRoute('/admin/settings/taxes', 'admin-settings-tax', () => import('../views/admin/settings/Taxes.vue'), {
+        auth: true,
+        admin: true,
+    }),
+    makeRoute('/admin/settings/numbering', 'admin-settings-numbering', () => import('../views/admin/settings/Numbering.vue'), {
+        auth: true,
+        admin: true,
+    }),
+    makeRoute('/admin/company', 'admin-settings-company', () => import('../views/admin/settings/Company.vue'), {
+        auth: true,
+        admin: true,
+    }),
+
+    makeRoute('/admin/webhooks', 'admin-webhooks', () => import('../views/admin/settings/Webhooks.vue'), {
+        auth: true,
+        admin: true,
+    }),
+
+    makeRoute('/admin/settings/general', 'admin-settings', () => import('../views/admin/settings/General.vue'), {
+        auth: true,
+        admin: true,
+    }),
+
+    makeRoute('/admin/integrations', 'admin-integrations', () => import('../views/admin/settings/Integrations.vue'), {
+        auth: true,
+        admin: true,
+    }),
+
+    makeRoute('/admin/settings/currencies', 'admin-settings-currencies', () => import('../views/admin/settings/Currency.vue'), {
+        auth: true,
+        admin: true,
+    }),
+
+    makeRoute('/admin/settings/units', 'admin-settings-units', () => import('../views/admin/settings/Units.vue'), {
+        auth: true,
+        admin: true,
+    }),
+
+    makeRoute('/admin/settings/email', 'admin-settings-email', () => import('../views/admin/settings/Email.vue'), {
+        auth: true,
+        admin: true,
+    }),
+
+    // Anonymous routes
+    makeRoute('/client/invoice/:id', 'client-invoice-view', () => import('../views/client/Invoice.vue'), { auth: false }),
+    makeRoute('/client/quote/:id', 'client-quote-view', () => import('../views/client/Quote.vue'), { auth: false }),
+    makeRoute('/client/support/:id', 'client-support-ticket-view', () => import('../views/client/SupportTicket.vue'), { auth: false }),
+
+    // Install
+    makeRoute('/install', 'install', () => import('../views/install/Requirements.vue'), { auth: false }),
+    makeRoute('/install/database', 'install-database', () => import('../views/install/Database.vue'), { auth: false }),
+    makeRoute('/install/migrate', 'install-migrate', () => import('../views/install/MigrateSeed.vue'), { auth: false }),
+    makeRoute('/install/user', 'install-user', () => import('../views/install/User.vue'), { auth: false }),
+    makeRoute('/install/company', 'install-company', () => import('../views/install/Company.vue'), { auth: false }),
+    makeRoute('/install/finish', 'install-finished', () => import('../views/install/Finish.vue'), { auth: false }),
+
+    // 404 - Not Found (Always keep this as the last route)
     {
         path: '/:pathMatch(.*)*',
         name: 'NotFound',
@@ -189,19 +185,19 @@ router.beforeEach((to, from, next) => {
         if (token) {
             next()
         } else {
-            next({ name: 'AuthLogin' })
+            next({ name: 'auth-login', query: { redirect: to.fullPath } })
         }
     } else if (to.meta.admin) {
-        // Check if route requires admin
+        // Check if route requires admin permissions
         if (token && jwtDecode(token).data.permissions.includes('admin')) {
             next()
         } else {
-            next({ name: 'AuthLogin' })
+            next({ name: 'auth-login', query: { redirect: to.fullPath } })
         }
-    } else if (to.name === 'AuthLogin') {
+    } else if (to.name === 'auth-login') {
         // If user is already logged in, redirect to dashboard (only for login page)
         if (token) {
-            next({ name: 'Dashboard' })
+            next({ name: 'dashboard' })
         } else {
             next()
         }
@@ -212,7 +208,6 @@ router.beforeEach((to, from, next) => {
 
 /**
  * Function for creating routes
- *
  * @param {string} path
  * @param {string} name
  * @param {string} view

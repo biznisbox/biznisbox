@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-column mb-1">
-        <label :for="id" class="block text-900 font-medium mb-1"> {{ label }} </label>
+    <div class="flex flex-col gap-2 mb-2">
+        <label :for="id" class="dark:text-surface-200">{{ label }}</label>
         <InputNumber
             v-if="type == 'number'"
             :id="id"
@@ -8,7 +8,7 @@
             :model-value="modelValue"
             :validate="validate"
             :disabled="disabled"
-            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
+            :invalid="validate?.$dirty && validate?.$invalid"
             @input="updateValue"
             @blur="validate?.$touch()"
         />
@@ -23,9 +23,9 @@
             :max-fraction-digits="maxFraction"
             :validate="validate"
             :disabled="disabled"
-            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
+            :invalid="validate?.$dirty && validate?.$invalid"
             @input="updateValue"
-            @blur.native="validate?.$touch()"
+            @blur="validate?.$touch()"
         />
 
         <InputNumber
@@ -38,9 +38,9 @@
             :locale="locale"
             :validate="validate"
             :disabled="disabled"
-            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
+            :invalid="validate?.$dirty && validate?.$invalid"
             @input="updateValue"
-            @blur.native="validate?.$touch()"
+            @blur="validate?.$touch()"
         />
 
         <InputNumber
@@ -53,9 +53,9 @@
             :max-fraction-digits="2"
             :validate="validate"
             :disabled="disabled"
-            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
+            :invalid="validate?.$dirty && validate?.$invalid"
             @input="updateValue"
-            @blur.native="validate?.$touch()"
+            @blur="validate?.$touch()"
         />
 
         <InputNumber
@@ -66,13 +66,15 @@
             :validate="validate"
             show-buttons
             :disabled="disabled"
-            :class="{ 'p-invalid': validate?.$invalid && validate?.$dirty }"
-            @blur.native="validate?.$touch()"
+            :invalid="validate?.$dirty && validate?.$invalid"
+            @blur="validate?.$touch()"
             @input="updateValue"
         />
 
         <div v-if="validate && validate?.$dirty" class="flex flex-column">
-            <div v-for="error in validate.$errors" v-if="validate.$invalid" class="p-error">{{ error.$message }}</div>
+            <div v-if="validate.$invalid" v-for="error in validate.$errors" class="text-red-500 text-sm">
+                {{ error.$message }}
+            </div>
         </div>
     </div>
 </template>

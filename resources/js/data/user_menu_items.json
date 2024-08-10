@@ -16,20 +16,20 @@
         "to": "/admin"
     },
     {
-        "name": "user_menu_items.partners",
-        "meta": ["partners"],
-        "permission": "partners",
-        "permissions": [],
-        "icon": "fa fa-handshake",
-        "to": "/partners"
-    },
-    {
         "name": "user_menu_items.products",
         "meta": ["products"],
         "permission": "products",
         "icon": "fa fa-cubes",
         "to": "/products",
         "permissions": []
+    },
+    {
+        "name": "user_menu_items.partners",
+        "meta": ["partners"],
+        "permission": "partners",
+        "permissions": [],
+        "icon": "fa fa-handshake",
+        "to": "/partners"
     },
     {
         "name": "user_menu_items.billing",
@@ -85,6 +85,12 @@
                 "meta": ["transactions"],
                 "permission": "transactions",
                 "to": "/transactions"
+            },
+            {
+                "name": "user_menu_items.payments",
+                "meta": ["payments"],
+                "permission": "payments",
+                "to": "/payments"
             }
         ]
     },
@@ -111,14 +117,6 @@
         "permission": "employees",
         "permissions": [],
         "to": "/employees"
-    },
-    {
-        "name": "user_menu_items.documents",
-        "meta": ["documents"],
-        "icon": "fa fa-file-alt",
-        "permission": "documents",
-        "permissions": [],
-        "to": "/documents"
     },
     {
         "name": "user_menu_items.calendar",

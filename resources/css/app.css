@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-50: #eff6ff;
+    --primary-100: #dbeafe;
+    --primary-200: #bfdbfe;
+    --primary-300: #93c5fd;
+    --primary-400: #60a5fa;
+    --primary-500: #3b82f6;
+    --primary-600: #2563eb;
+    --primary-700: #1d4ed8;
+    --primary-800: #1e40af;
+    --primary-900: #1e3a8a;
+    --primary-950: #172554;
+    --surface-0: #ffffff;
+    --surface-50: #f8fafc;
+    --surface-100: #f1f5f9;
+    --surface-200: #e2e8f0;
+    --surface-300: #cbd5e1;
+    --surface-400: #94a3b8;
+    --surface-500: #64748b;
+    --surface-600: #475569;
+    --surface-700: #2e3a4e;
+    --surface-800: #1e293b;
+    --surface-900: #0f172a;
+    --surface-950: #030617;
+}
+.dark {
+    --primary: var(--primary-400);
+}
+
+/* Toggleable Content */
+.sidemenu-toggleable-content-enter-from,
+.sidemenu-toggleable-content-leave-to {
+    max-height: 0;
+}
+
+.sidemenu-toggleable-content-enter-to,
+.sidemenu-toggleable-content-leave-from {
+    max-height: 1000px;
+}
+
+.sidemenu-toggleable-content-leave-active {
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0, 1, 0, 1);
+}
+
+.sidemenu-toggleable-content-enter-active {
+    overflow: hidden;
+    transition: max-height 1s ease-in-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 5px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1 !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888 !important;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555 !important;
+}
+
+/* Custom Classes */
+.link-none-style {
+    text-decoration: none !important;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.dark .card {
+    background-color: #1e293b;
+    border: var(--surface-100) 1px solid;
+    box-shadow: 0 2px 12px 0 var(--surface-600);
+}
+
+.empty-icon {
+    font-size: 1.5rem;
+}

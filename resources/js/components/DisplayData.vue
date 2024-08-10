@@ -1,5 +1,5 @@
 <template>
-    <div v-if="value !== null" class="mb-2">
+    <div v-if="value !== null" class="mb-2" :id="`display_data_${input.toLowerCase()}`">
         <div class="font-bold mb-1">
             {{ input }}
         </div>
@@ -7,19 +7,18 @@
             <slot></slot>
         </div>
         <div v-else-if="isLink">
-            <a :href="!link ? value : link" target="_blank" class="text-blue-500 break_word">
+            <a :href="!link ? value : link" target="_blank" class="text-blue-500 break-word">
                 {{ value }}
             </a>
         </div>
-        <div v-else class="break_word">
+        <div v-else class="break-word">
             {{ value }}
         </div>
     </div>
 </template>
 <script>
-// This component is used to display data from input fields
 export default {
-    name: 'DisplayData',
+    name: 'DisplayDataComponent',
     props: {
         input: {
             type: String,

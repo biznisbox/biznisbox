@@ -6,8 +6,9 @@ export default {
             products: [],
             supplierAddresses: [],
             bill: {
+                id: '',
                 number: '',
-                date: '',
+                date: new Date().toISOString().substr(0, 10),
                 due_date: '',
                 supplier_id: null,
                 supplier_address_id: null,
@@ -19,7 +20,7 @@ export default {
                 currency: 'EUR',
                 currency_rate: 1,
                 discount: 0,
-                discount_type: 'percentage',
+                discount_type: 'percent',
                 total: 0.0,
                 status: 'draft',
                 items: [
@@ -33,6 +34,7 @@ export default {
                         unit: '',
                         price: 0,
                         discount: 0,
+                        discount_type: 'percent',
                         total: 0,
                     },
                 ],
@@ -123,7 +125,7 @@ export default {
          * @return {void} set suppliers
          */
         getSuppliers() {
-            this.makeHttpRequest('GET', '/api/partners_list?type=both,supplier').then((response) => {
+            this.makeHttpRequest('GET', '/api/partner/limited?type=both,supplier').then((response) => {
                 this.suppliers = response.data.data
             })
         },
@@ -133,7 +135,7 @@ export default {
          * @return {void} set products
          */
         getProducts() {
-            this.makeHttpRequest('GET', '/api/products').then((response) => {
+            this.makeHttpRequest('GET', '/api/data?type=products').then((response) => {
                 this.products = response.data.data
             })
         },
@@ -143,7 +145,7 @@ export default {
          * @return {void} set bill number
          */
         getBillNumber() {
-            this.makeHttpRequest('GET', '/api/bill/bill_number').then((response) => {
+            this.makeHttpRequest('GET', '/api/bill/number').then((response) => {
                 this.bill.number = response.data.data
             })
         },

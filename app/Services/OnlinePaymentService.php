@@ -2,314 +2,232 @@
 
 namespace App\Services;
 
-use Stripe\StripeClient;
+use App\Models\OnlinePayment;
 use App\Models\Invoice;
 use App\Models\Transaction;
-use App\Models\ExternalKeys;
-use App\Models\OnlinePayment;
-use Omnipay\Omnipay;
+use App\Integrations\Stripe;
+use App\Integrations\PayPal;
 
 class OnlinePaymentService
 {
-    public function __construct()
+    public function payInvoiceWithStripe($invoice, $key = null, $method = 'web')
     {
-        //
-    }
-
-    public function makeStripePayment($request)
-    {
-        if (!settings('stripe_available')) {
-            return api_response(false, __('response.payment.stripe_not_available'), 400);
-        }
-
-        $type = $request->type ?? 'api';
-
-        $stripe = new StripeClient(settings('stripe_key'));
-
-        $key = $request->key;
-
-        if (validate_external_key($key, 'invoice')) {
-            $key_data = ExternalKeys::where('key', $key)->first();
-            $invoice = Invoice::find($key_data->module_item_id);
-
-            if (!$invoice) {
-                return api_response(false, __('response.invoice.not_found'));
-            }
-
-            if ($invoice->status == 'paid') {
-                return api_response(null, __('response.payment.already_paid'), 400);
-            }
-
-            $payment = $stripe->checkout->sessions->create([
-                'mode' => 'payment',
-                'success_url' => url(
-                    'api/online_payment/stripe/success?key=' . $key . '&status=success&lang=' . app()->getLocale() . '&type=' . $type,
-                ),
-                'cancel_url' => url(
-                    'api/online_payment/stripe/cancel?key=' . $key . '&status=cancel&lang=' . app()->getLocale() . '&type=' . $type,
-                ),
-                'payment_method_types' => ['card'],
-                'metadata' => [
-                    'invoice_id' => $invoice->id,
-                    'key' => $key,
-                ],
-                'line_items' => [
-                    [
-                        'price_data' => [
-                            'currency' => $invoice->currency,
-                            'unit_amount' => $invoice->total * 100,
-                            'product_data' => [
-                                'name' => __('response.payment.invoice') . ' ' . $invoice->number,
-                                'description' => 'Payment for invoice ' . $invoice->number,
-                            ],
-                        ],
-                        'quantity' => 1,
-                    ],
-                ],
-            ]);
-
-            $online_payment = OnlinePayment::create([
-                'payment_method' => 'stripe',
-                'payment_id' => $payment->id,
-                'payment_status' => $payment->payment_status,
-                'payment_response' => $payment,
-                'payment_type' => 'online',
-                'payment_amount' => $invoice->total,
-                'payment_currency' => $invoice->currency,
+        $payment_session = (new Stripe())->createCheckoutForInvoicePayment(
+            $invoice,
+            [
+                'invoice_id' => $invoice->id,
                 'key' => $key,
-            ]);
+            ],
+            url('/api/online-payment/invoice/stripe?invoice=' . $invoice->id . '&key=' . $key . '&status=success&method=' . $method),
+            url('/api/online-payment/invoice/stripe?invoice=' . $invoice->id . '&key=' . $key . '&status=cancel&method=' . $method)
+        );
 
-            activity_log(null, 'payment stripe', $online_payment->id, 'Online Payment', 'payment stripe', 'external', $key);
+        $payment = OnlinePayment::create([
+            'number' => OnlinePayment::getPaymentNumber(),
+            'payment_method' => 'stripe',
+            'payment_id' => $payment_session->id,
+            'type' => 'online',
+            'amount' => $invoice->total,
+            'currency' => $invoice->currency,
+            'description' => __('Payment for Invoice #:invoice', [
+                'invoice' => $invoice->number,
+            ]),
+            'status' => 'pending',
+            'payment_response' => $payment_session,
+            'payment_document_type' => 'App\Models\Invoice',
+            'payment_document_id' => $invoice->id,
+            'key' => $key,
+            'notes' => 'Payment initiated',
+        ]);
 
-            return response()
-                ->json($payment)
-                ->cookie('payment_session_id', $payment->id, 60);
-        }
-        return api_response(false, __('response.invalid_key'), 400);
+        incrementLastItemNumber('payment');
+
+        return [
+            'payment_id' => $payment->id,
+            'redirect_url' => $payment_session->url, // Redirect to this URL to complete payment
+            'payment_session' => $payment_session,
+        ];
     }
 
-    // Validate payment with Stripe
-    public function validateStripePayment($request, $status)
+    public function validateInvoiceStripePayment($payment_id)
     {
-        if (!settings('stripe_available')) {
-            return api_response(false, __('response.payment.stripe_not_available'), 400);
+        $payment = OnlinePayment::find($payment_id);
+        if (!$payment) {
+            return [
+                'error' => true,
+                'message' => __('Payment not found'),
+            ];
         }
+        $payment_session = (new Stripe())->retrievePaymentSession($payment->payment_id);
 
-        $key = $request->key;
-
-        if (validate_external_key($key, 'invoice')) {
-            $key_data = ExternalKeys::where('key', $key)->first();
-            $invoice = Invoice::find($key_data->module_item_id);
-
-            if (!$invoice) {
-                return api_response(false, __('response.invoice.not_found'));
-            }
-
-            $payment = OnlinePayment::where('key', $key)->latest()->first();
-
-            if (!$payment) {
-                return api_response(false, __('response.payment.not_found'), 400);
-            }
-
-            $stripe = new StripeClient(settings('stripe_key'));
-
-            $session = $stripe->checkout->sessions->retrieve($payment->payment_id, []);
-
-            if ($session->payment_status == 'paid') {
-                $payment->payment_status = 'success';
-                $payment->payment_amount = $session->amount_total / 100;
-                $payment->payment_currency = $session->currency;
-                $payment->save();
-
-                $transaction = Transaction::create([
-                    'name' => __('response.payment.invoice') . ' ' . $invoice->number,
-                    'invoice_id' => $invoice->id,
-                    'account_id' => settings('stripe_account_id'),
-                    'payment_id' => $payment->id,
-                    'amount' => $invoice->total,
-                    'customer_id' => $invoice->customer_id,
-                    'currency' => $invoice->currency,
-                    'exchange_rate' => $invoice->currency_rate,
-                    'payment_method' => 'stripe',
-                    'payment_status' => 'success',
-                    'type' => 'income',
-                    'number' => Transaction::getTransactionNumber(),
-                    'date' => date('Y-m-d'),
-                    'referenced_online_payment' => $payment->id,
-                ]);
-
-                if ($transaction) {
-                    $invoice->status = 'paid';
-                    $invoice->payment_method = 'stripe';
-                    $invoice->save();
-                    incrementLastItemNumber('transaction');
-                    activity_log(null, 'validate payment stripe', $payment->id, 'Online Payment', 'payment stripe', 'external', $key);
-
-                    if ($request->type == 'web') {
-                        return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=success&lang=' . app()->getLocale());
-                    }
-                    return api_response(true, __('response.payment.success'));
-                }
-
-                if ($request->type == 'web') {
-                    return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=error&lang=' . app()->getLocale());
-                }
-                return api_response(false, __('response.payment.failed'), 400);
-            }
-
-            if ($request->type == 'web') {
-                return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=error&lang=' . app()->getLocale());
-            }
-            return api_response(false, __('response.payment.failed'), 400);
-        }
-    }
-
-    public function makePaypalPayment($request)
-    {
-        if (!settings('paypal_available')) {
-            return api_response(false, __('response.payment.paypal_not_available'), 400);
-        }
-        $key = $request->key;
-        $type = $request->type ?? 'api';
-
-        if (validate_external_key($key, 'invoice')) {
-            $key_data = ExternalKeys::where('key', $key)->first();
-            $invoice = Invoice::find($key_data->module_item_id);
-
-            if (!$invoice) {
-                return api_response(false, __('response.invoice.not_found'));
-            }
-
-            if ($invoice->status == 'paid') {
-                return api_response(null, __('response.payment.already_paid'), 400);
-            }
-
-            $gateway = Omnipay::create('PayPal_Rest');
-
-            $gateway->initialize([
-                'clientId' => settings('paypal_client_id'),
-                'secret' => settings('paypal_secret'),
-                'testMode' => settings('paypal_test_mode'),
+        if ($payment_session->payment_status == 'paid' && $payment !== 'paid') {
+            $payment->update([
+                'status' => 'paid',
+                'payment_response' => $payment_session,
+                'payment_ref' => $payment_session->payment_intent,
+                'notes' => 'Payment successful',
             ]);
 
-            $transaction = $gateway
-                ->purchase([
-                    'amount' => $invoice->total,
-                    'currency' => $invoice->currency,
-                    'description' => __('response.payment.invoice') . ' ' . $invoice->number,
-                    'returnUrl' => url(
-                        'api/online_payment/paypal/success?key=' . $key . '&status=success&lang=' . app()->getLocale() . '&type=' . $type,
-                    ),
-                    'cancelUrl' => url(
-                        'api/online_payment/paypal/cancel?key=' . $key . '&status=cancel&lang=' . app()->getLocale() . '&type=' . $type,
-                    ),
-                ])
-                ->send();
-
-            if ($transaction->isRedirect()) {
-                $payment = $transaction->getData();
-
-                OnlinePayment::create([
-                    'payment_method' => 'paypal',
-                    'payment_id' => $payment['id'],
-                    'payment_status' => $payment['state'],
-                    'payment_response' => $payment,
-                    'payment_type' => 'online',
-                    'payment_amount' => $payment['transactions'][0]['amount']['total'],
-                    'payment_currency' => $payment['transactions'][0]['amount']['currency'],
-                    'key' => $key,
-                ]);
-
-                activity_log(null, 'payment paypal', $payment['id'], 'Online Payment', 'payment paypal', 'external', $key);
-                return response()
-                    ->json(['url' => $transaction->getRedirectUrl()])
-                    ->cookie('payment_session_id', $payment['id'], 60);
-            }
-            return api_response(false, __('response.payment.failed'), 400);
-        }
-        return api_response(false, __('response.invalid_key'), 400);
-    }
-
-    public function validatePaypalPayment($request, $status)
-    {
-        if (!settings('paypal_available')) {
-            return api_response(false, __('response.payment.paypal_not_available'), 400);
-        }
-        $key = $request->key;
-
-        if (validate_external_key($key, 'invoice')) {
-            $key_data = ExternalKeys::where('key', $key)->first();
-            $invoice = Invoice::find($key_data->module_item_id);
-
-            if ($status == 'cancel') {
-                if ($request->type == 'web') {
-                    return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=error&lang=' . app()->getLocale());
-                }
-                return api_response(false, __('response.payment.cancelled'), 400);
-            }
-
-            $payment = OnlinePayment::where('key', $key)->latest()->first();
-
-            if (!$payment) {
-                return api_response(false, __('response.payment.not_found'), 400);
-            }
-
-            $gateway = Omnipay::create('PayPal_Rest');
-
-            $gateway->initialize([
-                'clientId' => settings('paypal_client_id'),
-                'secret' => settings('paypal_secret'),
-                'testMode' => settings('paypal_test_mode'),
+            $invoice = Invoice::find($payment->payment_document_id);
+            $invoice->update([
+                'status' => 'paid',
+                'payment_method' => 'stripe',
             ]);
 
-            $transaction = $gateway
-                ->completePurchase([
-                    'payer_id' => $request->PayerID,
-                    'transactionReference' => $payment->payment_id,
-                ])
-                ->send();
+            $transaction = Transaction::create([
+                'number' => Transaction::getTransactionNumber(),
+                'invoice_id' => $invoice->id,
+                'customer_id' => $invoice->customer_id,
+                'type' => 'income',
+                'amount' => $payment->amount,
+                'currency' => $payment->currency,
+                'description' => $payment->description,
+                'status' => 'completed',
+                'payment_id' => $payment->id,
+                'notes' => 'Payment successful',
+                'reference' => $payment_session->payment_intent,
+                'date' => date('Y-m-d'),
+                'payment_method' => 'stripe',
+            ]);
 
-            if ($transaction->isSuccessful()) {
-                $payment->payment_status = 'success';
-                $payment->save();
+            incrementLastItemNumber('transaction');
+            createNotification(
+                getUserIdFromEmployeeId($invoice->sales_person_id),
+                'InvoicePayment',
+                'InvoicePaymentReceived',
+                'info',
+                'view',
+                'invoices/' . $invoice->id
+            );
 
-                Transaction::create([
-                    'name' => __('response.payment.invoice') . ' ' . $invoice->number,
-                    'invoice_id' => $invoice->id,
-                    'payment_id' => $payment->id,
-                    'account_id' => settings('paypal_account_id'),
-                    'amount' => $invoice->total,
-                    'customer_id' => $invoice->customer_id,
-                    'currency' => $invoice->currency,
-                    'exchange_rate' => $invoice->currency_rate,
-                    'payment_method' => 'paypal',
-                    'payment_status' => 'success',
-                    'type' => 'income',
-                    'number' => Transaction::getTransactionNumber(),
-                    'date' => date('Y-m-d'),
-                ]);
+            sendWebhookForEvent('online_payment:stripe-received', [
+                'payment_id' => $payment->id,
+                'invoice_id' => $invoice->id,
+                'transaction_id' => $transaction->id,
+            ]);
 
-                if ($transaction) {
-                    $invoice->status = 'paid';
-                    $invoice->payment_method = 'paypal';
-                    $invoice->save();
-                    incrementLastItemNumber('transaction');
-                    activity_log(null, 'validate payment paypal', $payment->id, 'Online Payment', 'payment paypal', 'external', $key);
-
-                    if ($request->type == 'web') {
-                        return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=success&lang=' . app()->getLocale());
-                    }
-                    return api_response(true, __('response.payment.success'));
-                }
-                if ($request->type == 'web') {
-                    return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=error&lang=' . app()->getLocale());
-                }
-                return api_response(false, __('response.payment.failed'), 400);
-            }
-            if ($request->type == 'web') {
-                return redirect('client/invoice/' . $invoice->id . '?key=' . $key . '&status=error&lang=' . app()->getLocale());
-            }
-            return api_response(false, __('response.payment.failed'), 400);
+            return [
+                'data' => $transaction,
+                'message' => __('Payment successful'),
+            ];
         }
+
+        OnlinePayment::where('id', $payment_id)->update([
+            'status' => 'failed',
+            'payment_response' => $payment_session,
+            'notes' => 'Payment failed',
+        ]);
+
+        return [
+            'error' => true,
+            'data' => $payment_session,
+            'message' => __('Payment not successful'),
+        ];
+    }
+
+    public function payInvoiceWithPayPal($invoice, $key = null, $method = 'web')
+    {
+        $payment_session = (new PayPal())->createCheckoutForInvoicePayment(
+            $invoice,
+            [
+                'invoice_id' => $invoice->id,
+                'key' => $key,
+            ],
+            url('/api/online-payment/invoice/paypal?invoice=' . $invoice->id . '&key=' . $key . '&status=success&method=' . $method),
+            url('/api/online-payment/invoice/paypal?invoice=' . $invoice->id . '&key=' . $key . '&status=cancel&method=' . $method)
+        );
+
+        $payment = OnlinePayment::create([
+            'number' => OnlinePayment::getPaymentNumber(),
+            'payment_method' => 'paypal',
+            'payment_id' => $payment_session['id'],
+            'type' => 'online',
+            'amount' => $invoice->total,
+            'currency' => $invoice->currency,
+            'description' => __('Payment for Invoice #:invoice', [
+                'invoice' => $invoice->number,
+            ]),
+            'status' => 'pending',
+            'payment_response' => $payment_session,
+            'payment_document_type' => 'App\Models\Invoice',
+            'payment_document_id' => $invoice->id,
+            'key' => $key,
+            'notes' => 'Payment initiated',
+        ]);
+
+        incrementLastItemNumber('payment');
+
+        return [
+            'payment_id' => $payment['id'],
+            'redirect_url' => $payment_session['links'][1]['href'], // Redirect to this URL to complete payment
+            'payment_session' => $payment_session,
+        ];
+    }
+
+    /**
+     * Validate PayPal payment
+     *
+     * @param string $payment_id  Payment ID from PayPal
+     * @param string $payer_id  Payer ID from PayPal
+     * @return void
+     */
+    public function validateInvoicePayPalPayment($payment_id, $payer_id)
+    {
+        $payment = (new PayPal())->validateInvoicePayPalPayment($payment_id, $payer_id);
+
+        if ($payment['status'] == 'success') {
+            $online_payment = OnlinePayment::where('payment_id', $payment_id)->latest()->first();
+            $online_payment->update([
+                'status' => 'paid',
+                'payment_response' => $payment['payment_response'],
+                'payment_ref' => $payment['payment_response']['id'],
+                'notes' => 'Payment successful',
+            ]);
+
+            $invoice = Invoice::find($online_payment->payment_document_id);
+            $invoice->update([
+                'status' => 'paid',
+                'payment_method' => 'paypal',
+            ]);
+
+            $transaction = Transaction::create([
+                'number' => Transaction::getTransactionNumber(),
+                'invoice_id' => $invoice->id,
+                'customer_id' => $invoice->customer_id,
+                'type' => 'income',
+                'amount' => $online_payment->amount,
+                'currency' => $online_payment->currency,
+                'description' => $online_payment->description,
+                'status' => 'completed',
+                'payment_id' => $online_payment->id,
+                'notes' => 'Payment successful',
+                'reference' => $payment['payment_response']['id'],
+                'date' => date('Y-m-d'),
+                'payment_method' => 'paypal',
+            ]);
+
+            incrementLastItemNumber('transaction');
+            createNotification(
+                getUserIdFromEmployeeId($invoice->sales_person_id),
+                'InvoicePayment',
+                'InvoicePaymentReceived',
+                'info',
+                'view',
+                'invoices/' . $invoice->id
+            );
+
+            sendWebhookForEvent('online_payment:paypal-received', [
+                'payment_id' => $online_payment->id,
+                'invoice_id' => $invoice->id,
+                'transaction_id' => $transaction->id,
+            ]);
+
+            return [
+                'data' => $transaction,
+                'message' => __('Payment successful'),
+            ];
+        }
+
+        return $payment;
     }
 }

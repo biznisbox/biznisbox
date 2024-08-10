@@ -8,7 +8,8 @@ use App\Services\Client\SupportTicketService;
 
 class SupportTicketController extends Controller
 {
-    protected $supportTicketService;
+    private $supportTicketService;
+
     public function __construct(SupportTicketService $supportTicketService)
     {
         $this->supportTicketService = $supportTicketService;
@@ -16,14 +17,22 @@ class SupportTicketController extends Controller
 
     public function getTicket(Request $request)
     {
-        $key = $request->key;
-        return $this->supportTicketService->getTicket($key);
+        $key = $request->get('key');
+        $ticket = $this->supportTicketService->getTicket($key);
+        if ($ticket) {
+            return api_response($ticket, __('responses.data_retrieved_successfully'));
+        }
+        return api_response(null, __('responses.item_not_found'), 404);
     }
 
-    public function clientSendReplay(Request $request)
+    public function replayOnTicket(Request $request)
     {
-        $key = $request->key;
         $data = $request->all();
-        return $this->supportTicketService->clientSendReplay($key, $data);
+        $key = $request->get('key');
+        $content = $this->supportTicketService->replayOnTicket($key, $data);
+        if ($content) {
+            return api_response($content, __('responses.item_updated_successfully'));
+        }
+        return api_response(null, __('responses.item_not_updated'), 400);
     }
 }

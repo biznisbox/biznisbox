@@ -1,29 +1,33 @@
 <template>
     <div id="side_menu">
-        <template v-for="item of menu" :key="item.name">
+        <template v-for="item of menu_items" :key="item.name">
             <div v-if="!item.children && hasPermission(item.permission)">
-                <router-link :to="item.to" class="side-menu-item">
+                <router-link :to="item.to" class="side-menu-item text-surface-300 hover:bg-surface-200 dark:hover:bg-surface-700">
                     <i v-if="item.icon" class="icon" :class="item.icon"></i>
                     <span>{{ $t(item.name) }}</span>
                 </router-link>
             </div>
-            <div v-if="item.children && item.children.length && hasAnyPermission(item.permissions)">
+            <div v-if="item.children && item.children.length && hasAnyPermission(item.permissions)" :id="`side_menu_item_${item.meta[0]}`">
                 <template v-if="item.children">
                     <router-link v-slot="{ isActive }" :to="item.children[0].to" custom>
                         <div>
-                            <a tabindex="0" class="side-menu-item" @click="toggleSubmenu($event, item.meta[0])">
+                            <a
+                                tabindex="0"
+                                class="side-menu-item text-surface-300 hover:bg-surface-200 dark:text-surface-100 dark:hover:bg-surface-700"
+                                @click="toggleSubmenu($event, item.meta[0])"
+                            >
                                 <i v-if="item.icon" class="icon" :class="item.icon"></i>
                                 <span>{{ $t(item.name) }}</span>
                                 <i class="fa fa-chevron-down toggle-icon"></i>
                             </a>
-                            <transition name="p-toggleable-content">
-                                <div v-show="isSubmenuActive(item.meta[0], isActive)" class="p-toggleable-content">
+                            <transition name="sidemenu-toggleable-content">
+                                <div v-show="isSubmenuActive(item.meta[0], isActive)" class="sidemenu-toggleable-content">
                                     <ul>
                                         <li v-for="(submenuitem, i) of item.children" :key="i">
                                             <router-link
                                                 v-if="hasPermission(submenuitem.permission)"
                                                 :to="submenuitem.to"
-                                                class="side-menu-item"
+                                                class="side-menu-item text-surface-300 hover:bg-surface-200 dark:hover:bg-surface-700"
                                             >
                                                 <i v-if="submenuitem.icon" class="icon" :class="submenuitem.icon"></i>
                                                 <span>{{ $t(submenuitem.name) }}</span>
@@ -42,12 +46,13 @@
 
 <script>
 import UserMenu from '@/data/user_menu_items.json'
+import AdminMenu from '@/data/admin_menu_items.json'
 export default {
     name: 'SideMenuComponent',
     props: {
-        menu: {
-            type: Array,
-            default: UserMenu,
+        menu_type: {
+            type: String,
+            default: 'user', // user, admin, client
         },
     },
     data() {
@@ -57,7 +62,11 @@ export default {
             routes: [],
         }
     },
-
+    computed: {
+        menu_items() {
+            return this.menu_type === 'user' ? UserMenu : AdminMenu
+        },
+    },
     methods: {
         toggleSubmenu(event, name) {
             let active = this.activeSubmenus[name] === true
@@ -82,7 +91,7 @@ export default {
 </script>
 <style scoped>
 .menu-items {
-    padding: 0 0 1rem 0;
+    padding: 0 0 0rem 0;
     display: flex;
     flex-direction: column;
 }
@@ -98,11 +107,6 @@ export default {
     font-weight: 400;
     border-radius: 0.25rem;
     cursor: pointer;
-}
-
-.side-menu-item:hover {
-    background-color: var(--blue-50);
-    color: var(--blue-600);
 }
 
 .side-menu-item .icon {
@@ -122,6 +126,6 @@ ul {
 }
 
 .router-link-active {
-    color: var(--blue-500);
+    color: var(--primary-500);
 }
 </style>

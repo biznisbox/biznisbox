@@ -36,9 +36,9 @@ export default {
                 type: '',
                 entity_type: '',
                 vat_number: '',
-                language: '',
+                language: null,
                 currency: '',
-                size: '',
+                size: null,
                 website: '',
                 addresses: [],
                 contacts: [],
@@ -93,7 +93,7 @@ export default {
         updatePartner(id) {
             this.makeHttpRequest('PUT', '/api/partners/' + id, this.partner).then((response) => {
                 this.showToast(response.data.message)
-                this.$router.push({ name: 'view-partner', params: { id: id } })
+                this.$router.push({ name: 'partner-view', params: { id: id } })
             })
         },
 
@@ -130,7 +130,7 @@ export default {
          * @return {void}
          */
         getNextPartnerNumber() {
-            this.makeHttpRequest('GET', '/api/partner/partner_number').then((response) => {
+            this.makeHttpRequest('GET', '/api/partner/number').then((response) => {
                 this.partner.number = response.data.data
             })
         },

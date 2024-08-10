@@ -7,65 +7,42 @@ use App\Services\AuthService;
 
 class AuthController extends Controller
 {
-    protected $authService;
+    private $authService;
     public function __construct(AuthService $authService)
     {
         $this->authService = $authService;
     }
 
-    /**
-     * Login
-     *
-     * @param Request $request
-     * @return void
-     */
     public function Login(Request $request)
     {
-        $email = $request->input('email');
-        $password = $request->input('password');
-        $token = $this->authService->login($email, $password);
-        if ($token) {
-            return api_response($token, __('response.login.success'));
+        $data = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+            'otp' => 'nullable',
+        ]);
+
+        $login = $this->authService->Login($data);
+        if (!$login) {
+            return api_response(null, __('responses.invalid_credentials'), 401);
         }
-        return api_response(null, __('response.login.failed'), 401);
+        return api_response($login, $login['message'] ?? __('responses.login_successful'));
     }
 
-    /**
-     * Logout
-     *
-     * @param Request $request
-     * @return void
-     */
-    public function Logout(Request $request)
+    public function Logout()
     {
-        $token = $request->bearerToken();
-        $logout = $this->authService->logout($token);
-        if ($logout) {
-            return api_response(null, __('response.logout.success'));
-        }
-        return api_response(null, __('response.logout.failed'), 401);
+        $this->authService->Logout();
+        return api_response(null, __('responses.logout_successful'));
     }
 
-    public function selfResetPassword(Request $request)
+    public function Refresh()
     {
-        $email = $request->input('email');
-        $reset = $this->authService->selfResetPassword($email);
-        if ($reset) {
-            return api_response(null, __('response.reset.success'));
-        }
-        return api_response(null, __('response.reset.failed'), 400);
+        $token = $this->authService->Refresh();
+        return api_response($token, __('responses.token_refreshed'));
     }
 
-    public function setNewPassword(Request $request)
+    public function Me()
     {
-        $token = $request->input('token');
-        $email = $request->input('email');
-        $password = $request->input('password');
-        $password_confirmation = $request->input('password_confirmation');
-        $reset = $this->authService->setNewPassword($email, $password, $token, $password_confirmation);
-        if ($reset) {
-            return api_response(null, __('response.reset.success'));
-        }
-        return api_response(null, __('response.reset.failed'), 400);
+        $user = $this->authService->Me();
+        return api_response($user, __('responses.data_retrieved_successfully'));
     }
 }

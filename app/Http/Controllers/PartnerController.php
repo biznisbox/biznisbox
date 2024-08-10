@@ -3,82 +3,80 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Partner;
+use App\Services\PartnerService;
 
 class PartnerController extends Controller
 {
-    protected $partnerModel;
-    public function __construct(Partner $partnerModel)
+    private $partnerService;
+    public function __construct(PartnerService $partnerService)
     {
-        $this->partnerModel = $partnerModel;
-    }
-
-    public function getPartners(Request $request)
-    {
-        $type = $request->type ?? null;
-        $partners = $this->partnerModel->getPartners($type);
-        activity_log(user_data()->data->id, 'get partners', null, 'App\Services\PartnerService', 'getPartners', 'Partner');
-        if ($partners) {
-            return api_response($partners, __('response.partner.get_success'));
-        }
-        return api_response(null, __('response.partner.not_found'), 404);
-    }
-
-    public function getPartner($id)
-    {
-        $partner = $this->partnerModel->getPartner($id);
-        activity_log(user_data()->data->id, 'get partner', null, 'App\Services\PartnerService', 'getPartner', 'Partner');
-        if ($partner) {
-            return api_response($partner, __('response.partner.get_success'));
-        }
-        return api_response(null, __('response.partner.not_found'), 404);
+        $this->partnerService = $partnerService;
     }
 
     public function createPartner(Request $request)
     {
-        $data = $request->all();
-        $partner = $this->partnerModel->createPartner($data);
-        if ($partner) {
-            return api_response($partner, __('response.partner.create_success'));
+        $partner = $this->partnerService->createPartner($request->all());
+        if (!$partner) {
+            return api_response(null, __('responses.item_not_created'), 400);
         }
-        return api_response(null, __('response.partner.create_failed'), 404);
+        return api_response($partner, __('responses.item_created_successfully'));
     }
 
-    public function updatePartner(Request $request, $id)
+    public function updatePartner(Request $request, string $id)
     {
-        $data = $request->all();
-        $partner = $this->partnerModel->updatePartner($id, $data);
-        if ($partner) {
-            return api_response($partner, __('response.partner.update_success'));
+        $partner = $this->partnerService->updatePartner($id, $request->all());
+        if (!$partner) {
+            return api_response(null, __('responses.item_not_updated'), 400);
         }
-        return api_response(null, __('response.partner.update_failed'), 404);
+        return api_response($partner, __('responses.item_updated_successfully'));
     }
 
-    public function deletePartner($id)
+    public function deletePartner(string $id)
     {
-        $partner = $this->partnerModel->deletePartner($id);
-        if ($partner) {
-            return api_response($partner, __('response.partner.delete_success'));
+        $partner = $this->partnerService->deletePartner($id);
+        if (!$partner) {
+            return api_response(null, __('responses.item_not_deleted'), 400);
         }
-        return api_response(null, __('response.partner.delete_failed'), 404);
+        return api_response($partner, __('responses.item_deleted_successfully'));
     }
 
-    public function getPartnerNumber(Request $request)
+    public function getPartners()
     {
-        $number = $this->partnerModel->getPartnerNumber();
-        if ($number) {
-            return api_response($number);
+        $partners = $this->partnerService->getPartners();
+        if (!$partners) {
+            return api_response(null, __('responses.item_not_found'), 400);
         }
-        return api_response(null, __('response.partner.not_found'), 404);
+        return api_response($partners, __('responses.data_retrieved_successfully'));
+    }
+
+    public function getPartner(string $id)
+    {
+        $partner = $this->partnerService->getPartner($id);
+        if (!$partner) {
+            return api_response(null, __('responses.item_not_found_with_id'), 404);
+        }
+        return api_response($partner, __('responses.data_retrieved_successfully'));
+    }
+
+    public function getPartnerNumber()
+    {
+        $partner = $this->partnerService->getPartnerNumber();
+        if (!$partner) {
+            return api_response(null, __('responses.item_not_found'), 400);
+        }
+        return api_response($partner, __('responses.data_retrieved_successfully'));
     }
 
     public function getPartnersLimitedData(Request $request)
     {
-        $type = $request->type ?? null;
-        $partners = $this->partnerModel->getPartnersLimitedData($type);
-        if ($partners || count($partners) >= 0) {
-            return api_response($partners);
+        $type = $request->input('type');
+        $partners = $this->partnerService->getPartnersLimitedData($type);
+        if ($partners == []) {
+            return api_response([], __('responses.item_not_found'), 400);
         }
-        return api_response(null, __('response.partner.not_found'), 404);
+        if (!$partners) {
+            return api_response(null, __('responses.item_not_found'), 400);
+        }
+        return api_response($partners, __('responses.data_retrieved_successfully'));
     }
 }

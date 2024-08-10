@@ -27,22 +27,34 @@ class ActivityLog extends Model
         'external_key',
     ];
 
-    protected $casts = [
-        'old_values' => 'array',
-        'new_values' => 'array',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'old_values' => 'array',
+            'new_values' => 'array',
+        ];
+    }
+
+    protected $appends = ['humanized_event_time'];
+
+    protected $dates = ['created_at', 'updated_at'];
+
+    public function generateTags(): array
+    {
+        return ['ActivityLog'];
+    }
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function externalKey()
+    public function externalKeyData()
     {
         return $this->hasOne(ExternalKey::class, 'key', 'external_key');
     }
 
-    public function getActionTimeAttribute()
+    public function getHumanizedEventTimeAttribute()
     {
         return $this->created_at->diffForHumans();
     }
@@ -59,14 +71,15 @@ class ActivityLog extends Model
      * @param string $external_key External key for external access (if type is external)
      * @return void
      */
-    public function createLog(
-        $user_id = null,
+    public static function createLog(
         $event = null,
         $auditable_id = null,
         $auditable_type = null,
         $tags = null,
+        $user_id = null,
+        $user_type = 'App\Models\User', // Default user type is 'App\Models\User
         $type = 'internal',
-        $external_key = null,
+        $external_key = null
     ) {
         self::create([
             'auditable_id' => $auditable_id,
@@ -77,7 +90,8 @@ class ActivityLog extends Model
             'user_agent' => request()->userAgent(),
             'created_at' => now(),
             'updated_at' => now(),
-            'user_id' => $user_id,
+            'user_type' => $user_type,
+            'user_id' => auth()->id() ?? $user_id,
             'tags' => $tags,
             'type' => $type,
             'external_key' => $external_key,

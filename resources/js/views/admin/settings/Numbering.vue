@@ -1,52 +1,83 @@
 <template>
-    <admin-layout>
-        <div id="admin_settings_numbering_page">
-            <LoadingScreen :blocked="loadingData">
-                <user-header :title="$t('admin.numbering.title')" />
+    <DefaultLayout menu_type="admin">
+        <LoadingScreen :blocked="loadingData">
+            <user-header :title="$t('admin.numbering.title')" />
 
-                <div class="card">
-                    <TabView>
-                        <TabPanel :header="$t('admin.numbering.invoice')">
+            <div class="card">
+                <Tabs value="invoice">
+                    <TabList>
+                        <Tab value="invoice">{{ $t('admin.numbering.invoice') }}</Tab>
+                        <Tab value="quote">{{ $t('admin.numbering.quote') }}</Tab>
+                        <Tab value="transaction">{{ $t('admin.numbering.transaction') }}</Tab>
+                        <Tab value="payment">{{ $t('admin.numbering.payment') }}</Tab>
+                        <Tab value="partner">{{ $t('admin.numbering.partner') }}</Tab>
+                        <Tab value="bill">{{ $t('admin.numbering.bill') }}</Tab>
+                        <Tab value="document">{{ $t('admin.numbering.document') }}</Tab>
+                        <Tab value="product">{{ $t('admin.numbering.product') }}</Tab>
+                        <Tab value="employee">{{ $t('admin.numbering.employee') }}</Tab>
+                        <Tab value="archive">{{ $t('admin.numbering.archive') }}</Tab>
+                        <Tab value="project">{{ $t('admin.numbering.project') }}</Tab>
+                    </TabList>
+
+                    <TabPanels>
+                        <!-- Invoice -->
+                        <TabPanel value="invoice">
                             <NumberingInput v-model="settings.invoice_number_format" @update:model-value="updateNumberingModel" />
                         </TabPanel>
-                        <TabPanel :header="$t('admin.numbering.quote')">
+                        <!-- Quote -->
+                        <TabPanel value="quote">
                             <NumberingInput v-model="settings.quote_number_format" @update:model-value="updateNumberingModel" />
                         </TabPanel>
-                        <TabPanel :header="$t('admin.numbering.transaction')">
+                        <!-- Transaction -->
+                        <TabPanel value="transaction">
                             <NumberingInput v-model="settings.transaction_number_format" @update:model-value="updateNumberingModel" />
                         </TabPanel>
-                        <TabPanel :header="$t('admin.numbering.payment')">
+                        <!-- Payment -->
+                        <TabPanel value="payment">
                             <NumberingInput v-model="settings.payment_number_format" @update:model-value="updateNumberingModel" />
                         </TabPanel>
-                        <TabPanel :header="$t('admin.numbering.partner')">
+                        <!-- Partner -->
+                        <TabPanel value="partner">
                             <NumberingInput v-model="settings.partner_number_format" @update:model-value="updateNumberingModel" />
                         </TabPanel>
-                        <TabPanel :header="$t('admin.numbering.bill')">
+                        <!-- Bill -->
+                        <TabPanel value="bill">
                             <NumberingInput v-model="settings.bill_number_format" @update:model-value="updateNumberingModel" />
                         </TabPanel>
-                        <TabPanel :header="$t('admin.numbering.document')">
+                        <!-- Document -->
+                        <TabPanel value="document">
                             <NumberingInput v-model="settings.document_number_format" @update:model-value="updateNumberingModel" />
                         </TabPanel>
-                        <TabPanel :header="$t('admin.numbering.product')">
+                        <!-- Product -->
+                        <TabPanel value="product">
                             <NumberingInput v-model="settings.product_number_format" @update:model-value="updateNumberingModel" />
                         </TabPanel>
-                        <TabPanel :header="$t('admin.numbering.employee')">
+                        <!-- Employee -->
+                        <TabPanel value="employee">
                             <NumberingInput v-model="settings.employee_number_format" @update:model-value="updateNumberingModel" />
                         </TabPanel>
-                    </TabView>
-                </div>
-                <div id="function_buttons" class="flex gap-2 justify-content-end">
-                    <Button
-                        id="save_button"
-                        :label="$t('basic.save')"
-                        icon="fa fa-floppy-disk"
-                        class="p-button-success"
-                        @click="updateNumberingSettings"
-                    />
-                </div>
-            </LoadingScreen>
-        </div>
-    </admin-layout>
+                        <!-- Archive -->
+                        <TabPanel value="archive">
+                            <NumberingInput v-model="settings.archive_number_format" @update:model-value="updateNumberingModel" />
+                        </TabPanel>
+                        <!-- Project -->
+                        <TabPanel value="project">
+                            <NumberingInput v-model="settings.project_number_format" @update:model-value="updateNumberingModel" />
+                        </TabPanel>
+                    </TabPanels>
+                </Tabs>
+            </div>
+            <div id="function_buttons" class="flex justify-end mt-4">
+                <Button
+                    id="save_button"
+                    :label="$t('basic.save')"
+                    icon="fa fa-floppy-disk"
+                    severity="success"
+                    @click="updateNumberingSettings"
+                />
+            </div>
+        </LoadingScreen>
+    </DefaultLayout>
 </template>
 
 <script>

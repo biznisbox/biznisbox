@@ -26,7 +26,7 @@ return [
     'user' => [
         'morph_prefix' => 'user',
         'guards' => ['web', 'api'],
-        'resolver' => \App\Resolvers\UserResolver::class,
+        'resolver' => OwenIt\Auditing\Resolvers\UserResolver::class,
     ],
 
     /*
@@ -34,7 +34,7 @@ return [
     | Audit Resolvers
     |--------------------------------------------------------------------------
     |
-    | Define the User, IP Address, User Agent and URL resolver implementations.
+    | Define the IP Address, User Agent and URL resolver implementations.
     |
     */
     'resolvers' => [
@@ -143,6 +143,22 @@ return [
             'table' => 'activity_log',
             'connection' => null,
         ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Audit Queue Configurations
+    |--------------------------------------------------------------------------
+    |
+    | Available audit queue configurations.
+    |
+    */
+
+    'queue' => [
+        'enable' => false,
+        'connection' => 'sync',
+        'queue' => 'default',
+        'delay' => 0,
     ],
 
     /*

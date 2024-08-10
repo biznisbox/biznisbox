@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
+use OwenIt\Auditing\Contracts\Auditable;
+use Illuminate\Support\Facades\Log;
 
 class Partner extends Model implements Auditable
 {
@@ -27,10 +28,12 @@ class Partner extends Model implements Auditable
         'notes',
         'website',
         'size',
-        'currency',
         'industry',
+        'currency',
         'status',
     ];
+
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
     public function generateTags(): array
     {
@@ -67,9 +70,14 @@ class Partner extends Model implements Auditable
         return $this->hasMany(Bill::class, 'supplier_id')->union($this->hasMany(Bill::class, 'customer_id'));
     }
 
-    public function support_tickets()
+    public function supportTickets()
     {
         return $this->hasMany(SupportTicket::class);
+    }
+
+    public function archiveDocuments()
+    {
+        return $this->hasMany(Archive::class);
     }
 
     public function getPartners($type = null)
@@ -77,17 +85,31 @@ class Partner extends Model implements Auditable
         // type can have comma separated values (customer, supplier, both)
         if ($type) {
             $type = explode(',', $type);
-            return $this->with('addresses', 'contacts')->whereIn('type', $type)->get();
+            $partners = $this->with('addresses', 'contacts')->whereIn('type', $type)->get();
         } else {
-            return $this->with('addresses', 'contacts')->get();
+            $partners = $this->with('addresses', 'contacts')->get();
         }
+        createActivityLog('retrieve', null, 'App\Models\Partner', 'Partner');
+        return $partners;
     }
 
-    public function getPartner($id)
+    public function getPartner($id, $full = false)
     {
-        return $this->with('addresses', 'contacts', 'invoices', 'quotes', 'transactions', 'bills', 'support_tickets')
-            ->where('id', $id)
-            ->first();
+        $partner = $this->with(
+            'addresses',
+            'contacts',
+            'invoices',
+            'quotes',
+            'transactions',
+            'bills',
+            'supportTickets',
+            'archiveDocuments'
+        )->find($id);
+        if (!$partner) {
+            return null;
+        }
+        createActivityLog('retrieve', $id, 'App\Models\Partner', 'Partner');
+        return $partner;
     }
 
     /**
@@ -117,6 +139,7 @@ class Partner extends Model implements Auditable
             incrementLastItemNumber('partner');
             DB::commit();
             $partner = $this->getPartner($partner->id); // get partner with addresses and contacts
+            sendWebhookForEvent('partner:created', $partner->toArray());
             return $partner;
         } catch (\Exception $e) {
             DB::rollback();
@@ -144,9 +167,11 @@ class Partner extends Model implements Auditable
                 }
                 DB::commit();
                 $partner = $this->getPartner($partner->id);
+                sendWebhookForEvent('partner:updated', $partner->toArray());
                 return $partner;
             }
         } catch (\Exception $e) {
+            Log::error($e->getMessage());
             DB::rollback();
             return false;
         }
@@ -162,6 +187,7 @@ class Partner extends Model implements Auditable
             $partner = $this->find($id);
             if ($partner) {
                 $partner->delete();
+                sendWebhookForEvent('partner:deleted', $partner->toArray());
                 return true;
             }
         } catch (\Exception $e) {
@@ -188,7 +214,7 @@ class Partner extends Model implements Auditable
 
     public static function getPartnerNumber()
     {
-        $number = generate_next_number(settings('partner_number_format'), 'partner');
+        $number = generateNextNumber(settings('partner_number_format'), 'partner');
         return $number;
     }
 
@@ -209,6 +235,7 @@ class Partner extends Model implements Auditable
                 'type' => $partner->type,
                 'entity_type' => $partner->entity_type,
                 'addresses' => $partner->addresses->toArray(),
+                'contacts' => $partner->contacts->toArray(),
             ];
         }
         return $data;

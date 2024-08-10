@@ -13,10 +13,6 @@ export default {
             type: Boolean,
             default: false,
         },
-        modelValue: {
-            type: Boolean,
-            default: false,
-        },
     },
 }
 </script>

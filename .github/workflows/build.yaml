@@ -1,54 +1,65 @@
 name: Build
-'on':
+on:
     push:
         branches:
             - main
+    schedule:
+        # Every week on Sunday at midnight
+        - cron: '0 0 * * 0'
+env:
+    TYPE_OF_BUILD: 'production'
+    ENV_ARTIFACT_NAME: ''
+    GITHUB_SHA: ${{ github.sha }}
 jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - name: Checkout code
+              uses: actions/checkout@v4
+            - name: Setup build type - nightly
+              if: github.event_name == 'schedule'
+              env:
+                  TYPE_OF_BUILD: 'nightly'
+              run: |
+                  echo "ENV_ARTIFACT_NAME=$TYPE_OF_BUILD" >> $GITHUB_ENV
+                  echo "TYPE_OF_BUILD=$TYPE_OF_BUILD" >> $GITHUB_ENV
+                  echo "Scheduled build"
+            - name: Setup build type - production
+              if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+              env:
+                  TYPE_OF_BUILD: 'production'
+              run: |
+                  echo "ENV_ARTIFACT_NAME=$TYPE_OF_BUILD" >> $GITHUB_ENV
+                  echo "TYPE_OF_BUILD=$TYPE_OF_BUILD" >> $GITHUB_ENV
+                  echo "Pushed to main - production build"
             - name: Setup PHP with PECL extension
               uses: shivammathur/setup-php@v2
               with:
                   php-version: '8.3'
-                  extensions: mbstring, intl, gd, pdo_mysql, zip, exif, pcntl, bcmath, soap, imagick, xdebug, opcache
+                  extensions: mbstring, intl, gd, pdo_mysql, zip, exif, pcntl, bcmath, soap, imagick, xdebug, opcache, imagick
                   tools: composer:v2
             - name: Install Composer dependencies
               run: composer install --no-interaction --prefer-dist --optimize-autoloader
             - name: Install NPM modules
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: 20
             - run: |
                   npm install --no-audit
+            - name: Build frontend (Vite)
+              run: |
                   npm run build
-                  npm install --production --no-audit
-            - name: Deploy CSS
-              run: php deploy
-            - name: Remove dev dependencies and git files
+            - name: Remove unnecessary files (dev dependencies, tests, etc.) and optimize autoloader
               run: |
                   composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
-                  rm -rf .git
-                  rm -rf .github
-                  rm -rf .gitignore
-                  rm -rf .gitattributes
-                  rm -rf .editorconfig
-                  rm -rf .env
-                  rm -rf .eslintrc.cjs
-                  rm -rf .prettierignore
-                  rm -rf .prettierrc.json
-                  rm -rf .jsconfig.json
-                  rm -rf cypress
-                  rm -rf cypress.config.cjs
-                  rm -rf cypress.env.json
-                  rm -rf phpunit.xml
-                  rm -rf version
-                  rm -rf crowdin.yml
-            - name: Zip all files
-              run: zip -r production.zip * .[^.]*
+                  npm install --production --no-audit
+                  rm -rf .git .github .gitignore .gitattributes .editorconfig .env .eslintrc.cjs .prettierignore .prettierrc.json .jsconfig.json cypress cypress.config.cjs cypress.env.json phpunit.xml version crowdin.yml
+            - name: Copy build files to production directory (manifest) and remove Vite directory
+              run: |
+                  mv public/build/.vite/manifest.json public/build/manifest.json 
+                  rm -rf public/build/.vite
             - name: Upload artifacts
               uses: actions/upload-artifact@v4
               with:
-                  name: production
-                  path: ${{ github.workspace }}/production.zip
+                  name: ${{ env.ENV_ARTIFACT_NAME }}
+                  path: ${{ github.workspace }}/
