@@ -30,7 +30,7 @@
         "validation_error": "Napaka pri validaciji",
         "not_found_item": "Ni najdeno",
         "bad_request": "Napačna zahteva",
-        "forbidden": "Prepovedano"
+        "forbidden": "Zavrnjeno"
     },
     "basic": {
         "cancel": "Prekliči",
@@ -107,7 +107,7 @@
         "invoices": "Računi",
         "purchases": "Nakupi",
         "quotes": "Ponudba",
-        "bills": "Računi",
+        "bills": "Prejeti računi",
         "banking": "Bančništvo",
         "transactions": "Transakcije",
         "accounts": "Računi",
@@ -126,7 +126,7 @@
         "total_customers": "Skupno število strank",
         "total_products": "Skupno število izdelkov",
         "total_unpaid_invoices": "Skupno število neplačanih računov",
-        "total_unpaid_bills": "Skupno število neplačanih računov",
+        "total_unpaid_bills": "Skupno število neplačanih prejetih računov",
         "year_income_expense_chart": "Prihodki in stroški za letošnje leto",
         "current_month_income_expense_chart": "Prihodki in stroški za trenutni mesec"
     },
@@ -246,7 +246,7 @@
         "to": "Za",
         "cc": "CC",
         "bcc": "BCC",
-        "assigned_to": "Dodeljeno",
+        "assigned_to": "Pripisana",
         "partner": "Partner",
         "new_replay": "Nov odgovor"
     },
@@ -315,12 +315,12 @@
         "other": "Drugo"
     },
     "support_priority": {
-        "none": "Brez",
+        "none": "Nobena",
         "low": "Nizka",
         "medium": "Srednja",
-        "normal": "Običajna",
+        "normal": "Normalna",
         "high": "Visoka",
-        "urgent": "Nujna"
+        "urgent": "Urgentna"
     },
     "product_type": {
         "product": "Izdelek",
@@ -461,13 +461,13 @@
         "completed": "Zaključeno",
         "confirmed": "Potrjeno",
         "tentative": "Pogojno",
-        "open": "Odpri",
+        "open": "Odprto",
         "closed": "Zaprto",
         "archived": "Arhivirano",
         "in_progress": "V teku",
         "reopened": "Ponovno odprto",
         "resolved": "Rešeno",
-        "waiting_for_reply": "Čakam na odgovor"
+        "waiting_for_reply": "Čakanje na odgovor"
     },
     "calendar": {
         "calendar": "Koledar | Koledarji",
@@ -517,16 +517,16 @@
         "delete_confirm_folder": "Ali ste prepričani, da želite izbrisati to mapo?"
     },
     "bill": {
-        "bill": "Račun | Računi",
-        "new_bill": "Nov račun",
-        "edit_bill": "Uredi račun",
-        "no_bills": "Ni računov",
-        "create_first_bill": "Ustvarite svoj prvi račun",
+        "bill": "Prejeti račun | Prejeti računi",
+        "new_bill": "Nov prejeti račun",
+        "edit_bill": "Uredi prejeti račun",
+        "no_bills": "Ni prejetih računov",
+        "create_first_bill": "Ustvarite svoj prvi prejeti račun",
         "no_supplier": "Ni dobavitelja",
         "no_items": "Ni postavk",
         "select_item": "Izberi postavko",
         "date_and_due_date": "Datum in datum zapadlosti",
-        "delete_confirm_bill": "Ali ste prepričani, da želite izbrisati ta račun?"
+        "delete_confirm_bill": "Ali ste prepričani, da želite izbrisati izbrani prejeti račun?"
     },
     "account": {
         "account": "Račun | Računi",
@@ -552,23 +552,23 @@
         "delete_confirm_document": "Ali ste prepričani, da želite izbrisati ta dokument?"
     },
     "support": {
-        "support": "Podpora | Podpira",
-        "support_tickets": "Podporni vstopnice",
-        "view_ticket": "Ogled vstopnice",
-        "new_ticket": "Nova vstopnica",
-        "edit_ticket": "Uredi vstopnico",
-        "no_support_tickets": "Ni najdenih vstopnic",
-        "create_first_support_ticket": "Ustvarite svojo prvo vstopnico",
-        "delete_confirm_ticket": "Ali ste prepričani, da želite izbrisati to vstopnico?",
-        "ticket_reply_delete_confirm": "Ali ste prepričani, da želite izbrisati ta odgovor na vstopnico?",
+        "support": "Podpora",
+        "support_tickets": "Podporni zahtevki",
+        "view_ticket": "Ogled zahtevka",
+        "new_ticket": "Nov zahtevek",
+        "edit_ticket": "Uredi zahtevek",
+        "no_support_tickets": "Ne najdem zahtevkov",
+        "create_first_support_ticket": "Ustvarite vaš prvi zahtevek",
+        "delete_confirm_ticket": "Ali ste prepričani, da želite izbrisati zahtevek",
+        "ticket_reply_delete_confirm": "Ali ste prepričani, daželite izbrisati ta odgovor na tem zahtevku",
         "share_dialog": "Deli vstopnico",
         "share_dialog_text": "Kopirajte spodnjo povezavo in jo delite s partnerjem ali skenirajte QR kodo.",
         "system": "Sistem",
         "delete_confirm_message": "Ali ste prepričani, da želite izbrisati to sporočilo?",
-        "ticket_details": "Podrobnosti vstopnice",
+        "ticket_details": "Podrobnosti zahtevka",
         "mark_as_resolved": "Označi kot rešeno",
         "mark_as_closed": "Označi kot zaprto",
-        "reopen_ticket": "Ponovno odprite vstopnico"
+        "reopen_ticket": "Ponovno odpri"
     },
     "employee": {
         "employee": "Zaposlen | Zaposleni",
@@ -765,7 +765,7 @@
             "payment": "Format številke plačila",
             "quote": "Format številke ponudbe",
             "partner": "Format številke partnerja",
-            "bill": "Format številke računa",
+            "bill": "Format številke prejetega računa",
             "document": "Format številke dokumenta",
             "product": "Format številke produkta",
             "employee": "Format številke zaposlenega"
