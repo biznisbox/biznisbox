@@ -2,7 +2,7 @@
 
 return [
     'permission' => 'Permission',
-    'products' => 'Product',
+    'products' => 'Products',
     'invoices' => 'Invoices',
     'quotes' => 'Quotes',
     'bills' => 'Bills',
