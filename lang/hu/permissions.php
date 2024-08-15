@@ -40,5 +40,5 @@ return [
     'super_admin' => 'Szuper Admin',
     'admin_email_settings' => 'Admin Email Beállítások',
     'admin_webhooks' => 'Admin Webhookok',
-    'webhooks' => 'Webhooks',
+    'webhooks' => 'Webhorgonyok',
 ];
