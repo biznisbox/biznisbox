@@ -40,4 +40,5 @@ return [
     'super_admin' => 'Супер админ',
     'admin_email_settings' => 'Настройки электронной почты администратора',
     'admin_webhooks' => 'Админ Webhooks',
+    'webhooks' => 'Вебхуки',
 ];
