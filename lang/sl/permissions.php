@@ -6,7 +6,7 @@ return [
     'calendar' => 'Koledar',
     'invoices' => 'Računi',
     'payments' => 'Plačila',
-    'admin' => 'Skrbnik',
+    'admin' => 'Admin',
     'admin_permissions' => 'Admin uporabniške pravice',
     'admin_general_settings' => 'Admin splošne nastavitve',
     'admin_roles' => 'Admin vloge',
