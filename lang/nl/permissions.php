@@ -40,4 +40,5 @@ return [
     'super_admin' => 'Super Beheerder',
     'admin_email_settings' => 'Admin e-mailinstellingen',
     'admin_webhooks' => 'Beheerder Webhooks',
+    'webhooks' => 'Webhooks',
 ];
