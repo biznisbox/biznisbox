@@ -40,4 +40,5 @@ return [
     'super_admin' => 'Υπερδιαχειριστής',
     'admin_email_settings' => 'Ρυθμίσεις Email Διαχειριστή',
     'admin_webhooks' => 'Webhooks Διαχειριστή',
+    'webhooks' => 'Webhooks',
 ];
