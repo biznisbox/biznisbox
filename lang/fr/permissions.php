@@ -40,4 +40,5 @@ return [
     'super_admin' => 'Super Admin',
     'admin_email_settings' => 'Paramètres de courriel de l\'administrateur',
     'admin_webhooks' => 'Webhooks admin',
+    'webhooks' => 'Webhooks',
 ];
