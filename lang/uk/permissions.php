@@ -40,4 +40,5 @@ return [
     'super_admin' => 'Головний адміністратор',
     'admin_email_settings' => 'Налаштування Email адміністратора',
     'admin_webhooks' => 'Адміністраторські веб-хуки',
+    'webhooks' => 'Вебгаки',
 ];
