@@ -40,4 +40,5 @@ return [
     'super_admin' => 'Super Admin',
     'admin_email_settings' => 'Innstillinger for Admin e-post',
     'admin_webhooks' => 'Admin Webhooks',
+    'webhooks' => 'Nettkroker',
 ];
