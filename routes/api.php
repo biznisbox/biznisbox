@@ -31,6 +31,7 @@ use App\Http\Controllers\Client\QuoteController as ClientQuoteController;
 use App\Http\Controllers\Client\SupportTicketController as ClientSupportTicketController;
 use App\Http\Controllers\Install\InstallerController;
 use App\Http\Middleware\CheckIfInstalled;
+use App\Services\DataService;
 
 Route::group(['prefix' => 'auth'], function () {
     Route::post('/login', [AuthController::class, 'Login'])->name('login_api');
@@ -185,6 +186,8 @@ Route::middleware('auth:api')->group(function () {
     // Payments
     Route::get('/payments', [PaymentController::class, 'getPayments'])->name('getPayments');
     Route::get('/payments/{id}', [PaymentController::class, 'getPayment'])->name('getPayment');
+
+    Route::post('/create_webhook', [DataController::class, 'createWebhookSubscription'])->name('createWebhookSubscription');
 
     Route::group(['prefix' => 'admin'], function () {
         // Dashboard Data

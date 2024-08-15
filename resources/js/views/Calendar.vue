@@ -109,7 +109,7 @@
 
                         <!-- Attendees -->
                         <TabPanel value="attendees">
-                            <div class="mt-2">
+                            <div class="my-2">
                                 <Button :label="$t('calendar.add_attendee')" icon="fa fa-plus" @click="addAttendee" />
                             </div>
 

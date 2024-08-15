@@ -143,4 +143,17 @@ class DataController extends Controller
 
         return api_response(null, __('responses.item_updated_successfully'));
     }
+
+    /***********************************
+     * Webhook subscription methods
+     ***********************************/
+    public function createWebhookSubscription(Request $request)
+    {
+        $data = $request->all();
+        $webhookSubscription = $this->dataService->createWebhookSubscription($data);
+        if (!$webhookSubscription) {
+            return api_response($webhookSubscription, __('responses.item_not_created'), 400);
+        }
+        return api_response($webhookSubscription, __('responses.item_created_successfully'));
+    }
 }

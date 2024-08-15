@@ -170,6 +170,14 @@ class DataService
         return $dashboard_layout;
     }
 
+    public function createWebhookSubscription($data)
+    {
+        $webhook = new \App\Models\WebhookSubscription();
+        $data['headers'] = $this->formatHeaderForBackend($data['headers']);
+        $webhook->$webhook = $webhook->create($data);
+        return $webhook;
+    }
+
     public function returnData($requiredData)
     {
         switch ($requiredData) {
@@ -198,5 +206,14 @@ class DataService
                 return null;
                 break;
         }
+    }
+
+    private function formatHeaderForBackend($header)
+    {
+        $formattedHeader = [];
+        foreach ($header as $h) {
+            $formattedHeader[$h['key']] = $h['value'];
+        }
+        return $formattedHeader;
     }
 }

@@ -7,8 +7,19 @@
                 <!-- Metadata view -->
                 <div class="col-span-1 md:col-span-4">
                     <div class="formgrid card">
-                        <TextInput id="number_input" v-model="supportTicket.number" disabled :label="$t('form.number')" />
-                        <TextInput id="subject_input" v-model="supportTicket.subject" :label="$t('form.subject')" />
+                        <TextInput
+                            id="number_input"
+                            v-model="v$.supportTicket.number.$model"
+                            disabled
+                            :label="$t('form.number')"
+                            :validate="v$.supportTicket.number"
+                        />
+                        <TextInput
+                            id="subject_input"
+                            v-model="v$.supportTicket.subject.$model"
+                            :label="$t('form.subject')"
+                            :validate="v$.supportTicket.subject"
+                        />
                         <SelectInput
                             id="department_input"
                             v-model="supportTicket.department_id"
@@ -33,18 +44,19 @@
                         <div id="partner_input">
                             <div class="flex flex-col gap-2 mb-2">
                                 <label for="custom_partner_switch" class="dark:text-surface-200">{{ $t('form.custom_contact') }}</label>
-                                <InputSwitch id="custom_partner_switch" v-model="supportTicket.custom_contact" />
+                                <ToggleSwitch id="custom_partner_switch" v-model="supportTicket.custom_contact" />
                             </div>
                             <SelectInput
                                 id="partner_input"
                                 v-if="!supportTicket.custom_contact"
-                                v-model="supportTicket.partner_id"
+                                v-model="v$.supportTicket.partner_id.$model"
                                 :label="$t('form.partner')"
                                 :options="partners"
                                 optionLabel="name"
                                 optionValue="id"
                                 showClear
                                 filter
+                                :validate="v$.supportTicket.partner_id"
                             />
 
                             <SelectInput
@@ -60,11 +72,17 @@
                             />
 
                             <div v-if="supportTicket.custom_contact">
-                                <TextInput id="contact_name_input" v-model="supportTicket.contact_name" :label="$t('form.contact_name')" />
+                                <TextInput
+                                    id="contact_name_input"
+                                    v-model="v$.supportTicket.contact_name.$model"
+                                    :label="$t('form.contact_name')"
+                                    :validate="v$.supportTicket.contact_name"
+                                />
                                 <TextInput
                                     id="contact_email_input"
-                                    v-model="supportTicket.contact_email"
+                                    v-model="v$.supportTicket.contact_email.$model"
                                     :label="$t('form.contact_email')"
+                                    :validate="v$.supportTicket.contact_email"
                                 />
                                 <TextInput
                                     id="contact_phone_input"
@@ -77,7 +95,7 @@
                         <div class="grid">
                             <SelectInput
                                 id="status_input"
-                                v-model="supportTicket.status"
+                                v-model="v$.supportTicket.status.$model"
                                 class="col-12 md:col-6"
                                 :label="$t('form.status')"
                                 :options="[
@@ -87,10 +105,11 @@
                                     { label: $t('status.reopened'), value: 'reopened' },
                                     { label: $t('status.resolved'), value: 'resolved' },
                                 ]"
+                                :validate="v$.supportTicket.status"
                             />
                             <SelectInput
                                 id="priority_input"
-                                v-model="supportTicket.priority"
+                                v-model="v$.supportTicket.priority.$model"
                                 class="col-12 md:col-6"
                                 :label="$t('form.priority')"
                                 :options="[
@@ -101,6 +120,7 @@
                                     { label: $t('support_priority.high'), value: 'high' },
                                     { label: $t('support_priority.urgent'), value: 'urgent' },
                                 ]"
+                                :validate="v$.supportTicket.priority"
                             />
                         </div>
                         <div class="grid">
@@ -123,7 +143,7 @@
                     :disabled="loadingData"
                     icon="fa fa-floppy-disk"
                     severity="success"
-                    @click="createSupportTicket"
+                    @click="validateForm"
                 />
             </div>
         </LoadingScreen>
@@ -132,9 +152,14 @@
 
 <script>
 import SupportMixin from '@/mixins/support'
+import { required, requiredIf } from '@/plugins/i18n-validators'
+import { useVuelidate } from '@vuelidate/core'
 export default {
     name: 'CreateSupportTicketPage',
     mixins: [SupportMixin],
+    setup() {
+        return { v$: useVuelidate() }
+    },
     created() {
         this.getSupportTicketNumber()
         this.getDepartments()
@@ -144,6 +169,20 @@ export default {
     data() {
         return {
             partnerContacts: [],
+        }
+    },
+    validations() {
+        return {
+            supportTicket: {
+                number: { required },
+                subject: { required },
+                status: { required },
+                priority: { required },
+                partner_id: { requiredIfNotCustomContact: requiredIf(!this.supportTicket.custom_contact) },
+                contact_id: { requiredIfNotCustomContact: requiredIf(!this.supportTicket.custom_contact) },
+                contact_name: { requiredIfCustomContact: requiredIf(this.supportTicket.custom_contact) },
+                contact_email: { requiredIfCustomContact: requiredIf(this.supportTicket.custom_contact) },
+            },
         }
     },
     watch: {
@@ -165,7 +204,17 @@ export default {
         },
     },
 
-    methods: {},
+    methods: {
+        validateForm() {
+            this.v$.supportTicket.$touch()
+            if (this.v$.supportTicket.$invalid) {
+                this.showToast(this.$t('basic.invalid_form'), this.$t('basic.error'), 'error')
+                return
+            }
+
+            return this.createSupportTicket()
+        },
+    },
 }
 </script>
 <style></style>

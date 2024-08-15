@@ -14,6 +14,7 @@ return [
     'reports' => 'Poročila',
     'admin_integrations' => 'Admin integracije',
     'admin_payment_methods' => 'Admin plačilne metode',
+    'admin_roles' => 'Admin vloge',
     'archive' => 'Arhiv',
     'partners' => 'Partnerji',
     'admin_numbering' => 'Admin številčenje',
@@ -34,7 +35,9 @@ return [
     'bills' => 'Prejeti računi',
     'employees' => 'Zaposleni',
     'documents' => 'Dokumenti',
+    'payments' => 'Plačila',
     'client' => 'Stranka',
-    'super_admin' => 'Super Admin',
+    'super_admin' => 'Super skrbnik',
     'admin_email_settings' => 'Admin nastavitve e-pošte',
+    'admin_webhooks' => 'Skrbniki spletnih uporabnikov',
 ];

@@ -38,7 +38,7 @@
                 </Column>
                 <Column field="listen_events" :header="$t('form.listen_events')">
                     <template #body="{ data }">
-                        <Tag v-for="event in data.listen_events" :key="event" :value="event" />
+                        <Tag v-for="event in data.listen_events" :key="event" :value="event" class="mr-1" />
                     </template>
                 </Column>
                 <Column field="is_active" :header="$t('form.active')">
@@ -90,14 +90,13 @@
                     <MultiSelectInput
                         v-model="v$.webhook_subscription.listen_events.$model"
                         :label="$t('form.listen_events')"
-                        :options="[
-                            { label: '*', value: '*' },
-                            { label: 'partner:created', value: 'partner:created' },
-                        ]"
+                        :options="webhookEvents"
+                        optionLabel="name"
+                        optionValue="name"
                         :validate="v$.webhook_subscription.listen_events"
                     />
 
-                    <div class="flex gap-2">
+                    <div class="flex gap-2 my-4">
                         <Button :label="$t('admin.webhook.add_header')" icon="fa fa-plus" @click="addHeader" />
                     </div>
 
@@ -109,6 +108,7 @@
                             :disabled="header.default || header.key == 'Content-Type'"
                             @click="removeHeader(index)"
                             severity="danger"
+                            class="h-10 mt-9"
                         />
                     </div>
                 </form>
@@ -155,6 +155,7 @@
 </template>
 
 <script>
+import webhookEvents from '@/data/webhook_events.json'
 import { required } from '@/plugins/i18n-validators'
 import { useVuelidate } from '@vuelidate/core'
 export default {
@@ -164,6 +165,7 @@ export default {
     },
     data() {
         return {
+            webhookEvents: webhookEvents,
             webhook_subscriptions: [],
             webhook_subscription: {
                 id: '',

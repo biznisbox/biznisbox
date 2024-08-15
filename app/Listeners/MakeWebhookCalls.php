@@ -29,6 +29,8 @@ class MakeWebhookCalls
                 continue;
             }
 
+            $subscription->update(['last_called_at' => now()]);
+
             WebhookCall::create()
                 ->url($subscription->url)
                 ->payload([

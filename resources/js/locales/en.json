@@ -52,7 +52,9 @@
         "maxLength": "Field must be at most {length} characters",
         "email": "Field must be a valid email address",
         "requiredIfTransfer": "Field is required",
-        "requiredIfNotTransfer": "Field is required"
+        "requiredIfNotTransfer": "Field is required",
+        "requiredIfNotCustomContact": "Field is required",
+        "requiredIfCustomContact": "Field is required"
     },
     "basic": {
         "cancel": "Cancel",

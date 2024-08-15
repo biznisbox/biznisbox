@@ -3,6 +3,7 @@
 namespace App\Services\Admin;
 
 use App\Models\WebhookSubscription;
+
 class WebhookSubscriptionService
 {
     private $webhookSubscription;
@@ -33,14 +34,12 @@ class WebhookSubscriptionService
     public function createWebhookSubscription($data)
     {
         $webhookSubscription = $this->webhookSubscription->create($data);
-        $webhookSubscription->headers = $this->formatHeaderForBackend($webhookSubscription->headers);
         return $webhookSubscription;
     }
 
     public function updateWebhookSubscription($id, $data)
     {
         $webhookSubscription = $this->webhookSubscription->find($id);
-        $webhookSubscription->headers = $this->formatHeaderForBackend($data['headers']);
         if (!$webhookSubscription) {
             return false;
         }
