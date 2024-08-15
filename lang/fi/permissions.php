@@ -40,4 +40,5 @@ return [
     'super_admin' => 'Super Ylläpitäjä',
     'admin_email_settings' => 'Ylläpitäjän Sähköpostiasetukset',
     'admin_webhooks' => 'Ylläpitäjän Verkkokoukut',
+    'webhooks' => 'Verkkokoukut',
 ];
