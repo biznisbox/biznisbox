@@ -53,8 +53,8 @@
         "email": "Prosimo, vnesite veljaven elektronski naslov",
         "requiredIfTransfer": "Polje je obvezno",
         "requiredIfNotTransfer": "Polje je obvezno",
-        "requiredIfNotCustomContact": "Field is required",
-        "requiredIfCustomContact": "Field is required"
+        "requiredIfNotCustomContact": "Polje je obvezno",
+        "requiredIfCustomContact": "Polje je obvezno"
     },
     "basic": {
         "cancel": "Prekliči",
