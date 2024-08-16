@@ -382,7 +382,8 @@
         "document_type": "Typ dokumentu",
         "connected_document": "Připojený dokument",
         "storage_location": "Umístění úložiště",
-        "visibility": "Viditelnost"
+        "visibility": "Viditelnost",
+        "display_name": "Zobrazované jméno"
     },
     "address_types": {
         "billing": "Fakturace",
