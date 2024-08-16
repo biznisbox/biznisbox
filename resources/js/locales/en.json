@@ -382,7 +382,8 @@
         "document_type": "Document Type",
         "connected_document": "Connected Document",
         "storage_location": "Storage Location",
-        "visibility": "Visibility"
+        "visibility": "Visibility",
+        "display_name": "Display Name"
     },
     "address_types": {
         "billing": "Billing",
