@@ -382,7 +382,8 @@
         "document_type": "Asiakirjan Tyyppi",
         "connected_document": "Yhdistetty Asiakirja",
         "storage_location": "Tallennustilan Sijainti",
-        "visibility": "Näkyvyys"
+        "visibility": "Näkyvyys",
+        "display_name": "Näytön Nimi"
     },
     "address_types": {
         "billing": "Laskutus",
