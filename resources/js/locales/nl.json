@@ -382,7 +382,8 @@
         "document_type": "Document type",
         "connected_document": "Verbonden document",
         "storage_location": "Opslag locatie",
-        "visibility": "Zichtbaarheid"
+        "visibility": "Zichtbaarheid",
+        "display_name": "Toon naam"
     },
     "address_types": {
         "billing": "Facturering",
