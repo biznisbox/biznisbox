@@ -382,7 +382,8 @@
         "document_type": "Dokumentum Típus",
         "connected_document": "Csatlakoztatott Dokumentum",
         "storage_location": "Tárolási Hely",
-        "visibility": "Láthatóság"
+        "visibility": "Láthatóság",
+        "display_name": "Megjelenített Név"
     },
     "address_types": {
         "billing": "Billing",
