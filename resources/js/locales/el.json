@@ -382,7 +382,8 @@
         "document_type": "Τύπος Εγγράφου",
         "connected_document": "Συνδεδεμένο Έγγραφο",
         "storage_location": "Τοποθεσία Αποθήκευσης",
-        "visibility": "Ορατότητα"
+        "visibility": "Ορατότητα",
+        "display_name": "Εμφανιζόμενο Όνομα"
     },
     "address_types": {
         "billing": "Χρέωση",
