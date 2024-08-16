@@ -382,7 +382,8 @@
         "document_type": "Belge Türü",
         "connected_document": "Bağlantılı Belge",
         "storage_location": "Depolama Konumu",
-        "visibility": "Görünürlük"
+        "visibility": "Görünürlük",
+        "display_name": "Görüntülenen İsim"
     },
     "address_types": {
         "billing": "Fatura",
