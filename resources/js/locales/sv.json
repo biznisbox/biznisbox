@@ -382,7 +382,8 @@
         "document_type": "Typ av dokument",
         "connected_document": "Anslutet dokument",
         "storage_location": "Lagringsplats",
-        "visibility": "Synlighet"
+        "visibility": "Synlighet",
+        "display_name": "Visningsnamn"
     },
     "address_types": {
         "billing": "Fakturering",
