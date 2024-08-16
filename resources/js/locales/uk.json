@@ -382,7 +382,8 @@
         "document_type": "Назва документу",
         "connected_document": "Підключений документ",
         "storage_location": "Місце зберігання",
-        "visibility": "Видимість"
+        "visibility": "Видимість",
+        "display_name": "Ім'я для відображення"
     },
     "address_types": {
         "billing": "Біллінг",
