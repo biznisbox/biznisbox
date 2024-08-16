@@ -382,7 +382,8 @@
         "document_type": "Tipo de documento",
         "connected_document": "Documento conectado",
         "storage_location": "Ubicación de almacenamiento",
-        "visibility": "Visibilidad"
+        "visibility": "Visibilidad",
+        "display_name": "Mostrar nombre"
     },
     "address_types": {
         "billing": "Facturación",
