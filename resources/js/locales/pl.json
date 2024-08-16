@@ -382,7 +382,8 @@
         "document_type": "Typ dokumentu",
         "connected_document": "Połączony dokument",
         "storage_location": "Lokalizacja magazynu",
-        "visibility": "Widoczność"
+        "visibility": "Widoczność",
+        "display_name": "Wyświetlana nazwa"
     },
     "address_types": {
         "billing": "Płatność",
