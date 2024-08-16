@@ -382,7 +382,8 @@
         "document_type": "Tip dokumenta",
         "connected_document": "Povezani dokument",
         "storage_location": "Lokacija hrambe",
-        "visibility": "Vidljivost"
+        "visibility": "Vidljivost",
+        "display_name": "Prikazno ime"
     },
     "address_types": {
         "billing": "Obračunavanje",
