@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\CheckInstallation;
 
 // Fix for redirecting to login page when user is not authenticated
 Route::get('/auth/login', function () {

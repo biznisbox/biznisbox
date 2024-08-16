@@ -21,10 +21,12 @@
         <Column field="event" :header="$t('audit_log.event')">
             <template #body="{ data }">
                 <Tag v-if="data.event === 'created'" :value="$t('audit_log_event.created')" severity="success" />
-                <Tag v-else-if="data.event === 'updated'" :value="$t('audit_log_event.updated')" severity="warning" />
+                <Tag v-else-if="data.event === 'updated'" :value="$t('audit_log_event.updated')" severity="info" />
                 <Tag v-else-if="data.event === 'deleted'" :value="$t('audit_log_event.deleted')" severity="danger" />
                 <Tag v-else-if="data.event === 'retrieve'" :value="$t('audit_log_event.retrieved')" severity="info" />
                 <Tag v-else-if="data.event === 'restored'" :value="$t('audit_log_event.restored')" severity="info" />
+                <Tag v-else-if="data.event === 'login'" :value="$t('audit_log_event.login')" severity="info" />
+                <Tag v-else-if="data.event === 'logout'" :value="$t('audit_log_event.logout')" severity="info" />
                 <Tag v-else :value="data.event" />
             </template>
         </Column>
@@ -66,8 +68,8 @@
                         <h3 class="text-lg font-semibold">{{ $t('audit_log.changes') }}</h3>
                     </div>
                 </div>
-                <div class="mt-4">
-                    <h4 v-if="slotProps.data.event !== 'created'" class="text-base font-semibold">{{ $t('audit_log.old_values') }}</h4>
+                <div class="mt-2">
+                    <h4 v-if="slotProps.data.event !== 'created'" class="text-base font-semibold my-2">{{ $t('audit_log.old_values') }}</h4>
                     <ul>
                         <li v-for="(value, key) in slotProps.data.old_values" :key="key">
                             <div v-if="!hiddenFields.includes(key)">
@@ -76,11 +78,25 @@
                         </li>
                     </ul>
 
-                    <h4 class="text-base font-semibold mt-4">{{ $t('audit_log.new_values') }}</h4>
+                    <h4 class="text-base font-semibold my-2">{{ $t('audit_log.new_values') }}</h4>
                     <ul>
                         <li v-for="(value, key) in slotProps.data.new_values" :key="key">
                             <div v-if="!hiddenFields.includes(key)">
-                                <span class="font-semibold">{{ $t(`form.${key}`) }}:</span> <span v-html="value"></span> <br />
+                                <span v-if="typeof value === 'boolean'">
+                                    <span class="font-semibold">{{ $t(`form.${key}`) }}:</span>
+                                    <Tag :value="value ? $t('basic.yes') : $t('basic.no')" /> <br />
+                                </span>
+                                <span v-else-if="Array.isArray(value)">
+                                    <span class="font-semibold">{{ $t(`form.${key}`) }}:</span> <span v-html="value.join(', ')"></span>
+                                    <br />
+                                </span>
+                                <span v-if="value.includes('http')">
+                                    <span class="font-semibold">{{ $t(`form.${key}`) }}:</span>
+                                    <a :href="value" target="_blank" rel="noopener noreferrer">{{ value }}</a> <br />
+                                </span>
+                                <span v-else>
+                                    <span class="font-semibold">{{ $t(`form.${key}`) }}:</span> <span v-html="value"></span> <br />
+                                </span>
                             </div>
                         </li>
                     </ul>

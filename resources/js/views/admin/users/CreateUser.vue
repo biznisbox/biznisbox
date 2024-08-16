@@ -86,12 +86,12 @@
                     <div class="grid">
                         <div class="flex flex-col gap-2 mb-2">
                             <label for="input_send_details_to" class="dark:text-surface-200"> {{ $t('admin.user.send_details_to') }}</label>
-                            <Chips
+                            <AutoComplete
                                 id="input_send_details_to"
                                 v-model="user.send_details_to"
-                                :allow-duplicates="false"
-                                separator=","
-                                class="w-full"
+                                multiple
+                                :typeahead="false"
+                                :label="$t('admin.user.send_details_to')"
                             />
                         </div>
                     </div>

@@ -31,12 +31,13 @@
                 <DisplayData :input="$t('form.name')" :value="department.name" />
                 <DisplayData :input="$t('form.description')" :value="department.description" />
                 <DisplayData :input="$t('form.type')" custom-value>
-                    <Tag>{{ $t('department_type.' + department.type) }}</Tag>
+                    <Tag v-if="department.type === 'other'">{{ $t('basic.other') }}</Tag>
+                    <Tag v-else>{{ $t('department_type.' + department.type) }}</Tag>
                 </DisplayData>
                 <DisplayData :input="$t('form.address')" :value="department.address" />
                 <DisplayData :input="$t('form.zip_code')" :value="department.zip_code" />
                 <DisplayData :input="$t('form.city')" :value="department.city" />
-                <DisplayData :input="$t('form.country')" :value="department.country" />
+                <DisplayData :input="$t('form.country')" :value="formatCountry(department.country)" />
                 <DisplayData :input="$t('form.latitude')" :value="department.latitude" />
                 <DisplayData :input="$t('form.longitude')" :value="department.longitude" />
 

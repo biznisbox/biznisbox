@@ -74,7 +74,7 @@
                         <Tag v-if="data.status === 'converted'" severity="success">{{ $t('status.converted') }}</Tag>
                     </template>
                     <template #filter="{ filterModel }">
-                        <Dropdown
+                        <Select
                             v-model="filterModel.value"
                             :options="[
                                 { label: $t('status.accepted'), value: 'accepted' },

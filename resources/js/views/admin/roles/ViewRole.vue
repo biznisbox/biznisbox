@@ -79,7 +79,7 @@
             :header="$t('audit_log.audit_log')"
             :draggable="false"
         >
-            <AuditLog :item_id="$route.params.id" item_type="Role" />
+            <AuditLog :item_id="$route.params.id" item_type="Role" :hiddenFields="['guard_name']" />
         </Dialog>
     </DefaultLayout>
 </template>

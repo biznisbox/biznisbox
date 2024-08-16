@@ -74,7 +74,7 @@ return [
         'saturday' => 'Sobota',
         'sunday' => 'Nedelja',
     ],
-    'app_installed' => 'Aplikacija je že nameščena',
+    'app_installed' => 'Aplikacija je že nameščena.',
     'two_factor_auth_required' => 'Zahtevana je dvostopenjska overitev',
     'disabled_account' => 'Račun ni aktiven. Prosimo, obrnite se na administratorja.',
     'invalid_2fa_code' => 'Neveljavna koda 2FA',

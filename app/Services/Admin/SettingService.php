@@ -145,6 +145,9 @@ class SettingService
 
     public function generatePreviewNumber($format, $module)
     {
+        if (!$format || !$module) {
+            return '...';
+        }
         $numberFormatter = new SerialNumberFormatter();
         $number = $numberFormatter->generatePreview($format, $module);
         return $number;

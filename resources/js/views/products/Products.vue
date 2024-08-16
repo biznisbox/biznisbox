@@ -72,7 +72,7 @@
                     </template>
 
                     <template #filter="{ filterModel }">
-                        <Dropdown
+                        <Select
                             v-model="filterModel.value"
                             :options="[
                                 { label: $t('stock_status.out_of_stock'), value: 'out_of_stock' },

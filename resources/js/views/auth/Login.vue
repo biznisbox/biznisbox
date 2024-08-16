@@ -1,19 +1,19 @@
 <template>
     <div id="auth_login_page">
         <div class="flex justify-center items-center h-screen">
-            <div class="p-4 shadow-md border border-surface-300 rounded-md w-full md:w-96 mx-4">
-                <img
-                    v-if="$settings['company_logo'] != undefined && $settings['company_logo'] != null"
-                    :src="`/storage/${$settings['company_logo']}`"
-                    class="w-32 h-32 mx-auto"
-                    alt="logo"
-                />
+            <div class="p-2 shadow-md border border-surface-300 rounded-md w-full md:w-96 mx-4">
+                <LoadingScreen :blocked="loadingData" class="p-1">
+                    <img
+                        v-if="$settings['company_logo'] != undefined && $settings['company_logo'] != null"
+                        :src="`/storage/${$settings['company_logo']}`"
+                        class="w-32 h-32 mx-auto"
+                        alt="logo"
+                    />
 
-                <h1 class="text-center text-2xl font-bold mb-4 dark:text-surface-200">
-                    {{ $t('auth.login') }}
-                </h1>
-                <form @submit.prevent="login">
-                    <LoadingScreen :blocked="loadingData">
+                    <h1 class="text-center text-2xl font-bold mb-4 dark:text-surface-200">
+                        {{ $t('auth.login') }}
+                    </h1>
+                    <form @submit.prevent="login">
                         <TextInput v-model="form.email" :label="$t('auth.email')" autocomplete="username" />
                         <PasswordInput v-model="form.password" :label="$t('auth.password')" />
 
@@ -25,8 +25,8 @@
                             type="submit"
                             :disabled="!form.email || !form.password || loadingData"
                         />
-                    </LoadingScreen>
-                </form>
+                    </form>
+                </LoadingScreen>
             </div>
         </div>
     </div>
