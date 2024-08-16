@@ -40,5 +40,5 @@ return [
     'super_admin' => 'Super skrbnik',
     'admin_email_settings' => 'Admin nastavitve e-pošte',
     'admin_webhooks' => 'Skrbniki spletnih uporabnikov',
-    'webhooks' => 'Spletni kukiči',
+    'webhooks' => 'Spletne kljuke (Webhooks)',
 ];
