@@ -382,7 +382,8 @@
         "document_type": "Dokumenttype",
         "connected_document": "Tilsluttet Dokument",
         "storage_location": "Lagerplads",
-        "visibility": "Synlighed"
+        "visibility": "Synlighed",
+        "display_name": "Vis Navn"
     },
     "address_types": {
         "billing": "Fakturering",
