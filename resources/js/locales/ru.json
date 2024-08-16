@@ -382,7 +382,8 @@
         "document_type": "Тип документа",
         "connected_document": "Подключенный документ",
         "storage_location": "Расположение хранилища",
-        "visibility": "Видимость"
+        "visibility": "Видимость",
+        "display_name": "Показать имя"
     },
     "address_types": {
         "billing": "Биллинг",
