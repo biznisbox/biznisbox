@@ -150,7 +150,17 @@
         "restored": "Obnoveno",
         "logged_in": "Přihlášen",
         "logged_out": "Odhlášeno",
-        "retrieved": "Načteno"
+        "retrieved": "Načteno",
+        "viewed": "Zobrazeno",
+        "shared": "Sdíleno",
+        "previewed": "Previewed",
+        "downloaded": "Staženo",
+        "send": "Poslat",
+        "copied": "Copied",
+        "moved": "Moved",
+        "retrieve_public": "Získat veřejné",
+        "upload": "Upload",
+        "share": "Share"
     },
     "audit_log_type": {
         "internal": "Interní",
@@ -383,7 +393,8 @@
         "connected_document": "Připojený dokument",
         "storage_location": "Umístění úložiště",
         "visibility": "Viditelnost",
-        "display_name": "Zobrazované jméno"
+        "display_name": "Zobrazované jméno",
+        "theme": "Téma"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -992,12 +1003,10 @@
         },
         "dashboard": {
             "title": "Admin Dashboard",
-            "total_users": "Celkem uživatelů",
             "active_users_today": "Dnes aktivní uživatelé",
-            "number_of_logins_today": "Počet dnešních přihlášení",
             "number_of_departments": "Počet departementů",
             "number_of_users": "Počet uživatelů",
-            "logins_this_month": "Přihlášení tento měsíc"
+            "chart_of_logins_this_month": "Charts of Logins This Month"
         },
         "units": {
             "title": "Jednotky",
