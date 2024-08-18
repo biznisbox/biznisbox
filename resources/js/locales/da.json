@@ -150,7 +150,17 @@
         "restored": "Gendannet",
         "logged_in": "Logget ind",
         "logged_out": "Logget ud",
-        "retrieved": "Hentet"
+        "retrieved": "Hentet",
+        "viewed": "Set",
+        "shared": "Delt",
+        "previewed": "Previewed",
+        "downloaded": "Downloadet",
+        "send": "Send",
+        "copied": "Copied",
+        "moved": "Moved",
+        "retrieve_public": "Hent Offentlig",
+        "upload": "Upload",
+        "share": "Share"
     },
     "audit_log_type": {
         "internal": "Intern",
@@ -383,7 +393,8 @@
         "connected_document": "Tilsluttet Dokument",
         "storage_location": "Lagerplads",
         "visibility": "Synlighed",
-        "display_name": "Vis Navn"
+        "display_name": "Vis Navn",
+        "theme": "Tema"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -992,12 +1003,10 @@
         },
         "dashboard": {
             "title": "Admin Kontrolpanel",
-            "total_users": "Brugere I Alt",
             "active_users_today": "Aktive Brugere I Dag",
-            "number_of_logins_today": "Antal logins i dag",
             "number_of_departments": "Antal afdelinger",
             "number_of_users": "Antal brugere",
-            "logins_this_month": "Logins Denne Måned"
+            "chart_of_logins_this_month": "Charts of Logins This Month"
         },
         "units": {
             "title": "Enheder",
