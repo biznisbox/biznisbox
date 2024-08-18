@@ -394,7 +394,9 @@
         "storage_location": "Lagerplads",
         "visibility": "Synlighed",
         "display_name": "Vis Navn",
-        "theme": "Tema"
+        "theme": "Tema",
+        "overpaid_amount": "Overbetalt Beløb",
+        "sum_of_payments": "Summen af betalinger"
     },
     "address_types": {
         "billing": "Fakturering",
