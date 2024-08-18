@@ -394,7 +394,9 @@
         "storage_location": "Місце зберігання",
         "visibility": "Видимість",
         "display_name": "Ім'я для відображення",
-        "theme": "Тема"
+        "theme": "Тема",
+        "overpaid_amount": "Сума переплачених",
+        "sum_of_payments": "Сума платежів"
     },
     "address_types": {
         "billing": "Біллінг",
