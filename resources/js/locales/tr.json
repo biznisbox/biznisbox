@@ -394,7 +394,9 @@
         "storage_location": "Depolama Konumu",
         "visibility": "Görünürlük",
         "display_name": "Görüntülenen İsim",
-        "theme": "Tema"
+        "theme": "Tema",
+        "overpaid_amount": "Fazla Ödenen Miktar",
+        "sum_of_payments": "Ödeme Toplamı"
     },
     "address_types": {
         "billing": "Fatura",
