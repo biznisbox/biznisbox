@@ -394,7 +394,9 @@
         "storage_location": "Umístění úložiště",
         "visibility": "Viditelnost",
         "display_name": "Zobrazované jméno",
-        "theme": "Téma"
+        "theme": "Téma",
+        "overpaid_amount": "Přeplatek",
+        "sum_of_payments": "Sum of Payments"
     },
     "address_types": {
         "billing": "Fakturace",
