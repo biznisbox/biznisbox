@@ -15,8 +15,8 @@
             @change="updateValue"
             @blur="validate?.$touch()"
         />
-        <div v-if="validate && validate?.$dirty" class="flex flex-column">
-            <div v-if="validate.$invalid" v-for="error in validate.$errors" class="text-red-500 text-sm">{{ error.$message }}</div>
+        <div v-if="validate && validate?.$dirty && validate?.$invalid" class="flex flex-column">
+            <div v-for="error in validate.$errors" v-bind:key="error?.$propertyPath" class="text-red-500 text-sm">{{ error.$message }}</div>
         </div>
     </div>
 </template>
@@ -43,7 +43,7 @@ export default {
         },
         options: {
             type: Array,
-            default: [],
+            default: () => [],
         },
         optionLabel: {
             type: String,

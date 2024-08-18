@@ -372,7 +372,6 @@
 
 <script>
 import ArchiveMixin from '@/mixins/archive'
-import Column from 'primevue/column'
 export default {
     name: 'ArchivePage',
     mixins: [ArchiveMixin],

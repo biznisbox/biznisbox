@@ -69,9 +69,11 @@
                                             </div>
                                         </template>
                                         <Column field="name" :header="$t('form.name')">
-                                            <template #body="{ data }" class="flex gap-2">
-                                                <i v-if="data.is_primary" class="fa fa-star text-yellow-500 mr-2"></i>
-                                                <span>{{ data.name }}</span>
+                                            <template #body="{ data }">
+                                                <div class="flex gap-2">
+                                                    <i v-if="data.is_primary" class="fa fa-star text-yellow-500 mr-2"></i>
+                                                    <span>{{ data.name }}</span>
+                                                </div>
                                             </template>
                                         </Column>
                                         <Column field="function" :header="$t('form.function')" />

@@ -130,7 +130,7 @@ export default {
         },
         hiddenFields: {
             type: Array,
-            default: [],
+            default: () => [],
         },
     },
 

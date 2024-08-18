@@ -23,7 +23,10 @@ export default {
         input: {
             type: String,
         },
-        value: '',
+        value: {
+            type: [String, Number, Boolean],
+            default: null,
+        },
         isLink: {
             type: Boolean,
             default: false,

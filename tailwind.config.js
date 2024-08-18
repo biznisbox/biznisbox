@@ -1,3 +1,4 @@
+import tailwindcssPrimeUI from 'tailwindcss-primeui'
 export default {
     content: [
         './resources/views/**/*.blade.php',
@@ -47,5 +48,5 @@ export default {
             },
         },
     },
-    plugins: [require('tailwindcss-primeui')],
+    plugins: [tailwindcssPrimeUI],
 }

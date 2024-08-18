@@ -101,7 +101,7 @@ export default {
 
     watch: {
         database: {
-            handler: function (val, oldVal) {
+            handler: function () {
                 this.checked = false
             },
             deep: true,
