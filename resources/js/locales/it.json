@@ -394,7 +394,9 @@
         "storage_location": "Posizione Di Archiviazione",
         "visibility": "Visibilità",
         "display_name": "Nome Visualizzato",
-        "theme": "Tema"
+        "theme": "Tema",
+        "overpaid_amount": "Importo Pagato",
+        "sum_of_payments": "Somma dei pagamenti"
     },
     "address_types": {
         "billing": "Fatturazione",
