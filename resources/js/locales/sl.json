@@ -150,7 +150,17 @@
         "restored": "Obnovitev",
         "logged_in": "Prijava",
         "logged_out": "Odjava",
-        "retrieved": "Pridobitev"
+        "retrieved": "Pridobitev",
+        "viewed": "Pogledano",
+        "shared": "Skupna raba",
+        "previewed": "Previewed",
+        "downloaded": "Preneseno",
+        "send": "Pošlji",
+        "copied": "Copied",
+        "moved": "Moved",
+        "retrieve_public": "Pridobi javno",
+        "upload": "Upload",
+        "share": "Share"
     },
     "audit_log_type": {
         "internal": "Notranji",
@@ -383,7 +393,8 @@
         "connected_document": "Povezani dokument",
         "storage_location": "Lokacija hrambe",
         "visibility": "Vidljivost",
-        "display_name": "Prikazno ime"
+        "display_name": "Prikazno ime",
+        "theme": "Tema"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -992,12 +1003,10 @@
         },
         "dashboard": {
             "title": "Skrbniška plošča",
-            "total_users": "Skupno število uporabnikov",
             "active_users_today": "Aktivni uporabniki danes",
-            "number_of_logins_today": "Število prijav danes",
             "number_of_departments": "Število oddelkov",
             "number_of_users": "Število uporabnikov",
-            "logins_this_month": "Prijava ta mesec"
+            "chart_of_logins_this_month": "Charts of Logins This Month"
         },
         "units": {
             "title": "Enote",
