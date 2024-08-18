@@ -150,7 +150,17 @@
         "restored": "Visszaállítva",
         "logged_in": "Bejelentkezve",
         "logged_out": "Kijelentkezve",
-        "retrieved": "Visszanyert"
+        "retrieved": "Visszanyert",
+        "viewed": "Megtekintve",
+        "shared": "Megosztott",
+        "previewed": "Previewed",
+        "downloaded": "Letöltött",
+        "send": "Küldés",
+        "copied": "Copied",
+        "moved": "Moved",
+        "retrieve_public": "Nyilvános lekérése",
+        "upload": "Upload",
+        "share": "Share"
     },
     "audit_log_type": {
         "internal": "Internal",
@@ -383,7 +393,8 @@
         "connected_document": "Csatlakoztatott Dokumentum",
         "storage_location": "Tárolási Hely",
         "visibility": "Láthatóság",
-        "display_name": "Megjelenített Név"
+        "display_name": "Megjelenített Név",
+        "theme": "Téma"
     },
     "address_types": {
         "billing": "Billing",
@@ -992,12 +1003,10 @@
         },
         "dashboard": {
             "title": "Adminisztrációs irányítópult",
-            "total_users": "Felhasználók száma",
             "active_users_today": "Ma aktív felhasználók",
-            "number_of_logins_today": "Belépések száma ma",
             "number_of_departments": "Osztályok száma",
             "number_of_users": "Felhasználók száma",
-            "logins_this_month": "Bejelentkezések ebben a hónapban"
+            "chart_of_logins_this_month": "Charts of Logins This Month"
         },
         "units": {
             "title": "Egységek",
