@@ -153,14 +153,14 @@
         "retrieved": "Načteno",
         "viewed": "Zobrazeno",
         "shared": "Sdíleno",
-        "previewed": "Previewed",
+        "previewed": "Náhled",
         "downloaded": "Staženo",
         "send": "Poslat",
-        "copied": "Copied",
-        "moved": "Moved",
+        "copied": "Zkopírováno",
+        "moved": "Přesunuto",
         "retrieve_public": "Získat veřejné",
-        "upload": "Upload",
-        "share": "Share"
+        "upload": "Nahrát",
+        "share": "Sdílet"
     },
     "audit_log_type": {
         "internal": "Interní",
@@ -1006,7 +1006,7 @@
             "active_users_today": "Dnes aktivní uživatelé",
             "number_of_departments": "Počet departementů",
             "number_of_users": "Počet uživatelů",
-            "chart_of_logins_this_month": "Charts of Logins This Month"
+            "chart_of_logins_this_month": "Grafy přihlášení tento měsíc"
         },
         "units": {
             "title": "Jednotky",
