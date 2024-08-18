@@ -396,7 +396,7 @@
         "display_name": "Zobrazované jméno",
         "theme": "Téma",
         "overpaid_amount": "Přeplatek",
-        "sum_of_payments": "Sum of Payments"
+        "sum_of_payments": "Součet plateb"
     },
     "address_types": {
         "billing": "Fakturace",
