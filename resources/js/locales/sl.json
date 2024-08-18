@@ -153,14 +153,14 @@
         "retrieved": "Pridobitev",
         "viewed": "Pogledano",
         "shared": "Skupna raba",
-        "previewed": "Previewed",
+        "previewed": "Predogledani",
         "downloaded": "Preneseno",
         "send": "Pošlji",
-        "copied": "Copied",
-        "moved": "Moved",
+        "copied": "Kopirano",
+        "moved": "Premaknjeno",
         "retrieve_public": "Pridobi javno",
-        "upload": "Upload",
-        "share": "Share"
+        "upload": "Nalaganje",
+        "share": "Deljenje"
     },
     "audit_log_type": {
         "internal": "Notranji",
@@ -1006,7 +1006,7 @@
             "active_users_today": "Aktivni uporabniki danes",
             "number_of_departments": "Število oddelkov",
             "number_of_users": "Število uporabnikov",
-            "chart_of_logins_this_month": "Charts of Logins This Month"
+            "chart_of_logins_this_month": "Grafikoni prijav tega meseca"
         },
         "units": {
             "title": "Enote",
