@@ -153,14 +153,14 @@
         "retrieved": "Alındı",
         "viewed": "Görüntülendi",
         "shared": "Paylaşılan",
-        "previewed": "Previewed",
+        "previewed": "Önizleme yapıldı",
         "downloaded": "İndirildi",
         "send": "Gönder",
-        "copied": "Copied",
-        "moved": "Moved",
+        "copied": "Kopyalandı",
+        "moved": "Taşındı",
         "retrieve_public": "Halka Açık Al",
-        "upload": "Upload",
-        "share": "Share"
+        "upload": "Yükleme",
+        "share": "Paylaş"
     },
     "audit_log_type": {
         "internal": "İç",
@@ -1006,7 +1006,7 @@
             "active_users_today": "Bugün Aktif Kullanıcılar",
             "number_of_departments": "Departman Sayısı",
             "number_of_users": "Kullanıcı Sayısı",
-            "chart_of_logins_this_month": "Charts of Logins This Month"
+            "chart_of_logins_this_month": "Bu Ayın Giriş Grafikleri"
         },
         "units": {
             "title": "Birimler",
