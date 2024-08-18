@@ -150,7 +150,17 @@
         "restored": "Restauriert",
         "logged_in": "Angemeldet",
         "logged_out": "Abgemeldet",
-        "retrieved": "Abgerufen"
+        "retrieved": "Abgerufen",
+        "viewed": "Angesehen",
+        "shared": "Geteilt",
+        "previewed": "Previewed",
+        "downloaded": "Heruntergeladen",
+        "send": "Senden",
+        "copied": "Copied",
+        "moved": "Moved",
+        "retrieve_public": "Öffentlich abrufen",
+        "upload": "Upload",
+        "share": "Share"
     },
     "audit_log_type": {
         "internal": "Intern",
@@ -383,7 +393,8 @@
         "connected_document": "Verbundenes Dokument",
         "storage_location": "Speicherort",
         "visibility": "Sichtbarkeit",
-        "display_name": "Anzeigename"
+        "display_name": "Anzeigename",
+        "theme": "Thema"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -992,12 +1003,10 @@
         },
         "dashboard": {
             "title": "Admin-Übersicht",
-            "total_users": "Benutzer gesamt",
             "active_users_today": "Heute aktive Benutzer",
-            "number_of_logins_today": "Anzahl der Logins heute",
             "number_of_departments": "Anzahl der Abteilungen",
             "number_of_users": "Anzahl der Benutzer",
-            "logins_this_month": "Diesen Monat anmelden"
+            "chart_of_logins_this_month": "Charts of Logins This Month"
         },
         "units": {
             "title": "Einheiten",
