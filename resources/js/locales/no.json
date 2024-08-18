@@ -394,7 +394,9 @@
         "storage_location": "Lagringssted",
         "visibility": "Synlighet",
         "display_name": "Vis navn",
-        "theme": "Tema"
+        "theme": "Tema",
+        "overpaid_amount": "Overbetalt beløp",
+        "sum_of_payments": "Sum av betalinger"
     },
     "address_types": {
         "billing": "Fakturering",
