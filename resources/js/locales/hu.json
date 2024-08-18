@@ -394,7 +394,9 @@
         "storage_location": "Tárolási Hely",
         "visibility": "Láthatóság",
         "display_name": "Megjelenített Név",
-        "theme": "Téma"
+        "theme": "Téma",
+        "overpaid_amount": "Túlfizetett Összeg",
+        "sum_of_payments": "Fizetések Összege"
     },
     "address_types": {
         "billing": "Billing",
