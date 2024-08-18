@@ -153,14 +153,14 @@
         "retrieved": "Abgerufen",
         "viewed": "Angesehen",
         "shared": "Geteilt",
-        "previewed": "Previewed",
+        "previewed": "Vorschau",
         "downloaded": "Heruntergeladen",
         "send": "Senden",
-        "copied": "Copied",
-        "moved": "Moved",
+        "copied": "Kopiert",
+        "moved": "Verschoben",
         "retrieve_public": "Öffentlich abrufen",
-        "upload": "Upload",
-        "share": "Share"
+        "upload": "Hochladen",
+        "share": "Teilen"
     },
     "audit_log_type": {
         "internal": "Intern",
@@ -1006,7 +1006,7 @@
             "active_users_today": "Heute aktive Benutzer",
             "number_of_departments": "Anzahl der Abteilungen",
             "number_of_users": "Anzahl der Benutzer",
-            "chart_of_logins_this_month": "Charts of Logins This Month"
+            "chart_of_logins_this_month": "Charts der Logins in diesem Monat"
         },
         "units": {
             "title": "Einheiten",
