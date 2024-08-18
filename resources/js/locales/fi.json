@@ -394,7 +394,9 @@
         "storage_location": "Tallennustilan Sijainti",
         "visibility": "Näkyvyys",
         "display_name": "Näytön Nimi",
-        "theme": "Teema"
+        "theme": "Teema",
+        "overpaid_amount": "Liikaa Maksettu Määrä",
+        "sum_of_payments": "Maksujen summa"
     },
     "address_types": {
         "billing": "Laskutus",
