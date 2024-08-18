@@ -53,7 +53,7 @@
                     @resized="saveDashboardLayout"
                     class="grid-item"
                 >
-                    <div :id="item.i" v-if="hasPermission(item.permission)">
+                    <div :id="item.i" v-if="hasPermission(item.permission)" :data-component="item.component">
                         <component :is="item.component" />
                     </div>
                 </GridItem>

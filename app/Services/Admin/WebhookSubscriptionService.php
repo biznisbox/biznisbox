@@ -40,7 +40,7 @@ class WebhookSubscriptionService
     public function updateWebhookSubscription($id, $data)
     {
         $webhookSubscription = $this->webhookSubscription->find($id);
-        if (!$webhookSubscription) {
+        if (!$webhookSubscription || !$webhookSubscription->can_be_edited) {
             return false;
         }
         $webhookSubscription->update($data);
@@ -65,15 +65,6 @@ class WebhookSubscriptionService
                 'key' => $h['key'],
                 'value' => $h['value'],
             ];
-        }
-        return $formattedHeader;
-    }
-
-    private function formatHeaderForBackend($header)
-    {
-        $formattedHeader = [];
-        foreach ($header as $h) {
-            $formattedHeader[$h['key']] = $h['value'];
         }
         return $formattedHeader;
     }

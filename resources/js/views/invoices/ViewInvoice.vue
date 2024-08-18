@@ -295,6 +295,16 @@
                     </template>
                 </Column>
             </DataTable>
+
+            <div class="grid grid-cols-2 gap-2">
+                <DisplayData :input="$t('form.sum_of_payments')" :value="formatMoney(invoice.sum_of_payments, invoice.currency)" />
+                <DisplayData
+                    v-if="invoice.status === 'overpaid'"
+                    :input="$t('form.overpaid_amount')"
+                    :value="formatMoney(invoice.overpaid_amount, invoice.currency)"
+                />
+            </div>
+
             <template #footer>
                 <Button :label="$t('basic.close')" icon="fa fa-times" severity="secondary" @click="showTransactionsDialog = false" />
             </template>

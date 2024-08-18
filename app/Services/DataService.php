@@ -75,7 +75,20 @@ class DataService
     public function getCurrencies()
     {
         $currencies = new \App\Models\Currency();
-        $currencies = $currencies->where('status', 'active')->get(['id', 'name', 'code', 'symbol', 'exchange_rate']);
+        $currencies = $currencies
+            ->where('status', 'active')
+            ->get([
+                'id',
+                'name',
+                'code',
+                'symbol',
+                'exchange_rate',
+                'status',
+                'decimal_separator',
+                'thousand_separator',
+                'number_of_decimal',
+                'placement',
+            ]);
         return $currencies;
     }
 

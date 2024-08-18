@@ -87,27 +87,27 @@ return new class extends Migration {
 
         $data = [
             [
-                'migration' => '2020_07_07_055656_create_countries_table.php',
+                'migration' => '2020_07_07_055656_create_countries_table',
                 'batch' => 1,
             ],
             [
-                'migration' => '2020_07_07_055725_create_cities_table.php',
+                'migration' => '2020_07_07_055725_create_cities_table',
                 'batch' => 1,
             ],
             [
-                'migration' => '2020_07_07_055746_create_timezones_table.php',
+                'migration' => '2020_07_07_055746_create_timezones_table',
                 'batch' => 1,
             ],
             [
-                'migration' => '2021_10_19_071730_create_states_table.php',
+                'migration' => '2021_10_19_071730_create_states_table',
                 'batch' => 1,
             ],
             [
-                'migration' => '2021_10_23_082414_create_currencies_table.php',
+                'migration' => '2021_10_23_082414_create_currencies_table',
                 'batch' => 1,
             ],
             [
-                'migration' => '2022_01_22_034939_create_languages_table.php',
+                'migration' => '2022_01_22_034939_create_languages_table',
                 'batch' => 1,
             ],
         ];
@@ -128,11 +128,11 @@ return new class extends Migration {
         Schema::dropIfExists(config('world.migrations.currencies.table_name'));
 
         // Delete from migration table to avoid error
-        DB::table('migrations')->where('migration', '2020_07_07_055656_create_countries_table.php')->delete();
-        DB::table('migrations')->where('migration', '2020_07_07_055725_create_cities_table.php')->delete();
-        DB::table('migrations')->where('migration', '2020_07_07_055746_create_timezones_table.php')->delete();
-        DB::table('migrations')->where('migration', '2021_10_19_071730_create_states_table.php')->delete();
-        DB::table('migrations')->where('migration', '2021_10_23_082414_create_currencies_table.php')->delete();
-        DB::table('migrations')->where('migration', '2022_01_22_034939_create_languages_table.php')->delete();
+        DB::table('migrations')->where('migration', '2020_07_07_055656_create_countries_table')->delete();
+        DB::table('migrations')->where('migration', '2020_07_07_055725_create_cities_table')->delete();
+        DB::table('migrations')->where('migration', '2020_07_07_055746_create_timezones_table')->delete();
+        DB::table('migrations')->where('migration', '2021_10_19_071730_create_states_table')->delete();
+        DB::table('migrations')->where('migration', '2021_10_23_082414_create_currencies_table')->delete();
+        DB::table('migrations')->where('migration', '2022_01_22_034939_create_languages_table')->delete();
     }
 };

@@ -24,27 +24,7 @@ return [
 	| Supported locales.
 	|--------------------------------------------------------------------------
 	*/
-    'accepted_locales' => [
-        'ar',
-        'bn',
-        'br',
-        'de',
-        'en',
-        'es',
-        'fa',
-        'fr',
-        'hr',
-        'it',
-        'ja',
-        'kr',
-        'nl',
-        'pl',
-        'pt',
-        'ro',
-        'ru',
-        'tr',
-        'zh',
-    ],
+    'accepted_locales' => ['ar', 'bn', 'br', 'de', 'en', 'es', 'fr', 'hr', 'it', 'ja', 'kr', 'nl', 'pl', 'pt', 'ro', 'ru', 'tr', 'zh'],
     /*
 	|--------------------------------------------------------------------------
 	| Enabled modules.
@@ -102,19 +82,19 @@ return [
                     'type' => 'string',
                 ],
                 'latitude' => [
-                    'required' => false,
+                    'required' => true,
                     'type' => 'string',
                 ],
                 'longitude' => [
-                    'required' => false,
+                    'required' => true,
                     'type' => 'string',
                 ],
                 'emoji' => [
-                    'required' => false,
+                    'required' => true,
                     'type' => 'string',
                 ],
                 'emojiU' => [
-                    'required' => false,
+                    'required' => true,
                     'type' => 'string',
                 ],
             ],
@@ -128,20 +108,20 @@ return [
                     'length' => 3,
                 ],
                 'state_code' => [
-                    'required' => false,
+                    'required' => true,
                     'type' => 'string',
                     'length' => 5,
                 ],
                 'type' => [
-                    'required' => false,
+                    'required' => true,
                     'type' => 'string',
                 ],
                 'latitude' => [
-                    'required' => false,
+                    'required' => true,
                     'type' => 'string',
                 ],
                 'longitude' => [
-                    'required' => false,
+                    'required' => true,
                     'type' => 'string',
                 ],
             ],
@@ -155,16 +135,16 @@ return [
                     'length' => 3,
                 ],
                 'state_code' => [
-                    'required' => false,
+                    'required' => true,
                     'type' => 'string',
                     'length' => 5,
                 ],
                 'latitude' => [
-                    'required' => false,
+                    'required' => true,
                     'type' => 'string',
                 ],
                 'longitude' => [
-                    'required' => false,
+                    'required' => true,
                     'type' => 'string',
                 ],
             ],
@@ -173,7 +153,7 @@ return [
             'table_name' => 'timezones',
         ],
         'currencies' => [
-            'table_name' => 'currencies',
+            'table_name' => 'all_currencies',
         ],
         'languages' => [
             'table_name' => 'languages',

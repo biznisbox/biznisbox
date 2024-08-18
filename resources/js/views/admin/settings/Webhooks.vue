@@ -63,11 +63,13 @@
                         v-model="v$.webhook_subscription.name.$model"
                         :label="$t('form.name')"
                         :validate="v$.webhook_subscription.name"
+                        :disabled="!webhook_subscription.can_be_edited"
                     />
                     <TextInput
                         v-model="v$.webhook_subscription.url.$model"
                         :label="$t('form.url')"
                         :validate="v$.webhook_subscription.url"
+                        :disabled="!webhook_subscription.can_be_edited"
                     />
                     <TextInput
                         v-model="v$.webhook_subscription.signature_secret_key.$model"
@@ -86,6 +88,7 @@
                             { label: 'DELETE', value: 'delete' },
                         ]"
                         :validate="v$.webhook_subscription.http_verb"
+                        :disabled="!webhook_subscription.can_be_edited"
                     />
                     <MultiSelectInput
                         v-model="v$.webhook_subscription.listen_events.$model"
@@ -94,18 +97,34 @@
                         optionLabel="name"
                         optionValue="name"
                         :validate="v$.webhook_subscription.listen_events"
+                        :disabled="!webhook_subscription.can_be_edited"
                     />
 
                     <div class="flex gap-2 my-4">
-                        <Button :label="$t('admin.webhook.add_header')" icon="fa fa-plus" @click="addHeader" />
+                        <Button
+                            :label="$t('admin.webhook.add_header')"
+                            icon="fa fa-plus"
+                            @click="addHeader"
+                            :disabled="!webhook_subscription.can_be_edited"
+                        />
                     </div>
 
                     <div v-for="(header, index) in webhook_subscription.headers" :key="index" class="flex gap-2 objects-center">
-                        <TextInput v-model="header.key" :label="$t('form.key')" class="w-1/2" />
-                        <TextInput v-model="header.value" :label="$t('form.value')" class="w-1/2" />
+                        <TextInput
+                            v-model="header.key"
+                            :label="$t('form.key')"
+                            class="w-1/2"
+                            :disabled="header.default || !webhook_subscription.can_be_edited"
+                        />
+                        <TextInput
+                            v-model="header.value"
+                            :label="$t('form.value')"
+                            class="w-1/2"
+                            :disabled="header.default || !webhook_subscription.can_be_edited"
+                        />
                         <Button
                             icon="fa fa-trash"
-                            :disabled="header.default || header.key == 'Content-Type'"
+                            :disabled="header.default || header.key == 'Content-Type' || !webhook_subscription.can_be_edited"
                             @click="removeHeader(index)"
                             severity="danger"
                             class="h-10 mt-9"
@@ -134,18 +153,11 @@
                             @click="showNewEditWebhookSubscriptionDialog = false"
                         />
                         <Button
-                            v-if="modalMode === 'edit'"
-                            :label="$t('basic.update')"
-                            icon="fa fa-floppy-disk"
-                            @click="updateWebhookSubscription"
-                            severity="success"
-                        />
-                        <Button
-                            v-else
                             :label="formMode === 'edit' ? $t('basic.update') : $t('basic.save')"
                             icon="fa fa-floppy-disk"
                             @click="validateForm"
                             severity="success"
+                            :disabled="!webhook_subscription.can_be_edited"
                         />
                     </div>
                 </div>
@@ -182,6 +194,7 @@ export default {
                         default: true,
                     },
                 ],
+                can_be_edited: true,
             },
             showNewEditWebhookSubscriptionDialog: false,
             modalMode: 'new',
@@ -266,6 +279,7 @@ export default {
                         default: true,
                     },
                 ],
+                can_be_edited: true,
             }
             this.modalMode = 'new'
             this.showNewEditWebhookSubscriptionDialog = true

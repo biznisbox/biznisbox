@@ -33,7 +33,7 @@ class WebhookSubscriptionController extends Controller
     {
         $data = $request->all();
         $webhookSubscription = $this->webhookSubscriptionService->createWebhookSubscription($data);
-        return api_response($webhookSubscription, __('responses.data_created_successfully'), 201);
+        return api_response($webhookSubscription, __('responses.item_created_successfully'), 201);
     }
 
     public function updateWebhookSubscription(Request $request, $id)
@@ -43,7 +43,7 @@ class WebhookSubscriptionController extends Controller
         if (!$webhookSubscription) {
             return api_response(null, __('responses.data_not_found'), 404);
         }
-        return api_response($webhookSubscription, __('responses.data_updated_successfully'));
+        return api_response($webhookSubscription, __('responses.item_updated_successfully'));
     }
 
     public function deleteWebhookSubscription($id)
@@ -52,6 +52,6 @@ class WebhookSubscriptionController extends Controller
         if (!$webhookSubscription) {
             return api_response(null, __('responses.data_not_found'), 404);
         }
-        return api_response($webhookSubscription, __('responses.data_deleted_successfully'));
+        return api_response($webhookSubscription, __('responses.item_deleted_successfully'));
     }
 }

@@ -55,7 +55,7 @@ class Invoice extends Model implements Auditable
 
     protected $hidden = ['deleted_at', 'updated_at', 'created_at'];
 
-    protected $appends = ['preview', 'download'];
+    protected $appends = ['preview', 'download', 'sum_of_payments', 'overpaid_amount'];
 
     protected function casts(): array
     {
@@ -113,6 +113,16 @@ class Invoice extends Model implements Auditable
             'id' => $this->id,
             'type' => 'download',
         ]);
+    }
+
+    public function getSumOfPaymentsAttribute()
+    {
+        return $this->transactions()->sum('amount');
+    }
+
+    public function getOverpaidAmountAttribute()
+    {
+        return $this->sum_of_payments - $this->total;
     }
 
     /**
