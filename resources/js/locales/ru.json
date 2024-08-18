@@ -150,7 +150,17 @@
         "restored": "Восстановлено",
         "logged_in": "Вход выполнен",
         "logged_out": "Выход выполнен",
-        "retrieved": "Получено"
+        "retrieved": "Получено",
+        "viewed": "Просмотрено",
+        "shared": "Общий доступ",
+        "previewed": "Предварительно",
+        "downloaded": "Загружено",
+        "send": "Отправить",
+        "copied": "Скопировано",
+        "moved": "Перемещено",
+        "retrieve_public": "Получить публичный",
+        "upload": "Выгрузить",
+        "share": "Поделиться"
     },
     "audit_log_type": {
         "internal": "Внутренний",
@@ -383,7 +393,8 @@
         "connected_document": "Подключенный документ",
         "storage_location": "Расположение хранилища",
         "visibility": "Видимость",
-        "display_name": "Показать имя"
+        "display_name": "Показать имя",
+        "theme": "Тема"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -992,12 +1003,10 @@
         },
         "dashboard": {
             "title": "Панель администратора",
-            "total_users": "Всего пользователей",
             "active_users_today": "Активные пользователи сегодня",
-            "number_of_logins_today": "Количество входов сегодня",
             "number_of_departments": "Количество департаментов",
             "number_of_users": "Количество пользователей",
-            "logins_this_month": "Вход в этом месяце"
+            "chart_of_logins_this_month": "Графики входов в этом месяце"
         },
         "units": {
             "title": "Единицы измерения",
