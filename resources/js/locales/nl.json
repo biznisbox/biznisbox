@@ -150,7 +150,17 @@
         "restored": "Hersteld",
         "logged_in": "Ingelogd",
         "logged_out": "Uitgelogd",
-        "retrieved": "Herwonnen"
+        "retrieved": "Herwonnen",
+        "viewed": "Bekeken",
+        "shared": "Gedeeld",
+        "previewed": "Voorvertoning",
+        "downloaded": "Gedownload",
+        "send": "Verzenden",
+        "copied": "Gekoppeld",
+        "moved": "Verplaatst",
+        "retrieve_public": "Openbaar ophalen",
+        "upload": "Uploaden",
+        "share": "Delen"
     },
     "audit_log_type": {
         "internal": "Intern",
@@ -383,7 +393,8 @@
         "connected_document": "Verbonden document",
         "storage_location": "Opslag locatie",
         "visibility": "Zichtbaarheid",
-        "display_name": "Toon naam"
+        "display_name": "Toon naam",
+        "theme": "Thema"
     },
     "address_types": {
         "billing": "Facturering",
@@ -992,12 +1003,10 @@
         },
         "dashboard": {
             "title": "Admin Dashboard",
-            "total_users": "Totaal aantal gebruikers",
             "active_users_today": "Actieve gebruikers vandaag",
-            "number_of_logins_today": "Aantal aanmeldingen vandaag",
             "number_of_departments": "Aantal afdelingen",
             "number_of_users": "Aantal gebruikers",
-            "logins_this_month": "Logins van deze maand"
+            "chart_of_logins_this_month": "Grafieken van de aanmeldingen deze maand"
         },
         "units": {
             "title": "Eenheden",
