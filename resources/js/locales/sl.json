@@ -394,7 +394,9 @@
         "storage_location": "Lokacija hrambe",
         "visibility": "Vidljivost",
         "display_name": "Prikazno ime",
-        "theme": "Tema"
+        "theme": "Tema",
+        "overpaid_amount": "Preplačani znesek",
+        "sum_of_payments": "Vsota plačil"
     },
     "address_types": {
         "billing": "Obračunavanje",
