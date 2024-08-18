@@ -396,7 +396,7 @@
         "display_name": "Nom affiché",
         "theme": "Thème",
         "overpaid_amount": "Montant surpayé",
-        "sum_of_payments": "Sum of Payments"
+        "sum_of_payments": "Somme des paiements"
     },
     "address_types": {
         "billing": "Facturation",
