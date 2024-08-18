@@ -153,14 +153,14 @@
         "retrieved": "Recuperado",
         "viewed": "Visto",
         "shared": "Compartido",
-        "previewed": "Previewed",
+        "previewed": "Vista previa",
         "downloaded": "Descargado",
         "send": "Enviar",
-        "copied": "Copied",
-        "moved": "Moved",
+        "copied": "Copiado",
+        "moved": "Movidos",
         "retrieve_public": "Recuperar público",
-        "upload": "Upload",
-        "share": "Share"
+        "upload": "Subir",
+        "share": "Compartir"
     },
     "audit_log_type": {
         "internal": "Interno",
@@ -1006,7 +1006,7 @@
             "active_users_today": "Usuarios Activos hoy",
             "number_of_departments": "Número de Departamentos",
             "number_of_users": "Número de usuarios",
-            "chart_of_logins_this_month": "Charts of Logins This Month"
+            "chart_of_logins_this_month": "Gráficos de entradas de este mes"
         },
         "units": {
             "title": "Unidades",
