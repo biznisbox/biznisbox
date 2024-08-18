@@ -150,7 +150,17 @@
         "restored": "Återställd",
         "logged_in": "Inloggad",
         "logged_out": "Utloggad",
-        "retrieved": "Hämtad"
+        "retrieved": "Hämtad",
+        "viewed": "Visad",
+        "shared": "Delad",
+        "previewed": "Förhandsgranskad",
+        "downloaded": "Nedladdad",
+        "send": "Skicka",
+        "copied": "Kopierad",
+        "moved": "Flyttad",
+        "retrieve_public": "Hämta offentlig",
+        "upload": "Ladda upp",
+        "share": "Dela"
     },
     "audit_log_type": {
         "internal": "Intern",
@@ -383,7 +393,8 @@
         "connected_document": "Anslutet dokument",
         "storage_location": "Lagringsplats",
         "visibility": "Synlighet",
-        "display_name": "Visningsnamn"
+        "display_name": "Visningsnamn",
+        "theme": "Tema"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -992,12 +1003,10 @@
         },
         "dashboard": {
             "title": "Admin instrumentpanel",
-            "total_users": "Totalt antal användare",
             "active_users_today": "Aktiva användare idag",
-            "number_of_logins_today": "Antal inloggningar idag",
             "number_of_departments": "Antal avdelningar",
             "number_of_users": "Antal användare",
-            "logins_this_month": "Inloggningar denna månad"
+            "chart_of_logins_this_month": "Diagram över inloggningar denna månad"
         },
         "units": {
             "title": "Enheter",
