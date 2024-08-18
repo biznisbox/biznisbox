@@ -150,7 +150,17 @@
         "restored": "Επαναφορά",
         "logged_in": "Συνδεδεμένος",
         "logged_out": "Αποσύνδεση",
-        "retrieved": "Ανακτήθηκε"
+        "retrieved": "Ανακτήθηκε",
+        "viewed": "Προβλήθηκαν",
+        "shared": "Κοινόχρηστο",
+        "previewed": "Previewed",
+        "downloaded": "Λήφθηκε",
+        "send": "Αποστολή",
+        "copied": "Copied",
+        "moved": "Moved",
+        "retrieve_public": "Ανάκτηση Δημοσίου",
+        "upload": "Upload",
+        "share": "Share"
     },
     "audit_log_type": {
         "internal": "Εσωτερική",
@@ -383,7 +393,8 @@
         "connected_document": "Συνδεδεμένο Έγγραφο",
         "storage_location": "Τοποθεσία Αποθήκευσης",
         "visibility": "Ορατότητα",
-        "display_name": "Εμφανιζόμενο Όνομα"
+        "display_name": "Εμφανιζόμενο Όνομα",
+        "theme": "Θέμα"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -992,12 +1003,10 @@
         },
         "dashboard": {
             "title": "Πίνακας Διαχειριστή",
-            "total_users": "Σύνολο Χρηστών",
             "active_users_today": "Ενεργοί Χρήστες Σήμερα",
-            "number_of_logins_today": "Αριθμός συνδέσεων σήμερα",
             "number_of_departments": "Αριθμός τμημάτων",
             "number_of_users": "Αριθμός χρηστών",
-            "logins_this_month": "Συνδέσεις Αυτό Το Μήνα"
+            "chart_of_logins_this_month": "Charts of Logins This Month"
         },
         "units": {
             "title": "Μονάδες",
