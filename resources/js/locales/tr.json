@@ -150,7 +150,17 @@
         "restored": "Kurtarıldı",
         "logged_in": "Giriş yapıldı",
         "logged_out": "Oturum kapatıldı",
-        "retrieved": "Alındı"
+        "retrieved": "Alındı",
+        "viewed": "Görüntülendi",
+        "shared": "Paylaşılan",
+        "previewed": "Previewed",
+        "downloaded": "İndirildi",
+        "send": "Gönder",
+        "copied": "Copied",
+        "moved": "Moved",
+        "retrieve_public": "Halka Açık Al",
+        "upload": "Upload",
+        "share": "Share"
     },
     "audit_log_type": {
         "internal": "İç",
@@ -383,7 +393,8 @@
         "connected_document": "Bağlantılı Belge",
         "storage_location": "Depolama Konumu",
         "visibility": "Görünürlük",
-        "display_name": "Görüntülenen İsim"
+        "display_name": "Görüntülenen İsim",
+        "theme": "Tema"
     },
     "address_types": {
         "billing": "Fatura",
@@ -992,12 +1003,10 @@
         },
         "dashboard": {
             "title": "Yönetici Panosu",
-            "total_users": "Toplam Kullanıcılar",
             "active_users_today": "Bugün Aktif Kullanıcılar",
-            "number_of_logins_today": "Bugünkü Girişlerin Sayısı",
             "number_of_departments": "Departman Sayısı",
             "number_of_users": "Kullanıcı Sayısı",
-            "logins_this_month": "Bu Ay Girişler"
+            "chart_of_logins_this_month": "Charts of Logins This Month"
         },
         "units": {
             "title": "Birimler",
