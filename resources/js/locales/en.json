@@ -150,7 +150,17 @@
         "restored": "Restored",
         "logged_in": "Logged in",
         "logged_out": "Logged out",
-        "retrieved": "Retrieved"
+        "retrieved": "Retrieved",
+        "viewed": "Viewed",
+        "shared": "Shared",
+        "previewed": "Previewed",
+        "downloaded": "Downloaded",
+        "send": "Send",
+        "copied": "Copied",
+        "moved": "Moved",
+        "retrieve_public": "Retrieve Public",
+        "upload": "Upload",
+        "share": "Share"
     },
     "audit_log_type": {
         "internal": "Internal",
@@ -383,7 +393,8 @@
         "connected_document": "Connected Document",
         "storage_location": "Storage Location",
         "visibility": "Visibility",
-        "display_name": "Display Name"
+        "display_name": "Display Name",
+        "theme": "Theme"
     },
     "address_types": {
         "billing": "Billing",
@@ -992,12 +1003,10 @@
         },
         "dashboard": {
             "title": "Admin Dashboard",
-            "total_users": "Total Users",
             "active_users_today": "Active Users Today",
-            "number_of_logins_today": "Number of Logins Today",
             "number_of_departments": "Number of Departments",
             "number_of_users": "Number of Users",
-            "logins_this_month": "Logins This Month"
+            "chart_of_logins_this_month": "Charts of Logins This Month"
         },
         "units": {
             "title": "Units",
