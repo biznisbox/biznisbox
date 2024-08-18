@@ -394,7 +394,9 @@
         "storage_location": "Opslag locatie",
         "visibility": "Zichtbaarheid",
         "display_name": "Toon naam",
-        "theme": "Thema"
+        "theme": "Thema",
+        "overpaid_amount": "Overpaid bedrag",
+        "sum_of_payments": "Som van betalingen"
     },
     "address_types": {
         "billing": "Facturering",
