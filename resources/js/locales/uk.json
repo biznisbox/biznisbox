@@ -150,7 +150,17 @@
         "restored": "Відновлено",
         "logged_in": "Ви увійшли",
         "logged_out": "Ви вийшли",
-        "retrieved": "Повернено"
+        "retrieved": "Повернено",
+        "viewed": "Переглядів",
+        "shared": "Спільні",
+        "previewed": "Попередньо переглянуто",
+        "downloaded": "Завантажено",
+        "send": "Відправити",
+        "copied": "Скопійовано",
+        "moved": "Переміщено",
+        "retrieve_public": "Отримати публічну",
+        "upload": "Вивантажити",
+        "share": "Поділитись"
     },
     "audit_log_type": {
         "internal": "Внутрішній",
@@ -383,7 +393,8 @@
         "connected_document": "Підключений документ",
         "storage_location": "Місце зберігання",
         "visibility": "Видимість",
-        "display_name": "Ім'я для відображення"
+        "display_name": "Ім'я для відображення",
+        "theme": "Тема"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -992,12 +1003,10 @@
         },
         "dashboard": {
             "title": "Панель адміністратора",
-            "total_users": "Всього користувачів",
             "active_users_today": "Активні користувачі сьогодні",
-            "number_of_logins_today": "Кількість входів сьогодні",
             "number_of_departments": "Кількість відділів",
             "number_of_users": "Кількість користувачів",
-            "logins_this_month": "Записи у цьому місяці"
+            "chart_of_logins_this_month": "Графіки входу у систему цього місяця"
         },
         "units": {
             "title": "Одиниці виміру",
