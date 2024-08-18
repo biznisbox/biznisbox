@@ -153,14 +153,14 @@
         "retrieved": "Ανακτήθηκε",
         "viewed": "Προβλήθηκαν",
         "shared": "Κοινόχρηστο",
-        "previewed": "Previewed",
+        "previewed": "Προεπισκόπιση",
         "downloaded": "Λήφθηκε",
         "send": "Αποστολή",
-        "copied": "Copied",
-        "moved": "Moved",
+        "copied": "Αντιγράφηκε",
+        "moved": "Μετακινήθηκε",
         "retrieve_public": "Ανάκτηση Δημοσίου",
-        "upload": "Upload",
-        "share": "Share"
+        "upload": "Ανέβασμα",
+        "share": "Κοινοποίηση"
     },
     "audit_log_type": {
         "internal": "Εσωτερική",
@@ -1006,7 +1006,7 @@
             "active_users_today": "Ενεργοί Χρήστες Σήμερα",
             "number_of_departments": "Αριθμός τμημάτων",
             "number_of_users": "Αριθμός χρηστών",
-            "chart_of_logins_this_month": "Charts of Logins This Month"
+            "chart_of_logins_this_month": "Διαγράμματα των συνδέσεων αυτού του μήνα"
         },
         "units": {
             "title": "Μονάδες",
