@@ -153,14 +153,14 @@
         "retrieved": "Visszanyert",
         "viewed": "Megtekintve",
         "shared": "Megosztott",
-        "previewed": "Previewed",
+        "previewed": "Előnézet",
         "downloaded": "Letöltött",
         "send": "Küldés",
-        "copied": "Copied",
-        "moved": "Moved",
+        "copied": "Másolva",
+        "moved": "Mozgatott",
         "retrieve_public": "Nyilvános lekérése",
-        "upload": "Upload",
-        "share": "Share"
+        "upload": "Feltöltés",
+        "share": "Megosztás"
     },
     "audit_log_type": {
         "internal": "Internal",
@@ -1006,7 +1006,7 @@
             "active_users_today": "Ma aktív felhasználók",
             "number_of_departments": "Osztályok száma",
             "number_of_users": "Felhasználók száma",
-            "chart_of_logins_this_month": "Charts of Logins This Month"
+            "chart_of_logins_this_month": "Bejelentkezések Grafikonjai Ez Hónap"
         },
         "units": {
             "title": "Egységek",
