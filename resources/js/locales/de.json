@@ -394,7 +394,9 @@
         "storage_location": "Speicherort",
         "visibility": "Sichtbarkeit",
         "display_name": "Anzeigename",
-        "theme": "Thema"
+        "theme": "Thema",
+        "overpaid_amount": "Überbezahlter Betrag",
+        "sum_of_payments": "Summe der Zahlungen"
     },
     "address_types": {
         "billing": "Abrechnung",
