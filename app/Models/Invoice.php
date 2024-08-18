@@ -104,7 +104,6 @@ class Invoice extends Model implements Auditable
         return URL::signedRoute('getInvoicePdf', [
             'id' => $this->id,
             'type' => 'preview',
-            'lang' => app()->getLocale(),
         ]);
     }
 
@@ -113,7 +112,6 @@ class Invoice extends Model implements Auditable
         return URL::signedRoute('getInvoicePdf', [
             'id' => $this->id,
             'type' => 'download',
-            'lang' => app()->getLocale(),
         ]);
     }
 

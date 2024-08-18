@@ -103,12 +103,12 @@
                             <Tag v-if="invoice.status === 'paid'" severity="success">{{ $t('status.paid') }}</Tag>
                             <Tag v-if="invoice.status === 'unpaid'" severity="danger">{{ $t('status.unpaid') }}</Tag>
                             <Tag v-if="invoice.status === 'overdue'" severity="danger">{{ $t('status.overdue') }}</Tag>
-                            <Tag v-if="invoice.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
-                            <Tag v-if="invoice.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
-                            <Tag v-if="invoice.status === 'refunded'" severity="">{{ $t('status.refunded') }}</Tag>
-                            <Tag v-if="invoice.status === 'partial'" severity="warning">{{ $t('status.partial') }}</Tag>
+                            <Tag v-if="invoice.status === 'draft'" severity="warn">{{ $t('status.draft') }}</Tag>
+                            <Tag v-if="invoice.status === 'sent'" severity="warn">{{ $t('status.sent') }}</Tag>
+                            <Tag v-if="invoice.status === 'refunded'" severity="secondary">{{ $t('status.refunded') }}</Tag>
+                            <Tag v-if="invoice.status === 'partial'" severity="warn">{{ $t('status.partial') }}</Tag>
                             <Tag v-if="invoice.status === 'overpaid'" severity="danger">{{ $t('status.overpaid') }}</Tag>
-                            <Tag v-if="invoice.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
+                            <Tag v-if="invoice.status === 'cancelled'" severity="secondary">{{ $t('status.cancelled') }}</Tag>
                         </DisplayData>
                     </div>
 
@@ -159,7 +159,7 @@
                         </Column>
                         <Column field="tax" :header="$t('form.tax')">
                             <template #body="{ data }">
-                                <span>{{ data.tax + ' %' }}</span>
+                                <span>{{ data.tax !== null ? data.tax + ' %' : '-' }}</span>
                             </template>
                         </Column>
                         <Column field="discount" :header="$t('form.discount')">

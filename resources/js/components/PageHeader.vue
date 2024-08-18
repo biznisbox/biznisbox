@@ -5,7 +5,7 @@
                 <h3>{{ title }}</h3>
             </div>
             <div class="grow"></div>
-            <div class="flex gap-2 flex-wrap">
+            <div class="ml-2 flex gap-2 flex-wrap">
                 <slot name="actions"></slot>
             </div>
         </div>

@@ -1,7 +1,7 @@
 <template>
     <div class="card p-4">
         <span class="my-2 block">
-            {{ $t('admin.dashboard.total_users') }}
+            {{ $t('admin.dashboard.number_of_users') }}
         </span>
         <span> <i class="fas fa-users"></i> {{ numberOfUsers }} </span>
     </div>

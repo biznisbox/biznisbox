@@ -292,8 +292,8 @@ Route::post('/online-payment/invoice/paypal', [ClientInvoiceController::class, '
 Route::get('/online-payment/invoice/paypal', [ClientInvoiceController::class, 'validateInvoicePayPalPayment'])->name(
     'validatePayPalPayment'
 );
-// Installation routes
 
+// Installation routes
 Route::get('/install/check-app-installed', [InstallerController::class, 'checkAppInstalled'])->name('checkAppInstalled');
 Route::group(['prefix' => 'install', 'middleware' => CheckIfInstalled::class], function () {
     Route::get('/check-requirements', [InstallerController::class, 'checkRequirements'])->name('checkRequirements');
@@ -305,22 +305,8 @@ Route::group(['prefix' => 'install', 'middleware' => CheckIfInstalled::class], f
 });
 
 // Signed URLs
-Route::get('/archive/documents/{id}/preview', [ArchiveController::class, 'previewDocument'])
-    ->name('previewDocument')
-    ->middleware('signed');
-
-Route::get('/archive/documents/{id}/download', [ArchiveController::class, 'downloadDocument'])
-    ->name('downloadDocument')
-    ->middleware('signed');
-
-Route::get('/invoice/{id}/pdf', [InvoiceController::class, 'getInvoicePdf'])
-    ->name('getInvoicePdf')
-    ->middleware('signed');
-
-Route::get('/quote/{id}/pdf', [QuoteController::class, 'getQuotePdf'])
-    ->name('getQuotePdf')
-    ->middleware('signed');
-
-Route::get('/bill/{id}/pdf', [BillController::class, 'getBillPdf'])
-    ->name('getBillPdf')
-    ->middleware('signed');
+Route::get('/archive/documents/{id}/preview', [ArchiveController::class, 'previewDocument'])->name('previewDocument');
+Route::get('/archive/documents/{id}/download', [ArchiveController::class, 'downloadDocument'])->name('downloadDocument');
+Route::get('/invoice/{id}/pdf', [InvoiceController::class, 'getInvoicePdf'])->name('getInvoicePdf');
+Route::get('/quote/{id}/pdf', [QuoteController::class, 'getQuotePdf'])->name('getQuotePdf');
+Route::get('/bill/{id}/pdf', [BillController::class, 'getBillPdf'])->name('getBillPdf');

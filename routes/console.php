@@ -1,24 +1,24 @@
 <?php
 
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schedule;
+use Illuminate\Support\Stringable;
 
 Schedule::command('biznisbox:refresh-bank-transactions')
     ->withoutOverlapping()
     ->hourly()
-    ->onSuccess(function () {
-        Log::info('Bank transactions refreshed successfully');
+    ->onSuccess(function (Stringable $output) {
+        insertScheduleRun('biznisbox:refresh-bank-transactions', 'success', $output);
     })
-    ->onFailure(function () {
-        Log::error('Failed to refresh bank transactions');
+    ->onFailure(function (Stringable $output) {
+        insertScheduleRun('biznisbox:refresh-bank-transactions', 'failed', $output);
     });
 
 Schedule::command('biznisbox:update-currency-rate')
     ->withoutOverlapping()
     ->daily()
-    ->onSuccess(function () {
-        Log::info('Currency rate updated successfully');
+    ->onSuccess(function (Stringable $output) {
+        insertScheduleRun('biznisbox:update-currency-rate', 'success', $output);
     })
-    ->onFailure(function () {
-        Log::error('Failed to update currency rate');
+    ->onFailure(function (Stringable $output) {
+        insertScheduleRun('biznisbox:update-currency-rate', 'failed', $output);
     });

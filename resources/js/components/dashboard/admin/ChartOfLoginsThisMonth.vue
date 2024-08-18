@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-        <span class="font-bold">{{ $t('admin.dashboard.logins_this_month') }}</span>
+        <span class="font-bold">{{ $t('admin.dashboard.chart_of_logins_this_month') }}</span>
         <apexchart type="line" height="250" :options="options" :series="series"></apexchart>
     </div>
 </template>

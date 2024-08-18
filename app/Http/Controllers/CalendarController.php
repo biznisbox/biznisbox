@@ -19,6 +19,9 @@ class CalendarController extends Controller
         $start = $request->start;
         $end = $request->end;
         $events = $this->calendarService->getEvents(null, $start, $end);
+        if ($events == []) {
+            return api_response([], __('responses.data_retrieved_successfully'), 200);
+        }
         if (!$events) {
             return api_response(null, __('responses.item_not_found'), 404);
         }

@@ -67,8 +67,8 @@
                     <template #body="{ data }">
                         <Tag v-if="data.stock_status === 'out_of_stock'" severity="danger"> {{ $t('stock_status.out_of_stock') }}</Tag>
                         <Tag v-if="data.stock_status === 'in_stock'" severity="success"> {{ $t('stock_status.in_stock') }}</Tag>
-                        <Tag v-if="data.stock_status === 'low_stock'" severity="warning"> {{ $t('stock_status.low_stock') }}</Tag>
-                        <Tag v-if="data.stock_status === 'over_stock'" severity="warning"> {{ $t('stock_status.over_stock') }}</Tag>
+                        <Tag v-if="data.stock_status === 'low_stock'" severity="warn"> {{ $t('stock_status.low_stock') }}</Tag>
+                        <Tag v-if="data.stock_status === 'over_stock'" severity="warn"> {{ $t('stock_status.over_stock') }}</Tag>
                     </template>
 
                     <template #filter="{ filterModel }">

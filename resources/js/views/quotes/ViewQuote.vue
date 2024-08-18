@@ -86,11 +86,11 @@
                     <DisplayData :input="$t('form.status')" custom-value>
                         <Tag v-if="quote.status === 'accepted'" severity="success">{{ $t('status.accepted') }}</Tag>
                         <Tag v-if="quote.status === 'rejected'" severity="danger">{{ $t('status.rejected') }}</Tag>
-                        <Tag v-if="quote.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
-                        <Tag v-if="quote.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
-                        <Tag v-if="quote.status === 'viewed'" severity="warning">{{ $t('status.viewed') }}</Tag>
+                        <Tag v-if="quote.status === 'draft'" severity="warn">{{ $t('status.draft') }}</Tag>
+                        <Tag v-if="quote.status === 'sent'" severity="warn">{{ $t('status.sent') }}</Tag>
+                        <Tag v-if="quote.status === 'viewed'" severity="warn">{{ $t('status.viewed') }}</Tag>
                         <Tag v-if="quote.status === 'expired'" severity="danger">{{ $t('status.expired') }}</Tag>
-                        <Tag v-if="quote.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
+                        <Tag v-if="quote.status === 'cancelled'" severity="secondary">{{ $t('status.cancelled') }}</Tag>
                         <Tag v-if="quote.status === 'converted'" severity="success">{{ $t('status.converted') }}</Tag>
                     </DisplayData>
                     <DisplayData :input="$t('form.currency')" :value="formatText(quote.currency)" />
@@ -124,7 +124,7 @@
                         </Column>
                         <Column field="tax" :header="$t('form.tax')">
                             <template #body="{ data }">
-                                <span>{{ data.tax + ' %' }}</span>
+                                <span>{{ data.tax !== null ? data.tax + ' %' : '-' }}</span>
                             </template>
                         </Column>
                         <Column field="discount" :header="$t('form.discount')">

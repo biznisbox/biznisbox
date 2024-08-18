@@ -66,11 +66,11 @@
                         <Tag v-if="data.status === 'paid'" severity="success">{{ $t('status.paid') }}</Tag>
                         <Tag v-if="data.status === 'unpaid'" severity="danger">{{ $t('status.unpaid') }}</Tag>
                         <Tag v-if="data.status === 'overdue'" severity="danger">{{ $t('status.overdue') }}</Tag>
-                        <Tag v-if="data.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
-                        <Tag v-if="data.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
-                        <Tag v-if="data.status === 'refunded'">{{ $t('status.refunded') }}</Tag>
-                        <Tag v-if="data.status === 'cancelled'">{{ $t('status.cancelled') }}</Tag>
-                        <Tag v-if="data.status === 'partial'" severity="warning">{{ $t('status.partial') }}</Tag>
+                        <Tag v-if="data.status === 'draft'" severity="warn">{{ $t('status.draft') }}</Tag>
+                        <Tag v-if="data.status === 'sent'" severity="warn">{{ $t('status.sent') }}</Tag>
+                        <Tag v-if="data.status === 'refunded'" severity="secondary">{{ $t('status.refunded') }}</Tag>
+                        <Tag v-if="data.status === 'cancelled'" severity="secondary">{{ $t('status.cancelled') }}</Tag>
+                        <Tag v-if="data.status === 'partial'" severity="warn">{{ $t('status.partial') }}</Tag>
                         <Tag v-if="data.status === 'overpaid'" severity="danger">{{ $t('status.overpaid') }}</Tag>
                     </template>
                     <template #filter="{ filterModel }">

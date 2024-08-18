@@ -125,7 +125,7 @@ class User extends Authenticatable implements JWTSubject, Auditable
     public function getPublicUsers()
     {
         $users = $this->where('active', true)->get(['id', 'first_name', 'last_name', 'email', 'picture', 'language', 'timezone']);
-        createActivityLog('retrieve_public', null, 'App\Models\User', 'User');
+        createActivityLog('retrievePublic', null, 'App\Models\User', 'User');
         return $users;
     }
 

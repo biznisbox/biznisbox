@@ -34,18 +34,14 @@
                         <DisplayData :input="$t('form.status')" custom-value>
                             <Tag v-if="supportTicket.status === 'open'" :value="$t('status.open')" severity="success" />
                             <Tag v-else-if="supportTicket.status === 'closed'" :value="$t('status.closed')" severity="danger" />
-                            <Tag v-else-if="supportTicket.status === 'in_progress'" :value="$t('status.in_progress')" severity="warning" />
+                            <Tag v-else-if="supportTicket.status === 'in_progress'" :value="$t('status.in_progress')" severity="warn" />
                             <Tag v-else-if="supportTicket.status === 'resolved'" :value="$t('status.resolved')" severity="info" />
                             <Tag v-else-if="supportTicket.status === 'reopened'" :value="$t('status.reopened')" severity="secondary" />
                         </DisplayData>
                         <DisplayData :input="$t('form.priority')" custom-value>
                             <Tag v-if="supportTicket.priority === 'none'" :value="$t('support_priority.none')" severity="secondary" />
-                            <Tag v-else-if="supportTicket.priority === 'low'" :value="$t('support_priority.low')" class="p-badge-info" />
-                            <Tag
-                                v-else-if="supportTicket.priority === 'medium'"
-                                :value="$t('support_priority.medium')"
-                                severity="warning"
-                            />
+                            <Tag v-else-if="supportTicket.priority === 'low'" :value="$t('support_priority.low')" severity="info" />
+                            <Tag v-else-if="supportTicket.priority === 'medium'" :value="$t('support_priority.medium')" severity="warn" />
                             <Tag
                                 v-else-if="supportTicket.priority === 'normal'"
                                 :value="$t('support_priority.normal')"

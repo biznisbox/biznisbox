@@ -61,7 +61,7 @@
         </LoadingScreen>
 
         <!-- Add Element Dialog -->
-        <Dialog v-model:visible="addElementDialog" :header="$t('dashboard.add_element')" modal>
+        <Dialog v-model:visible="addElementDialog" :header="$t('dashboard.add_element')" modal :style="{ width: '400px' }">
             <SelectInput v-model="selectedComponent" :options="availableComponents" option-label="name" option-value="i" />
 
             <template v-slot:footer>
@@ -71,7 +71,7 @@
         </Dialog>
 
         <!-- Remove Element Dialog -->
-        <Dialog v-model:visible="removeElementDialog" :header="$t('dashboard.remove_element')" modal>
+        <Dialog v-model:visible="removeElementDialog" :header="$t('dashboard.remove_element')" modal :style="{ width: '400px' }">
             <SelectInput v-model="selectedComponent" :options="layout" option-label="name" option-value="i" />
 
             <template v-slot:footer>
@@ -101,9 +101,16 @@ export default {
             removeElementDialog: false,
             editDashboard: false,
             availableComponents: [
-                { name: 'Number of Users', i: 'number_of_users', component: 'NumberOfUsers', minW: 2, minH: 2, permission: 'admin_users' },
                 {
-                    name: 'Chart of Logins This Month',
+                    name: this.$t('admin.dashboard.number_of_users'),
+                    i: 'number_of_users',
+                    component: 'NumberOfUsers',
+                    minW: 2,
+                    minH: 2,
+                    permission: 'admin_users',
+                },
+                {
+                    name: this.$t('admin.dashboard.chart_of_logins_this_month'),
                     i: 'chart_of_logins_this_month',
                     component: 'ChartOfLoginsThisMonth',
                     minW: 4,

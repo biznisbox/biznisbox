@@ -80,6 +80,9 @@ class ArchiveController extends Controller
 
     public function downloadDocument($id)
     {
+        if (!request()->hasValidSignatureWhileIgnoring(['lang'])) {
+            return api_response(null, __('responses.invalid_signature'), 400);
+        }
         $document = $this->archiveService->downloadDocument($id);
         if (!$document) {
             return api_response($document, __('responses.item_not_downloaded'), 400);
@@ -89,6 +92,9 @@ class ArchiveController extends Controller
 
     public function previewDocument($id)
     {
+        if (!request()->hasValidSignatureWhileIgnoring(['lang'])) {
+            return api_response(null, __('responses.invalid_signature'), 400);
+        }
         $document = $this->archiveService->previewDocument($id);
         if (!$document) {
             return api_response($document, __('responses.item_not_previewed'), 400);

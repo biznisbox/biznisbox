@@ -141,10 +141,14 @@
                                                 <Tag v-if="data.status === 'paid'" severity="success">{{ $t('status.paid') }}</Tag>
                                                 <Tag v-if="data.status === 'unpaid'" severity="danger">{{ $t('status.unpaid') }}</Tag>
                                                 <Tag v-if="data.status === 'overdue'" severity="danger">{{ $t('status.overdue') }}</Tag>
-                                                <Tag v-if="data.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
-                                                <Tag v-if="data.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
-                                                <Tag v-if="data.status === 'refunded'">{{ $t('status.refunded') }}</Tag>
-                                                <Tag v-if="data.status === 'cancelled'">{{ $t('status.cancelled') }}</Tag>
+                                                <Tag v-if="data.status === 'draft'" severity="warn">{{ $t('status.draft') }}</Tag>
+                                                <Tag v-if="data.status === 'sent'" severity="warn">{{ $t('status.sent') }}</Tag>
+                                                <Tag v-if="data.status === 'refunded'" severity="secondary">{{
+                                                    $t('status.refunded')
+                                                }}</Tag>
+                                                <Tag v-if="data.status === 'cancelled'" severity="secondary">{{
+                                                    $t('status.cancelled')
+                                                }}</Tag>
                                             </template>
                                         </Column>
                                     </DataTable>
@@ -190,11 +194,13 @@
                                                     <Tag v-if="data.status === 'rejected'" severity="danger">{{
                                                         $t('status.rejected')
                                                     }}</Tag>
-                                                    <Tag v-if="data.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
-                                                    <Tag v-if="data.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
-                                                    <Tag v-if="data.status === 'viewed'" severity="warning">{{ $t('status.viewed') }}</Tag>
+                                                    <Tag v-if="data.status === 'draft'" severity="warn">{{ $t('status.draft') }}</Tag>
+                                                    <Tag v-if="data.status === 'sent'" severity="warn">{{ $t('status.sent') }}</Tag>
+                                                    <Tag v-if="data.status === 'viewed'" severity="warn">{{ $t('status.viewed') }}</Tag>
                                                     <Tag v-if="data.status === 'expired'" severity="danger">{{ $t('status.expired') }}</Tag>
-                                                    <Tag v-if="data.status === 'cancelled'">{{ $t('status.cancelled') }}</Tag>
+                                                    <Tag v-if="data.status === 'cancelled'" severity="secondary">{{
+                                                        $t('status.cancelled')
+                                                    }}</Tag>
                                                     <Tag v-if="data.status === 'converted'" severity="success">{{
                                                         $t('status.converted')
                                                     }}</Tag>
@@ -239,10 +245,12 @@
                                                         <Tag v-if="slotProps.data.status === 'overdue'" severity="danger">{{
                                                             $t('status.overdue')
                                                         }}</Tag>
-                                                        <Tag v-if="slotProps.data.status === 'draft'" severity="warning">{{
+                                                        <Tag v-if="slotProps.data.status === 'draft'" severity="warn">{{
                                                             $t('status.draft')
                                                         }}</Tag>
-                                                        <Tag v-if="slotProps.data.status === 'cancelled'">{{ $t('status.cancelled') }}</Tag>
+                                                        <Tag v-if="slotProps.data.status === 'cancelled'" severity="secondary">{{
+                                                            $t('status.cancelled')
+                                                        }}</Tag>
                                                     </div>
                                                 </template>
                                             </Column>

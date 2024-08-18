@@ -41,8 +41,8 @@ class Product extends Model implements Auditable
     {
         return [
             'active' => 'boolean',
-            'buy_price' => 'float:2',
-            'sell_price' => 'float:2',
+            'buy_price' => 'float',
+            'sell_price' => 'float',
             'stock' => 'float',
             'stock_min' => 'float',
             'stock_max' => 'float',

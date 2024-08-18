@@ -26,6 +26,7 @@ class QuoteItem extends Model implements Auditable
         'tax',
         'tax_type',
         'total',
+        'unit',
     ];
 
     protected function casts(): array

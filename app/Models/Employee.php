@@ -123,7 +123,7 @@ class Employee extends Model implements Auditable
         foreach ($employees as $employee) {
             $employee->label = $employee->first_name . ' ' . $employee->last_name . ' (' . $employee->email . ')';
         }
-        createActivityLog('retrieve_public', null, 'App\Models\Employee', 'Employee');
+        createActivityLog('retrievePublic', null, 'App\Models\Employee', 'Employee');
         return $employees;
     }
 }

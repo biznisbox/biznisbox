@@ -107,6 +107,8 @@
             v-model:visible="showNewEditFolderDialog"
             :header="folderMethod === 'new' ? $t('archive.new_folder') : $t('archive.edit_folder')"
             modal
+            :style="{ width: '400px' }"
+            class="m-2"
         >
             <form>
                 <TextInput id="folder_name_input" v-model="folder.name" :label="$t('archive.folder_name')" />
@@ -142,7 +144,14 @@
         </Dialog>
 
         <!-- New document dialog -->
-        <Dialog id="upload_document_dialog" v-model:visible="showNewDocumentDialog" :header="$t('archive.new_document')" modal>
+        <Dialog
+            id="upload_document_dialog"
+            v-model:visible="showNewDocumentDialog"
+            :header="$t('archive.new_document')"
+            modal
+            :style="{ width: '400px' }"
+            class="m-2"
+        >
             <div id="upload_document_section" class="my-2">
                 <FileUpload
                     id="file_uploader"

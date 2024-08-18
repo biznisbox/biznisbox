@@ -71,6 +71,9 @@ class BillController extends Controller
 
     public function getBillPdf(Request $request, $id)
     {
+        if (!$request->hasValidSignatureWhileIgnoring(['lang'])) {
+            return api_response(null, __('responses.invalid_signature'), 400);
+        }
         $type = $request->input('type', 'stream');
         $pdf = $this->billService->getBillPdf($id, $type);
         return $pdf;

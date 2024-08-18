@@ -54,7 +54,7 @@
                         <Tag v-if="bill.status == 'unpaid'" severity="danger" :value="$t('status.unpaid')" />
                         <Tag v-if="bill.status == 'overdue'" severity="danger" :value="$t('status.overdue')" />
                         <Tag v-if="bill.status == 'cancelled'" severity="secondary" :value="$t('status.cancelled')" />
-                        <Tag v-if="bill.status == 'draft'" severity="warning" :value="$t('status.draft')" />
+                        <Tag v-if="bill.status == 'draft'" severity="warn" :value="$t('status.draft')" />
                     </DisplayData>
                 </div>
 

@@ -103,11 +103,11 @@
 
                     <div v-if="!loadingData">
                         <DisplayData :input="$t('form.status')" custom-value>
-                            <Tag v-if="quote.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
-                            <Tag v-if="quote.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
-                            <Tag v-if="quote.status === 'viewed'" severity="warning">{{ $t('status.viewed') }}</Tag>
+                            <Tag v-if="quote.status === 'draft'" severity="warn">{{ $t('status.draft') }}</Tag>
+                            <Tag v-if="quote.status === 'sent'" severity="warn">{{ $t('status.sent') }}</Tag>
+                            <Tag v-if="quote.status === 'viewed'" severity="warn">{{ $t('status.viewed') }}</Tag>
                             <Tag v-if="quote.status === 'accepted'" severity="success">{{ $t('status.accepted') }}</Tag>
-                            <Tag v-if="quote.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
+                            <Tag v-if="quote.status === 'cancelled'" severity="secondary">{{ $t('status.cancelled') }}</Tag>
                             <Tag v-if="quote.status === 'rejected'" severity="danger">{{ $t('status.rejected') }}</Tag>
                             <Tag v-if="quote.status === 'converted'" severity="success">{{ $t('status.converted') }}</Tag>
                             <Tag v-if="quote.status === 'expired'" severity="danger">{{ $t('status.expired') }}</Tag>
@@ -132,28 +132,28 @@
                         <Column field="name" :header="$t('form.name')" />
                         <Column field="description" :header="$t('form.description')" />
                         <Column field="quantity" :header="$t('form.quantity')">
-                            <template #body="slotProps">
-                                <span>{{ slotProps.data.quantity + ' ' + slotProps.data.unit }}</span>
+                            <template #body="{ data }">
+                                <span>{{ data.quantity + ' ' + data.unit }}</span>
                             </template>
                         </Column>
                         <Column field="price" :header="$t('form.price')">
-                            <template #body="slotProps">
-                                <span>{{ formatMoney(slotProps.data.price) }}</span>
+                            <template #body="{ data }">
+                                <span>{{ formatMoney(data.price) }}</span>
                             </template>
                         </Column>
                         <Column field="tax" :header="$t('form.tax')">
-                            <template #body="slotProps">
-                                <span>{{ slotProps.data.tax + ' %' }}</span>
+                            <template #body="{ data }">
+                                <span>{{ data.tax !== null ? data.tax + ' %' : '-' }}</span>
                             </template>
                         </Column>
                         <Column field="discount" :header="$t('form.discount')">
-                            <template #body="slotProps">
-                                <span>{{ slotProps.data.discount + ' %' }}</span>
+                            <template #body="{ data }">
+                                <span>{{ data.discount + ' %' }}</span>
                             </template>
                         </Column>
                         <Column field="total" :header="$t('form.total')">
-                            <template #body="slotProps">
-                                <span>{{ formatMoney(slotProps.data.total) }}</span>
+                            <template #body="{ data }">
+                                <span>{{ formatMoney(data.total) }}</span>
                             </template>
                         </Column>
                     </DataTable>
