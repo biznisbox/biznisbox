@@ -153,14 +153,14 @@
         "retrieved": "Hentet",
         "viewed": "Set",
         "shared": "Delt",
-        "previewed": "Previewed",
+        "previewed": "Forhåndsvisning",
         "downloaded": "Downloadet",
         "send": "Send",
-        "copied": "Copied",
-        "moved": "Moved",
+        "copied": "Kopieret",
+        "moved": "Flyttet",
         "retrieve_public": "Hent Offentlig",
         "upload": "Upload",
-        "share": "Share"
+        "share": "Del"
     },
     "audit_log_type": {
         "internal": "Intern",
@@ -1006,7 +1006,7 @@
             "active_users_today": "Aktive Brugere I Dag",
             "number_of_departments": "Antal afdelinger",
             "number_of_users": "Antal brugere",
-            "chart_of_logins_this_month": "Charts of Logins This Month"
+            "chart_of_logins_this_month": "Diagrammer over indlogninger Denne måned"
         },
         "units": {
             "title": "Enheder",
