@@ -150,7 +150,17 @@
         "restored": "Ripristinato",
         "logged_in": "Accesso effettuato",
         "logged_out": "Disconnesso",
-        "retrieved": "Recuperato"
+        "retrieved": "Recuperato",
+        "viewed": "Visualizzato",
+        "shared": "Condiviso",
+        "previewed": "Previsto",
+        "downloaded": "Scaricato",
+        "send": "Invia",
+        "copied": "Copiato",
+        "moved": "Spostato",
+        "retrieve_public": "Recupera Pubblico",
+        "upload": "Carica",
+        "share": "Condividi"
     },
     "audit_log_type": {
         "internal": "Interno",
@@ -383,7 +393,8 @@
         "connected_document": "Documento Connesso",
         "storage_location": "Posizione Di Archiviazione",
         "visibility": "Visibilità",
-        "display_name": "Nome Visualizzato"
+        "display_name": "Nome Visualizzato",
+        "theme": "Tema"
     },
     "address_types": {
         "billing": "Fatturazione",
@@ -992,12 +1003,10 @@
         },
         "dashboard": {
             "title": "Dashboard Amministratore",
-            "total_users": "Utenti Totali",
             "active_users_today": "Utenti Attivi Oggi",
-            "number_of_logins_today": "Numero di accessi oggi",
             "number_of_departments": "Numero di dipartimenti",
             "number_of_users": "Numero di utenti",
-            "logins_this_month": "Accedi Questo Mese"
+            "chart_of_logins_this_month": "Grafici degli accessi di questo mese"
         },
         "units": {
             "title": "Unità",
