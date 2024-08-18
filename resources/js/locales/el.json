@@ -394,7 +394,9 @@
         "storage_location": "Τοποθεσία Αποθήκευσης",
         "visibility": "Ορατότητα",
         "display_name": "Εμφανιζόμενο Όνομα",
-        "theme": "Θέμα"
+        "theme": "Θέμα",
+        "overpaid_amount": "Υπερπληρωμένο Ποσό",
+        "sum_of_payments": "Άθροισμα πληρωμών"
     },
     "address_types": {
         "billing": "Χρέωση",
