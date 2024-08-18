@@ -394,7 +394,9 @@
         "storage_location": "Lokalizacja magazynu",
         "visibility": "Widoczność",
         "display_name": "Wyświetlana nazwa",
-        "theme": "Motyw"
+        "theme": "Motyw",
+        "overpaid_amount": "Nadpłacona kwota",
+        "sum_of_payments": "Suma płatności"
     },
     "address_types": {
         "billing": "Płatność",
