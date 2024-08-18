@@ -150,7 +150,17 @@
         "restored": "Palautettu",
         "logged_in": "Kirjautunut sisään",
         "logged_out": "Kirjautunut ulos",
-        "retrieved": "Haettu"
+        "retrieved": "Haettu",
+        "viewed": "Katsottu",
+        "shared": "Jaettu",
+        "previewed": "Previewed",
+        "downloaded": "Ladattu",
+        "send": "Lähetä",
+        "copied": "Copied",
+        "moved": "Moved",
+        "retrieve_public": "Hae Julkinen",
+        "upload": "Upload",
+        "share": "Share"
     },
     "audit_log_type": {
         "internal": "Sisäinen",
@@ -383,7 +393,8 @@
         "connected_document": "Yhdistetty Asiakirja",
         "storage_location": "Tallennustilan Sijainti",
         "visibility": "Näkyvyys",
-        "display_name": "Näytön Nimi"
+        "display_name": "Näytön Nimi",
+        "theme": "Teema"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -992,12 +1003,10 @@
         },
         "dashboard": {
             "title": "Ylläpitäjän Hallintapaneeli",
-            "total_users": "Käyttäjiä Yhteensä",
             "active_users_today": "Aktiiviset Käyttäjät Tänään",
-            "number_of_logins_today": "Kirjautumisten määrä tänään",
             "number_of_departments": "Osastojen lukumäärä",
             "number_of_users": "Käyttäjien määrä",
-            "logins_this_month": "Kirjautuu Tässä Kuussa"
+            "chart_of_logins_this_month": "Charts of Logins This Month"
         },
         "units": {
             "title": "Yksiköt",
