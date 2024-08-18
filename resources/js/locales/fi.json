@@ -153,14 +153,14 @@
         "retrieved": "Haettu",
         "viewed": "Katsottu",
         "shared": "Jaettu",
-        "previewed": "Previewed",
+        "previewed": "Esikatseltu",
         "downloaded": "Ladattu",
         "send": "Lähetä",
-        "copied": "Copied",
-        "moved": "Moved",
+        "copied": "Kopioitu",
+        "moved": "Siirretty",
         "retrieve_public": "Hae Julkinen",
-        "upload": "Upload",
-        "share": "Share"
+        "upload": "Lähetä",
+        "share": "Jaa"
     },
     "audit_log_type": {
         "internal": "Sisäinen",
@@ -1006,7 +1006,7 @@
             "active_users_today": "Aktiiviset Käyttäjät Tänään",
             "number_of_departments": "Osastojen lukumäärä",
             "number_of_users": "Käyttäjien määrä",
-            "chart_of_logins_this_month": "Charts of Logins This Month"
+            "chart_of_logins_this_month": "Kirjautumiskaaviot tässä kuussa"
         },
         "units": {
             "title": "Yksiköt",
