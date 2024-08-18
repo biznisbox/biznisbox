@@ -394,7 +394,9 @@
         "storage_location": "Расположение хранилища",
         "visibility": "Видимость",
         "display_name": "Показать имя",
-        "theme": "Тема"
+        "theme": "Тема",
+        "overpaid_amount": "Переплаченная сумма",
+        "sum_of_payments": "Сумма платежей"
     },
     "address_types": {
         "billing": "Биллинг",
