@@ -150,7 +150,17 @@
         "restored": "Gjenopprettet",
         "logged_in": "Logget inn",
         "logged_out": "Logget av",
-        "retrieved": "Hente"
+        "retrieved": "Hente",
+        "viewed": "Vist",
+        "shared": "Delt",
+        "previewed": "Forhåndsvise",
+        "downloaded": "Nedlastet",
+        "send": "Sende",
+        "copied": "Kopiert",
+        "moved": "Flyttet",
+        "retrieve_public": "Hent offentlige",
+        "upload": "Last opp",
+        "share": "Del"
     },
     "audit_log_type": {
         "internal": "Intern",
@@ -383,7 +393,8 @@
         "connected_document": "Tilkoblet dokument",
         "storage_location": "Lagringssted",
         "visibility": "Synlighet",
-        "display_name": "Vis navn"
+        "display_name": "Vis navn",
+        "theme": "Tema"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -992,12 +1003,10 @@
         },
         "dashboard": {
             "title": "Admin skrivebord",
-            "total_users": "Totalt antall brukere",
             "active_users_today": "Aktive brukere i dag",
-            "number_of_logins_today": "Antall innlogginger i dag",
             "number_of_departments": "Antall avdelinger",
             "number_of_users": "Antall brukere",
-            "logins_this_month": "Logg inn denne måneden"
+            "chart_of_logins_this_month": "Karter over \"Logg inn\" denne måneden"
         },
         "units": {
             "title": "Enheter",
