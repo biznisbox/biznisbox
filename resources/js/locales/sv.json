@@ -394,7 +394,9 @@
         "storage_location": "Lagringsplats",
         "visibility": "Synlighet",
         "display_name": "Visningsnamn",
-        "theme": "Tema"
+        "theme": "Tema",
+        "overpaid_amount": "Överbetalt belopp",
+        "sum_of_payments": "Summa betalningar"
     },
     "address_types": {
         "billing": "Fakturering",
