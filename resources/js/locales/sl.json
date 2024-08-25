@@ -754,7 +754,9 @@
         "delete_confirm_document": "Ali ste prepričani, da želite izbrisati ta dokument?",
         "edit_folder": "Uredi mapa",
         "delete_confirm_folder": "Ali ste prepričani, da želite izbrisati to mapo?",
-        "restore_confirm_document": "Ste prepričani, da želite obnoviti ta element?"
+        "restore_confirm_document": "Ste prepričani, da želite obnoviti ta element?",
+        "select_folder": "Izberite mapo",
+        "move_document": "Premakni dokument"
     },
     "protection_level": {
         "public": "Javno",
