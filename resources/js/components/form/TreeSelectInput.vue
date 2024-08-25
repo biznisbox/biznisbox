@@ -14,6 +14,7 @@
             :placeholder="placeholder"
             :editable="editable"
             :show-clear="showClear"
+            :selection-mode="selectionMode"
             :invalid="validate?.$dirty && validate?.$invalid"
             @change="updateValue"
             @blur="validate?.$touch()"
@@ -75,6 +76,10 @@ export default {
         showClear: {
             type: Boolean,
             default: false,
+        },
+        selectionMode: {
+            type: String,
+            default: 'single',
         },
     },
     methods: {

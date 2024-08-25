@@ -161,7 +161,6 @@
         "retrieve_public": "Pridobi javno",
         "upload": "Nalaganje",
         "share": "Deljenje"
-        "retrieved": "Pridobitev"
     },
     "audit_log_type": {
         "internal": "Notranji",
@@ -398,7 +397,6 @@
         "theme": "Tema",
         "overpaid_amount": "Preplačani znesek",
         "sum_of_payments": "Vsota plačil"
-        "visibility": "Vidljivost"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -759,7 +757,6 @@
         "restore_confirm_document": "Ste prepričani, da želite obnoviti ta element?",
         "select_folder": "Izberite mapo",
         "move_document": "Premakni dokument"
-        "restore_confirm_document": "Ste prepričani, da želite obnoviti ta element?"
     },
     "protection_level": {
         "public": "Javno",
@@ -1013,10 +1010,7 @@
             "active_users_today": "Aktivni uporabniki danes",
             "number_of_departments": "Število oddelkov",
             "number_of_users": "Število uporabnikov",
-            "chart_of_logins_this_month": "Grafikoni prijav tega meseca"
-            "number_of_logins_today": "Število prijav danes",
-            "number_of_departments": "Število oddelkov",
-            "number_of_users": "Število uporabnikov",
+            "chart_of_logins_this_month": "Grafikoni prijav tega meseca",
             "logins_this_month": "Prijava ta mesec"
         },
         "units": {
