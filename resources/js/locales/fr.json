@@ -754,7 +754,9 @@
         "delete_confirm_document": "Êtes-vous sûr de vouloir supprimer ce document ?",
         "edit_folder": "Modifier le dossier",
         "delete_confirm_folder": "Êtes-vous sûr de vouloir supprimer ce dossier ?",
-        "restore_confirm_document": "Êtes-vous sûr de vouloir restaurer ce document ?"
+        "restore_confirm_document": "Êtes-vous sûr de vouloir restaurer ce document ?",
+        "select_folder": "Sélectionner un dossier",
+        "move_document": "Déplacer le document"
     },
     "protection_level": {
         "public": "Publique",
