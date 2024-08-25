@@ -99,4 +99,6 @@ return [
     'install_migration_and_seeding_successful' => 'Migratie en seeding succesvol.',
     'install_migration_and_seeding_failed' => 'Migratie en uploaden is mislukt.',
     'install_admin_user_created' => 'Admin gebruiker is succesvol aangemaakt.',
+    'item_not_moved' => 'Item niet verplaatst',
+    'item_moved_successfully' => 'Item moved Successfully',
 ];
