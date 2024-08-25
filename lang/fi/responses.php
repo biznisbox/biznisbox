@@ -74,7 +74,7 @@ return [
         'saturday' => 'Lauantai',
         'sunday' => 'Sunnuntai',
     ],
-    'app_installed' => 'Sovellus on jo asennettu',
+    'app_installed' => 'Sovellus on jo asennettu.',
     'two_factor_auth_required' => 'Kaksivaiheinen todennus vaaditaan',
     'disabled_account' => 'Tili ei ole aktiivinen. Ota yhteyttä järjestelmänvalvojaan.',
     'invalid_2fa_code' => 'Virheellinen 2FA-koodi',
