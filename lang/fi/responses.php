@@ -99,4 +99,6 @@ return [
     'install_migration_and_seeding_successful' => 'Muuttoliike ja kylvö onnistui.',
     'install_migration_and_seeding_failed' => 'Muuttoliike ja kylvö epäonnistui.',
     'install_admin_user_created' => 'Ylläpito käyttäjä luotiin onnistuneesti.',
+    'item_not_moved' => 'Kohdetta ei siirretty.',
+    'item_moved_successfully' => 'Kohde siirretty onnistuneesti',
 ];
