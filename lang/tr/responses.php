@@ -99,4 +99,6 @@ return [
     'install_migration_and_seeding_successful' => 'Taşıma ve tohumlama başarılı.',
     'install_migration_and_seeding_failed' => 'Taşıma ve tohumlama başarısız oldu.',
     'install_admin_user_created' => 'Yönetici kullanıcı başarıyla oluşturuldu.',
+    'item_not_moved' => 'Öğe taşınamadı',
+    'item_moved_successfully' => 'Öğe başarıyla taşındı',
 ];
