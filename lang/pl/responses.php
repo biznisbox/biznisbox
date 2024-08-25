@@ -74,7 +74,7 @@ return [
         'saturday' => 'Sobota',
         'sunday' => 'Niedziela',
     ],
-    'app_installed' => 'Aplikacja jest już zainstalowana',
+    'app_installed' => 'Aplikacja jest już zainstalowana.',
     'two_factor_auth_required' => 'Uwierzytelnianie dwuskładnikowe jest wymagane',
     'disabled_account' => 'Konto nie jest aktywne. Skontaktuj się z administratorem.',
     'invalid_2fa_code' => 'Nieprawidłowy kod 2FA',
