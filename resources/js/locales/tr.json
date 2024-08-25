@@ -754,7 +754,9 @@
         "delete_confirm_document": "Bu belgeyi silmek istediğinizden emin misiniz?",
         "edit_folder": "Klasörü Düzenle",
         "delete_confirm_folder": "Bu klasörü silmek istediğinizden emin misiniz?",
-        "restore_confirm_document": "Bu belgeyi geri yüklemek istediğinizden emin misiniz?"
+        "restore_confirm_document": "Bu belgeyi geri yüklemek istediğinizden emin misiniz?",
+        "select_folder": "Klasör seç",
+        "move_document": "Belgeyi taşı"
     },
     "protection_level": {
         "public": "Halka Açık",
