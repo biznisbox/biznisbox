@@ -754,7 +754,9 @@
         "delete_confirm_document": "Ви впевнені, що хочете видалити цей документ?",
         "edit_folder": "Змінити теку",
         "delete_confirm_folder": "Ви впевнені, що хочете видалити цю теку?",
-        "restore_confirm_document": "Ви впевнені, що хочете відновити цей документ?"
+        "restore_confirm_document": "Ви впевнені, що хочете відновити цей документ?",
+        "select_folder": "Обрати теку",
+        "move_document": "Перемістити документ"
     },
     "protection_level": {
         "public": "Загальнодоступна",
