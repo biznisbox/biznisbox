@@ -754,7 +754,9 @@
         "delete_confirm_document": "Tem certeza de que deseja excluir este documento?",
         "edit_folder": "Editar Pasta",
         "delete_confirm_folder": "Você tem certeza que deseja excluir esta pasta?",
-        "restore_confirm_document": "Tem certeza de que deseja restaurar este documento?"
+        "restore_confirm_document": "Tem certeza de que deseja restaurar este documento?",
+        "select_folder": "Selecionar pasta",
+        "move_document": "Mover documento"
     },
     "protection_level": {
         "public": "Público",
