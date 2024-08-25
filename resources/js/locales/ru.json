@@ -754,7 +754,9 @@
         "delete_confirm_document": "Вы уверены, что хотите удалить этот документ?",
         "edit_folder": "Изменить папку",
         "delete_confirm_folder": "Вы уверены, что хотите удалить эту папку?",
-        "restore_confirm_document": "Вы уверены, что хотите восстановить этот документ?"
+        "restore_confirm_document": "Вы уверены, что хотите восстановить этот документ?",
+        "select_folder": "Выберите папку",
+        "move_document": "Переместить документ"
     },
     "protection_level": {
         "public": "Публичный",
