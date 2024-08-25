@@ -754,7 +754,9 @@
         "delete_confirm_document": "Er du sikker på, at du vil slette dette dokument?",
         "edit_folder": "Rediger Mappe",
         "delete_confirm_folder": "Er du sikker på, at du vil slette denne mappe?",
-        "restore_confirm_document": "Er du sikker på, at du vil gendanne dette dokument?"
+        "restore_confirm_document": "Er du sikker på, at du vil gendanne dette dokument?",
+        "select_folder": "Vælg mappe",
+        "move_document": "Flyt dokument"
     },
     "protection_level": {
         "public": "Offentlig",
