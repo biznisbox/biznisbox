@@ -754,7 +754,9 @@
         "delete_confirm_document": "Sind Sie sicher, dass Sie dieses Dokument löschen möchten?",
         "edit_folder": "Ordner bearbeiten",
         "delete_confirm_folder": "Sind Sie sicher, dass Sie diesen Ordner löschen möchten?",
-        "restore_confirm_document": "Sind Sie sicher, dass Sie dieses Dokument wiederherstellen möchten?"
+        "restore_confirm_document": "Sind Sie sicher, dass Sie dieses Dokument wiederherstellen möchten?",
+        "select_folder": "Ordner auswählen",
+        "move_document": "Dokument verschieben"
     },
     "protection_level": {
         "public": "Öffentlich",
