@@ -74,7 +74,7 @@ return [
         'saturday' => 'Sobota',
         'sunday' => 'Nedelja',
     ],
-    'app_installed' => 'Aplikacija je že nameščena.',
+    'app_installed' => 'Aplikacija je že nameščena',
     'two_factor_auth_required' => 'Zahtevana je dvostopenjska overitev',
     'disabled_account' => 'Račun ni aktiven. Prosimo, obrnite se na administratorja.',
     'invalid_2fa_code' => 'Neveljavna koda 2FA',
@@ -99,6 +99,4 @@ return [
     'install_migration_and_seeding_successful' => 'Selitev in naselitev uspešna.',
     'install_migration_and_seeding_failed' => 'Selitev in naselitev ni uspela.',
     'install_admin_user_created' => 'Ustvarjen skrbnik uspešno.',
-    'item_not_moved' => 'Predmet ni premaknjen',
-    'item_moved_successfully' => 'Predmet uspešno premaknjen',
 ];
