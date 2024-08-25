@@ -74,7 +74,7 @@ return [
         'saturday' => 'Cumartesi',
         'sunday' => 'Pazar',
     ],
-    'app_installed' => 'Uygulama zaten yüklü',
+    'app_installed' => 'Uygulama zaten kurulmuş.',
     'two_factor_auth_required' => 'İki faktörlü kimlik doğrulama gereklidir',
     'disabled_account' => 'Hesap etkin değil. Lütfen yöneticiyle iletişime geçin.',
     'invalid_2fa_code' => 'Geçersiz 2FA kodu',
