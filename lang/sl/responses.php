@@ -99,4 +99,6 @@ return [
     'install_migration_and_seeding_successful' => 'Selitev in naselitev uspešna.',
     'install_migration_and_seeding_failed' => 'Selitev in naselitev ni uspela.',
     'install_admin_user_created' => 'Ustvarjen skrbnik uspešno.',
+    'item_not_moved' => 'Predmet ni premaknjen',
+    'item_moved_successfully' => 'Predmet uspešno premaknjen',
 ];
