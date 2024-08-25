@@ -754,7 +754,9 @@
         "delete_confirm_document": "Czy na pewno chcesz usunąć ten dokument?",
         "edit_folder": "Edytuj folder",
         "delete_confirm_folder": "Czy na pewno chcesz usunąć ten folder?",
-        "restore_confirm_document": "Czy na pewno chcesz przywrócić ten dokument?"
+        "restore_confirm_document": "Czy na pewno chcesz przywrócić ten dokument?",
+        "select_folder": "Wybierz folder",
+        "move_document": "Przenieś dokument"
     },
     "protection_level": {
         "public": "Publiczne",
