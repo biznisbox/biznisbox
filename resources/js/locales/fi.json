@@ -754,7 +754,9 @@
         "delete_confirm_document": "Oletko varma, että haluat poistaa tämän asiakirjan?",
         "edit_folder": "Muokkaa Kansiota",
         "delete_confirm_folder": "Oletko varma, että haluat poistaa tämän kansion?",
-        "restore_confirm_document": "Oletko varma, että haluat palauttaa tämän asiakirjan?"
+        "restore_confirm_document": "Oletko varma, että haluat palauttaa tämän asiakirjan?",
+        "select_folder": "Valitse kansio",
+        "move_document": "Siirrä asiakirja"
     },
     "protection_level": {
         "public": "Julkinen",
