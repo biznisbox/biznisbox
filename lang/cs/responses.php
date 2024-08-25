@@ -99,4 +99,6 @@ return [
     'install_migration_and_seeding_successful' => 'Migrace a distribuce úspěšná.',
     'install_migration_and_seeding_failed' => 'Migrace a distribuci selhaly.',
     'install_admin_user_created' => 'Uživatel správce byl úspěšně vytvořen.',
+    'item_not_moved' => 'Položka nebyla přesunuta',
+    'item_moved_successfully' => 'Položka byla úspěšně přesunuta',
 ];
