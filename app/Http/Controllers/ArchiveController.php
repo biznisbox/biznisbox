@@ -101,4 +101,13 @@ class ArchiveController extends Controller
         }
         return $document;
     }
+
+    public function moveDocument(Request $request, $id)
+    {
+        $document = $this->archiveService->moveDocument($request, $id);
+        if (!$document) {
+            return api_response($document, __('responses.item_not_moved'), 400);
+        }
+        return api_response($document, __('responses.item_moved_successfully'), 200);
+    }
 }

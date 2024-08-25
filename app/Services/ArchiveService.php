@@ -175,4 +175,29 @@ class ArchiveService
         }
         return false;
     }
+
+    public function moveDocument($request, $id)
+    {
+        // Get the folder_id from the array key
+        $folderId = array_keys($request->folder_id)[0];
+
+        if ($folderId === 'undefined') {
+            $folderId = null;
+        }
+
+        if ($folderId === 'trash') {
+            return $this->deleteDocument($id);
+        }
+
+        $document = $this->archiveModel->find($id);
+
+        if ($document) {
+            $document->update([
+                'folder_id' => $folderId,
+            ]);
+            sendWebhookForEvent('archive:document_moved', $document->toArray());
+            return $document;
+        }
+        return false;
+    }
 }
