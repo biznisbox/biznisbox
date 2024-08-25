@@ -74,7 +74,7 @@ return [
         'saturday' => 'Sabato',
         'sunday' => 'Domenica',
     ],
-    'app_installed' => 'L\'app è già installata',
+    'app_installed' => 'L\'app è già installata.',
     'two_factor_auth_required' => 'È richiesta l\'autenticazione a due fattori',
     'disabled_account' => 'L\'account non è attivo. Contatta l\'amministratore.',
     'invalid_2fa_code' => 'Codice 2FA non valido',
