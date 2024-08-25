@@ -74,7 +74,7 @@ return [
         'saturday' => 'Sobota',
         'sunday' => 'Neděle',
     ],
-    'app_installed' => 'Aplikace je již nainstalována',
+    'app_installed' => 'Aplikace je již nainstalována.',
     'two_factor_auth_required' => 'Dvoufázové ověření je vyžadováno',
     'disabled_account' => 'Účet není aktivní. Kontaktujte správce.',
     'invalid_2fa_code' => 'Neplatný 2FA kód',
