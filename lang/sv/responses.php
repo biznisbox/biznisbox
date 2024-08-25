@@ -99,4 +99,6 @@ return [
     'install_migration_and_seeding_successful' => 'Migration och sådd lyckades.',
     'install_migration_and_seeding_failed' => 'Migration och sådd misslyckades.',
     'install_admin_user_created' => 'Administratörsanvändare har skapats.',
+    'item_not_moved' => 'Objektet har inte flyttats',
+    'item_moved_successfully' => 'Objektet har flyttats',
 ];
