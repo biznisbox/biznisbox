@@ -68,6 +68,22 @@ class Bill extends Model implements Auditable
         return $this->belongsTo(Partner::class, 'supplier_id');
     }
 
+    public function getPreviewAttribute()
+    {
+        return URL::signedRoute('getBillPdf', [
+            'id' => $this->id,
+            'type' => 'preview',
+        ]);
+    }
+
+    public function getDownloadAttribute()
+    {
+        return URL::signedRoute('getBillPdf', [
+            'id' => $this->id,
+            'type' => 'download',
+        ]);
+    }
+
     public function getBills()
     {
         $bill = $this->with(['items'])->get();
@@ -80,24 +96,6 @@ class Bill extends Model implements Auditable
         $bill = $this->with(['items'])->find($id);
         createActivityLog('retrieve', $id, 'App\Models\Bill', 'Bill');
         return $bill;
-    }
-
-    public function getPreviewAttribute()
-    {
-        return URL::signedRoute('getBillPdf', [
-            'id' => $this->id,
-            'type' => 'preview',
-            'lang' => app()->getLocale(),
-        ]);
-    }
-
-    public function getDownloadAttribute()
-    {
-        return URL::signedRoute('getBillPdf', [
-            'id' => $this->id,
-            'type' => 'download',
-            'lang' => app()->getLocale(),
-        ]);
     }
 
     public function createBill($data)

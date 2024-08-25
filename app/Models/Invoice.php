@@ -55,7 +55,7 @@ class Invoice extends Model implements Auditable
 
     protected $hidden = ['deleted_at', 'updated_at', 'created_at'];
 
-    protected $appends = ['preview', 'download'];
+    protected $appends = ['preview', 'download', 'sum_of_payments', 'overpaid_amount'];
 
     protected function casts(): array
     {
@@ -104,7 +104,6 @@ class Invoice extends Model implements Auditable
         return URL::signedRoute('getInvoicePdf', [
             'id' => $this->id,
             'type' => 'preview',
-            'lang' => app()->getLocale(),
         ]);
     }
 
@@ -113,8 +112,17 @@ class Invoice extends Model implements Auditable
         return URL::signedRoute('getInvoicePdf', [
             'id' => $this->id,
             'type' => 'download',
-            'lang' => app()->getLocale(),
         ]);
+    }
+
+    public function getSumOfPaymentsAttribute()
+    {
+        return $this->transactions()->sum('amount');
+    }
+
+    public function getOverpaidAmountAttribute()
+    {
+        return $this->sum_of_payments - $this->total;
     }
 
     /**

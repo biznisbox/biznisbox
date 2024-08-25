@@ -12,10 +12,22 @@ class WebhookSubscription extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $fillable = ['name', 'url', 'signature_secret_key', 'is_active', 'listen_events', 'http_verb', 'headers'];
+    protected $fillable = [
+        'name',
+        'url',
+        'signature_secret_key',
+        'is_active',
+        'listen_events',
+        'http_verb',
+        'headers',
+        'notes',
+        'last_called_at',
+        'can_be_edited',
+    ];
 
     protected $casts = [
         'is_active' => 'boolean',
+        'can_be_edited' => 'boolean',
     ];
 
     protected static function booted()

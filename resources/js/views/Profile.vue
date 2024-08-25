@@ -320,6 +320,7 @@ export default {
 
             this.makeHttpRequest('PUT', '/api/profile', this.user_data).then((response) => {
                 this.showToast(response.data.message)
+                this.refreshToken()
                 this.getProfile()
             })
         },
@@ -396,6 +397,7 @@ export default {
         'user_data.language': {
             handler: function (value) {
                 this.$i18n.locale = value
+                this.$cookies.set('lang', value, '1y')
             },
             immediate: true,
         },

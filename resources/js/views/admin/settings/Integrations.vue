@@ -17,7 +17,7 @@
                                 <h2 class="mb-4 font-bold dark:text-surface-200">{{ $t('admin.integrations.stripe') }}</h2>
                                 <div class="flex flex-col gap-2 mb-2">
                                     <label class="dark:text-surface-200">{{ $t('admin.integrations.stripe_available') }} </label>
-                                    <InputSwitch v-model="settings.stripe_available" id="stripe_available" />
+                                    <ToggleSwitch v-model="settings.stripe_available" id="stripe_available" />
                                 </div>
                                 <PasswordInput
                                     id="stripe_api_key"

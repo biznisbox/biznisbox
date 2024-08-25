@@ -142,6 +142,7 @@ class Partner extends Model implements Auditable
             sendWebhookForEvent('partner:created', $partner->toArray());
             return $partner;
         } catch (\Exception $e) {
+            Log::error($e->getMessage());
             DB::rollback();
             return false;
         }

@@ -12,6 +12,7 @@ import StarButton from '@/components/form/StarButton.vue'
 import SelectInput from '@/components/form/SelectInput.vue'
 import MultiSelectInput from '@/components/form/MultiSelectInput.vue'
 import TextAreaInput from '@/components/form/TextAreaInput.vue'
+import TreeSelectInput from '@/components/form/TreeSelectInput.vue'
 import TinyMceEditor from '@/components/form/TinyMceEditor.vue'
 import SideMenu from '@/components/SideMenu.vue'
 import PageHeader from '@/components/PageHeader.vue'
@@ -31,6 +32,7 @@ export default {
         app.component('SelectButtonInput', SelectButtonInput)
         app.component('StarButton', StarButton)
         app.component('SelectInput', SelectInput)
+        app.component('TreeSelectInput', TreeSelectInput)
         app.component('TextAreaInput', TextAreaInput)
         app.component('TinyMceEditor', TinyMceEditor)
         app.component('SideMenu', SideMenu)

@@ -58,8 +58,8 @@
 
                             <Column field="name" :header="$t('form.name')">
                                 <template #body="slotProps">
-                                    <Dropdown
-                                        :id="`item_dropdown_${slotProps.index}`"
+                                    <Select
+                                        :id="`item_select_${slotProps.index}`"
                                         v-model="slotProps.data.item"
                                         :options="products"
                                         data-key="id"
@@ -73,7 +73,7 @@
                                         <template #option="slotProps">
                                             <span v-if="slotProps.option">{{ slotProps.option.name }}</span>
                                         </template>
-                                    </Dropdown>
+                                    </Select>
                                 </template>
                             </Column>
                             <Column field="description" :header="$t('form.description')">

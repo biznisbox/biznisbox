@@ -79,6 +79,9 @@ class InvoiceController extends Controller
 
     public function getInvoicePdf(Request $request, $id)
     {
+        if (!$request->hasValidSignatureWhileIgnoring(['lang'])) {
+            return api_response(null, __('responses.invalid_signature'), 400);
+        }
         $type = $request->input('type', 'stream');
         $pdf = $this->invoiceService->getInvoicePdf($id, $type);
         return $pdf;

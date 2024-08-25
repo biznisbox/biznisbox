@@ -54,17 +54,19 @@
                     @resized="saveDashboardLayout"
                     class="grid-item"
                 >
-                    <div :id="item.i">
-                        <div v-if="hasPermission(item.permission) || item.permission === 'dashboard'" :id="item.i">
-                            <component :is="item.component" />
-                        </div>
+                    <div
+                        v-if="hasPermission(item.permission) || item.permission === 'dashboard'"
+                        :id="item.i"
+                        :data-component="item.component"
+                    >
+                        <component :is="item.component" />
                     </div>
                 </GridItem>
             </GridLayout>
         </LoadingScreen>
 
         <!-- Add Element Dialog -->
-        <Dialog v-model:visible="addElementDialog" :header="$t('dashboard.add_element')" modal>
+        <Dialog v-model:visible="addElementDialog" :header="$t('dashboard.add_element')" modal :style="{ width: '400px' }">
             <SelectInput v-model="selectedComponent" :options="availableComponents" option-label="name" option-value="i" />
 
             <template v-slot:footer>
@@ -74,7 +76,7 @@
         </Dialog>
 
         <!-- Remove Element Dialog -->
-        <Dialog v-model:visible="removeElementDialog" :header="$t('dashboard.remove_element')" modal>
+        <Dialog v-model:visible="removeElementDialog" :header="$t('dashboard.remove_element')" modal :style="{ width: '400px' }">
             <SelectInput v-model="selectedComponent" :options="layout" option-label="name" option-value="i" />
 
             <template v-slot:footer>

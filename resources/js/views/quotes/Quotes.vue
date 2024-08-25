@@ -66,15 +66,15 @@
                     <template #body="{ data }">
                         <Tag v-if="data.status === 'accepted'" severity="success">{{ $t('status.accepted') }}</Tag>
                         <Tag v-if="data.status === 'rejected'" severity="danger">{{ $t('status.rejected') }}</Tag>
-                        <Tag v-if="data.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
-                        <Tag v-if="data.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
-                        <Tag v-if="data.status === 'viewed'" severity="warning">{{ $t('status.viewed') }}</Tag>
+                        <Tag v-if="data.status === 'draft'" severity="warn">{{ $t('status.draft') }}</Tag>
+                        <Tag v-if="data.status === 'sent'" severity="warn">{{ $t('status.sent') }}</Tag>
+                        <Tag v-if="data.status === 'viewed'" severity="warn">{{ $t('status.viewed') }}</Tag>
                         <Tag v-if="data.status === 'expired'" severity="danger">{{ $t('status.expired') }}</Tag>
                         <Tag v-if="data.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
                         <Tag v-if="data.status === 'converted'" severity="success">{{ $t('status.converted') }}</Tag>
                     </template>
                     <template #filter="{ filterModel }">
-                        <Dropdown
+                        <Select
                             v-model="filterModel.value"
                             :options="[
                                 { label: $t('status.accepted'), value: 'accepted' },

@@ -86,7 +86,7 @@
                     </template>
 
                     <template #filter="{ filterModel }">
-                        <Dropdown
+                        <Select
                             v-model="filterModel.value"
                             :options="[
                                 { label: $t('transaction_type.income'), value: 'income' },

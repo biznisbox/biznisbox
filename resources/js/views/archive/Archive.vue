@@ -107,6 +107,8 @@
             v-model:visible="showNewEditFolderDialog"
             :header="folderMethod === 'new' ? $t('archive.new_folder') : $t('archive.edit_folder')"
             modal
+            :style="{ width: '400px' }"
+            class="m-2"
         >
             <form>
                 <TextInput id="folder_name_input" v-model="folder.name" :label="$t('archive.folder_name')" />
@@ -142,7 +144,14 @@
         </Dialog>
 
         <!-- New document dialog -->
-        <Dialog id="upload_document_dialog" v-model:visible="showNewDocumentDialog" :header="$t('archive.new_document')" modal>
+        <Dialog
+            id="upload_document_dialog"
+            v-model:visible="showNewDocumentDialog"
+            :header="$t('archive.new_document')"
+            modal
+            :style="{ width: '400px' }"
+            class="m-2"
+        >
             <div id="upload_document_section" class="my-2">
                 <FileUpload
                     id="file_uploader"
@@ -168,6 +177,39 @@
             <div v-if="filePreviewFormat === 'image'">
                 <img :src="filePreviewUrl" alt="preview" style="width: 100%" />
             </div>
+        </Dialog>
+
+        <!-- Document move dialog -->
+        <Dialog
+            v-model:visible="showMoveDocumentDialog"
+            :header="$t('archive.move_document')"
+            modal
+            :style="{ width: '400px' }"
+            class="m-2"
+        >
+            <TreeSelectInput
+                id="move_folder"
+                v-model="moveFolderId"
+                :options="folders"
+                option-label="label"
+                option-value="id"
+                show-clear
+                filter
+                :label="$t('archive.select_folder')"
+                placeholder="Select a folder"
+            />
+            <template #footer>
+                <div id="function_buttons" class="flex gap-2 justify-content-end">
+                    <Button :label="$t('basic.cancel')" icon="fa fa-times" severity="secondary" @click="showMoveDocumentDialog = false" />
+                    <Button
+                        :label="$t('basic.move')"
+                        icon="fa fa-save"
+                        severity="success"
+                        @click="moveDocument"
+                        :disabled="!moveFolderId"
+                    />
+                </div>
+            </template>
         </Dialog>
 
         <!-- Sidebar for file -->
@@ -329,6 +371,13 @@
                         @click="deleteDocumentAsk(document)"
                     />
                     <Button
+                        v-if="editDocument"
+                        id="document_move_button"
+                        :label="$t('basic.move')"
+                        icon="fa fa-folder"
+                        @click="showMoveDocumentDialog = true"
+                    />
+                    <Button
                         id="document_audit_log_button"
                         :label="$t('basic.audit_log')"
                         icon="fa fa-history"
@@ -372,7 +421,6 @@
 
 <script>
 import ArchiveMixin from '@/mixins/archive'
-import Column from 'primevue/column'
 export default {
     name: 'ArchivePage',
     mixins: [ArchiveMixin],
@@ -382,6 +430,7 @@ export default {
             auditLogElementId: null,
             editDocument: false,
             showNewEditFolderDialog: false,
+            showMoveDocumentDialog: false,
             selectedDocument: null,
             sidebarFileShow: false,
             showNewDocumentDialog: false,

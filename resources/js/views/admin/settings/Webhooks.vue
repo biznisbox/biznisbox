@@ -38,7 +38,7 @@
                 </Column>
                 <Column field="listen_events" :header="$t('form.listen_events')">
                     <template #body="{ data }">
-                        <Tag v-for="event in data.listen_events" :key="event" :value="event" />
+                        <Tag v-for="event in data.listen_events" :key="event" :value="event" class="mr-1" />
                     </template>
                 </Column>
                 <Column field="is_active" :header="$t('form.active')">
@@ -63,11 +63,13 @@
                         v-model="v$.webhook_subscription.name.$model"
                         :label="$t('form.name')"
                         :validate="v$.webhook_subscription.name"
+                        :disabled="!webhook_subscription.can_be_edited"
                     />
                     <TextInput
                         v-model="v$.webhook_subscription.url.$model"
                         :label="$t('form.url')"
                         :validate="v$.webhook_subscription.url"
+                        :disabled="!webhook_subscription.can_be_edited"
                     />
                     <TextInput
                         v-model="v$.webhook_subscription.signature_secret_key.$model"
@@ -86,29 +88,46 @@
                             { label: 'DELETE', value: 'delete' },
                         ]"
                         :validate="v$.webhook_subscription.http_verb"
+                        :disabled="!webhook_subscription.can_be_edited"
                     />
                     <MultiSelectInput
                         v-model="v$.webhook_subscription.listen_events.$model"
                         :label="$t('form.listen_events')"
-                        :options="[
-                            { label: '*', value: '*' },
-                            { label: 'partner:created', value: 'partner:created' },
-                        ]"
+                        :options="webhookEvents"
+                        optionLabel="name"
+                        optionValue="name"
                         :validate="v$.webhook_subscription.listen_events"
+                        :disabled="!webhook_subscription.can_be_edited"
                     />
 
-                    <div class="flex gap-2">
-                        <Button :label="$t('admin.webhook.add_header')" icon="fa fa-plus" @click="addHeader" />
+                    <div class="flex gap-2 my-4">
+                        <Button
+                            :label="$t('admin.webhook.add_header')"
+                            icon="fa fa-plus"
+                            @click="addHeader"
+                            :disabled="!webhook_subscription.can_be_edited"
+                        />
                     </div>
 
                     <div v-for="(header, index) in webhook_subscription.headers" :key="index" class="flex gap-2 objects-center">
-                        <TextInput v-model="header.key" :label="$t('form.key')" class="w-1/2" />
-                        <TextInput v-model="header.value" :label="$t('form.value')" class="w-1/2" />
+                        <TextInput
+                            v-model="header.key"
+                            :label="$t('form.key')"
+                            class="w-1/2"
+                            :disabled="header.default || !webhook_subscription.can_be_edited"
+                        />
+                        <TextInput
+                            v-model="header.value"
+                            :label="$t('form.value')"
+                            class="w-1/2"
+                            :disabled="header.default || !webhook_subscription.can_be_edited"
+                        />
                         <Button
                             icon="fa fa-trash"
-                            :disabled="header.default || header.key == 'Content-Type'"
+                            :disabled="header.default || header.key == 'Content-Type' || !webhook_subscription.can_be_edited"
                             @click="removeHeader(index)"
                             severity="danger"
+                            class="h-10 mt-9"
                         />
                     </div>
                 </form>
@@ -134,18 +153,11 @@
                             @click="showNewEditWebhookSubscriptionDialog = false"
                         />
                         <Button
-                            v-if="modalMode === 'edit'"
-                            :label="$t('basic.update')"
-                            icon="fa fa-floppy-disk"
-                            @click="updateWebhookSubscription"
-                            severity="success"
-                        />
-                        <Button
-                            v-else
                             :label="formMode === 'edit' ? $t('basic.update') : $t('basic.save')"
                             icon="fa fa-floppy-disk"
                             @click="validateForm"
                             severity="success"
+                            :disabled="!webhook_subscription.can_be_edited"
                         />
                     </div>
                 </div>
@@ -155,6 +167,7 @@
 </template>
 
 <script>
+import webhookEvents from '@/data/webhook_events.json'
 import { required } from '@/plugins/i18n-validators'
 import { useVuelidate } from '@vuelidate/core'
 export default {
@@ -164,6 +177,7 @@ export default {
     },
     data() {
         return {
+            webhookEvents: webhookEvents,
             webhook_subscriptions: [],
             webhook_subscription: {
                 id: '',
@@ -180,6 +194,7 @@ export default {
                         default: true,
                     },
                 ],
+                can_be_edited: true,
             },
             showNewEditWebhookSubscriptionDialog: false,
             modalMode: 'new',
@@ -264,6 +279,7 @@ export default {
                         default: true,
                     },
                 ],
+                can_be_edited: true,
             }
             this.modalMode = 'new'
             this.showNewEditWebhookSubscriptionDialog = true

@@ -65,13 +65,13 @@
                             <Tag v-if="data.status === 'paid'" severity="success">{{ $t('status.paid') }}</Tag>
                             <Tag v-if="data.status === 'unpaid'" severity="danger">{{ $t('status.unpaid') }}</Tag>
                             <Tag v-if="data.status === 'overdue'" severity="danger">{{ $t('status.overdue') }}</Tag>
-                            <Tag v-if="data.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
-                            <Tag v-if="data.status === 'cancelled'">{{ $t('status.cancelled') }}</Tag>
+                            <Tag v-if="data.status === 'draft'" severity="warn">{{ $t('status.draft') }}</Tag>
+                            <Tag v-if="data.status === 'cancelled'" severity="secondary">{{ $t('status.cancelled') }}</Tag>
                         </div>
                     </template>
 
                     <template #filter="{ filterModel }">
-                        <Dropdown
+                        <Select
                             v-model="filterModel.value"
                             :options="[
                                 { label: $t('status.paid'), value: 'paid' },

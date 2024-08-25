@@ -6,6 +6,7 @@ export default {
             currentFolder: null,
             currentDocument: null,
             selectDocumentArray: [],
+            moveFolderId: null,
             document: {
                 id: '',
                 number: '',
@@ -166,14 +167,7 @@ export default {
                     this.showToast(response.data.message)
                     this.getDocuments(this.currentFolder || null)
                     this.sidebarFileShow = false
-                    this.document = {
-                        id: '',
-                        name: '',
-                        type: '',
-                        description: '',
-                        preview_url: '',
-                        download_url: '',
-                    }
+                    resetDocument()
                 })
                 .catch((error) => {
                     if (error.response.status === 404) {
@@ -245,6 +239,14 @@ export default {
                 name: '',
                 description: '',
                 file: null,
+                folder_id: this.currentFolder || null,
+                partner_id: '',
+                connected_document_id: '',
+                connected_document_type: 'App\\Models\\Archive',
+                storage_location_id: '',
+                protection_level: '',
+                preview_link: '',
+                download_link: '',
             }
         },
 
@@ -276,6 +278,29 @@ export default {
                     this.deleteFolder()
                 },
             })
+        },
+
+        /**
+         * Function for move document to another folder
+         * @returns {void}
+         */
+        moveDocument() {
+            this.makeHttpRequest('PUT', `/api/archive/documents/${this.document.id}/move`, {
+                folder_id: this.moveFolderId,
+            })
+                .then((response) => {
+                    this.showToast(response.data.message)
+                    this.getDocuments(this.currentFolder || null)
+                    this.sidebarFileShow = false
+                    this.showMoveDocumentDialog = false
+                    this.moveFolderId = null
+                    resetDocument()
+                })
+                .catch((error) => {
+                    if (error.response.status === 404) {
+                        this.showToast('Error', error.response.data.message, 'error')
+                    }
+                })
         },
     },
 }

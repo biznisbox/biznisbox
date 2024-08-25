@@ -1,5 +1,5 @@
 <template>
-    <div v-if="value !== null" class="mb-2" :id="`display_data_${input.toLowerCase()}`">
+    <div v-if="value !== null || (value == null && customValue)" class="mb-2" :id="`display_data_${input.toLowerCase()}`">
         <div class="font-bold mb-1">
             {{ input }}
         </div>
@@ -23,7 +23,10 @@ export default {
         input: {
             type: String,
         },
-        value: '',
+        value: {
+            type: [String, Number, Boolean],
+            default: null,
+        },
         isLink: {
             type: Boolean,
             default: false,

@@ -23,7 +23,6 @@
     </div>
 </template>
 <script>
-import dayjs from 'dayjs'
 export default {
     name: 'NumberingInput',
     props: {
@@ -67,6 +66,7 @@ export default {
             this.$emit('update:modelValue', this.modelValue)
         },
 
+        /* eslint-disable */
         moveNumbering(index, direction) {
             if (direction === 'up') {
                 if (index === 0) {
@@ -98,6 +98,7 @@ export default {
             this.modelValue.splice(index, 1)
             this.updateValue()
         },
+        /* eslint-enable */
 
         generatePreview() {
             this.makeHttpRequest('POST', '/api/admin/settings/number/preview', { format: this.modelValue, module: this.module }).then(

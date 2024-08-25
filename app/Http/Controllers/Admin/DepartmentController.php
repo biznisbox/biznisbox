@@ -38,9 +38,9 @@ class DepartmentController extends Controller
         $data = $request->all();
         $department = $this->departmentService->createDepartment($data);
         if (!$department) {
-            return api_response($department, __('messages.item_not_created'), 400);
+            return api_response($department, __('responses.item_not_created'), 400);
         }
-        return api_response($department, __('messages.item_created_successfully'), 200);
+        return api_response($department, __('responses.item_created_successfully'), 200);
     }
 
     public function updateDepartment(Request $request, $id)

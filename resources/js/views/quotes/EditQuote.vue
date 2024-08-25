@@ -133,7 +133,7 @@
 
                             <Column field="name" :header="$t('form.name')">
                                 <template #body="slotProps">
-                                    <Dropdown
+                                    <Select
                                         v-if="slotProps.data.added"
                                         v-model="slotProps.data.item"
                                         :options="products"
@@ -148,7 +148,7 @@
                                         <template #option="slotProps">
                                             <span v-if="slotProps.option">{{ slotProps.option.name }}</span>
                                         </template>
-                                    </Dropdown>
+                                    </Select>
                                     <span v-else>{{ slotProps.data.name }}</span>
                                 </template>
                             </Column>
@@ -189,7 +189,7 @@
                                         @focus="calculateItemTotal(slotProps.index)"
                                     />
 
-                                    <Dropdown
+                                    <Select
                                         v-model="slotProps.data.tax"
                                         :options="taxes"
                                         class="mt-0 md:mt-2"

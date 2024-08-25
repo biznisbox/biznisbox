@@ -42,7 +42,7 @@
                         <div class="flex items-center my-2">
                             <Tag v-if="data.status === 'open'" :value="$t('status.open')" severity="success" />
                             <Tag v-else-if="data.status === 'closed'" :value="$t('status.closed')" severity="danger" />
-                            <Tag v-else-if="data.status === 'in_progress'" :value="$t('status.in_progress')" severity="warning" />
+                            <Tag v-else-if="data.status === 'in_progress'" :value="$t('status.in_progress')" severity="warn" />
                             <Tag v-else-if="data.status === 'resolved'" :value="$t('status.resolved')" severity="info" />
                             <Tag v-else-if="data.status === 'reopened'" :value="$t('status.reopened')" severity="secondary" />
                         </div>
@@ -50,7 +50,7 @@
                         <div class="flex items-center my-2">
                             <Tag v-if="data.priority === 'none'" :value="$t('support_priority.none')" severity="secondary" />
                             <Tag v-else-if="data.priority === 'low'" :value="$t('support_priority.low')" severity="info" />
-                            <Tag v-else-if="data.priority === 'medium'" :value="$t('support_priority.medium')" severity="warning" />
+                            <Tag v-else-if="data.priority === 'medium'" :value="$t('support_priority.medium')" severity="warn" />
                             <Tag v-else-if="data.priority === 'normal'" :value="$t('support_priority.normal')" severity="success" />
                             <Tag v-else-if="data.priority === 'high'" :value="$t('support_priority.high')" severity="danger" />
                             <Tag v-else-if="data.priority === 'urgent'" :value="$t('support_priority.urgent')" severity="danger" />

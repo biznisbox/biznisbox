@@ -90,12 +90,11 @@
                         <label for="input_send_details_to" class="dark:text-surface-200">
                             {{ $t('admin.mail.send_test_email_to') }}
                         </label>
-                        <Chips
+                        <AutoComplete
                             id="input_send_details_to"
                             v-model="test_mail.emails"
-                            :allow-duplicates="false"
-                            separator=","
-                            class="w-full"
+                            multiple
+                            :typeahead="false"
                             :label="$t('admin.email.email_address')"
                         />
                     </div>

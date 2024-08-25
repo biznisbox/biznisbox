@@ -95,7 +95,6 @@ class Quote extends Model implements Auditable
         return URL::signedRoute('getQuotePdf', [
             'id' => $this->id,
             'type' => 'preview',
-            'lang' => app()->getLocale(),
         ]);
     }
 
@@ -104,7 +103,6 @@ class Quote extends Model implements Auditable
         return URL::signedRoute('getQuotePdf', [
             'id' => $this->id,
             'type' => 'download',
-            'lang' => app()->getLocale(),
         ]);
     }
 

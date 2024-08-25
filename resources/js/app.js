@@ -1,4 +1,3 @@
-import './bootstrap'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from '@/router'
@@ -29,4 +28,10 @@ app.mixin(IndexMixin)
 app.use(CustomComponents)
 app.use(VueApexCharts)
 app.component('DefaultLayout', DefaultLayout)
+
+// Error handler
+app.config.errorHandler = (err, vm, info) => {
+    console.error('Error:' + err, 'Vue component:', vm, 'Additional info:', info)
+}
+
 app.mount('#app')

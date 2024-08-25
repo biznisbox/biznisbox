@@ -93,6 +93,9 @@ class QuoteController extends Controller
 
     public function getQuotePdf(Request $request, $id)
     {
+        if (!$request->hasValidSignatureWhileIgnoring(['lang'])) {
+            return api_response(null, __('responses.invalid_signature'), 400);
+        }
         $type = $request->input('type', 'stream');
         $pdf = $this->quoteService->getQuotePdf($id, $type);
         return $pdf;

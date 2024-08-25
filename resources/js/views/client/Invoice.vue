@@ -104,12 +104,12 @@
                             <Tag v-if="invoice.status === 'paid'" severity="success">{{ $t('status.paid') }}</Tag>
                             <Tag v-if="invoice.status === 'unpaid'" severity="danger">{{ $t('status.unpaid') }}</Tag>
                             <Tag v-if="invoice.status === 'overdue'" severity="danger">{{ $t('status.overdue') }}</Tag>
-                            <Tag v-if="invoice.status === 'draft'" severity="warning">{{ $t('status.draft') }}</Tag>
-                            <Tag v-if="invoice.status === 'sent'" severity="warning">{{ $t('status.sent') }}</Tag>
-                            <Tag v-if="invoice.status === 'refunded'" severity="">{{ $t('status.refunded') }}</Tag>
-                            <Tag v-if="invoice.status === 'partial'" severity="warning">{{ $t('status.partial') }}</Tag>
+                            <Tag v-if="invoice.status === 'draft'" severity="warn">{{ $t('status.draft') }}</Tag>
+                            <Tag v-if="invoice.status === 'sent'" severity="warn">{{ $t('status.sent') }}</Tag>
+                            <Tag v-if="invoice.status === 'refunded'" severity="secondary">{{ $t('status.refunded') }}</Tag>
+                            <Tag v-if="invoice.status === 'partial'" severity="warn">{{ $t('status.partial') }}</Tag>
                             <Tag v-if="invoice.status === 'overpaid'" severity="danger">{{ $t('status.overpaid') }}</Tag>
-                            <Tag v-if="invoice.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
+                            <Tag v-if="invoice.status === 'cancelled'" severity="secondary">{{ $t('status.cancelled') }}</Tag>
                         </DisplayData>
                         <DisplayData v-if="!loadingData" :input="$t('form.currency')" :value="formatText(invoice.currency)" />
                     </div>
@@ -141,28 +141,28 @@
                             <Column field="name" :header="$t('form.name')" />
                             <Column field="description" :header="$t('form.description')" />
                             <Column field="quantity" :header="$t('form.quantity')">
-                                <template #body="slotProps">
-                                    <span>{{ slotProps.data.quantity + ' ' + slotProps.data.unit }}</span>
+                                <template #body="{ data }">
+                                    <span>{{ data.quantity + ' ' + data.unit }}</span>
                                 </template>
                             </Column>
                             <Column field="price" :header="$t('form.price')">
-                                <template #body="slotProps">
-                                    <span>{{ formatMoney(slotProps.data.price) }}</span>
+                                <template #body="{ data }">
+                                    <span>{{ formatMoney(data.price) }}</span>
                                 </template>
                             </Column>
                             <Column field="tax" :header="$t('form.tax')">
-                                <template #body="slotProps">
-                                    <span>{{ slotProps.data.tax + ' %' }}</span>
+                                <template #body="{ data }">
+                                    <span>{{ data.tax !== null ? data.tax + ' %' : '-' }}</span>
                                 </template>
                             </Column>
                             <Column field="discount" :header="$t('form.discount')">
-                                <template #body="slotProps">
-                                    <span>{{ slotProps.data.discount + ' %' }}</span>
+                                <template #body="{ data }">
+                                    <span>{{ data.discount + ' %' }}</span>
                                 </template>
                             </Column>
                             <Column field="total" :header="$t('form.total')">
-                                <template #body="slotProps">
-                                    <span>{{ formatMoney(slotProps.data.total) }}</span>
+                                <template #body="{ data }">
+                                    <span>{{ formatMoney(data.total) }}</span>
                                 </template>
                             </Column>
                         </DataTable>

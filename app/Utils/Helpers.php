@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Str;
 use App\Events\WebhookEvent;
+use Illuminate\Support\Facades\DB;
 
 if (!function_exists('api_response')) {
     /**
@@ -593,5 +594,27 @@ if (!function_exists('sendWebhookForEvent')) {
     function sendWebhookForEvent($event, $data)
     {
         Event::dispatch(new WebhookEvent($event, $data));
+    }
+}
+
+if (!function_exists('insertScheduleRun')) {
+    /**
+     * Insert schedule run to database
+     * @param string $task - task name
+     * @param string $status - status
+     * @param string $output - output
+     * @return void
+     */
+    function insertScheduleRun($task, $status, $output = null)
+    {
+        $task = DB::table('schedule_runs')->insert([
+            'id' => Str::uuid(),
+            'task' => $task,
+            'status' => $status, // pending, running, success, failed
+            'output' => $output,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        return $task;
     }
 }

@@ -2,8 +2,11 @@
 
 <img src="https://biznisbox.com/app_logo.png" width="200" height="200" alt="BiznisBox Logo" />
 
-![GitHub](https://img.shields.io/github/license/biznisbox/biznisbox?style=for-the-badge)
-![GitHub release](https://img.shields.io/github/v/release/biznisbox/biznisbox?include_prereleases&label=Current%20version&style=for-the-badge)
+![License](https://img.shields.io/github/license/biznisbox/biznisbox?style=for-the-badge)
+![Release](https://img.shields.io/github/v/release/biznisbox/biznisbox?label=Current%20version&style=for-the-badge)
+![GitHub contributors](https://img.shields.io/github/contributors/biznisbox/biznisbox?style=for-the-badge)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/biznisbox/biznisbox/build.yaml?branch=main&style=for-the-badge)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/biznisbox/biznisbox/total?style=for-the-badge&label=Releases%20Downloads)
 
 ## About
 
@@ -15,18 +18,19 @@ BiznisBox is a web application for managing business processes. It is a simple a
 
 BiznisBox is open source invoice management software. It integrates with Stripe and PayPal for payments.
 
--   Dashboard with statistics and charts
+-   Customizable dashboard
 -   Products
 -   Partners
 -   Invoices
 -   Quotes
 -   Online Payments (Stripe and PayPal)
 -   Transactions
--   Settings
 -   Users
--   Archive
--   Roles and permissions
+-   Archive (storage of documents)
+-   Roles and permissions per user
 -   Open banking (GoCardless)
+-   Webhooks
+-   Employees
 
 ## Need help?
 

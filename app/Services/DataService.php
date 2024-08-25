@@ -75,7 +75,20 @@ class DataService
     public function getCurrencies()
     {
         $currencies = new \App\Models\Currency();
-        $currencies = $currencies->where('status', 'active')->get(['id', 'name', 'code', 'symbol', 'exchange_rate']);
+        $currencies = $currencies
+            ->where('status', 'active')
+            ->get([
+                'id',
+                'name',
+                'code',
+                'symbol',
+                'exchange_rate',
+                'status',
+                'decimal_separator',
+                'thousand_separator',
+                'number_of_decimal',
+                'placement',
+            ]);
         return $currencies;
     }
 
@@ -170,6 +183,14 @@ class DataService
         return $dashboard_layout;
     }
 
+    public function createWebhookSubscription($data)
+    {
+        $webhook = new \App\Models\WebhookSubscription();
+        $data['headers'] = $this->formatHeaderForBackend($data['headers']);
+        $webhook->$webhook = $webhook->create($data);
+        return $webhook;
+    }
+
     public function returnData($requiredData)
     {
         switch ($requiredData) {
@@ -198,5 +219,14 @@ class DataService
                 return null;
                 break;
         }
+    }
+
+    private function formatHeaderForBackend($header)
+    {
+        $formattedHeader = [];
+        foreach ($header as $h) {
+            $formattedHeader[$h['key']] = $h['value'];
+        }
+        return $formattedHeader;
     }
 }

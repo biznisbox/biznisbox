@@ -37,7 +37,7 @@
     },
     "require": {
         "php": "^8.2",
-        "barryvdh/laravel-dompdf": "^2.1",
+        "barryvdh/laravel-dompdf": "^3.0",
         "hisorange/browser-detect": "^5.0",
         "laravel/framework": "^11.15",
         "laravel/sanctum": "^4.0",

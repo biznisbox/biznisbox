@@ -72,7 +72,7 @@ class PartnerController extends Controller
         $type = $request->input('type');
         $partners = $this->partnerService->getPartnersLimitedData($type);
         if ($partners == []) {
-            return api_response([], __('responses.item_not_found'), 400);
+            return api_response([], __('responses.data_retrieved_successfully'));
         }
         if (!$partners) {
             return api_response(null, __('responses.item_not_found'), 400);

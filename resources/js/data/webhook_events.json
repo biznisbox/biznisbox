@@ -1,0 +1,37 @@
+[
+    {
+        "id": 0,
+        "name": "*",
+        "description": "All events"
+    },
+    {
+        "id": 1,
+        "name": "product:created",
+        "description": "A product has been created"
+    },
+    {
+        "id": 2,
+        "name": "product:updated",
+        "description": "A product has been updated"
+    },
+    {
+        "id": 3,
+        "name": "product:deleted",
+        "description": "A product has been deleted"
+    },
+    {
+        "id": 4,
+        "name": "partner:created",
+        "description": "A partner has been created"
+    },
+    {
+        "id": 5,
+        "name": "partner:updated",
+        "description": "A partner has been updated"
+    },
+    {
+        "id": 6,
+        "name": "partner:deleted",
+        "description": "A partner has been deleted"
+    }
+]

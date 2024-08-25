@@ -62,7 +62,7 @@
                     </template>
 
                     <template #filter="{ filterModel }">
-                        <Dropdown
+                        <Select
                             v-model="filterModel.value"
                             :options="[
                                 { label: $t('account_types.bank_account'), value: 'bank_account' },
@@ -115,7 +115,7 @@
                     <div v-if="selected_country">
                         <div class="flex flex-col gap-2 mb-2">
                             <label class="dark:text-surface-200">{{ $t('form.bank') }}</label>
-                            <Dropdown
+                            <Select
                                 v-model="selected_bank"
                                 :options="available_banks"
                                 option-label="name"
@@ -128,7 +128,7 @@
                                         <span class="flex ml-2">{{ slotProps.option.name }}</span>
                                     </div>
                                 </template>
-                            </Dropdown>
+                            </Select>
                         </div>
                     </div>
                 </LoadingScreen>

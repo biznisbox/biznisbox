@@ -80,6 +80,7 @@ class ArchiveService
                 ]);
                 if ($document) {
                     sendWebhookForEvent('archive:document_created', $document->toArray());
+                    incrementLastItemNumber('archive');
                     return $document;
                 }
                 Storage::delete('archive/' . $diskFileName);
@@ -146,9 +147,13 @@ class ArchiveService
         $document = $this->archiveModel->find($id);
         if ($document) {
             $file = Storage::get('archive/' . $document->file_path);
+            createActivityLog('download', $id, 'App\Models\Archive', 'Archive');
             return response($file, 200, [
                 'Content-Type' => $document->file_mime,
                 'Content-Disposition' => 'attachment; filename="' . $document->file_name . '"',
+                'Content-Length' => $document->file_size,
+                'Content-Transfer-Encoding' => 'binary',
+                'X-Mime-Type' => $document->file_mime,
             ]);
         }
         return false;
@@ -159,10 +164,39 @@ class ArchiveService
         $document = $this->archiveModel->find($id);
         if ($document) {
             $file = Storage::get('archive/' . $document->file_path);
+            createActivityLog('preview', $id, 'App\Models\Archive', 'Archive');
             return response($file, 200, [
                 'Content-Type' => $document->file_mime,
                 'Content-Disposition' => 'inline; filename="' . $document->file_name . '"',
+                'Content-Length' => $document->file_size,
+                'Content-Transfer-Encoding' => 'binary',
+                'X-Mime-Type' => $document->file_mime,
             ]);
+        }
+        return false;
+    }
+
+    public function moveDocument($request, $id)
+    {
+        // Get the folder_id from the array key
+        $folderId = array_keys($request->folder_id)[0];
+
+        if ($folderId === 'undefined') {
+            $folderId = null;
+        }
+
+        if ($folderId === 'trash') {
+            return $this->deleteDocument($id);
+        }
+
+        $document = $this->archiveModel->find($id);
+
+        if ($document) {
+            $document->update([
+                'folder_id' => $folderId,
+            ]);
+            sendWebhookForEvent('archive:document_moved', $document->toArray());
+            return $document;
         }
         return false;
     }

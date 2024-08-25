@@ -1,38 +1,36 @@
 <template>
     <div class="flex flex-col gap-2 mb-2">
         <label :for="id" class="dark:text-surface-200">{{ label }}</label>
-        <InputText
+        <TreeSelect
             :id="id"
             :name="id"
-            :value="modelValue"
-            :type="type"
+            :model-value="modelValue"
+            :options="options"
+            :option-value="optionValue"
+            :option-label="optionLabel"
             :validate="validate"
             :disabled="disabled"
+            :filter="filter"
             :placeholder="placeholder"
+            :editable="editable"
+            :show-clear="showClear"
             :invalid="validate?.$dirty && validate?.$invalid"
-            @input="updateValue"
+            @change="updateValue"
             @blur="validate?.$touch()"
-            :autocomplete="autocomplete"
         />
         <div v-if="validate && validate?.$dirty && validate?.$invalid" class="flex flex-column">
-            <div v-for="error in validate.$errors" v-bind:key="error?.$propertyPath" class="text-red-500 text-sm">
-                {{ error.$message }}
-            </div>
+            <div v-for="error in validate.$errors" v-bind:key="error?.$propertyPath" class="text-red-500 text-sm">{{ error.$message }}</div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'TextInputComponent',
+    name: 'TreeSelectInputComponent',
     props: {
         id: {
             type: String,
             default: 'input_' + Math.random().toString(36).substr(2, 9), // random generated
-        },
-        type: {
-            type: String,
-            default: 'text',
         },
         label: {
             type: String,
@@ -46,7 +44,23 @@ export default {
             required: false,
             default: null,
         },
+        options: {
+            type: Array,
+            default: () => [],
+        },
+        optionLabel: {
+            type: String,
+            default: 'label',
+        },
+        optionValue: {
+            type: String,
+            default: 'value',
+        },
         disabled: {
+            type: Boolean,
+            default: false,
+        },
+        filter: {
             type: Boolean,
             default: false,
         },
@@ -54,14 +68,18 @@ export default {
             type: String,
             default: '',
         },
-        autocomplete: {
-            type: String,
-            default: '',
+        editable: {
+            type: Boolean,
+            default: false,
+        },
+        showClear: {
+            type: Boolean,
+            default: false,
         },
     },
     methods: {
         updateValue(event) {
-            this.$emit('update:modelValue', event.target.value)
+            this.$emit('update:modelValue', event)
         },
     },
 }
