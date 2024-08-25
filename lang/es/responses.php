@@ -74,7 +74,7 @@ return [
         'saturday' => 'Sábado',
         'sunday' => 'Domingo',
     ],
-    'app_installed' => 'La aplicación ya está instalada',
+    'app_installed' => 'La aplicación ya está instalada.',
     'two_factor_auth_required' => 'Autenticación de doble factor es necesaria',
     'disabled_account' => 'La cuenta no está activa. Póngase en contacto con el administrador.',
     'invalid_2fa_code' => 'Código 2FA inválido',
@@ -89,11 +89,9 @@ return [
     'system_role_cant_edit' => 'El rol del sistema no puede ser editado',
     'system_role_cant_delete' => 'No se puede eliminar el rol del sistema',
     'unable_to_create_role' => 'No se puede crear el rol (super_admin o cliente)',
-    'install_database_is_not_empty' =>
-        'La base de datos no está vacía. Por favor, elimina todas las tablas o proporciona una base de datos vacía.',
+    'install_database_is_not_empty' => 'La base de datos no está vacía. Por favor, elimina todas las tablas o proporciona una base de datos vacía.',
     'install_database_connection_successful' => 'Conexión a la base de datos exitosa.',
-    'install_database_connection_failed' =>
-        'La conexión a la base de datos ha fallado. Por favor, compruebe las credenciales de la base de datos.',
+    'install_database_connection_failed' => 'La conexión a la base de datos ha fallado. Por favor, compruebe las credenciales de la base de datos.',
     'install_database_connection_saved' => 'Conexión de base de datos guardada con éxito.',
     'app_not_installed' => 'La aplicación no está instalada. Por favor, instale la aplicación primero.',
     'app_installed' => 'La aplicación ya está instalada.',
