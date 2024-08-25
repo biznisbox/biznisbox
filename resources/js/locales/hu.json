@@ -754,7 +754,9 @@
         "delete_confirm_document": "Biztos benne, hogy törölni szeretné ezt a dokumentumot?",
         "edit_folder": "Mappa Szerkesztése",
         "delete_confirm_folder": "Biztos benne, hogy törölni szeretné ezt a mappát?",
-        "restore_confirm_document": "Biztosan szeretné visszaállítani ezt a dokumentumot?"
+        "restore_confirm_document": "Biztosan szeretné visszaállítani ezt a dokumentumot?",
+        "select_folder": "Mappa kiválasztása",
+        "move_document": "Dokumentum áthelyezése"
     },
     "protection_level": {
         "public": "Nyilvános",
