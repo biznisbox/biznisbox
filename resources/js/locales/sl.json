@@ -1010,8 +1010,7 @@
             "active_users_today": "Aktivni uporabniki danes",
             "number_of_departments": "Število oddelkov",
             "number_of_users": "Število uporabnikov",
-            "chart_of_logins_this_month": "Grafikoni prijav tega meseca",
-            "logins_this_month": "Prijava ta mesec"
+            "chart_of_logins_this_month": "Grafikoni prijav tega meseca"
         },
         "units": {
             "title": "Enote",
