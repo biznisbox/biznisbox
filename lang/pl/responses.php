@@ -99,4 +99,6 @@ return [
     'install_migration_and_seeding_successful' => 'Migracja i seedowanie udane.',
     'install_migration_and_seeding_failed' => 'Migracja i seedowanie nie powiodła się.',
     'install_admin_user_created' => 'Utworzono użytkownika administratora.',
+    'item_not_moved' => 'Element nie przeniesiony',
+    'item_moved_successfully' => 'Element przeniesiony pomyślnie',
 ];
