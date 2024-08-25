@@ -754,7 +754,9 @@
         "delete_confirm_document": "Jste si jisti, že chcete odstranit tento doklad?",
         "edit_folder": "Upravit složku",
         "delete_confirm_folder": "Opravdu chcete odstranit tuto složku?",
-        "restore_confirm_document": "Jste si jisti, že chcete obnovit tento dokument?"
+        "restore_confirm_document": "Jste si jisti, že chcete obnovit tento dokument?",
+        "select_folder": "Vybrat složku",
+        "move_document": "Přesunout dokument"
     },
     "protection_level": {
         "public": "Veřejnost",
