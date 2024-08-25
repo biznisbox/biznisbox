@@ -74,7 +74,7 @@ return [
         'saturday' => 'Lørdag',
         'sunday' => 'Søndag',
     ],
-    'app_installed' => 'App er allerede installeret',
+    'app_installed' => 'Appen er allerede installeret.',
     'two_factor_auth_required' => 'To faktor autentificering er påkrævet',
     'disabled_account' => 'Konto er ikke aktiv. Kontakt administratoren.',
     'invalid_2fa_code' => 'Ugyldig 2FA kode',
