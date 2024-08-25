@@ -754,7 +754,9 @@
         "delete_confirm_document": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το έγγραφο?",
         "edit_folder": "Επεξεργασία Φακέλου",
         "delete_confirm_folder": "Are you sure you want to delete this folder? (Automatic Copy)",
-        "restore_confirm_document": "Είστε βέβαιοι ότι θέλετε να επαναφέρετε αυτό το έγγραφο?"
+        "restore_confirm_document": "Είστε βέβαιοι ότι θέλετε να επαναφέρετε αυτό το έγγραφο?",
+        "select_folder": "Επιλογή φακέλου",
+        "move_document": "Μετακίνηση εγγράφου"
     },
     "protection_level": {
         "public": "Δημόσιο",
