@@ -74,7 +74,7 @@ return [
         'saturday' => 'Samstag',
         'sunday' => 'Sonntag',
     ],
-    'app_installed' => 'App ist bereits installiert',
+    'app_installed' => 'App ist bereits installiert.',
     'two_factor_auth_required' => 'Zwei-Faktor-Authentifizierung ist erforderlich',
     'disabled_account' => 'Konto ist nicht aktiv. Bitte kontaktieren Sie den Administrator.',
     'invalid_2fa_code' => 'Ungültiger 2FA-Code',
