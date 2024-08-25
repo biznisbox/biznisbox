@@ -754,7 +754,9 @@
         "delete_confirm_document": "Weet u zeker dat u dit document wilt verwijderen?",
         "edit_folder": "Map bewerken",
         "delete_confirm_folder": "Weet u zeker dat u deze map wilt verwijderen?",
-        "restore_confirm_document": "Weet u zeker dat u dit document wilt herstellen?"
+        "restore_confirm_document": "Weet u zeker dat u dit document wilt herstellen?",
+        "select_folder": "Selecteer map",
+        "move_document": "Document verplaatsen"
     },
     "protection_level": {
         "public": "Openbaar",
