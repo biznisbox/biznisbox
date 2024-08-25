@@ -99,4 +99,6 @@ return [
     'install_migration_and_seeding_successful' => 'Μετανάστευση και σπορά επιτυχής.',
     'install_migration_and_seeding_failed' => 'Η μετανάστευση και η σπορά απέτυχε.',
     'install_admin_user_created' => 'Ο χρήστης διαχειριστή δημιουργήθηκε επιτυχώς.',
+    'item_not_moved' => 'Το στοιχείο δεν μετακινήθηκε',
+    'item_moved_successfully' => 'Το στοιχείο μετακινήθηκε επιτυχώς',
 ];
