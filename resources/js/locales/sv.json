@@ -754,7 +754,9 @@
         "delete_confirm_document": "Är du säker på att du vill ta bort detta dokument?",
         "edit_folder": "Redigera mapp",
         "delete_confirm_folder": "Är du säker på att du vill ta bort denna mapp?",
-        "restore_confirm_document": "Är du säker på att du vill återställa detta dokument?"
+        "restore_confirm_document": "Är du säker på att du vill återställa detta dokument?",
+        "select_folder": "Välj mapp",
+        "move_document": "Flytta dokument"
     },
     "protection_level": {
         "public": "Publik",
