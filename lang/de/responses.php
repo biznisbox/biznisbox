@@ -99,4 +99,6 @@ return [
     'install_migration_and_seeding_successful' => 'Migration und Verteilung erfolgreich.',
     'install_migration_and_seeding_failed' => 'Migration und Verteilung sind fehlgeschlagen.',
     'install_admin_user_created' => 'Admin-Benutzer erfolgreich erstellt.',
+    'item_not_moved' => 'Element nicht verschoben',
+    'item_moved_successfully' => 'Element erfolgreich verschoben',
 ];
