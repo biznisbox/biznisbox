@@ -99,4 +99,6 @@ return [
     'install_migration_and_seeding_successful' => 'Az adatbázis frissítés és adatfeltöltés sikeres.',
     'install_migration_and_seeding_failed' => 'Az adatbázis frissítés és adatfeltöltés sikertelen.',
     'install_admin_user_created' => 'Admin felhasználó sikeresen létrehozva.',
+    'item_not_moved' => 'Elem nem került áthelyezésre',
+    'item_moved_successfully' => 'Elem sikeresen áthelyezve',
 ];
