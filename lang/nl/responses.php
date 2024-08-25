@@ -74,7 +74,7 @@ return [
         'saturday' => 'zaterdag',
         'sunday' => 'zondag',
     ],
-    'app_installed' => 'App is al geïnstalleerd',
+    'app_installed' => 'App is al geïnstalleerd.',
     'two_factor_auth_required' => 'Authenticatie in twee stappen is vereist',
     'disabled_account' => 'Account is niet actief. Neem contact op met de beheerder.',
     'invalid_2fa_code' => 'Ongeldige 2FA code',
