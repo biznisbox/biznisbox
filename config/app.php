@@ -100,8 +100,6 @@ return [
         ['locale' => 'Spanish', 'code' => 'es'],
         ['locale' => 'French', 'code' => 'fr'],
         ['locale' => 'Italian', 'code' => 'it'],
-        ['locale' => 'Dutch', 'code' => 'nl'],
-        ['locale' => 'Italian', 'code' => 'it'],
         ['locale' => 'Portuguese', 'code' => 'pt'],
         ['locale' => 'Russian', 'code' => 'ru'],
         ['locale' => 'Chinese', 'code' => 'zh'],

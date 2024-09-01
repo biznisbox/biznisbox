@@ -85,7 +85,7 @@ class Session extends Model implements Auditable
         $request = Request::capture();
         $ip_data = self::getIpLocation($request->ip());
         $client = new Browser();
-        $client_data = $client->parse($request->userAgent());
+        $client_data = $client->parse($request->userAgent() ?? '');
         $session_data = [
             'user_id' => $user_id,
             'token' => $token,
@@ -102,7 +102,7 @@ class Session extends Model implements Auditable
             'region' => $ip_data['regionName'] ?? null,
             'latitude' => $ip_data['lat'] ?? null,
             'longitude' => $ip_data['lon'] ?? null,
-            'fingerprint' => self::generateFingerprint(null, $request->ip(), $request->userAgent(), $user_id),
+            'fingerprint' => self::generateFingerprint(null, $request->ip(), $request->userAgent() ?? '', $user_id),
         ];
         self::create($session_data);
     }

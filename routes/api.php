@@ -31,10 +31,9 @@ use App\Http\Controllers\Client\QuoteController as ClientQuoteController;
 use App\Http\Controllers\Client\SupportTicketController as ClientSupportTicketController;
 use App\Http\Controllers\Install\InstallerController;
 use App\Http\Middleware\CheckIfInstalled;
-use App\Services\DataService;
 
 Route::group(['prefix' => 'auth'], function () {
-    Route::post('/login', [AuthController::class, 'Login'])->name('login_api');
+    Route::post('/login', [AuthController::class, 'Login'])->name('login');
     Route::post('/logout', [AuthController::class, 'Logout'])->name('logout');
 });
 

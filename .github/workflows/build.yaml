@@ -53,7 +53,7 @@ jobs:
               run: |
                   composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
                   npm install --production --no-audit
-                  rm -rf .git .github .gitignore .gitattributes .editorconfig .env .eslintrc.cjs .prettierignore .prettierrc.json .jsconfig.json cypress cypress.config.cjs cypress.env.json phpunit.xml version crowdin.yml
+                  rm -rf .git .github .gitignore .gitattributes .editorconfig .env .eslintrc.cjs .prettierignore .prettierrc.json .jsconfig.json cypress cypress.config.cjs cypress.env.json phpunit.xml version crowdin.yml install.lock
             - name: Copy build files to production directory (manifest) and remove Vite directory
               run: |
                   mv public/build/.vite/manifest.json public/build/manifest.json 

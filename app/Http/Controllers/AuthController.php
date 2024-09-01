@@ -43,6 +43,9 @@ class AuthController extends Controller
     public function Me()
     {
         $user = $this->authService->Me();
+        if (!$user) {
+            return api_response(null, __('responses.unauthenticated'), 401);
+        }
         return api_response($user, __('responses.data_retrieved_successfully'));
     }
 }
