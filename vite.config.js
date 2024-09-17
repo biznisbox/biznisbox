@@ -24,6 +24,5 @@ export default defineConfig({
     build: {
         target: 'esnext',
         chunkSizeWarningLimit: 5000,
-        manifest: true,
     },
 })

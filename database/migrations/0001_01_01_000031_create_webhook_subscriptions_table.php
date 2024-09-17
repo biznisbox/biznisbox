@@ -17,10 +17,10 @@ return new class extends Migration {
             $table->string('url')->unique(); // The URL to which the webhook will be sent
             $table->string('signature_secret_key')->nullable(); // The secret key used to sign the webhook
             $table->string('http_verb')->default('post');
-            $table->json('headers')->default('[{"Content-Type": "application/json"}]');
+            $table->text('headers')->default('[{"Content-Type": "application/json"}]');
             $table->boolean('is_active')->default(true);
             $table->boolean('can_be_edited')->default(true);
-            $table->text('listen_events')->default("['*']"); // The events to which the webhook will listen
+            $table->text('listen_events')->default('["*"]'); // The events to which the webhook will listen
             $table->text('notes')->nullable();
             $table->timestamp('last_called_at')->nullable();
             $table->timestamps();

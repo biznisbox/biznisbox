@@ -12,22 +12,6 @@ function get_version() {
     return $composer->version;
 }
 
-function detect_version_type($version) {
-    if (strpos($version, 'dev') !== false) {
-        return 'dev';
-    }
-    if (strpos($version, 'alpha') !== false) {
-        return 'alpha';
-    }
-    if (strpos($version, 'beta') !== false) {
-        return 'beta';
-    }
-    if (strpos($version, 'rc') !== false) {
-        return 'rc';
-    }
-    return 'stable';
-}
-
 // Get version from package.json
 function get_version_js() {
     $package = json_decode(file_get_contents(__DIR__ . '/package.json'));
@@ -49,9 +33,7 @@ function update_version($version) {
 
 // Update version in package.json
 function update_version_js($version) {
-    $package = json_decode(file_get_contents(__DIR__ . '/package.json'));
-    $package->version = $version;
-    file_put_contents(__DIR__ . '/package.json', json_encode($package, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    exec('npm version ' . $version . ' --no-git-tag-version');
 }
 
 
@@ -59,7 +41,6 @@ function update_version_js($version) {
 function update_versions($type = 'PATCH') {
     $version = get_version();
     $version = explode('.', $version);
-    $is_dev = detect_version_type($version) === 'dev';
     switch ($type) {
         case 'MAJOR':
             $version[0]++;
@@ -77,10 +58,6 @@ function update_versions($type = 'PATCH') {
     $version_js = $version;
     $version = implode('.', $version);
     $version_js = implode('.', $version_js);
-    if ($is_dev) {
-        $version .= '-dev';
-        $version_js .= '-dev';
-    }
     update_version($version);
     update_version_js($version_js);
     return $version;
@@ -98,7 +75,6 @@ function get_last_version_github(){
     $version = $response[0]->name;
     return $version;
 }
-
 
 // Run console command
 if (isset($argv[1])) {

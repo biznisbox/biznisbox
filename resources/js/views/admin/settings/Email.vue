@@ -18,12 +18,14 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <TextInput
+                            v-if="mail_settings.mail_mailer === 'smtp'"
                             id="mail_host"
                             v-model="mail_settings.mail_host"
                             :label="$t('admin.mail.mail_host')"
                             :disabled="mail_settings.mail_mailer !== 'smtp'"
                         />
                         <TextInput
+                            v-if="mail_settings.mail_mailer === 'smtp'"
                             id="mail_port"
                             v-model="mail_settings.mail_port"
                             :label="$t('admin.mail.mail_port')"
@@ -33,12 +35,14 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <TextInput
+                            v-if="mail_settings.mail_mailer === 'smtp'"
                             id="mail_username"
                             v-model="mail_settings.mail_username"
                             :label="$t('admin.mail.mail_username')"
                             :disabled="mail_settings.mail_mailer !== 'smtp'"
                         />
                         <TextInput
+                            v-if="mail_settings.mail_mailer === 'smtp'"
                             id="mail_password"
                             v-model="mail_settings.mail_password"
                             :label="$t('admin.mail.mail_password')"
@@ -48,6 +52,7 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <TextInput
+                            v-if="mail_settings.mail_mailer === 'smtp'"
                             id="mail_encryption"
                             v-model="mail_settings.mail_encryption"
                             :label="$t('admin.mail.mail_encryption')"
@@ -63,6 +68,7 @@
                     <TextInput id="mail_from_name" v-model="mail_settings.mail_from_name" :label="$t('admin.mail.mail_from_name')" />
 
                     <TextInput
+                        v-if="mail_settings.mail_mailer === 'sendmail'"
                         id="sendmail_path"
                         v-model="mail_settings.sendmail_path"
                         :label="$t('admin.mail.sendmail_path')"
@@ -85,20 +91,18 @@
                     <h2 class="text-xl dark:text-surface-200">{{ $t('admin.mail.send_test_email') }}</h2>
                 </div>
 
-                <form>
-                    <div class="flex flex-col gap-2 mb-2">
-                        <label for="input_send_details_to" class="dark:text-surface-200">
-                            {{ $t('admin.mail.send_test_email_to') }}
-                        </label>
-                        <AutoComplete
-                            id="input_send_details_to"
-                            v-model="test_mail.emails"
-                            multiple
-                            :typeahead="false"
-                            :label="$t('admin.email.email_address')"
-                        />
-                    </div>
-                </form>
+                <div class="flex flex-col gap-2 mb-2">
+                    <label for="input_send_details_to" class="dark:text-surface-200">
+                        {{ $t('admin.mail.send_test_email_to') }}
+                    </label>
+                    <AutoComplete
+                        id="input_send_details_to"
+                        v-model="test_mail.emails"
+                        multiple
+                        :typeahead="false"
+                        :label="$t('admin.email.email_address')"
+                    />
+                </div>
             </div>
 
             <div id="function_buttons" class="flex gap-2 justify-end">
@@ -160,6 +164,10 @@ export default {
                 this.showToast(response.data.message)
                 this.test_mail.emails = []
             })
+        },
+
+        preventDefault(event) {
+            event.preventDefault()
         },
     },
 }

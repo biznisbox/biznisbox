@@ -46,11 +46,19 @@ export default {
     },
 
     created() {
-        if (this.checkIfInstalled()) {
-            return this.$router.push({ name: 'auth-login' })
-        } else {
-            this.migrateAndSeed()
-        }
+        new Promise(() => {
+            this.makeHttpRequest('GET', '/api/install/check-app-installed', null, null, null, false).then((response) => {
+                if (response.data.data.status == true) {
+                    this.loadingData = true
+                    return this.$router.push({ name: 'auth-login' })
+                } else {
+                    this.migrateAndSeed()
+                }
+            })
+        }).then(() => {
+            this.loadingData = false
+            this.nextStep()
+        })
     },
 }
 </script>
