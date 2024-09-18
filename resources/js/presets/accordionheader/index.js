@@ -6,6 +6,9 @@ export default {
                 'focus-visible:outline-none focus-visible:border-primary-500 dark:focus-visible:border-primary-400 focus-visible:ring-2 focus-visible:ring-primary-400/20 dark:focus-visible:ring-primary-300/20':
                     !context.disabled,
             },
+            {
+                'hover:text-surface-700 dark:hover:text-surface-0': !context.disabled,
+            },
         ],
     }),
     toggleIcon: 'text-surface-600 dark:text-surface-0/80',

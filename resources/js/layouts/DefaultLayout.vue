@@ -11,7 +11,6 @@
                     <Button v-if="theme == 'light'" icon="fa fa-moon" text rounded @click="changeTheme" />
                 </div>
 
-                <!--
                 <div class="mr-3">
                     <div class="relative">
                         <span
@@ -19,58 +18,55 @@
                             class="absolute -top-2 -right-2 h-5 w-5 rounded-full text-white bg-red-600 flex justify-center items-center items p-2"
                             ><span>{{ countUnreadNotifications() }}</span></span
                         >
-                        <Button icon="fa fa-bell" class="w-10 h-10" @click="toggleNotifications" text rounded />
+                        <Button icon="fa fa-bell" class="w-10 h-10" @click="toggleNotifications" text rounded id="notifications_button" />
                     </div>
 
-                    <OverlayPanel ref="notificationsOverlay" id="notifications-overlay">
-                        <div class="flex flex-col">
-                            <div>
-                                <div class="flex justify-center items-center gap-2">
-                                    <span class="font-medium text-surface-700 dark:text-surface-100">{{
-                                        $t('user_nav_menu.notifications')
-                                    }}</span>
-                                    <Button icon="fa fa-refresh" class="ml-auto w-5 h-5" @click="getNotifications" text rounded />
-                                </div>
-                                <ul class="list-none flex flex-col gap-2 overflow-y-auto h-[20rem]">
-                                    <li
-                                        v-for="notification in notifications"
-                                        :key="notification.id"
-                                        class="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-slate-500 p-2 rounded-lg"
-                                        @click="notificationAction(notification.action_url)"
-                                        :class="{
-                                            'bg-gray-100 dark:bg-slate-500': notification.is_read == 0,
-                                            'cursor-pointer': notification.action_url,
-                                        }"
-                                    >
-                                        <i v-if="notification.type == 'error'" class="fa fa-exclamation-circle text-2xl text-red-500"></i>
-                                        <i v-if="notification.type == 'info'" class="fa fa-info-circle text-2xl text-blue-500"></i>
-                                        <i
-                                            v-if="notification.type == 'warning'"
-                                            class="fa fa-exclamation-triangle text-2xl text-yellow-500"
-                                        ></i>
-                                        <i v-if="notification.type == 'success'" class="fa fa-check-circle text-2xl text-green-500"></i>
-
-                                        <div>
-                                            <span class="font-medium dark:text-surface-100">{{ notification.title }}</span>
-                                            <div class="text-sm dark:text-surface-100 text-wrap">{{ notification.content }}</div>
-                                            <div class="text-xs dark:text-surface-100">{{ formatDateTime(notification.created_at) }}</div>
-                                        </div>
-                                        <div class="flex-grow"></div>
-                                        <Button
-                                            v-if="notification.is_read == false"
-                                            icon="fa fa-eye"
-                                            class="w-5 h-5"
-                                            @click="markNotificationAsRead(notification.id)"
-                                            text
-                                            rounded
-                                        />
-                                    </li>
-                                </ul>
+                    <Popover ref="notificationsOverlay" id="notifications-overlay" appendTo="self" placement="bottom">
+                        <div class="flex flex-col gap-4 w-[15rem] md:w-[25rem]">
+                            <div class="flex justify-center items-center gap-2">
+                                <span class="font-medium text-surface-700 dark:text-surface-100">{{
+                                    $t('user_nav_menu.notifications')
+                                }}</span>
+                                <Button icon="fa fa-refresh" class="ml-auto w-8 h-8" @click="getNotifications" text rounded />
                             </div>
+                            <ul class="list-none flex flex-col gap-2 overflow-y-auto h-[20rem]">
+                                <li
+                                    v-for="notification in notifications"
+                                    :key="notification.id"
+                                    class="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-slate-500 p-2 rounded-lg"
+                                    @click="notificationAction(notification.action_url)"
+                                    :class="{
+                                        'bg-gray-100 dark:bg-slate-500': notification.is_read == 0,
+                                        'cursor-pointer': notification.action_url,
+                                    }"
+                                >
+                                    <i v-if="notification.type == 'error'" class="fa fa-exclamation-circle text-2xl text-red-500"></i>
+                                    <i v-if="notification.type == 'info'" class="fa fa-info-circle text-2xl text-blue-500"></i>
+                                    <i
+                                        v-if="notification.type == 'warning'"
+                                        class="fa fa-exclamation-triangle text-2xl text-yellow-500"
+                                    ></i>
+                                    <i v-if="notification.type == 'success'" class="fa fa-check-circle text-2xl text-green-500"></i>
+
+                                    <div>
+                                        <span class="font-medium dark:text-surface-100">{{ notification.title }}</span>
+                                        <div class="text-sm dark:text-surface-100 text-wrap">{{ notification.content }}</div>
+                                        <span class="text-xs dark:text-surface-100">{{ formatDateTime(notification.created_at) }}</span>
+                                    </div>
+                                    <div class="flex-grow"></div>
+                                    <Button
+                                        v-if="notification.is_read == false"
+                                        icon="fa fa-eye"
+                                        class="w-5 h-5"
+                                        @click="markNotificationAsRead(notification.id)"
+                                        text
+                                        rounded
+                                    />
+                                </li>
+                            </ul>
                         </div>
-                    </OverlayPanel>
+                    </Popover>
                 </div>
-                -->
                 <Avatar :image="user.data.avatar_url" class="user-avatar" @click="toggleUserMenu" size="large" />
                 <Menu ref="user-avatar-menu" :model="menu_items" popup />
             </template>
@@ -176,7 +172,4 @@ export default {
     margin-right: 10px !important;
 }
 
-.user-avatar-menu-dropdown {
-    width: 250px !important;
-}
 </style>

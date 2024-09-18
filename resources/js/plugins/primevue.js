@@ -127,7 +127,7 @@ export default {
         app.component('BlockUI', BlockUI)
         app.component('Message', Message)
         app.directive('tooltip', Tooltip)
-        app.directive('Popover', Popover)
+        app.component('Popover', Popover)
         app.component('DatePicker', DatePicker)
         app.component('Select', Select)
         app.component('Tabs', Tabs)

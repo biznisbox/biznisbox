@@ -231,7 +231,6 @@ class OpenBankingService
         if ($openBanking) {
             $openBanking->update([
                 'last_transaction_sync' => now()->format('Y-m-d H:i:s'),
-                'connection_status' => 'SYNCED',
             ]);
             $openBanking->save();
         }
@@ -240,7 +239,7 @@ class OpenBankingService
     public function refreshBankTransactions()
     {
         if ($this->config['open_banking_available']) {
-            $openBankingAccounts = OpenBanking::where('connection_status', 'CONNECTED')->get();
+            $openBankingAccounts = OpenBanking::whereNotNull('account_id')->get();
             foreach ($openBankingAccounts as $openBanking) {
                 $account = Account::where('open_banking_id', $openBanking['id'])->first();
                 if ($account) {
