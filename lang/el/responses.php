@@ -101,4 +101,8 @@ return [
     'install_admin_user_created' => 'Ο χρήστης διαχειριστή δημιουργήθηκε επιτυχώς.',
     'item_not_moved' => 'Το στοιχείο δεν μετακινήθηκε',
     'item_moved_successfully' => 'Το στοιχείο μετακινήθηκε επιτυχώς',
+    'error_signing_contract' => 'Σφάλμα υπογραφής σύμβασης',
+    'signer_not_found_or_already_signed' => 'Ο υπογράφων δεν βρέθηκε ή έχει ήδη υπογραφεί',
+    'cannot_delete_signed_contract' => 'Αδυναμία διαγραφής υπογεγραμμένου συμβολαίου',
+    'cannot_update_signed_contract' => 'Αδυναμία ενημέρωσης υπογεγραμμένου συμβολαίου',
 ];
