@@ -32,4 +32,11 @@ return [
     'click_on_the_button_below_to_view_quote' => 'Haga clic en el botón de abajo para ver la cita.',
     'view_quote' => 'Ver presupuesto',
     'subject_new_quote' => 'Nueva notificación de presupuesto',
+    'new_contract_created_for_you' => 'Se ha creado un nuevo contrato para usted, por favor firmarlo.',
+    'contract_details' => 'Detalles del contrato',
+    'contract_number' => 'Número de Contrato: :number',
+    'contract_expiry_date' => 'Fecha de caducidad para signo: :date',
+    'click_on_the_button_below_to_sign_contract' => 'Haga clic en el botón de abajo para firmar el contrato.',
+    'sign_contract' => 'Firmar contrato',
+    'subject_new_contract' => 'Nueva notificación de contrato',
 ];
