@@ -101,8 +101,8 @@ return [
     'install_admin_user_created' => 'Uživatel správce byl úspěšně vytvořen.',
     'item_not_moved' => 'Položka nebyla přesunuta',
     'item_moved_successfully' => 'Položka byla úspěšně přesunuta',
-    'error_signing_contract' => 'Error signing contract',
-    'signer_not_found_or_already_signed' => 'Signer not found or already signed',
-    'cannot_delete_signed_contract' => 'Cannot delete signed contract',
-    'cannot_update_signed_contract' => 'Cannot update signed contract',
+    'error_signing_contract' => 'Chyba při podepisování smlouvy',
+    'signer_not_found_or_already_signed' => 'Podpisník nebyl nalezen nebo již byl podepsán',
+    'cannot_delete_signed_contract' => 'Nelze odstranit podepsanou smlouvu',
+    'cannot_update_signed_contract' => 'Nelze aktualizovat podepsanou smlouvu',
 ];
