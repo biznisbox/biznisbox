@@ -128,9 +128,9 @@
         "audit_log": "Tarkastusloki",
         "get_current_location": "Hanki nykyinen sijainti",
         "system": "Järjestelmä",
-        "add_signer": "Add Signer",
-        "click_for_download": "Click here to download",
-        "sign": "Sign"
+        "add_signer": "Lisää Allekirjoittaja",
+        "click_for_download": "Lataa napsauttamalla tästä",
+        "sign": "Allekirjoita"
     },
     "audit_log": {
         "audit_log": "Tarkastusloki",
@@ -164,8 +164,8 @@
         "retrieve_public": "Hae Julkinen",
         "upload": "Lähetä",
         "share": "Jaa",
-        "delete": "Delete",
-        "sign": "Sign"
+        "delete": "Poista",
+        "sign": "Allekirjoita"
     },
     "audit_log_type": {
         "internal": "Sisäinen",
@@ -200,7 +200,7 @@
         "employees": "Työntekijät",
         "support": "Tuki",
         "payments": "Maksut",
-        "contracts": "Contracts"
+        "contracts": "Sopimukset"
     },
     "dashboard": {
         "title": "Hallintapaneeli",
@@ -403,12 +403,12 @@
         "theme": "Teema",
         "overpaid_amount": "Liikaa Maksettu Määrä",
         "sum_of_payments": "Maksujen summa",
-        "date_for_signature": "Date for Signature",
-        "is_signer": "Is Signer",
-        "signer_name": "Signer Name",
+        "date_for_signature": "Allekirjoituksen päivämäärä",
+        "is_signer": "On Allekirjoittaja",
+        "signer_name": "Allekirjoittajan Nimi",
         "signer_email": "Signer Email",
-        "signer_phone": "Signer Phone",
-        "signers": "Signers"
+        "signer_phone": "Allekirjoittajan Puhelin",
+        "signers": "Allekirjoittajat"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -670,9 +670,9 @@
         "delegated": "Delegoitu",
         "approved": "Hyväksytty",
         "not_approved": "Ei hyväksytty",
-        "waiting_signers": "Waiting for signers",
-        "signed": "Signed",
-        "waiting_signature": "Waiting for signature"
+        "waiting_signers": "Odotetaan allekirjoittajia",
+        "signed": "Allekirjoitettu",
+        "waiting_signature": "Odotetaan allekirjoitusta"
     },
     "calendar": {
         "calendar": "Kalenteri - Kalenterit",
@@ -817,21 +817,21 @@
         "delete_confirm_document": "Oletko varma, että haluat poistaa tämän asiakirjan?"
     },
     "contract": {
-        "contract": "Contract | Contracts",
-        "create_contract": "Create Contract",
-        "edit_contract": "Edit Contract",
-        "no_contracts": "No contracts found",
-        "create_first_contract": "Create your first contract",
-        "delete_confirm_contract": "Are you sure you want to delete this contract?",
-        "contract_details": "Contract details",
-        "no_content": "No content",
-        "no_partner": "No partner",
-        "sign_contract": "Sign contract",
-        "contract_signed": "Contract signed",
-        "accept_sign_terms": "I accept that by signing this document, I agree with that the signature is legally binding and equivalent to my handwritten signature.",
-        "accept_terms_required": "Signature and acceptance of terms are required to sign the contract.",
-        "not_signed": "Not signed yet",
-        "signed": "Document signed"
+        "contract": "Sopimukset - Sopimukset",
+        "create_contract": "Luo Sopimus",
+        "edit_contract": "Muokkaa Sopimusta",
+        "no_contracts": "Sopimuksia ei löytynyt",
+        "create_first_contract": "Luo ensimmäinen sopimuksesi",
+        "delete_confirm_contract": "Oletko varma, että haluat poistaa tämän sopimuksen?",
+        "contract_details": "Sopimuksen tiedot",
+        "no_content": "Ei sisältöä",
+        "no_partner": "Ei kumppania",
+        "sign_contract": "Allekirjoita sopimus",
+        "contract_signed": "Sopimus allekirjoitettu",
+        "accept_sign_terms": "Hyväksyn sen, että allekirjoittamalla tämän asiakirjan, olen samaa mieltä siitä, että allekirjoitus on oikeudellisesti sitova ja vastaa käsin kirjoitettua allekirjoitustani.",
+        "accept_terms_required": "Sopimuksen allekirjoittaminen edellyttää ehtojen allekirjoittamista ja hyväksymistä.",
+        "not_signed": "Ei vielä allekirjoitettu",
+        "signed": "Asiakirja allekirjoitettu"
     },
     "support": {
         "support": "Tue - Tuet",
@@ -918,7 +918,7 @@
             "units": "Yksiköt",
             "email": "Sähköposti",
             "webhooks": "Verkkokoukut",
-            "server_settings": "Server Settings"
+            "server_settings": "Palvelimen Asetukset"
         },
         "company": {
             "title": "Yrityksen Asetukset",
@@ -1097,8 +1097,8 @@
             "project": "Projektin numeron muoto",
             "department": "Osaston numeron muoto",
             "archive": "Arkiston numeron muoto",
-            "contract": "Contract number format",
-            "yearly": "Yearly"
+            "contract": "Sopimuksen numeron muoto",
+            "yearly": "Vuosittain"
         },
         "webhook": {
             "title": "Webkoukkujen tilaus",
