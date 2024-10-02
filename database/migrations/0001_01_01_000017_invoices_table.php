@@ -61,7 +61,7 @@ return new class extends Migration {
         Schema::create('invoice_items', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('invoice_id')->nullable()->references('id')->on('invoices')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignUuid('product_id')->nullable();
+            $table->foreignUuid('product_id')->nullable()->references('id')->on('products')->nullOnDelete()->cascadeOnUpdate();
             $table->string('name')->nullable();
             $table->string('description')->nullable();
             $table->string('unit')->nullable();

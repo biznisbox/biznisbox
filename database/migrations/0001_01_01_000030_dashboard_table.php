@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('dashboard', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignUuid('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('content')->nullable()->default('[]');
             $table->string('type')->nullable(); // e.g. 'admin', 'user', 'custom'
             $table->timestamps();
@@ -24,6 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('dashboard');
     }
 };

@@ -22,12 +22,12 @@ class CreateAuditsTable extends Migration
             $table->string('event')->nullable();
             $table->string('auditable_type')->nullable();
             $table->uuid('auditable_id')->nullable();
-            $table->text('old_values')->nullable();
-            $table->text('new_values')->nullable();
+            $table->longText('old_values')->nullable();
+            $table->longText('new_values')->nullable();
             $table->text('url')->nullable();
             $table->ipAddress('ip_address')->nullable();
             $table->string('user_agent', 1023)->nullable();
-            $table->text('tags')->nullable();
+            $table->string('tags')->nullable();
             $table->string('type')->nullable()->default('internal'); // type of activity log (internal, external) - default internal
             $table->string('external_key')->nullable(); // external key for external activity logs
             $table->timestamps();

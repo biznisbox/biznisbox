@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('sessions', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('token')->nullable();
             $table->string('ip')->nullable();
             $table->string('device_type')->nullable();

@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('2fa', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('user_id')->nullable()->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('secret');
             $table->string('recovery_code')->nullable();
             $table->boolean('enabled')->default(false);
@@ -25,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('2fa');
     }
 };
