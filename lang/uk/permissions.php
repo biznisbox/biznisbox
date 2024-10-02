@@ -41,4 +41,5 @@ return [
     'admin_email_settings' => 'Налаштування Email адміністратора',
     'admin_webhooks' => 'Адміністраторські веб-хуки',
     'webhooks' => 'Вебгаки',
+    'contracts' => 'договори',
 ];
