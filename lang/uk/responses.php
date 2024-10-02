@@ -101,4 +101,8 @@ return [
     'install_admin_user_created' => 'Користувач-адміністратор успішно створений.',
     'item_not_moved' => 'Елемент не переміщено',
     'item_moved_successfully' => 'Елемент успішно переміщено',
+    'error_signing_contract' => 'Не вдалося підписати контракт',
+    'signer_not_found_or_already_signed' => 'Сигнал не знайдений або вже підписаний',
+    'cannot_delete_signed_contract' => 'Не вдалося видалити підписаний контракт',
+    'cannot_update_signed_contract' => 'Не вдалося оновити підписаний контракт',
 ];
