@@ -59,6 +59,12 @@ const routes = [
     makeRoute('/transactions/:id', 'transaction-view', () => import('../views/transactions/ViewTransaction.vue'), { auth: true }),
     makeRoute('/transactions/:id/edit', 'transaction-edit', () => import('../views/transactions/EditTransaction.vue'), { auth: true }),
 
+    // Contracts
+    makeRoute('/contracts', 'contracts', () => import('../views/contracts/Contracts.vue'), { auth: true }),
+    makeRoute('/contracts/create', 'contract-create', () => import('../views/contracts/CreateContract.vue'), { auth: true }),
+    makeRoute('/contracts/:id', 'contract-view', () => import('../views/contracts/ViewContract.vue'), { auth: true }),
+    makeRoute('/contracts/:id/edit', 'contract-edit', () => import('../views/contracts/EditContract.vue'), { auth: true }),
+
     // Payments
     makeRoute('/payments', 'payments', () => import('../views/payments/Payments.vue'), { auth: true }),
     makeRoute('/payments/:id', 'payment-view', () => import('../views/payments/ViewPayment.vue'), { auth: true }),
@@ -157,6 +163,7 @@ const routes = [
     makeRoute('/client/invoice/:id', 'client-invoice-view', () => import('../views/client/Invoice.vue'), { auth: false }),
     makeRoute('/client/quote/:id', 'client-quote-view', () => import('../views/client/Quote.vue'), { auth: false }),
     makeRoute('/client/support/:id', 'client-support-ticket-view', () => import('../views/client/SupportTicket.vue'), { auth: false }),
+    makeRoute('/client/contract/:id', 'client-contract-view', () => import('../views/client/Contract.vue'), { auth: false }),
 
     // Install
     makeRoute('/install', 'install', () => import('../views/install/Requirements.vue'), { auth: false }),

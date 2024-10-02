@@ -17,6 +17,7 @@ use App\Http\Controllers\OpenBankingController;
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\SupportTicketController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ContractController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\DepartmentController as AdminDepartmentController;
 use App\Http\Controllers\Admin\PermissionRoleController as AdminPermissionRoleController;
@@ -29,6 +30,7 @@ use App\Http\Controllers\Admin\DashboardDataController as AdminDashboardDataCont
 use App\Http\Controllers\Client\InvoiceController as ClientInvoiceController;
 use App\Http\Controllers\Client\QuoteController as ClientQuoteController;
 use App\Http\Controllers\Client\SupportTicketController as ClientSupportTicketController;
+use App\Http\Controllers\Client\ContractController as ClientContractController;
 use App\Http\Controllers\Install\InstallerController;
 use App\Http\Middleware\CheckIfInstalled;
 
@@ -183,6 +185,14 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/support-ticket/number', [SupportTicketController::class, 'getTicketNumber'])->name('getTicketNumber');
     Route::get('/support-ticket/share/{id}', [SupportTicketController::class, 'shareTicket'])->name('shareTicket');
 
+    // Contract
+    Route::get('/contracts', [ContractController::class, 'getContracts'])->name('getContracts');
+    Route::get('/contracts/{id}', [ContractController::class, 'getContract'])->name('getContract');
+    Route::post('/contracts', [ContractController::class, 'createContract'])->name('createContract');
+    Route::put('/contracts/{id}', [ContractController::class, 'updateContract'])->name('updateContract');
+    Route::delete('/contracts/{id}', [ContractController::class, 'deleteContract'])->name('deleteContract');
+    Route::get('/contract/number', [ContractController::class, 'getContractNumber'])->name('getContractNumber');
+
     // Payments
     Route::get('/payments', [PaymentController::class, 'getPayments'])->name('getPayments');
     Route::get('/payments/{id}', [PaymentController::class, 'getPayment'])->name('getPayment');
@@ -282,6 +292,8 @@ Route::group(['prefix' => 'client'], function () {
     Route::post('/quote/accept-reject', [ClientQuoteController::class, 'acceptRejectQuote'])->name('clientAcceptRejectQuote');
     Route::get('/support-ticket', [ClientSupportTicketController::class, 'getTicket'])->name('clientGetTicket');
     Route::post('/support-ticket', [ClientSupportTicketController::class, 'replayOnTicket'])->name('clientReplayOnTicket');
+    Route::get('/contract', [ClientContractController::class, 'getContract'])->name('clientGetContract');
+    Route::post('/contract/sign', [ClientContractController::class, 'signContract'])->name('clientSignContract');
 });
 
 Route::post('/online-payment/invoice/stripe', [ClientInvoiceController::class, 'payInvoiceStripe'])->name('clientPayInvoiceStripe');
@@ -310,3 +322,4 @@ Route::get('/archive/documents/{id}/download', [ArchiveController::class, 'downl
 Route::get('/invoice/{id}/pdf', [InvoiceController::class, 'getInvoicePdf'])->name('getInvoicePdf');
 Route::get('/quote/{id}/pdf', [QuoteController::class, 'getQuotePdf'])->name('getQuotePdf');
 Route::get('/bill/{id}/pdf', [BillController::class, 'getBillPdf'])->name('getBillPdf');
+Route::get('/contract/{id}/pdf', [ContractController::class, 'getContractPdf'])->name('getContractPdf');

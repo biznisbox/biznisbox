@@ -32,6 +32,7 @@ class PermissionRoleSeeder extends Seeder
         Permission::firstOrCreate(['name' => 'reports', 'display_name' => 'permissions.reports']);
         Permission::firstOrCreate(['name' => 'support', 'display_name' => 'permissions.support']);
         Permission::firstOrCreate(['name' => 'settings', 'display_name' => 'permissions.settings']);
+        Permission::firstOrCreate(['name' => 'contracts', 'display_name' => 'permissions.contracts']);
         Permission::firstOrCreate(['name' => 'webhooks', 'display_name' => 'permissions.webhooks']);
 
         // Admin permissions
@@ -54,17 +55,19 @@ class PermissionRoleSeeder extends Seeder
         // Client permissions
         Permission::firstOrCreate(['name' => 'client', 'display_name' => 'permissions.client']);
 
-        // Create client role
+        // Create client role (for clients)
         $client = Role::firstOrCreate(['name' => 'client', 'display_name' => 'Client', 'system' => true]);
         $client->givePermissionTo(['client']);
 
-        // Create roles
+        // Super admin role -> used for the main admin user
         $admin = Role::firstOrCreate(['name' => 'super_admin', 'display_name' => 'Super Admin', 'system' => true]);
         $admin->givePermissionTo(Permission::where('name', '!=', 'client')->get());
 
+        // Bot role -> used for the bot user/system
         $bot = Role::firstOrCreate(['name' => 'bot', 'display_name' => 'Bot', 'system' => true]);
         $bot->givePermissionTo(Permission::where('name', '!=', 'client')->get());
 
+        // User role -> used for the normal users (employees)
         $user = Role::firstOrCreate(['name' => 'user', 'display_name' => 'User']);
         $user->givePermissionTo([
             'products',
@@ -83,6 +86,7 @@ class PermissionRoleSeeder extends Seeder
             'payments',
             'reports',
             'support',
+            'contracts',
             'settings',
             'webhooks',
         ]);

@@ -97,6 +97,11 @@ class SettingSeeder extends Seeder
             ['value' => '{{TEXT:PROJ}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
         );
 
+        Setting::firstOrCreate(
+            ['key' => 'contract_number_format'],
+            ['value' => '{{TEXT:CON}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+        );
+
         Setting::firstOrCreate(['key' => 'default_payment_method'], ['value' => 'bank_transfer', 'type' => 'string', 'is_public' => 1]);
 
         Currency::firstOrCreate(['code' => 'EUR'], ['name' => 'Euro', 'symbol' => '€', 'exchange_rate' => 1, 'status' => 'active']);

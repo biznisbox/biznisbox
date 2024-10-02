@@ -17,6 +17,7 @@
                         <Tab value="employee">{{ $t('admin.numbering.employee') }}</Tab>
                         <Tab value="archive">{{ $t('admin.numbering.archive') }}</Tab>
                         <Tab value="project">{{ $t('admin.numbering.project') }}</Tab>
+                        <Tab value="contract">{{ $t('admin.numbering.contract') }}</Tab>
                     </TabList>
 
                     <TabPanels>
@@ -63,6 +64,10 @@
                         <!-- Project -->
                         <TabPanel value="project">
                             <NumberingInput v-model="settings.project_number_format" @update:model-value="updateNumberingModel" />
+                        </TabPanel>
+                        <!-- Contract -->
+                        <TabPanel value="contract">
+                            <NumberingInput v-model="settings.contract_number_format" @update:model-value="updateNumberingModel" />
                         </TabPanel>
                     </TabPanels>
                 </Tabs>

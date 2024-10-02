@@ -32,7 +32,7 @@
             @elseif ($bill->status == 'overdue')
                 <span style="color: rgb(170, 50, 50)">{{ __('pdf.statuses.overdue') }}</span>
             @elseif ($bill->status == 'partially_paid')
-                <span style="color: rgb(238, 238, 79)">{{ __('pdf.statuses.partially_paid') }}</span>
+                <span style="color: rgb(216, 202, 0)">{{ __('pdf.statuses.partially_paid') }}</span>
             @elseif ($bill->status == 'cancelled')
                 <span style="color: rgb(49, 97, 129)">{{ __('pdf.statuses.cancelled') }}</span>
             @elseif ($bill->status == 'refunded')

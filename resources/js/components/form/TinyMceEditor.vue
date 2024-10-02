@@ -81,7 +81,6 @@ export default {
                 statusbar: false,
                 paste_data_images: true,
                 images_upload_handler: function (blobInfo, success, failure) {
-                    console.log(blobInfo.base64())
                     let image = 'data:' + blobInfo.blob().type + ';base64,' + blobInfo.base64()
                     success({ location: image })
                     failure('Error uploading image')

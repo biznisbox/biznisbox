@@ -31,8 +31,9 @@
                 <Tag v-else-if="data.event === 'download'" :value="$t('audit_log_event.downloaded')" />
                 <Tag v-else-if="data.event === 'upload'" :value="$t('audit_log_event.upload')" />
                 <Tag v-else-if="data.event === 'send'" :value="$t('audit_log_event.send')" />
-                <Tag v-else-if="data.event === 'retrievePublic'" :value="$t('audit_log_event.retrieve_public')" severity="secondary" />
+                <Tag v-else-if="data.event === 'retrievePublic'" :value="$t('audit_log_event.retrieve_public')" severity="contrast" />
                 <Tag v-else-if="data.event === 'share'" :value="$t('audit_log_event.share')" />
+                <Tag v-else-if="data.event === 'sign'" :value="$t('audit_log_event.sign')" />
                 <Tag v-else :value="data.event" />
             </template>
         </Column>

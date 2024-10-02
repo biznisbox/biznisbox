@@ -36,6 +36,7 @@
         "@fullcalendar/rrule": "^6.1.15",
         "@fullcalendar/timegrid": "^6.1.15",
         "@fullcalendar/vue3": "^6.1.15",
+        "@selemondev/vue3-signature-pad": "^1.1.0",
         "@tinymce/tinymce-vue": "^6.0.1",
         "@vuelidate/core": "^2.0.3",
         "@vuelidate/validators": "^2.0.4",

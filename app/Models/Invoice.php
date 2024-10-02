@@ -176,7 +176,7 @@ class Invoice extends Model implements Auditable
             $data['total'] = 0;
         }
 
-        $invoice = Invoice::create($data);
+        $invoice = $this->create($data);
         if ($invoice) {
             if (isset($data['items'])) {
                 foreach ($data['items'] as $item) {

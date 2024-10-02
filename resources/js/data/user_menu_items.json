@@ -125,5 +125,13 @@
         "permission": "calendar",
         "permissions": [],
         "to": "/calendar"
+    },
+    {
+        "name": "user_menu_items.contracts",
+        "meta": ["contracts"],
+        "icon": "fa fa-file-contract",
+        "permission": "contracts",
+        "permissions": [],
+        "to": "/contracts"
     }
 ]
