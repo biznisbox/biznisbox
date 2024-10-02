@@ -32,4 +32,11 @@ return [
     'click_on_the_button_below_to_view_quote' => 'Klik op de knop hieronder om de offerte te te bekijken.',
     'view_quote' => 'Bekijk offerte',
     'subject_new_quote' => 'Nieuwe melding Offerte',
+    'new_contract_created_for_you' => 'Er is een nieuw contract voor u aangemaakt, gelieve deze te ondertekenen.',
+    'contract_details' => 'Contract Informatie',
+    'contract_number' => 'Contractnummer: :number',
+    'contract_expiry_date' => 'Vervaldatum voor ondertekening: :date',
+    'click_on_the_button_below_to_sign_contract' => 'Klik op de knop hieronder om het contract te ondertekenen.',
+    'sign_contract' => 'Onderteken Contract',
+    'subject_new_contract' => 'Nieuwe melding Contract',
 ];
