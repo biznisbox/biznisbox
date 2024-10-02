@@ -32,4 +32,11 @@ return [
     'click_on_the_button_below_to_view_quote' => 'Κάντε κλικ στο παρακάτω κουμπί για να δείτε το απόσπασμα.',
     'view_quote' => 'Προβολή Προσφοράς',
     'subject_new_quote' => 'Νέα ειδοποίηση παράθεσης',
+    'new_contract_created_for_you' => 'Ένα νέο συμβόλαιο έχει δημιουργηθεί για εσάς, παρακαλώ υπογράψτε το.',
+    'contract_details' => 'Λεπτομέρειες Συμβολαίου',
+    'contract_number' => 'Αριθμός Συμβολαίου: :number',
+    'contract_expiry_date' => 'Ημερομηνία λήξης για την υπογραφή: :date',
+    'click_on_the_button_below_to_sign_contract' => 'Κάντε κλικ στο παρακάτω κουμπί για να υπογράψετε τη σύμβαση.',
+    'sign_contract' => 'Υπογραφή Συμβολαίου',
+    'subject_new_contract' => 'Νέα ειδοποίηση συμβολαίου',
 ];
