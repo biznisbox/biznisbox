@@ -101,4 +101,8 @@ return [
     'install_admin_user_created' => 'Administratörsanvändare har skapats.',
     'item_not_moved' => 'Objektet har inte flyttats',
     'item_moved_successfully' => 'Objektet har flyttats',
+    'error_signing_contract' => 'Fel vid signering av kontrakt',
+    'signer_not_found_or_already_signed' => 'Signer hittades inte eller är redan signerad',
+    'cannot_delete_signed_contract' => 'Kan inte ta bort undertecknat kontrakt',
+    'cannot_update_signed_contract' => 'Kan inte uppdatera undertecknat kontrakt',
 ];
