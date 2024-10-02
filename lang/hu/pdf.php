@@ -42,6 +42,11 @@ return [
     'reference' => 'Referencia',
     'footer' => 'Lábléc',
     'discount_type' => 'Kedvezmény típusa',
+    'contract' => 'Contract',
+    'name' => 'Name',
+    'signature' => 'Signature',
+    'signers' => 'Signers',
+    'no_signature' => 'No Signature',
     'payment_methods' => [
         'cash' => 'Készpénz',
         'check' => 'Csekk',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Megtekintve',
         'expired' => 'Lejárt',
         'converted' => 'Átalakítva',
+        'signed' => 'Signed',
+        'unsigned' => 'Unsigned',
+        'waiting_signers' => 'Waiting Signers',
+        'rejected' => 'Rejected',
+        'expired' => 'Expired',
+        'waiting_signature' => 'Waiting Signature',
     ],
 ];
