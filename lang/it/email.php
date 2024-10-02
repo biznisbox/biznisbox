@@ -32,4 +32,11 @@ return [
     'click_on_the_button_below_to_view_quote' => 'Fare clic sul pulsante qui sotto per visualizzare il preventivo.',
     'view_quote' => 'Visualizza Preventivo',
     'subject_new_quote' => 'Nuova notifica preventivo',
+    'new_contract_created_for_you' => 'Per te è stato creato un nuovo contratto, per favore firmalo.',
+    'contract_details' => 'Dettagli Del Contratto',
+    'contract_number' => 'Numero Del Contratto: :Number',
+    'contract_expiry_date' => 'Data di scadenza del segno: :date',
+    'click_on_the_button_below_to_sign_contract' => 'Fare clic sul pulsante qui sotto per firmare il contratto.',
+    'sign_contract' => 'Firma Contratto',
+    'subject_new_contract' => 'Nuovo Contract notification',
 ];
