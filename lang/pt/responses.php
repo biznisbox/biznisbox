@@ -101,4 +101,8 @@ return [
     'install_admin_user_created' => 'Usuário administrador criado com sucesso.',
     'item_not_moved' => 'Item não movido',
     'item_moved_successfully' => 'Item movido com sucesso',
+    'error_signing_contract' => 'Erro ao assinar contrato',
+    'signer_not_found_or_already_signed' => 'Assinante não encontrado ou já assinado',
+    'cannot_delete_signed_contract' => 'Não é possível excluir o contrato assinado',
+    'cannot_update_signed_contract' => 'Não é possível atualizar o contrato assinado',
 ];
