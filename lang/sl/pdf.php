@@ -42,6 +42,11 @@ return [
     'reference' => 'Referenca',
     'footer' => 'Noga',
     'discount_type' => 'Tip popusta',
+    'contract' => 'Contract',
+    'name' => 'Name',
+    'signature' => 'Signature',
+    'signers' => 'Signers',
+    'no_signature' => 'No Signature',
     'payment_methods' => [
         'cash' => 'Gotovina',
         'check' => 'Ček',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Ogledano',
         'expired' => 'Poteklo',
         'converted' => 'Pretvorjeno',
+        'signed' => 'Signed',
+        'unsigned' => 'Unsigned',
+        'waiting_signers' => 'Waiting Signers',
+        'rejected' => 'Rejected',
+        'expired' => 'Expired',
+        'waiting_signature' => 'Waiting Signature',
     ],
 ];
