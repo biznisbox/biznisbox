@@ -42,6 +42,11 @@ return [
     'reference' => 'По посиланню',
     'footer' => 'Нижній колонтитул',
     'discount_type' => 'Тип знижки',
+    'contract' => 'Договір',
+    'name' => 'Ім\'я',
+    'signature' => 'Підпис',
+    'signers' => 'Сигнери',
+    'no_signature' => 'Підпис відсутній',
     'payment_methods' => [
         'cash' => 'Готівкою',
         'check' => 'Перевірити',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Переглядів',
         'expired' => 'Термін дії закінчився',
         'converted' => 'Перетворений',
+        'signed' => 'Підписано',
+        'unsigned' => 'Без підпису',
+        'waiting_signers' => 'Очікування отримувачів',
+        'rejected' => 'Відхилено',
+        'expired' => 'Термін дії закінчився',
+        'waiting_signature' => 'Очікування підпису',
     ],
 ];
