@@ -128,9 +128,9 @@
         "audit_log": "Audit-Log",
         "get_current_location": "Aktuellen Standort abrufen",
         "system": "System",
-        "add_signer": "Add Signer",
-        "click_for_download": "Click here to download",
-        "sign": "Sign"
+        "add_signer": "Unterzeichner hinzufügen",
+        "click_for_download": "Zum Herunterladen hier klicken",
+        "sign": "Schild"
     },
     "audit_log": {
         "audit_log": "Audit-Log",
@@ -164,8 +164,8 @@
         "retrieve_public": "Öffentlich abrufen",
         "upload": "Hochladen",
         "share": "Teilen",
-        "delete": "Delete",
-        "sign": "Sign"
+        "delete": "Löschen",
+        "sign": "Schild"
     },
     "audit_log_type": {
         "internal": "Intern",
@@ -200,7 +200,7 @@
         "employees": "Mitarbeiter",
         "support": "Unterstützung",
         "payments": "Zahlungen",
-        "contracts": "Contracts"
+        "contracts": "Verträge"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -403,12 +403,12 @@
         "theme": "Thema",
         "overpaid_amount": "Überbezahlter Betrag",
         "sum_of_payments": "Summe der Zahlungen",
-        "date_for_signature": "Date for Signature",
-        "is_signer": "Is Signer",
-        "signer_name": "Signer Name",
+        "date_for_signature": "Datum der Unterschrift",
+        "is_signer": "Ist Unterzeichner",
+        "signer_name": "Unterzeichnername",
         "signer_email": "Signer Email",
-        "signer_phone": "Signer Phone",
-        "signers": "Signers"
+        "signer_phone": "Signier-Telefon",
+        "signers": "Unterzeichner"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -670,9 +670,9 @@
         "delegated": "Delegiert",
         "approved": "Genehmigt",
         "not_approved": "Nicht genehmigt",
-        "waiting_signers": "Waiting for signers",
-        "signed": "Signed",
-        "waiting_signature": "Waiting for signature"
+        "waiting_signers": "Warten auf Unterzeichner",
+        "signed": "Unterschrieben",
+        "waiting_signature": "Warte auf Signatur"
     },
     "calendar": {
         "calendar": "Kalender | Kalender",
@@ -817,21 +817,21 @@
         "delete_confirm_document": "Sind Sie sicher, dass Sie dieses Dokument löschen möchten?"
     },
     "contract": {
-        "contract": "Contract | Contracts",
-        "create_contract": "Create Contract",
-        "edit_contract": "Edit Contract",
-        "no_contracts": "No contracts found",
-        "create_first_contract": "Create your first contract",
-        "delete_confirm_contract": "Are you sure you want to delete this contract?",
-        "contract_details": "Contract details",
-        "no_content": "No content",
-        "no_partner": "No partner",
-        "sign_contract": "Sign contract",
-        "contract_signed": "Contract signed",
-        "accept_sign_terms": "I accept that by signing this document, I agree with that the signature is legally binding and equivalent to my handwritten signature.",
-        "accept_terms_required": "Signature and acceptance of terms are required to sign the contract.",
-        "not_signed": "Not signed yet",
-        "signed": "Document signed"
+        "contract": "Vertrag | Verträge",
+        "create_contract": "Vertrag erstellen",
+        "edit_contract": "Vertrag bearbeiten",
+        "no_contracts": "Keine Verträge gefunden",
+        "create_first_contract": "Erstelle deinen ersten Vertrag",
+        "delete_confirm_contract": "Sind Sie sicher, dass Sie diesen Vertrag löschen möchten?",
+        "contract_details": "Vertragsdetails",
+        "no_content": "Kein Inhalt",
+        "no_partner": "Kein Partner",
+        "sign_contract": "Unterzeichner Vertrag",
+        "contract_signed": "Vertrag unterzeichnet",
+        "accept_sign_terms": "Ich akzeptiere, dass ich mit der Unterzeichnung dieses Dokuments einverstanden bin, dass die Unterschrift rechtsverbindlich ist und meiner handschriftlichen Unterschrift entspricht.",
+        "accept_terms_required": "Zur Unterzeichnung des Vertrages sind die Unterzeichnung und Annahme der Vertragsbedingungen erforderlich.",
+        "not_signed": "Noch nicht signiert",
+        "signed": "Dokument signiert"
     },
     "support": {
         "support": "Support | Unterstützungen",
@@ -918,7 +918,7 @@
             "units": "Einheiten",
             "email": "E-Mail",
             "webhooks": "Webhooks",
-            "server_settings": "Server Settings"
+            "server_settings": "Servereinstellungen"
         },
         "company": {
             "title": "Firmeneinstellungen",
@@ -1097,8 +1097,8 @@
             "project": "Format der Projektnummer",
             "department": "Abteilungsnummer Format",
             "archive": "Archivnummernformat",
-            "contract": "Contract number format",
-            "yearly": "Yearly"
+            "contract": "Vertragsnummernformat",
+            "yearly": "Jährlich"
         },
         "webhook": {
             "title": "WebHooks Abonnement",
