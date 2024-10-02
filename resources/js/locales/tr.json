@@ -127,7 +127,10 @@
         "same_as_company_address": "Şirket adresi ile aynı",
         "audit_log": "Denetim Kaydı",
         "get_current_location": "Mevcut konumu al",
-        "system": "Sistem"
+        "system": "Sistem",
+        "add_signer": "Add Signer",
+        "click_for_download": "Click here to download",
+        "sign": "Sign"
     },
     "audit_log": {
         "audit_log": "Denetim Kaydı",
@@ -160,7 +163,9 @@
         "moved": "Taşındı",
         "retrieve_public": "Halka Açık Al",
         "upload": "Yükleme",
-        "share": "Paylaş"
+        "share": "Paylaş",
+        "delete": "Delete",
+        "sign": "Sign"
     },
     "audit_log_type": {
         "internal": "İç",
@@ -194,7 +199,8 @@
         "settings": "Ayarlar",
         "employees": "Çalışanlar",
         "support": "Destek",
-        "payments": "Ödemeler"
+        "payments": "Ödemeler",
+        "contracts": "Contracts"
     },
     "dashboard": {
         "title": "Ana Panel",
@@ -396,7 +402,13 @@
         "display_name": "Görüntülenen İsim",
         "theme": "Tema",
         "overpaid_amount": "Fazla Ödenen Miktar",
-        "sum_of_payments": "Ödeme Toplamı"
+        "sum_of_payments": "Ödeme Toplamı",
+        "date_for_signature": "Date for Signature",
+        "is_signer": "Is Signer",
+        "signer_name": "Signer Name",
+        "signer_email": "Signer Email",
+        "signer_phone": "Signer Phone",
+        "signers": "Signers"
     },
     "address_types": {
         "billing": "Fatura",
@@ -657,7 +669,10 @@
         "in_review": "İncelemede",
         "delegated": "Devredildi",
         "approved": "Onaylandı",
-        "not_approved": "Onaylanmadı"
+        "not_approved": "Onaylanmadı",
+        "waiting_signers": "Waiting for signers",
+        "signed": "Signed",
+        "waiting_signature": "Waiting for signature"
     },
     "calendar": {
         "calendar": "Takvim | Takvimler",
@@ -801,6 +816,23 @@
         "create_first_document": "İlk belgenizi oluşturun",
         "delete_confirm_document": "Bu belgeyi silmek istediğinizden emin misiniz?"
     },
+    "contract": {
+        "contract": "Contract | Contracts",
+        "create_contract": "Create Contract",
+        "edit_contract": "Edit Contract",
+        "no_contracts": "No contracts found",
+        "create_first_contract": "Create your first contract",
+        "delete_confirm_contract": "Are you sure you want to delete this contract?",
+        "contract_details": "Contract details",
+        "no_content": "No content",
+        "no_partner": "No partner",
+        "sign_contract": "Sign contract",
+        "contract_signed": "Contract signed",
+        "accept_sign_terms": "I accept that by signing this document, I agree with that the signature is legally binding and equivalent to my handwritten signature.",
+        "accept_terms_required": "Signature and acceptance of terms are required to sign the contract.",
+        "not_signed": "Not signed yet",
+        "signed": "Document signed"
+    },
     "support": {
         "support": "Destek | Destekler",
         "support_tickets": "Destek Biletleri",
@@ -885,7 +917,8 @@
             "app_status": "Uygulama Durumu",
             "units": "Birimler",
             "email": "E-posta",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Server Settings"
         },
         "company": {
             "title": "Şirket Ayarları",
@@ -1063,7 +1096,9 @@
             "employee": "Çalışan numarası formatı",
             "project": "Proje numarası biçimi",
             "department": "Departman numarası biçimi",
-            "archive": "Arşiv numarası biçimi"
+            "archive": "Arşiv numarası biçimi",
+            "contract": "Contract number format",
+            "yearly": "Yearly"
         },
         "webhook": {
             "title": "Webhooks abonelik",
