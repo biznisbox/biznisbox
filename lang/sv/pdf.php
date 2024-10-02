@@ -42,6 +42,11 @@ return [
     'reference' => 'Referens',
     'footer' => 'Sidfot',
     'discount_type' => 'Rabatttyp',
+    'contract' => 'Kontrakt',
+    'name' => 'Namn',
+    'signature' => 'Signatur',
+    'signers' => 'Tecknare',
+    'no_signature' => 'Ingen signatur',
     'payment_methods' => [
         'cash' => 'Kontant',
         'check' => 'Kontrollera',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Visad',
         'expired' => 'Förfallen',
         'converted' => 'Konverterad',
+        'signed' => 'Signerad',
+        'unsigned' => 'Osignerad',
+        'waiting_signers' => 'Väntande Tecknare',
+        'rejected' => 'Avvisad',
+        'expired' => 'Förfallen',
+        'waiting_signature' => 'Väntande signatur',
     ],
 ];
