@@ -128,9 +128,9 @@
         "audit_log": "Αρχείο Ελέγχου",
         "get_current_location": "Λήψη τρέχουσας τοποθεσίας",
         "system": "Σύστημα",
-        "add_signer": "Add Signer",
-        "click_for_download": "Click here to download",
-        "sign": "Sign"
+        "add_signer": "Προσθήκη Υπογραφέα",
+        "click_for_download": "Κάντε κλικ εδώ για λήψη",
+        "sign": "Υπογραφή"
     },
     "audit_log": {
         "audit_log": "Αρχείο Ελέγχου",
@@ -164,8 +164,8 @@
         "retrieve_public": "Ανάκτηση Δημοσίου",
         "upload": "Ανέβασμα",
         "share": "Κοινοποίηση",
-        "delete": "Delete",
-        "sign": "Sign"
+        "delete": "Διαγραφή",
+        "sign": "Υπογραφή"
     },
     "audit_log_type": {
         "internal": "Εσωτερική",
@@ -200,7 +200,7 @@
         "employees": "Υπάλληλοι",
         "support": "Υποστήριξη",
         "payments": "Πληρωμές",
-        "contracts": "Contracts"
+        "contracts": "Συμβάσεις"
     },
     "dashboard": {
         "title": "Ταμπλό",
@@ -403,12 +403,12 @@
         "theme": "Θέμα",
         "overpaid_amount": "Υπερπληρωμένο Ποσό",
         "sum_of_payments": "Άθροισμα πληρωμών",
-        "date_for_signature": "Date for Signature",
-        "is_signer": "Is Signer",
-        "signer_name": "Signer Name",
+        "date_for_signature": "Ημερομηνία υπογραφής",
+        "is_signer": "Είναι Υπογραφέας",
+        "signer_name": "Όνομα Υπογραφέα",
         "signer_email": "Signer Email",
-        "signer_phone": "Signer Phone",
-        "signers": "Signers"
+        "signer_phone": "Τηλέφωνο Υπογραφέα",
+        "signers": "Υπογραφείς"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -670,9 +670,9 @@
         "delegated": "Εξουσιοδοτημένο",
         "approved": "Εγκρίθηκε",
         "not_approved": "Μη εγκεκριμένο",
-        "waiting_signers": "Waiting for signers",
-        "signed": "Signed",
-        "waiting_signature": "Waiting for signature"
+        "waiting_signers": "Αναμονή για υπογράφοντες",
+        "signed": "Υπογραφή",
+        "waiting_signature": "Αναμονή για υπογραφή"
     },
     "calendar": {
         "calendar": "Ημερολόγιο \"Ημερολόγια\"",
@@ -817,21 +817,21 @@
         "delete_confirm_document": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το έγγραφο?"
     },
     "contract": {
-        "contract": "Contract | Contracts",
-        "create_contract": "Create Contract",
-        "edit_contract": "Edit Contract",
-        "no_contracts": "No contracts found",
-        "create_first_contract": "Create your first contract",
-        "delete_confirm_contract": "Are you sure you want to delete this contract?",
-        "contract_details": "Contract details",
-        "no_content": "No content",
-        "no_partner": "No partner",
-        "sign_contract": "Sign contract",
-        "contract_signed": "Contract signed",
-        "accept_sign_terms": "I accept that by signing this document, I agree with that the signature is legally binding and equivalent to my handwritten signature.",
-        "accept_terms_required": "Signature and acceptance of terms are required to sign the contract.",
-        "not_signed": "Not signed yet",
-        "signed": "Document signed"
+        "contract": "Συμβόλαια Συμβολαίου",
+        "create_contract": "Δημιουργία Συμβολαίου",
+        "edit_contract": "Επεξεργασία Συμβολαίου",
+        "no_contracts": "Δεν βρέθηκαν συμβάσεις",
+        "create_first_contract": "Δημιουργήστε το πρώτο σας συμβόλαιο",
+        "delete_confirm_contract": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το συμβόλαιο?",
+        "contract_details": "Λεπτομέρειες συμβολαίου",
+        "no_content": "Χωρίς περιεχόμενο",
+        "no_partner": "Κανένας συνεργάτης",
+        "sign_contract": "Υπογραφή σύμβασης",
+        "contract_signed": "Υπογεγραμμένο συμβόλαιο",
+        "accept_sign_terms": "Δέχομαι ότι υπογράφοντας αυτό το έγγραφο, συμφωνώ με το ότι η υπογραφή είναι νομικά δεσμευτική και ισοδύναμη με την χειρόγραφη υπογραφή μου.",
+        "accept_terms_required": "Η υπογραφή και αποδοχή των όρων απαιτείται για την υπογραφή της σύμβασης.",
+        "not_signed": "Δεν έχει υπογραφεί ακόμα",
+        "signed": "Υπογεγραμμένο έγγραφο"
     },
     "support": {
         "support": "Υποστήριξη \"Υποστηρίζει",
@@ -918,7 +918,7 @@
             "units": "Μονάδες",
             "email": "E-mail",
             "webhooks": "Webhooks",
-            "server_settings": "Server Settings"
+            "server_settings": "Ρυθμίσεις Διακομιστή"
         },
         "company": {
             "title": "Ρυθμίσεις Εταιρείας",
@@ -1097,8 +1097,8 @@
             "project": "Μορφή αριθμού έργου",
             "department": "Μορφή αριθμού τμήματος",
             "archive": "Μορφή αριθμού αρχείου",
-            "contract": "Contract number format",
-            "yearly": "Yearly"
+            "contract": "Μορφή αριθμού σύμβασης",
+            "yearly": "Ετήσια"
         },
         "webhook": {
             "title": "Συνδρομή Webhooks",
