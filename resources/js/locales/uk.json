@@ -127,7 +127,10 @@
         "same_as_company_address": "Так само, як адреса компанії",
         "audit_log": "Журнал аудиту",
         "get_current_location": "Визначити місцезнаходження",
-        "system": "Система"
+        "system": "Система",
+        "add_signer": "Додати реєстр",
+        "click_for_download": "Натисніть тут, щоб завантажити",
+        "sign": "Підпис"
     },
     "audit_log": {
         "audit_log": "Журнал аудиту",
@@ -160,7 +163,9 @@
         "moved": "Переміщено",
         "retrieve_public": "Отримати публічну",
         "upload": "Вивантажити",
-        "share": "Поділитись"
+        "share": "Поділитись",
+        "delete": "Видалити",
+        "sign": "Підпис"
     },
     "audit_log_type": {
         "internal": "Внутрішній",
@@ -194,7 +199,8 @@
         "settings": "Налаштування",
         "employees": "Співробітники",
         "support": "Підтримка",
-        "payments": "Оплата"
+        "payments": "Оплата",
+        "contracts": "Контракти"
     },
     "dashboard": {
         "title": "Приладна дошка",
@@ -396,7 +402,13 @@
         "display_name": "Ім'я для відображення",
         "theme": "Тема",
         "overpaid_amount": "Сума переплачених",
-        "sum_of_payments": "Сума платежів"
+        "sum_of_payments": "Сума платежів",
+        "date_for_signature": "Дата підпису",
+        "is_signer": "Чи є Сигнер",
+        "signer_name": "Логін",
+        "signer_email": "Signer Email",
+        "signer_phone": "Телефон зі значком",
+        "signers": "Сигнери"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -657,7 +669,10 @@
         "in_review": "На розгляді",
         "delegated": "Делеговані",
         "approved": "Затверджено",
-        "not_approved": "Не затверджено"
+        "not_approved": "Не затверджено",
+        "waiting_signers": "Очікування підписників",
+        "signed": "Підписано",
+        "waiting_signature": "Очікування підпису"
     },
     "calendar": {
         "calendar": "Календар | Календар",
@@ -801,6 +816,23 @@
         "create_first_document": "Створити перший документ",
         "delete_confirm_document": "Ви впевнені, що хочете видалити цей документ?"
     },
+    "contract": {
+        "contract": "Договір | Контракти",
+        "create_contract": "Створити контракт",
+        "edit_contract": "Редагувати контракт",
+        "no_contracts": "Договори не знайдені",
+        "create_first_contract": "Створити свій перший контракт",
+        "delete_confirm_contract": "Ви впевнені, що бажаєте видалити цей контракт?",
+        "contract_details": "Докладна інформація",
+        "no_content": "Без вмісту",
+        "no_partner": "Немає партнера",
+        "sign_contract": "Підписати контракт",
+        "contract_signed": "Договір підписаний",
+        "accept_sign_terms": "Я погоджуюсь, що підписуючи цей документ, я згоден з тим, що підпис є юридично обов'язковим та еквівалентом моєму підпису.",
+        "accept_terms_required": "Для підписання контракту необхідно підписати умови або погодження з термінами.",
+        "not_signed": "Ще не підписано",
+        "signed": "Документ підписано"
+    },
     "support": {
         "support": "Підтримка | Підтримка",
         "support_tickets": "Підтримки квитки",
@@ -885,7 +917,8 @@
             "app_status": "Статус додатку",
             "units": "Одиниці виміру",
             "email": "Ел. пошта",
-            "webhooks": "Вебгаки"
+            "webhooks": "Вебгаки",
+            "server_settings": "Налаштування сервера"
         },
         "company": {
             "title": "Налаштування компанії",
@@ -1063,7 +1096,9 @@
             "employee": "Формат номеру співробітника",
             "project": "Формат номера проекту",
             "department": "Формат номерів відділу",
-            "archive": "Формат номерів архіву"
+            "archive": "Формат номерів архіву",
+            "contract": "Формат номерів договору",
+            "yearly": "За рік"
         },
         "webhook": {
             "title": "Веб-хуки",
