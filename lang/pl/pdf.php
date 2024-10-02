@@ -42,6 +42,11 @@ return [
     'reference' => 'Odniesienie',
     'footer' => 'Stopka',
     'discount_type' => 'Typ rabatu',
+    'contract' => 'Umowa',
+    'name' => 'Nazwisko',
+    'signature' => 'Podpis',
+    'signers' => 'Podpisujący',
+    'no_signature' => 'Brak podpisu',
     'payment_methods' => [
         'cash' => 'Gotówka',
         'check' => 'Sprawdzanie',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Przeglądane',
         'expired' => 'Wygasły',
         'converted' => 'Przekonwertowane',
+        'signed' => 'Podpisano',
+        'unsigned' => 'Bez podpisu',
+        'waiting_signers' => 'Oczekiwanie na podpisujących',
+        'rejected' => 'Odrzucono',
+        'expired' => 'Wygasły',
+        'waiting_signature' => 'Oczekiwanie na podpis',
     ],
 ];
