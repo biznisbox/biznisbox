@@ -32,4 +32,11 @@ return [
     'click_on_the_button_below_to_view_quote' => 'Klikněte na tlačítko níže pro zobrazení cenové nabídky.',
     'view_quote' => 'Zobrazit cenovou nabídku',
     'subject_new_quote' => 'Nové oznámení o nabídce',
+    'new_contract_created_for_you' => 'Byla pro vás vytvořena nová smlouva, prosím podepište ji.',
+    'contract_details' => 'Podrobnosti smlouvy',
+    'contract_number' => 'Číslo smlouvy: :number',
+    'contract_expiry_date' => 'Datum vypršení platnosti pro podpis: :date',
+    'click_on_the_button_below_to_sign_contract' => 'Klikněte na tlačítko níže pro podepsání smlouvy.',
+    'sign_contract' => 'Podepsat smlouvu',
+    'subject_new_contract' => 'Nové oznámení o smlouvě',
 ];
