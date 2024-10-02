@@ -127,7 +127,10 @@
         "same_as_company_address": "Tak samo jak adres firmy",
         "audit_log": "Dziennik audytu",
         "get_current_location": "Pobierz bieżącą lokalizację",
-        "system": "System"
+        "system": "System",
+        "add_signer": "Dodaj podpisującego",
+        "click_for_download": "Kliknij tutaj, aby pobrać",
+        "sign": "Podpis"
     },
     "audit_log": {
         "audit_log": "Dziennik audytu",
@@ -160,7 +163,9 @@
         "moved": "Przeniesiono",
         "retrieve_public": "Pobierz publiczne",
         "upload": "Prześlij",
-        "share": "Udostępnij"
+        "share": "Udostępnij",
+        "delete": "Usuń",
+        "sign": "Podpis"
     },
     "audit_log_type": {
         "internal": "Wewnętrzne",
@@ -194,7 +199,8 @@
         "settings": "Ustawienia",
         "employees": "Pracownicy",
         "support": "Wsparcie",
-        "payments": "Wynagrodzenia"
+        "payments": "Wynagrodzenia",
+        "contracts": "Kontrakty"
     },
     "dashboard": {
         "title": "Pulpit",
@@ -396,7 +402,13 @@
         "display_name": "Wyświetlana nazwa",
         "theme": "Motyw",
         "overpaid_amount": "Nadpłacona kwota",
-        "sum_of_payments": "Suma płatności"
+        "sum_of_payments": "Suma płatności",
+        "date_for_signature": "Data podpisu",
+        "is_signer": "Jest sygnatariuszem",
+        "signer_name": "Nazwa podpisującego",
+        "signer_email": "Signer Email",
+        "signer_phone": "Telefon podpisującego",
+        "signers": "Podpisujący"
     },
     "address_types": {
         "billing": "Płatność",
@@ -657,7 +669,10 @@
         "in_review": "W przeglądzie",
         "delegated": "Delegowany",
         "approved": "Zatwierdzone",
-        "not_approved": "Niezatwierdzone"
+        "not_approved": "Niezatwierdzone",
+        "waiting_signers": "Oczekiwanie na podpisujących",
+        "signed": "Podpisano",
+        "waiting_signature": "Oczekiwanie na podpis"
     },
     "calendar": {
         "calendar": "Kalendarz | Kalendarze",
@@ -801,6 +816,23 @@
         "create_first_document": "Utwórz swój pierwszy dokument",
         "delete_confirm_document": "Czy na pewno chcesz usunąć ten dokument?"
     },
+    "contract": {
+        "contract": "Kontrakt | Umowy",
+        "create_contract": "Utwórz kontrakt",
+        "edit_contract": "Edytuj umowę",
+        "no_contracts": "Nie znaleziono umów",
+        "create_first_contract": "Utwórz swój pierwszy kontrakt",
+        "delete_confirm_contract": "Czy na pewno chcesz usunąć tę umowę?",
+        "contract_details": "Szczegóły umowy",
+        "no_content": "Brak treści",
+        "no_partner": "Brak partnera",
+        "sign_contract": "Podpisz umowę",
+        "contract_signed": "Podpisano umowę",
+        "accept_sign_terms": "Akceptuję, że podpisując ten dokument, zgadzam się, że podpisanie jest prawnie wiążące i równoważne mojemu własnemu podpisowi.",
+        "accept_terms_required": "Do podpisania umowy wymagane jest podpisanie i przyjęcie warunków.",
+        "not_signed": "Jeszcze nie podpisano",
+        "signed": "Dokument podpisany"
+    },
     "support": {
         "support": "Obsługa | Wsparcie",
         "support_tickets": "Bilety Wsparcia",
@@ -885,7 +917,8 @@
             "app_status": "Status aplikacji",
             "units": "Jednostki",
             "email": "E-mail",
-            "webhooks": "Webhooki"
+            "webhooks": "Webhooki",
+            "server_settings": "Ustawienia serwera"
         },
         "company": {
             "title": "Ustawienia firmy",
@@ -1063,7 +1096,9 @@
             "employee": "Format numeru pracownika",
             "project": "Format numeru projektu",
             "department": "Format numeru departamentu",
-            "archive": "Format numeru archiwum"
+            "archive": "Format numeru archiwum",
+            "contract": "Format numeru umowy",
+            "yearly": "Rocznie"
         },
         "webhook": {
             "title": "Subskrypcja Webhooks",
