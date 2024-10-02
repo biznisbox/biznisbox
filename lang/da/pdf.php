@@ -42,6 +42,11 @@ return [
     'reference' => 'Reference',
     'footer' => 'Sidefod',
     'discount_type' => 'Rabat Type',
+    'contract' => 'Kontrakt',
+    'name' => 'Navn',
+    'signature' => 'Underskrift',
+    'signers' => 'Underskrivere',
+    'no_signature' => 'Ingen Signatur',
     'payment_methods' => [
         'cash' => 'Kontant',
         'check' => 'Tjek',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Set',
         'expired' => 'Udløbet',
         'converted' => 'Konverteret',
+        'signed' => 'Signeret',
+        'unsigned' => 'Usigneret',
+        'waiting_signers' => 'Venter På Underskrivere',
+        'rejected' => 'Afvist',
+        'expired' => 'Udløbet',
+        'waiting_signature' => 'Venter På Signatur',
     ],
 ];
