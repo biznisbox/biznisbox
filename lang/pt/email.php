@@ -32,4 +32,11 @@ return [
     'click_on_the_button_below_to_view_quote' => 'Clique no botão abaixo para visualizar a cotação.',
     'view_quote' => 'Ver Cotação',
     'subject_new_quote' => 'Notificação de Nova Cotação',
+    'new_contract_created_for_you' => 'Um novo contrato foi criado para você, por favor, assine-o.',
+    'contract_details' => 'Detalhes do Contrato',
+    'contract_number' => 'Número do contrato: :number',
+    'contract_expiry_date' => 'Data de expiração para o registro: :date',
+    'click_on_the_button_below_to_sign_contract' => 'Clique no botão abaixo para assinar o contrato.',
+    'sign_contract' => 'Assinar Contrato',
+    'subject_new_contract' => 'Notificação de novo contrato',
 ];
