@@ -32,4 +32,11 @@ return [
     'click_on_the_button_below_to_view_quote' => 'Klicken Sie auf die Schaltfläche unten, um das Angebot anzuzeigen.',
     'view_quote' => 'Angebot ansehen',
     'subject_new_quote' => 'Neue Angebotsbenachrichtigung',
+    'new_contract_created_for_you' => 'Ein neuer Vertrag wurde für Sie erstellt, bitte unterschreiben.',
+    'contract_details' => 'Vertragsdetails',
+    'contract_number' => 'Vertragsnummer: :number',
+    'contract_expiry_date' => 'Ablaufdatum für Sign: :date',
+    'click_on_the_button_below_to_sign_contract' => 'Klicken Sie auf die Schaltfläche unten, um den Vertrag zu unterzeichnen.',
+    'sign_contract' => 'Unterzeichner Vertrag',
+    'subject_new_contract' => 'Neue Vertragsbenachrichtigung',
 ];
