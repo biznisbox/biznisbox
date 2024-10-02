@@ -101,8 +101,8 @@ return [
     'install_admin_user_created' => 'Utilisateur admin créé avec succès.',
     'item_not_moved' => 'Élément non déplacé',
     'item_moved_successfully' => 'Élément déplacé avec succès',
-    'error_signing_contract' => 'Error signing contract',
-    'signer_not_found_or_already_signed' => 'Signer not found or already signed',
-    'cannot_delete_signed_contract' => 'Cannot delete signed contract',
-    'cannot_update_signed_contract' => 'Cannot update signed contract',
+    'error_signing_contract' => 'Erreur lors de la signature du contrat',
+    'signer_not_found_or_already_signed' => 'Signataire introuvable ou déjà signé',
+    'cannot_delete_signed_contract' => 'Impossible de supprimer le contrat signé',
+    'cannot_update_signed_contract' => 'Impossible de mettre à jour le contrat signé',
 ];
