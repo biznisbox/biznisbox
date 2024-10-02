@@ -128,9 +128,9 @@
         "audit_log": "Audit Log",
         "get_current_location": "Hent aktuel placering",
         "system": "System",
-        "add_signer": "Add Signer",
-        "click_for_download": "Click here to download",
-        "sign": "Sign"
+        "add_signer": "Tilføj Signer",
+        "click_for_download": "Klik her for at downloade",
+        "sign": "Underskriv"
     },
     "audit_log": {
         "audit_log": "Audit Log",
@@ -164,8 +164,8 @@
         "retrieve_public": "Hent Offentlig",
         "upload": "Upload",
         "share": "Del",
-        "delete": "Delete",
-        "sign": "Sign"
+        "delete": "Slet",
+        "sign": "Underskriv"
     },
     "audit_log_type": {
         "internal": "Intern",
@@ -200,7 +200,7 @@
         "employees": "Medarbejdere",
         "support": "Support",
         "payments": "Betalinger",
-        "contracts": "Contracts"
+        "contracts": "Kontrakter"
     },
     "dashboard": {
         "title": "Instrumentbræt",
@@ -403,12 +403,12 @@
         "theme": "Tema",
         "overpaid_amount": "Overbetalt Beløb",
         "sum_of_payments": "Summen af betalinger",
-        "date_for_signature": "Date for Signature",
-        "is_signer": "Is Signer",
-        "signer_name": "Signer Name",
+        "date_for_signature": "Dato for underskrift",
+        "is_signer": "Er Signer",
+        "signer_name": "Signer Navn",
         "signer_email": "Signer Email",
-        "signer_phone": "Signer Phone",
-        "signers": "Signers"
+        "signer_phone": "Signer Telefon",
+        "signers": "Underskrivere"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -670,9 +670,9 @@
         "delegated": "Delegeret",
         "approved": "Godkendt",
         "not_approved": "Ikke godkendt",
-        "waiting_signers": "Waiting for signers",
-        "signed": "Signed",
-        "waiting_signature": "Waiting for signature"
+        "waiting_signers": "Venter på underskrivere",
+        "signed": "Signeret",
+        "waiting_signature": "Venter på signatur"
     },
     "calendar": {
         "calendar": "Kalender Kalendere",
@@ -817,21 +817,21 @@
         "delete_confirm_document": "Er du sikker på, at du vil slette dette dokument?"
     },
     "contract": {
-        "contract": "Contract | Contracts",
-        "create_contract": "Create Contract",
-        "edit_contract": "Edit Contract",
-        "no_contracts": "No contracts found",
-        "create_first_contract": "Create your first contract",
-        "delete_confirm_contract": "Are you sure you want to delete this contract?",
-        "contract_details": "Contract details",
-        "no_content": "No content",
-        "no_partner": "No partner",
-        "sign_contract": "Sign contract",
-        "contract_signed": "Contract signed",
-        "accept_sign_terms": "I accept that by signing this document, I agree with that the signature is legally binding and equivalent to my handwritten signature.",
-        "accept_terms_required": "Signature and acceptance of terms are required to sign the contract.",
-        "not_signed": "Not signed yet",
-        "signed": "Document signed"
+        "contract": "Kontrakter, Kontrakter",
+        "create_contract": "Opret Kontrakt",
+        "edit_contract": "Rediger Kontrakt",
+        "no_contracts": "Ingen kontrakter fundet",
+        "create_first_contract": "Opret din første kontrakt",
+        "delete_confirm_contract": "Er du sikker på, at du vil slette denne kontrakt?",
+        "contract_details": "Kontrakt detaljer",
+        "no_content": "Intet indhold",
+        "no_partner": "Ingen partner",
+        "sign_contract": "Underskriv kontrakt",
+        "contract_signed": "Kontrakt underskrevet",
+        "accept_sign_terms": "Jeg accepterer, at jeg ved at underskrive dette dokument er enig i, at underskriften er juridisk bindende og svarer til min håndskrevne underskrift.",
+        "accept_terms_required": "Undertegnelse og accept af vilkår er forpligtet til at underskrive aftalen.",
+        "not_signed": "Ikke signeret endnu",
+        "signed": "Dokument signeret"
     },
     "support": {
         "support": "Støt - Understøtter",
@@ -918,7 +918,7 @@
             "units": "Enheder",
             "email": "E-mail",
             "webhooks": "Webhooks",
-            "server_settings": "Server Settings"
+            "server_settings": "Server Indstillinger"
         },
         "company": {
             "title": "Virksomhedsindstillinger",
@@ -1097,8 +1097,8 @@
             "project": "Projekt nummer format",
             "department": "Afdeling nummer format",
             "archive": "Arkivér nummerformat",
-            "contract": "Contract number format",
-            "yearly": "Yearly"
+            "contract": "Kontrakt nummer format",
+            "yearly": "Årligt"
         },
         "webhook": {
             "title": "Webhooks abonnement",
