@@ -127,7 +127,10 @@
         "same_as_company_address": "Ίδια με τη διεύθυνση της εταιρείας",
         "audit_log": "Αρχείο Ελέγχου",
         "get_current_location": "Λήψη τρέχουσας τοποθεσίας",
-        "system": "Σύστημα"
+        "system": "Σύστημα",
+        "add_signer": "Add Signer",
+        "click_for_download": "Click here to download",
+        "sign": "Sign"
     },
     "audit_log": {
         "audit_log": "Αρχείο Ελέγχου",
@@ -160,7 +163,9 @@
         "moved": "Μετακινήθηκε",
         "retrieve_public": "Ανάκτηση Δημοσίου",
         "upload": "Ανέβασμα",
-        "share": "Κοινοποίηση"
+        "share": "Κοινοποίηση",
+        "delete": "Delete",
+        "sign": "Sign"
     },
     "audit_log_type": {
         "internal": "Εσωτερική",
@@ -194,7 +199,8 @@
         "settings": "Ρυθμίσεις",
         "employees": "Υπάλληλοι",
         "support": "Υποστήριξη",
-        "payments": "Πληρωμές"
+        "payments": "Πληρωμές",
+        "contracts": "Contracts"
     },
     "dashboard": {
         "title": "Ταμπλό",
@@ -396,7 +402,13 @@
         "display_name": "Εμφανιζόμενο Όνομα",
         "theme": "Θέμα",
         "overpaid_amount": "Υπερπληρωμένο Ποσό",
-        "sum_of_payments": "Άθροισμα πληρωμών"
+        "sum_of_payments": "Άθροισμα πληρωμών",
+        "date_for_signature": "Date for Signature",
+        "is_signer": "Is Signer",
+        "signer_name": "Signer Name",
+        "signer_email": "Signer Email",
+        "signer_phone": "Signer Phone",
+        "signers": "Signers"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -657,7 +669,10 @@
         "in_review": "Σε ανασκόπηση",
         "delegated": "Εξουσιοδοτημένο",
         "approved": "Εγκρίθηκε",
-        "not_approved": "Μη εγκεκριμένο"
+        "not_approved": "Μη εγκεκριμένο",
+        "waiting_signers": "Waiting for signers",
+        "signed": "Signed",
+        "waiting_signature": "Waiting for signature"
     },
     "calendar": {
         "calendar": "Ημερολόγιο \"Ημερολόγια\"",
@@ -801,6 +816,23 @@
         "create_first_document": "Δημιουργήστε το πρώτο σας έγγραφο",
         "delete_confirm_document": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το έγγραφο?"
     },
+    "contract": {
+        "contract": "Contract | Contracts",
+        "create_contract": "Create Contract",
+        "edit_contract": "Edit Contract",
+        "no_contracts": "No contracts found",
+        "create_first_contract": "Create your first contract",
+        "delete_confirm_contract": "Are you sure you want to delete this contract?",
+        "contract_details": "Contract details",
+        "no_content": "No content",
+        "no_partner": "No partner",
+        "sign_contract": "Sign contract",
+        "contract_signed": "Contract signed",
+        "accept_sign_terms": "I accept that by signing this document, I agree with that the signature is legally binding and equivalent to my handwritten signature.",
+        "accept_terms_required": "Signature and acceptance of terms are required to sign the contract.",
+        "not_signed": "Not signed yet",
+        "signed": "Document signed"
+    },
     "support": {
         "support": "Υποστήριξη \"Υποστηρίζει",
         "support_tickets": "Εισιτήρια Υποστήριξης",
@@ -885,7 +917,8 @@
             "app_status": "Κατάσταση Εφαρμογής",
             "units": "Μονάδες",
             "email": "E-mail",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Server Settings"
         },
         "company": {
             "title": "Ρυθμίσεις Εταιρείας",
@@ -1063,7 +1096,9 @@
             "employee": "Μορφή αριθμού υπαλλήλων",
             "project": "Μορφή αριθμού έργου",
             "department": "Μορφή αριθμού τμήματος",
-            "archive": "Μορφή αριθμού αρχείου"
+            "archive": "Μορφή αριθμού αρχείου",
+            "contract": "Contract number format",
+            "yearly": "Yearly"
         },
         "webhook": {
             "title": "Συνδρομή Webhooks",
