@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 if (!function_exists('api_response')) {
     /**
-     * Function generate API response (JSON)
+     * Function generate API response (JSON) with data, message and status code
      * @param array $data - data
      * @param string $message - message
      * @param integer $status_code - status code
@@ -16,6 +16,12 @@ if (!function_exists('api_response')) {
      */
     function api_response($data = null, $message = '', $status_code = 200)
     {
+        /* if in data isset error key and error is true, set status code to 400 and message to error message -> must be set in data array 
+        if (isset($data['error']) && $data['error'] == true) {
+            $status_code = 400;
+            $message = $data['message'];
+        } */
+
         return response()->json(
             [
                 'data' => $data,
@@ -499,7 +505,7 @@ if (!function_exists('formatMoney')) {
 if (!function_exists('createNotification')) {
     /**
      * Function for create notification
-     * @param string $user_id - user id
+     * @param string $user_id - user id (recipient)
      * @param string $title - title
      * @param string $content - content
      * @param string $type - type

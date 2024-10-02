@@ -22,6 +22,7 @@ export default {
                 storage_location_id: '',
                 protection_level: '',
                 preview_link: '',
+                storage_location: '',
                 download_link: '',
             },
             folder: {
@@ -167,7 +168,7 @@ export default {
                     this.showToast(response.data.message)
                     this.getDocuments(this.currentFolder || null)
                     this.sidebarFileShow = false
-                    resetDocument()
+                    this.resetDocument()
                 })
                 .catch((error) => {
                     if (error.response.status === 404) {
@@ -294,7 +295,7 @@ export default {
                     this.sidebarFileShow = false
                     this.showMoveDocumentDialog = false
                     this.moveFolderId = null
-                    resetDocument()
+                    this.resetDocument()
                 })
                 .catch((error) => {
                     if (error.response.status === 404) {

@@ -31,7 +31,7 @@
                     <p class="text-red-500 font-bold">{{ error }}</p>
                 </div>
             </div>
-            <div class="flex justify-between">
+            <div class="flex justify-between gap-4 mt-6">
                 <Button @click="prevStep" :label="$t('basic.back')" icon="fas fa-arrow-left" />
                 <Button @click="checkConnection" :label="$t('install.check_connection')" icon="fas fa-check" severity="success" />
                 <Button @click="nextStep" :label="$t('basic.next')" icon="fas fa-arrow-right" :disabled="!checked" />

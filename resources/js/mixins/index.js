@@ -480,17 +480,6 @@ export default {
         isMobile() {
             return window.innerWidth <= 768
         },
-
-        /**
-         * Refresh token
-         * @returns {void} Refresh token
-         */
-        refreshToken() {
-            this.makeHttpRequest('POST', '/api/auth/refresh').then((response) => {
-                this.$cookies.set('token', response.data.data.access_token, response.data.data.expires_in)
-                this.user = jwtDecode(response.data.data.access_token)
-            })
-        },
     },
 
     created() {

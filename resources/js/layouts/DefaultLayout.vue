@@ -21,7 +21,7 @@
                         <Button icon="fa fa-bell" class="w-10 h-10" @click="toggleNotifications" text rounded id="notifications_button" />
                     </div>
 
-                    <Popover ref="notificationsOverlay" id="notifications-overlay" appendTo="self" placement="bottom">
+                    <Popover ref="notificationsOverlay" id="notifications-overlay" appendTo="body" placement="bottom">
                         <div class="flex flex-col gap-4 w-[15rem] md:w-[25rem]">
                             <div class="flex justify-center items-center gap-2">
                                 <span class="font-medium text-surface-700 dark:text-surface-100">{{
@@ -171,5 +171,4 @@ export default {
     background-color: transparent !important;
     margin-right: 10px !important;
 }
-
 </style>

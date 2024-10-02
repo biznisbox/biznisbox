@@ -5,11 +5,11 @@
 
             <p class="text-center">{{ $t('install.creating_tables_description') }}</p>
 
-            <div class="flex justify-between" v-if="loadingData">
+            <div class="flex justify-between">
                 <ProgressSpinner />
             </div>
 
-            <div v-if="error" class="mt-6">
+            <div v-if="error != ''" class="mt-6">
                 <p class="text-red-500 font-bold">{{ error }}</p>
             </div>
         </div>
@@ -46,18 +46,13 @@ export default {
     },
 
     created() {
-        new Promise(() => {
-            this.makeHttpRequest('GET', '/api/install/check-app-installed', null, null, null, false).then((response) => {
-                if (response.data.data.status == true) {
-                    this.loadingData = true
-                    return this.$router.push({ name: 'auth-login' })
-                } else {
-                    this.migrateAndSeed()
-                }
-            })
-        }).then(() => {
-            this.loadingData = false
-            this.nextStep()
+        this.makeHttpRequest('GET', '/api/install/check-app-installed', null, null, null, false).then((response) => {
+            if (response.data.data.status == true) {
+                return this.$router.push({ name: 'auth-login' })
+            } else {
+                this.loadingData = true
+                this.migrateAndSeed()
+            }
         })
     },
 }

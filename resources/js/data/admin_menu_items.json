@@ -67,7 +67,7 @@
         "name": "admin.menu.settings",
         "meta": ["settings"],
         "permission": "",
-        "permissions": ["admin_general_settings", "admin_currencies", "admin_numbering", "admin_tax_rates"],
+        "permissions": ["admin_general_settings", "admin_currencies", "admin_numbering", "admin_tax_rates", "admin_units"],
         "icon": "fa fa-cog",
         "children": [
             {
@@ -99,7 +99,16 @@
                 "meta": ["settings-units"],
                 "permission": "admin_units",
                 "to": "/admin/settings/units"
-            },
+            }
+        ]
+    },
+    {
+        "name": "admin.menu.server_settings",
+        "meta": ["server-settings"],
+        "icon": "fa fa-server",
+        "permission": "",
+        "permissions": ["admin_email_settings"],
+        "children": [
             {
                 "name": "admin.menu.email",
                 "meta": ["settings-email"],

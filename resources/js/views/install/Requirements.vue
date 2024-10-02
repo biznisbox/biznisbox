@@ -40,9 +40,23 @@ export default {
             requirements: [],
             allRequirementsMet: false,
             locales: [
+                //  List of available languages -> update on adding new languages
                 { value: 'en', label: 'English' },
                 { value: 'de', label: 'Deutsch' },
                 { value: 'sl', label: 'Slovenščina' },
+                { value: 'es', label: 'Español' },
+                { value: 'fr', label: 'Français' },
+                { value: 'it', label: 'Italiano' },
+                { value: 'nl', label: 'Nederlands' },
+                { value: 'pl', label: 'Polski' },
+                { value: 'pt', label: 'Português' },
+                { value: 'ru', label: 'Русский' },
+                { value: 'tr', label: 'Türkçe' },
+                { value: 'zh', label: '中文' },
+                { value: 'no', label: 'Norwegian' },
+                { value: 'da', label: 'Danish' },
+                { value: 'sv', label: 'Swedish' },
+                { value: 'fi', label: 'Finnish' },
             ],
             language: 'en',
         }
@@ -90,8 +104,12 @@ export default {
 
     created() {
         document.title = this.$t('install.installation')
+        if (this.$cookies.get('lang')) {
+            this.language = this.$cookies.get('lang')
+        }
+        this.$i18n.locale = this.language // Set the language to the selected language (default is English)
         this.checkIfInstalled()
-        this.getRequirements() // Call the getRequirements method when the component is created
+        this.getRequirements()
     },
 
     watch: {
