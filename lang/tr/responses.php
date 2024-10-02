@@ -101,4 +101,8 @@ return [
     'install_admin_user_created' => 'Yönetici kullanıcı başarıyla oluşturuldu.',
     'item_not_moved' => 'Öğe taşınamadı',
     'item_moved_successfully' => 'Öğe başarıyla taşındı',
+    'error_signing_contract' => 'Error signing contract',
+    'signer_not_found_or_already_signed' => 'Signer not found or already signed',
+    'cannot_delete_signed_contract' => 'Cannot delete signed contract',
+    'cannot_update_signed_contract' => 'Cannot update signed contract',
 ];
