@@ -128,9 +128,9 @@
         "audit_log": "Journal d'audit",
         "get_current_location": "Obtenir la position actuelle",
         "system": "Système",
-        "add_signer": "Add Signer",
-        "click_for_download": "Click here to download",
-        "sign": "Sign"
+        "add_signer": "Ajouter un signataire",
+        "click_for_download": "Cliquez ici pour télécharger",
+        "sign": "Signer"
     },
     "audit_log": {
         "audit_log": "Journal d'audit",
@@ -164,8 +164,8 @@
         "retrieve_public": "Récupérer le public",
         "upload": "Charger",
         "share": "Partager",
-        "delete": "Delete",
-        "sign": "Sign"
+        "delete": "Supprimez",
+        "sign": "Signer"
     },
     "audit_log_type": {
         "internal": "Interne",
@@ -200,7 +200,7 @@
         "employees": "Employés",
         "support": "Soutien",
         "payments": "Paiements",
-        "contracts": "Contracts"
+        "contracts": "Contrats"
     },
     "dashboard": {
         "title": "Tableau de bord",
@@ -403,12 +403,12 @@
         "theme": "Thème",
         "overpaid_amount": "Montant surpayé",
         "sum_of_payments": "Somme des paiements",
-        "date_for_signature": "Date for Signature",
-        "is_signer": "Is Signer",
-        "signer_name": "Signer Name",
+        "date_for_signature": "Date de signature",
+        "is_signer": "Est signataire",
+        "signer_name": "Nom du signataire",
         "signer_email": "Signer Email",
-        "signer_phone": "Signer Phone",
-        "signers": "Signers"
+        "signer_phone": "Signer le téléphone",
+        "signers": "Signataires"
     },
     "address_types": {
         "billing": "Facturation",
@@ -670,9 +670,9 @@
         "delegated": "Délégué",
         "approved": "Approuvé",
         "not_approved": "Non approuvé",
-        "waiting_signers": "Waiting for signers",
-        "signed": "Signed",
-        "waiting_signature": "Waiting for signature"
+        "waiting_signers": "En attente de signataires",
+        "signed": "Signé",
+        "waiting_signature": "En attente de signature"
     },
     "calendar": {
         "calendar": "Calendrier | Calendriers",
@@ -817,21 +817,21 @@
         "delete_confirm_document": "Êtes-vous sûr de vouloir supprimer ce document ?"
     },
     "contract": {
-        "contract": "Contract | Contracts",
-        "create_contract": "Create Contract",
-        "edit_contract": "Edit Contract",
-        "no_contracts": "No contracts found",
-        "create_first_contract": "Create your first contract",
-        "delete_confirm_contract": "Are you sure you want to delete this contract?",
-        "contract_details": "Contract details",
-        "no_content": "No content",
-        "no_partner": "No partner",
-        "sign_contract": "Sign contract",
-        "contract_signed": "Contract signed",
-        "accept_sign_terms": "I accept that by signing this document, I agree with that the signature is legally binding and equivalent to my handwritten signature.",
-        "accept_terms_required": "Signature and acceptance of terms are required to sign the contract.",
-        "not_signed": "Not signed yet",
-        "signed": "Document signed"
+        "contract": "Contrat | Contrats",
+        "create_contract": "Créer un contrat",
+        "edit_contract": "Modifier le contrat",
+        "no_contracts": "Aucun contrat trouvé",
+        "create_first_contract": "Créez votre premier contrat",
+        "delete_confirm_contract": "Êtes-vous sûr de vouloir supprimer ce contrat ?",
+        "contract_details": "Détails du contrat",
+        "no_content": "Aucun contenu",
+        "no_partner": "Aucun partenaire",
+        "sign_contract": "Signer le contrat",
+        "contract_signed": "Contrat signé",
+        "accept_sign_terms": "J'admets qu'en signant ce document, je suis d'accord avec le fait que la signature est juridiquement contraignante et équivalente à ma signature manuscrite.",
+        "accept_terms_required": "La signature et l'acceptation des conditions sont requises pour signer le contrat.",
+        "not_signed": "Pas encore signé",
+        "signed": "Document signé"
     },
     "support": {
         "support": "Support | Support",
@@ -918,7 +918,7 @@
             "units": "Unités",
             "email": "Courriel",
             "webhooks": "Webhooks",
-            "server_settings": "Server Settings"
+            "server_settings": "Paramètres du serveur"
         },
         "company": {
             "title": "Paramètres de la société",
@@ -1097,8 +1097,8 @@
             "project": "Format du numéro de projet",
             "department": "Format du numéro de service",
             "archive": "Format du numéro d'archive",
-            "contract": "Contract number format",
-            "yearly": "Yearly"
+            "contract": "Format du numéro de contrat",
+            "yearly": "Annuel"
         },
         "webhook": {
             "title": "Abonnement aux Webhooks",
