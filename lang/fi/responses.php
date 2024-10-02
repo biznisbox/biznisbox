@@ -101,4 +101,8 @@ return [
     'install_admin_user_created' => 'Ylläpito käyttäjä luotiin onnistuneesti.',
     'item_not_moved' => 'Kohdetta ei siirretty.',
     'item_moved_successfully' => 'Kohde siirretty onnistuneesti',
+    'error_signing_contract' => 'Virhe allekirjoitettaessa sopimusta',
+    'signer_not_found_or_already_signed' => 'Allekirjoittajaa ei löytynyt tai jo allekirjoitettu',
+    'cannot_delete_signed_contract' => 'Allekirjoitettua sopimusta ei voi poistaa',
+    'cannot_update_signed_contract' => 'Allekirjoitettua sopimusta ei voi päivittää',
 ];
