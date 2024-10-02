@@ -101,8 +101,8 @@ return [
     'install_admin_user_created' => 'Usuario administrador creado con éxito.',
     'item_not_moved' => 'Objeto no movido',
     'item_moved_successfully' => 'Artículo movido correctamente',
-    'error_signing_contract' => 'Error signing contract',
-    'signer_not_found_or_already_signed' => 'Signer not found or already signed',
-    'cannot_delete_signed_contract' => 'Cannot delete signed contract',
-    'cannot_update_signed_contract' => 'Cannot update signed contract',
+    'error_signing_contract' => 'Error al firmar contrato',
+    'signer_not_found_or_already_signed' => 'Firma no encontrado o ya firmado',
+    'cannot_delete_signed_contract' => 'No se puede eliminar contrato firmado',
+    'cannot_update_signed_contract' => 'No se puede actualizar el contrato firmado',
 ];
