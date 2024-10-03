@@ -165,4 +165,18 @@ class Bill extends Model implements Auditable
         $number = generateNextNumber(settings('bill_number_format'), 'bill');
         return $number;
     }
+
+    /**
+     * Update bill status cron job
+     */
+    public function updateBillStatusCron()
+    {
+        $bills = $this->where('status', '!=', 'paid')->get();
+        foreach ($bills as $bill) {
+            if ($bill->due_date < now()) {
+                $bill->status = 'overdue';
+                $bill->save();
+            }
+        }
+    }
 }

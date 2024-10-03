@@ -23,7 +23,7 @@ class ContractController extends Controller
     public function getContract($id)
     {
         $contract = $this->contractService->getContract($id);
-        return api_response($contract, __('responses.item_retrieved_successfully'), 200);
+        return api_response($contract, __('responses.data_retrieved_successfully'), 200);
     }
 
     public function createContract(Request $request)

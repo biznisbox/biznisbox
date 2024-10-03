@@ -33,5 +33,115 @@
         "id": 6,
         "name": "partner:deleted",
         "description": "A partner has been deleted"
+    },
+    {
+        "id": 7,
+        "name": "invoice:created",
+        "description": "An invoice has been created"
+    },
+    {
+        "id": 8,
+        "name": "invoice:updated",
+        "description": "An invoice has been updated"
+    },
+    {
+        "id": 9,
+        "name": "invoice:deleted",
+        "description": "An invoice has been deleted"
+    },
+    {
+        "id": 10,
+        "name": "invoice:shared",
+        "description": "An invoice has been shared"
+    },
+    {
+        "id": 11,
+        "name": "quote:created",
+        "description": "A quote has been created"
+    },
+    {
+        "id": 12,
+        "name": "quote:updated",
+        "description": "A quote has been updated"
+    },
+    {
+        "id": 13,
+        "name": "quote:deleted",
+        "description": "A quote has been deleted"
+    },
+    {
+        "id": 14,
+        "name": "quote:shared",
+        "description": "A quote has been shared"
+    },
+    {
+        "id": 15,
+        "name": "quote:converted",
+        "description": "A quote has been converted to an invoice"
+    },
+    {
+        "id": 16,
+        "name": "support_ticket:created",
+        "description": "A support ticket has been created"
+    },
+    {
+        "id": 17,
+        "name": "support_ticket:updated",
+        "description": "A support ticket has been updated"
+    },
+    {
+        "id": 18,
+        "name": "support_ticket:deleted",
+        "description": "A support ticket has been deleted"
+    },
+    {
+        "id": 21,
+        "name": "support_ticket:shared",
+        "description": "A support ticket has been shared"
+    },
+    {
+        "id": 22,
+        "name": "transaction:created",
+        "description": "A transaction has been created"
+    },
+    {
+        "id": 23,
+        "name": "transaction:updated",
+        "description": "A transaction has been updated"
+    },
+    {
+        "id": 24,
+        "name": "transaction:deleted",
+        "description": "A transaction has been deleted"
+    },
+    {
+        "id": 25,
+        "name": "bill:created",
+        "description": "A bill has been created"
+    },
+    {
+        "id": 26,
+        "name": "bill:updated",
+        "description": "A bill has been updated"
+    },
+    {
+        "id": 27,
+        "name": "bill:deleted",
+        "description": "A bill has been deleted"
+    },
+    {
+        "id": 28,
+        "name": "account:created",
+        "description": "An account has been created"
+    },
+    {
+        "id": 29,
+        "name": "account:updated",
+        "description": "An account has been updated"
+    },
+    {
+        "id": 30,
+        "name": "account:deleted",
+        "description": "An account has been deleted"
     }
 ]

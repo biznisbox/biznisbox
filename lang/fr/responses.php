@@ -89,9 +89,11 @@ return [
     'system_role_cant_edit' => 'Le rôle système ne peut pas être modifié',
     'system_role_cant_delete' => 'Le rôle système ne peut pas être supprimé',
     'unable_to_create_role' => 'Impossible de créer le rôle (super_admin ou client)',
-    'install_database_is_not_empty' => 'La base de données n\'est pas vide. Veuillez supprimer toutes les tables ou fournir une base de données vide.',
+    'install_database_is_not_empty' =>
+        'La base de données n\'est pas vide. Veuillez supprimer toutes les tables ou fournir une base de données vide.',
     'install_database_connection_successful' => 'Connexion à la base de données réussie.',
-    'install_database_connection_failed' => 'La connexion à la base de données a échoué. Veuillez vérifier vos identifiants de base de données.',
+    'install_database_connection_failed' =>
+        'La connexion à la base de données a échoué. Veuillez vérifier vos identifiants de base de données.',
     'install_database_connection_saved' => 'Connexion à la base de données enregistrée avec succès.',
     'app_not_installed' => 'L\'application n\'est pas installée. Veuillez d\'abord installer l\'application.',
     'app_installed' => 'L\'application est déjà installée.',

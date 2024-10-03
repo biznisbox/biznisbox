@@ -144,4 +144,17 @@ class Archive extends Model implements Auditable
         $number = generateNextNumber(settings('archive_number_format'), 'archive');
         return $number;
     }
+
+    /**
+     * Update status of document cron
+     */
+    public function updateDocumentStatusCron()
+    {
+        $documents = $this->where('status', '!=', 'archived')->get();
+        foreach ($documents as $document) {
+            if ($document->archived_until < now()) {
+                $document->update(['status' => 'archived']);
+            }
+        }
+    }
 }

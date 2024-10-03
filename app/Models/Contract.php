@@ -127,6 +127,7 @@ class Contract extends Model implements Auditable
                 $this->sendContractToSigners($contract->id);
             }
         }
+        sendWebhookForEvent('contract:created', $contract->toArray());
         incrementLastItemNumber('contract');
         return $contract;
     }
@@ -191,6 +192,7 @@ class Contract extends Model implements Auditable
             }
         }
 
+        sendWebhookForEvent('contract:updated', $contract->toArray());
         return $contract;
     }
 
@@ -210,6 +212,7 @@ class Contract extends Model implements Auditable
         }
         $contract->signers()->delete();
         $contract->delete();
+        sendWebhookForEvent('contract:deleted', $contract->toArray());
 
         return $contract;
     }
@@ -308,6 +311,7 @@ class Contract extends Model implements Auditable
         $signers = $contract->signers()->where('status', '!=', 'signed')->get();
 
         createNotification($contract->user_id, 'SignedContract', 'ContractSignedBySigner', 'info', 'view', 'contracts/' . $contract->id);
+        sendWebhookForEvent('contract:signed_by_signer', $contract->toArray());
 
         if (count($signers) == 0) {
             $contract->update(['status' => 'signed', 'signed_date' => now()]);
@@ -319,6 +323,7 @@ class Contract extends Model implements Auditable
                 'view',
                 'contracts/' . $contract->id
             );
+            sendWebhookForEvent('contract:signed', $contract->toArray());
         }
 
         return $contract;
@@ -341,5 +346,19 @@ class Contract extends Model implements Auditable
             return true;
         }
         return false;
+    }
+
+    /**
+     * Update contract status cron
+     * @return void
+     */
+    public function updateContractStatusCron()
+    {
+        $contracts = $this->where('status', '!=', 'signed')->get();
+        foreach ($contracts as $contract) {
+            if ($contract->date_for_signature < now()) {
+                $contract->update(['status' => 'expired']);
+            }
+        }
     }
 }

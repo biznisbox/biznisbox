@@ -268,4 +268,18 @@ class Quote extends Model implements Auditable
         sendWebhookForEvent('quote:accepted_rejected', ['quote_id' => $id, 'status' => $status, 'key' => $key]);
         return $quote;
     }
+
+    /**
+     * Update status of quote cron
+     */
+    public function updateQuoteStatusCron()
+    {
+        $quotes = $this->whereNotIn('status', ['accepted', 'rejected', 'converted'])->get();
+        foreach ($quotes as $quote) {
+            if ($quote->valid_until < now()) {
+                $quote->status = 'expired';
+                $quote->save();
+            }
+        }
+    }
 }

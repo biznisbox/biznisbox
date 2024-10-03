@@ -360,4 +360,18 @@ class Invoice extends Model implements Auditable
         }
         return $invoice;
     }
+
+    /**
+     * Update invoice status cron
+     * @return void
+     */
+    public function updateInvoiceStatusCron()
+    {
+        $invoices = $this->where('status', '!=', 'paid')->get();
+        foreach ($invoices as $invoice) {
+            if ($invoice->due_date < now()) {
+                $invoice->update(['status' => 'overdue']);
+            }
+        }
+    }
 }

@@ -22,3 +22,13 @@ Schedule::command('biznisbox:update-currency-rate')
     ->onFailure(function (Stringable $output) {
         insertScheduleRun('biznisbox:update-currency-rate', 'failed', $output);
     });
+
+Schedule::command('biznisbox:update-item-statuses')
+    ->withoutOverlapping()
+    ->daily()
+    ->onSuccess(function (Stringable $output) {
+        insertScheduleRun('biznisbox:update-item-statuses', 'success', $output);
+    })
+    ->onFailure(function (Stringable $output) {
+        insertScheduleRun('biznisbox:update-item-statuses', 'failed', $output);
+    });
