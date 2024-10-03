@@ -128,9 +128,9 @@
         "audit_log": "Revizijski dnevnik",
         "get_current_location": "Pridobi trenutno lokacijo",
         "system": "Sistem",
-        "add_signer": "Add Signer",
-        "click_for_download": "Click here to download",
-        "sign": "Sign"
+        "add_signer": "Dodaj podpisnika",
+        "click_for_download": "Klikni za prenos",
+        "sign": "Podpiši"
     },
     "audit_log": {
         "audit_log": "Revizijski dnevnik",
@@ -164,8 +164,8 @@
         "retrieve_public": "Pridobi javno",
         "upload": "Nalaganje",
         "share": "Deljenje",
-        "delete": "Delete",
-        "sign": "Sign"
+        "delete": "Izbriši",
+        "sign": "Podpiši"
     },
     "audit_log_type": {
         "internal": "Notranji",
@@ -200,7 +200,7 @@
         "employees": "Zaposleni",
         "support": "Podpora",
         "payments": "Plačila",
-        "contracts": "Contracts"
+        "contracts": "Pogodbe"
     },
     "dashboard": {
         "title": "Nadzorna plošča",
@@ -403,11 +403,11 @@
         "theme": "Tema",
         "overpaid_amount": "Preplačani znesek",
         "sum_of_payments": "Vsota plačil",
-        "date_for_signature": "Date for Signature",
-        "is_signer": "Is Signer",
-        "signer_name": "Signer Name",
-        "signer_email": "Signer Email",
-        "signer_phone": "Signer Phone",
+        "date_for_signature": "Rok za podpis",
+        "is_signer": "Je podpisnik",
+        "signer_name": "Ime/Naziv podpisnika",
+        "signer_email": "E-mail podpisnika",
+        "signer_phone": "Telefonska številka podpisnika",
         "signers": "Signers"
     },
     "address_types": {
