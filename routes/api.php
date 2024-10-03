@@ -44,6 +44,7 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/data', [DataController::class, 'getData'])->name('getData');
     Route::get('/me', [AuthController::class, 'Me'])->name('me'); // Get current user data
     Route::get('/logs', [DataController::class, 'getLogs'])->name('getLogs');
+
     // Category routes
     Route::get('/categories', [DataController::class, 'getCategories'])->name('getCategories');
     Route::get('/categories/{id}', [DataController::class, 'getCategory'])->name('getCategory');
@@ -75,24 +76,29 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/dashboard/data', [DataController::class, 'getDashboardData'])->name('getDashboardData');
 
     // Product
-    Route::post('/products', [ProductController::class, 'createProduct'])->name('createProduct');
-    Route::put('/products/{id}', [ProductController::class, 'updateProduct'])->name('updateProduct');
-    Route::delete('/products/{id}', [ProductController::class, 'deleteProduct'])->name('deleteProduct');
-    Route::get('/products', [ProductController::class, 'getProducts'])->name('getProducts');
-    Route::get('/products/{id}', [ProductController::class, 'getProduct'])->name('getProduct');
-    Route::get('/product/number', [ProductController::class, 'getProductNumber'])->name('getProductNumber');
+    Route::group(['middleware' => 'can:products'], function () {
+        Route::post('/products', [ProductController::class, 'createProduct'])->name('createProduct');
+        Route::put('/products/{id}', [ProductController::class, 'updateProduct'])->name('updateProduct');
+        Route::delete('/products/{id}', [ProductController::class, 'deleteProduct'])->name('deleteProduct');
+        Route::get('/products', [ProductController::class, 'getProducts'])->name('getProducts');
+        Route::get('/products/{id}', [ProductController::class, 'getProduct'])->name('getProduct');
+        Route::get('/product/number', [ProductController::class, 'getProductNumber'])->name('getProductNumber');
+    });
 
     // Partner
-    Route::post('/partners', [PartnerController::class, 'createPartner'])->name('createPartner');
-    Route::put('/partners/{id}', [PartnerController::class, 'updatePartner'])->name('updatePartner');
-    Route::delete('/partners/{id}', [PartnerController::class, 'deletePartner'])->name('deletePartner');
-    Route::get('/partners', [PartnerController::class, 'getPartners'])->name('getPartners');
-    Route::get('/partners/{id}', [PartnerController::class, 'getPartner'])->name('getPartner');
-    Route::get('/partner/number', [PartnerController::class, 'getPartnerNumber'])->name('getPartnerNumber');
+    Route::group(['middleware' => 'can:partners'], function () {
+        Route::post('/partners', [PartnerController::class, 'createPartner'])->name('createPartner');
+        Route::put('/partners/{id}', [PartnerController::class, 'updatePartner'])->name('updatePartner');
+        Route::delete('/partners/{id}', [PartnerController::class, 'deletePartner'])->name('deletePartner');
+        Route::get('/partners', [PartnerController::class, 'getPartners'])->name('getPartners');
+        Route::get('/partners/{id}', [PartnerController::class, 'getPartner'])->name('getPartner');
+        Route::get('/partner/number', [PartnerController::class, 'getPartnerNumber'])->name('getPartnerNumber');
+    });
+    // Partner Limited is for the other users who can't access all the partners -> used in the other parts of the app
     Route::get('/partner/limited', [PartnerController::class, 'getPartnersLimitedData'])->name('getPartnersLimitedData');
 
     // Calendar
-    Route::group(['prefix' => 'calendar'], function () {
+    Route::group(['prefix' => 'calendar', 'middleware' => 'can:calendar'], function () {
         Route::post('/events', [CalendarController::class, 'createEvent'])->name('createEvent');
         Route::put('/events/{id}', [CalendarController::class, 'updateEvent'])->name('updateEvent');
         Route::delete('/events/{id}', [CalendarController::class, 'deleteEvent'])->name('deleteEvent');
@@ -101,187 +107,237 @@ Route::middleware('auth:api')->group(function () {
     });
 
     // Invoice
-    Route::get('/invoices', [InvoiceController::class, 'getInvoices'])->name('getInvoices');
-    Route::get('/invoices/{id}', [InvoiceController::class, 'getInvoice'])->name('getInvoice');
-    Route::post('/invoices', [InvoiceController::class, 'createInvoice'])->name('createInvoice');
-    Route::put('/invoices/{id}', [InvoiceController::class, 'updateInvoice'])->name('updateInvoice');
-    Route::delete('/invoices/{id}', [InvoiceController::class, 'deleteInvoice'])->name('deleteInvoice');
-    Route::get('/invoice/number', [InvoiceController::class, 'getInvoiceNumber'])->name('getInvoiceNumber');
-    Route::get('/invoice/{id}/share/', [InvoiceController::class, 'shareInvoice'])->name('shareInvoice');
-    Route::post('/invoice/{id}/send', [InvoiceController::class, 'sendInvoiceNotification'])->name('sendInvoiceNotification');
-    Route::post('/invoice/{id}/payment', [InvoiceController::class, 'addInvoicePayment'])->name('addInvoicePayment');
+    Route::group(['middleware' => 'can:invoices'], function () {
+        Route::get('/invoices', [InvoiceController::class, 'getInvoices'])->name('getInvoices');
+        Route::get('/invoices/{id}', [InvoiceController::class, 'getInvoice'])->name('getInvoice');
+        Route::post('/invoices', [InvoiceController::class, 'createInvoice'])->name('createInvoice');
+        Route::put('/invoices/{id}', [InvoiceController::class, 'updateInvoice'])->name('updateInvoice');
+        Route::delete('/invoices/{id}', [InvoiceController::class, 'deleteInvoice'])->name('deleteInvoice');
+        Route::get('/invoice/number', [InvoiceController::class, 'getInvoiceNumber'])->name('getInvoiceNumber');
+        Route::get('/invoice/{id}/share/', [InvoiceController::class, 'shareInvoice'])->name('shareInvoice');
+        Route::post('/invoice/{id}/send', [InvoiceController::class, 'sendInvoiceNotification'])->name('sendInvoiceNotification');
+        Route::post('/invoice/{id}/payment', [InvoiceController::class, 'addInvoicePayment'])->name('addInvoicePayment');
+    });
 
     // Quote
-    Route::get('/quotes', [QuoteController::class, 'getQuotes'])->name('getQuotes');
-    Route::get('/quotes/{id}', [QuoteController::class, 'getQuote'])->name('getQuote');
-    Route::post('/quotes', [QuoteController::class, 'createQuote'])->name('createQuote');
-    Route::put('/quotes/{id}', [QuoteController::class, 'updateQuote'])->name('updateQuote');
-    Route::delete('/quotes/{id}', [QuoteController::class, 'deleteQuote'])->name('deleteQuote');
-    Route::get('/quote/number', [QuoteController::class, 'getQuoteNumber'])->name('getQuoteNumber');
-    Route::get('/quote/share/{id}', [QuoteController::class, 'shareQuote'])->name('shareQuote');
-    Route::get('/quote/convert/{id}', [QuoteController::class, 'convertQuoteToInvoice'])->name('convertQuoteToInvoice');
-    Route::post('/quote/{id}/send', [QuoteController::class, 'sendQuoteNotification'])->name('sendQuoteNotification');
+    Route::group(['middleware' => 'can:quotes'], function () {
+        Route::get('/quotes', [QuoteController::class, 'getQuotes'])->name('getQuotes');
+        Route::get('/quotes/{id}', [QuoteController::class, 'getQuote'])->name('getQuote');
+        Route::post('/quotes', [QuoteController::class, 'createQuote'])->name('createQuote');
+        Route::put('/quotes/{id}', [QuoteController::class, 'updateQuote'])->name('updateQuote');
+        Route::delete('/quotes/{id}', [QuoteController::class, 'deleteQuote'])->name('deleteQuote');
+        Route::get('/quote/number', [QuoteController::class, 'getQuoteNumber'])->name('getQuoteNumber');
+        Route::get('/quote/share/{id}', [QuoteController::class, 'shareQuote'])->name('shareQuote');
+        Route::get('/quote/convert/{id}', [QuoteController::class, 'convertQuoteToInvoice'])->name('convertQuoteToInvoice');
+        Route::post('/quote/{id}/send', [QuoteController::class, 'sendQuoteNotification'])->name('sendQuoteNotification');
+    });
 
     // Employee
-    Route::get('/employees', [EmployeeController::class, 'getEmployees'])->name('getEmployees');
-    Route::get('/employees/{id}', [EmployeeController::class, 'getEmployee'])->name('getEmployee');
-    Route::post('/employees', [EmployeeController::class, 'createEmployee'])->name('createEmployee');
-    Route::put('/employees/{id}', [EmployeeController::class, 'updateEmployee'])->name('updateEmployee');
-    Route::delete('/employees/{id}', [EmployeeController::class, 'deleteEmployee'])->name('deleteEmployee');
-    Route::get('/employee/number', [EmployeeController::class, 'getEmployeeNumber'])->name('getEmployeeNumber');
+    Route::group(['middleware' => 'can:employees'], function () {
+        Route::get('/employees', [EmployeeController::class, 'getEmployees'])->name('getEmployees');
+        Route::get('/employees/{id}', [EmployeeController::class, 'getEmployee'])->name('getEmployee');
+        Route::post('/employees', [EmployeeController::class, 'createEmployee'])->name('createEmployee');
+        Route::put('/employees/{id}', [EmployeeController::class, 'updateEmployee'])->name('updateEmployee');
+        Route::delete('/employees/{id}', [EmployeeController::class, 'deleteEmployee'])->name('deleteEmployee');
+        Route::get('/employee/number', [EmployeeController::class, 'getEmployeeNumber'])->name('getEmployeeNumber');
+    });
 
     // Bill
-    Route::get('/bills', [BillController::class, 'getBills'])->name('getBills');
-    Route::get('/bills/{id}', [BillController::class, 'getBill'])->name('getBill');
-    Route::post('/bills', [BillController::class, 'createBill'])->name('createBill');
-    Route::put('/bills/{id}', [BillController::class, 'updateBill'])->name('updateBill');
-    Route::delete('/bills/{id}', [BillController::class, 'deleteBill'])->name('deleteBill');
-    Route::get('/bill/number', [BillController::class, 'getBillNumber'])->name('getBillNumber');
+    Route::group(['middleware' => 'can:bills'], function () {
+        Route::get('/bills', [BillController::class, 'getBills'])->name('getBills');
+        Route::get('/bills/{id}', [BillController::class, 'getBill'])->name('getBill');
+        Route::post('/bills', [BillController::class, 'createBill'])->name('createBill');
+        Route::put('/bills/{id}', [BillController::class, 'updateBill'])->name('updateBill');
+        Route::delete('/bills/{id}', [BillController::class, 'deleteBill'])->name('deleteBill');
+        Route::get('/bill/number', [BillController::class, 'getBillNumber'])->name('getBillNumber');
+    });
 
     // Account
-    Route::get('/accounts', [AccountController::class, 'getAccounts'])->name('getAccounts');
-    Route::get('/accounts/{id}', [AccountController::class, 'getAccount'])->name('getAccount');
-    Route::post('/accounts', [AccountController::class, 'createAccount'])->name('createAccount');
-    Route::put('/accounts/{id}', [AccountController::class, 'updateAccount'])->name('updateAccount');
-    Route::delete('/accounts/{id}', [AccountController::class, 'deleteAccount'])->name('deleteAccount');
+    Route::group(['middleware' => 'can:accounts'], function () {
+        Route::get('/accounts', [AccountController::class, 'getAccounts'])->name('getAccounts');
+        Route::get('/accounts/{id}', [AccountController::class, 'getAccount'])->name('getAccount');
+        Route::post('/accounts', [AccountController::class, 'createAccount'])->name('createAccount');
+        Route::put('/accounts/{id}', [AccountController::class, 'updateAccount'])->name('updateAccount');
+        Route::delete('/accounts/{id}', [AccountController::class, 'deleteAccount'])->name('deleteAccount');
+    });
 
     // Open Banking
-    Route::get('/open-banking/countries', [OpenBankingController::class, 'listAvailableCountries'])->name('listAvailableCountries');
-    Route::get('/open-banking/banks', [OpenBankingController::class, 'listBanks'])->name('listBanks');
-    Route::post('/open-banking/session', [OpenBankingController::class, 'initSession'])->name('initSession');
-    Route::post('/open-banking/account', [OpenBankingController::class, 'createOpenBankingAccount'])->name('createOpenBankingAccount');
+    Route::group(['middleware' => 'can:open_banking'], function () {
+        Route::get('/open-banking/countries', [OpenBankingController::class, 'listAvailableCountries'])->name('listAvailableCountries');
+        Route::get('/open-banking/banks', [OpenBankingController::class, 'listBanks'])->name('listBanks');
+        Route::post('/open-banking/session', [OpenBankingController::class, 'initSession'])->name('initSession');
+        Route::post('/open-banking/account', [OpenBankingController::class, 'createOpenBankingAccount'])->name('createOpenBankingAccount');
+    });
 
     // Transaction
-    Route::get('/transactions', [TransactionController::class, 'getTransactions'])->name('getTransactions');
-    Route::get('/transactions/{id}', [TransactionController::class, 'getTransaction'])->name('getTransaction');
-    Route::post('/transactions', [TransactionController::class, 'createTransaction'])->name('createTransaction');
-    Route::put('/transactions/{id}', [TransactionController::class, 'updateTransaction'])->name('updateTransaction');
-    Route::delete('/transactions/{id}', [TransactionController::class, 'deleteTransaction'])->name('deleteTransaction');
-    Route::get('/transaction/number', [TransactionController::class, 'getTransactionNumber'])->name('getTransactionNumber');
+
+    Route::group(['middleware' => 'can:transactions'], function () {
+        Route::get('/transactions', [TransactionController::class, 'getTransactions'])->name('getTransactions');
+        Route::get('/transactions/{id}', [TransactionController::class, 'getTransaction'])->name('getTransaction');
+        Route::post('/transactions', [TransactionController::class, 'createTransaction'])->name('createTransaction');
+        Route::put('/transactions/{id}', [TransactionController::class, 'updateTransaction'])->name('updateTransaction');
+        Route::delete('/transactions/{id}', [TransactionController::class, 'deleteTransaction'])->name('deleteTransaction');
+        Route::get('/transaction/number', [TransactionController::class, 'getTransactionNumber'])->name('getTransactionNumber');
+    });
 
     // Archive
-    Route::get('/archive/documents', [ArchiveController::class, 'getDocuments'])->name('getDocuments');
-    Route::get('/archive/documents/{id}', [ArchiveController::class, 'getDocument'])->name('getDocument');
-    Route::post('/archive/documents', [ArchiveController::class, 'createDocument'])->name('createDocument');
-    Route::put('/archive/documents/{id}', [ArchiveController::class, 'updateDocument'])->name('updateDocument');
-    Route::delete('/archive/documents/{id}', [ArchiveController::class, 'deleteDocument'])->name('deleteDocument');
-    Route::put('/archive/documents/{id}/restore', [ArchiveController::class, 'restoreDocument'])->name('restoreDocument');
-    Route::put('/archive/documents/{id}/force-delete', [ArchiveController::class, 'forceDeleteDocument'])->name('forceDeleteDocument');
-    Route::put('/archive/documents/{id}/move', [ArchiveController::class, 'moveDocument'])->name('moveDocument');
+
+    Route::group(['middleware' => 'can:archive', 'prefix' => '/archive'], function () {
+        Route::get('/documents', [ArchiveController::class, 'getDocuments'])->name('getDocuments');
+        Route::get('/documents/{id}', [ArchiveController::class, 'getDocument'])->name('getDocument');
+        Route::post('/documents', [ArchiveController::class, 'createDocument'])->name('createDocument');
+        Route::put('/documents/{id}', [ArchiveController::class, 'updateDocument'])->name('updateDocument');
+        Route::delete('/documents/{id}', [ArchiveController::class, 'deleteDocument'])->name('deleteDocument');
+        Route::put('/documents/{id}/restore', [ArchiveController::class, 'restoreDocument'])->name('restoreDocument');
+        Route::put('/documents/{id}/force-delete', [ArchiveController::class, 'forceDeleteDocument'])->name('forceDeleteDocument');
+        Route::put('/documents/{id}/move', [ArchiveController::class, 'moveDocument'])->name('moveDocument');
+    });
 
     // Support Ticket
-    Route::get('/support-tickets', [SupportTicketController::class, 'getTickets'])->name('getTickets');
-    Route::get('/support-tickets/{id}', [SupportTicketController::class, 'getTicket'])->name('getTicket');
-    Route::get('/support-tickets/{id}/contents', [SupportTicketController::class, 'getSupportTicketContents'])->name(
-        'getSupportTicketContents'
-    );
-    Route::post('/support-tickets', [SupportTicketController::class, 'createTicket'])->name('createSupportTicket');
-    Route::put('/support-tickets/{id}', [SupportTicketController::class, 'updateTicket'])->name('updateTicket');
-    Route::delete('/support-tickets/{id}', [SupportTicketController::class, 'deleteTicket'])->name('deleteTicket');
-    Route::get('/support-tickets/{id}/messages', [SupportTicketController::class, 'getTicketMessages'])->name('getTicketMessages');
-    Route::post('/support-tickets/{id}/messages', [SupportTicketController::class, 'createTicketMessage'])->name('createTicketMessage');
-    Route::put('/support-tickets/messages/{id}', [SupportTicketController::class, 'updateTicketMessage'])->name('updateTicketMessage');
-    Route::delete('/support-tickets/messages/{id}', [SupportTicketController::class, 'deleteTicketMessage'])->name('deleteTicketMessage');
-    Route::get('/support-ticket/number', [SupportTicketController::class, 'getTicketNumber'])->name('getTicketNumber');
-    Route::get('/support-ticket/share/{id}', [SupportTicketController::class, 'shareTicket'])->name('shareTicket');
+    Route::group(['middleware' => 'can:support'], function () {
+        Route::get('/support-tickets', [SupportTicketController::class, 'getTickets'])->name('getTickets');
+        Route::get('/support-tickets/{id}', [SupportTicketController::class, 'getTicket'])->name('getTicket');
+        Route::post('/support-tickets', [SupportTicketController::class, 'createTicket'])->name('createSupportTicket');
+        Route::put('/support-tickets/{id}', [SupportTicketController::class, 'updateTicket'])->name('updateTicket');
+        Route::delete('/support-tickets/{id}', [SupportTicketController::class, 'deleteTicket'])->name('deleteTicket');
+        Route::get('/support-tickets/{id}/messages', [SupportTicketController::class, 'getTicketMessages'])->name('getTicketMessages');
+        Route::post('/support-tickets/{id}/messages', [SupportTicketController::class, 'createTicketMessage'])->name('createTicketMessage');
+        Route::put('/support-tickets/messages/{id}', [SupportTicketController::class, 'updateTicketMessage'])->name('updateTicketMessage');
+        Route::delete('/support-tickets/messages/{id}', [SupportTicketController::class, 'deleteTicketMessage'])->name(
+            'deleteTicketMessage'
+        );
+        Route::get('/support-ticket/number', [SupportTicketController::class, 'getTicketNumber'])->name('getTicketNumber');
+        Route::get('/support-ticket/share/{id}', [SupportTicketController::class, 'shareTicket'])->name('shareTicket');
+    });
 
     // Contract
-    Route::get('/contracts', [ContractController::class, 'getContracts'])->name('getContracts');
-    Route::get('/contracts/{id}', [ContractController::class, 'getContract'])->name('getContract');
-    Route::post('/contracts', [ContractController::class, 'createContract'])->name('createContract');
-    Route::put('/contracts/{id}', [ContractController::class, 'updateContract'])->name('updateContract');
-    Route::delete('/contracts/{id}', [ContractController::class, 'deleteContract'])->name('deleteContract');
-    Route::get('/contract/number', [ContractController::class, 'getContractNumber'])->name('getContractNumber');
+    Route::group(['middleware' => 'can:contracts'], function () {
+        Route::get('/contracts', [ContractController::class, 'getContracts'])->name('getContracts');
+        Route::get('/contracts/{id}', [ContractController::class, 'getContract'])->name('getContract');
+        Route::post('/contracts', [ContractController::class, 'createContract'])->name('createContract');
+        Route::put('/contracts/{id}', [ContractController::class, 'updateContract'])->name('updateContract');
+        Route::delete('/contracts/{id}', [ContractController::class, 'deleteContract'])->name('deleteContract');
+        Route::get('/contract/number', [ContractController::class, 'getContractNumber'])->name('getContractNumber');
+    });
 
     // Payments
-    Route::get('/payments', [PaymentController::class, 'getPayments'])->name('getPayments');
-    Route::get('/payments/{id}', [PaymentController::class, 'getPayment'])->name('getPayment');
+    Route::group(['middleware' => 'can:payments'], function () {
+        Route::get('/payments', [PaymentController::class, 'getPayments'])->name('getPayments');
+        Route::get('/payments/{id}', [PaymentController::class, 'getPayment'])->name('getPayment');
+    });
 
-    Route::post('/create_webhook', [DataController::class, 'createWebhookSubscription'])->name('createWebhookSubscription');
+    Route::post('/create_webhook', [DataController::class, 'createWebhookSubscription'])
+        ->name('createWebhookSubscription')
+        ->middleware('can:webhooks');
 
     Route::group(['prefix' => 'admin'], function () {
         // Dashboard Data
         Route::get('/dashboard', [AdminDashboardDataController::class, 'returnData'])->name('adminReturnDashboardData');
         // User
-        Route::get('/users', [AdminUserController::class, 'getUsers'])->name('adminGetUsers');
-        Route::get('/users/{id}', [AdminUserController::class, 'getUser'])->name('adminGetUser');
-        Route::post('/users', [AdminUserController::class, 'createUser'])->name('adminCreateUser');
-        Route::put('/users/{id}', [AdminUserController::class, 'updateUser'])->name('adminUpdateUser');
-        Route::delete('/users/{id}', [AdminUserController::class, 'deleteUser'])->name('adminDeleteUser');
-        Route::put('/users/{id}/reset-password', [AdminUserController::class, 'resetPassword'])->name('adminResetPassword');
-        Route::post('/users/{id}/disable-2fa', [AdminUserController::class, 'disable2fa'])->name('adminDisable2fa');
+        Route::group(['middleware' => 'can:admin_users'], function () {
+            Route::get('/users', [AdminUserController::class, 'getUsers'])->name('adminGetUsers');
+            Route::get('/users/{id}', [AdminUserController::class, 'getUser'])->name('adminGetUser');
+            Route::post('/users', [AdminUserController::class, 'createUser'])->name('adminCreateUser');
+            Route::put('/users/{id}', [AdminUserController::class, 'updateUser'])->name('adminUpdateUser');
+            Route::delete('/users/{id}', [AdminUserController::class, 'deleteUser'])->name('adminDeleteUser');
+            Route::put('/users/{id}/reset-password', [AdminUserController::class, 'resetPassword'])->name('adminResetPassword');
+            Route::post('/users/{id}/disable-2fa', [AdminUserController::class, 'disable2fa'])->name('adminDisable2fa');
+        });
 
         // Department
-        Route::get('/departments', [AdminDepartmentController::class, 'getDepartments'])->name('adminGetDepartments');
-        Route::get('/departments/{id}', [AdminDepartmentController::class, 'getDepartment'])->name('adminGetDepartment');
-        Route::post('/departments', [AdminDepartmentController::class, 'createDepartment'])->name('adminCreateDepartment');
-        Route::put('/departments/{id}', [AdminDepartmentController::class, 'updateDepartment'])->name('adminUpdateDepartment');
-        Route::delete('/departments/{id}', [AdminDepartmentController::class, 'deleteDepartment'])->name('adminDeleteDepartment');
+        Route::group(['middleware' => 'can:admin_departments', 'prefix' => 'departments'], function () {
+            Route::get('/', [AdminDepartmentController::class, 'getDepartments'])->name('adminGetDepartments');
+            Route::get('/{id}', [AdminDepartmentController::class, 'getDepartment'])->name('adminGetDepartment');
+            Route::post('/', [AdminDepartmentController::class, 'createDepartment'])->name('adminCreateDepartment');
+            Route::put('/{id}', [AdminDepartmentController::class, 'updateDepartment'])->name('adminUpdateDepartment');
+            Route::delete('/{id}', [AdminDepartmentController::class, 'deleteDepartment'])->name('adminDeleteDepartment');
+        });
 
         // Role
-        Route::get('/roles', [AdminPermissionRoleController::class, 'getRoles'])->name('adminGetRoles');
-        Route::get('/roles/{id}', [AdminPermissionRoleController::class, 'getRole'])->name('adminGetRole');
-        Route::post('/roles', [AdminPermissionRoleController::class, 'createRole'])->name('adminCreateRole');
-        Route::put('/roles/{id}', [AdminPermissionRoleController::class, 'updateRole'])->name('adminUpdateRole');
-        Route::delete('/roles/{id}', [AdminPermissionRoleController::class, 'deleteRole'])->name('adminDeleteRole');
-        Route::get('/permissions', [AdminPermissionRoleController::class, 'getPermissions'])->name('getPermissions');
+        Route::group(['middleware' => 'can:admin_roles'], function () {
+            Route::get('/roles', [AdminPermissionRoleController::class, 'getRoles'])->name('adminGetRoles');
+            Route::get('/roles/{id}', [AdminPermissionRoleController::class, 'getRole'])->name('adminGetRole');
+            Route::post('/roles', [AdminPermissionRoleController::class, 'createRole'])->name('adminCreateRole');
+            Route::put('/roles/{id}', [AdminPermissionRoleController::class, 'updateRole'])->name('adminUpdateRole');
+            Route::delete('/roles/{id}', [AdminPermissionRoleController::class, 'deleteRole'])->name('adminDeleteRole');
+            Route::get('/permissions', [AdminPermissionRoleController::class, 'getPermissions'])->name('getPermissions');
+        });
 
         // Tax
-        Route::get('/taxes', [AdminTaxController::class, 'getTaxes'])->name('adminGetTaxes');
-        Route::get('/taxes/{id}', [AdminTaxController::class, 'getTax'])->name('adminGetTax');
-        Route::post('/taxes', [AdminTaxController::class, 'createTax'])->name('adminCreateTax');
-        Route::put('/taxes/{id}', [AdminTaxController::class, 'updateTax'])->name('adminUpdateTax');
-        Route::delete('/taxes/{id}', [AdminTaxController::class, 'deleteTax'])->name('adminDeleteTax');
+        Route::group(['middleware' => 'can:admin_tax_rates'], function () {
+            Route::get('/taxes', [AdminTaxController::class, 'getTaxes'])->name('adminGetTaxes');
+            Route::get('/taxes/{id}', [AdminTaxController::class, 'getTax'])->name('adminGetTax');
+            Route::post('/taxes', [AdminTaxController::class, 'createTax'])->name('adminCreateTax');
+            Route::put('/taxes/{id}', [AdminTaxController::class, 'updateTax'])->name('adminUpdateTax');
+            Route::delete('/taxes/{id}', [AdminTaxController::class, 'deleteTax'])->name('adminDeleteTax');
+        });
 
         // Settings
         Route::get('/settings', [AdminSettingController::class, 'getSettings'])->name('adminGetSettings');
         Route::put('/settings', [AdminSettingController::class, 'updateSettings'])->name('adminUpdateSettings');
+
         Route::get('/settings/company', [AdminSettingController::class, 'getCompanySettings'])->name('adminGetCompanySettings');
         Route::put('/settings/company', [AdminSettingController::class, 'updateCompanySettings'])->name('adminUpdateCompanySettings');
-        Route::get('/settings/numbering', [AdminSettingController::class, 'getNumberingSettings'])->name('adminGetNumberingSettings');
-        Route::put('/settings/numbering', [AdminSettingController::class, 'updateNumberingSettings'])->name('adminUpdateNumberingSettings');
-        Route::post('/settings/number/preview', [AdminSettingController::class, 'generatePreviewNumber'])->name(
-            'adminGeneratePreviewNumber'
-        );
+
+        // Numbering
+        Route::group(['middleware' => 'can:admin_numbering'], function () {
+            Route::get('/settings/numbering', [AdminSettingController::class, 'getNumberingSettings'])->name('adminGetNumberingSettings');
+            Route::put('/settings/numbering', [AdminSettingController::class, 'updateNumberingSettings'])->name(
+                'adminUpdateNumberingSettings'
+            );
+            Route::post('/settings/number/preview', [AdminSettingController::class, 'generatePreviewNumber'])->name(
+                'adminGeneratePreviewNumber'
+            );
+        });
         Route::post('/settings/company/logo', [AdminSettingController::class, 'setCompanyLogo'])->name('adminSetCompanyLogo');
         Route::delete('/settings/company/logo', [AdminSettingController::class, 'removeCompanyLogo'])->name('adminRemoveCompanyLogo');
-        Route::get('/settings/email', [AdminSettingController::class, 'getEmailSettings'])->name('adminGetEmailSettings');
-        Route::put('/settings/email', [AdminSettingController::class, 'updateEmailSettings'])->name('adminUpdateEmailSettings');
-        Route::post('/settings/email/test', [AdminSettingController::class, 'sentTestEmail'])->name('adminSentTestEmail');
+
+        // Email
+        Route::group(['middleware' => 'can:admin_email_settings'], function () {
+            Route::get('/settings/email', [AdminSettingController::class, 'getEmailSettings'])->name('adminGetEmailSettings');
+            Route::put('/settings/email', [AdminSettingController::class, 'updateEmailSettings'])->name('adminUpdateEmailSettings');
+            Route::post('/settings/email/test', [AdminSettingController::class, 'sentTestEmail'])->name('adminSentTestEmail');
+        });
 
         // Unit
-        Route::get('/units', [AdminUnitController::class, 'getUnits'])->name('adminGetUnits');
-        Route::get('/units/{id}', [AdminUnitController::class, 'getUnit'])->name('adminGetUnit');
-        Route::post('/units', [AdminUnitController::class, 'createUnit'])->name('adminCreateUnit');
-        Route::put('/units/{id}', [AdminUnitController::class, 'updateUnit'])->name('adminUpdateUnit');
-        Route::delete('/units/{id}', [AdminUnitController::class, 'deleteUnit'])->name('adminDeleteUnit');
+        Route::group(['middleware' => 'can:admin_units'], function () {
+            Route::get('/units', [AdminUnitController::class, 'getUnits'])->name('adminGetUnits');
+            Route::get('/units/{id}', [AdminUnitController::class, 'getUnit'])->name('adminGetUnit');
+            Route::post('/units', [AdminUnitController::class, 'createUnit'])->name('adminCreateUnit');
+            Route::put('/units/{id}', [AdminUnitController::class, 'updateUnit'])->name('adminUpdateUnit');
+            Route::delete('/units/{id}', [AdminUnitController::class, 'deleteUnit'])->name('adminDeleteUnit');
+        });
 
         // Currency
-        Route::get('/currency/live-update', [AdminCurrencyController::class, 'liveUpdateCurrencyRate'])->name(
-            'adminLiveUpdateCurrencyRate'
-        );
-        Route::get('/currencies', [AdminCurrencyController::class, 'getCurrencies'])->name('adminGetCurrencies');
-        Route::get('/currencies/{id}', [AdminCurrencyController::class, 'getCurrency'])->name('adminGetCurrency');
-        Route::post('/currencies', [AdminCurrencyController::class, 'createCurrency'])->name('adminCreateCurrency');
-        Route::put('/currencies/{id}', [AdminCurrencyController::class, 'updateCurrency'])->name('adminUpdateCurrency');
-        Route::delete('/currencies/{id}', [AdminCurrencyController::class, 'deleteCurrency'])->name('adminDeleteCurrency');
+        Route::group(['middleware' => 'can:admin_currencies'], function () {
+            Route::get('/currency/live-update', [AdminCurrencyController::class, 'liveUpdateCurrencyRate'])->name(
+                'adminLiveUpdateCurrencyRate'
+            );
+            Route::get('/currencies', [AdminCurrencyController::class, 'getCurrencies'])->name('adminGetCurrencies');
+            Route::get('/currencies/{id}', [AdminCurrencyController::class, 'getCurrency'])->name('adminGetCurrency');
+            Route::post('/currencies', [AdminCurrencyController::class, 'createCurrency'])->name('adminCreateCurrency');
+            Route::put('/currencies/{id}', [AdminCurrencyController::class, 'updateCurrency'])->name('adminUpdateCurrency');
+            Route::delete('/currencies/{id}', [AdminCurrencyController::class, 'deleteCurrency'])->name('adminDeleteCurrency');
+        });
 
         // Webhooks
-        Route::get('/webhook_subscriptions', [AdminWebhookSubscriptionController::class, 'getWebhookSubscriptions'])->name(
-            'adminGetWebhookSubscriptions'
-        );
-        Route::get('/webhook_subscriptions/{id}', [AdminWebhookSubscriptionController::class, 'getWebhookSubscription'])->name(
-            'adminGetWebhookSubscription'
-        );
-        Route::post('/webhook_subscriptions', [AdminWebhookSubscriptionController::class, 'createWebhookSubscription'])->name(
-            'adminCreateWebhookSubscription'
-        );
-        Route::put('/webhook_subscriptions/{id}', [AdminWebhookSubscriptionController::class, 'updateWebhookSubscription'])->name(
-            'adminUpdateWebhookSubscription'
-        );
-        Route::delete('/webhook_subscriptions/{id}', [AdminWebhookSubscriptionController::class, 'deleteWebhookSubscription'])->name(
-            'adminDeleteWebhookSubscription'
-        );
+        Route::group(['middleware' => 'can:admin_webhooks'], function () {
+            Route::get('/webhook_subscriptions', [AdminWebhookSubscriptionController::class, 'getWebhookSubscriptions'])->name(
+                'adminGetWebhookSubscriptions'
+            );
+            Route::get('/webhook_subscriptions/{id}', [AdminWebhookSubscriptionController::class, 'getWebhookSubscription'])->name(
+                'adminGetWebhookSubscription'
+            );
+            Route::post('/webhook_subscriptions', [AdminWebhookSubscriptionController::class, 'createWebhookSubscription'])->name(
+                'adminCreateWebhookSubscription'
+            );
+            Route::put('/webhook_subscriptions/{id}', [AdminWebhookSubscriptionController::class, 'updateWebhookSubscription'])->name(
+                'adminUpdateWebhookSubscription'
+            );
+            Route::delete('/webhook_subscriptions/{id}', [AdminWebhookSubscriptionController::class, 'deleteWebhookSubscription'])->name(
+                'adminDeleteWebhookSubscription'
+            );
+        });
     });
 });
 
@@ -296,6 +352,7 @@ Route::group(['prefix' => 'client'], function () {
     Route::post('/contract/sign', [ClientContractController::class, 'signContract'])->name('clientSignContract');
 });
 
+// Payment routes
 Route::post('/online-payment/invoice/stripe', [ClientInvoiceController::class, 'payInvoiceStripe'])->name('clientPayInvoiceStripe');
 Route::get('/online-payment/invoice/stripe', [ClientInvoiceController::class, 'validateInvoiceStripePayment'])->name(
     'validateStripePayment'

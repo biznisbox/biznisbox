@@ -311,7 +311,14 @@ class Contract extends Model implements Auditable
 
         if (count($signers) == 0) {
             $contract->update(['status' => 'signed', 'signed_date' => now()]);
-            createNotification($contract->user_id, 'SignedContract', 'ContractSignedByAllSigners', 'info', 'view', 'contracts/' . $contract->id);
+            createNotification(
+                $contract->user_id,
+                'SignedContract',
+                'ContractSignedByAllSigners',
+                'info',
+                'view',
+                'contracts/' . $contract->id
+            );
         }
 
         return $contract;

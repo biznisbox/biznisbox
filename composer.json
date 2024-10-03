@@ -42,7 +42,7 @@
         "laravel/framework": "^11.15",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
-        "laravolt/avatar": "^5.1",
+        "laravolt/avatar": "^6.0",
         "league/omnipay": "^3.2",
         "milon/barcode": "^11.0",
         "nnjeim/world": "^1.1",
