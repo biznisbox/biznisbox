@@ -74,7 +74,7 @@ return [
         'saturday' => 'Lauantai',
         'sunday' => 'Sunnuntai',
     ],
-    'app_installed' => 'Sovellus on jo asennettu',
+    'app_installed' => 'Sovellus on jo asennettu.',
     'two_factor_auth_required' => 'Kaksivaiheinen todennus vaaditaan',
     'disabled_account' => 'Tili ei ole aktiivinen. Ota yhteyttä järjestelmänvalvojaan.',
     'invalid_2fa_code' => 'Virheellinen 2FA-koodi',
@@ -101,4 +101,8 @@ return [
     'install_admin_user_created' => 'Ylläpito käyttäjä luotiin onnistuneesti.',
     'item_not_moved' => 'Kohdetta ei siirretty.',
     'item_moved_successfully' => 'Kohde siirretty onnistuneesti',
+    'error_signing_contract' => 'Virhe allekirjoitettaessa sopimusta',
+    'signer_not_found_or_already_signed' => 'Allekirjoittajaa ei löytynyt tai jo allekirjoitettu',
+    'cannot_delete_signed_contract' => 'Allekirjoitettua sopimusta ei voi poistaa',
+    'cannot_update_signed_contract' => 'Allekirjoitettua sopimusta ei voi päivittää',
 ];

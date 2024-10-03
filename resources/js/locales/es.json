@@ -127,7 +127,10 @@
         "same_as_company_address": "Igual que la dirección de la empresa",
         "audit_log": "Auditoría",
         "get_current_location": "Obtener ubicación actual",
-        "system": "Sistema"
+        "system": "Sistema",
+        "add_signer": "Añadir firmante",
+        "click_for_download": "Haga clic aquí para descargar",
+        "sign": "Signo"
     },
     "audit_log": {
         "audit_log": "Auditoría",
@@ -160,7 +163,9 @@
         "moved": "Movidos",
         "retrieve_public": "Recuperar público",
         "upload": "Subir",
-        "share": "Compartir"
+        "share": "Compartir",
+        "delete": "Eliminar",
+        "sign": "Signo"
     },
     "audit_log_type": {
         "internal": "Interno",
@@ -194,7 +199,8 @@
         "settings": "Ajustes",
         "employees": "Empleados",
         "support": "Soporte",
-        "payments": "Pagos"
+        "payments": "Pagos",
+        "contracts": "Contratos"
     },
     "dashboard": {
         "title": "Tablero",
@@ -396,7 +402,13 @@
         "display_name": "Mostrar nombre",
         "theme": "Tema",
         "overpaid_amount": "Cantidad excedente",
-        "sum_of_payments": "Suma de pagos"
+        "sum_of_payments": "Suma de pagos",
+        "date_for_signature": "Fecha de firma",
+        "is_signer": "Es firmante",
+        "signer_name": "Nombre del firmante",
+        "signer_email": "Signer Email",
+        "signer_phone": "Teléfono firmante",
+        "signers": "Firmadores"
     },
     "address_types": {
         "billing": "Facturación",
@@ -657,7 +669,10 @@
         "in_review": "En revisión",
         "delegated": "Delegado",
         "approved": "Aprobado",
-        "not_approved": "No aprobado"
+        "not_approved": "No aprobado",
+        "waiting_signers": "Esperando a los firmantes",
+        "signed": "Firmado",
+        "waiting_signature": "Esperando la firma"
     },
     "calendar": {
         "calendar": "Calendario | Calendarios",
@@ -801,6 +816,23 @@
         "create_first_document": "Crear su primer documento",
         "delete_confirm_document": "¿Está seguro que desea eliminar este documento?"
     },
+    "contract": {
+        "contract": "Contrato | Contratos",
+        "create_contract": "Crear contrato",
+        "edit_contract": "Editar contrato",
+        "no_contracts": "No se encontraron contratos",
+        "create_first_contract": "Crea tu primer contrato",
+        "delete_confirm_contract": "¿Está seguro que desea eliminar este contrato?",
+        "contract_details": "Detalles del contrato",
+        "no_content": "Sin contenido",
+        "no_partner": "Ningún socio",
+        "sign_contract": "Firmar contrato",
+        "contract_signed": "Contrato firmado",
+        "accept_sign_terms": "Acepto que al firmar este documento, estoy de acuerdo con que la firma es jurídicamente vinculante y equivalente a mi firma manuscrita.",
+        "accept_terms_required": "La firma y la aceptación de los términos son necesarios para la firma del contrato.",
+        "not_signed": "Aún no firmado",
+        "signed": "Documento firmado"
+    },
     "support": {
         "support": "Soporte | Soporte",
         "support_tickets": "Tickets de soporte",
@@ -885,7 +917,8 @@
             "app_status": "Estado de la aplicación",
             "units": "Unidades",
             "email": "E-mail",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Ajustes del servidor"
         },
         "company": {
             "title": "Configuración de la empresa",
@@ -1063,7 +1096,9 @@
             "employee": "Formato de número de empleado",
             "project": "Formato de número de proyecto",
             "department": "Formato de número de departamento",
-            "archive": "Formato de número de archivo"
+            "archive": "Formato de número de archivo",
+            "contract": "Formato de número de contrato",
+            "yearly": "Anual"
         },
         "webhook": {
             "title": "Suscripción a Webhooks",

@@ -74,7 +74,7 @@ return [
         'saturday' => 'Субота',
         'sunday' => 'Неділя',
     ],
-    'app_installed' => 'Додаток вже встановлено',
+    'app_installed' => 'Додаток вже встановлено.',
     'two_factor_auth_required' => 'Необхідна двофакторна аутентифікація',
     'disabled_account' => 'Обліковий запис не активний. Будь ласка, зверніться до адміністратора.',
     'invalid_2fa_code' => 'Недійсний код 2FA',
@@ -101,4 +101,8 @@ return [
     'install_admin_user_created' => 'Користувач-адміністратор успішно створений.',
     'item_not_moved' => 'Елемент не переміщено',
     'item_moved_successfully' => 'Елемент успішно переміщено',
+    'error_signing_contract' => 'Не вдалося підписати контракт',
+    'signer_not_found_or_already_signed' => 'Сигнал не знайдений або вже підписаний',
+    'cannot_delete_signed_contract' => 'Не вдалося видалити підписаний контракт',
+    'cannot_update_signed_contract' => 'Не вдалося оновити підписаний контракт',
 ];

@@ -127,7 +127,10 @@
         "same_as_company_address": "與公司地址相同",
         "audit_log": "審計日誌",
         "get_current_location": "獲取當前位置",
-        "system": "System"
+        "system": "System",
+        "add_signer": "Add Signer",
+        "click_for_download": "Click here to download",
+        "sign": "Sign"
     },
     "audit_log": {
         "audit_log": "審計日誌",
@@ -160,7 +163,9 @@
         "moved": "移動",
         "retrieve_public": "檢索公開",
         "upload": "上傳",
-        "share": "分享"
+        "share": "分享",
+        "delete": "Delete",
+        "sign": "Sign"
     },
     "audit_log_type": {
         "internal": "Internal",
@@ -194,7 +199,8 @@
         "settings": "設置",
         "employees": "Employees",
         "support": "Support",
-        "payments": "付款"
+        "payments": "付款",
+        "contracts": "Contracts"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -396,7 +402,13 @@
         "display_name": "顯示名稱",
         "theme": "主題",
         "overpaid_amount": "超付金額",
-        "sum_of_payments": "付款總額"
+        "sum_of_payments": "付款總額",
+        "date_for_signature": "Date for Signature",
+        "is_signer": "Is Signer",
+        "signer_name": "Signer Name",
+        "signer_email": "Signer Email",
+        "signer_phone": "Signer Phone",
+        "signers": "Signers"
     },
     "address_types": {
         "billing": "Billing",
@@ -657,7 +669,10 @@
         "in_review": "審核中",
         "delegated": "已委派",
         "approved": "已核准",
-        "not_approved": "未核准"
+        "not_approved": "未核准",
+        "waiting_signers": "Waiting for signers",
+        "signed": "Signed",
+        "waiting_signature": "Waiting for signature"
     },
     "calendar": {
         "calendar": "Calendar | Calendars",
@@ -801,6 +816,23 @@
         "create_first_document": "Create your first document",
         "delete_confirm_document": "Are you sure you want to delete this document?"
     },
+    "contract": {
+        "contract": "Contract | Contracts",
+        "create_contract": "Create Contract",
+        "edit_contract": "Edit Contract",
+        "no_contracts": "No contracts found",
+        "create_first_contract": "Create your first contract",
+        "delete_confirm_contract": "Are you sure you want to delete this contract?",
+        "contract_details": "Contract details",
+        "no_content": "No content",
+        "no_partner": "No partner",
+        "sign_contract": "Sign contract",
+        "contract_signed": "Contract signed",
+        "accept_sign_terms": "I accept that by signing this document, I agree with that the signature is legally binding and equivalent to my handwritten signature.",
+        "accept_terms_required": "Signature and acceptance of terms are required to sign the contract.",
+        "not_signed": "Not signed yet",
+        "signed": "Document signed"
+    },
     "support": {
         "support": "Support | Supports",
         "support_tickets": "Support Tickets",
@@ -885,7 +917,8 @@
             "app_status": "Application Status",
             "units": "單位",
             "email": "郵件",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Server Settings"
         },
         "company": {
             "title": "Company Settings",
@@ -1063,7 +1096,9 @@
             "employee": "Employee number format",
             "project": "專案編號格式",
             "department": "部門編號格式",
-            "archive": "存檔編號格式"
+            "archive": "存檔編號格式",
+            "contract": "Contract number format",
+            "yearly": "Yearly"
         },
         "webhook": {
             "title": "Webhooks 訂閱",

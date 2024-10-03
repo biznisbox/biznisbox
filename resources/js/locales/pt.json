@@ -127,7 +127,10 @@
         "same_as_company_address": "Igual ao endereço da empresa",
         "audit_log": "Registro de auditoria",
         "get_current_location": "Obter a localização atual",
-        "system": "SISTEMA"
+        "system": "SISTEMA",
+        "add_signer": "Adicionar Assinante",
+        "click_for_download": "Clique aqui para baixar",
+        "sign": "Assinar"
     },
     "audit_log": {
         "audit_log": "Registro de auditoria",
@@ -160,7 +163,9 @@
         "moved": "Movido",
         "retrieve_public": "Recuperar Público",
         "upload": "Transferir",
-        "share": "Compartilhar"
+        "share": "Compartilhar",
+        "delete": "excluir",
+        "sign": "Assinar"
     },
     "audit_log_type": {
         "internal": "interno",
@@ -194,7 +199,8 @@
         "settings": "Confirgurações",
         "employees": "Funcionários",
         "support": "SUPORTE",
-        "payments": "Pagamentos"
+        "payments": "Pagamentos",
+        "contracts": "Contratos"
     },
     "dashboard": {
         "title": "Painel",
@@ -396,7 +402,13 @@
         "display_name": "Nome para exibição",
         "theme": "Tema",
         "overpaid_amount": "Valor Sobrecarregado",
-        "sum_of_payments": "Soma dos pagamentos"
+        "sum_of_payments": "Soma dos pagamentos",
+        "date_for_signature": "Data da Assinatura",
+        "is_signer": "É Assinante",
+        "signer_name": "Nome do assinante",
+        "signer_email": "Signer Email",
+        "signer_phone": "Telefone do assinante",
+        "signers": "Assinantes"
     },
     "address_types": {
         "billing": "Faturamento",
@@ -657,7 +669,10 @@
         "in_review": "Em revisão",
         "delegated": "Delegado",
         "approved": "Aceito",
-        "not_approved": "Não aprovado"
+        "not_approved": "Não aprovado",
+        "waiting_signers": "Aguardando assinantes",
+        "signed": "Assinado",
+        "waiting_signature": "Aguardando assinatura"
     },
     "calendar": {
         "calendar": "Calendários do calendário",
@@ -801,6 +816,23 @@
         "create_first_document": "Criar o seu primeiro documento",
         "delete_confirm_document": "Tem certeza de que deseja excluir este documento?"
     },
+    "contract": {
+        "contract": "Contratos de Contrato",
+        "create_contract": "Criar Contrato",
+        "edit_contract": "Editar Contrato",
+        "no_contracts": "Nenhum contrato encontrado",
+        "create_first_contract": "Crie seu primeiro contrato",
+        "delete_confirm_contract": "Tem certeza que deseja excluir este contrato?",
+        "contract_details": "Detalhes do contrato",
+        "no_content": "Nenhum conteúdo",
+        "no_partner": "Nenhum parceiro",
+        "sign_contract": "Assinar contrato",
+        "contract_signed": "Contrato assinado",
+        "accept_sign_terms": "Aceito que, ao assinar este documento, concordo que a assinatura é juridicamente vinculativa e equivalente à minha assinatura manuscrita.",
+        "accept_terms_required": "Assinatura e aceitação dos termos são necessários para assinar o contrato.",
+        "not_signed": "Ainda não assinado",
+        "signed": "Documento assinado"
+    },
     "support": {
         "support": "Apoie-os",
         "support_tickets": "Tickets de suporte",
@@ -885,7 +917,8 @@
             "app_status": "Status do aplicativo",
             "units": "Unidades",
             "email": "e-mail",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Configurações do Servidor"
         },
         "company": {
             "title": "Configurações da Empresa",
@@ -1063,7 +1096,9 @@
             "employee": "Formato número de funcionário",
             "project": "Formato do número do projeto",
             "department": "Formato número do departamento",
-            "archive": "Formato do arquivo"
+            "archive": "Formato do arquivo",
+            "contract": "Formato número do contrato",
+            "yearly": "Anualmente"
         },
         "webhook": {
             "title": "Assinatura de webhooks",

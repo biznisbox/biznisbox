@@ -3,8 +3,7 @@
 return [
     'hi' => 'Hi,',
     'this_is_a_test_email' => 'Este es un correo electrónico de prueba. Por favor, ignórelo.',
-    'config_is_working' =>
-        'Si está viendo este correo electrónico, significa que la configuración del correo electrónico está funcionando.',
+    'config_is_working' => 'Si está viendo este correo electrónico, significa que la configuración del correo electrónico está funcionando.',
     'all_rights_reserved' => 'Todos los derechos reservados.',
     'subject_test_email' => 'Test Email',
     'user_details' => 'Detalles del usuario',
@@ -33,4 +32,11 @@ return [
     'click_on_the_button_below_to_view_quote' => 'Haga clic en el botón de abajo para ver la cita.',
     'view_quote' => 'Ver presupuesto',
     'subject_new_quote' => 'Nueva notificación de presupuesto',
+    'new_contract_created_for_you' => 'Se ha creado un nuevo contrato para usted, por favor firmarlo.',
+    'contract_details' => 'Detalles del contrato',
+    'contract_number' => 'Número de Contrato: :number',
+    'contract_expiry_date' => 'Fecha de caducidad para signo: :date',
+    'click_on_the_button_below_to_sign_contract' => 'Haga clic en el botón de abajo para firmar el contrato.',
+    'sign_contract' => 'Firmar contrato',
+    'subject_new_contract' => 'Nueva notificación de contrato',
 ];

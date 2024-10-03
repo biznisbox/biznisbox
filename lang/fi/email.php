@@ -32,4 +32,11 @@ return [
     'click_on_the_button_below_to_view_quote' => 'Klikkaa alla olevaa painiketta nähdäksesi tarjouksen.',
     'view_quote' => 'Näytä Tarjous',
     'subject_new_quote' => 'Uusi tarjousilmoitus',
+    'new_contract_created_for_you' => 'Sinulle on luotu uusi sopimus, ole hyvä ja allekirjoita se.',
+    'contract_details' => 'Sopimuksen Tiedot',
+    'contract_number' => 'Sopimuksen Numero: :number',
+    'contract_expiry_date' => 'Allekirjoituksen päättymispäivä :date',
+    'click_on_the_button_below_to_sign_contract' => 'Klikkaa alla olevaa painiketta allekirjoittaaksesi sopimuksen.',
+    'sign_contract' => 'Allekirjoita Sopimus',
+    'subject_new_contract' => 'Uusi ilmoitus sopimuksesta',
 ];

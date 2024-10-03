@@ -42,6 +42,11 @@ return [
     'reference' => 'Referenční číslo',
     'footer' => 'Zápatí',
     'discount_type' => 'Typ slevy',
+    'contract' => 'Smlouva',
+    'name' => 'Název',
+    'signature' => 'Podpis',
+    'signers' => 'Podepsaní',
+    'no_signature' => 'Žádný podpis',
     'payment_methods' => [
         'cash' => 'Hotovost',
         'check' => 'Zkontrolovat',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Zobrazeno',
         'expired' => 'Vypršela platnost',
         'converted' => 'Převedeno',
+        'signed' => 'Podepsáno',
+        'unsigned' => 'Nepodepsáno',
+        'waiting_signers' => 'Čekající podpisy',
+        'rejected' => 'Odmítnuto',
+        'expired' => 'Vypršela platnost',
+        'waiting_signature' => 'Čekající podpis',
     ],
 ];

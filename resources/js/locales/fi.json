@@ -127,7 +127,10 @@
         "same_as_company_address": "Sama kuin yrityksen osoite",
         "audit_log": "Tarkastusloki",
         "get_current_location": "Hanki nykyinen sijainti",
-        "system": "Järjestelmä"
+        "system": "Järjestelmä",
+        "add_signer": "Lisää Allekirjoittaja",
+        "click_for_download": "Lataa napsauttamalla tästä",
+        "sign": "Allekirjoita"
     },
     "audit_log": {
         "audit_log": "Tarkastusloki",
@@ -160,7 +163,9 @@
         "moved": "Siirretty",
         "retrieve_public": "Hae Julkinen",
         "upload": "Lähetä",
-        "share": "Jaa"
+        "share": "Jaa",
+        "delete": "Poista",
+        "sign": "Allekirjoita"
     },
     "audit_log_type": {
         "internal": "Sisäinen",
@@ -194,7 +199,8 @@
         "settings": "Asetukset",
         "employees": "Työntekijät",
         "support": "Tuki",
-        "payments": "Maksut"
+        "payments": "Maksut",
+        "contracts": "Sopimukset"
     },
     "dashboard": {
         "title": "Hallintapaneeli",
@@ -396,7 +402,13 @@
         "display_name": "Näytön Nimi",
         "theme": "Teema",
         "overpaid_amount": "Liikaa Maksettu Määrä",
-        "sum_of_payments": "Maksujen summa"
+        "sum_of_payments": "Maksujen summa",
+        "date_for_signature": "Allekirjoituksen päivämäärä",
+        "is_signer": "On Allekirjoittaja",
+        "signer_name": "Allekirjoittajan Nimi",
+        "signer_email": "Signer Email",
+        "signer_phone": "Allekirjoittajan Puhelin",
+        "signers": "Allekirjoittajat"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -657,7 +669,10 @@
         "in_review": "Tarkasteltaessa uudelleen",
         "delegated": "Delegoitu",
         "approved": "Hyväksytty",
-        "not_approved": "Ei hyväksytty"
+        "not_approved": "Ei hyväksytty",
+        "waiting_signers": "Odotetaan allekirjoittajia",
+        "signed": "Allekirjoitettu",
+        "waiting_signature": "Odotetaan allekirjoitusta"
     },
     "calendar": {
         "calendar": "Kalenteri - Kalenterit",
@@ -801,6 +816,23 @@
         "create_first_document": "Luo ensimmäinen asiakirjasi",
         "delete_confirm_document": "Oletko varma, että haluat poistaa tämän asiakirjan?"
     },
+    "contract": {
+        "contract": "Sopimukset - Sopimukset",
+        "create_contract": "Luo Sopimus",
+        "edit_contract": "Muokkaa Sopimusta",
+        "no_contracts": "Sopimuksia ei löytynyt",
+        "create_first_contract": "Luo ensimmäinen sopimuksesi",
+        "delete_confirm_contract": "Oletko varma, että haluat poistaa tämän sopimuksen?",
+        "contract_details": "Sopimuksen tiedot",
+        "no_content": "Ei sisältöä",
+        "no_partner": "Ei kumppania",
+        "sign_contract": "Allekirjoita sopimus",
+        "contract_signed": "Sopimus allekirjoitettu",
+        "accept_sign_terms": "Hyväksyn sen, että allekirjoittamalla tämän asiakirjan, olen samaa mieltä siitä, että allekirjoitus on oikeudellisesti sitova ja vastaa käsin kirjoitettua allekirjoitustani.",
+        "accept_terms_required": "Sopimuksen allekirjoittaminen edellyttää ehtojen allekirjoittamista ja hyväksymistä.",
+        "not_signed": "Ei vielä allekirjoitettu",
+        "signed": "Asiakirja allekirjoitettu"
+    },
     "support": {
         "support": "Tue - Tuet",
         "support_tickets": "Tue Tukipyyntöjä",
@@ -885,7 +917,8 @@
             "app_status": "Sovelluksen Tila",
             "units": "Yksiköt",
             "email": "Sähköposti",
-            "webhooks": "Verkkokoukut"
+            "webhooks": "Verkkokoukut",
+            "server_settings": "Palvelimen Asetukset"
         },
         "company": {
             "title": "Yrityksen Asetukset",
@@ -1063,7 +1096,9 @@
             "employee": "Työntekijän numeron muoto",
             "project": "Projektin numeron muoto",
             "department": "Osaston numeron muoto",
-            "archive": "Arkiston numeron muoto"
+            "archive": "Arkiston numeron muoto",
+            "contract": "Sopimuksen numeron muoto",
+            "yearly": "Vuosittain"
         },
         "webhook": {
             "title": "Webkoukkujen tilaus",

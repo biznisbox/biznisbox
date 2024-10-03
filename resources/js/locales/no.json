@@ -127,7 +127,10 @@
         "same_as_company_address": "Samme som firmaadresse",
         "audit_log": "Revisjon logg",
         "get_current_location": "Skaff nåværende posisjon",
-        "system": "Systemadministrasjon"
+        "system": "Systemadministrasjon",
+        "add_signer": "Legg til signner",
+        "click_for_download": "Klikk her for å laste ned",
+        "sign": "Signer"
     },
     "audit_log": {
         "audit_log": "Revisjon logg",
@@ -160,7 +163,9 @@
         "moved": "Flyttet",
         "retrieve_public": "Hent offentlige",
         "upload": "Last opp",
-        "share": "Del"
+        "share": "Del",
+        "delete": "Slett",
+        "sign": "Signer"
     },
     "audit_log_type": {
         "internal": "Intern",
@@ -194,7 +199,8 @@
         "settings": "Innstillinger",
         "employees": "Ansatte",
         "support": "Brukerstøtte",
-        "payments": "Betalinger"
+        "payments": "Betalinger",
+        "contracts": "Kontrakter"
     },
     "dashboard": {
         "title": "Kontrollpanel",
@@ -396,7 +402,13 @@
         "display_name": "Vis navn",
         "theme": "Tema",
         "overpaid_amount": "Overbetalt beløp",
-        "sum_of_payments": "Sum av betalinger"
+        "sum_of_payments": "Sum av betalinger",
+        "date_for_signature": "Dato for signatur",
+        "is_signer": "Er Signer",
+        "signer_name": "Signer navn",
+        "signer_email": "Signer Email",
+        "signer_phone": "Signer telefon",
+        "signers": "Signaler"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -657,7 +669,10 @@
         "in_review": "I gjennomgang",
         "delegated": "Delegert",
         "approved": "Godkjent",
-        "not_approved": "Ikke godkjent"
+        "not_approved": "Ikke godkjent",
+        "waiting_signers": "Venter på signører",
+        "signed": "Signert",
+        "waiting_signature": "Venter på signatur"
     },
     "calendar": {
         "calendar": "Kalender: Kalendere",
@@ -801,6 +816,23 @@
         "create_first_document": "Opprett ditt første dokument",
         "delete_confirm_document": "Er du sikker på at du vil slette dette dokumentet?"
     },
+    "contract": {
+        "contract": "Kontraktene Kontraktene",
+        "create_contract": "Opprett Kontrakt",
+        "edit_contract": "Rediger kontrakt",
+        "no_contracts": "Ingen kontrakter funnet",
+        "create_first_contract": "Opprett din første kontrakt",
+        "delete_confirm_contract": "Er du sikker på at du vil slette denne kontrakten?",
+        "contract_details": "Kontrakt informasjon",
+        "no_content": "Intet innhold",
+        "no_partner": "Ingen partner",
+        "sign_contract": "Signer kontrakt",
+        "contract_signed": "Kontrakt signert",
+        "accept_sign_terms": "Jeg aksepterer at ved signering av dette dokumentet er jeg enig i at signaturen er juridisk bindende og tilsvarende min håndskrevne signatur.",
+        "accept_terms_required": "Signatur og aksept av vilkår er påkrevd for å undertegne kontrakten.",
+        "not_signed": "Ikke signert ennå",
+        "signed": "Dokument signert"
+    },
     "support": {
         "support": "Støtte iNaturSupport Support",
         "support_tickets": "Støtt saker",
@@ -885,7 +917,8 @@
             "app_status": "Applikasjons status",
             "units": "Enheter",
             "email": "E-post",
-            "webhooks": "Nettkroker"
+            "webhooks": "Nettkroker",
+            "server_settings": "Server Innstillinger"
         },
         "company": {
             "title": "Bedriftens innstillinger",
@@ -1063,7 +1096,9 @@
             "employee": "Format for ansattes",
             "project": "Prosjektets nummer format",
             "department": "Avdelingsnummer format",
-            "archive": "Arkiver nummer format"
+            "archive": "Arkiver nummer format",
+            "contract": "Kontrakt nummer format",
+            "yearly": "Årlig"
         },
         "webhook": {
             "title": "Webhooks abonnement",

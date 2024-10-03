@@ -42,6 +42,11 @@ return [
     'reference' => '參考',
     'footer' => '頁腳',
     'discount_type' => '折扣類型',
+    'contract' => 'Contract',
+    'name' => 'Name',
+    'signature' => 'Signature',
+    'signers' => 'Signers',
+    'no_signature' => 'No Signature',
     'payment_methods' => [
         'cash' => '現金',
         'check' => '支票',
@@ -68,5 +73,11 @@ return [
         'viewed' => '已查看',
         'expired' => '已過期',
         'converted' => '已轉換',
+        'signed' => 'Signed',
+        'unsigned' => 'Unsigned',
+        'waiting_signers' => 'Waiting Signers',
+        'rejected' => 'Rejected',
+        'expired' => 'Expired',
+        'waiting_signature' => 'Waiting Signature',
     ],
 ];

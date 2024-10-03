@@ -127,7 +127,10 @@
         "same_as_company_address": "Samma som företagsadress",
         "audit_log": "Revisionslogg",
         "get_current_location": "Hämta aktuell plats",
-        "system": "System"
+        "system": "System",
+        "add_signer": "Lägg till signer",
+        "click_for_download": "Klicka här för att ladda ner",
+        "sign": "Signera"
     },
     "audit_log": {
         "audit_log": "Revisionslogg",
@@ -160,7 +163,9 @@
         "moved": "Flyttad",
         "retrieve_public": "Hämta offentlig",
         "upload": "Ladda upp",
-        "share": "Dela"
+        "share": "Dela",
+        "delete": "Radera",
+        "sign": "Signera"
     },
     "audit_log_type": {
         "internal": "Intern",
@@ -194,7 +199,8 @@
         "settings": "Inställningar",
         "employees": "Anställda",
         "support": "Stöd",
-        "payments": "Betalningar"
+        "payments": "Betalningar",
+        "contracts": "Kontrakt"
     },
     "dashboard": {
         "title": "Instrumentpanel",
@@ -396,7 +402,13 @@
         "display_name": "Visningsnamn",
         "theme": "Tema",
         "overpaid_amount": "Överbetalt belopp",
-        "sum_of_payments": "Summa betalningar"
+        "sum_of_payments": "Summa betalningar",
+        "date_for_signature": "Datum för signatur",
+        "is_signer": "Är undertecknare",
+        "signer_name": "Signerens namn",
+        "signer_email": "Signer Email",
+        "signer_phone": "Signeringsnummer",
+        "signers": "Tecknare"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -657,7 +669,10 @@
         "in_review": "Under granskning",
         "delegated": "Delegerad",
         "approved": "Godkänd",
-        "not_approved": "Ej godkänd"
+        "not_approved": "Ej godkänd",
+        "waiting_signers": "Väntar på undertecknare",
+        "signed": "Signerad",
+        "waiting_signature": "Väntar på signatur"
     },
     "calendar": {
         "calendar": "Kalender <unk> Kalendrar",
@@ -801,6 +816,23 @@
         "create_first_document": "Skapa ditt första dokument",
         "delete_confirm_document": "Är du säker på att du vill ta bort detta dokument?"
     },
+    "contract": {
+        "contract": "Kontrakt <unk> Kontrakt",
+        "create_contract": "Skapa kontrakt",
+        "edit_contract": "Redigera kontrakt",
+        "no_contracts": "Inga kontrakt hittades",
+        "create_first_contract": "Skapa ditt första kontrakt",
+        "delete_confirm_contract": "Är du säker på att du vill ta bort detta kontrakt?",
+        "contract_details": "Kontrakt detaljer",
+        "no_content": "Inget innehåll",
+        "no_partner": "Ingen partner",
+        "sign_contract": "Signera kontrakt",
+        "contract_signed": "Kontrakt signerat",
+        "accept_sign_terms": "Jag accepterar att jag genom att underteckna detta dokument håller med om att undertecknandet är rättsligt bindande och likvärdigt med min handskrivna underskrift.",
+        "accept_terms_required": "För att underteckna avtalet krävs undertecknande och godkännande av villkor.",
+        "not_signed": "Inte signerad ännu",
+        "signed": "Dokument signerat"
+    },
     "support": {
         "support": "Stöd <unk> Stöder",
         "support_tickets": "Support Ärenden",
@@ -885,7 +917,8 @@
             "app_status": "Appens status",
             "units": "Enheter",
             "email": "E-post",
-            "webhooks": "Webbhookar"
+            "webhooks": "Webbhookar",
+            "server_settings": "Serverns inställningar"
         },
         "company": {
             "title": "Företagets inställningar",
@@ -1063,7 +1096,9 @@
             "employee": "Formatet för anställdas nummer",
             "project": "Projekt nummer format",
             "department": "Avdelningens nummer format",
-            "archive": "Arkiv nummer format"
+            "archive": "Arkiv nummer format",
+            "contract": "Kontrakt nummer format",
+            "yearly": "Årligen"
         },
         "webhook": {
             "title": "Prenumeration på webbhookar",

@@ -74,7 +74,7 @@ return [
         'saturday' => 'Szombat',
         'sunday' => 'Vasárnap',
     ],
-    'app_installed' => 'Az alkalmazás már telepítve van',
+    'app_installed' => 'Az alkalmazás már telepítve van.',
     'two_factor_auth_required' => 'Kétlépcsős azonosítás szükséges',
     'disabled_account' => 'A fiók nem aktív. Kérjük, lépjen kapcsolatba az adminisztrátorral.',
     'invalid_2fa_code' => 'Hibás 2FA kód',
@@ -101,4 +101,8 @@ return [
     'install_admin_user_created' => 'Admin felhasználó sikeresen létrehozva.',
     'item_not_moved' => 'Elem nem került áthelyezésre',
     'item_moved_successfully' => 'Elem sikeresen áthelyezve',
+    'error_signing_contract' => 'Error signing contract',
+    'signer_not_found_or_already_signed' => 'Signer not found or already signed',
+    'cannot_delete_signed_contract' => 'Cannot delete signed contract',
+    'cannot_update_signed_contract' => 'Cannot update signed contract',
 ];

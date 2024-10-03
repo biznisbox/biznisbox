@@ -42,6 +42,11 @@ return [
     'reference' => 'Αναφορά',
     'footer' => 'Υποσέλιδο',
     'discount_type' => 'Τύπος Έκπτωσης',
+    'contract' => 'Συμβόλαιο',
+    'name' => 'Όνομα',
+    'signature' => 'Υπογραφή',
+    'signers' => 'Υπογραφείς',
+    'no_signature' => 'Καμία Υπογραφή',
     'payment_methods' => [
         'cash' => 'Μετρητά',
         'check' => 'Έλεγχος',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Προβλήθηκαν',
         'expired' => 'Έληξε',
         'converted' => 'Μετατράπηκε',
+        'signed' => 'Υπογραφή',
+        'unsigned' => 'Ανυπόγραφο',
+        'waiting_signers' => 'Αναμονή Υπογραφέων',
+        'rejected' => 'Απορρίφθηκε',
+        'expired' => 'Έληξε',
+        'waiting_signature' => 'Υπογραφή Σε Αναμονή',
     ],
 ];

@@ -41,4 +41,5 @@ return [
     'admin_email_settings' => 'Admin Email Beállítások',
     'admin_webhooks' => 'Admin Webhookok',
     'webhooks' => 'Webhorgonyok',
+    'contracts' => 'contracts',
 ];

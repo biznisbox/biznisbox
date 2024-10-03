@@ -74,7 +74,7 @@ return [
         'saturday' => 'Суббота',
         'sunday' => 'Воскресенье',
     ],
-    'app_installed' => 'Приложение уже установлено',
+    'app_installed' => 'Приложение уже установлено.',
     'two_factor_auth_required' => 'Требуется двухфакторная аутентификация',
     'disabled_account' => 'Аккаунт не активен. Пожалуйста, свяжитесь с администратором.',
     'invalid_2fa_code' => 'Неверный код 2FA',
@@ -101,4 +101,8 @@ return [
     'install_admin_user_created' => 'Администратор успешно создан.',
     'item_not_moved' => 'Элемент не перемещен',
     'item_moved_successfully' => 'Элемент успешно перемещен',
+    'error_signing_contract' => 'Ошибка подписания контракта',
+    'signer_not_found_or_already_signed' => 'Сигнал не найден или уже подписан',
+    'cannot_delete_signed_contract' => 'Не удается удалить подписанный контракт',
+    'cannot_update_signed_contract' => 'Не удается обновить подписанный контракт',
 ];

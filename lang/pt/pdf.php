@@ -42,6 +42,11 @@ return [
     'reference' => 'Referência',
     'footer' => 'Rodapé',
     'discount_type' => 'Tipo de desconto',
+    'contract' => 'Contrato',
+    'name' => 'Nome:',
+    'signature' => 'Assinatura',
+    'signers' => 'Assinantes',
+    'no_signature' => 'Sem Assinatura',
     'payment_methods' => [
         'cash' => 'Dinheiro',
         'check' => 'Verificar',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Visualizado',
         'expired' => 'Expirado',
         'converted' => 'Convertido',
+        'signed' => 'Assinado',
+        'unsigned' => 'Não assinada',
+        'waiting_signers' => 'Aguardando Assinantes',
+        'rejected' => 'Rejeitados',
+        'expired' => 'Expirado',
+        'waiting_signature' => 'Aguardando Assinatura',
     ],
 ];

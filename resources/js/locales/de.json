@@ -127,7 +127,10 @@
         "same_as_company_address": "Wie Firmenadresse",
         "audit_log": "Audit-Log",
         "get_current_location": "Aktuellen Standort abrufen",
-        "system": "System"
+        "system": "System",
+        "add_signer": "Unterzeichner hinzufügen",
+        "click_for_download": "Zum Herunterladen hier klicken",
+        "sign": "Schild"
     },
     "audit_log": {
         "audit_log": "Audit-Log",
@@ -160,7 +163,9 @@
         "moved": "Verschoben",
         "retrieve_public": "Öffentlich abrufen",
         "upload": "Hochladen",
-        "share": "Teilen"
+        "share": "Teilen",
+        "delete": "Löschen",
+        "sign": "Schild"
     },
     "audit_log_type": {
         "internal": "Intern",
@@ -194,7 +199,8 @@
         "settings": "Einstellungen",
         "employees": "Mitarbeiter",
         "support": "Unterstützung",
-        "payments": "Zahlungen"
+        "payments": "Zahlungen",
+        "contracts": "Verträge"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -396,7 +402,13 @@
         "display_name": "Anzeigename",
         "theme": "Thema",
         "overpaid_amount": "Überbezahlter Betrag",
-        "sum_of_payments": "Summe der Zahlungen"
+        "sum_of_payments": "Summe der Zahlungen",
+        "date_for_signature": "Datum der Unterschrift",
+        "is_signer": "Ist Unterzeichner",
+        "signer_name": "Unterzeichnername",
+        "signer_email": "Signer Email",
+        "signer_phone": "Signier-Telefon",
+        "signers": "Unterzeichner"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -657,7 +669,10 @@
         "in_review": "In Prüfung",
         "delegated": "Delegiert",
         "approved": "Genehmigt",
-        "not_approved": "Nicht genehmigt"
+        "not_approved": "Nicht genehmigt",
+        "waiting_signers": "Warten auf Unterzeichner",
+        "signed": "Unterschrieben",
+        "waiting_signature": "Warte auf Signatur"
     },
     "calendar": {
         "calendar": "Kalender | Kalender",
@@ -801,6 +816,23 @@
         "create_first_document": "Erstelle dein erstes Dokument",
         "delete_confirm_document": "Sind Sie sicher, dass Sie dieses Dokument löschen möchten?"
     },
+    "contract": {
+        "contract": "Vertrag | Verträge",
+        "create_contract": "Vertrag erstellen",
+        "edit_contract": "Vertrag bearbeiten",
+        "no_contracts": "Keine Verträge gefunden",
+        "create_first_contract": "Erstelle deinen ersten Vertrag",
+        "delete_confirm_contract": "Sind Sie sicher, dass Sie diesen Vertrag löschen möchten?",
+        "contract_details": "Vertragsdetails",
+        "no_content": "Kein Inhalt",
+        "no_partner": "Kein Partner",
+        "sign_contract": "Unterzeichner Vertrag",
+        "contract_signed": "Vertrag unterzeichnet",
+        "accept_sign_terms": "Ich akzeptiere, dass ich mit der Unterzeichnung dieses Dokuments einverstanden bin, dass die Unterschrift rechtsverbindlich ist und meiner handschriftlichen Unterschrift entspricht.",
+        "accept_terms_required": "Zur Unterzeichnung des Vertrages sind die Unterzeichnung und Annahme der Vertragsbedingungen erforderlich.",
+        "not_signed": "Noch nicht signiert",
+        "signed": "Dokument signiert"
+    },
     "support": {
         "support": "Support | Unterstützungen",
         "support_tickets": "Support-Tickets",
@@ -885,7 +917,8 @@
             "app_status": "Bewerbungsstatus",
             "units": "Einheiten",
             "email": "E-Mail",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Servereinstellungen"
         },
         "company": {
             "title": "Firmeneinstellungen",
@@ -1063,7 +1096,9 @@
             "employee": "Mitarbeiter-Nummernformat",
             "project": "Format der Projektnummer",
             "department": "Abteilungsnummer Format",
-            "archive": "Archivnummernformat"
+            "archive": "Archivnummernformat",
+            "contract": "Vertragsnummernformat",
+            "yearly": "Jährlich"
         },
         "webhook": {
             "title": "WebHooks Abonnement",

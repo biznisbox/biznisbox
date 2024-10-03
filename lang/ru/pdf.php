@@ -42,6 +42,11 @@ return [
     'reference' => 'Артикул',
     'footer' => 'Колонтитул',
     'discount_type' => 'Тип скидки',
+    'contract' => 'Контракт',
+    'name' => 'Наименование',
+    'signature' => 'Подпись',
+    'signers' => 'Подписчики',
+    'no_signature' => 'Нет подписи',
     'payment_methods' => [
         'cash' => 'Наличные',
         'check' => 'Проверить',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Просмотрено',
         'expired' => 'Истёк',
         'converted' => 'Конвертировано',
+        'signed' => 'Подписано',
+        'unsigned' => 'Не подписано',
+        'waiting_signers' => 'Подписчики',
+        'rejected' => 'Отклонено',
+        'expired' => 'Истёк',
+        'waiting_signature' => 'Ожидание подписи',
     ],
 ];

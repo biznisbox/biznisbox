@@ -42,6 +42,11 @@ return [
     'reference' => 'Referenz',
     'footer' => 'Fußzeile',
     'discount_type' => 'Rabattart',
+    'contract' => 'Vertrag',
+    'name' => 'Name',
+    'signature' => 'Signatur',
+    'signers' => 'Unterzeichner',
+    'no_signature' => 'Keine Signatur',
     'payment_methods' => [
         'cash' => 'Bargeld',
         'check' => 'Prüfen',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Angesehen',
         'expired' => 'Abgelaufen',
         'converted' => 'Konvertiert',
+        'signed' => 'Unterschrieben',
+        'unsigned' => 'Unsigniert',
+        'waiting_signers' => 'Wartet auf Unterzeichner',
+        'rejected' => 'Abgelehnt',
+        'expired' => 'Abgelaufen',
+        'waiting_signature' => 'Warte Unterschrift',
     ],
 ];

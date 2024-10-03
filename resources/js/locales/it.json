@@ -127,7 +127,10 @@
         "same_as_company_address": "Come l'indirizzo dell'azienda",
         "audit_log": "Registro Di Audit",
         "get_current_location": "Ottieni la posizione corrente",
-        "system": "Sistema"
+        "system": "Sistema",
+        "add_signer": "Aggiungi Firmatario",
+        "click_for_download": "Clicca qui per scaricare",
+        "sign": "Firma"
     },
     "audit_log": {
         "audit_log": "Registro Di Audit",
@@ -160,7 +163,9 @@
         "moved": "Spostato",
         "retrieve_public": "Recupera Pubblico",
         "upload": "Carica",
-        "share": "Condividi"
+        "share": "Condividi",
+        "delete": "Elimina",
+        "sign": "Firma"
     },
     "audit_log_type": {
         "internal": "Interno",
@@ -194,7 +199,8 @@
         "settings": "Impostazioni",
         "employees": "Dipendenti",
         "support": "Supporto",
-        "payments": "Pagamenti"
+        "payments": "Pagamenti",
+        "contracts": "Contratti"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -396,7 +402,13 @@
         "display_name": "Nome Visualizzato",
         "theme": "Tema",
         "overpaid_amount": "Importo Pagato",
-        "sum_of_payments": "Somma dei pagamenti"
+        "sum_of_payments": "Somma dei pagamenti",
+        "date_for_signature": "Data della firma",
+        "is_signer": "È Firmatario",
+        "signer_name": "Nome Del Firmatario",
+        "signer_email": "Signer Email",
+        "signer_phone": "Telefono Firmatario",
+        "signers": "Firmatari"
     },
     "address_types": {
         "billing": "Fatturazione",
@@ -657,7 +669,10 @@
         "in_review": "In revisione",
         "delegated": "Delegato",
         "approved": "Approvato",
-        "not_approved": "Non approvato"
+        "not_approved": "Non approvato",
+        "waiting_signers": "In attesa dei firmatari",
+        "signed": "Firmato",
+        "waiting_signature": "In attesa della firma"
     },
     "calendar": {
         "calendar": "Calendario <unk> Calendari",
@@ -801,6 +816,23 @@
         "create_first_document": "Crea il tuo primo documento",
         "delete_confirm_document": "Sei sicuro di voler eliminare questo documento?"
     },
+    "contract": {
+        "contract": "Contratto <unk> Contratti",
+        "create_contract": "Crea Contratto",
+        "edit_contract": "Modifica Contratto",
+        "no_contracts": "Nessun contratto trovato",
+        "create_first_contract": "Crea il tuo primo contratto",
+        "delete_confirm_contract": "Sei sicuro di voler eliminare questo contratto?",
+        "contract_details": "Dettagli del contratto",
+        "no_content": "Nessun contenuto",
+        "no_partner": "Nessun partner",
+        "sign_contract": "Firma contratto",
+        "contract_signed": "Contratto firmato",
+        "accept_sign_terms": "Accetto che firmando questo documento, concordo sul fatto che la firma sia giuridicamente vincolante e equivalente alla mia firma manoscritta.",
+        "accept_terms_required": "La firma e l'accettazione dei termini sono necessarie per firmare il contratto.",
+        "not_signed": "Non ancora firmato",
+        "signed": "Documento firmato"
+    },
     "support": {
         "support": "Supporto <unk> Supporta",
         "support_tickets": "Ticket Di Supporto",
@@ -885,7 +917,8 @@
             "app_status": "Stato Dell'Applicazione",
             "units": "Unità",
             "email": "Email",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Impostazioni Server"
         },
         "company": {
             "title": "Impostazioni Azienda",
@@ -1063,7 +1096,9 @@
             "employee": "Formato numero dipendente",
             "project": "Formato numero progetto",
             "department": "Formato numero dipartimento",
-            "archive": "Formato numero archivio"
+            "archive": "Formato numero archivio",
+            "contract": "Formato numero contratto",
+            "yearly": "Annuale"
         },
         "webhook": {
             "title": "Abbonamento Webhooks",

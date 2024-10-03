@@ -32,4 +32,11 @@ return [
     'click_on_the_button_below_to_view_quote' => 'Teklifi görüntülemek için aşağıdaki düğmeye tıklayın.',
     'view_quote' => 'Teklifi Görüntüle',
     'subject_new_quote' => 'Yeni Teklif bildirimi',
+    'new_contract_created_for_you' => 'A new contract has been created for you, please sign it.',
+    'contract_details' => 'Contract Details',
+    'contract_number' => 'Contract Number: :number',
+    'contract_expiry_date' => 'Expiry Date for sign: :date',
+    'click_on_the_button_below_to_sign_contract' => 'Click on the button below to sign the contract.',
+    'sign_contract' => 'Sign Contract',
+    'subject_new_contract' => 'New Contract notification',
 ];

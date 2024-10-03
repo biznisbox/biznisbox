@@ -42,6 +42,11 @@ return [
     'reference' => 'Referanse',
     'footer' => 'Bunntekst',
     'discount_type' => 'Rabatt Type',
+    'contract' => 'Kontrakt',
+    'name' => 'Navn',
+    'signature' => 'Signatur',
+    'signers' => 'Signaler',
+    'no_signature' => 'Ingen signatur',
     'payment_methods' => [
         'cash' => 'Kontant',
         'check' => 'Sjekk',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Vist',
         'expired' => 'Utløpt',
         'converted' => 'Konvertert',
+        'signed' => 'Signert',
+        'unsigned' => 'Usignert',
+        'waiting_signers' => 'Venter pålogging',
+        'rejected' => 'Avvist',
+        'expired' => 'Utløpt',
+        'waiting_signature' => 'Venter signatur',
     ],
 ];

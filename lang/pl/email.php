@@ -32,4 +32,11 @@ return [
     'click_on_the_button_below_to_view_quote' => 'Kliknij na poniższy przycisk, aby wyświetlić ofertę.',
     'view_quote' => 'Zobacz ofertę',
     'subject_new_quote' => 'Nova notificação do Quote',
+    'new_contract_created_for_you' => 'Nowy kontrakt został stworzony dla Ciebie, proszę go podpisać.',
+    'contract_details' => 'Szczegóły umowy',
+    'contract_number' => 'Numer umowy: :number',
+    'contract_expiry_date' => 'Data wygaśnięcia znaku: :date',
+    'click_on_the_button_below_to_sign_contract' => 'Kliknij poniższy przycisk, aby podpisać umowę.',
+    'sign_contract' => 'Podpisz kontrakt',
+    'subject_new_contract' => 'Nova notificação do Umowy',
 ];

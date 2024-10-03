@@ -32,4 +32,11 @@ return [
     'click_on_the_button_below_to_view_quote' => 'Cliquez sur le bouton ci-dessous pour voir le devis.',
     'view_quote' => 'Voir le devis',
     'subject_new_quote' => 'Nouvelle notification de devis',
+    'new_contract_created_for_you' => 'Un nouveau contrat a été créé pour vous, veuillez le signer.',
+    'contract_details' => 'Détails du contrat',
+    'contract_number' => 'Numéro de contrat: :number',
+    'contract_expiry_date' => 'Date d\'expiration pour le signe: :date',
+    'click_on_the_button_below_to_sign_contract' => 'Cliquez sur le bouton ci-dessous pour signer le contrat.',
+    'sign_contract' => 'Signer le contrat',
+    'subject_new_contract' => 'Nouvelle notification de contrat',
 ];

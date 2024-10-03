@@ -127,7 +127,10 @@
         "same_as_company_address": "Так же, как адрес компании",
         "audit_log": "Журнал аудита",
         "get_current_location": "Получить текущее местоположение",
-        "system": "Система"
+        "system": "Система",
+        "add_signer": "Добавить знака",
+        "click_for_download": "Нажмите здесь, чтобы загрузить",
+        "sign": "Знак"
     },
     "audit_log": {
         "audit_log": "Журнал аудита",
@@ -160,7 +163,9 @@
         "moved": "Перемещено",
         "retrieve_public": "Получить публичный",
         "upload": "Выгрузить",
-        "share": "Поделиться"
+        "share": "Поделиться",
+        "delete": "Удалить",
+        "sign": "Знак"
     },
     "audit_log_type": {
         "internal": "Внутренний",
@@ -194,7 +199,8 @@
         "settings": "Настройки",
         "employees": "Сотрудники",
         "support": "Поддержка",
-        "payments": "Платежи"
+        "payments": "Платежи",
+        "contracts": "Контракты"
     },
     "dashboard": {
         "title": "Панель",
@@ -396,7 +402,13 @@
         "display_name": "Показать имя",
         "theme": "Тема",
         "overpaid_amount": "Переплаченная сумма",
-        "sum_of_payments": "Сумма платежей"
+        "sum_of_payments": "Сумма платежей",
+        "date_for_signature": "Дата подписи",
+        "is_signer": "Подписчик",
+        "signer_name": "Имя знака",
+        "signer_email": "Signer Email",
+        "signer_phone": "Телефон подписи",
+        "signers": "Подписчики"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -657,7 +669,10 @@
         "in_review": "Проверяется",
         "delegated": "Делегированные",
         "approved": "Одобрено",
-        "not_approved": "Не одобрено"
+        "not_approved": "Не одобрено",
+        "waiting_signers": "Ожидание подписчиков",
+        "signed": "Подписано",
+        "waiting_signature": "Ожидание подписи"
     },
     "calendar": {
         "calendar": "Календарь | Календари",
@@ -801,6 +816,23 @@
         "create_first_document": "Создайте свой первый документ",
         "delete_confirm_document": "Вы уверены, что хотите удалить этот документ?"
     },
+    "contract": {
+        "contract": "Контракты | Контракты",
+        "create_contract": "Создать контракт",
+        "edit_contract": "Изменить контракт",
+        "no_contracts": "Нет контрактов",
+        "create_first_contract": "Создайте свой первый контракт",
+        "delete_confirm_contract": "Вы уверены, что хотите удалить этот контракт?",
+        "contract_details": "Информация о договоре",
+        "no_content": "Нет содержимого",
+        "no_partner": "Нет партнера",
+        "sign_contract": "Подписать контракт",
+        "contract_signed": "Контракт подписан",
+        "accept_sign_terms": "Я согласен, что подписав настоящий документ, я согласен с тем, что подпись является юридически обязательной и эквивалентна моей рукописной подписи.",
+        "accept_terms_required": "Подпись и принятие условий должны быть подписаны договором.",
+        "not_signed": "Ещё не подписано",
+        "signed": "Документ подписан"
+    },
     "support": {
         "support": "Поддержка | Поддержка",
         "support_tickets": "Заявки на поддержку",
@@ -885,7 +917,8 @@
             "app_status": "Статус приложения",
             "units": "Единицы измерения",
             "email": "Почта",
-            "webhooks": "Вебхуки"
+            "webhooks": "Вебхуки",
+            "server_settings": "Настройки сервера"
         },
         "company": {
             "title": "Настройки компании",
@@ -1063,7 +1096,9 @@
             "employee": "Формат номера сотрудника",
             "project": "Формат номера проекта",
             "department": "Формат номера отдела",
-            "archive": "Формат числа архива"
+            "archive": "Формат числа архива",
+            "contract": "Формат номера контракта",
+            "yearly": "Ежегодно"
         },
         "webhook": {
             "title": "Подписка на вебхуки",

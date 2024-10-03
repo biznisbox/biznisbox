@@ -41,4 +41,5 @@ return [
     'admin_email_settings' => 'Ρυθμίσεις Email Διαχειριστή',
     'admin_webhooks' => 'Webhooks Διαχειριστή',
     'webhooks' => 'Webhooks',
+    'contracts' => 'συμβάσεις',
 ];

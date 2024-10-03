@@ -74,7 +74,7 @@ return [
         'saturday' => 'zaterdag',
         'sunday' => 'zondag',
     ],
-    'app_installed' => 'App is al geïnstalleerd',
+    'app_installed' => 'App is al geïnstalleerd.',
     'two_factor_auth_required' => 'Authenticatie in twee stappen is vereist',
     'disabled_account' => 'Account is niet actief. Neem contact op met de beheerder.',
     'invalid_2fa_code' => 'Ongeldige 2FA code',
@@ -101,4 +101,8 @@ return [
     'install_admin_user_created' => 'Admin gebruiker is succesvol aangemaakt.',
     'item_not_moved' => 'Item niet verplaatst',
     'item_moved_successfully' => 'Item moved Successfully',
+    'error_signing_contract' => 'Fout bij ondertekenen contract',
+    'signer_not_found_or_already_signed' => 'Handtekening niet gevonden of al ondertekend',
+    'cannot_delete_signed_contract' => 'Kan ondertekend contract niet verwijderen',
+    'cannot_update_signed_contract' => 'Kan ondertekend contract niet bijwerken',
 ];

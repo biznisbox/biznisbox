@@ -32,4 +32,11 @@ return [
     'click_on_the_button_below_to_view_quote' => 'Klicka på knappen nedan för att se offerten.',
     'view_quote' => 'Visa offert',
     'subject_new_quote' => 'Ny offertavisering',
+    'new_contract_created_for_you' => 'Ett nytt kontrakt har skapats för dig, vänligen skriv under det.',
+    'contract_details' => 'Kontrakt Detaljer',
+    'contract_number' => 'Kontraktsnummer: :number',
+    'contract_expiry_date' => 'Förfallodatum för signering: datum',
+    'click_on_the_button_below_to_sign_contract' => 'Klicka på knappen nedan för att skriva under avtalet.',
+    'sign_contract' => 'Signera kontrakt',
+    'subject_new_contract' => 'Nytt kontraktsmeddelande',
 ];

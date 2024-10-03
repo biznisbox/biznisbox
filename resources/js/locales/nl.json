@@ -127,7 +127,10 @@
         "same_as_company_address": "Zelfde als bedrijfsadres",
         "audit_log": "Controle logboek",
         "get_current_location": "Verkrijg huidige locatie",
-        "system": "Systeem"
+        "system": "Systeem",
+        "add_signer": "Voeg ondertekenaar toe",
+        "click_for_download": "Klik hier om te downloaden",
+        "sign": "Ondertekenen"
     },
     "audit_log": {
         "audit_log": "Controle logboek",
@@ -160,7 +163,9 @@
         "moved": "Verplaatst",
         "retrieve_public": "Openbaar ophalen",
         "upload": "Uploaden",
-        "share": "Delen"
+        "share": "Delen",
+        "delete": "Verwijderen",
+        "sign": "Ondertekenen"
     },
     "audit_log_type": {
         "internal": "Intern",
@@ -194,7 +199,8 @@
         "settings": "Instellingen",
         "employees": "Werknemers",
         "support": "Ondersteuning",
-        "payments": "Betalingen"
+        "payments": "Betalingen",
+        "contracts": "Contracten"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -396,7 +402,13 @@
         "display_name": "Toon naam",
         "theme": "Thema",
         "overpaid_amount": "Overpaid bedrag",
-        "sum_of_payments": "Som van betalingen"
+        "sum_of_payments": "Som van betalingen",
+        "date_for_signature": "Datum voor ondertekening",
+        "is_signer": "Is ondertekenaar",
+        "signer_name": "Naam ondertekenaar",
+        "signer_email": "Signer Email",
+        "signer_phone": "Telefoon ondertekenaar",
+        "signers": "Signers"
     },
     "address_types": {
         "billing": "Facturering",
@@ -657,7 +669,10 @@
         "in_review": "In beoordeling",
         "delegated": "Overdragen",
         "approved": "Goedgekeurd",
-        "not_approved": "Niet goedgekeurd"
+        "not_approved": "Niet goedgekeurd",
+        "waiting_signers": "Wachten op ondertekenaars",
+        "signed": "Ondertekend",
+        "waiting_signature": "Wachten op ondertekening"
     },
     "calendar": {
         "calendar": "Kalenderkalenders",
@@ -801,6 +816,23 @@
         "create_first_document": "Maak uw eerste document aan",
         "delete_confirm_document": "Weet u zeker dat u dit document wilt verwijderen?"
     },
+    "contract": {
+        "contract": "Contract-instructie contracten",
+        "create_contract": "Maak contract",
+        "edit_contract": "Contract bewerken",
+        "no_contracts": "Geen contracten gevonden",
+        "create_first_contract": "Uw eerste contract aanmaken",
+        "delete_confirm_contract": "Weet u zeker dat u dit contract wilt verwijderen?",
+        "contract_details": "Contract details",
+        "no_content": "Geen inhoud",
+        "no_partner": "Geen partner",
+        "sign_contract": "Onderteken contract",
+        "contract_signed": "Ondertekend contract",
+        "accept_sign_terms": "Ik aanvaard dat ik door dit document te ondertekenen ermee akkoord ga dat de ondertekening juridisch bindend is en overeenkomt met mijn handgeschreven handtekening.",
+        "accept_terms_required": "Ondertekening en acceptatie van de voorwaarden zijn vereist om het contract te ondertekenen.",
+        "not_signed": "Nog niet ondertekend",
+        "signed": "Document ondertekend"
+    },
     "support": {
         "support": "Ondersteun wwit ondersteuning",
         "support_tickets": "Tickets Ondersteuning",
@@ -885,7 +917,8 @@
             "app_status": "Applicatie Status",
             "units": "Eenheden",
             "email": "E-mailadres",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Server Instellingen"
         },
         "company": {
             "title": "Bedrijf instellingen",
@@ -1063,7 +1096,9 @@
             "employee": "Medewerker nummer formaat",
             "project": "Project nummer formaat",
             "department": "Formaat afdelingsnummer",
-            "archive": "Archief nummerformaat"
+            "archive": "Archief nummerformaat",
+            "contract": "Contract nummer formaat",
+            "yearly": "Jaarlijks"
         },
         "webhook": {
             "title": "Webhooks abonnement",

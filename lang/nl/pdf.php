@@ -42,6 +42,11 @@ return [
     'reference' => 'Referentie',
     'footer' => 'Voettekst',
     'discount_type' => 'Type korting',
+    'contract' => 'Contract',
+    'name' => 'naam',
+    'signature' => 'Handtekening',
+    'signers' => 'Signers',
+    'no_signature' => 'Geen handtekening',
     'payment_methods' => [
         'cash' => 'Contant',
         'check' => 'Controleer',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Bekeken',
         'expired' => 'Verlopen',
         'converted' => 'Geconverteerd',
+        'signed' => 'Ondertekend',
+        'unsigned' => 'Niet-ondertekend',
+        'waiting_signers' => 'Wacht op ondertekenaars',
+        'rejected' => 'Geweigerd',
+        'expired' => 'Verlopen',
+        'waiting_signature' => 'Wachten op handtekening',
     ],
 ];

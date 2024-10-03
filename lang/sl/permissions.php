@@ -41,4 +41,5 @@ return [
     'admin_email_settings' => 'Admin nastavitve e-pošte',
     'admin_webhooks' => 'Skrbniki spletnih uporabnikov',
     'webhooks' => 'Spletne kljuke (Webhooks)',
+    'contracts' => 'Pogodbe',
 ];

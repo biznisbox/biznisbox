@@ -74,7 +74,7 @@ return [
         'saturday' => 'sábado',
         'sunday' => 'domingo',
     ],
-    'app_installed' => 'O aplicativo já está instalado',
+    'app_installed' => 'O aplicativo já está instalado.',
     'two_factor_auth_required' => 'A autenticação de dois fatores é necessária',
     'disabled_account' => 'A conta não está ativa. Entre em contato com o administrador.',
     'invalid_2fa_code' => 'Código 2FA inválido',
@@ -101,4 +101,8 @@ return [
     'install_admin_user_created' => 'Usuário administrador criado com sucesso.',
     'item_not_moved' => 'Item não movido',
     'item_moved_successfully' => 'Item movido com sucesso',
+    'error_signing_contract' => 'Erro ao assinar contrato',
+    'signer_not_found_or_already_signed' => 'Assinante não encontrado ou já assinado',
+    'cannot_delete_signed_contract' => 'Não é possível excluir o contrato assinado',
+    'cannot_update_signed_contract' => 'Não é possível atualizar o contrato assinado',
 ];

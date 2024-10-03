@@ -42,6 +42,11 @@ return [
     'reference' => 'Referencia',
     'footer' => 'Pie',
     'discount_type' => 'Tipo de descuento',
+    'contract' => 'Contrato',
+    'name' => 'Nombre',
+    'signature' => 'Firma',
+    'signers' => 'Firmadores',
+    'no_signature' => 'Sin firma',
     'payment_methods' => [
         'cash' => 'Dinero',
         'check' => 'Comprobar',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Visto',
         'expired' => 'Caducó',
         'converted' => 'Convertido',
+        'signed' => 'Firmado',
+        'unsigned' => 'Sin firmar',
+        'waiting_signers' => 'Esperando a los firmantes',
+        'rejected' => 'Rechazado',
+        'expired' => 'Caducó',
+        'waiting_signature' => 'Esperando firma',
     ],
 ];

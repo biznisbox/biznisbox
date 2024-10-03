@@ -127,7 +127,10 @@
         "same_as_company_address": "Ίδια με τη διεύθυνση της εταιρείας",
         "audit_log": "Αρχείο Ελέγχου",
         "get_current_location": "Λήψη τρέχουσας τοποθεσίας",
-        "system": "Σύστημα"
+        "system": "Σύστημα",
+        "add_signer": "Προσθήκη Υπογραφέα",
+        "click_for_download": "Κάντε κλικ εδώ για λήψη",
+        "sign": "Υπογραφή"
     },
     "audit_log": {
         "audit_log": "Αρχείο Ελέγχου",
@@ -160,7 +163,9 @@
         "moved": "Μετακινήθηκε",
         "retrieve_public": "Ανάκτηση Δημοσίου",
         "upload": "Ανέβασμα",
-        "share": "Κοινοποίηση"
+        "share": "Κοινοποίηση",
+        "delete": "Διαγραφή",
+        "sign": "Υπογραφή"
     },
     "audit_log_type": {
         "internal": "Εσωτερική",
@@ -194,7 +199,8 @@
         "settings": "Ρυθμίσεις",
         "employees": "Υπάλληλοι",
         "support": "Υποστήριξη",
-        "payments": "Πληρωμές"
+        "payments": "Πληρωμές",
+        "contracts": "Συμβάσεις"
     },
     "dashboard": {
         "title": "Ταμπλό",
@@ -396,7 +402,13 @@
         "display_name": "Εμφανιζόμενο Όνομα",
         "theme": "Θέμα",
         "overpaid_amount": "Υπερπληρωμένο Ποσό",
-        "sum_of_payments": "Άθροισμα πληρωμών"
+        "sum_of_payments": "Άθροισμα πληρωμών",
+        "date_for_signature": "Ημερομηνία υπογραφής",
+        "is_signer": "Είναι Υπογραφέας",
+        "signer_name": "Όνομα Υπογραφέα",
+        "signer_email": "Signer Email",
+        "signer_phone": "Τηλέφωνο Υπογραφέα",
+        "signers": "Υπογραφείς"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -657,7 +669,10 @@
         "in_review": "Σε ανασκόπηση",
         "delegated": "Εξουσιοδοτημένο",
         "approved": "Εγκρίθηκε",
-        "not_approved": "Μη εγκεκριμένο"
+        "not_approved": "Μη εγκεκριμένο",
+        "waiting_signers": "Αναμονή για υπογράφοντες",
+        "signed": "Υπογραφή",
+        "waiting_signature": "Αναμονή για υπογραφή"
     },
     "calendar": {
         "calendar": "Ημερολόγιο \"Ημερολόγια\"",
@@ -801,6 +816,23 @@
         "create_first_document": "Δημιουργήστε το πρώτο σας έγγραφο",
         "delete_confirm_document": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το έγγραφο?"
     },
+    "contract": {
+        "contract": "Συμβόλαια Συμβολαίου",
+        "create_contract": "Δημιουργία Συμβολαίου",
+        "edit_contract": "Επεξεργασία Συμβολαίου",
+        "no_contracts": "Δεν βρέθηκαν συμβάσεις",
+        "create_first_contract": "Δημιουργήστε το πρώτο σας συμβόλαιο",
+        "delete_confirm_contract": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το συμβόλαιο?",
+        "contract_details": "Λεπτομέρειες συμβολαίου",
+        "no_content": "Χωρίς περιεχόμενο",
+        "no_partner": "Κανένας συνεργάτης",
+        "sign_contract": "Υπογραφή σύμβασης",
+        "contract_signed": "Υπογεγραμμένο συμβόλαιο",
+        "accept_sign_terms": "Δέχομαι ότι υπογράφοντας αυτό το έγγραφο, συμφωνώ με το ότι η υπογραφή είναι νομικά δεσμευτική και ισοδύναμη με την χειρόγραφη υπογραφή μου.",
+        "accept_terms_required": "Η υπογραφή και αποδοχή των όρων απαιτείται για την υπογραφή της σύμβασης.",
+        "not_signed": "Δεν έχει υπογραφεί ακόμα",
+        "signed": "Υπογεγραμμένο έγγραφο"
+    },
     "support": {
         "support": "Υποστήριξη \"Υποστηρίζει",
         "support_tickets": "Εισιτήρια Υποστήριξης",
@@ -885,7 +917,8 @@
             "app_status": "Κατάσταση Εφαρμογής",
             "units": "Μονάδες",
             "email": "E-mail",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Ρυθμίσεις Διακομιστή"
         },
         "company": {
             "title": "Ρυθμίσεις Εταιρείας",
@@ -1063,7 +1096,9 @@
             "employee": "Μορφή αριθμού υπαλλήλων",
             "project": "Μορφή αριθμού έργου",
             "department": "Μορφή αριθμού τμήματος",
-            "archive": "Μορφή αριθμού αρχείου"
+            "archive": "Μορφή αριθμού αρχείου",
+            "contract": "Μορφή αριθμού σύμβασης",
+            "yearly": "Ετήσια"
         },
         "webhook": {
             "title": "Συνδρομή Webhooks",

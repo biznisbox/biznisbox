@@ -127,7 +127,10 @@
         "same_as_company_address": "Identique à l'adresse de l'entreprise",
         "audit_log": "Journal d'audit",
         "get_current_location": "Obtenir la position actuelle",
-        "system": "Système"
+        "system": "Système",
+        "add_signer": "Ajouter un signataire",
+        "click_for_download": "Cliquez ici pour télécharger",
+        "sign": "Signer"
     },
     "audit_log": {
         "audit_log": "Journal d'audit",
@@ -160,7 +163,9 @@
         "moved": "Déplacé",
         "retrieve_public": "Récupérer le public",
         "upload": "Charger",
-        "share": "Partager"
+        "share": "Partager",
+        "delete": "Supprimez",
+        "sign": "Signer"
     },
     "audit_log_type": {
         "internal": "Interne",
@@ -194,7 +199,8 @@
         "settings": "Réglages",
         "employees": "Employés",
         "support": "Soutien",
-        "payments": "Paiements"
+        "payments": "Paiements",
+        "contracts": "Contrats"
     },
     "dashboard": {
         "title": "Tableau de bord",
@@ -396,7 +402,13 @@
         "display_name": "Nom affiché",
         "theme": "Thème",
         "overpaid_amount": "Montant surpayé",
-        "sum_of_payments": "Somme des paiements"
+        "sum_of_payments": "Somme des paiements",
+        "date_for_signature": "Date de signature",
+        "is_signer": "Est signataire",
+        "signer_name": "Nom du signataire",
+        "signer_email": "Signer Email",
+        "signer_phone": "Signer le téléphone",
+        "signers": "Signataires"
     },
     "address_types": {
         "billing": "Facturation",
@@ -657,7 +669,10 @@
         "in_review": "En cours de révision",
         "delegated": "Délégué",
         "approved": "Approuvé",
-        "not_approved": "Non approuvé"
+        "not_approved": "Non approuvé",
+        "waiting_signers": "En attente de signataires",
+        "signed": "Signé",
+        "waiting_signature": "En attente de signature"
     },
     "calendar": {
         "calendar": "Calendrier | Calendriers",
@@ -801,6 +816,23 @@
         "create_first_document": "Créez votre premier document",
         "delete_confirm_document": "Êtes-vous sûr de vouloir supprimer ce document ?"
     },
+    "contract": {
+        "contract": "Contrat | Contrats",
+        "create_contract": "Créer un contrat",
+        "edit_contract": "Modifier le contrat",
+        "no_contracts": "Aucun contrat trouvé",
+        "create_first_contract": "Créez votre premier contrat",
+        "delete_confirm_contract": "Êtes-vous sûr de vouloir supprimer ce contrat ?",
+        "contract_details": "Détails du contrat",
+        "no_content": "Aucun contenu",
+        "no_partner": "Aucun partenaire",
+        "sign_contract": "Signer le contrat",
+        "contract_signed": "Contrat signé",
+        "accept_sign_terms": "J'admets qu'en signant ce document, je suis d'accord avec le fait que la signature est juridiquement contraignante et équivalente à ma signature manuscrite.",
+        "accept_terms_required": "La signature et l'acceptation des conditions sont requises pour signer le contrat.",
+        "not_signed": "Pas encore signé",
+        "signed": "Document signé"
+    },
     "support": {
         "support": "Support | Support",
         "support_tickets": "Tickets de support",
@@ -885,7 +917,8 @@
             "app_status": "Statut de l'application",
             "units": "Unités",
             "email": "Courriel",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Paramètres du serveur"
         },
         "company": {
             "title": "Paramètres de la société",
@@ -1063,7 +1096,9 @@
             "employee": "Format du numéro d'employé",
             "project": "Format du numéro de projet",
             "department": "Format du numéro de service",
-            "archive": "Format du numéro d'archive"
+            "archive": "Format du numéro d'archive",
+            "contract": "Format du numéro de contrat",
+            "yearly": "Annuel"
         },
         "webhook": {
             "title": "Abonnement aux Webhooks",

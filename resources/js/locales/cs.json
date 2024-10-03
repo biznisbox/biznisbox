@@ -127,7 +127,10 @@
         "same_as_company_address": "Stejná jako adresa společnosti",
         "audit_log": "Protokol auditu",
         "get_current_location": "Získat aktuální polohu",
-        "system": "Systém"
+        "system": "Systém",
+        "add_signer": "Přidat podpisce",
+        "click_for_download": "Klikněte zde pro stažení",
+        "sign": "Značka"
     },
     "audit_log": {
         "audit_log": "Protokol auditu",
@@ -160,7 +163,9 @@
         "moved": "Přesunuto",
         "retrieve_public": "Získat veřejné",
         "upload": "Nahrát",
-        "share": "Sdílet"
+        "share": "Sdílet",
+        "delete": "Vymazat",
+        "sign": "Značka"
     },
     "audit_log_type": {
         "internal": "Interní",
@@ -194,7 +199,8 @@
         "settings": "Nastavení",
         "employees": "Zaměstnanci",
         "support": "Podpora",
-        "payments": "KAPITOLA 1 4 – CELKEM"
+        "payments": "KAPITOLA 1 4 – CELKEM",
+        "contracts": "Zakázky"
     },
     "dashboard": {
         "title": "Nástěnka",
@@ -396,7 +402,13 @@
         "display_name": "Zobrazované jméno",
         "theme": "Téma",
         "overpaid_amount": "Přeplatek",
-        "sum_of_payments": "Součet plateb"
+        "sum_of_payments": "Součet plateb",
+        "date_for_signature": "Datum podpisu",
+        "is_signer": "Je podepisující",
+        "signer_name": "Jméno podepisovatele",
+        "signer_email": "Signer Email",
+        "signer_phone": "Telefon podepisovatele",
+        "signers": "Podepsaní"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -657,7 +669,10 @@
         "in_review": "V přezkumu",
         "delegated": "Přenesení pravomoci",
         "approved": "Schváleno",
-        "not_approved": "Neschváleno"
+        "not_approved": "Neschváleno",
+        "waiting_signers": "Čekání na podpisy",
+        "signed": "Podepsáno",
+        "waiting_signature": "Čekání na podpis"
     },
     "calendar": {
         "calendar": "Kalendář | Kalendáře",
@@ -801,6 +816,23 @@
         "create_first_document": "Vytvořit první dokument",
         "delete_confirm_document": "Jste si jisti, že chcete odstranit tento doklad?"
     },
+    "contract": {
+        "contract": "Smlouva | Smlouvy",
+        "create_contract": "Vytvořit smlouvu",
+        "edit_contract": "Upravit smlouvu",
+        "no_contracts": "Nebyly nalezeny žádné smlouvy",
+        "create_first_contract": "Vytvořte svůj první kontrakt",
+        "delete_confirm_contract": "Jste si jisti, že chcete odstranit tuto smlouvu?",
+        "contract_details": "Detaily smlouvy",
+        "no_content": "Žádný obsah",
+        "no_partner": "Žádný partner",
+        "sign_contract": "Podepsat smlouvu",
+        "contract_signed": "Podepsané smlouvy",
+        "accept_sign_terms": "Uznávám, že podpisem tohoto dokumentu souhlasím s tím, že podpis je právně závazný a odpovídá mému vlastnoručnímu podpisu.",
+        "accept_terms_required": "Podpis a přijetí podmínek musí podepsat smlouvu.",
+        "not_signed": "Zatím nepřihlášeno",
+        "signed": "Dokument podepsán"
+    },
     "support": {
         "support": "Podpora | Podpora",
         "support_tickets": "Podpora tiketů",
@@ -885,7 +917,8 @@
             "app_status": "Stav aplikace",
             "units": "Jednotky",
             "email": "E-mailová adresa",
-            "webhooks": "Webhooky"
+            "webhooks": "Webhooky",
+            "server_settings": "Nastavení serveru"
         },
         "company": {
             "title": "Nastavení společnosti",
@@ -1063,7 +1096,9 @@
             "employee": "Formát čísla zaměstnance",
             "project": "Formát čísla projektu",
             "department": "Formát čísla oddělení",
-            "archive": "Formát čísla archivu"
+            "archive": "Formát čísla archivu",
+            "contract": "Formát čísla smlouvy",
+            "yearly": "Roční"
         },
         "webhook": {
             "title": "Odběr Webhooků",

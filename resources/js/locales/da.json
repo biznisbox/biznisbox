@@ -127,7 +127,10 @@
         "same_as_company_address": "Samme som virksomhedsadresse",
         "audit_log": "Audit Log",
         "get_current_location": "Hent aktuel placering",
-        "system": "System"
+        "system": "System",
+        "add_signer": "Tilføj Signer",
+        "click_for_download": "Klik her for at downloade",
+        "sign": "Underskriv"
     },
     "audit_log": {
         "audit_log": "Audit Log",
@@ -160,7 +163,9 @@
         "moved": "Flyttet",
         "retrieve_public": "Hent Offentlig",
         "upload": "Upload",
-        "share": "Del"
+        "share": "Del",
+        "delete": "Slet",
+        "sign": "Underskriv"
     },
     "audit_log_type": {
         "internal": "Intern",
@@ -194,7 +199,8 @@
         "settings": "Indstillinger",
         "employees": "Medarbejdere",
         "support": "Support",
-        "payments": "Betalinger"
+        "payments": "Betalinger",
+        "contracts": "Kontrakter"
     },
     "dashboard": {
         "title": "Instrumentbræt",
@@ -396,7 +402,13 @@
         "display_name": "Vis Navn",
         "theme": "Tema",
         "overpaid_amount": "Overbetalt Beløb",
-        "sum_of_payments": "Summen af betalinger"
+        "sum_of_payments": "Summen af betalinger",
+        "date_for_signature": "Dato for underskrift",
+        "is_signer": "Er Signer",
+        "signer_name": "Signer Navn",
+        "signer_email": "Signer Email",
+        "signer_phone": "Signer Telefon",
+        "signers": "Underskrivere"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -657,7 +669,10 @@
         "in_review": "Ved gennemgang",
         "delegated": "Delegeret",
         "approved": "Godkendt",
-        "not_approved": "Ikke godkendt"
+        "not_approved": "Ikke godkendt",
+        "waiting_signers": "Venter på underskrivere",
+        "signed": "Signeret",
+        "waiting_signature": "Venter på signatur"
     },
     "calendar": {
         "calendar": "Kalender Kalendere",
@@ -801,6 +816,23 @@
         "create_first_document": "Opret dit første dokument",
         "delete_confirm_document": "Er du sikker på, at du vil slette dette dokument?"
     },
+    "contract": {
+        "contract": "Kontrakter, Kontrakter",
+        "create_contract": "Opret Kontrakt",
+        "edit_contract": "Rediger Kontrakt",
+        "no_contracts": "Ingen kontrakter fundet",
+        "create_first_contract": "Opret din første kontrakt",
+        "delete_confirm_contract": "Er du sikker på, at du vil slette denne kontrakt?",
+        "contract_details": "Kontrakt detaljer",
+        "no_content": "Intet indhold",
+        "no_partner": "Ingen partner",
+        "sign_contract": "Underskriv kontrakt",
+        "contract_signed": "Kontrakt underskrevet",
+        "accept_sign_terms": "Jeg accepterer, at jeg ved at underskrive dette dokument er enig i, at underskriften er juridisk bindende og svarer til min håndskrevne underskrift.",
+        "accept_terms_required": "Undertegnelse og accept af vilkår er forpligtet til at underskrive aftalen.",
+        "not_signed": "Ikke signeret endnu",
+        "signed": "Dokument signeret"
+    },
     "support": {
         "support": "Støt - Understøtter",
         "support_tickets": "Support Bestillinger",
@@ -885,7 +917,8 @@
             "app_status": "Programmets Status",
             "units": "Enheder",
             "email": "E-mail",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Server Indstillinger"
         },
         "company": {
             "title": "Virksomhedsindstillinger",
@@ -1063,7 +1096,9 @@
             "employee": "Medarbejder nummer format",
             "project": "Projekt nummer format",
             "department": "Afdeling nummer format",
-            "archive": "Arkivér nummerformat"
+            "archive": "Arkivér nummerformat",
+            "contract": "Kontrakt nummer format",
+            "yearly": "Årligt"
         },
         "webhook": {
             "title": "Webhooks abonnement",

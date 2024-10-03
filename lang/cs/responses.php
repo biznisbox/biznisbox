@@ -74,7 +74,7 @@ return [
         'saturday' => 'Sobota',
         'sunday' => 'Neděle',
     ],
-    'app_installed' => 'Aplikace je již nainstalována',
+    'app_installed' => 'Aplikace je již nainstalována.',
     'two_factor_auth_required' => 'Dvoufázové ověření je vyžadováno',
     'disabled_account' => 'Účet není aktivní. Kontaktujte správce.',
     'invalid_2fa_code' => 'Neplatný 2FA kód',
@@ -101,4 +101,8 @@ return [
     'install_admin_user_created' => 'Uživatel správce byl úspěšně vytvořen.',
     'item_not_moved' => 'Položka nebyla přesunuta',
     'item_moved_successfully' => 'Položka byla úspěšně přesunuta',
+    'error_signing_contract' => 'Chyba při podepisování smlouvy',
+    'signer_not_found_or_already_signed' => 'Podpisník nebyl nalezen nebo již byl podepsán',
+    'cannot_delete_signed_contract' => 'Nelze odstranit podepsanou smlouvu',
+    'cannot_update_signed_contract' => 'Nelze aktualizovat podepsanou smlouvu',
 ];

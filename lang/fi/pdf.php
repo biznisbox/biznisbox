@@ -42,6 +42,11 @@ return [
     'reference' => 'Viite',
     'footer' => 'Alatunniste',
     'discount_type' => 'Alennuksen Tyyppi',
+    'contract' => 'Sopimus',
+    'name' => 'Nimi',
+    'signature' => 'Allekirjoitus',
+    'signers' => 'Allekirjoittajat',
+    'no_signature' => 'Ei Allekirjoitusta',
     'payment_methods' => [
         'cash' => 'Käteinen',
         'check' => 'Tarkista',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Katsottu',
         'expired' => 'Vanhentunut',
         'converted' => 'Muunnettu',
+        'signed' => 'Allekirjoitettu',
+        'unsigned' => 'Allekirjoittamaton',
+        'waiting_signers' => 'Odotetaan Allekirjoittajia',
+        'rejected' => 'Hylätty',
+        'expired' => 'Vanhentunut',
+        'waiting_signature' => 'Odotetaan Allekirjoitusta',
     ],
 ];

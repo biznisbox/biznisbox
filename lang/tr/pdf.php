@@ -42,6 +42,11 @@ return [
     'reference' => 'Referans',
     'footer' => 'Alt Bilgi',
     'discount_type' => 'İndirim Türü',
+    'contract' => 'Contract',
+    'name' => 'Name',
+    'signature' => 'Signature',
+    'signers' => 'Signers',
+    'no_signature' => 'No Signature',
     'payment_methods' => [
         'cash' => 'Nakit',
         'check' => 'Çek',
@@ -68,5 +73,11 @@ return [
         'viewed' => 'Görüntülendi',
         'expired' => 'Süresi Dolmuş',
         'converted' => 'Dönüştürüldü',
+        'signed' => 'Signed',
+        'unsigned' => 'Unsigned',
+        'waiting_signers' => 'Waiting Signers',
+        'rejected' => 'Rejected',
+        'expired' => 'Expired',
+        'waiting_signature' => 'Waiting Signature',
     ],
 ];

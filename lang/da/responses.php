@@ -74,7 +74,7 @@ return [
         'saturday' => 'Lørdag',
         'sunday' => 'Søndag',
     ],
-    'app_installed' => 'App er allerede installeret',
+    'app_installed' => 'Appen er allerede installeret.',
     'two_factor_auth_required' => 'To faktor autentificering er påkrævet',
     'disabled_account' => 'Konto er ikke aktiv. Kontakt administratoren.',
     'invalid_2fa_code' => 'Ugyldig 2FA kode',
@@ -101,4 +101,8 @@ return [
     'install_admin_user_created' => 'Admin bruger oprettet med succes.',
     'item_not_moved' => 'Elementet er ikke flyttet',
     'item_moved_successfully' => 'Elementet blev flyttet',
+    'error_signing_contract' => 'Fejl ved underskrivelse af kontrakt',
+    'signer_not_found_or_already_signed' => 'Signer ikke fundet eller allerede signeret',
+    'cannot_delete_signed_contract' => 'Kan ikke slette underskrevet kontrakt',
+    'cannot_update_signed_contract' => 'Kan ikke opdatere underskrevet kontrakt',
 ];

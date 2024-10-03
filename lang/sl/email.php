@@ -32,4 +32,11 @@ return [
     'click_on_the_button_below_to_view_quote' => 'Kliknite na spodnji gumb, da si ogledate ponudbo.',
     'view_quote' => 'Ogled ponudbe',
     'subject_new_quote' => 'Obvestilo o novi ponudbi',
+    'new_contract_created_for_you' => 'Nova pogodba je bila ustvarjena na kateri ste podpisnik, prosimo podpišite jo. ',
+    'contract_details' => 'Podrobnosti pogodbe',
+    'contract_number' => 'Številka pogodbe: :number',
+    'contract_expiry_date' => 'Rok za podpis :date',
+    'click_on_the_button_below_to_sign_contract' => 'Pritisnite na spodnji gumb za podpis pogodbe.',
+    'sign_contract' => 'Podpiši pogodbo',
+    'subject_new_contract' => 'Nova pogodba',
 ];

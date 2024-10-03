@@ -32,4 +32,11 @@ return [
     'click_on_the_button_below_to_view_quote' => 'Нажмите на кнопку ниже, чтобы просмотреть цитату.',
     'view_quote' => 'Просмотр цитаты',
     'subject_new_quote' => 'Новое уведомление Quote',
+    'new_contract_created_for_you' => 'Для вас был создан новый контракт, пожалуйста, подпишите его.',
+    'contract_details' => 'Детали контракта',
+    'contract_number' => 'Номер контракта: :number',
+    'contract_expiry_date' => 'Дата окончания подписи :date',
+    'click_on_the_button_below_to_sign_contract' => 'Нажмите на кнопку ниже, чтобы подписать контракт.',
+    'sign_contract' => 'Подписывать контракт',
+    'subject_new_contract' => 'Новое уведомление контракта',
 ];

@@ -74,7 +74,7 @@ return [
         'saturday' => '星期六',
         'sunday' => '星期日',
     ],
-    'app_installed' => '應用程式已安裝',
+    'app_installed' => '應用程式已安裝。',
     'two_factor_auth_required' => '需要兩因素驗證',
     'disabled_account' => '帳號未激活。請聯繫管理員。',
     'invalid_2fa_code' => '無效的2FA代碼',
@@ -101,4 +101,8 @@ return [
     'install_admin_user_created' => '管理員使用者成功建立。',
     'item_not_moved' => '項目未移動',
     'item_moved_successfully' => '項目成功移動',
+    'error_signing_contract' => 'Error signing contract',
+    'signer_not_found_or_already_signed' => 'Signer not found or already signed',
+    'cannot_delete_signed_contract' => 'Cannot delete signed contract',
+    'cannot_update_signed_contract' => 'Cannot update signed contract',
 ];
