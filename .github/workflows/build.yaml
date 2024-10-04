@@ -58,4 +58,5 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                   name: ${{ env.ENV_ARTIFACT_NAME }}
+                  include-hidden-files: true # Include hidden files in the artifact (fix for .env .gitignore ...)
                   path: ${{ github.workspace }}/
