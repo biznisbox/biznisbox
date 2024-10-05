@@ -15,7 +15,7 @@ class ContractSeeder extends Seeder
     {
         for ($i = 0; $i < 40; $i++) {
             $id = fake()->uuid();
-            $content = fake()->paragraphs(15, true);	
+            $content = fake()->paragraphs(15, true);
             \App\Models\Contract::create([
                 'id' => $id,
                 'title' => fake()->sentence(3),
@@ -43,7 +43,6 @@ class ContractSeeder extends Seeder
                     'sign_order' => $j + 1,
                 ]);
             }
-
         }
     }
 }
