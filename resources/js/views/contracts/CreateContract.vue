@@ -49,7 +49,7 @@
                         </div>
                         <DataTable class="overflow-x-auto" :value="contract.signers">
                             <template #empty>
-                                <div class="p-4 pl-0 text-center">{{ $t('signers.no_signers') }}</div>
+                                <div class="p-4 pl-0 text-center">{{ $t('contract.no_signers') }}</div>
                             </template>
 
                             <Column field="signer_name" :header="$t('form.signer_name')">

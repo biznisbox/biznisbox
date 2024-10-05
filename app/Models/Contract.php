@@ -217,7 +217,7 @@ class Contract extends Model implements Auditable
         return $contract;
     }
 
-    public function getContractNumber()
+    public static function getContractNumber()
     {
         $number = generateNextNumber(settings('contract_number_format'), 'contract');
         return $number;

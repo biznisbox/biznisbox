@@ -94,6 +94,7 @@
                                 <span>{{ signer.notes }}</span>
                             </div>
                         </li>
+                        <span class="p-2" v-if="contract.signers.length === 0">{{ $t('contract.no_signers') }}</span>
                     </ul>
                 </DisplayData>
             </div>

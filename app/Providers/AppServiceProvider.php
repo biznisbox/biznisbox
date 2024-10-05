@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use Symfony\Component\HttpFoundation\Request;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -19,6 +21,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Trusting the proxy to get the real IP address
+        Request::setTrustedProxies(
+            ['REMOTE_ADDR'],
+            Request::HEADER_X_FORWARDED_FOR
+        );
     }
 }
