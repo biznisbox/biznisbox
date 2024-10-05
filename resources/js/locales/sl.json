@@ -831,7 +831,8 @@
         "accept_sign_terms": "Strinjam se, da se s podpisom tega dokumenta strinjam, da je podpis pravno zavezujoč in enakovreden mojemu lastnoročnemu podpisu.",
         "accept_terms_required": "Za podpis pogodbe sta potrebna podpis in sprejem pogojev.",
         "not_signed": "Še ni podpisano",
-        "signed": "Podpisan dokument"
+        "signed": "Podpisan dokument",
+        "no_signers": "No signers"
     },
     "support": {
         "support": "Podpora",
