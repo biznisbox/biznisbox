@@ -831,7 +831,8 @@
         "accept_sign_terms": "Jag accepterar att jag genom att underteckna detta dokument håller med om att undertecknandet är rättsligt bindande och likvärdigt med min handskrivna underskrift.",
         "accept_terms_required": "För att underteckna avtalet krävs undertecknande och godkännande av villkor.",
         "not_signed": "Inte signerad ännu",
-        "signed": "Dokument signerat"
+        "signed": "Dokument signerat",
+        "no_signers": "Inga signerare"
     },
     "support": {
         "support": "Stöd <unk> Stöder",
