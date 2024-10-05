@@ -831,7 +831,8 @@
         "accept_sign_terms": "Ich akzeptiere, dass ich mit der Unterzeichnung dieses Dokuments einverstanden bin, dass die Unterschrift rechtsverbindlich ist und meiner handschriftlichen Unterschrift entspricht.",
         "accept_terms_required": "Zur Unterzeichnung des Vertrages sind die Unterzeichnung und Annahme der Vertragsbedingungen erforderlich.",
         "not_signed": "Noch nicht signiert",
-        "signed": "Dokument signiert"
+        "signed": "Dokument signiert",
+        "no_signers": "Keine Unterzeichner"
     },
     "support": {
         "support": "Support | Unterstützungen",
