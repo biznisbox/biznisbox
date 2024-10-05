@@ -831,7 +831,8 @@
         "accept_sign_terms": "Jeg accepterer, at jeg ved at underskrive dette dokument er enig i, at underskriften er juridisk bindende og svarer til min håndskrevne underskrift.",
         "accept_terms_required": "Undertegnelse og accept af vilkår er forpligtet til at underskrive aftalen.",
         "not_signed": "Ikke signeret endnu",
-        "signed": "Dokument signeret"
+        "signed": "Dokument signeret",
+        "no_signers": "Ingen underskrivere"
     },
     "support": {
         "support": "Støt - Understøtter",

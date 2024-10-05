@@ -831,7 +831,8 @@
         "accept_sign_terms": "Aceito que, ao assinar este documento, concordo que a assinatura é juridicamente vinculativa e equivalente à minha assinatura manuscrita.",
         "accept_terms_required": "Assinatura e aceitação dos termos são necessários para assinar o contrato.",
         "not_signed": "Ainda não assinado",
-        "signed": "Documento assinado"
+        "signed": "Documento assinado",
+        "no_signers": "Nenhum assinante"
     },
     "support": {
         "support": "Apoie-os",

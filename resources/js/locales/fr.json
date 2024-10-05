@@ -831,7 +831,8 @@
         "accept_sign_terms": "J'admets qu'en signant ce document, je suis d'accord avec le fait que la signature est juridiquement contraignante et équivalente à ma signature manuscrite.",
         "accept_terms_required": "La signature et l'acceptation des conditions sont requises pour signer le contrat.",
         "not_signed": "Pas encore signé",
-        "signed": "Document signé"
+        "signed": "Document signé",
+        "no_signers": "Aucun signataire"
     },
     "support": {
         "support": "Support | Support",

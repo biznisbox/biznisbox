@@ -831,7 +831,8 @@
         "accept_sign_terms": "Jeg aksepterer at ved signering av dette dokumentet er jeg enig i at signaturen er juridisk bindende og tilsvarende min håndskrevne signatur.",
         "accept_terms_required": "Signatur og aksept av vilkår er påkrevd for å undertegne kontrakten.",
         "not_signed": "Ikke signert ennå",
-        "signed": "Dokument signert"
+        "signed": "Dokument signert",
+        "no_signers": "Ingen signører"
     },
     "support": {
         "support": "Støtte iNaturSupport Support",

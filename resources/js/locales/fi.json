@@ -831,7 +831,8 @@
         "accept_sign_terms": "Hyväksyn sen, että allekirjoittamalla tämän asiakirjan, olen samaa mieltä siitä, että allekirjoitus on oikeudellisesti sitova ja vastaa käsin kirjoitettua allekirjoitustani.",
         "accept_terms_required": "Sopimuksen allekirjoittaminen edellyttää ehtojen allekirjoittamista ja hyväksymistä.",
         "not_signed": "Ei vielä allekirjoitettu",
-        "signed": "Asiakirja allekirjoitettu"
+        "signed": "Asiakirja allekirjoitettu",
+        "no_signers": "Ei allekirjoittajia"
     },
     "support": {
         "support": "Tue - Tuet",

@@ -831,7 +831,8 @@
         "accept_sign_terms": "I accept that by signing this document, I agree with that the signature is legally binding and equivalent to my handwritten signature.",
         "accept_terms_required": "Signature and acceptance of terms are required to sign the contract.",
         "not_signed": "Not signed yet",
-        "signed": "Document signed"
+        "signed": "Document signed",
+        "no_signers": "No signers"
     },
     "support": {
         "support": "Support | Supports",

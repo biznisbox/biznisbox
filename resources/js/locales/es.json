@@ -831,7 +831,8 @@
         "accept_sign_terms": "Acepto que al firmar este documento, estoy de acuerdo con que la firma es jurídicamente vinculante y equivalente a mi firma manuscrita.",
         "accept_terms_required": "La firma y la aceptación de los términos son necesarios para la firma del contrato.",
         "not_signed": "Aún no firmado",
-        "signed": "Documento firmado"
+        "signed": "Documento firmado",
+        "no_signers": "No hay firmantes"
     },
     "support": {
         "support": "Soporte | Soporte",

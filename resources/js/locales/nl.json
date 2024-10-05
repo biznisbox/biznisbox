@@ -831,7 +831,8 @@
         "accept_sign_terms": "Ik aanvaard dat ik door dit document te ondertekenen ermee akkoord ga dat de ondertekening juridisch bindend is en overeenkomt met mijn handgeschreven handtekening.",
         "accept_terms_required": "Ondertekening en acceptatie van de voorwaarden zijn vereist om het contract te ondertekenen.",
         "not_signed": "Nog niet ondertekend",
-        "signed": "Document ondertekend"
+        "signed": "Document ondertekend",
+        "no_signers": "Geen ondertekenaars"
     },
     "support": {
         "support": "Ondersteun wwit ondersteuning",

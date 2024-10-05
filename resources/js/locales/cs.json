@@ -831,7 +831,8 @@
         "accept_sign_terms": "Uznávám, že podpisem tohoto dokumentu souhlasím s tím, že podpis je právně závazný a odpovídá mému vlastnoručnímu podpisu.",
         "accept_terms_required": "Podpis a přijetí podmínek musí podepsat smlouvu.",
         "not_signed": "Zatím nepřihlášeno",
-        "signed": "Dokument podepsán"
+        "signed": "Dokument podepsán",
+        "no_signers": "Žádné podpisy"
     },
     "support": {
         "support": "Podpora | Podpora",
