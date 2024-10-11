@@ -408,7 +408,9 @@
         "signer_name": "Όνομα Υπογραφέα",
         "signer_email": "Signer Email",
         "signer_phone": "Τηλέφωνο Υπογραφέα",
-        "signers": "Υπογραφείς"
+        "signers": "Υπογραφείς",
+        "outcome": "Αποτέλεσμα",
+        "activity_type": "Τύπος Δραστηριότητας"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -482,6 +484,14 @@
         "high": "Υψηλή",
         "urgent": "Επείγον"
     },
+    "priority": {
+        "none": "Κανένα",
+        "low": "Χαμηλή",
+        "normal": "Κανονικό",
+        "medium": "Μεσαίο",
+        "high": "Υψηλή",
+        "urgent": "Επείγον"
+    },
     "product_type": {
         "product": "Προϊόν",
         "service": "Υπηρεσία"
@@ -519,7 +529,23 @@
         "contacts": "Επαφές",
         "partner_details": "Λεπτομέρειες συνεργάτη",
         "delete_confirm_partner": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον συνεργάτη?",
-        "contact_informations": "Στοιχεία Επικοινωνίας"
+        "contact_information": "Στοιχεία Επικοινωνίας",
+        "add_activity": "Προσθήκη δραστηριότητας",
+        "no_activities": "Δεν βρέθηκαν δραστηριότητες",
+        "activity": "Δραστηριότητα",
+        "activities": "Δραστηριότητες",
+        "edit_activity": "Επεξεργασία Δραστηριότητας",
+        "partner_activities": "Partner Activities"
+    },
+    "partner_activity_types": {
+        "call": "Κλήση",
+        "task": "Εργασία",
+        "video_call": "Video Call",
+        "meeting": "Meeting",
+        "email": "Email",
+        "visit": "Visit",
+        "note": "Note",
+        "other": "Other"
     },
     "product": {
         "product": "Προϊόν - Προϊόντα",
@@ -672,7 +698,9 @@
         "not_approved": "Μη εγκεκριμένο",
         "waiting_signers": "Αναμονή για υπογράφοντες",
         "signed": "Υπογραφή",
-        "waiting_signature": "Αναμονή για υπογραφή"
+        "waiting_signature": "Αναμονή για υπογραφή",
+        "not_started": "Not started",
+        "planned": "Planned"
     },
     "calendar": {
         "calendar": "Ημερολόγιο \"Ημερολόγια\"",
