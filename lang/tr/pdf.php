@@ -10,6 +10,7 @@ return [
     'number' => 'Numara',
     'date' => 'Tarih',
     'due_date' => 'Son Ödeme Tarihi',
+    'valid_until' => 'Valid Until',
     'phone' => 'Telefon',
     'email' => 'E-posta',
     'vat' => 'KDV',
