@@ -408,7 +408,9 @@
         "signer_name": "Логін",
         "signer_email": "Signer Email",
         "signer_phone": "Телефон зі значком",
-        "signers": "Сигнери"
+        "signers": "Сигнери",
+        "outcome": "Результат",
+        "activity_type": "Тип дії"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -482,6 +484,14 @@
         "high": "Високий",
         "urgent": "Терміновий"
     },
+    "priority": {
+        "none": "Без ефекту",
+        "low": "Низька",
+        "normal": "Нормальний",
+        "medium": "Медіум",
+        "high": "Високий",
+        "urgent": "Терміновий"
+    },
     "product_type": {
         "product": "Продукт",
         "service": "Послуга"
@@ -519,7 +529,23 @@
         "contacts": "Контакти",
         "partner_details": "Деталі партнера",
         "delete_confirm_partner": "Ви впевнені, що хочете видалити цього партнера?",
-        "contact_informations": "Інформація про контакт"
+        "contact_information": "Контактна інформація",
+        "add_activity": "Додати активність",
+        "no_activities": "Не знайдено активностей",
+        "activity": "Активність",
+        "activities": "Події",
+        "edit_activity": "Редагувати дію",
+        "partner_activities": "Активність партнера"
+    },
+    "partner_activity_types": {
+        "call": "Дзвінок",
+        "task": "Завдання",
+        "video_call": "Відеодзвінок",
+        "meeting": "Зустріч",
+        "email": "Ел. пошта",
+        "visit": "Візит",
+        "note": "Примітка",
+        "other": "Інше"
     },
     "product": {
         "product": "Товар | Продукти",
@@ -672,7 +698,9 @@
         "not_approved": "Не затверджено",
         "waiting_signers": "Очікування підписників",
         "signed": "Підписано",
-        "waiting_signature": "Очікування підпису"
+        "waiting_signature": "Очікування підпису",
+        "not_started": "Не розпочато",
+        "planned": "Заплановано"
     },
     "calendar": {
         "calendar": "Календар | Календар",
