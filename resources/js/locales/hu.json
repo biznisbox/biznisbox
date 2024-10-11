@@ -408,7 +408,9 @@
         "signer_name": "Signer Name",
         "signer_email": "Signer Email",
         "signer_phone": "Signer Phone",
-        "signers": "Signers"
+        "signers": "Signers",
+        "outcome": "Outcome",
+        "activity_type": "Activity Type"
     },
     "address_types": {
         "billing": "Billing",
@@ -482,6 +484,14 @@
         "high": "High",
         "urgent": "Urgent"
     },
+    "priority": {
+        "none": "None",
+        "low": "Low",
+        "normal": "Normal",
+        "medium": "Medium",
+        "high": "High",
+        "urgent": "Urgent"
+    },
     "product_type": {
         "product": "Termék",
         "service": "Service"
@@ -519,7 +529,23 @@
         "contacts": "Contacts",
         "partner_details": "Partner details",
         "delete_confirm_partner": "Are you sure you want to delete this partner?",
-        "contact_informations": "Kapcsolattartási Információk"
+        "contact_information": "Contact Information",
+        "add_activity": "Add activity",
+        "no_activities": "No activities found",
+        "activity": "Activity",
+        "activities": "Activities",
+        "edit_activity": "Edit Activity",
+        "partner_activities": "Partner Activities"
+    },
+    "partner_activity_types": {
+        "call": "Call",
+        "task": "Task",
+        "video_call": "Video Call",
+        "meeting": "Meeting",
+        "email": "Email",
+        "visit": "Visit",
+        "note": "Note",
+        "other": "Other"
     },
     "product": {
         "product": "Product | Products",
@@ -672,7 +698,9 @@
         "not_approved": "Nem jóváhagyva",
         "waiting_signers": "Waiting for signers",
         "signed": "Signed",
-        "waiting_signature": "Waiting for signature"
+        "waiting_signature": "Waiting for signature",
+        "not_started": "Not started",
+        "planned": "Planned"
     },
     "calendar": {
         "calendar": "Naptár | Naptárak",
