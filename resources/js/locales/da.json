@@ -408,7 +408,9 @@
         "signer_name": "Signer Navn",
         "signer_email": "Signer Email",
         "signer_phone": "Signer Telefon",
-        "signers": "Underskrivere"
+        "signers": "Underskrivere",
+        "outcome": "Resultat",
+        "activity_type": "Aktivitet Type"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -482,6 +484,14 @@
         "high": "Høj",
         "urgent": "Haster"
     },
+    "priority": {
+        "none": "Ingen",
+        "low": "Lav",
+        "normal": "Normal",
+        "medium": "Mellem",
+        "high": "Høj",
+        "urgent": "Haster"
+    },
     "product_type": {
         "product": "Produkt",
         "service": "Tjeneste"
@@ -519,7 +529,23 @@
         "contacts": "Kontakter",
         "partner_details": "Partner detaljer",
         "delete_confirm_partner": "Er du sikker på, at du vil slette denne partner?",
-        "contact_informations": "Kontaktoplysninger"
+        "contact_information": "Kontakt Information",
+        "add_activity": "Tilføj aktivitet",
+        "no_activities": "Ingen aktiviteter fundet",
+        "activity": "Aktivitet",
+        "activities": "Aktiviteter",
+        "edit_activity": "Rediger Aktivitet",
+        "partner_activities": "Partner Activities"
+    },
+    "partner_activity_types": {
+        "call": "Opkald",
+        "task": "Opgave",
+        "video_call": "Video Call",
+        "meeting": "Meeting",
+        "email": "Email",
+        "visit": "Visit",
+        "note": "Note",
+        "other": "Other"
     },
     "product": {
         "product": "Produkt - Produkter",
@@ -672,7 +698,9 @@
         "not_approved": "Ikke godkendt",
         "waiting_signers": "Venter på underskrivere",
         "signed": "Signeret",
-        "waiting_signature": "Venter på signatur"
+        "waiting_signature": "Venter på signatur",
+        "not_started": "Not started",
+        "planned": "Planned"
     },
     "calendar": {
         "calendar": "Kalender Kalendere",
