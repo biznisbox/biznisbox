@@ -408,7 +408,9 @@
         "signer_name": "Имя знака",
         "signer_email": "Signer Email",
         "signer_phone": "Телефон подписи",
-        "signers": "Подписчики"
+        "signers": "Подписчики",
+        "outcome": "Результат",
+        "activity_type": "Тип деятельности"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -482,6 +484,14 @@
         "high": "Высокий",
         "urgent": "Срочно"
     },
+    "priority": {
+        "none": "Нет",
+        "low": "Низкий",
+        "normal": "Обычный",
+        "medium": "Средний",
+        "high": "Высокий",
+        "urgent": "Срочно"
+    },
     "product_type": {
         "product": "Товар",
         "service": "Сервис"
@@ -519,7 +529,23 @@
         "contacts": "Контакты",
         "partner_details": "Информация о партнере",
         "delete_confirm_partner": "Вы уверены, что хотите удалить этого партнера?",
-        "contact_informations": "Контактная информация"
+        "contact_information": "Контактная информация",
+        "add_activity": "Добавить активность",
+        "no_activities": "Действия не найдены",
+        "activity": "Активность",
+        "activities": "Действия",
+        "edit_activity": "Изменить активность",
+        "partner_activities": "Партнерская деятельность"
+    },
+    "partner_activity_types": {
+        "call": "Звонок",
+        "task": "Задача",
+        "video_call": "Видеовызов",
+        "meeting": "Встреча",
+        "email": "Почта",
+        "visit": "Посетить",
+        "note": "Примечание",
+        "other": "Прочие вопросы"
     },
     "product": {
         "product": "Продукт | Продукты",
@@ -672,7 +698,9 @@
         "not_approved": "Не одобрено",
         "waiting_signers": "Ожидание подписчиков",
         "signed": "Подписано",
-        "waiting_signature": "Ожидание подписи"
+        "waiting_signature": "Ожидание подписи",
+        "not_started": "Не начато",
+        "planned": "Запланировано"
     },
     "calendar": {
         "calendar": "Календарь | Календари",
