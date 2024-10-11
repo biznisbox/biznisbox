@@ -408,7 +408,9 @@
         "signer_name": "Naam ondertekenaar",
         "signer_email": "Signer Email",
         "signer_phone": "Telefoon ondertekenaar",
-        "signers": "Signers"
+        "signers": "Signers",
+        "outcome": "Resultaat",
+        "activity_type": "Type activiteit"
     },
     "address_types": {
         "billing": "Facturering",
@@ -482,6 +484,14 @@
         "high": "hoog",
         "urgent": "Dringend"
     },
+    "priority": {
+        "none": "geen",
+        "low": "laag",
+        "normal": "normaal",
+        "medium": "Middelgroot",
+        "high": "hoog",
+        "urgent": "Dringend"
+    },
     "product_type": {
         "product": "product",
         "service": "Diensten"
@@ -519,7 +529,23 @@
         "contacts": "Contactpersonen",
         "partner_details": "Partner details",
         "delete_confirm_partner": "Weet u zeker dat u deze partner wilt verwijderen?",
-        "contact_informations": "Contact informatie"
+        "contact_information": "Contact informatie",
+        "add_activity": "Activiteit toevoegen",
+        "no_activities": "Geen activiteiten gevonden",
+        "activity": "Activiteit",
+        "activities": "Activiteiten",
+        "edit_activity": "Activiteit bewerken",
+        "partner_activities": "Partner activiteiten"
+    },
+    "partner_activity_types": {
+        "call": "Oproepen",
+        "task": "Opdracht",
+        "video_call": "Video oproep",
+        "meeting": "Afspraak",
+        "email": "E-mailadres",
+        "visit": "Bezoek",
+        "note": "Notitie",
+        "other": "anders"
     },
     "product": {
         "product": "Product Bourgogne producten",
@@ -672,7 +698,9 @@
         "not_approved": "Niet goedgekeurd",
         "waiting_signers": "Wachten op ondertekenaars",
         "signed": "Ondertekend",
-        "waiting_signature": "Wachten op ondertekening"
+        "waiting_signature": "Wachten op ondertekening",
+        "not_started": "Niet gestart",
+        "planned": "Gepland"
     },
     "calendar": {
         "calendar": "Kalenderkalenders",
