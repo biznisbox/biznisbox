@@ -408,7 +408,9 @@
         "signer_name": "Nome do assinante",
         "signer_email": "Signer Email",
         "signer_phone": "Telefone do assinante",
-        "signers": "Assinantes"
+        "signers": "Assinantes",
+        "outcome": "Resultado",
+        "activity_type": "Tipo de Atividade"
     },
     "address_types": {
         "billing": "Faturamento",
@@ -482,6 +484,14 @@
         "high": "alta",
         "urgent": "Urgente"
     },
+    "priority": {
+        "none": "Nenhuma",
+        "low": "baixa",
+        "normal": "normal",
+        "medium": "Média",
+        "high": "alta",
+        "urgent": "Urgente"
+    },
     "product_type": {
         "product": "Produto:",
         "service": "Serviço"
@@ -519,7 +529,23 @@
         "contacts": "CONTATOS",
         "partner_details": "Detalhes do parceiro",
         "delete_confirm_partner": "Tem certeza que deseja excluir este parceiro?",
-        "contact_informations": "Informações de contato"
+        "contact_information": "Informação do Contato",
+        "add_activity": "Adicionar atividade",
+        "no_activities": "Nenhuma atividade encontrada",
+        "activity": "Atividade",
+        "activities": "Atividades",
+        "edit_activity": "Editar Atividade",
+        "partner_activities": "Atividades de parceiro"
+    },
+    "partner_activity_types": {
+        "call": "Chamada",
+        "task": "Tarefas",
+        "video_call": "Chamada de vídeo",
+        "meeting": "Reunião",
+        "email": "e-mail",
+        "visit": "Visitar",
+        "note": "Observação",
+        "other": "Outros"
     },
     "product": {
         "product": "Produtos de Produto",
@@ -672,7 +698,9 @@
         "not_approved": "Não aprovado",
         "waiting_signers": "Aguardando assinantes",
         "signed": "Assinado",
-        "waiting_signature": "Aguardando assinatura"
+        "waiting_signature": "Aguardando assinatura",
+        "not_started": "Não Iniciado",
+        "planned": "Planejado"
     },
     "calendar": {
         "calendar": "Calendários do calendário",
