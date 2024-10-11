@@ -408,7 +408,9 @@
         "signer_name": "Ime/Naziv podpisnika",
         "signer_email": "E-mail podpisnika",
         "signer_phone": "Telefonska številka podpisnika",
-        "signers": "Podpisniki"
+        "signers": "Podpisniki",
+        "outcome": "Outcome",
+        "activity_type": "Activity Type"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -482,6 +484,14 @@
         "high": "Visoka",
         "urgent": "Urgentna"
     },
+    "priority": {
+        "none": "None",
+        "low": "Low",
+        "normal": "Normal",
+        "medium": "Medium",
+        "high": "High",
+        "urgent": "Urgent"
+    },
     "product_type": {
         "product": "Izdelek",
         "service": "Storitev"
@@ -519,7 +529,23 @@
         "contacts": "Kontakti",
         "partner_details": "Podrobnosti partnerja",
         "delete_confirm_partner": "Ali ste prepričani, da želite izbrisati partnerja?",
-        "contact_informations": "Kontaktne informacije"
+        "contact_information": "Contact Information",
+        "add_activity": "Add activity",
+        "no_activities": "No activities found",
+        "activity": "Activity",
+        "activities": "Activities",
+        "edit_activity": "Edit Activity",
+        "partner_activities": "Partner Activities"
+    },
+    "partner_activity_types": {
+        "call": "Call",
+        "task": "Task",
+        "video_call": "Video Call",
+        "meeting": "Meeting",
+        "email": "Email",
+        "visit": "Visit",
+        "note": "Note",
+        "other": "Other"
     },
     "product": {
         "product": "Izdelek | Izdelki",
@@ -672,7 +698,9 @@
         "not_approved": "Ni odobreno",
         "waiting_signers": "Čakanje na podpisnike",
         "signed": "Podpisano",
-        "waiting_signature": "Čakanje na podpis"
+        "waiting_signature": "Čakanje na podpis",
+        "not_started": "Not started",
+        "planned": "Planned"
     },
     "calendar": {
         "calendar": "Koledar | Koledarji",
