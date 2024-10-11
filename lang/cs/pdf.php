@@ -10,6 +10,7 @@ return [
     'number' => 'Číslo',
     'date' => 'Datum:',
     'due_date' => 'Termín',
+    'valid_until' => 'Platné do',
     'phone' => 'Telefon',
     'email' => 'E-mailová adresa',
     'vat' => 'VAT',
