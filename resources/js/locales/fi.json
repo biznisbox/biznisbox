@@ -535,17 +535,17 @@
         "activity": "Toiminta",
         "activities": "Toiminnot",
         "edit_activity": "Muokkaa Toimintaa",
-        "partner_activities": "Partner Activities"
+        "partner_activities": "Yhteistyökumppaneiden Toiminta"
     },
     "partner_activity_types": {
         "call": "Soita",
         "task": "Tehtävä",
-        "video_call": "Video Call",
-        "meeting": "Meeting",
-        "email": "Email",
-        "visit": "Visit",
-        "note": "Note",
-        "other": "Other"
+        "video_call": "Videon Puhelu",
+        "meeting": "Tapaaminen",
+        "email": "Sähköposti",
+        "visit": "Vieraile",
+        "note": "Huomautus",
+        "other": "Muu"
     },
     "product": {
         "product": "Tuote - Tuotteet",
@@ -699,8 +699,8 @@
         "waiting_signers": "Odotetaan allekirjoittajia",
         "signed": "Allekirjoitettu",
         "waiting_signature": "Odotetaan allekirjoitusta",
-        "not_started": "Not started",
-        "planned": "Planned"
+        "not_started": "Ei aloitettu",
+        "planned": "Suunniteltu"
     },
     "calendar": {
         "calendar": "Kalenteri - Kalenterit",
