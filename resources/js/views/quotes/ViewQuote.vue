@@ -118,7 +118,7 @@
                         <Column field="price" :header="$t('form.price')">
                             <template #body="{ data }">
                                 <span>
-                                    {{ (data.price, quote.currency) }}
+                                    {{ formatMoney(data.price, quote.currency) }}
                                 </span>
                             </template>
                         </Column>
