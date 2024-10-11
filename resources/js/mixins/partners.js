@@ -31,6 +31,7 @@ export default {
                 { value: 'other', name: this.$t('industries.other') },
             ],
             partner: {
+                id: '',
                 number: '',
                 name: '',
                 type: '',
@@ -47,6 +48,21 @@ export default {
                 quotes: [],
                 transactions: [],
                 bills: [],
+                activities: [],
+            },
+            activity: {
+                partner_id: null,
+                partner_contact_id: null,
+                type: 'meeting',
+                subject: '',
+                location: '',
+                content: '',
+                start_date: null,
+                end_date: null,
+                status: 'planned',
+                priority: 'normal',
+                notes: '',
+                outcome: '',
             },
         }
     },
@@ -132,6 +148,44 @@ export default {
         getNextPartnerNumber() {
             this.makeHttpRequest('GET', '/api/partner/number').then((response) => {
                 this.partner.number = response.data.data
+            })
+        },
+
+        /**
+         * Add partner activity
+         * @return {void}
+         */
+        addPartnerActivity() {
+            this.activity.partner_id = this.partner.id // set partner id
+            this.makeHttpRequest('POST', '/api/partners/activity', this.activity).then((response) => {
+                this.showToast(response.data.message)
+                this.showAddEditActivityDialog = false
+                this.getPartner(this.partner.id)
+            })
+        },
+
+        /**
+         * Update partner activity
+         * @return {void}
+         */
+        updatePartnerActivity() {
+            this.makeHttpRequest('PUT', '/api/partners/activity/' + this.activity.id, this.activity).then((response) => {
+                this.showToast(response.data.message)
+                this.getPartner(this.partner.id)
+                this.showAddEditActivityDialog = false
+            })
+        },
+
+        /**
+         * Delete partner activity
+         * @return {void}
+         */
+
+        deletePartnerActivity(id) {
+            this.makeHttpRequest('DELETE', '/api/partners/activity/' + id).then((response) => {
+                this.showToast(response.data.message)
+                this.showAddEditActivityDialog = false
+                this.getPartner(this.partner.id)
             })
         },
     },

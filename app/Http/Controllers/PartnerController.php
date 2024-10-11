@@ -79,4 +79,31 @@ class PartnerController extends Controller
         }
         return api_response($partners, __('responses.data_retrieved_successfully'));
     }
+
+    public function createPartnerActivity(Request $request)
+    {
+        $partnerActivity = $this->partnerService->createPartnerActivity($request->all());
+        if (!$partnerActivity) {
+            return api_response(null, __('responses.item_not_created'), 400);
+        }
+        return api_response($partnerActivity, __('responses.item_created_successfully'));
+    }
+
+    public function updatePartnerActivity(Request $request, string $id)
+    {
+        $partnerActivity = $this->partnerService->updatePartnerActivity($id, $request->all());
+        if (!$partnerActivity) {
+            return api_response(null, __('responses.item_not_updated'), 400);
+        }
+        return api_response($partnerActivity, __('responses.item_updated_successfully'));
+    }
+
+    public function deletePartnerActivity(string $id)
+    {
+        $partnerActivity = $this->partnerService->deletePartnerActivity($id);
+        if (!$partnerActivity) {
+            return api_response(null, __('responses.item_not_deleted'), 400);
+        }
+        return api_response($partnerActivity, __('responses.item_deleted_successfully'));
+    }
 }

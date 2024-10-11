@@ -373,7 +373,7 @@ export default {
             if (unix) {
                 return dayjs(value, 'X').format(this.$settings.date_format)
             }
-            if (value === null) return null
+            if (value === null) return ''
             return dayjs(value).format(this.$settings.date_format)
         },
 
@@ -384,7 +384,7 @@ export default {
          * @returns {string} Formatted date and time
          */
         formatDateTime(value, unix = false) {
-            if (value === null) return null
+            if (value === null) return ''
             if (unix) {
                 return dayjs(value, 'X').format(this.$settings.datetime_format)
             }
@@ -399,7 +399,7 @@ export default {
          * @returns {string} Formatted time
          */
         formatTime(value, unix = false) {
-            if (value === null) return null
+            if (value === null) return ''
             if (unix) {
                 return dayjs(value, 'X').format(this.$settings.time_format)
             }

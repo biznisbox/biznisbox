@@ -80,6 +80,11 @@ class Partner extends Model implements Auditable
         return $this->hasMany(Archive::class);
     }
 
+    public function activities()
+    {
+        return $this->hasMany(PartnerActivity::class)->orderBy('created_at', 'desc');
+    }
+
     public function getPartners($type = null)
     {
         // type can have comma separated values (customer, supplier, both)
@@ -103,7 +108,8 @@ class Partner extends Model implements Auditable
             'transactions',
             'bills',
             'supportTickets',
-            'archiveDocuments'
+            'archiveDocuments',
+            'activities'
         )->find($id);
         if (!$partner) {
             return null;
@@ -246,11 +252,5 @@ class Partner extends Model implements Auditable
     {
         $address = $this->find($partner_id)->addresses()->where('id', $address_id)->first();
         return $address;
-    }
-
-    public function getPrimaryContacts($partner_id)
-    {
-        $contact = $this->find($partner_id)->contacts()->where('is_primary', true)->get();
-        return $contact;
     }
 }

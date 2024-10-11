@@ -39,7 +39,7 @@
         "php": "^8.2",
         "barryvdh/laravel-dompdf": "^3.0",
         "hisorange/browser-detect": "^5.0",
-        "laravel/framework": "^11.15",
+        "laravel/framework": "^11.27",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "laravolt/avatar": "^6.0",

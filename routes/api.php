@@ -88,12 +88,16 @@ Route::middleware('auth:api')->group(function () {
     // Partner
     Route::group(['middleware' => 'can:partners'], function () {
         Route::post('/partners', [PartnerController::class, 'createPartner'])->name('createPartner');
+        Route::post('/partners/activity', [PartnerController::class, 'createPartnerActivity'])->name('createPartnerActivity');
+        Route::put('/partners/activity/{id}', [PartnerController::class, 'updatePartnerActivity'])->name('updatePartnerActivity');
+        Route::delete('/partners/activity/{id}', [PartnerController::class, 'deletePartnerActivity'])->name('deletePartnerActivity');
         Route::put('/partners/{id}', [PartnerController::class, 'updatePartner'])->name('updatePartner');
         Route::delete('/partners/{id}', [PartnerController::class, 'deletePartner'])->name('deletePartner');
         Route::get('/partners', [PartnerController::class, 'getPartners'])->name('getPartners');
         Route::get('/partners/{id}', [PartnerController::class, 'getPartner'])->name('getPartner');
         Route::get('/partner/number', [PartnerController::class, 'getPartnerNumber'])->name('getPartnerNumber');
     });
+
     // Partner Limited is for the other users who can't access all the partners -> used in the other parts of the app
     Route::get('/partner/limited', [PartnerController::class, 'getPartnersLimitedData'])->name('getPartnersLimitedData');
 
