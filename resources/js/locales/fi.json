@@ -408,7 +408,9 @@
         "signer_name": "Allekirjoittajan Nimi",
         "signer_email": "Signer Email",
         "signer_phone": "Allekirjoittajan Puhelin",
-        "signers": "Allekirjoittajat"
+        "signers": "Allekirjoittajat",
+        "outcome": "Tulos",
+        "activity_type": "Aktiviteetin Tyyppi"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -482,6 +484,14 @@
         "high": "Korkea",
         "urgent": "Kiireellinen"
     },
+    "priority": {
+        "none": "Ei Mitään",
+        "low": "Matala",
+        "normal": "Normaali",
+        "medium": "Keskitaso",
+        "high": "Korkea",
+        "urgent": "Kiireellinen"
+    },
     "product_type": {
         "product": "Tuote",
         "service": "Palvelu"
@@ -519,7 +529,23 @@
         "contacts": "Yhteystiedot",
         "partner_details": "Kumppanin tiedot",
         "delete_confirm_partner": "Oletko varma, että haluat poistaa tämän kumppanin?",
-        "contact_informations": "Yhteystiedot"
+        "contact_information": "Yhteystiedot",
+        "add_activity": "Lisää toiminto",
+        "no_activities": "Toimintoja ei löytynyt",
+        "activity": "Toiminta",
+        "activities": "Toiminnot",
+        "edit_activity": "Muokkaa Toimintaa",
+        "partner_activities": "Partner Activities"
+    },
+    "partner_activity_types": {
+        "call": "Soita",
+        "task": "Tehtävä",
+        "video_call": "Video Call",
+        "meeting": "Meeting",
+        "email": "Email",
+        "visit": "Visit",
+        "note": "Note",
+        "other": "Other"
     },
     "product": {
         "product": "Tuote - Tuotteet",
@@ -672,7 +698,9 @@
         "not_approved": "Ei hyväksytty",
         "waiting_signers": "Odotetaan allekirjoittajia",
         "signed": "Allekirjoitettu",
-        "waiting_signature": "Odotetaan allekirjoitusta"
+        "waiting_signature": "Odotetaan allekirjoitusta",
+        "not_started": "Not started",
+        "planned": "Planned"
     },
     "calendar": {
         "calendar": "Kalenteri - Kalenterit",
