@@ -535,17 +535,17 @@
         "activity": "Activité",
         "activities": "Activités",
         "edit_activity": "Modifier l'activité",
-        "partner_activities": "Partner Activities"
+        "partner_activities": "Activités des partenaires"
     },
     "partner_activity_types": {
         "call": "Appel",
         "task": "Tâche",
-        "video_call": "Video Call",
-        "meeting": "Meeting",
-        "email": "Email",
-        "visit": "Visit",
+        "video_call": "Appel vidéo",
+        "meeting": "Réunion",
+        "email": "Courriel",
+        "visit": "Visiter",
         "note": "Note",
-        "other": "Other"
+        "other": "Autres"
     },
     "product": {
         "product": "Produit | Produits",
@@ -699,8 +699,8 @@
         "waiting_signers": "En attente de signataires",
         "signed": "Signé",
         "waiting_signature": "En attente de signature",
-        "not_started": "Not started",
-        "planned": "Planned"
+        "not_started": "Non démarré",
+        "planned": "Planifié"
     },
     "calendar": {
         "calendar": "Calendrier | Calendriers",
