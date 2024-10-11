@@ -535,17 +535,17 @@
         "activity": "Δραστηριότητα",
         "activities": "Δραστηριότητες",
         "edit_activity": "Επεξεργασία Δραστηριότητας",
-        "partner_activities": "Partner Activities"
+        "partner_activities": "Δραστηριότητες Συνεργατών"
     },
     "partner_activity_types": {
         "call": "Κλήση",
         "task": "Εργασία",
-        "video_call": "Video Call",
-        "meeting": "Meeting",
-        "email": "Email",
-        "visit": "Visit",
-        "note": "Note",
-        "other": "Other"
+        "video_call": "Βίντεο Κλήση",
+        "meeting": "Συνάντηση",
+        "email": "E-mail",
+        "visit": "Επίσκεψη",
+        "note": "Σημείωση",
+        "other": "Άλλο"
     },
     "product": {
         "product": "Προϊόν - Προϊόντα",
@@ -699,8 +699,8 @@
         "waiting_signers": "Αναμονή για υπογράφοντες",
         "signed": "Υπογραφή",
         "waiting_signature": "Αναμονή για υπογραφή",
-        "not_started": "Not started",
-        "planned": "Planned"
+        "not_started": "Δεν ξεκίνησε",
+        "planned": "Προγραμματισμένο"
     },
     "calendar": {
         "calendar": "Ημερολόγιο \"Ημερολόγια\"",
