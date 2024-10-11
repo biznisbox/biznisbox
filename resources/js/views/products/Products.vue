@@ -63,6 +63,27 @@
                         <InputText v-model="filterModel.value" type="text" placeholder="Search by buy price" />
                     </template>
                 </Column>
+
+                <Column field="type" :header="$t('form.type')" sortable>
+                    <template #body="{ data }">
+                        <Tag v-if="data.type === 'product'" severity="success"> {{ $t('product_type.product') }}</Tag>
+                        <Tag v-if="data.type === 'service'" severity="info"> {{ $t('product_type.service') }}</Tag>
+                    </template>
+
+                    <template #filter="{ filterModel }">
+                        <Select
+                            v-model="filterModel.value"
+                            :options="[
+                                { label: $t('product_type.product'), value: 'product' },
+                                { label: $t('product_type.service'), value: 'service' },
+                            ]"
+                            option-label="label"
+                            option-value="value"
+                            placeholder="Search by type"
+                        />
+                    </template>
+                </Column>
+
                 <Column field="stock_status" :header="$t('form.stock_status')" sortable>
                     <template #body="{ data }">
                         <Tag v-if="data.stock_status === 'out_of_stock'" severity="danger"> {{ $t('stock_status.out_of_stock') }}</Tag>
@@ -125,6 +146,7 @@ export default {
                 name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 sell_price: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 buy_price: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
+                type: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
                 stock_status: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
             }
         },

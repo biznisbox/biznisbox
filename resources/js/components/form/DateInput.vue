@@ -16,6 +16,7 @@
             :invalid="validate?.$dirty && validate?.$invalid"
             @date-select="updateValue"
             @blur="validate?.$touch()"
+            inputClass="w-full"
         />
         <div v-if="validate && validate?.$dirty && validate.$invalid" class="flex flex-column">
             <div v-for="error in validate.$errors" v-bind:key="error?.$propertyPath" class="text-red-500 text-sm">
