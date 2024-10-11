@@ -535,17 +535,17 @@
         "activity": "Aktivitet",
         "activities": "Aktiviteter",
         "edit_activity": "Rediger Aktivitet",
-        "partner_activities": "Partner Activities"
+        "partner_activities": "Partner Aktiviteter"
     },
     "partner_activity_types": {
         "call": "Opkald",
         "task": "Opgave",
-        "video_call": "Video Call",
-        "meeting": "Meeting",
-        "email": "Email",
-        "visit": "Visit",
-        "note": "Note",
-        "other": "Other"
+        "video_call": "Videoopkald",
+        "meeting": "Møde",
+        "email": "E-mail",
+        "visit": "Besøg",
+        "note": "Bemærkning",
+        "other": "Andet"
     },
     "product": {
         "product": "Produkt - Produkter",
@@ -699,8 +699,8 @@
         "waiting_signers": "Venter på underskrivere",
         "signed": "Signeret",
         "waiting_signature": "Venter på signatur",
-        "not_started": "Not started",
-        "planned": "Planned"
+        "not_started": "Ikke startet",
+        "planned": "Planlagt"
     },
     "calendar": {
         "calendar": "Kalender Kalendere",
