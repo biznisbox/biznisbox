@@ -535,17 +535,17 @@
         "activity": "Aktivita",
         "activities": "Aktivity",
         "edit_activity": "Upravit aktivitu",
-        "partner_activities": "Partner Activities"
+        "partner_activities": "Partnerské aktivity"
     },
     "partner_activity_types": {
         "call": "Hovor",
         "task": "Úkol",
-        "video_call": "Video Call",
-        "meeting": "Meeting",
-        "email": "Email",
-        "visit": "Visit",
-        "note": "Note",
-        "other": "Other"
+        "video_call": "Videohovor",
+        "meeting": "Schůzka",
+        "email": "E-mailová adresa",
+        "visit": "Navštívit",
+        "note": "Poznámka",
+        "other": "Ostatní"
     },
     "product": {
         "product": "Produkt | Produkty",
@@ -699,8 +699,8 @@
         "waiting_signers": "Čekání na podpisy",
         "signed": "Podepsáno",
         "waiting_signature": "Čekání na podpis",
-        "not_started": "Not started",
-        "planned": "Planned"
+        "not_started": "Nezahájeno",
+        "planned": "Plánované"
     },
     "calendar": {
         "calendar": "Kalendář | Kalendáře",
