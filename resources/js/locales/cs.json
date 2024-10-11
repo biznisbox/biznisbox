@@ -408,7 +408,9 @@
         "signer_name": "Jméno podepisovatele",
         "signer_email": "Signer Email",
         "signer_phone": "Telefon podepisovatele",
-        "signers": "Podepsaní"
+        "signers": "Podepsaní",
+        "outcome": "Výsledek",
+        "activity_type": "Typ aktivity"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -482,6 +484,14 @@
         "high": "Vysoká",
         "urgent": "Naléhavé"
     },
+    "priority": {
+        "none": "Nic",
+        "low": "Nízká",
+        "normal": "Normální",
+        "medium": "Střední",
+        "high": "Vysoká",
+        "urgent": "Naléhavé"
+    },
     "product_type": {
         "product": "Produkt",
         "service": "Servis"
@@ -519,7 +529,23 @@
         "contacts": "Kontakty",
         "partner_details": "Podrobnosti o partnerovi",
         "delete_confirm_partner": "Jste si jisti, že chcete odstranit tohoto partnera?",
-        "contact_informations": "Kontaktní informace"
+        "contact_information": "Kontaktní informace",
+        "add_activity": "Přidat aktivitu",
+        "no_activities": "Nebyly nalezeny žádné aktivity",
+        "activity": "Aktivita",
+        "activities": "Aktivity",
+        "edit_activity": "Upravit aktivitu",
+        "partner_activities": "Partner Activities"
+    },
+    "partner_activity_types": {
+        "call": "Hovor",
+        "task": "Úkol",
+        "video_call": "Video Call",
+        "meeting": "Meeting",
+        "email": "Email",
+        "visit": "Visit",
+        "note": "Note",
+        "other": "Other"
     },
     "product": {
         "product": "Produkt | Produkty",
@@ -672,7 +698,9 @@
         "not_approved": "Neschváleno",
         "waiting_signers": "Čekání na podpisy",
         "signed": "Podepsáno",
-        "waiting_signature": "Čekání na podpis"
+        "waiting_signature": "Čekání na podpis",
+        "not_started": "Not started",
+        "planned": "Planned"
     },
     "calendar": {
         "calendar": "Kalendář | Kalendáře",
