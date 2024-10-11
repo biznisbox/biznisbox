@@ -10,6 +10,7 @@ return [
     'number' => 'Numer',
     'date' => 'Data',
     'due_date' => 'Termin płatności',
+    'valid_until' => 'Ważny do',
     'phone' => 'Telefon',
     'email' => 'E-mail',
     'vat' => 'VAT',
