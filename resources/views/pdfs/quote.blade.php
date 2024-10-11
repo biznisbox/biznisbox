@@ -17,8 +17,8 @@
             <strong>{{ __('pdf.date') }}</strong>
             {{ formatDateTime($quote->date, settings('date_format')) }}
             <br />
-            <strong>{{ __('pdf.due_date') }}</strong>
-            {{ formatDateTime($quote->due_date, settings('date_format')) }}
+            <strong>{{ __('pdf.valid_until') }}</strong>
+            {{ formatDateTime($quote->valid_until, settings('date_format')) }}
             <br />
             <strong>{{ __('pdf.currency') }}</strong>
             {{ $quote->currency }}
@@ -130,12 +130,11 @@
                     <td width="30%">
                         @if ($quote->discount != null || $quote->discount >= 0)
                             <span><strong>{{ __('pdf.discount') }}</strong></span>
-                            <br />
                             @if ($quote->discount_type == 'fixed')
                                 {{ $quote->discount . ' ' . $quote->default_currency }}
                             @endif
 
-                            @if ($quote->discount_type == 'percentage')
+                            @if ($quote->discount_type == 'percent')
                                 {{ $quote->discount . ' %' }}
                             @endif
 

@@ -130,12 +130,11 @@
                     <td width="30%">
                         @if ($invoice->discount != null || $invoice->discount >= 0)
                             <span><strong>{{ __('pdf.discount') }}</strong></span>
-                            <br />
                             @if ($invoice->discount_type == 'fixed')
                                 {{ $invoice->discount . ' ' . $invoice->default_currency }}
                             @endif
 
-                            @if ($invoice->discount_type == 'percentage')
+                            @if ($invoice->discount_type == 'percent')
                                 {{ $invoice->discount . ' %' }}
                             @endif
 

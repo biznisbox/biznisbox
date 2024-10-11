@@ -10,6 +10,7 @@ return [
     'number' => 'Number',
     'date' => 'Date',
     'due_date' => 'Due Date',
+    'valid_until' => 'Valid Until',
     'phone' => 'Phone',
     'email' => 'Email',
     'vat' => 'VAT',

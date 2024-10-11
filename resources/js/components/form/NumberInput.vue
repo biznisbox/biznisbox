@@ -11,6 +11,7 @@
             :invalid="validate?.$dirty && validate?.$invalid"
             @input="updateValue"
             @blur="validate?.$touch()"
+            inputClass="w-full"
         />
 
         <InputNumber
@@ -26,6 +27,7 @@
             :invalid="validate?.$dirty && validate?.$invalid"
             @input="updateValue"
             @blur="validate?.$touch()"
+            inputClass="w-full"
         />
 
         <InputNumber
@@ -41,6 +43,7 @@
             :invalid="validate?.$dirty && validate?.$invalid"
             @input="updateValue"
             @blur="validate?.$touch()"
+            inputClass="w-full"
         />
 
         <InputNumber
@@ -56,6 +59,7 @@
             :invalid="validate?.$dirty && validate?.$invalid"
             @input="updateValue"
             @blur="validate?.$touch()"
+            inputClass="w-full"
         />
 
         <InputNumber
@@ -69,6 +73,7 @@
             :invalid="validate?.$dirty && validate?.$invalid"
             @blur="validate?.$touch()"
             @input="updateValue"
+            inputClass="w-full"
         />
 
         <div v-if="validate && validate?.$dirty && validate?.$invalid" class="flex flex-column">
