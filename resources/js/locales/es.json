@@ -408,7 +408,9 @@
         "signer_name": "Nombre del firmante",
         "signer_email": "Signer Email",
         "signer_phone": "Teléfono firmante",
-        "signers": "Firmadores"
+        "signers": "Firmadores",
+        "outcome": "Salida",
+        "activity_type": "Tipo de actividad"
     },
     "address_types": {
         "billing": "Facturación",
@@ -482,6 +484,14 @@
         "high": "Alta",
         "urgent": "Urgente"
     },
+    "priority": {
+        "none": "Ninguna",
+        "low": "Baja",
+        "normal": "Normal",
+        "medium": "Medio",
+        "high": "Alta",
+        "urgent": "Urgente"
+    },
     "product_type": {
         "product": "Producto",
         "service": "Servicio"
@@ -519,7 +529,23 @@
         "contacts": "Contactos",
         "partner_details": "Detalles del socio",
         "delete_confirm_partner": "¿Está seguro de que desea eliminar este socio?",
-        "contact_informations": "Información de contacto"
+        "contact_information": "Información de contacto",
+        "add_activity": "Añadir actividad",
+        "no_activities": "No se encontraron actividades",
+        "activity": "Actividad",
+        "activities": "Actividades",
+        "edit_activity": "Editar actividad",
+        "partner_activities": "Partner Activities"
+    },
+    "partner_activity_types": {
+        "call": "Llamar",
+        "task": "Tarea",
+        "video_call": "Video Call",
+        "meeting": "Meeting",
+        "email": "Email",
+        "visit": "Visit",
+        "note": "Note",
+        "other": "Other"
     },
     "product": {
         "product": "Producto | Productos",
@@ -672,7 +698,9 @@
         "not_approved": "No aprobado",
         "waiting_signers": "Esperando a los firmantes",
         "signed": "Firmado",
-        "waiting_signature": "Esperando la firma"
+        "waiting_signature": "Esperando la firma",
+        "not_started": "Not started",
+        "planned": "Planned"
     },
     "calendar": {
         "calendar": "Calendario | Calendarios",
