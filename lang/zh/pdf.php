@@ -10,6 +10,7 @@ return [
     'number' => '數字',
     'date' => '日期',
     'due_date' => '到期日',
+    'valid_until' => 'Valid Until',
     'phone' => '電話',
     'email' => '郵件',
     'vat' => '增值稅',

@@ -408,7 +408,9 @@
         "signer_name": "Signer navn",
         "signer_email": "Signer Email",
         "signer_phone": "Signer telefon",
-        "signers": "Signaler"
+        "signers": "Signaler",
+        "outcome": "Resultat",
+        "activity_type": "Aktivitetstype"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -482,6 +484,14 @@
         "high": "Høy",
         "urgent": "Haster"
     },
+    "priority": {
+        "none": "Ingen",
+        "low": "Lav",
+        "normal": "Vanlig",
+        "medium": "Middels",
+        "high": "Høy",
+        "urgent": "Haster"
+    },
     "product_type": {
         "product": "Produkt",
         "service": "Tjeneste"
@@ -519,7 +529,23 @@
         "contacts": "Kontakter",
         "partner_details": "Detaljer for partner",
         "delete_confirm_partner": "Er du sikker på at du vil slette denne partneren?",
-        "contact_informations": "Kontakt informasjon"
+        "contact_information": "Kontakt Informasjon",
+        "add_activity": "Legg til aktivitet",
+        "no_activities": "Ingen aktiviteter funnet",
+        "activity": "Aktivitet",
+        "activities": "Aktiviteter",
+        "edit_activity": "Rediger aktivitet",
+        "partner_activities": "Øvrige aktiviteter"
+    },
+    "partner_activity_types": {
+        "call": "Ring",
+        "task": "Oppgave",
+        "video_call": "Video Samtale",
+        "meeting": "Møte",
+        "email": "E-post",
+        "visit": "Besøk",
+        "note": "Notat",
+        "other": "Annet"
     },
     "product": {
         "product": "ProduktProdukt(er) produkter",
@@ -672,7 +698,9 @@
         "not_approved": "Ikke godkjent",
         "waiting_signers": "Venter på signører",
         "signed": "Signert",
-        "waiting_signature": "Venter på signatur"
+        "waiting_signature": "Venter på signatur",
+        "not_started": "Ikke påbegynt",
+        "planned": "Planlagt"
     },
     "calendar": {
         "calendar": "Kalender: Kalendere",
@@ -831,7 +859,8 @@
         "accept_sign_terms": "Jeg aksepterer at ved signering av dette dokumentet er jeg enig i at signaturen er juridisk bindende og tilsvarende min håndskrevne signatur.",
         "accept_terms_required": "Signatur og aksept av vilkår er påkrevd for å undertegne kontrakten.",
         "not_signed": "Ikke signert ennå",
-        "signed": "Dokument signert"
+        "signed": "Dokument signert",
+        "no_signers": "Ingen signører"
     },
     "support": {
         "support": "Støtte iNaturSupport Support",

@@ -408,7 +408,9 @@
         "signer_name": "Ime/Naziv podpisnika",
         "signer_email": "E-mail podpisnika",
         "signer_phone": "Telefonska številka podpisnika",
-        "signers": "Signers"
+        "signers": "Podpisniki",
+        "outcome": "Rezultat",
+        "activity_type": "Tip aktivnosti"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -482,6 +484,14 @@
         "high": "Visoka",
         "urgent": "Urgentna"
     },
+    "priority": {
+        "none": "Brez",
+        "low": "Nizka",
+        "normal": "Običajna",
+        "medium": "Srednje",
+        "high": "Visoka",
+        "urgent": "Urgentno"
+    },
     "product_type": {
         "product": "Izdelek",
         "service": "Storitev"
@@ -519,7 +529,23 @@
         "contacts": "Kontakti",
         "partner_details": "Podrobnosti partnerja",
         "delete_confirm_partner": "Ali ste prepričani, da želite izbrisati partnerja?",
-        "contact_informations": "Kontaktne informacije"
+        "contact_information": "Kontaktne informacije",
+        "add_activity": "Dodaj aktivnost",
+        "no_activities": "Ne najdem aktivnosti",
+        "activity": "Aktivnost",
+        "activities": "Aktivnosti",
+        "edit_activity": "Uredi aktivnost",
+        "partner_activities": "Partnerjeve aktivnosti"
+    },
+    "partner_activity_types": {
+        "call": "Klic",
+        "task": "Opravilo",
+        "video_call": "Video klic",
+        "meeting": "Sestanek",
+        "email": "E-pošta",
+        "visit": "Obisk",
+        "note": "Opomba",
+        "other": "Drugo"
     },
     "product": {
         "product": "Izdelek | Izdelki",
@@ -670,9 +696,11 @@
         "delegated": "Delegirano",
         "approved": "Odobreno",
         "not_approved": "Ni odobreno",
-        "waiting_signers": "Waiting for signers",
-        "signed": "Signed",
-        "waiting_signature": "Waiting for signature"
+        "waiting_signers": "Čakanje na podpisnike",
+        "signed": "Podpisano",
+        "waiting_signature": "Čakanje na podpis",
+        "not_started": "Ni začeto",
+        "planned": "Načrtovano"
     },
     "calendar": {
         "calendar": "Koledar | Koledarji",
@@ -817,21 +845,22 @@
         "delete_confirm_document": "Ali ste prepričani, da želite izbrisati ta dokument?"
     },
     "contract": {
-        "contract": "Contract | Contracts",
-        "create_contract": "Create Contract",
-        "edit_contract": "Edit Contract",
-        "no_contracts": "No contracts found",
-        "create_first_contract": "Create your first contract",
-        "delete_confirm_contract": "Are you sure you want to delete this contract?",
-        "contract_details": "Contract details",
-        "no_content": "No content",
-        "no_partner": "No partner",
-        "sign_contract": "Sign contract",
-        "contract_signed": "Contract signed",
-        "accept_sign_terms": "I accept that by signing this document, I agree with that the signature is legally binding and equivalent to my handwritten signature.",
-        "accept_terms_required": "Signature and acceptance of terms are required to sign the contract.",
-        "not_signed": "Not signed yet",
-        "signed": "Document signed"
+        "contract": "Pogodba | Pogodbe",
+        "create_contract": "Ustvari pogodbo",
+        "edit_contract": "Uredi pogodbo",
+        "no_contracts": "Ni najdenih pogodb",
+        "create_first_contract": "Ustvarite svojo prvo pogodbo",
+        "delete_confirm_contract": "Ali ste prepričani, da želite izbrisati pogodbo?",
+        "contract_details": "Podrobnosti pogodbe",
+        "no_content": "Brez vsebine",
+        "no_partner": "Ni partnerja",
+        "sign_contract": "Podpiši pogodbo",
+        "contract_signed": "Pogodba podpisana",
+        "accept_sign_terms": "Strinjam se, da se s podpisom tega dokumenta strinjam, da je podpis pravno zavezujoč in enakovreden mojemu lastnoročnemu podpisu.",
+        "accept_terms_required": "Za podpis pogodbe sta potrebna podpis in sprejem pogojev.",
+        "not_signed": "Še ni podpisano",
+        "signed": "Podpisan dokument",
+        "no_signers": "Ni podpisnikov"
     },
     "support": {
         "support": "Podpora",
@@ -918,7 +947,7 @@
             "units": "Enote",
             "email": "E-pošta",
             "webhooks": "Webhooks",
-            "server_settings": "Server Settings"
+            "server_settings": "Nastavitve strežnika"
         },
         "company": {
             "title": "Nastavitve podjetja",
@@ -1097,8 +1126,8 @@
             "project": "Format številke projekta",
             "department": "Format številke oddelka",
             "archive": "Arhivni format številke",
-            "contract": "Contract number format",
-            "yearly": "Yearly"
+            "contract": "Format številke pogodbe",
+            "yearly": "Letno"
         },
         "webhook": {
             "title": "Naročnina na spletni kavelj",

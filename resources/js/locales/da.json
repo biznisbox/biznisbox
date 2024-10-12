@@ -408,7 +408,9 @@
         "signer_name": "Signer Navn",
         "signer_email": "Signer Email",
         "signer_phone": "Signer Telefon",
-        "signers": "Underskrivere"
+        "signers": "Underskrivere",
+        "outcome": "Resultat",
+        "activity_type": "Aktivitet Type"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -482,6 +484,14 @@
         "high": "Høj",
         "urgent": "Haster"
     },
+    "priority": {
+        "none": "Ingen",
+        "low": "Lav",
+        "normal": "Normal",
+        "medium": "Mellem",
+        "high": "Høj",
+        "urgent": "Haster"
+    },
     "product_type": {
         "product": "Produkt",
         "service": "Tjeneste"
@@ -519,7 +529,23 @@
         "contacts": "Kontakter",
         "partner_details": "Partner detaljer",
         "delete_confirm_partner": "Er du sikker på, at du vil slette denne partner?",
-        "contact_informations": "Kontaktoplysninger"
+        "contact_information": "Kontakt Information",
+        "add_activity": "Tilføj aktivitet",
+        "no_activities": "Ingen aktiviteter fundet",
+        "activity": "Aktivitet",
+        "activities": "Aktiviteter",
+        "edit_activity": "Rediger Aktivitet",
+        "partner_activities": "Partner Aktiviteter"
+    },
+    "partner_activity_types": {
+        "call": "Opkald",
+        "task": "Opgave",
+        "video_call": "Videoopkald",
+        "meeting": "Møde",
+        "email": "E-mail",
+        "visit": "Besøg",
+        "note": "Bemærkning",
+        "other": "Andet"
     },
     "product": {
         "product": "Produkt - Produkter",
@@ -672,7 +698,9 @@
         "not_approved": "Ikke godkendt",
         "waiting_signers": "Venter på underskrivere",
         "signed": "Signeret",
-        "waiting_signature": "Venter på signatur"
+        "waiting_signature": "Venter på signatur",
+        "not_started": "Ikke startet",
+        "planned": "Planlagt"
     },
     "calendar": {
         "calendar": "Kalender Kalendere",
@@ -831,7 +859,8 @@
         "accept_sign_terms": "Jeg accepterer, at jeg ved at underskrive dette dokument er enig i, at underskriften er juridisk bindende og svarer til min håndskrevne underskrift.",
         "accept_terms_required": "Undertegnelse og accept af vilkår er forpligtet til at underskrive aftalen.",
         "not_signed": "Ikke signeret endnu",
-        "signed": "Dokument signeret"
+        "signed": "Dokument signeret",
+        "no_signers": "Ingen underskrivere"
     },
     "support": {
         "support": "Støt - Understøtter",

@@ -408,7 +408,9 @@
         "signer_name": "Allekirjoittajan Nimi",
         "signer_email": "Signer Email",
         "signer_phone": "Allekirjoittajan Puhelin",
-        "signers": "Allekirjoittajat"
+        "signers": "Allekirjoittajat",
+        "outcome": "Tulos",
+        "activity_type": "Aktiviteetin Tyyppi"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -482,6 +484,14 @@
         "high": "Korkea",
         "urgent": "Kiireellinen"
     },
+    "priority": {
+        "none": "Ei Mitään",
+        "low": "Matala",
+        "normal": "Normaali",
+        "medium": "Keskitaso",
+        "high": "Korkea",
+        "urgent": "Kiireellinen"
+    },
     "product_type": {
         "product": "Tuote",
         "service": "Palvelu"
@@ -519,7 +529,23 @@
         "contacts": "Yhteystiedot",
         "partner_details": "Kumppanin tiedot",
         "delete_confirm_partner": "Oletko varma, että haluat poistaa tämän kumppanin?",
-        "contact_informations": "Yhteystiedot"
+        "contact_information": "Yhteystiedot",
+        "add_activity": "Lisää toiminto",
+        "no_activities": "Toimintoja ei löytynyt",
+        "activity": "Toiminta",
+        "activities": "Toiminnot",
+        "edit_activity": "Muokkaa Toimintaa",
+        "partner_activities": "Yhteistyökumppaneiden Toiminta"
+    },
+    "partner_activity_types": {
+        "call": "Soita",
+        "task": "Tehtävä",
+        "video_call": "Videon Puhelu",
+        "meeting": "Tapaaminen",
+        "email": "Sähköposti",
+        "visit": "Vieraile",
+        "note": "Huomautus",
+        "other": "Muu"
     },
     "product": {
         "product": "Tuote - Tuotteet",
@@ -672,7 +698,9 @@
         "not_approved": "Ei hyväksytty",
         "waiting_signers": "Odotetaan allekirjoittajia",
         "signed": "Allekirjoitettu",
-        "waiting_signature": "Odotetaan allekirjoitusta"
+        "waiting_signature": "Odotetaan allekirjoitusta",
+        "not_started": "Ei aloitettu",
+        "planned": "Suunniteltu"
     },
     "calendar": {
         "calendar": "Kalenteri - Kalenterit",
@@ -831,7 +859,8 @@
         "accept_sign_terms": "Hyväksyn sen, että allekirjoittamalla tämän asiakirjan, olen samaa mieltä siitä, että allekirjoitus on oikeudellisesti sitova ja vastaa käsin kirjoitettua allekirjoitustani.",
         "accept_terms_required": "Sopimuksen allekirjoittaminen edellyttää ehtojen allekirjoittamista ja hyväksymistä.",
         "not_signed": "Ei vielä allekirjoitettu",
-        "signed": "Asiakirja allekirjoitettu"
+        "signed": "Asiakirja allekirjoitettu",
+        "no_signers": "Ei allekirjoittajia"
     },
     "support": {
         "support": "Tue - Tuet",

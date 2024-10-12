@@ -10,6 +10,7 @@ return [
     'number' => 'Αριθμός',
     'date' => 'Ημερομηνία',
     'due_date' => 'Ημερομηνία Λήξης',
+    'valid_until' => 'Έγκυρο Μέχρι',
     'phone' => 'Τηλέφωνο',
     'email' => 'E-mail',
     'vat' => 'VAT',

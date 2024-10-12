@@ -10,6 +10,7 @@ return [
     'number' => 'Številka',
     'date' => 'Datum',
     'due_date' => 'Datum zapadlosti',
+    'valid_until' => 'Veljaven do',
     'phone' => 'Telefon',
     'email' => 'E-poštni naslov',
     'vat' => 'Davek',

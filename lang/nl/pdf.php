@@ -10,6 +10,7 @@ return [
     'number' => 'Nummer',
     'date' => 'Datum:',
     'due_date' => 'Inleverdatum',
+    'valid_until' => 'Geldig tot',
     'phone' => 'Telefoonnummer',
     'email' => 'E-mailadres',
     'vat' => 'VAT',

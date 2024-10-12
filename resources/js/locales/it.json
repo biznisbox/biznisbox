@@ -408,7 +408,9 @@
         "signer_name": "Nome Del Firmatario",
         "signer_email": "Signer Email",
         "signer_phone": "Telefono Firmatario",
-        "signers": "Firmatari"
+        "signers": "Firmatari",
+        "outcome": "Risultato",
+        "activity_type": "Tipo Di Attività"
     },
     "address_types": {
         "billing": "Fatturazione",
@@ -482,6 +484,14 @@
         "high": "Alto",
         "urgent": "Urgente"
     },
+    "priority": {
+        "none": "Nessuno",
+        "low": "Basso",
+        "normal": "Normale",
+        "medium": "Medio",
+        "high": "Alto",
+        "urgent": "Urgente"
+    },
     "product_type": {
         "product": "Prodotto",
         "service": "Servizio"
@@ -519,7 +529,23 @@
         "contacts": "Contatti",
         "partner_details": "Dettagli partner",
         "delete_confirm_partner": "Sei sicuro di voler eliminare questo partner?",
-        "contact_informations": "Informazioni Di Contatto"
+        "contact_information": "Informazioni Di Contatto",
+        "add_activity": "Aggiungi attività",
+        "no_activities": "Nessuna attività trovata",
+        "activity": "Attività",
+        "activities": "Attività",
+        "edit_activity": "Modifica Attività",
+        "partner_activities": "Attività Partner"
+    },
+    "partner_activity_types": {
+        "call": "Chiama",
+        "task": "Attività",
+        "video_call": "Videochiamata",
+        "meeting": "Riunione",
+        "email": "Email",
+        "visit": "Visita",
+        "note": "Nota",
+        "other": "Altro"
     },
     "product": {
         "product": "Prodotto <unk> Prodotti",
@@ -672,7 +698,9 @@
         "not_approved": "Non approvato",
         "waiting_signers": "In attesa dei firmatari",
         "signed": "Firmato",
-        "waiting_signature": "In attesa della firma"
+        "waiting_signature": "In attesa della firma",
+        "not_started": "Non avviato",
+        "planned": "Pianificato"
     },
     "calendar": {
         "calendar": "Calendario <unk> Calendari",
@@ -831,7 +859,8 @@
         "accept_sign_terms": "Accetto che firmando questo documento, concordo sul fatto che la firma sia giuridicamente vincolante e equivalente alla mia firma manoscritta.",
         "accept_terms_required": "La firma e l'accettazione dei termini sono necessarie per firmare il contratto.",
         "not_signed": "Non ancora firmato",
-        "signed": "Documento firmato"
+        "signed": "Documento firmato",
+        "no_signers": "Nessun firmatario"
     },
     "support": {
         "support": "Supporto <unk> Supporta",

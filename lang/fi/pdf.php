@@ -10,6 +10,7 @@ return [
     'number' => 'Numero',
     'date' => 'Päivämäärä',
     'due_date' => 'Määräpäivä',
+    'valid_until' => 'Voimassa Kunnes',
     'phone' => 'Puhelin',
     'email' => 'Sähköposti',
     'vat' => 'VAT',

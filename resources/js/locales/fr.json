@@ -408,7 +408,9 @@
         "signer_name": "Nom du signataire",
         "signer_email": "Signer Email",
         "signer_phone": "Signer le téléphone",
-        "signers": "Signataires"
+        "signers": "Signataires",
+        "outcome": "Résultat",
+        "activity_type": "Type d'activité"
     },
     "address_types": {
         "billing": "Facturation",
@@ -482,6 +484,14 @@
         "high": "Élevé",
         "urgent": "Urgent"
     },
+    "priority": {
+        "none": "Aucun",
+        "low": "Bas",
+        "normal": "Normale",
+        "medium": "Moyenne",
+        "high": "Élevé",
+        "urgent": "Urgent"
+    },
     "product_type": {
         "product": "Produit",
         "service": "Service"
@@ -519,7 +529,23 @@
         "contacts": "Contacts",
         "partner_details": "Détails du partenaire",
         "delete_confirm_partner": "Êtes-vous sûr de vouloir supprimer ce partenaire ?",
-        "contact_informations": "Informations sur le contact"
+        "contact_information": "Coordonnées",
+        "add_activity": "Ajouter une activité",
+        "no_activities": "Aucune activité trouvée",
+        "activity": "Activité",
+        "activities": "Activités",
+        "edit_activity": "Modifier l'activité",
+        "partner_activities": "Activités des partenaires"
+    },
+    "partner_activity_types": {
+        "call": "Appel",
+        "task": "Tâche",
+        "video_call": "Appel vidéo",
+        "meeting": "Réunion",
+        "email": "Courriel",
+        "visit": "Visiter",
+        "note": "Note",
+        "other": "Autres"
     },
     "product": {
         "product": "Produit | Produits",
@@ -672,7 +698,9 @@
         "not_approved": "Non approuvé",
         "waiting_signers": "En attente de signataires",
         "signed": "Signé",
-        "waiting_signature": "En attente de signature"
+        "waiting_signature": "En attente de signature",
+        "not_started": "Non démarré",
+        "planned": "Planifié"
     },
     "calendar": {
         "calendar": "Calendrier | Calendriers",
@@ -831,7 +859,8 @@
         "accept_sign_terms": "J'admets qu'en signant ce document, je suis d'accord avec le fait que la signature est juridiquement contraignante et équivalente à ma signature manuscrite.",
         "accept_terms_required": "La signature et l'acceptation des conditions sont requises pour signer le contrat.",
         "not_signed": "Pas encore signé",
-        "signed": "Document signé"
+        "signed": "Document signé",
+        "no_signers": "Aucun signataire"
     },
     "support": {
         "support": "Support | Support",

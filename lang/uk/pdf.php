@@ -10,6 +10,7 @@ return [
     'number' => 'Номер',
     'date' => 'Дата',
     'due_date' => 'Дата виконання',
+    'valid_until' => 'Дійсний до',
     'phone' => 'Телефон',
     'email' => 'Ел. пошта',
     'vat' => 'VAT',

@@ -408,7 +408,9 @@
         "signer_name": "Nazwa podpisującego",
         "signer_email": "Signer Email",
         "signer_phone": "Telefon podpisującego",
-        "signers": "Podpisujący"
+        "signers": "Podpisujący",
+        "outcome": "Rezultat",
+        "activity_type": "Typ Aktywności"
     },
     "address_types": {
         "billing": "Płatność",
@@ -482,6 +484,14 @@
         "high": "Wysoka",
         "urgent": "Pilny"
     },
+    "priority": {
+        "none": "Brak",
+        "low": "Niski",
+        "normal": "Normalny",
+        "medium": "Średni",
+        "high": "Wysoka",
+        "urgent": "Pilny"
+    },
     "product_type": {
         "product": "Produkt",
         "service": "Usługa"
@@ -519,7 +529,23 @@
         "contacts": "Kontakty",
         "partner_details": "Szczegóły partnera",
         "delete_confirm_partner": "Czy na pewno chcesz usunąć tego partnera?",
-        "contact_informations": "Dane kontaktowe"
+        "contact_information": "Informacje kontaktowe",
+        "add_activity": "Dodaj aktywność",
+        "no_activities": "Nie znaleziono aktywności",
+        "activity": "Aktywność",
+        "activities": "Aktywności",
+        "edit_activity": "Edytuj Aktywność",
+        "partner_activities": "Aktywności partnera"
+    },
+    "partner_activity_types": {
+        "call": "Połącz",
+        "task": "Zadanie",
+        "video_call": "Połączenie wideo",
+        "meeting": "Spotkanie",
+        "email": "E-mail",
+        "visit": "Odwiedź",
+        "note": "Uwaga",
+        "other": "Inne"
     },
     "product": {
         "product": "Produkt | Produkty",
@@ -672,7 +698,9 @@
         "not_approved": "Niezatwierdzone",
         "waiting_signers": "Oczekiwanie na podpisujących",
         "signed": "Podpisano",
-        "waiting_signature": "Oczekiwanie na podpis"
+        "waiting_signature": "Oczekiwanie na podpis",
+        "not_started": "Nie rozpoczęto",
+        "planned": "Zaplanowane"
     },
     "calendar": {
         "calendar": "Kalendarz | Kalendarze",
@@ -831,7 +859,8 @@
         "accept_sign_terms": "Akceptuję, że podpisując ten dokument, zgadzam się, że podpisanie jest prawnie wiążące i równoważne mojemu własnemu podpisowi.",
         "accept_terms_required": "Do podpisania umowy wymagane jest podpisanie i przyjęcie warunków.",
         "not_signed": "Jeszcze nie podpisano",
-        "signed": "Dokument podpisany"
+        "signed": "Dokument podpisany",
+        "no_signers": "Brak podpisów"
     },
     "support": {
         "support": "Obsługa | Wsparcie",

@@ -10,6 +10,7 @@ return [
     'number' => 'Számlaszám',
     'date' => 'Dátum',
     'due_date' => 'Esedékesség',
+    'valid_until' => 'Valid Until',
     'phone' => 'Telefonszám',
     'email' => 'E-mail',
     'vat' => 'ÁFA',

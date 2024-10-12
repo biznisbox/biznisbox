@@ -408,7 +408,9 @@
         "signer_name": "Unterzeichnername",
         "signer_email": "Signer Email",
         "signer_phone": "Signier-Telefon",
-        "signers": "Unterzeichner"
+        "signers": "Unterzeichner",
+        "outcome": "Ergebnis",
+        "activity_type": "Aktivitätstyp"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -482,6 +484,14 @@
         "high": "Hoch",
         "urgent": "Dringend"
     },
+    "priority": {
+        "none": "Keine",
+        "low": "Niedrig",
+        "normal": "Normal",
+        "medium": "Mittel",
+        "high": "Hoch",
+        "urgent": "Dringend"
+    },
     "product_type": {
         "product": "Produkt",
         "service": "Service"
@@ -519,7 +529,23 @@
         "contacts": "Kontakte",
         "partner_details": "Partner-Details",
         "delete_confirm_partner": "Sind Sie sicher, dass Sie diesen Partner löschen möchten?",
-        "contact_informations": "Kontaktinformationen"
+        "contact_information": "Kontaktinformationen",
+        "add_activity": "Aktivität hinzufügen",
+        "no_activities": "Keine Aktivitäten gefunden",
+        "activity": "Aktivität",
+        "activities": "Aktivitäten",
+        "edit_activity": "Aktivität bearbeiten",
+        "partner_activities": "Partneraktivitäten"
+    },
+    "partner_activity_types": {
+        "call": "Anruf",
+        "task": "Aufgabe",
+        "video_call": "Videoanruf",
+        "meeting": "Meeting",
+        "email": "E-Mail",
+        "visit": "Besuche",
+        "note": "Notiz",
+        "other": "Andere"
     },
     "product": {
         "product": "Produkt | Produkte",
@@ -672,7 +698,9 @@
         "not_approved": "Nicht genehmigt",
         "waiting_signers": "Warten auf Unterzeichner",
         "signed": "Unterschrieben",
-        "waiting_signature": "Warte auf Signatur"
+        "waiting_signature": "Warte auf Signatur",
+        "not_started": "Nicht gestartet",
+        "planned": "Geplant"
     },
     "calendar": {
         "calendar": "Kalender | Kalender",
@@ -831,7 +859,8 @@
         "accept_sign_terms": "Ich akzeptiere, dass ich mit der Unterzeichnung dieses Dokuments einverstanden bin, dass die Unterschrift rechtsverbindlich ist und meiner handschriftlichen Unterschrift entspricht.",
         "accept_terms_required": "Zur Unterzeichnung des Vertrages sind die Unterzeichnung und Annahme der Vertragsbedingungen erforderlich.",
         "not_signed": "Noch nicht signiert",
-        "signed": "Dokument signiert"
+        "signed": "Dokument signiert",
+        "no_signers": "Keine Unterzeichner"
     },
     "support": {
         "support": "Support | Unterstützungen",

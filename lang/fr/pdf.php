@@ -10,6 +10,7 @@ return [
     'number' => 'Numéros',
     'date' => 'Date',
     'due_date' => 'Date de fin',
+    'valid_until' => 'Valable jusqu\'au',
     'phone' => 'Téléphone',
     'email' => 'Courriel',
     'vat' => 'VAT',

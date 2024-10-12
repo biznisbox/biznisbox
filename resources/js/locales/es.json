@@ -408,7 +408,9 @@
         "signer_name": "Nombre del firmante",
         "signer_email": "Signer Email",
         "signer_phone": "Teléfono firmante",
-        "signers": "Firmadores"
+        "signers": "Firmadores",
+        "outcome": "Salida",
+        "activity_type": "Tipo de actividad"
     },
     "address_types": {
         "billing": "Facturación",
@@ -482,6 +484,14 @@
         "high": "Alta",
         "urgent": "Urgente"
     },
+    "priority": {
+        "none": "Ninguna",
+        "low": "Baja",
+        "normal": "Normal",
+        "medium": "Medio",
+        "high": "Alta",
+        "urgent": "Urgente"
+    },
     "product_type": {
         "product": "Producto",
         "service": "Servicio"
@@ -519,7 +529,23 @@
         "contacts": "Contactos",
         "partner_details": "Detalles del socio",
         "delete_confirm_partner": "¿Está seguro de que desea eliminar este socio?",
-        "contact_informations": "Información de contacto"
+        "contact_information": "Información de contacto",
+        "add_activity": "Añadir actividad",
+        "no_activities": "No se encontraron actividades",
+        "activity": "Actividad",
+        "activities": "Actividades",
+        "edit_activity": "Editar actividad",
+        "partner_activities": "Actividades de socios"
+    },
+    "partner_activity_types": {
+        "call": "Llamar",
+        "task": "Tarea",
+        "video_call": "Videollamada",
+        "meeting": "Reunión",
+        "email": "E-mail",
+        "visit": "Visita",
+        "note": "Nota",
+        "other": "Otro"
     },
     "product": {
         "product": "Producto | Productos",
@@ -672,7 +698,9 @@
         "not_approved": "No aprobado",
         "waiting_signers": "Esperando a los firmantes",
         "signed": "Firmado",
-        "waiting_signature": "Esperando la firma"
+        "waiting_signature": "Esperando la firma",
+        "not_started": "No iniciado",
+        "planned": "Planeado"
     },
     "calendar": {
         "calendar": "Calendario | Calendarios",
@@ -831,7 +859,8 @@
         "accept_sign_terms": "Acepto que al firmar este documento, estoy de acuerdo con que la firma es jurídicamente vinculante y equivalente a mi firma manuscrita.",
         "accept_terms_required": "La firma y la aceptación de los términos son necesarios para la firma del contrato.",
         "not_signed": "Aún no firmado",
-        "signed": "Documento firmado"
+        "signed": "Documento firmado",
+        "no_signers": "No hay firmantes"
     },
     "support": {
         "support": "Soporte | Soporte",

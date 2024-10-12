@@ -10,6 +10,7 @@ return [
     'number' => 'numero',
     'date' => 'Encontro',
     'due_date' => 'Data de vencimento',
+    'valid_until' => 'Válido até',
     'phone' => 'Smartphone',
     'email' => 'e-mail',
     'vat' => 'VAT',

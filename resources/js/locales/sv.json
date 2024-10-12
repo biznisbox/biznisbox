@@ -408,7 +408,9 @@
         "signer_name": "Signerens namn",
         "signer_email": "Signer Email",
         "signer_phone": "Signeringsnummer",
-        "signers": "Tecknare"
+        "signers": "Tecknare",
+        "outcome": "Resultat",
+        "activity_type": "Typ av aktivitet"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -482,6 +484,14 @@
         "high": "Hög",
         "urgent": "Brådskande"
     },
+    "priority": {
+        "none": "Ingen",
+        "low": "Låg",
+        "normal": "Normal",
+        "medium": "Medel",
+        "high": "Hög",
+        "urgent": "Brådskande"
+    },
     "product_type": {
         "product": "Produkt",
         "service": "Tjänst"
@@ -519,7 +529,23 @@
         "contacts": "Kontakter",
         "partner_details": "Information om partnern",
         "delete_confirm_partner": "Är du säker på att du vill ta bort denna partner?",
-        "contact_informations": "Kontaktuppgifter"
+        "contact_information": "Kontaktinformation",
+        "add_activity": "Lägg till aktivitet",
+        "no_activities": "Inga aktiviteter hittades",
+        "activity": "Aktivitet",
+        "activities": "Aktiviteter",
+        "edit_activity": "Redigera aktivitet",
+        "partner_activities": "Aktiviteter för partner"
+    },
+    "partner_activity_types": {
+        "call": "Ring",
+        "task": "Uppgift",
+        "video_call": "Videosamtal",
+        "meeting": "Möte",
+        "email": "E-post",
+        "visit": "Besök",
+        "note": "Anteckning",
+        "other": "Annat"
     },
     "product": {
         "product": "Produkt <unk> Produkter",
@@ -672,7 +698,9 @@
         "not_approved": "Ej godkänd",
         "waiting_signers": "Väntar på undertecknare",
         "signed": "Signerad",
-        "waiting_signature": "Väntar på signatur"
+        "waiting_signature": "Väntar på signatur",
+        "not_started": "Inte startad",
+        "planned": "Planerat"
     },
     "calendar": {
         "calendar": "Kalender <unk> Kalendrar",
@@ -831,7 +859,8 @@
         "accept_sign_terms": "Jag accepterar att jag genom att underteckna detta dokument håller med om att undertecknandet är rättsligt bindande och likvärdigt med min handskrivna underskrift.",
         "accept_terms_required": "För att underteckna avtalet krävs undertecknande och godkännande av villkor.",
         "not_signed": "Inte signerad ännu",
-        "signed": "Dokument signerat"
+        "signed": "Dokument signerat",
+        "no_signers": "Inga signerare"
     },
     "support": {
         "support": "Stöd <unk> Stöder",
