@@ -8,13 +8,12 @@
         <!-- BiznisBox intranet is not for search engines -->
         @vite('resources/css/app.css')
         @if (isAppInstalled())
-            @if (settings('company_logo_path'))
-                <link
-                    rel="icon"
-                    type="{{ mime_content_type('storage/' + settings('company_logo_path')) }}"
-                    href="{{ 'storage/' + settings('company_logo_path') }}"
-                />
-            @endif
+        @if (settings('company_logo'))
+        <link
+            rel="icon"
+            href="{{'storage/'.settings('company_logo') }}"
+        />
+    @endif
             <script>
                 window.App = {!!
                     json_encode([
