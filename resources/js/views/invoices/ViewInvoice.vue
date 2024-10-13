@@ -275,7 +275,7 @@
 
                 <Column field="amount" :header="$t('form.amount')">
                     <template #body="{ data }">
-                        <span>{{ data.amount ? formatMoney(data.amount, data.currency)  : '-' }}</span> <br />
+                        <span>{{ data.amount ? formatMoney(data.amount, data.currency) : '-' }}</span> <br />
                     </template>
                 </Column>
                 <Column field="type" :header="$t('form.type')">
@@ -353,7 +353,7 @@
 
 <script>
 import InvoicesMixin from '@/mixins/invoices'
-import { formatDate } from '@fullcalendar/core';
+import { formatDate } from '@fullcalendar/core'
 import QrcodeVue from 'qrcode.vue'
 export default {
     name: 'ViewInvoicePage',

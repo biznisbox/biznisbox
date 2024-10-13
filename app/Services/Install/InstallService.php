@@ -88,6 +88,7 @@ class InstallService
 
     public function migrateDb()
     {
+        // Migrate the database
         try {
             $migration = Artisan::call('migrate', [
                 '--force' => true,
@@ -204,8 +205,14 @@ class InstallService
 
     public function migrateAndSeed()
     {
+        Artisan::call('cache:clear');
         $migration = $this->migrateDb();
         $seeder = $this->seedDb();
+
+        // Set cache driver to database -> after seeding the database to avoid cache issues
+        writeInEnvFile([
+            'CACHE_DRIVER' => 'database',
+        ]);
 
         if ($migration && $seeder) {
             return [
@@ -221,10 +228,6 @@ class InstallService
 
     public function setAppInstalled()
     {
-        writeInEnvFile([
-            'APP_INSTALLED' => 'true',
-        ]);
-
         // Create install.lock file
         if (!file_exists(base_path('install.lock'))) {
             $file = fopen(base_path('install.lock'), 'w');
@@ -248,7 +251,7 @@ class InstallService
 
     public function isAppInstalled()
     {
-        if (env('APP_INSTALLED') == 'true' || file_exists(base_path('install.lock'))) {
+        if (file_exists(base_path('install.lock'))) {
             return true;
         }
     }

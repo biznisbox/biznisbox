@@ -2,10 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Setting;
-use Doctrine\Inflector\Rules\Word;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class ProductionSeeder extends Seeder
 {
@@ -16,6 +13,9 @@ class ProductionSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([WorldSeeder::class, PermissionRoleSeeder::class, SettingSeeder::class]);
+        #  if(checkIfRunAppInDocker() === false) { # there is a bug in the docker container that prevents the seeding of the world
+        #      $this->call([WorldSeeder::class]);
+        #  }
+        $this->call([PermissionRoleSeeder::class, SettingSeeder::class]);
     }
 }

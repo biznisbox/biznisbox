@@ -56,6 +56,7 @@ export default {
             // Misc
             'appearance-none',
             'transition-colors duration-200',
+            'w-full',
         ],
     }),
 }

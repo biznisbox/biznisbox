@@ -4,10 +4,18 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="csrf-token" content="{{ csrf_token() }}" />
+        <meta name="robots" content="noindex, nofollow" />
+        <!-- BiznisBox intranet is not for search engines -->
         @vite('resources/css/app.css')
         @if (config('app.installed'))
-            <link rel="apple-touch-icon" sizes="180x180" href="{{ settings('company_logo_path') }}" />
-            <link rel="icon" type="image/x-icon" href="{{ settings('company_logo_path') }}" />
+            @if (settings('company_logo_path'))
+                <link
+                    rel="icon"
+                    type="{{ mime_content_type(settings('company_logo_path')) }}"
+                    href="{{ settings('company_logo_path') }}"
+                />
+            @endif
+
             <script>
                 window.App = {!!
                     json_encode([

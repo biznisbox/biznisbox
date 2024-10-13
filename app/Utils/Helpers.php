@@ -624,3 +624,35 @@ if (!function_exists('insertScheduleRun')) {
         return $task;
     }
 }
+
+if (!function_exists('updateScheduleRun')) {
+    /**
+     * Update schedule run in database
+     * @param string $id - schedule run id
+     * @param string $status - status
+     * @param string $output - output
+     * @return void
+     */
+    function updateScheduleRun($id, $status, $output = null)
+    {
+        $task = DB::table('schedule_runs')
+            ->where('id', $id)
+            ->update([
+                'status' => $status, // pending, running, success, failed
+                'output' => $output,
+                'updated_at' => now(),
+            ]);
+        return $task;
+    }
+}
+
+if (!function_exists('checkIfRunAppInDocker')) {
+    /**
+     * Check if app is running in docker
+     * @return bool
+     */
+    function checkIfRunAppInDocker()
+    {
+        return is_file('/.dockerenv');
+    }
+}

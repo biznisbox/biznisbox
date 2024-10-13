@@ -64,7 +64,7 @@ function update_versions($type = 'PATCH') {
 }
 
 function get_last_version_github(){
-    $url = 'https://api.github.com/repos/biznisbox/biznisbox/tags';
+    $url = 'https://api.github.com/repos/biznisbox/biznisbox/releases/latest';
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_USERAGENT, 'Biznisbox');
@@ -72,7 +72,7 @@ function get_last_version_github(){
     $response = curl_exec($ch);
     curl_close($ch);
     $response = json_decode($response);
-    $version = $response[0]->name;
+    $version = $response->tag_name;
     return $version;
 }
 

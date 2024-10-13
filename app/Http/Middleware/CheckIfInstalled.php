@@ -15,7 +15,7 @@ class CheckIfInstalled
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (config('app.installed') === true) {
+        if (file_exists(base_path('install.lock'))) {
             return api_response(
                 [
                     'message' => __('responses.app_installed'),
