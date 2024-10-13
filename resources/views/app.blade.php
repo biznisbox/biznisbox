@@ -11,7 +11,7 @@
         @if (settings('company_logo'))
         <link
             rel="icon"
-            href="{{'storage/'.settings('company_logo') }}"
+            href="{{'/storage/'.settings('company_logo') }}"
         />
     @endif
             <script>
@@ -26,7 +26,7 @@
 
     <body>
         <noscript>
-            <strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+            <strong>{{ __('responses.enable_js_to_use_app') }}</strong>
         </noscript>
         <div id="app"></div>
         @vite('resources/js/app.js')
