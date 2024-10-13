@@ -11,11 +11,10 @@
             @if (settings('company_logo_path'))
                 <link
                     rel="icon"
-                    type="{{ mime_content_type(settings('company_logo_path')) }}"
-                    href="{{ settings('company_logo_path') }}"
+                    type="{{ mime_content_type('storage/' + settings('company_logo_path')) }}"
+                    href="{{ 'storage/' + settings('company_logo_path') }}"
                 />
             @endif
-
             <script>
                 window.App = {!!
                     json_encode([
