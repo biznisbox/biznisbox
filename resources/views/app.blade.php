@@ -7,7 +7,7 @@
         <meta name="robots" content="noindex, nofollow" />
         <!-- BiznisBox intranet is not for search engines -->
         @vite('resources/css/app.css')
-        @if (config('app.installed'))
+        @if (isAppInstalled())
             @if (settings('company_logo_path'))
                 <link
                     rel="icon"

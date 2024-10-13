@@ -656,3 +656,12 @@ if (!function_exists('checkIfRunAppInDocker')) {
         return is_file('/.dockerenv');
     }
 }
+
+if (!function_exists('isAppInstalled')) {
+    function isAppInstalled()
+    {
+        if (file_exists(base_path('install.lock'))) {
+            return true;
+        }
+    }
+}

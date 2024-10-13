@@ -209,12 +209,12 @@ class InstallService
         $migration = $this->migrateDb();
         $seeder = $this->seedDb();
 
-        // Set cache driver to database -> after seeding the database to avoid cache issues
-        writeInEnvFile([
-            'CACHE_DRIVER' => 'database',
-        ]);
-
         if ($migration && $seeder) {
+            Artisan::call('world:install');
+            // Set cache driver to database -> after seeding the database to avoid cache issues
+            writeInEnvFile([
+                'CACHE_DRIVER' => 'database',
+            ]);
             return [
                 'status' => true,
                 'message' => __('responses.install_migration_and_seeding_successful'),
@@ -247,13 +247,6 @@ class InstallService
             'status' => true,
             'message' => __('responses.install_jwt_secret_generated'),
         ];
-    }
-
-    public function isAppInstalled()
-    {
-        if (file_exists(base_path('install.lock'))) {
-            return true;
-        }
     }
 
     public function setSettingsInDb($data)
@@ -292,7 +285,7 @@ class InstallService
 
     public function checkAppInstalled()
     {
-        if ($this->isAppInstalled()) {
+        if (isAppInstalled()) {
             return [
                 'status' => true,
                 'message' => __('responses.app_installed'),
