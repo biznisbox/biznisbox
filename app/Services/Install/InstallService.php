@@ -213,7 +213,7 @@ class InstallService
             Artisan::call('db:seed', [
                 '--class' => 'WorldSeeder',
                 '--force' => true,
-            ]); // Seed the world data -> if failed, it must be seeded manually 
+            ]); // Seed the world data -> if failed, it must be seeded manually
             // Set cache driver to database -> after seeding the database to avoid cache issues
             writeInEnvFile([
                 'CACHE_STORE' => 'database',
