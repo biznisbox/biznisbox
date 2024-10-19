@@ -163,4 +163,18 @@ class Session extends Model implements Auditable
     {
         return sha1($device . $ip . $user_agent . $user_id);
     }
+
+    /**
+     * Update session status cron
+     * @return void
+     */
+    public function updateSessionStatusCron()
+    {
+        $sessions = $this->where('expires_at', '<', now())->get();
+        foreach ($sessions as $session) {
+            $session->is_active = false;
+            $session->expires_at = null;
+            $session->save();
+        }
+    }
 }

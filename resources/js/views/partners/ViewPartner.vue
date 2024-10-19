@@ -30,10 +30,10 @@
                             </div>
                         </div>
                         <DisplayData :input="$t('form.vat_number')" :value="partner.vat_number" />
-                        <DisplayData :input="$t('form.website')" :value="partner.website" is-link />
-                        <DisplayData :input="$t('form.language')" v-if="partner.language" :value="$t('language.' + partner.language)" />
-                        <DisplayData :input="$t('form.currency')" :value="partner.currency" />
-                        <DisplayData :input="$t('form.size')" :value="$t('basic.' + partner.size)" />
+                        <DisplayData v-if="partner.website" :input="$t('form.website')" :value="partner.website" is-link />
+                        <DisplayData v-if="partner.language" :input="$t('form.language')" :value="$t('language.' + partner.language)" />
+                        <DisplayData v-if="partner.currency" :input="$t('form.currency')" :value="partner.currency" />
+                        <DisplayData v-if="partner.size" :input="$t('form.size')" :value="$t('basic.' + partner.size)" />
                         <DisplayData :input="$t('form.notes')" :value="partner.notes" />
                         <DisplayData v-if="partner.industry" :input="$t('form.industry')" :value="$t(`industries.${partner.industry}`)" />
                     </div>

@@ -63,7 +63,7 @@ class Setting extends Model implements Auditable
             ->mapWithKeys(function ($item) {
                 return [$item->key => $item->value];
             });
-        createActivityLog('retrieve', null, 'App\Models\Setting', 'Setting');
+        createActivityLog('retrieve', null, 'App\Models\Setting', 'Setting', null, null, 'public', 'public'); # there are errors in logs
         return $settings;
     }
 

@@ -1,3 +1,48 @@
 # v2.0.0
 
-This is next major version of BiznisBox web app.
+This is next major version of BiznisBox web app. 
+
+
+# v2.0.0-beta.2  
+
+## ✨ New Features and Improvements
+
+- Added a notification popup to check and manage notifications more efficiently.
+- Introduced a new "Contracts" module, enabling seamless management of contracts with clients and partners.
+- Implemented permission checks on API routes to enhance security.
+- Launched a new "Partners" feature, providing better tools to manage activities and collaborations with partners.
+
+## 🐛 Bug Fixes
+
+- Resolved migration issues on Linux servers, including problems with migration rollbacks.
+- Fixed a bug related to refreshing open banking transactions.
+- Corrected output formatting for documents such as quotes and invoices.
+
+**Note**: This release includes numerous additional changes not listed here.
+
+# 2.0.0-beta.1
+
+**Important**: This release is not backwards-compatible with previous versions (v1.x.x) due to significant changes, including database migrations and structure updates.
+
+## ✨ New Features and Improvements
+- **App Install UI**: Introduced a new user interface for app installations.
+- **Audit Log View**: Added audit log visibility across all application sections.
+- **Custom Dashboard**: Implemented a customizable dashboard (with more elements to come).
+- **Webhooks (Beta)**: Enabled webhooks for app events.
+- **Settings Enhancements**: Improved department and email settings management.
+- **Support Ticket**: Enhanced the functionality for managing support tickets.
+- **Document Archive**: Improved document archive features.
+
+## 🐛 Bug Fixes
+- **Discounts & Taxes**: Resolved issues with discounts and taxes calculations.
+-  **Theme Settings**: Fixed the bug preventing user profile theme settings from being saved.
+
+## 💄 UI/UX Changes
+- **TailwindCSS Integration**: The user interface is now powered by TailwindCSS.
+- **UI Updates**: Several visual updates have been made to the UI.
+
+## 🌐 Localization
+- **New Translations**: Added translations for Spanish, French, Portuguese, Italian, Russian, Chinese, Dutch, Norwegian, Danish, Swedish, and Finnish. (Crowdin has been utilized for automatic translation.)
+
+
+**Note**: This release includes numerous additional changes not listed here.

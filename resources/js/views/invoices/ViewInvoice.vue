@@ -353,7 +353,6 @@
 
 <script>
 import InvoicesMixin from '@/mixins/invoices'
-import { formatDate } from '@fullcalendar/core'
 import QrcodeVue from 'qrcode.vue'
 export default {
     name: 'ViewInvoicePage',

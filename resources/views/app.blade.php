@@ -9,7 +9,7 @@
         @vite('resources/css/app.css')
         @if (isAppInstalled())
             @if (settings('company_logo'))
-                <link rel="icon" href="{{ '/storage/' . settings('company_logo') }}" />
+                <link rel="icon" href="{{ url('storage/' . settings('company_logo')) }}" />
             @endif
 
             <script>
