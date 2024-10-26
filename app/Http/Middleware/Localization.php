@@ -18,11 +18,14 @@ class Localization
         $locale = $request->header('Language');
         if ($locale) {
             app()->setLocale($locale);
+        } elseif ($request->has('lang')) {
+            app()->setLocale($request->input('lang'));
+        } elseif ($request->hasCookie('lang')) {
+            app()->setLocale($request->cookie('lang'));
+        } else {
+            app()->setLocale(settings('default_lang'));
         }
 
-        if ($request->has('lang')) {
-            app()->setLocale($request->input('lang'));
-        }
         return $next($request);
     }
 }
