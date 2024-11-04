@@ -410,7 +410,8 @@
         "signer_phone": "Telefonska številka podpisnika",
         "signers": "Podpisniki",
         "outcome": "Rezultat",
-        "activity_type": "Tip aktivnosti"
+        "activity_type": "Tip aktivnosti",
+        "user": "User"
     },
     "address_types": {
         "billing": "Obračunavanje",
