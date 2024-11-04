@@ -410,7 +410,8 @@
         "signer_phone": "Телефон зі значком",
         "signers": "Сигнери",
         "outcome": "Результат",
-        "activity_type": "Тип дії"
+        "activity_type": "Тип дії",
+        "user": "Користувач"
     },
     "address_types": {
         "billing": "Біллінг",
