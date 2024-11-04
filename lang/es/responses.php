@@ -89,11 +89,9 @@ return [
     'system_role_cant_edit' => 'El rol del sistema no puede ser editado',
     'system_role_cant_delete' => 'No se puede eliminar el rol del sistema',
     'unable_to_create_role' => 'No se puede crear el rol (super_admin o cliente)',
-    'install_database_is_not_empty' =>
-        'La base de datos no está vacía. Por favor, elimina todas las tablas o proporciona una base de datos vacía.',
+    'install_database_is_not_empty' => 'La base de datos no está vacía. Por favor, elimina todas las tablas o proporciona una base de datos vacía.',
     'install_database_connection_successful' => 'Conexión a la base de datos exitosa.',
-    'install_database_connection_failed' =>
-        'La conexión a la base de datos ha fallado. Por favor, compruebe las credenciales de la base de datos.',
+    'install_database_connection_failed' => 'La conexión a la base de datos ha fallado. Por favor, compruebe las credenciales de la base de datos.',
     'install_database_connection_saved' => 'Conexión de base de datos guardada con éxito.',
     'app_not_installed' => 'La aplicación no está instalada. Por favor, instale la aplicación primero.',
     'app_installed' => 'La aplicación ya está instalada.',
@@ -107,6 +105,5 @@ return [
     'signer_not_found_or_already_signed' => 'Firma no encontrado o ya firmado',
     'cannot_delete_signed_contract' => 'No se puede eliminar contrato firmado',
     'cannot_update_signed_contract' => 'No se puede actualizar el contrato firmado',
-    'enable_js_to_use_app' =>
-        'Lo sentimos, pero esta aplicación no funciona correctamente sin Javascript habilitado. Por favor, actívala para continuar.',
+    'enable_js_to_use_app' => 'Lo sentimos, pero esta aplicación no funciona correctamente sin Javascript habilitado. Por favor, actívala para continuar.',
 ];
