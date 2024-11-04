@@ -410,7 +410,8 @@
         "signer_phone": "Signier-Telefon",
         "signers": "Unterzeichner",
         "outcome": "Ergebnis",
-        "activity_type": "Aktivitätstyp"
+        "activity_type": "Aktivitätstyp",
+        "user": "Benutzer"
     },
     "address_types": {
         "billing": "Abrechnung",
