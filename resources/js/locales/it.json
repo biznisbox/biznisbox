@@ -410,7 +410,8 @@
         "signer_phone": "Telefono Firmatario",
         "signers": "Firmatari",
         "outcome": "Risultato",
-        "activity_type": "Tipo Di Attività"
+        "activity_type": "Tipo Di Attività",
+        "user": "Utente"
     },
     "address_types": {
         "billing": "Fatturazione",
