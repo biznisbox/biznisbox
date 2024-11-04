@@ -410,7 +410,8 @@
         "signer_phone": "Signer Telefon",
         "signers": "Underskrivere",
         "outcome": "Resultat",
-        "activity_type": "Aktivitet Type"
+        "activity_type": "Aktivitet Type",
+        "user": "Bruger"
     },
     "address_types": {
         "billing": "Fakturering",
