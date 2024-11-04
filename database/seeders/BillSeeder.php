@@ -30,7 +30,7 @@ class BillSeeder extends Seeder
                 'supplier_address_id' => $supplier_address->id,
                 'date' => fake()->dateTimeBetween('-1 year', 'now')->format('Y-m-d'),
                 'due_date' => fake()->dateTimeBetween('now', '+1 year')->format('Y-m-d'),
-                'status' => fake()->randomElement(['draft', 'paid', 'cancelled', 'partial', 'overdue', 'refunded', 'unpaid']),
+                'status' => fake()->randomElement(['draft', 'paid', 'cancelled', 'overdue', 'refunded', 'unpaid']),
                 'currency' => settings('default_currency'),
                 'currency_rate' => 1,
                 'notes' => fake()->text(200),

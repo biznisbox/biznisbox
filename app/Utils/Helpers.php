@@ -5,23 +5,18 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Str;
 use App\Events\WebhookEvent;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 if (!function_exists('api_response')) {
     /**
      * Function generate API response (JSON) with data, message and status code
-     * @param array $data - data
+     * @param array|string|object $data - data
      * @param string $message - message
      * @param integer $status_code - status code
      * @return object $response
      */
     function api_response($data = null, $message = '', $status_code = 200)
     {
-        /* if in data isset error key and error is true, set status code to 400 and message to error message -> must be set in data array 
-        if (isset($data['error']) && $data['error'] == true) {
-            $status_code = 400;
-            $message = $data['message'];
-        } */
-
         return response()->json(
             [
                 'data' => $data,

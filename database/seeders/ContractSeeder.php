@@ -39,7 +39,7 @@ class ContractSeeder extends Seeder
                     'signer_email' => fake()->email(),
                     'signer_phone' => fake()->phoneNumber(),
                     'signer_notes' => fake()->text(100),
-                    'status' => fake()->randomElement(['signed', 'unsigned', 'rejected', 'waiting_for_signature']),
+                    'status' => fake()->randomElement(['signed', 'unsigned', 'rejected', 'waiting_signature']),
                     'sign_order' => $j + 1,
                 ]);
             }

@@ -105,5 +105,6 @@ return [
     'signer_not_found_or_already_signed' => 'Unterzeichner nicht gefunden oder bereits signiert',
     'cannot_delete_signed_contract' => 'Unterschriebener Vertrag kann nicht gelöscht werden',
     'cannot_update_signed_contract' => 'Unterschriebener Vertrag kann nicht aktualisiert werden',
-    'enable_js_to_use_app' => 'Es tut uns leid, aber diese App funktioniert nicht korrekt, ohne JavaScript aktiviert zu haben. Bitte aktivieren Sie sie, um fortzufahren.'
+    'enable_js_to_use_app' =>
+        'Es tut uns leid, aber diese App funktioniert nicht korrekt, ohne JavaScript aktiviert zu haben. Bitte aktivieren Sie sie, um fortzufahren.',
 ];

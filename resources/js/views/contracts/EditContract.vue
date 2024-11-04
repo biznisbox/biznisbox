@@ -47,11 +47,12 @@
                         <div class="py-2">
                             <Button :label="$t('basic.add_signer')" icon="fa fa-plus" @click="addSigner" />
                         </div>
-                        <DataTable class="overflow-x-auto" :value="contract.signers">
+                        <DataTable class="overflow-x-auto" :value="contract.signers" @row-reorder="reorderSigners">
                             <template #empty>
                                 <div class="p-4 pl-0 text-center">{{ $t('contract.no_signers') }}</div>
                             </template>
 
+                            <Column rowReorder :reorderable-column="false" />
                             <Column field="signer_name" :header="$t('form.signer_name')">
                                 <template #body="slotProps">
                                     <TextInput
@@ -131,6 +132,11 @@
                             <Column :header="$t('basic.actions')">
                                 <template #body="slotProps">
                                     <Button
+                                        :disabled="
+                                            slotProps.data.status === 'signed' ||
+                                            slotProps.data.status === 'rejected' ||
+                                            slotProps.data.status === 'cancelled'
+                                        "
                                         severity="danger"
                                         icon="fa fa-trash"
                                         @click="removeItem(slotProps.index)"
@@ -180,6 +186,7 @@ export default {
     },
     created() {
         this.getPartners()
+        this.getUsers()
         this.getContract(this.$route.params.id)
     },
 
@@ -196,8 +203,7 @@ export default {
     methods: {
         addSigner() {
             this.contract.signers.push({
-                employee_id: null,
-                is_signer: true,
+                user_id: null,
                 custom_signer: true,
                 signer_name: '',
                 signer_email: '',
@@ -217,6 +223,10 @@ export default {
                 return this.showToast(this.$t('basic.invalid_form'), this.$t('basic.error'), 'error')
             }
             return this.updateContract(this.$route.params.id)
+        },
+
+        reorderSigners(e) {
+            this.contract.signers = e.value
         },
     },
 }

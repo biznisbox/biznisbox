@@ -47,32 +47,68 @@
                         <div class="py-2">
                             <Button :label="$t('basic.add_signer')" icon="fa fa-plus" @click="addSigner" />
                         </div>
-                        <DataTable class="overflow-x-auto" :value="contract.signers">
+                        <DataTable class="overflow-x-auto" :value="contract.signers" @row-reorder="reorderSigners">
                             <template #empty>
                                 <div class="p-4 pl-0 text-center">{{ $t('contract.no_signers') }}</div>
                             </template>
 
+                            <Column rowReorder :reorderable-column="false" />
+                            <Column :header="$t('form.user')">
+                                <template #body="slotProps">
+                                    <Select
+                                        v-model="slotProps.data.user_id"
+                                        :id="`user_id_${slotProps.index}`"
+                                        :options="users"
+                                        data-key="id"
+                                        option-value="id"
+                                        option-label="full_name"
+                                        filter
+                                        showClear
+                                        class="w-full"
+                                        @change="setSignerData(slotProps.data.user_id, slotProps.index)"
+                                    />
+                                </template>
+                            </Column>
                             <Column field="signer_name" :header="$t('form.signer_name')">
                                 <template #body="slotProps">
-                                    <TextInput v-model="slotProps.data.signer_name" :id="`signer_name_${slotProps.index}`" />
+                                    <TextInput
+                                        v-model="slotProps.data.signer_name"
+                                        :id="`signer_name_${slotProps.index}`"
+                                        :disabled="slotProps.data.user_id !== null"
+                                        style="min-width: 20rem"
+                                    />
                                 </template>
                             </Column>
 
                             <Column field="signer_email" :header="$t('form.signer_email')">
                                 <template #body="slotProps">
-                                    <TextInput v-model="slotProps.data.signer_email" :id="`signer_email_${slotProps.index}`" />
+                                    <TextInput
+                                        v-model="slotProps.data.signer_email"
+                                        :id="`signer_email_${slotProps.index}`"
+                                        :disabled="slotProps.data.user_id !== null"
+                                        style="min-width: 20rem"
+                                    />
                                 </template>
                             </Column>
 
                             <Column field="signer_phone" :header="$t('form.signer_phone')">
                                 <template #body="slotProps">
-                                    <TextInput v-model="slotProps.data.signer_phone" :id="`signer_phone_${slotProps.index}`" />
+                                    <TextInput
+                                        v-model="slotProps.data.signer_phone"
+                                        :id="`signer_phone_${slotProps.index}`"
+                                        :disabled="slotProps.data.user_id !== null"
+                                        style="min-width: 20rem"
+                                    />
                                 </template>
                             </Column>
 
                             <Column field="signer_notes" :header="$t('form.notes')">
                                 <template #body="slotProps">
-                                    <TextInput v-model="slotProps.data.signer_notes" :id="`signer_notes_${slotProps.index}`" />
+                                    <TextInput
+                                        v-model="slotProps.data.signer_notes"
+                                        :id="`signer_notes_${slotProps.index}`"
+                                        style="min-width: 20rem"
+                                    />
                                 </template>
                             </Column>
 
@@ -143,6 +179,7 @@ export default {
     },
     created() {
         this.getPartners()
+        this.getUsers()
         this.getContractNumber()
     },
 
@@ -159,8 +196,7 @@ export default {
     methods: {
         addSigner() {
             this.contract.signers.push({
-                employee_id: null,
-                is_signer: true,
+                user_id: null,
                 custom_signer: '',
                 signer_name: '',
                 signer_email: '',
@@ -180,6 +216,19 @@ export default {
                 return this.showToast(this.$t('basic.invalid_form'), this.$t('basic.error'), 'error')
             }
             return this.createContract()
+        },
+
+        reorderSigners(e) {
+            this.contract.signers = e.value
+        },
+
+        setSignerData(signer_id, index) {
+            this.users.forEach((element) => {
+                if (element.id == signer_id) {
+                    this.contract.signers[index].signer_email = element.email
+                    this.contract.signers[index].signer_name = element.full_name
+                }
+            })
         },
     },
 }

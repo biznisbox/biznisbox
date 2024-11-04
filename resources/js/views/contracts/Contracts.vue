@@ -31,7 +31,7 @@
                     </div>
                 </template>
 
-                <Column field="number" :header="$t('form.number')">
+                <Column field="number" :header="$t('form.number')" sortable>
                     <template #filter="{ filterModel }">
                         <InputText v-model="filterModel.value" type="text" placeholder="Search by number" />
                     </template>

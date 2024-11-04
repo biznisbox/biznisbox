@@ -42,7 +42,7 @@ return new class extends Migration {
         Schema::create('contract_signers', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('contract_id')->nullable()->references('id')->on('contracts')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignUuid('employee_id')->nullable()->references('id')->on('employees')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('user_id')->nullable()->references('id')->on('users')->nullOnDelete()->cascadeOnUpdate();
             $table
                 ->foreignUuid('signer_external_key_id')
                 ->nullable()
@@ -51,8 +51,8 @@ return new class extends Migration {
                 ->nullOnDelete()
                 ->cascadeOnUpdate();
             $table->boolean('custom_signer')->nullable()->default(false);
-            $table->string('signer_name')->nullable();
-            $table->string('signer_email')->nullable();
+            $table->string('signer_name')->nullable(); // if selected user_id copy of data
+            $table->string('signer_email')->nullable(); // if selected user_id copy of data
             $table->string('signer_phone')->nullable();
             $table->string('signer_notes')->nullable();
             $table->string('status')->nullable(); // signed, unsigned, rejected, waiting for signature

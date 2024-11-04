@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->string('type'); // info, success, warning, error
             $table->boolean('is_read')->default(false);
             $table->string('action_text')->nullable(); // e.g. View, Cancel, etc.
-            $table->string('action_url')->nullable(); // e.g. /profile, /cancel, etc.
+            $table->string('action_url')->nullable(); // e.g. /profile?id=xxx
             $table->timestamps();
         });
     }

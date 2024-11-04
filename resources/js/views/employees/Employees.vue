@@ -31,13 +31,22 @@
                     </div>
                 </template>
 
-                <Column field="number" :header="$t('form.number')" />
-                <Column :header="$t('form.name')">
-                    <template #body="{ data }">
-                        <span>{{ data.first_name }} {{ data.last_name }}</span>
+                <Column field="number" :header="$t('form.number')" sortable>
+                    <template #filter="{ filterModel }">
+                        <InputText v-model="filterModel.value" placeholder="Search by number" />
                     </template>
                 </Column>
-                <Column field="email" :header="$t('form.email')" />
+                <Column :header="$t('form.name')" field="full_name">
+                    <template #filter="{ filterModel }">
+                        <InputText v-model="filterModel.value" placeholder="Search by name" />
+                    </template>
+                </Column>
+                <Column field="email" :header="$t('form.email')">
+                    <template #filter="{ filterModel }">
+                        <InputText v-model="filterModel.value" placeholder="Search by email" />
+                    </template>
+                </Column>
+
                 <template #paginatorstart>
                     <div>
                         <Button icon="fa fa-sync" @click="getEmployees" id="refresh_button" />
@@ -56,6 +65,7 @@ export default {
     mixins: [EmployeesMixin],
     created() {
         this.getEmployees()
+        this.initFilters()
     },
     data() {
         return {
@@ -67,7 +77,7 @@ export default {
         initFilters() {
             this.filters = {
                 number: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
-                name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
+                full_name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
                 email: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
             }
         },

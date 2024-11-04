@@ -32,11 +32,11 @@ class QuoteItem extends Model implements Auditable
     protected function casts(): array
     {
         return [
-            'quantity' => 'float',
-            'price' => 'float',
-            'discount' => 'float',
-            'tax' => 'float',
-            'total' => 'float',
+            'quantity' => 'double',
+            'price' => 'double',
+            'discount' => 'double',
+            'tax' => 'double',
+            'total' => 'double',
         ];
     }
 

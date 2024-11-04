@@ -37,10 +37,10 @@ class InvoiceItem extends Model implements Auditable
     {
         return [
             'quantity' => 'integer',
-            'price' => 'float',
-            'discount' => 'float',
-            'tax' => 'float',
-            'total' => 'float',
+            'price' => 'double',
+            'discount' => 'double',
+            'tax' => 'double',
+            'total' => 'double',
         ];
     }
 

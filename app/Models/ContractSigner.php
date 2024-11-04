@@ -14,7 +14,7 @@ class ContractSigner extends Model implements Auditable
 
     protected $fillable = [
         'contract_id',
-        'employee_id',
+        'user_id',
         'signer_external_key_id',
         'custom_signer',
         'signer_name',
@@ -36,6 +36,8 @@ class ContractSigner extends Model implements Auditable
     ];
 
     protected $dates = ['updated_at', 'created_at'];
+
+    protected $hidden = ['updated_at', 'created_at',  'signer_external_key_id'];
 
     public function contract()
     {

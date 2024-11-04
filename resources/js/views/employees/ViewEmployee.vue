@@ -56,8 +56,12 @@
                                     />
                                 </DisplayData>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <DisplayData :input="$t('form.salary')" :value="formatMoney(employee.salary)" />
-                                    <DisplayData :input="$t('form.hourly_rate')" :value="formatMoney(employee.hourly_rate)" />
+                                    <DisplayData v-if="employee.salary" :input="$t('form.salary')" :value="formatMoney(employee.salary)" />
+                                    <DisplayData
+                                        v-if="employee.hourly_rate"
+                                        :input="$t('form.hourly_rate')"
+                                        :value="formatMoney(employee.hourly_rate)"
+                                    />
                                 </div>
                                 <DisplayData v-if="employee.level" :input="$t('form.level')" custom-value>
                                     <Tag :value="$t('employee_level.' + employee.level)" severity="info" />
@@ -66,8 +70,16 @@
                                     <Tag :value="$t('contract_type.' + employee.contract_type)" severity="info" />
                                 </DisplayData>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <DisplayData :input="$t('form.start_date')" :value="formatDate(employee.contract_start_date)" />
-                                    <DisplayData :input="$t('form.end_date')" :value="formatDate(employee.contract_end_date)" />
+                                    <DisplayData
+                                        v-if="employee.contract_start_date"
+                                        :input="$t('form.start_date')"
+                                        :value="formatDate(employee.contract_start_date)"
+                                    />
+                                    <DisplayData
+                                        v-if="employee.contract_end_date"
+                                        :input="$t('form.end_date')"
+                                        :value="formatDate(employee.contract_end_date)"
+                                    />
                                 </div>
                             </TabPanel>
                         </Tabs>

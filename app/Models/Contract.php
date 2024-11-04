@@ -107,7 +107,8 @@ class Contract extends Model implements Auditable
     public function createContract($data)
     {
         $data['sha256'] = hash('sha256', $data['content']);
-        $data['user_id'] = auth()->user()->id;
+        $data['version'] = 1;
+        $data['user_id'] = auth()->user()->id; // creator
         $data['number'] = $this->getContractNumber();
 
         $contract = $this->create($data);
@@ -120,6 +121,11 @@ class Contract extends Model implements Auditable
             $i = 1;
             foreach ($data['signers'] as $signer) {
                 $signer['sign_order'] = $i;
+                $signer['custom_signer'] = true;
+                if ($signer['user_id'] != null) {
+                    $signer['custom_signer'] = false;
+                }
+
                 $contract->signers()->create($signer);
                 $i++;
             }
@@ -143,8 +149,8 @@ class Contract extends Model implements Auditable
         }
 
         // If the contract is signed, by only one signer, it cannot be updated
-        $signers = $contract->signers()->where('status', 'signed')->get();
-        if ($contract->status == 'signed' && count($signers) >= 1) {
+        $signers = $contract->signers()->where('status', 'signed')->count();
+        if ($contract->status == 'signed' || $signers >= 1) {
             return [
                 'error' => true,
                 'message' => __('responses.cannot_update_signed_contract'),
@@ -184,8 +190,15 @@ class Contract extends Model implements Auditable
         // Update signers
         if (isset($data['signers'])) {
             $contract->signers()->delete();
+            $i = 1;
             foreach ($data['signers'] as $signer) {
+                $signer['sign_order'] = $i;
+                $signer['custom_signer'] = true;
+                if ($signer['user_id'] != null) {
+                    $signer['custom_signer'] = false;
+                }
                 $contract->signers()->create($signer);
+                $i++;
             }
             if ($contract->status == 'waiting_signers') {
                 $this->sendContractToSigners($id);
@@ -259,7 +272,6 @@ class Contract extends Model implements Auditable
         }
 
         $signers = $contract->signers()->where('status', '!=', 'signed')->get();
-
         foreach ($signers as $signer) {
             $external_key = generateExternalKey('contract', $contract->id, 'system', null, $signer->signer_email, 'email');
             $external_key_data = ExternalKey::where([
@@ -268,7 +280,12 @@ class Contract extends Model implements Auditable
                 'module_item_id' => $contract->id,
             ])->first();
             $signer->update(['signer_external_key_id' => $external_key_data->id]);
-            $url = url('/client/contract/' . $contract->id . '?key=' . $external_key . '&lang=' . app()->getLocale());
+            $local_url = 'client/contract/' . $contract->id . '?key=' . $external_key . '&lang=' . app()->getLocale();
+            $url = url('/' . $local_url);
+            if ($signer->user_id != null) {
+                // notification for internal users
+                createNotification($signer->user_id, 'ContractForSign', 'NewContractForSign', 'info', 'Sign', $local_url);
+            }
             Mail::to($signer->signer_email)->send(new \App\Mail\Client\ContractNotification($contract, $url, $signer));
         }
         return $contract;

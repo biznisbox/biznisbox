@@ -75,7 +75,6 @@
                         v-model="v$.webhook_subscription.signature_secret_key.$model"
                         :label="$t('form.signature_secret_key')"
                         :validate="v$.webhook_subscription.signature_secret_key"
-                        disabled
                     />
                     <SelectInput
                         v-model="v$.webhook_subscription.http_verb.$model"

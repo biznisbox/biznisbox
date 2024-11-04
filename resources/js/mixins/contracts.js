@@ -21,7 +21,7 @@ export default {
                 sha256: '',
                 signers: [
                     {
-                        employee_id: null,
+                        user_id: null,
                         custom_signer: true,
                         signer_name: '',
                         signer_email: '',

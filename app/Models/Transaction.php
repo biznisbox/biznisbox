@@ -40,8 +40,8 @@ class Transaction extends Model implements Auditable
     ];
 
     protected $casts = [
-        'amount' => 'decimal:2',
-        'exchange_rate' => 'decimal:6',
+        'amount' => 'double',
+        'exchange_rate' => 'double',
         'date' => 'datetime',
         'reconciled' => 'boolean',
         'reconciled_at' => 'datetime',

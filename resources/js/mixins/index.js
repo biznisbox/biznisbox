@@ -347,6 +347,9 @@ export default {
          * @return {object} Formatted addresses of partner
          */
         formatAddresses(partners, partner_id = null) {
+            if (partners == null) {
+                return
+            }
             let addressesList = []
             let partnerData = partners.find((partner) => partner.id === partner_id).addresses
 

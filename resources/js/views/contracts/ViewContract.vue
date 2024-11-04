@@ -4,12 +4,19 @@
             <PageHeader :title="contract.title">
                 <template #actions>
                     <Button
+                        v-if="contract.status !== 'signed' || contract.status !== 'rejected' || contract.status !== 'cancelled'"
                         :label="$t('basic.edit')"
                         severity="success"
                         icon="fa fa-edit"
                         @click="$router.push(`/contracts/${contract.id}/edit`)"
                     />
-                    <Button :label="$t('basic.delete')" icon="fa fa-trash" severity="danger" @click="deleteContractAsk($route.params.id)" />
+                    <Button
+                        v-if="contract.status !== 'signed' || contract.status !== 'rejected' || contract.status !== 'cancelled'"
+                        :label="$t('basic.delete')"
+                        icon="fa fa-trash"
+                        severity="danger"
+                        @click="deleteContractAsk($route.params.id)"
+                    />
                     <Button :label="$t('basic.audit_log')" icon="fa fa-history" @click="showAuditLogDialog = true" severity="info" />
 
                     <SplitButton
@@ -47,7 +54,6 @@
                         <Tag v-else-if="contract.status === 'expired'" severity="danger" :value="$t('status.expired')" />
                         <Tag v-else severity="info" :value="contract.status" />
                     </DisplayData>
-
                     <DisplayData :input="$t('form.version')" :value="contract.version" />
                     <DisplayData :input="$t('form.date')" :value="formatDate(contract.created_at)" />
                 </div>
