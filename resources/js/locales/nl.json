@@ -410,7 +410,8 @@
         "signer_phone": "Telefoon ondertekenaar",
         "signers": "Signers",
         "outcome": "Resultaat",
-        "activity_type": "Type activiteit"
+        "activity_type": "Type activiteit",
+        "user": "Gebruiker"
     },
     "address_types": {
         "billing": "Facturering",
