@@ -410,7 +410,8 @@
         "signer_phone": "Τηλέφωνο Υπογραφέα",
         "signers": "Υπογραφείς",
         "outcome": "Αποτέλεσμα",
-        "activity_type": "Τύπος Δραστηριότητας"
+        "activity_type": "Τύπος Δραστηριότητας",
+        "user": "Χρήστης"
     },
     "address_types": {
         "billing": "Χρέωση",
