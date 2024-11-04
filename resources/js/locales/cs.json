@@ -410,7 +410,8 @@
         "signer_phone": "Telefon podepisovatele",
         "signers": "Podepsaní",
         "outcome": "Výsledek",
-        "activity_type": "Typ aktivity"
+        "activity_type": "Typ aktivity",
+        "user": "Uživatel"
     },
     "address_types": {
         "billing": "Fakturace",
