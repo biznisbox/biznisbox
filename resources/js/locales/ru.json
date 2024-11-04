@@ -410,7 +410,8 @@
         "signer_phone": "Телефон подписи",
         "signers": "Подписчики",
         "outcome": "Результат",
-        "activity_type": "Тип деятельности"
+        "activity_type": "Тип деятельности",
+        "user": "Пользователь"
     },
     "address_types": {
         "billing": "Биллинг",
