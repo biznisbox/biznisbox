@@ -410,7 +410,8 @@
         "signer_phone": "Teléfono firmante",
         "signers": "Firmadores",
         "outcome": "Salida",
-        "activity_type": "Tipo de actividad"
+        "activity_type": "Tipo de actividad",
+        "user": "Usuario"
     },
     "address_types": {
         "billing": "Facturación",
