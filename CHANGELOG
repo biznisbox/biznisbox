@@ -2,6 +2,23 @@
 
 This is next major version of BiznisBox web app. 
 
+# v2.0.0-beta.3
+
+## ✨ New Features and Improvements
+
+- Enhanced user experience during BiznisBox installation, with improved setup guidance and clearer prompts.
+
+## 🐛 Bug Fixes
+
+- Resolved an issue preventing the map icons from displaying in the production build.
+- Corrected formatting errors with invoice, bills ... numbers format to ensure consistency and accuracy.
+- Fixed multiple issues encountered during BiznisBox installation via the installer for a smoother setup.
+
+## 🌐 Localization
+
+- Updated translations with the latest contributions from Crowdin to support better multilingual usability.
+
+**Note**: This release includes numerous additional changes not listed here.
 
 # v2.0.0-beta.2  
 
