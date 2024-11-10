@@ -52,7 +52,7 @@
         "pragmarx/google2fa": "^8.0",
         "spatie/laravel-permission": "^6.9",
         "spatie/laravel-webhook-server": "^3.8",
-        "stripe/stripe-php": "^15.0",
+        "stripe/stripe-php": "^16.2",
         "tymon/jwt-auth": "^2.1"
     },
     "require-dev": {
