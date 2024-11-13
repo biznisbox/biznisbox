@@ -411,7 +411,8 @@
         "signers": "Υπογραφείς",
         "outcome": "Αποτέλεσμα",
         "activity_type": "Τύπος Δραστηριότητας",
-        "user": "Χρήστης"
+        "user": "Χρήστης",
+        "is_internal": "Είναι Εσωτερικό"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -701,7 +702,8 @@
         "signed": "Υπογραφή",
         "waiting_signature": "Αναμονή για υπογραφή",
         "not_started": "Δεν ξεκίνησε",
-        "planned": "Προγραμματισμένο"
+        "planned": "Προγραμματισμένο",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Ημερολόγιο \"Ημερολόγια\"",
