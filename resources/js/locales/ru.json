@@ -411,7 +411,8 @@
         "signers": "Подписчики",
         "outcome": "Результат",
         "activity_type": "Тип деятельности",
-        "user": "Пользователь"
+        "user": "Пользователь",
+        "is_internal": "Внутренний"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -701,7 +702,8 @@
         "signed": "Подписано",
         "waiting_signature": "Ожидание подписи",
         "not_started": "Не начато",
-        "planned": "Запланировано"
+        "planned": "Запланировано",
+        "spam": "Спам"
     },
     "calendar": {
         "calendar": "Календарь | Календари",
