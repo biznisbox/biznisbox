@@ -411,7 +411,8 @@
         "signers": "Allekirjoittajat",
         "outcome": "Tulos",
         "activity_type": "Aktiviteetin Tyyppi",
-        "user": "Käyttäjä"
+        "user": "Käyttäjä",
+        "is_internal": "On Sisäinen"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -701,7 +702,8 @@
         "signed": "Allekirjoitettu",
         "waiting_signature": "Odotetaan allekirjoitusta",
         "not_started": "Ei aloitettu",
-        "planned": "Suunniteltu"
+        "planned": "Suunniteltu",
+        "spam": "Roskaposti"
     },
     "calendar": {
         "calendar": "Kalenteri - Kalenterit",
