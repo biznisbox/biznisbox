@@ -411,7 +411,8 @@
         "signers": "Tecknare",
         "outcome": "Resultat",
         "activity_type": "Typ av aktivitet",
-        "user": "Användare"
+        "user": "Användare",
+        "is_internal": "Är Intern"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -701,7 +702,8 @@
         "signed": "Signerad",
         "waiting_signature": "Väntar på signatur",
         "not_started": "Inte startad",
-        "planned": "Planerat"
+        "planned": "Planerat",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Kalender <unk> Kalendrar",
