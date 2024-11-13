@@ -411,7 +411,8 @@
         "signers": "Signers",
         "outcome": "Resultaat",
         "activity_type": "Type activiteit",
-        "user": "Gebruiker"
+        "user": "Gebruiker",
+        "is_internal": "Is intern"
     },
     "address_types": {
         "billing": "Facturering",
@@ -701,7 +702,8 @@
         "signed": "Ondertekend",
         "waiting_signature": "Wachten op ondertekening",
         "not_started": "Niet gestart",
-        "planned": "Gepland"
+        "planned": "Gepland",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Kalenderkalenders",
