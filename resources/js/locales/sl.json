@@ -411,8 +411,8 @@
         "signers": "Podpisniki",
         "outcome": "Rezultat",
         "activity_type": "Tip aktivnosti",
-        "user": "User",
-        "is_internal": "Is Internal"
+        "user": "Uporabnik",
+        "is_internal": "Interno"
     },
     "address_types": {
         "billing": "Obračunavanje",
