@@ -411,7 +411,8 @@
         "signers": "Podpisniki",
         "outcome": "Rezultat",
         "activity_type": "Tip aktivnosti",
-        "user": "User"
+        "user": "User",
+        "is_internal": "Is Internal"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -701,7 +702,8 @@
         "signed": "Podpisano",
         "waiting_signature": "Čakanje na podpis",
         "not_started": "Ni začeto",
-        "planned": "Načrtovano"
+        "planned": "Načrtovano",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Koledar | Koledarji",
