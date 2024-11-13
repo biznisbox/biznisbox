@@ -110,13 +110,8 @@ export default {
          * @return {void} delete bill
          */
         deleteBillAsk(id) {
-            this.$confirm.require({
-                message: this.$t('bill.delete_confirm_bill'),
-                header: this.$t('basic.confirmation'),
-                icon: 'fa fa-circle-exclamation',
-                accept: () => {
-                    this.deleteBill(id)
-                },
+            this.confirmDeleteDialog(this.$t('bill.delete_confirm_bill'), this.$t('basic.confirmation'), () => {
+                this.deleteBill(id)
             })
         },
 

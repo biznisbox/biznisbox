@@ -190,13 +190,8 @@ export default {
          * @returns {void}
          **/
         deleteDocumentAsk(document) {
-            this.$confirm.require({
-                message: this.$t('archive.delete_confirm_document'),
-                header: this.$t('basic.confirmation'),
-                icon: 'fa fa-circle-exclamation',
-                accept: () => {
-                    this.deleteDocument(document)
-                },
+            this.confirmDeleteDialog(this.$t('archive.delete_confirm_document'), this.$t('basic.confirmation'), () => {
+                this.deleteDocument(document)
             })
         },
 
@@ -271,13 +266,8 @@ export default {
          * @returns {void} delete folder
          **/
         deleteFolderAsk() {
-            this.$confirm.require({
-                message: this.$t('archive.delete_confirm_folder'),
-                header: this.$t('basic.confirmation'),
-                icon: 'fa fa-circle-exclamation',
-                accept: () => {
-                    this.deleteFolder()
-                },
+            this.confirmDeleteDialog(this.$t('archive.delete_confirm_folder'), this.$t('basic.confirmation'), () => {
+                this.deleteFolder()
             })
         },
 

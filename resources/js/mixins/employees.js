@@ -102,13 +102,8 @@ export default {
          * @param id
          */
         deleteEmployeeAsk(id) {
-            this.$confirm.require({
-                message: this.$t('employee.delete_employee_confirmation'),
-                header: this.$t('basic.confirmation'),
-                icon: 'fa fa-circle-exclamation',
-                accept: () => {
-                    this.deleteEmployee(id)
-                },
+            this.confirmDeleteDialog(this.$t('employee.delete_employee_confirmation'), this.$t('basic.confirmation'), () => {
+                this.deleteEmployee(id)
             })
         },
 

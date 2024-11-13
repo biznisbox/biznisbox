@@ -66,13 +66,8 @@ export default {
         },
 
         deleteUserAsk(id) {
-            this.$confirm.require({
-                message: this.$t('admin.user.delete_confirm_user'),
-                header: this.$t('basic.confirmation'),
-                icon: 'fa fa-circle-exclamation',
-                accept: () => {
-                    this.deleteUser(id)
-                },
+            this.confirmDeleteDialog(this.$t('admin.user.delete_confirm_user'), this.$t('basic.confirmation'), () => {
+                this.deleteUser(id)
             })
         },
 

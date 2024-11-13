@@ -87,15 +87,10 @@ export default {
          * @return {void} show toast and refetch events
          */
         deleteEventAsk(id) {
-            this.$confirm.require({
-                message: this.$t('calendar.delete_event_confirmation'),
-                header: this.$t('basic.confirmation'),
-                icon: 'fa fa-circle-exclamation',
-                accept: () => {
-                    this.deleteEvent(id)
-                    this.$refs.calendar.getApi().refetchEvents()
-                    this.showEventDialog = false
-                },
+            this.confirmDeleteDialog(this.$t('calendar.delete_event_confirmation'), this.$t('basic.confirmation'), () => {
+                this.deleteEvent(id)
+                this.$refs.calendar.getApi().refetchEvents()
+                this.showEventDialog = false
             })
         },
 

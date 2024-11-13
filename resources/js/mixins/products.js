@@ -99,13 +99,8 @@ export default {
          * @returns {void}
          */
         deleteProductAsk(id) {
-            this.$confirm.require({
-                message: this.$t('product.delete_product_confirmation'),
-                header: this.$t('basic.confirmation'),
-                icon: 'fa fa-circle-exclamation',
-                accept: () => {
-                    this.deleteProduct(id)
-                },
+            this.confirmDeleteDialog(this.$t('product.delete_product_confirmation'), this.$t('basic.confirmation'), () => {
+                this.deleteProduct(id)
             })
         },
 

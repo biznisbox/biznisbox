@@ -94,7 +94,8 @@
                                     <Tag :value="value ? $t('basic.yes') : $t('basic.no')" /> <br />
                                 </span>
                                 <span v-else-if="Array.isArray(value)">
-                                    <span class="font-semibold">{{ $t(`form.${key}`) }}:</span> <span v-html="formatHtml(value.join(', '))"></span>
+                                    <span class="font-semibold">{{ $t(`form.${key}`) }}:</span>
+                                    <span v-html="formatHtml(value.join(', '))"></span>
                                     <br />
                                 </span>
                                 <span v-else-if="value !== null && typeof value == 'string' && value.includes('http')">
@@ -102,7 +103,8 @@
                                     <a :href="value" target="_blank" rel="noopener noreferrer">{{ value }}</a> <br />
                                 </span>
                                 <span v-else>
-                                    <span class="font-semibold">{{ $t(`form.${key}`) }}:</span> <span v-html="formatHtml(value)"></span> <br />
+                                    <span class="font-semibold">{{ $t(`form.${key}`) }}:</span> <span v-html="formatHtml(value)"></span>
+                                    <br />
                                 </span>
                             </div>
                         </li>

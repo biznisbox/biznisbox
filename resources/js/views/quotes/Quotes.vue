@@ -70,7 +70,7 @@
                         <Tag v-if="data.status === 'sent'" severity="warn">{{ $t('status.sent') }}</Tag>
                         <Tag v-if="data.status === 'viewed'" severity="warn">{{ $t('status.viewed') }}</Tag>
                         <Tag v-if="data.status === 'expired'" severity="danger">{{ $t('status.expired') }}</Tag>
-                        <Tag v-if="data.status === 'cancelled'" severity="">{{ $t('status.cancelled') }}</Tag>
+                        <Tag v-if="data.status === 'cancelled'" severity="secondary">{{ $t('status.cancelled') }}</Tag>
                         <Tag v-if="data.status === 'converted'" severity="success">{{ $t('status.converted') }}</Tag>
                     </template>
                     <template #filter="{ filterModel }">

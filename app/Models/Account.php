@@ -93,6 +93,7 @@ class Account extends Model implements Auditable
     public function deleteAccount($id)
     {
         $account = self::where('id', $id)->first();
+        $accountData = $account->toArray();
         if ($account->is_default == 1) {
             return [
                 'error' => true,
@@ -101,7 +102,7 @@ class Account extends Model implements Auditable
         }
         $account = $account->delete();
         if ($account) {
-            sendWebhookForEvent('account:deleted', $account->toArray());
+            sendWebhookForEvent('account:deleted', $accountData);
             return true;
         }
         return $account;

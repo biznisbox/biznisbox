@@ -70,13 +70,8 @@ export default {
         },
 
         deleteRoleAsk(id) {
-            this.$confirm.require({
-                message: this.$t('admin.role.delete_confirm_role'),
-                header: this.$t('basic.confirmation'),
-                icon: 'fa fa-circle-exclamation',
-                accept: () => {
-                    this.deleteRole(id)
-                },
+            this.confirmDeleteDialog(this.$t('admin.role.delete_confirm_role'), this.$t('basic.confirmation'), () => {
+                this.deleteRole(id)
             })
         },
 

@@ -128,13 +128,8 @@ export default {
          * @returns {void} confirmation dialog
          **/
         deleteInvoiceAsk(id) {
-            this.$confirm.require({
-                message: this.$t('invoice.delete_confirm_invoice'),
-                header: this.$t('basic.confirmation'),
-                icon: 'fa fa-circle-exclamation',
-                accept: () => {
-                    this.deleteInvoice(id)
-                },
+            this.confirmDeleteDialog(this.$t('invoice.delete_confirm_invoice'), this.$t('basic.confirmation'), () => {
+                this.deleteInvoice(id)
             })
         },
 

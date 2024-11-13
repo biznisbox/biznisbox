@@ -131,13 +131,8 @@ export default {
          * @return {void}
          */
         deletePartnerAsk(id) {
-            this.$confirm.require({
-                message: this.$t('partner.delete_confirm_partner'),
-                header: this.$t('basic.confirmation'),
-                icon: 'fa fa-circle-exclamation',
-                accept: () => {
-                    this.deletePartner(id)
-                },
+            this.confirmDeleteDialog(this.$t('partner.delete_confirm_partner'), this.$t('basic.confirmation'), () => {
+                this.deletePartner(id)
             })
         },
 

@@ -132,13 +132,8 @@ export default {
          * @returns {void}
          */
         deleteSupportTicketAsk(id) {
-            this.$confirm.require({
-                message: this.$t('support.delete_confirm_ticket'),
-                header: this.$t('basic.confirmation'),
-                icon: 'fa fa-circle-exclamation',
-                accept: () => {
-                    this.deleteSupportTicket(id)
-                },
+            this.confirmDeleteDialog(this.$t('support.delete_confirm_ticket'), this.$t('basic.confirmation'), () => {
+                this.deleteSupportTicket(id)
             })
         },
 

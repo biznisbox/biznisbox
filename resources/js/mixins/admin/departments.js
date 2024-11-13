@@ -81,13 +81,8 @@ export default {
          * @return {void}
          */
         deleteDepartmentAsk(id) {
-            this.$confirm.require({
-                message: this.$t('admin.department.delete_confirm_department'),
-                header: this.$t('basic.confirmation'),
-                icon: 'fa fa-circle-exclamation',
-                accept: () => {
-                    this.deleteDepartment(id)
-                },
+            this.confirmDeleteDialog(this.$t('admin.department.delete_confirm_department'), this.$t('basic.confirmation'), () => {
+                this.deleteDepartment(id)
             })
         },
 

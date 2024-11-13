@@ -125,13 +125,8 @@ export default {
          * @returns {void}
          **/
         deleteQuoteAsk(id) {
-            this.$confirm.require({
-                message: this.$t('quote.delete_confirm_quote'),
-                header: this.$t('basic.confirmation'),
-                icon: 'fa fa-circle-exclamation',
-                accept: () => {
-                    this.deleteQuote(id)
-                },
+            this.confirmDeleteDialog(this.$t('quote.delete_confirm_quote'), this.$t('basic.confirmation'), () => {
+                this.deleteQuote(id)
             })
         },
 

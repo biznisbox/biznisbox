@@ -1,6 +1,6 @@
 import { jwtDecode } from 'jwt-decode'
 import dayjs from 'dayjs'
-import DOMPurify from 'dompurify';
+import DOMPurify from 'dompurify'
 import CategoryMixin from '@/mixins/categories'
 export default {
     name: 'IndexMixin',
@@ -121,6 +121,30 @@ export default {
          **/
         showToast(massage, summary = this.$t('basic.success'), severity = 'success', life = 3000) {
             this.$toast.add({ severity: severity, summary: summary, detail: massage, life: life })
+        },
+
+        /**
+         * Function for show confirm dialog for delete item
+         * @param {string} message Message to show in dialog
+         * @param {string} header Header of the dialog
+         * @param {function} accept Function to execute on accept
+         * @param {function} reject Function to execute on reject
+         */
+        confirmDeleteDialog(message, header, accept = null, reject = null) {
+            this.$confirm.require({
+                message: message,
+                header: header,
+                icon: 'fa fa-circle-exclamation',
+                acceptLabel: this.$t('basic.yes'),
+                acceptClass:
+                    'text-white dark:text-surface-900 bg-red-500 dark:bg-red-400 border border-red-500 dark:border-red-400 hover:bg-red-600 dark:hover:bg-red-300 hover:border-red-600 dark:hover:border-red-300 focus:ring-red-400/50 dark:focus:ring-red-300/50',
+                cancelLabel: this.$t('basic.no'),
+                rejectLabel: this.$t('basic.no'),
+                rejectClass:
+                    'text-white dark:text-surface-900 bg-surface-500 dark:bg-surface-400 border border-surface-500 dark:border-surface-400 text-surface-500 dark:text-surface-300 border border-surface-500 hover:bg-surface-300/20 hover:bg-surface-600 dark:hover:bg-surface-300 hover:border-surface-600 dark:hover:border-surface-300 focus:ring-surface-400/50 dark:focus:ring-surface-300/50',
+                accept: accept,
+                reject: reject,
+            })
         },
 
         /**

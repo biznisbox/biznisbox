@@ -92,13 +92,8 @@ export default {
          * @return {void} show toast and redirect to accounts
          */
         deleteAccountAsk(id) {
-            this.$confirm.require({
-                message: this.$t('account.delete_confirm_account'),
-                header: this.$t('basic.confirmation'),
-                icon: 'fa fa-circle-exclamation',
-                accept: () => {
-                    this.deleteAccount(id)
-                },
+            this.confirmDeleteDialog(this.$t('account.delete_confirm_account'), this.$t('basic.confirmation'), () => {
+                this.deleteAccount(id)
             })
         },
     },
