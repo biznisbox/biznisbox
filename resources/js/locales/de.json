@@ -411,7 +411,8 @@
         "signers": "Unterzeichner",
         "outcome": "Ergebnis",
         "activity_type": "Aktivitätstyp",
-        "user": "Benutzer"
+        "user": "Benutzer",
+        "is_internal": "Ist intern"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -701,7 +702,8 @@
         "signed": "Unterschrieben",
         "waiting_signature": "Warte auf Signatur",
         "not_started": "Nicht gestartet",
-        "planned": "Geplant"
+        "planned": "Geplant",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Kalender | Kalender",
