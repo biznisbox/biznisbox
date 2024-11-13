@@ -411,7 +411,8 @@
         "signers": "Underskrivere",
         "outcome": "Resultat",
         "activity_type": "Aktivitet Type",
-        "user": "Bruger"
+        "user": "Bruger",
+        "is_internal": "Er Intern"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -701,7 +702,8 @@
         "signed": "Signeret",
         "waiting_signature": "Venter på signatur",
         "not_started": "Ikke startet",
-        "planned": "Planlagt"
+        "planned": "Planlagt",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Kalender Kalendere",
