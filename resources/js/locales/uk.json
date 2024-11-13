@@ -411,7 +411,8 @@
         "signers": "Сигнери",
         "outcome": "Результат",
         "activity_type": "Тип дії",
-        "user": "Користувач"
+        "user": "Користувач",
+        "is_internal": "Є внутрішнім"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -701,7 +702,8 @@
         "signed": "Підписано",
         "waiting_signature": "Очікування підпису",
         "not_started": "Не розпочато",
-        "planned": "Заплановано"
+        "planned": "Заплановано",
+        "spam": "Спам"
     },
     "calendar": {
         "calendar": "Календар | Календар",
