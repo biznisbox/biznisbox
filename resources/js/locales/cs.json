@@ -411,7 +411,8 @@
         "signers": "Podepsaní",
         "outcome": "Výsledek",
         "activity_type": "Typ aktivity",
-        "user": "Uživatel"
+        "user": "Uživatel",
+        "is_internal": "Je interní"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -701,7 +702,8 @@
         "signed": "Podepsáno",
         "waiting_signature": "Čekání na podpis",
         "not_started": "Nezahájeno",
-        "planned": "Plánované"
+        "planned": "Plánované",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Kalendář | Kalendáře",
