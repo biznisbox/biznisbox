@@ -411,7 +411,8 @@
         "signers": "Firmatari",
         "outcome": "Risultato",
         "activity_type": "Tipo Di Attività",
-        "user": "Utente"
+        "user": "Utente",
+        "is_internal": "È Interno"
     },
     "address_types": {
         "billing": "Fatturazione",
@@ -701,7 +702,8 @@
         "signed": "Firmato",
         "waiting_signature": "In attesa della firma",
         "not_started": "Non avviato",
-        "planned": "Pianificato"
+        "planned": "Pianificato",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Calendario <unk> Calendari",
