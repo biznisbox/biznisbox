@@ -411,7 +411,8 @@
         "signers": "Podpisujący",
         "outcome": "Rezultat",
         "activity_type": "Typ Aktywności",
-        "user": "Użytkownik"
+        "user": "Użytkownik",
+        "is_internal": "Jest wewn."
     },
     "address_types": {
         "billing": "Płatność",
@@ -701,7 +702,8 @@
         "signed": "Podpisano",
         "waiting_signature": "Oczekiwanie na podpis",
         "not_started": "Nie rozpoczęto",
-        "planned": "Zaplanowane"
+        "planned": "Zaplanowane",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Kalendarz | Kalendarze",
