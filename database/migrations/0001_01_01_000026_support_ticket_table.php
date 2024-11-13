@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->string('status')->default('open'); // Status of the ticket - open, closed, archived, spam
             $table->string('priority')->default('low'); // Priority of the ticket - low, medium, high, urgent, critical
             $table->string('type')->default('ticket'); // Type of the ticket - ticket, question, problem, task
+            $table->boolean('is_internal')->default(false); // If ticket is internal or not
             $table->string('source')->default('email'); // Source of the ticket - email, phone, chat, web, social
             $table->longText('notes')->nullable(); // Notes of the ticket (internal notes) - html
             $table->text('tags')->nullable(); // Tags of the ticket (internal tags) - comma separated

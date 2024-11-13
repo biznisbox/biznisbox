@@ -41,6 +41,11 @@
                             filter
                         />
 
+                        <div class="flex flex-col gap-2 mb-2">
+                            <label for="is_internal_switch" class="dark:text-surface-200">{{ $t('form.is_internal') }}</label>
+                            <ToggleSwitch id="is_internal_switch" v-model="supportTicket.is_internal" />
+                        </div>
+
                         <div id="partner_input">
                             <div class="flex flex-col gap-2 mb-2">
                                 <label for="custom_partner_switch" class="dark:text-surface-200">{{ $t('form.custom_contact') }}</label>
@@ -104,6 +109,7 @@
                                     { label: $t('status.closed'), value: 'closed' },
                                     { label: $t('status.reopened'), value: 'reopened' },
                                     { label: $t('status.resolved'), value: 'resolved' },
+                                    { label: $t('status.spam'), value: 'spam' },
                                 ]"
                                 :validate="v$.supportTicket.status"
                             />
@@ -196,7 +202,7 @@ export default {
                     partner.contacts.forEach((contact) => {
                         this.partnerContacts.push({
                             id: contact.id,
-                            name: `${contact.name} ${contact.email}`,
+                            name: `${contact.name} ${contact.email ? `(${contact.email})` : ''}`,
                         })
                     })
                 }

@@ -5,7 +5,6 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Str;
 use App\Events\WebhookEvent;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
 if (!function_exists('api_response')) {
     /**

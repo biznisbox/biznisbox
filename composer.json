@@ -39,7 +39,7 @@
         "php": "^8.2",
         "barryvdh/laravel-dompdf": "^3.0",
         "hisorange/browser-detect": "^5.0",
-        "laravel/framework": "^11.29",
+        "laravel/framework": "^11.31",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "laravolt/avatar": "^6.0",
@@ -52,7 +52,7 @@
         "pragmarx/google2fa": "^8.0",
         "spatie/laravel-permission": "^6.9",
         "spatie/laravel-webhook-server": "^3.8",
-        "stripe/stripe-php": "^15.0",
+        "stripe/stripe-php": "^16.0",
         "tymon/jwt-auth": "^2.1"
     },
     "require-dev": {

@@ -17,7 +17,6 @@
                         severity="danger"
                         @click="deleteContractAsk($route.params.id)"
                     />
-                    <Button :label="$t('basic.audit_log')" icon="fa fa-history" @click="showAuditLogDialog = true" severity="info" />
 
                     <SplitButton
                         id="more_options_button"

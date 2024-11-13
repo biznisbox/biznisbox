@@ -73,7 +73,7 @@
                                             <Timeline :value="partner.activities">
                                                 <template #marker="slotProps">
                                                     <span
-                                                        class="flex w-8 h-8 items-center justify-center text-primary rounded-full z-10 shadow-sm"
+                                                        class="flex w-8 h-8 items-center justify-center text-primary rounded-full border border-primary z-10 shadow-sm"
                                                     >
                                                         <span v-if="slotProps.item.type === 'call'" class="fa fa-phone"></span>
                                                         <span v-if="slotProps.item.type === 'task'" class="fa fa-tasks"></span>
@@ -164,6 +164,12 @@
                                                                     </div>
                                                                     <div class="block text-sm text-gray-500">
                                                                         {{ slotProps.item.outcome }}
+                                                                    </div>
+                                                                    <div
+                                                                        v-if="slotProps.item.type === 'note'"
+                                                                        class="block text-sm text-gray-500"
+                                                                    >
+                                                                        <span v-html="slotProps.item.content"></span>
                                                                     </div>
                                                                 </div>
 

@@ -6,7 +6,6 @@ use App\Models\SupportTicket;
 use App\Models\SupportTicketContent;
 use App\Models\ExternalKey;
 use Illuminate\Support\Str;
-use App\Models\Employee;
 
 class SupportTicketService
 {

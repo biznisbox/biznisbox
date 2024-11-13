@@ -27,6 +27,7 @@ class SupportTicket extends Model implements Auditable
         'source',
         'notes',
         'tags',
+        'is_internal',
         'channel',
         'custom_contact',
         'contact_name',
@@ -37,6 +38,7 @@ class SupportTicket extends Model implements Auditable
     protected $casts = [
         'tags' => 'array',
         'custom_contact' => 'boolean',
+        'is_internal' => 'boolean',
     ];
 
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];

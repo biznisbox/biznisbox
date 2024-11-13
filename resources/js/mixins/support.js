@@ -12,6 +12,7 @@ export default {
                 department_id: null,
                 number: '',
                 subject: '',
+                is_internal: false,
                 status: 'open', // open, pending, resolved, closed
                 priority: 'normal', // low, normal, high, urgent
                 type: 'ticket',

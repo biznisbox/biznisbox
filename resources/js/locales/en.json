@@ -411,7 +411,8 @@
         "signers": "Signers",
         "outcome": "Outcome",
         "activity_type": "Activity Type",
-        "user": "User"
+        "user": "User",
+        "is_internal": "Is Internal"
     },
     "address_types": {
         "billing": "Billing",
@@ -701,7 +702,8 @@
         "signed": "Signed",
         "waiting_signature": "Waiting for signature",
         "not_started": "Not started",
-        "planned": "Planned"
+        "planned": "Planned",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Calendar | Calendars",

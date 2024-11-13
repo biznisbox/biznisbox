@@ -3,7 +3,6 @@
 namespace App\Helpers;
 
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 
 class SerialNumberFormatter
 {
@@ -154,7 +153,7 @@ class SerialNumberFormatter
      */
     public static function convertNumberFormatToArray($item)
     {
-        $items = SerialNumberFormatter::getPlaceholders($item);
+        $items = self::getPlaceholders($item);
         $number_format = [];
         foreach ($items as $item) {
             $item = explode(':', $item);
