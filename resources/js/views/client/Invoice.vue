@@ -171,7 +171,7 @@
                     <div id="invoice_calculations" class="grid mt-5 grid-cols-1 md:grid-cols-2">
                         <div id="invoice_footer">
                             <DisplayData v-if="invoice.footer && !loadingData" :input="$t('form.footer')" custom-value>
-                                <span v-html="invoice.footer"></span>
+                                <span v-html="formatHtml(invoice.footer)"></span>
                             </DisplayData>
                         </div>
 

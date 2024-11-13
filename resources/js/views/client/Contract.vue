@@ -79,7 +79,7 @@
 
                         <DisplayData :input="$t('form.content')" customValue>
                             <div v-if="contract.content">
-                                <div v-html="contract.content"></div>
+                                <div v-html="formatHtml(contract.content)"></div>
                             </div>
                             <div v-else>
                                 <span>{{ $t('contract.no_content') }}</span>

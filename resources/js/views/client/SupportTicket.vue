@@ -70,7 +70,7 @@
                                 </div>
 
                                 <div id="content_{{ index }}_message" class="mt-4">
-                                    <span v-if="content.type === 'text' && content.message" v-html="content.message"></span>
+                                    <span v-if="content.type === 'text' && content.message" v-html="formatHtml(content.message)"></span>
                                 </div>
 
                                 <!-- Footer - date -->

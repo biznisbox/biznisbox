@@ -1,5 +1,6 @@
 import { jwtDecode } from 'jwt-decode'
 import dayjs from 'dayjs'
+import DOMPurify from 'dompurify';
 import CategoryMixin from '@/mixins/categories'
 export default {
     name: 'IndexMixin',
@@ -416,6 +417,15 @@ export default {
          * */
         formatText(value) {
             return value === null ? '' : value
+        },
+
+        /**
+         * Function to format HTML content using DOMPurify
+         * @param {string} value
+         * @returns {string} Formatted HTML content
+         */
+        formatHtml(value) {
+            return DOMPurify.sanitize(value)
         },
 
         /**

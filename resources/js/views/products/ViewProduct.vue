@@ -47,7 +47,7 @@
                     </div>
                     <DisplayData :input="$t('form.barcode')" :value="product.barcode" />
                     <DisplayData :input="$t('form.description')" customValue v-if="product.description">
-                        <div v-html="product.description"></div>
+                        <div v-html="formatHtml(product.description)"></div>
                     </DisplayData>
                 </form>
             </div>

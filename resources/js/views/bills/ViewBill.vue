@@ -90,11 +90,11 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2">
                     <div id="bill_notes">
                         <DisplayData v-if="bill.notes && !loadingData" :input="$t('form.notes')" custom-value>
-                            <span v-html="bill.notes"></span>
+                            <span v-html="formatHtml(bill.notes)"></span>
                         </DisplayData>
 
                         <DisplayData v-if="bill.footer && !loadingData" :input="$t('form.footer')" custom-value>
-                            <span v-html="bill.footer"></span>
+                            <span v-html="formatHtml(bill.footer)"></span>
                         </DisplayData>
                     </div>
 

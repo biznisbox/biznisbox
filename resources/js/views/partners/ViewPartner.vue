@@ -169,7 +169,7 @@
                                                                         v-if="slotProps.item.type === 'note'"
                                                                         class="block text-sm text-gray-500"
                                                                     >
-                                                                        <span v-html="slotProps.item.content"></span>
+                                                                        <span v-html="formatHtml(slotProps.item.content)"></span>
                                                                     </div>
                                                                 </div>
 

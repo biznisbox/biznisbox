@@ -42,6 +42,7 @@
         "@vuelidate/validators": "^2.0.4",
         "apexcharts": "^4.0.0",
         "dayjs": "^1.11.13",
+        "dompurify": "^3.2.0",
         "file-icon-vectors": "^1.0.0",
         "flag-icons": "^7.2.3",
         "grid-layout-plus": "^1.0.5",
