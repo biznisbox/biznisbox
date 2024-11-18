@@ -863,7 +863,9 @@
         "accept_terms_required": "La firma y la aceptación de los términos son necesarios para la firma del contrato.",
         "not_signed": "Aún no firmado",
         "signed": "Documento firmado",
-        "no_signers": "No hay firmantes"
+        "no_signers": "No hay firmantes",
+        "share_dialog": "Compartir contrato",
+        "share_dialog_text": "Copie el siguiente enlace y compártelo con su socio o escanee el código QR."
     },
     "support": {
         "support": "Soporte | Soporte",
