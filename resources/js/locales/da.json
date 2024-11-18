@@ -863,7 +863,9 @@
         "accept_terms_required": "Undertegnelse og accept af vilkår er forpligtet til at underskrive aftalen.",
         "not_signed": "Ikke signeret endnu",
         "signed": "Dokument signeret",
-        "no_signers": "Ingen underskrivere"
+        "no_signers": "Ingen underskrivere",
+        "share_dialog": "Del kontrakt",
+        "share_dialog_text": "Kopier linket nedenfor og del det med din partner eller skan QR-koden."
     },
     "support": {
         "support": "Støt - Understøtter",
