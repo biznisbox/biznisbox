@@ -863,7 +863,9 @@
         "accept_terms_required": "Ondertekening en acceptatie van de voorwaarden zijn vereist om het contract te ondertekenen.",
         "not_signed": "Nog niet ondertekend",
         "signed": "Document ondertekend",
-        "no_signers": "Geen ondertekenaars"
+        "no_signers": "Geen ondertekenaars",
+        "share_dialog": "Contract delen",
+        "share_dialog_text": "Kopieer de onderstaande link en deel deze met uw partner of scan de QR-code."
     },
     "support": {
         "support": "Ondersteun wwit ondersteuning",
