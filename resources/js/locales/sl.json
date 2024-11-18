@@ -863,7 +863,9 @@
         "accept_terms_required": "Za podpis pogodbe sta potrebna podpis in sprejem pogojev.",
         "not_signed": "Še ni podpisano",
         "signed": "Podpisan dokument",
-        "no_signers": "Ni podpisnikov"
+        "no_signers": "Ni podpisnikov",
+        "share_dialog": "Share contract",
+        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code."
     },
     "support": {
         "support": "Podpora",
