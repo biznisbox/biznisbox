@@ -863,7 +863,9 @@
         "accept_terms_required": "Podpis a přijetí podmínek musí podepsat smlouvu.",
         "not_signed": "Zatím nepřihlášeno",
         "signed": "Dokument podepsán",
-        "no_signers": "Žádné podpisy"
+        "no_signers": "Žádné podpisy",
+        "share_dialog": "Sdílet smlouvu",
+        "share_dialog_text": "Zkopírujte níže uvedený odkaz a sdílejte jej s partnerem nebo naskenujte QR kód."
     },
     "support": {
         "support": "Podpora | Podpora",
