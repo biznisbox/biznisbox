@@ -863,7 +863,9 @@
         "accept_terms_required": "Assinatura e aceitação dos termos são necessários para assinar o contrato.",
         "not_signed": "Ainda não assinado",
         "signed": "Documento assinado",
-        "no_signers": "Nenhum assinante"
+        "no_signers": "Nenhum assinante",
+        "share_dialog": "Compartilhar contrato",
+        "share_dialog_text": "Copie o link abaixo e compartilhe-o com seu parceiro ou digitalize o código QR."
     },
     "support": {
         "support": "Apoie-os",
