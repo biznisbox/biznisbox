@@ -863,7 +863,9 @@
         "accept_terms_required": "Zur Unterzeichnung des Vertrages sind die Unterzeichnung und Annahme der Vertragsbedingungen erforderlich.",
         "not_signed": "Noch nicht signiert",
         "signed": "Dokument signiert",
-        "no_signers": "Keine Unterzeichner"
+        "no_signers": "Keine Unterzeichner",
+        "share_dialog": "Vertrag teilen",
+        "share_dialog_text": "Kopieren Sie den unten stehenden Link und teilen Sie ihn mit Ihrem Partner oder scannen Sie den QR-Code."
     },
     "support": {
         "support": "Support | Unterstützungen",
