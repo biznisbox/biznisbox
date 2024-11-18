@@ -863,7 +863,9 @@
         "accept_terms_required": "Signatur og aksept av vilkår er påkrevd for å undertegne kontrakten.",
         "not_signed": "Ikke signert ennå",
         "signed": "Dokument signert",
-        "no_signers": "Ingen signører"
+        "no_signers": "Ingen signører",
+        "share_dialog": "Del kontrakt",
+        "share_dialog_text": "Kopier lenken nedenfor og del den med partneren din eller skann QR-koden."
     },
     "support": {
         "support": "Støtte iNaturSupport Support",
