@@ -378,4 +378,37 @@ class Contract extends Model implements Auditable
             }
         }
     }
+
+    /**
+     * Share contract
+     * @return void
+     */
+    public function shareContract($contract_id, $data)
+    {
+        $contract = $this->where('id', $contract_id)->first();
+
+        if (!$contract) {
+            return null;
+        }
+
+        $external_key = generateExternalKey('contract', $contract->id, 'system', null, $data['email'] ?? null, $data['type'] ?? 'manual');
+        $external_key_data = ExternalKey::where([
+            'key' => $external_key,
+            'module' => 'contract',
+            'module_item_id' => $contract->id,
+        ])->first();
+
+        $local_url = 'client/contract/' . $contract->id . '?key=' . $external_key . '&lang=' . app()->getLocale();
+        $url = url('/' . $local_url);
+
+        if ($data) {
+            if ($data['type'] == 'email') {
+                Mail::to($data['email'])->send(new \App\Mail\Client\ContractNotification($contract, $url, null));
+            }
+        }
+
+        return [
+            'url' => $url,
+        ];
+    }
 }

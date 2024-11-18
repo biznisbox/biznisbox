@@ -222,6 +222,7 @@ Route::middleware('auth:api')->group(function () {
         Route::put('/contracts/{id}', [ContractController::class, 'updateContract'])->name('updateContract');
         Route::delete('/contracts/{id}', [ContractController::class, 'deleteContract'])->name('deleteContract');
         Route::get('/contract/number', [ContractController::class, 'getContractNumber'])->name('getContractNumber');
+        Route::post('/contract/{id}/share', [ContractController::class, 'shareContract'])->name('shareContract');
     });
 
     // Payments

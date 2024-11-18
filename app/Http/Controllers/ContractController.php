@@ -61,4 +61,11 @@ class ContractController extends Controller
         $pdf = $this->contractService->getContractPdf($id, $type);
         return $pdf;
     }
+
+    public function shareContract(Request $request, $id)
+    {
+        $data = $request->all();
+        $contract = $this->contractService->shareContract($id, $data);
+        return api_response($contract, __('responses.item_shared_successfully'), 200);
+    }
 }

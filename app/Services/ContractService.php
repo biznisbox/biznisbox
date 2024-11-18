@@ -79,4 +79,10 @@ class ContractService
             return $pdf->stream('Contract ' . $contract->number . '.pdf');
         }
     }
+
+    public function shareContract($id, $data)
+    {
+        $contract = $this->contractModel->shareContract($id, $data);
+        return $contract;
+    }
 }

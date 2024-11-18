@@ -4,6 +4,7 @@ export default {
             contracts: [],
             partners: [],
             contractTypes: [],
+            shareUrl: '',
             contract: {
                 partner_id: null,
                 category_id: null,
@@ -128,6 +129,16 @@ export default {
         getPartners() {
             this.makeHttpRequest('GET', '/api/partner/limited').then((response) => {
                 this.partners = response.data.data
+            })
+        },
+
+        /**
+         * Share contract
+         */
+        shareContract(id) {
+            this.makeHttpRequest('POST', '/api/contract/' + id + '/share').then((response) => {
+                this.shareUrl = response.data.data.url
+                this.shareDialog = true
             })
         },
     },
