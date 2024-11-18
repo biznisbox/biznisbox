@@ -863,7 +863,9 @@
         "accept_terms_required": "Signature and acceptance of terms are required to sign the contract.",
         "not_signed": "Not signed yet",
         "signed": "Document signed",
-        "no_signers": "No signers"
+        "no_signers": "No signers",
+        "share_dialog": "Share contract",
+        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code."
     },
     "support": {
         "support": "Destek | Destekler",
