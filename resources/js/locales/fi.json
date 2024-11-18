@@ -863,7 +863,9 @@
         "accept_terms_required": "Sopimuksen allekirjoittaminen edellyttää ehtojen allekirjoittamista ja hyväksymistä.",
         "not_signed": "Ei vielä allekirjoitettu",
         "signed": "Asiakirja allekirjoitettu",
-        "no_signers": "Ei allekirjoittajia"
+        "no_signers": "Ei allekirjoittajia",
+        "share_dialog": "Jaa sopimus",
+        "share_dialog_text": "Kopioi alla oleva linkki ja jaa se kumppanisi kanssa tai skannaa QR-koodi."
     },
     "support": {
         "support": "Tue - Tuet",
