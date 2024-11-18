@@ -863,7 +863,9 @@
         "accept_terms_required": "La signature et l'acceptation des conditions sont requises pour signer le contrat.",
         "not_signed": "Pas encore signé",
         "signed": "Document signé",
-        "no_signers": "Aucun signataire"
+        "no_signers": "Aucun signataire",
+        "share_dialog": "Partager le contrat",
+        "share_dialog_text": "Copiez le lien ci-dessous et partagez-le avec votre partenaire ou scannez le code QR."
     },
     "support": {
         "support": "Support | Support",
