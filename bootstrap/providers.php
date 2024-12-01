@@ -6,5 +6,5 @@ return [
     Barryvdh\DomPDF\ServiceProvider::class,
     Milon\Barcode\BarcodeServiceProvider::class,
     Spatie\Permission\PermissionServiceProvider::class,
-    Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+    Laravel\Passport\PassportServiceProvider::class,
 ];

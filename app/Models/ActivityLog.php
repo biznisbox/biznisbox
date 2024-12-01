@@ -91,7 +91,7 @@ class ActivityLog extends Model
             'created_at' => now(),
             'updated_at' => now(),
             'user_type' => $user_type,
-            'user_id' => auth()->id() ?? $user_id,
+            'user_id' => $user_id,
             'tags' => $tags,
             'type' => $type,
             'external_key' => $external_key,

@@ -4,24 +4,33 @@ namespace App\Services;
 
 use App\Models\Session;
 use App\Models\User;
+use Carbon\Carbon;
+use GuzzleHttp\Psr7\Request;
+use Illuminate\Container\Attributes\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use PragmaRX\Google2FA\Google2FA;
+
+use function Illuminate\Log\log;
 
 class AuthService
 {
     public function Login($data)
     {
-        $token = auth()->attempt([
-            'email' => $data['email'],
-            'password' => $data['password'],
-        ]);
+        $user = User::where('email', $data['email'])->first();
 
-        if (!$token) {
-            return null;
+        if (!$user) {
+            return [
+                'message' => __('responses.invalid_credentials'),
+            ];
         }
 
-        $user = auth()->user();
+        if (Hash::check($data['password'], $user->password) === false) {
+            return [
+                'message' => __('responses.invalid_credentials'),
+            ];
+        }
 
         if (!$user->active) {
             return [
@@ -37,31 +46,28 @@ class AuthService
             ];
         }
 
-        $token_data = auth()->payload();
-
         if ($user && $user->two_factor_auth && $data['otp']) {
-            $valid = $this->validateOtp($data);
+            $valid = $this->validateOtp($data, $user->id);
             if ($valid !== true) {
                 return $valid;
             }
         }
 
-        $this->saveSession($token_data);
+        $token = $user->createToken('Personal Access Token');
+
+        $this->saveSession($token->token);
 
         return [
-            'access_token' => $token,
+            'access_token' => $token->accessToken,
             'token_type' => 'bearer',
-            'expires_in' =>
-                now()
-                    ->addSeconds(auth()->factory()->getTTL() * 60)
-                    ->toDateTimeString() . ' UTC',
+            'expires_in' => Carbon::parse($token->token->expires_at)->toDateTimeString(),
         ];
     }
 
-    public function Logout()
+    public function Logout($token)
     {
-        $token_data = auth()->payload();
-        Session::revokeSession($token_data['sub'], $token_data['jti']);
+
+       // Session::revokeSession($token_data['sub'], $token_data['jti']);
         Auth::logout();
     }
 
@@ -80,17 +86,15 @@ class AuthService
 
     public function saveSession($data)
     {
-        Session::saveSession($data['sub'], $data['jti'], $data['exp']);
+        Session::saveSession($data->user_id, $data->id, $data->expires_at);
 
-        User::where('id', $data['sub'])->update([
+        User::where('id', $data->user_id)->update([
             'last_login_at' => now(),
         ]);
     }
 
-    public function validateOtp($data)
+    public function validateOtp($data, $user_id)
     {
-        $user_id = auth()->payload()['sub'];
-
         $secret = DB::table('2fa')
             ->where(['user_id' => $user_id, 'enabled' => true])
             ->first()->secret;

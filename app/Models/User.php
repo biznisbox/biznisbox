@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Spatie\Permission\Traits\HasRoles;
@@ -15,10 +14,11 @@ use Illuminate\Support\Facades\Hash;
 use Laravolt\Avatar\Avatar;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Admin\UserDetails;
+use Laravel\Passport\HasApiTokens;
 
-class User extends Authenticatable implements JWTSubject, Auditable
+class User extends Authenticatable implements Auditable
 {
-    use HasFactory, Notifiable, SoftDeletes, HasUuids, HasRoles;
+    use HasFactory, Notifiable, SoftDeletes, HasUuids, HasRoles, HasApiTokens;
     use \OwenIt\Auditing\Auditable;
 
     /**
@@ -85,15 +85,6 @@ class User extends Authenticatable implements JWTSubject, Auditable
     protected function Role(): Attribute
     {
         return Attribute::make(get: fn(mixed $value, array $attributes) => $this->getRoleNames()->toArray()[0] ?? null);
-    }
-
-    /**
-     * Get the identifier that will be stored in the subject claim of the JWT.
-     * @return mixed
-     */
-    public function getJWTIdentifier()
-    {
-        return $this->getKey();
     }
 
     /**
