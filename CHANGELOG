@@ -1,6 +1,26 @@
-# v2.0.0
+# v2.0.0 - unreleased
 
 This is next major version of BiznisBox web app. 
+
+
+# v2.0.0-beta.4
+
+## ✨ New Features and Improvements
+
+- Add function for sharing contacts with other users (via magic link).
+- Add function for internal tickets in the support module.
+
+## 🐛 Bug Fixes
+
+- Fixed some little bugs in UI.
+- Fix security issues in the app (HTML injection, XSS) reported by SonarQube.
+
+## 🌐 Localization
+
+- Updated translations with the latest contributions from Crowdin to support better multilingual usability.
+
+**Note**: This release includes numerous additional changes not listed here.
+
 
 # v2.0.0-beta.3
 
