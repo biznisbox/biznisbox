@@ -864,8 +864,8 @@
         "not_signed": "Še ni podpisano",
         "signed": "Podpisan dokument",
         "no_signers": "Ni podpisnikov",
-        "share_dialog": "Share contract",
-        "share_dialog_text": "Copy the link below and share it with your partner or scan the QR code."
+        "share_dialog": "Deli pogodbo",
+        "share_dialog_text": "Kopiraj spodnjo povezavo in jo pošlji partnerju ali pa skenirajte QR kodo."
     },
     "support": {
         "support": "Podpora",
