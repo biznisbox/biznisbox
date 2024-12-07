@@ -410,7 +410,9 @@
         "signer_phone": "Signer Telefon",
         "signers": "Underskrivere",
         "outcome": "Resultat",
-        "activity_type": "Aktivitet Type"
+        "activity_type": "Aktivitet Type",
+        "user": "Bruger",
+        "is_internal": "Er Intern"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -700,7 +702,8 @@
         "signed": "Signeret",
         "waiting_signature": "Venter på signatur",
         "not_started": "Ikke startet",
-        "planned": "Planlagt"
+        "planned": "Planlagt",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Kalender Kalendere",
@@ -860,7 +863,9 @@
         "accept_terms_required": "Undertegnelse og accept af vilkår er forpligtet til at underskrive aftalen.",
         "not_signed": "Ikke signeret endnu",
         "signed": "Dokument signeret",
-        "no_signers": "Ingen underskrivere"
+        "no_signers": "Ingen underskrivere",
+        "share_dialog": "Del kontrakt",
+        "share_dialog_text": "Kopier linket nedenfor og del det med din partner eller skan QR-koden."
     },
     "support": {
         "support": "Støt - Understøtter",

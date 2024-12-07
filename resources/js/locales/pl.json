@@ -410,7 +410,9 @@
         "signer_phone": "Telefon podpisującego",
         "signers": "Podpisujący",
         "outcome": "Rezultat",
-        "activity_type": "Typ Aktywności"
+        "activity_type": "Typ Aktywności",
+        "user": "Użytkownik",
+        "is_internal": "Jest wewn."
     },
     "address_types": {
         "billing": "Płatność",
@@ -700,7 +702,8 @@
         "signed": "Podpisano",
         "waiting_signature": "Oczekiwanie na podpis",
         "not_started": "Nie rozpoczęto",
-        "planned": "Zaplanowane"
+        "planned": "Zaplanowane",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Kalendarz | Kalendarze",
@@ -860,7 +863,9 @@
         "accept_terms_required": "Do podpisania umowy wymagane jest podpisanie i przyjęcie warunków.",
         "not_signed": "Jeszcze nie podpisano",
         "signed": "Dokument podpisany",
-        "no_signers": "Brak podpisów"
+        "no_signers": "Brak podpisów",
+        "share_dialog": "Kontrakt na akcje",
+        "share_dialog_text": "Skopiuj poniższy link i udostępnij go partnerowi lub zeskanuj kod QR."
     },
     "support": {
         "support": "Obsługa | Wsparcie",

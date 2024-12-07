@@ -410,7 +410,9 @@
         "signer_phone": "Signeringsnummer",
         "signers": "Tecknare",
         "outcome": "Resultat",
-        "activity_type": "Typ av aktivitet"
+        "activity_type": "Typ av aktivitet",
+        "user": "Användare",
+        "is_internal": "Är Intern"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -700,7 +702,8 @@
         "signed": "Signerad",
         "waiting_signature": "Väntar på signatur",
         "not_started": "Inte startad",
-        "planned": "Planerat"
+        "planned": "Planerat",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Kalender <unk> Kalendrar",
@@ -860,7 +863,9 @@
         "accept_terms_required": "För att underteckna avtalet krävs undertecknande och godkännande av villkor.",
         "not_signed": "Inte signerad ännu",
         "signed": "Dokument signerat",
-        "no_signers": "Inga signerare"
+        "no_signers": "Inga signerare",
+        "share_dialog": "Dela kontrakt",
+        "share_dialog_text": "Kopiera länken nedan och dela den med din partner eller skanna QR-koden."
     },
     "support": {
         "support": "Stöd <unk> Stöder",

@@ -410,7 +410,9 @@
         "signer_phone": "Telefonska številka podpisnika",
         "signers": "Podpisniki",
         "outcome": "Rezultat",
-        "activity_type": "Tip aktivnosti"
+        "activity_type": "Tip aktivnosti",
+        "user": "Uporabnik",
+        "is_internal": "Interno"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -700,7 +702,8 @@
         "signed": "Podpisano",
         "waiting_signature": "Čakanje na podpis",
         "not_started": "Ni začeto",
-        "planned": "Načrtovano"
+        "planned": "Načrtovano",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Koledar | Koledarji",
@@ -860,7 +863,9 @@
         "accept_terms_required": "Za podpis pogodbe sta potrebna podpis in sprejem pogojev.",
         "not_signed": "Še ni podpisano",
         "signed": "Podpisan dokument",
-        "no_signers": "Ni podpisnikov"
+        "no_signers": "Ni podpisnikov",
+        "share_dialog": "Deli pogodbo",
+        "share_dialog_text": "Kopiraj spodnjo povezavo in jo pošlji partnerju ali pa skenirajte QR kodo."
     },
     "support": {
         "support": "Podpora",

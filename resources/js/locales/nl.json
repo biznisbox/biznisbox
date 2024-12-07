@@ -410,7 +410,9 @@
         "signer_phone": "Telefoon ondertekenaar",
         "signers": "Signers",
         "outcome": "Resultaat",
-        "activity_type": "Type activiteit"
+        "activity_type": "Type activiteit",
+        "user": "Gebruiker",
+        "is_internal": "Is intern"
     },
     "address_types": {
         "billing": "Facturering",
@@ -700,7 +702,8 @@
         "signed": "Ondertekend",
         "waiting_signature": "Wachten op ondertekening",
         "not_started": "Niet gestart",
-        "planned": "Gepland"
+        "planned": "Gepland",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Kalenderkalenders",
@@ -860,7 +863,9 @@
         "accept_terms_required": "Ondertekening en acceptatie van de voorwaarden zijn vereist om het contract te ondertekenen.",
         "not_signed": "Nog niet ondertekend",
         "signed": "Document ondertekend",
-        "no_signers": "Geen ondertekenaars"
+        "no_signers": "Geen ondertekenaars",
+        "share_dialog": "Contract delen",
+        "share_dialog_text": "Kopieer de onderstaande link en deel deze met uw partner of scan de QR-code."
     },
     "support": {
         "support": "Ondersteun wwit ondersteuning",

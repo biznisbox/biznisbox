@@ -410,7 +410,9 @@
         "signer_phone": "Telefono Firmatario",
         "signers": "Firmatari",
         "outcome": "Risultato",
-        "activity_type": "Tipo Di Attività"
+        "activity_type": "Tipo Di Attività",
+        "user": "Utente",
+        "is_internal": "È Interno"
     },
     "address_types": {
         "billing": "Fatturazione",
@@ -700,7 +702,8 @@
         "signed": "Firmato",
         "waiting_signature": "In attesa della firma",
         "not_started": "Non avviato",
-        "planned": "Pianificato"
+        "planned": "Pianificato",
+        "spam": "Spam"
     },
     "calendar": {
         "calendar": "Calendario <unk> Calendari",
@@ -860,7 +863,9 @@
         "accept_terms_required": "La firma e l'accettazione dei termini sono necessarie per firmare il contratto.",
         "not_signed": "Non ancora firmato",
         "signed": "Documento firmato",
-        "no_signers": "Nessun firmatario"
+        "no_signers": "Nessun firmatario",
+        "share_dialog": "Condividi contratto",
+        "share_dialog_text": "Copia il link qui sotto e condividilo con il tuo partner o scansiona il codice QR."
     },
     "support": {
         "support": "Supporto <unk> Supporta",

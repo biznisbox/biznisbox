@@ -410,7 +410,9 @@
         "signer_phone": "Allekirjoittajan Puhelin",
         "signers": "Allekirjoittajat",
         "outcome": "Tulos",
-        "activity_type": "Aktiviteetin Tyyppi"
+        "activity_type": "Aktiviteetin Tyyppi",
+        "user": "Käyttäjä",
+        "is_internal": "On Sisäinen"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -700,7 +702,8 @@
         "signed": "Allekirjoitettu",
         "waiting_signature": "Odotetaan allekirjoitusta",
         "not_started": "Ei aloitettu",
-        "planned": "Suunniteltu"
+        "planned": "Suunniteltu",
+        "spam": "Roskaposti"
     },
     "calendar": {
         "calendar": "Kalenteri - Kalenterit",
@@ -860,7 +863,9 @@
         "accept_terms_required": "Sopimuksen allekirjoittaminen edellyttää ehtojen allekirjoittamista ja hyväksymistä.",
         "not_signed": "Ei vielä allekirjoitettu",
         "signed": "Asiakirja allekirjoitettu",
-        "no_signers": "Ei allekirjoittajia"
+        "no_signers": "Ei allekirjoittajia",
+        "share_dialog": "Jaa sopimus",
+        "share_dialog_text": "Kopioi alla oleva linkki ja jaa se kumppanisi kanssa tai skannaa QR-koodi."
     },
     "support": {
         "support": "Tue - Tuet",
