@@ -18,19 +18,19 @@ BiznisBox is a web application for managing business processes. It is a simple a
 
 BiznisBox is open source invoice management software. It integrates with Stripe and PayPal for payments.
 
--   Customizable dashboard
--   Products
--   Partners
--   Invoices
--   Quotes
--   Online Payments (Stripe and PayPal)
--   Transactions
--   Users
--   Archive (storage of documents)
--   Roles and permissions per user
--   Open banking (GoCardless)
--   Webhooks
--   Employees
+- Customizable dashboard
+- Products
+- Partners
+- Invoices
+- Quotes
+- Online Payments (Stripe and PayPal)
+- Transactions
+- Users
+- Archive (storage of documents)
+- Roles and permissions per user
+- Open banking (GoCardless)
+- Webhooks
+- Employees
 
 ## Need help?
 

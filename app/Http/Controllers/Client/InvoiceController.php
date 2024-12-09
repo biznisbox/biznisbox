@@ -10,9 +10,12 @@ class InvoiceController extends Controller
 {
     private $invoiceService;
 
+    private $redirectTo = '/client/invoice/';
+
     public function __construct(InvoiceService $invoiceService)
     {
         $this->invoiceService = $invoiceService;
+        $this->redirectTo = $this->redirectTo;
     }
 
     public function getInvoice(Request $request)
@@ -43,11 +46,11 @@ class InvoiceController extends Controller
         $payment = $this->invoiceService->validateInvoiceStripePayment($session_id);
 
         if ($request->method == 'web' && !isset($payment['error'])) {
-            return redirect('/client/invoice/' . $request->invoice . '?key=' . $request->key . '&status=success');
+            return redirect($this->redirectTo . $request->invoice . '?key=' . $request->key . '&status=success');
         }
 
         if (isset($payment['error']) && $request->method == 'web') {
-            return redirect('/client/invoice/' . $request->invoice . '?key=' . $request->key . '&status=error');
+            return redirect($this->redirectTo . $request->invoice . '?key=' . $request->key . '&status=error');
         }
         return api_response($payment);
     }
@@ -71,11 +74,11 @@ class InvoiceController extends Controller
         $payment = $this->invoiceService->validateInvoicePayPalPayment($payment_id, $payer_id);
 
         if ($request->method == 'web' && !isset($payment['error'])) {
-            return redirect('/client/invoice/' . $request->invoice . '?key=' . $request->key . '&status=success');
+            return redirect($this->redirectTo . $request->invoice . '?key=' . $request->key . '&status=success');
         }
 
         if (isset($payment['error']) && $request->method == 'web') {
-            return redirect('/client/invoice/' . $request->invoice . '?key=' . $request->key . '&status=error');
+            return redirect($this->redirectTo . $request->invoice . '?key=' . $request->key . '&status=error');
         }
 
         return api_response($payment);

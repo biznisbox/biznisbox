@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 class SerialNumberFormatter
 {
-    private $valid_placeholders = [
+    private $validPlaceholders = [
         'DATE', // {{DATE:Y-m-d}} - Y-m-d is the format of the date
         'NUMBER', // {{NUMBER:4}} - 4 is the number of digits of the number to be inserted
         'TEXT', // {{TEXT:"text to be inserted"}} - 'text to be inserted' is the text to be inserted
@@ -36,7 +36,7 @@ class SerialNumberFormatter
     {
         foreach ($placeholders as $placeholder) {
             $placeholder = explode(':', $placeholder);
-            if (!in_array($placeholder[0], $this->valid_placeholders)) {
+            if (!in_array($placeholder[0], $this->validPlaceholders)) {
                 return false;
             }
         }
@@ -67,6 +67,8 @@ class SerialNumberFormatter
                     break;
                 case 'DELIMITER':
                     $number .= $delimiter;
+                    break;
+                default:
                     break;
             }
         }

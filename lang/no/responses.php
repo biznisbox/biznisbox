@@ -105,5 +105,6 @@ return [
     'signer_not_found_or_already_signed' => 'Signer ikke funnet eller allerede signert',
     'cannot_delete_signed_contract' => 'Kan ikke slette signert kontrakt',
     'cannot_update_signed_contract' => 'Kan ikke oppdatere signert kontrakt',
-    'enable_js_to_use_app' => 'Beklager, men denne appen fungerer ikke som den skal uten JavaScript aktivert. Vennligst aktiver den for å fortsette.',
+    'enable_js_to_use_app' =>
+        'Beklager, men denne appen fungerer ikke som den skal uten JavaScript aktivert. Vennligst aktiver den for å fortsette.',
 ];
