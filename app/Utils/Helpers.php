@@ -651,7 +651,13 @@ if (!function_exists('checkIfRunAppInDocker')) {
     }
 }
 
+
 if (!function_exists('isAppInstalled')) {
+
+    /**
+     * Check if app is installed
+     * @return bool
+     */
     function isAppInstalled()
     {
         if (file_exists(base_path('install.lock'))) {
