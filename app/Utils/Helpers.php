@@ -651,9 +651,7 @@ if (!function_exists('checkIfRunAppInDocker')) {
     }
 }
 
-
 if (!function_exists('isAppInstalled')) {
-
     /**
      * Check if app is installed
      * @return bool

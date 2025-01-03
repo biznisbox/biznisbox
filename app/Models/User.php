@@ -38,7 +38,6 @@ class User extends Authenticatable implements JWTSubject, Auditable
         'theme',
         'oauth_user',
         'two_factor_auth',
-        'deleted_at',
     ];
 
     protected $hidden = ['deleted_at', 'updated_at', 'created_at', 'password', 'oauth_user', 'remember_token'];

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\Notification;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileService
 {
@@ -58,9 +59,17 @@ class ProfileService
     public function updatePassword($data)
     {
         $user = User::find(auth()->id());
+        // Check if the current password is correct
+        if (!Hash::check($data['current_password'], $user->password)) {
+            return false;
+        }
+
+        // Update the password
         $user->update([
             'password' => $data['password'],
         ]);
+
+        return true;
     }
 
     /**

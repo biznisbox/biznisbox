@@ -188,7 +188,7 @@ class DataService
         $webhook = new \App\Models\WebhookSubscription();
         $data['headers'] = $this->formatHeaderForBackend($data['headers']);
         $data['user_id'] = auth()->id();
-        $webhook  = $webhook->create($data);
+        $webhook = $webhook->create($data);
         return $webhook;
     }
 

@@ -47,11 +47,16 @@ class ProfileController extends Controller
     public function updatePassword(Request $request)
     {
         $data = $request->validate([
-            'password' => 'required|string|min:6',
-            'confirm_password' => 'required|string|same:password',
+            'current_password' => 'required|string',
+            'password' => 'required|string|min:8',
+            'password_confirmation' => 'required|string|same:password',
         ]);
 
-        $this->profileService->updatePassword($data);
+        $passwordChange = $this->profileService->updatePassword($data);
+
+        if (!$passwordChange) {
+            return api_response(null, __('responses.invalid_current_password'), 400);
+        }
 
         return api_response(null, __('responses.password_updated_successfully'));
     }

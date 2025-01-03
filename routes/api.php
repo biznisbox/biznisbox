@@ -234,7 +234,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/create_webhook', [DataController::class, 'createWebhookSubscription'])
         ->name('createWebhookSubscription')
         ->middleware('can:webhooks');
-    
+
     // Test this function on the Zapier app
     Route::delete('/delete_webhook', [DataController::class, 'deleteWebhookSubscription'])
         ->name('deleteWebhookSubscription')

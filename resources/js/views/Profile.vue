@@ -158,6 +158,14 @@
                         <TabPanel value="change_password">
                             <form id="user_profile_password_form">
                                 <PasswordInput
+                                    id="input_current_password"
+                                    v-model="v$.password.current_password.$model"
+                                    :label="$t('form.current_password')"
+                                    :placeholder="$t('form.current_password')"
+                                    :disabled="loadingData"
+                                    :validate="v$.password.current_password"
+                                />
+                                <PasswordInput
                                     id="input_password"
                                     v-model="v$.password.password.$model"
                                     :label="$t('form.new_password')"
@@ -167,11 +175,11 @@
                                 />
                                 <PasswordInput
                                     id="input_confirm_password"
-                                    v-model="v$.password.confirm_password.$model"
+                                    v-model="v$.password.password_confirmation.$model"
                                     :label="$t('form.password_confirmation')"
                                     :placeholder="$t('form.password_confirmation')"
                                     :disabled="loadingData"
-                                    :validate="v$.password.confirm_password"
+                                    :validate="v$.password.password_confirmation"
                                 />
                                 <div id="user_profile_password_buttons" class="flex gap-2 justify-end">
                                     <Button
@@ -278,8 +286,9 @@ export default {
                 sessions: [],
             },
             password: {
+                current_password: '',
                 password: '',
-                confirm_password: '',
+                password_confirmation: '',
             },
             two_factor: [],
             two_factor_code: '',
@@ -296,8 +305,9 @@ export default {
                 language: { required },
             },
             password: {
+                current_password: { required },
                 password: { required, minLength: minLength(8) },
-                confirm_password: { required, sameAs: sameAs(this.password.password) },
+                password_confirmation: { required, sameAs: sameAs(this.password.password) },
             },
             two_factor_code: { required, minLength: minLength(6) },
         }
@@ -334,14 +344,22 @@ export default {
                 return
             }
 
-            this.makeHttpRequest('PUT', '/api/profile/password', this.password).then((response) => {
-                this.password = {
-                    password: '',
-                    confirm_password: '',
-                }
-                this.showToast(response.data.message)
-                this.$router.push({ name: 'auth-logout' })
-            })
+            this.makeHttpRequest('PUT', '/api/profile/password', this.password)
+                .then((response) => {
+                    this.password = {
+                        current_password: '',
+                        password: '',
+                        confirm_password: '',
+                    }
+
+                    this.showToast(response.data.message)
+                    this.$router.push({ name: 'auth-logout' })
+                })
+                .catch((error) => {
+                    if (error.response.status === 400) {
+                        this.showToast(error.response.data.message, this.$t('basic.error'), 'error')
+                    }
+                })
         },
 
         beforeUploadAvatar(event) {
