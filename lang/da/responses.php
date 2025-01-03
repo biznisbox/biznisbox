@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'E-mail ikke sendt',
     'email_sent' => 'E-mail sendt med succes',
     'password_reset_failed' => 'Nulstilling af adgangskode mislykkedes',
+    'invalid_current_password' => 'Ugyldig nuværende adgangskode',
     'password_reset_successfully' => 'Adgangskode nulstillet',
     'two_factor_auth_disabled' => 'To faktor autentificering deaktiveret',
     'two_factor_auth_disabled_error' => 'To-faktor autentificering deaktiveret fejl',
