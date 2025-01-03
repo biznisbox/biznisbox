@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'Email non inviata',
     'email_sent' => 'Email inviata con successo',
     'password_reset_failed' => 'Reimpostazione della password non riuscita',
+    'invalid_current_password' => 'Password corrente non valida',
     'password_reset_successfully' => 'Password reimpostata con successo',
     'two_factor_auth_disabled' => 'Autenticazione a due fattori disabilitata',
     'two_factor_auth_disabled_error' => 'Errore di autenticazione a due fattori disabilitato',
@@ -105,6 +106,5 @@ return [
     'signer_not_found_or_already_signed' => 'Firmatario non trovato o già firmato',
     'cannot_delete_signed_contract' => 'Impossibile eliminare il contratto firmato',
     'cannot_update_signed_contract' => 'Impossibile aggiornare il contratto firmato',
-    'enable_js_to_use_app' =>
-        'Siamo spiacenti ma questa app non funziona correttamente senza JavaScript abilitato. Si prega di abilitarla per continuare.',
+    'enable_js_to_use_app' => 'Siamo spiacenti ma questa app non funziona correttamente senza JavaScript abilitato. Si prega di abilitarla per continuare.',
 ];
