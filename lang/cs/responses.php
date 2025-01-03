@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'E-mail nebyl odeslán',
     'email_sent' => 'E-mail byl úspěšně odeslán',
     'password_reset_failed' => 'Obnovení hesla se nezdařilo',
+    'invalid_current_password' => 'Neplatné aktuální heslo',
     'password_reset_successfully' => 'Obnovení hesla bylo úspěšné',
     'two_factor_auth_disabled' => 'Dvoufázové ověřování zakázáno',
     'two_factor_auth_disabled_error' => 'Dvoufázové ověřování zakázána',
@@ -105,6 +106,5 @@ return [
     'signer_not_found_or_already_signed' => 'Podpisník nebyl nalezen nebo již byl podepsán',
     'cannot_delete_signed_contract' => 'Nelze odstranit podepsanou smlouvu',
     'cannot_update_signed_contract' => 'Nelze aktualizovat podepsanou smlouvu',
-    'enable_js_to_use_app' =>
-        'Je nám líto, ale tato aplikace nefunguje správně, aniž by byl povolen JavaScript. Pro pokračování prosím povolte.',
+    'enable_js_to_use_app' => 'Je nám líto, ale tato aplikace nefunguje správně, aniž by byl povolen JavaScript. Pro pokračování prosím povolte.',
 ];
