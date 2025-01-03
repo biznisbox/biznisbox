@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'Email nem lett elküldve',
     'email_sent' => 'Email sikeresen elküldve',
     'password_reset_failed' => 'A jelszó visszaállítása sikertelen volt',
+    'invalid_current_password' => 'Invalid current password',
     'password_reset_successfully' => 'A jelszó visszaállítása sikeres volt',
     'two_factor_auth_disabled' => 'Kétlépcsős azonosítás letiltva',
     'two_factor_auth_disabled_error' => 'Kétlépcsős azonosítás letiltva hiba',
