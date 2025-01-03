@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'E-mail niet verzonden',
     'email_sent' => 'E-mail succesvol verzonden',
     'password_reset_failed' => 'Wachtwoord opnieuw instellen mislukt',
+    'invalid_current_password' => 'Ongeldig huidige wachtwoord',
     'password_reset_successfully' => 'Wachtwoord succesvol opnieuw instellen',
     'two_factor_auth_disabled' => 'Authenticatie in twee stappen uitgeschakeld',
     'two_factor_auth_disabled_error' => 'Authenticatie in twee stappen uitgeschakeld',
@@ -105,6 +106,5 @@ return [
     'signer_not_found_or_already_signed' => 'Handtekening niet gevonden of al ondertekend',
     'cannot_delete_signed_contract' => 'Kan ondertekend contract niet verwijderen',
     'cannot_update_signed_contract' => 'Kan ondertekend contract niet bijwerken',
-    'enable_js_to_use_app' =>
-        'Het spijt ons, maar deze app werkt niet goed zonder JavaScript ingeschakeld. Activeer deze app om door te gaan.',
+    'enable_js_to_use_app' => 'Het spijt ons, maar deze app werkt niet goed zonder JavaScript ingeschakeld. Activeer deze app om door te gaan.',
 ];
