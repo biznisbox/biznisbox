@@ -41,5 +41,5 @@ return [
     'admin_email_settings' => 'Ylläpitäjän Sähköpostiasetukset',
     'admin_webhooks' => 'Ylläpitäjän Verkkokoukut',
     'webhooks' => 'Verkkokoukut',
-    'contracts' => 'sopimukset',
+    'contracts' => 'Sopimukset',
 ];
