@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'E-postadressen skickades inte',
     'email_sent' => 'E-postmeddelandet har skickats',
     'password_reset_failed' => 'Lösenordsåterställning misslyckades',
+    'invalid_current_password' => 'Ogiltigt nuvarande lösenord',
     'password_reset_successfully' => 'Lösenord återställt framgångsrikt',
     'two_factor_auth_disabled' => 'Tvåfaktorsautentisering inaktiverad',
     'two_factor_auth_disabled_error' => 'Tvåfaktorsautentisering inaktiverad fel',
@@ -105,6 +106,5 @@ return [
     'signer_not_found_or_already_signed' => 'Signer hittades inte eller är redan signerad',
     'cannot_delete_signed_contract' => 'Kan inte ta bort undertecknat kontrakt',
     'cannot_update_signed_contract' => 'Kan inte uppdatera undertecknat kontrakt',
-    'enable_js_to_use_app' =>
-        'Vi beklagar, men den här appen fungerar inte ordentligt utan JavaScript aktiverat. Aktivera den för att fortsätta.',
+    'enable_js_to_use_app' => 'Vi beklagar, men den här appen fungerar inte ordentligt utan JavaScript aktiverat. Aktivera den för att fortsätta.',
 ];
