@@ -41,5 +41,5 @@ return [
     'admin_email_settings' => 'Admin e-mailinstellingen',
     'admin_webhooks' => 'Beheerder Webhooks',
     'webhooks' => 'Webhooks',
-    'contracts' => 'contracten',
+    'contracts' => 'Contracten',
 ];
