@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'E-mail nie został wysłany',
     'email_sent' => 'E-mail wysłany pomyślnie',
     'password_reset_failed' => 'Resetowanie hasła nie powiodło się',
+    'invalid_current_password' => 'Nieprawidłowe aktualne hasło',
     'password_reset_successfully' => 'Hasło zostało zresetowane',
     'two_factor_auth_disabled' => 'Uwierzytelnianie dwuskładnikowe wyłączone',
     'two_factor_auth_disabled_error' => 'Błąd uwierzytelniania dwuskładnikowego',
@@ -105,6 +106,5 @@ return [
     'signer_not_found_or_already_signed' => 'Podpisujący nie został znaleziony lub już podpisany',
     'cannot_delete_signed_contract' => 'Nie można usunąć podpisanej umowy',
     'cannot_update_signed_contract' => 'Nie można zaktualizować podpisanej umowy',
-    'enable_js_to_use_app' =>
-        'Przykro nam, ale ta aplikacja nie działa poprawnie bez włączonej obsługi JavaScript. Proszę włączyć ją, aby kontynuować.',
+    'enable_js_to_use_app' => 'Przykro nam, ale ta aplikacja nie działa poprawnie bez włączonej obsługi JavaScript. Proszę włączyć ją, aby kontynuować.',
 ];
