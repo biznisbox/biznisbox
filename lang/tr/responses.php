@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'E-posta gönderilemedi',
     'email_sent' => 'E-posta başarıyla gönderildi',
     'password_reset_failed' => 'Parola sıfırlama başarısız oldu',
+    'invalid_current_password' => 'Invalid current password',
     'password_reset_successfully' => 'Parola sıfırlama başarılı bir şekilde gerçekleşti',
     'two_factor_auth_disabled' => 'İki faktörlü kimlik doğrulama devre dışı bırakıldı',
     'two_factor_auth_disabled_error' => 'İki faktörlü kimlik doğrulama devre dışı bırakma hatası',
