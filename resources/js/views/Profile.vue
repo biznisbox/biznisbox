@@ -123,6 +123,9 @@
                                         <span v-else-if="data.device_type === 'tablet'">
                                             <i class="fa fa-tablet text-blue-500"></i>
                                         </span>
+                                        <span v-else-if="data.device_type === 'bot'">
+                                            <i class="fa fa-robot text-slate-500"></i>
+                                        </span>
                                         <Tag v-else severity="danger" :value="$t('status.unknown')" />
                                     </template>
                                 </Column>
@@ -137,7 +140,7 @@
                                 </Column>
 
                                 <template #expansion="{ data }">
-                                    <DisplayData :input="$t('login_history.browser')" custom-value>
+                                    <DisplayData :input="$t('login_history.browser')" custom-value v-if="data.browser">
                                         <Tag>{{ data.browser }}</Tag>
                                     </DisplayData>
 

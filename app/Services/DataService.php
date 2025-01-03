@@ -187,7 +187,20 @@ class DataService
     {
         $webhook = new \App\Models\WebhookSubscription();
         $data['headers'] = $this->formatHeaderForBackend($data['headers']);
-        $webhook->$webhook = $webhook->create($data);
+        $data['user_id'] = auth()->id();
+        $webhook  = $webhook->create($data);
+        return $webhook;
+    }
+
+    public function deleteWebhookSubscription($id)
+    {
+        $webhook = new \App\Models\WebhookSubscription();
+
+        $webhook = $webhook->where('id', $id)->where('user_id', auth()->id())->first();
+        if (!$webhook) {
+            return null;
+        }
+        $webhook = $webhook->delete($id);
         return $webhook;
     }
 

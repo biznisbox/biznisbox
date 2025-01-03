@@ -156,4 +156,13 @@ class DataController extends Controller
         }
         return api_response($webhookSubscription, __('responses.item_created_successfully'));
     }
+
+    public function deleteWebhookSubscription($id)
+    {
+        $webhookSubscription = $this->dataService->deleteWebhookSubscription($id);
+        if (!$webhookSubscription) {
+            return api_response($webhookSubscription, __('responses.item_not_deleted'), 400);
+        }
+        return api_response($webhookSubscription, __('responses.item_deleted_successfully'));
+    }
 }
