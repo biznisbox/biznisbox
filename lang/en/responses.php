@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'Email not sent',
     'email_sent' => 'Email sent successfully',
     'password_reset_failed' => 'Password reset failed',
+    'invalid_current_password' => 'Invalid current password',
     'password_reset_successfully' => 'Password reset successfully',
     'two_factor_auth_disabled' => 'Two factor authentication disabled',
     'two_factor_auth_disabled_error' => 'Two factor authentication disabled error',
