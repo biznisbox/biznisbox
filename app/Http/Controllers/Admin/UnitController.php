@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UnitRequest;
 use App\Services\Admin\UnitService;
 
+/**
+ * @group Units
+ *
+ * APIs for managing units
+ */
 class UnitController extends Controller
 {
     private $unitService;
@@ -15,6 +20,11 @@ class UnitController extends Controller
         $this->unitService = $unitService;
     }
 
+    /**
+     * Get all units
+     * 
+     * @return array $units All units
+     */
     public function getUnits()
     {
         $units = $this->unitService->getUnits();
@@ -25,6 +35,12 @@ class UnitController extends Controller
         return api_response($units, __('responses.data_retrieved_successfully'));
     }
 
+    /**
+     * Get unit by id
+     * 
+     * @param  string  $id id of the unit
+     * @return array $unit unit
+     */
     public function getUnit($id)
     {
         $unit = $this->unitService->getUnit($id);
@@ -35,6 +51,12 @@ class UnitController extends Controller
         return api_response($unit, __('responses.data_retrieved_successfully'), 200);
     }
 
+    /**
+     * Get unit by name
+     * 
+     * @param  string  $name name of the unit
+     * @return array $unit unit
+     */
     public function getUnitByName($name)
     {
         $unit = $this->unitService->getUnitByName($name);
@@ -45,6 +67,12 @@ class UnitController extends Controller
         return api_response($unit, __('responses.data_retrieved_successfully'), 200);
     }
 
+    /**
+     * Create a new unit
+     * 
+     * @param  object  $request data from the form (name)
+     * @return array $unit unit
+     */
     public function createUnit(UnitRequest $request)
     {
         $data = $request->all();
@@ -56,6 +84,13 @@ class UnitController extends Controller
         return api_response($unit, __('responses.item_created_successfully'), 200);
     }
 
+    /**
+     * Update unit
+     * 
+     * @param  object $request data from the form (name)
+     * @param  string  $id id of the unit
+     * @return array $unit unit
+     */
     public function updateUnit(UnitRequest $request, $id)
     {
         $data = $request->all();
@@ -67,6 +102,12 @@ class UnitController extends Controller
         return api_response($unit, __('responses.item_updated_successfully'), 200);
     }
 
+    /**
+     * Delete a unit
+     * 
+     * @param  string  $id id of the unit
+     * @return array $unit unit
+     */
     public function deleteUnit($id)
     {
         if (!$id) {

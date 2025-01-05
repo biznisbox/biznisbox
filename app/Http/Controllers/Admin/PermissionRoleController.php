@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Admin\PermissionRoleService;
 
+/**
+ * @group Permission Roles
+ *
+ * APIs for managing permission roles
+ */
 class PermissionRoleController extends Controller
 {
     private $permissionRoleService;
@@ -17,6 +22,7 @@ class PermissionRoleController extends Controller
 
     /**
      * Get all roles
+     * 
      * @return array $roles All roles with permissions
      */
     public function getRoles()
@@ -30,6 +36,7 @@ class PermissionRoleController extends Controller
 
     /**
      * Get role by id
+     * 
      * @param  string  $id id of the role
      * @return array $role role with permissions
      */
@@ -45,6 +52,7 @@ class PermissionRoleController extends Controller
 
     /**
      * Create a new role
+     * 
      * @param  object  $request data from the form (name and permissions)
      * @return array $role role with permissions
      */
@@ -61,6 +69,7 @@ class PermissionRoleController extends Controller
 
     /**
      * Update a role
+     * 
      * @param  object $request data from the form (name and permissions)
      * @param  string  $id id of the role
      * @return array $role role with permissions
@@ -77,6 +86,7 @@ class PermissionRoleController extends Controller
 
     /**
      * Delete a role
+     * 
      * @param  string  $id id of the role
      * @return array $role role with permissions
      */
@@ -91,6 +101,7 @@ class PermissionRoleController extends Controller
 
     /**
      * Get all permissions
+     * 
      * @return array $permissions All permissions
      */
     public function getPermissions()

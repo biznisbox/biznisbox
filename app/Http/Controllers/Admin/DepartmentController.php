@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Admin\DepartmentService;
 
+/**
+ * @group Departments
+ *
+ * APIs for managing departments
+ */
 class DepartmentController extends Controller
 {
     private $departmentService;
@@ -15,6 +20,11 @@ class DepartmentController extends Controller
         $this->departmentService = $departmentService;
     }
 
+    /**
+     * Get all departments
+     * 
+     * @return array $departments All departments
+     */
     public function getDepartments()
     {
         $departments = $this->departmentService->getDepartments();
@@ -24,6 +34,12 @@ class DepartmentController extends Controller
         return api_response($departments, __('responses.data_retrieved_successfully'), 200);
     }
 
+    /**
+     * Get department by id
+     * 
+     * @param  string  $id id of the department
+     * @return array $department department
+     */
     public function getDepartment($id)
     {
         $department = $this->departmentService->getDepartment($id);
@@ -33,6 +49,12 @@ class DepartmentController extends Controller
         return api_response($department, __('responses.data_retrieved_successfully'), 200);
     }
 
+    /**
+     * Create a new department
+     * 
+     * @param  object  $request data from the form (name)
+     * @return array $department department
+     */
     public function createDepartment(Request $request)
     {
         $data = $request->all();
@@ -43,6 +65,13 @@ class DepartmentController extends Controller
         return api_response($department, __('responses.item_created_successfully'), 200);
     }
 
+    /**
+     * Update department
+     * 
+     * @param  object  $request data from the form (name)
+     * @param  string  $id id of the department
+     * @return array $department department
+     */
     public function updateDepartment(Request $request, $id)
     {
         $data = $request->all();
@@ -53,6 +82,12 @@ class DepartmentController extends Controller
         return api_response($department, __('responses.item_updated_successfully'), 200);
     }
 
+    /**
+     * Delete department
+     * 
+     * @param  string  $id id of the department
+     * @return array $department department
+     */
     public function deleteDepartment($id)
     {
         $department = $this->departmentService->deleteDepartment($id);

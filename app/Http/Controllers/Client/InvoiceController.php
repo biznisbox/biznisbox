@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Client\InvoiceService;
 
+/**
+ * @group Client Invoices
+ *
+ * APIs for managing invoices
+ */
 class InvoiceController extends Controller
 {
     private $invoiceService;
@@ -18,6 +23,11 @@ class InvoiceController extends Controller
         $this->redirectTo = $this->redirectTo;
     }
 
+    /**
+     * Get invoice by key
+     * 
+     * @return array $invoice Invoice
+     */
     public function getInvoice(Request $request)
     {
         $key = $request->key;
@@ -29,6 +39,12 @@ class InvoiceController extends Controller
         return api_response($invoice, __('responses.data_retrieved_successfully'), 200);
     }
 
+    /**
+     * Pay invoice with stripe
+     * 
+     * @param  object  $request data from the form (key)
+     * @return array $payment Payment
+     */
     public function payInvoiceStripe(Request $request)
     {
         $key = $request->key;
@@ -40,6 +56,12 @@ class InvoiceController extends Controller
         return api_response($payment);
     }
 
+    /**
+     * Validate invoice stripe payment
+     * 
+     * @param  object  $request data from the form (invoice, key, method)
+     * @return array $payment Payment
+     */
     public function validateInvoiceStripePayment(Request $request)
     {
         $session_id = $request->cookie('payment_id');
@@ -55,6 +77,12 @@ class InvoiceController extends Controller
         return api_response($payment);
     }
 
+    /**
+     * Pay invoice with paypal
+     * 
+     * @param  object  $request data from the form (key)
+     * @return array $payment Payment
+     */
     public function payInvoicePayPal(Request $request)
     {
         $key = $request->key;
@@ -66,6 +94,12 @@ class InvoiceController extends Controller
         return api_response($payment);
     }
 
+    /**
+     * Validate invoice paypal payment
+     * 
+     * @param  object  $request data from the form (invoice, key, method)
+     * @return array $payment Payment
+     */
     public function validateInvoicePayPalPayment(Request $request)
     {
         $payment_id = $request->paymentId;

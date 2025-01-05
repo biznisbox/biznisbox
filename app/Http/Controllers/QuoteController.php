@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Services\QuoteService;
 use App\Http\Requests\QuoteRequest;
 
+/**
+ * @group Quotes
+ *
+ * APIs for managing quotes
+ */
 class QuoteController extends Controller
 {
     protected $quoteService;
@@ -15,6 +20,11 @@ class QuoteController extends Controller
         $this->quoteService = $quoteService;
     }
 
+    /**
+     * Get all quotes
+     * 
+     * @return array $quotes Quotes
+     */
     public function getQuotes()
     {
         $quotes = $this->quoteService->getQuotes();
@@ -25,6 +35,12 @@ class QuoteController extends Controller
         return api_response(null, __('responses.item_not_found'), 404);
     }
 
+    /**
+     * Get quote by id
+     * 
+     * @param  string  $id id of the quote
+     * @return array $quote Quote
+     */
     public function getQuote($id)
     {
         $quote = $this->quoteService->getQuote($id);
@@ -35,6 +51,12 @@ class QuoteController extends Controller
         return api_response(null, __('responses.item_not_found_with_id'), 404);
     }
 
+    /**
+     * Create a new quote
+     * 
+     * @param  object  $request data from the form
+     * @return array $quote Quote
+     */
     public function createQuote(QuoteRequest $request)
     {
         $data = $request->all();
@@ -45,6 +67,13 @@ class QuoteController extends Controller
         return api_response(null, __('responses.item_not_created'), 400);
     }
 
+    /**
+     * Update a quote
+     * 
+     * @param  object  $request data from the form
+     * @param  string  $id id of the quote
+     * @return array $quote Quote
+     */
     public function updateQuote(QuoteRequest $request, $id)
     {
         $data = $request->all();
@@ -55,6 +84,12 @@ class QuoteController extends Controller
         return api_response(null, __('responses.item_not_updated'), 400);
     }
 
+    /**
+     * Delete a quote
+     * 
+     * @param  string  $id id of the quote
+     * @return array $quote Quote
+     */
     public function deleteQuote($id)
     {
         $quote = $this->quoteService->deleteQuote($id);
@@ -64,6 +99,11 @@ class QuoteController extends Controller
         return api_response(null, __('responses.item_not_deleted'), 400);
     }
 
+    /**
+     * Get quote number
+     * 
+     * @return array $number Quote number
+     */
     public function getQuoteNumber()
     {
         $number = $this->quoteService->getQuoteNumber();
@@ -73,6 +113,12 @@ class QuoteController extends Controller
         return api_response(null, __('responses.error_occurred'), 400);
     }
 
+    /**
+     * Share a quote
+     * 
+     * @param  string $id id of the quote
+     * @return array $quote Quote
+     */
     public function shareQuote($id)
     {
         $quote = $this->quoteService->shareQuote($id);
@@ -82,6 +128,12 @@ class QuoteController extends Controller
         return api_response(null, __('responses.item_not_shared'), 400);
     }
 
+    /**
+     * Convert a quote to invoice
+     * 
+     * @param  string $id id of the quote
+     * @return array $invoice Invoice
+     */
     public function convertQuoteToInvoice($id)
     {
         $invoice = $this->quoteService->convertQuoteToInvoice($id);
@@ -91,6 +143,13 @@ class QuoteController extends Controller
         return api_response(null, __('responses.item_not_converted'), 400);
     }
 
+    /**
+     * Get quote pdf
+     * 
+     * @param  object  $request data from the form
+     * @param  string  $id id of the quote
+     * @return array $quote Quote
+     */
     public function getQuotePdf(Request $request, $id)
     {
         if (!$request->hasValidSignatureWhileIgnoring(['lang'])) {
@@ -101,6 +160,13 @@ class QuoteController extends Controller
         return $pdf;
     }
 
+    /**
+     * Send quote notification
+     * 
+     * @param  object  $request data from the form
+     * @param  string  $id id of the quote
+     * @return array $quote_notification Quote notification
+     */
     public function sendQuoteNotification(Request $request, $id)
     {
         if ($request->has('contact')) {

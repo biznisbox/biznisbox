@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Client\SupportTicketService;
 
+/**
+ * @group Client Support Tickets
+ *
+ * APIs for managing support tickets
+ */
 class SupportTicketController extends Controller
 {
     private $supportTicketService;
@@ -15,6 +20,13 @@ class SupportTicketController extends Controller
         $this->supportTicketService = $supportTicketService;
     }
 
+
+    /**
+     * Get ticket by key
+     * 
+     * @param  object  $request data from the form (key)
+     * @return array $ticket ticket
+     */
     public function getTicket(Request $request)
     {
         $key = $request->get('key');
@@ -25,6 +37,12 @@ class SupportTicketController extends Controller
         return api_response(null, __('responses.item_not_found'), 404);
     }
 
+    /**
+     * Reply on ticket
+     * 
+     * @param  object  $request request data
+     * @return array $ticket ticket
+     */
     public function replayOnTicket(Request $request)
     {
         $data = $request->all();

@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Admin\CurrencyService;
 
+/**
+ * @group Currencies
+ *
+ * APIs for managing currencies
+ */
 class CurrencyController extends Controller
 {
     private $currencyService;
@@ -15,6 +20,11 @@ class CurrencyController extends Controller
         $this->currencyService = $currencyService;
     }
 
+    /**
+     * Get all currencies
+     * 
+     * @return array $currencies All currencies
+     */
     public function getCurrencies()
     {
         $currencies = $this->currencyService->getCurrencies();
@@ -24,6 +34,12 @@ class CurrencyController extends Controller
         return api_response($currencies, __('responses.data_retrieved_successfully'), 200);
     }
 
+    /**
+     * Get currency by id
+     * 
+     * @param  string  $id id of the currency
+     * @return array $currency currency
+     */
     public function getCurrency($id)
     {
         $currency = $this->currencyService->getCurrency($id);
@@ -33,6 +49,11 @@ class CurrencyController extends Controller
         return api_response($currency, __('responses.data_retrieved_successfully'), 200);
     }
 
+    /**
+     * Live update currency rate
+     * 
+     * @return array $currency currency
+     */
     public function liveUpdateCurrencyRate()
     {
         $currency = $this->currencyService->liveUpdateCurrencyRate();
@@ -42,6 +63,12 @@ class CurrencyController extends Controller
         return api_response($currency, __('responses.data_updated_successfully'), 200);
     }
 
+    /**
+     * Create a new currency
+     * 
+     * @param  object  $request data from the form (name, code, symbol, rate)
+     * @return array $currency currency
+     */
     public function createCurrency(Request $request)
     {
         $data = $request->all();
@@ -52,6 +79,13 @@ class CurrencyController extends Controller
         return api_response($currency, __('responses.item_created_successfully'), 200);
     }
 
+    /**
+     * Update currency
+     * 
+     * @param  object  $request data from the form (name, code, symbol, rate)
+     * @param  string  $id id of the currency
+     * @return array $currency currency
+     */
     public function updateCurrency(Request $request, $id)
     {
         $data = $request->all();
@@ -62,6 +96,12 @@ class CurrencyController extends Controller
         return api_response($currency, __('responses.item_updated_successfully'), 200);
     }
 
+    /**
+     * Delete currency
+     * 
+     * @param  string  $id id of the currency
+     * @return array $currency currency
+     */
     public function deleteCurrency($id)
     {
         $currency = $this->currencyService->deleteCurrency($id);

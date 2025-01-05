@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\AuthService;
 
+/**
+ * @group Auth
+ *
+ * APIs for managing authentication
+ */
 class AuthController extends Controller
 {
     private $authService;
@@ -13,6 +18,12 @@ class AuthController extends Controller
         $this->authService = $authService;
     }
 
+    /**
+     * Login
+     * 
+     * @param  object  $request data from the form (email, password, otp)
+     * @return array $user User
+     */
     public function Login(Request $request)
     {
         $data = $request->validate([
@@ -28,18 +39,33 @@ class AuthController extends Controller
         return api_response($login, $login['message'] ?? __('responses.login_successful'));
     }
 
+    /**
+     * Logout
+     * 
+     * @return array $user User
+     */
     public function Logout()
     {
         $this->authService->Logout();
         return api_response(null, __('responses.logout_successful'));
     }
 
+    /**
+     * Refresh token
+     * 
+     * @return array $token Token
+     */
     public function Refresh()
     {
         $token = $this->authService->Refresh();
         return api_response($token, __('responses.token_refreshed'));
     }
 
+    /**
+     * Me
+     * 
+     * @return array $user User
+     */
     public function Me()
     {
         $user = $this->authService->Me();

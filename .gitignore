@@ -19,3 +19,6 @@ yarn-error.log
 /.vscode
 /.vs
 install.lock
+/.scribe
+/public/vendor/scribe/*
+/resources/views/scribe/*

@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\CalendarService;
 
+/**
+ * @group Calendar
+ *
+ * APIs for managing calendar events
+ */
 class CalendarController extends Controller
 {
     protected $calendarService;
@@ -14,6 +19,12 @@ class CalendarController extends Controller
         $this->calendarService = $calendarService;
     }
 
+    /**
+     * Get events
+     *
+     * @param Request $request
+     * @return void
+     */
     public function getEvents(Request $request)
     {
         $start = $request->start;
@@ -28,6 +39,12 @@ class CalendarController extends Controller
         return api_response($events, __('responses.data_retrieved_successfully'), 200);
     }
 
+    /**
+     * Get event by id
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function getEvent($id)
     {
         $event = $this->calendarService->getEvent($id);
@@ -37,6 +54,12 @@ class CalendarController extends Controller
         return api_response($event, __('responses.data_retrieved_successfully'), 200);
     }
 
+    /**
+     * Create event
+     *
+     * @param Request $request
+     * @return void
+     */
     public function createEvent(Request $request)
     {
         $data = $request->all();
@@ -47,6 +70,13 @@ class CalendarController extends Controller
         return api_response($event, __('responses.item_created_successfully'), 200);
     }
 
+    /**
+     * Update event
+     *
+     * @param Request $request
+     * @param [type] $id
+     * @return void
+     */
     public function updateEvent(Request $request, $id)
     {
         $data = $request->all();
@@ -57,6 +87,12 @@ class CalendarController extends Controller
         return api_response($event, __('responses.item_updated_successfully'), 200);
     }
 
+    /**
+     * Delete event
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function deleteEvent($id)
     {
         $event = $this->calendarService->deleteEvent($id);

@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\ArchiveService;
 
+/**
+ * @group Archive
+ *
+ * APIs for managing archive
+ */
 class ArchiveController extends Controller
 {
     private $archiveService;
@@ -14,6 +19,11 @@ class ArchiveController extends Controller
         $this->archiveService = $archiveService;
     }
 
+    /**
+     * Get all documents
+     * 
+     * @return array $documents All documents
+     */
     public function getDocuments(Request $request)
     {
         $folderId = $request->folder_id;
@@ -24,6 +34,12 @@ class ArchiveController extends Controller
         return api_response($documents, __('responses.data_retrieved_successfully'), 200);
     }
 
+    /**
+     * Get document by id
+     * 
+     * @param  string  $id id of the document
+     * @return array $document document
+     */
     public function getDocument($id)
     {
         $document = $this->archiveService->getDocument($id);
@@ -33,6 +49,12 @@ class ArchiveController extends Controller
         return api_response($document, __('responses.data_retrieved_successfully'), 200);
     }
 
+    /**
+     * Create a new document
+     * 
+     * @param  object  $request data from the form (name, file, folder_id)
+     * @return array $document document
+     */
     public function createDocument(Request $request)
     {
         $document = $this->archiveService->createDocument($request);
@@ -42,6 +64,13 @@ class ArchiveController extends Controller
         return api_response($document, __('responses.item_created_successfully'), 200);
     }
 
+    /**
+     * Update a document
+     * 
+     * @param  object  $request data from the form (name, file, folder_id)
+     * @param  string  $id id of the document
+     * @return array $document document
+     */
     public function updateDocument(Request $request, $id)
     {
         $document = $this->archiveService->updateDocument($request, $id);
@@ -51,6 +80,12 @@ class ArchiveController extends Controller
         return api_response($document, __('responses.item_updated_successfully'), 200);
     }
 
+    /**
+     * Delete a document
+     * 
+     * @param  string  $id id of the document
+     * @return array $document document
+     */
     public function deleteDocument($id)
     {
         $document = $this->archiveService->deleteDocument($id);
@@ -60,6 +95,12 @@ class ArchiveController extends Controller
         return api_response($document, __('responses.item_deleted_successfully'), 200);
     }
 
+    /**
+     * Restore a document
+     * 
+     * @param  string  $id id of the document
+     * @return array $document document
+     */
     public function restoreDocument($id)
     {
         $document = $this->archiveService->restoreDocument($id);
@@ -69,6 +110,12 @@ class ArchiveController extends Controller
         return api_response($document, __('responses.item_restored_successfully'), 200);
     }
 
+    /**
+     * Delete a document permanently
+     * 
+     * @param  string  $id id of the document
+     * @return array $document document
+     */
     public function deleteDocumentPermanently($id)
     {
         $document = $this->archiveService->deleteDocumentPermanently($id);
@@ -78,6 +125,12 @@ class ArchiveController extends Controller
         return api_response($document, __('responses.item_deleted_successfully'), 200);
     }
 
+    /**
+     * Download a document
+     * 
+     * @param  string  $id id of the document
+     * @return array $document document
+     */
     public function downloadDocument($id)
     {
         if (!request()->hasValidSignatureWhileIgnoring(['lang'])) {
@@ -90,6 +143,12 @@ class ArchiveController extends Controller
         return $document;
     }
 
+    /**
+     * Preview a document
+     * 
+     * @param  string  $id id of the document
+     * @return array $document document
+     */
     public function previewDocument($id)
     {
         if (!request()->hasValidSignatureWhileIgnoring(['lang'])) {
@@ -102,6 +161,13 @@ class ArchiveController extends Controller
         return $document;
     }
 
+    /**
+     * Move a document
+     * 
+     * @param  object  $request data from the form (folder_id)
+     * @param  string  $id id of the document
+     * @return array $document document
+     */
     public function moveDocument(Request $request, $id)
     {
         $document = $this->archiveService->moveDocument($request, $id);

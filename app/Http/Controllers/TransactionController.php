@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests\TransactionRequest;
 use App\Services\TransactionService;
 
+/**
+ * @group Transactions
+ *
+ * APIs for managing transactions
+ */
 class TransactionController extends Controller
 {
     private $transactionService;
@@ -15,6 +20,11 @@ class TransactionController extends Controller
         $this->transactionService = $transactionService;
     }
 
+    /**
+     * Get all transactions
+     * 
+     * @return array $transactions All transactions
+     */
     public function getTransactions()
     {
         $transactions = $this->transactionService->getTransactions();
@@ -24,6 +34,12 @@ class TransactionController extends Controller
         return api_response($transactions, __('responses.data_retrieved_successfully'));
     }
 
+    /**
+     * Get transaction by id
+     * 
+     * @param  string  $id id of the transaction
+     * @return array $transaction transaction
+     */
     public function getTransaction($id)
     {
         $transaction = $this->transactionService->getTransaction($id);
@@ -33,6 +49,12 @@ class TransactionController extends Controller
         return api_response($transaction, __('responses.data_retrieved_successfully'));
     }
 
+    /**
+     * Create a new transaction
+     * 
+     * @param  object  $request data from the form (transaction_number, transaction_date, transaction_type, amount, description)
+     * @return array $transaction transaction
+     */
     public function createTransaction(TransactionRequest $request)
     {
         $data = $request->all();
@@ -43,6 +65,13 @@ class TransactionController extends Controller
         return api_response($transaction, __('responses.item_created_successfully'));
     }
 
+    /**
+     * Update a transaction
+     * 
+     * @param  object  $request data from the form (transaction_number, transaction_date, transaction_type, amount, description)
+     * @param  string  $id id of the transaction
+     * @return array $transaction transaction
+     */
     public function updateTransaction(TransactionRequest $request, $id)
     {
         $data = $request->all();
@@ -53,6 +82,12 @@ class TransactionController extends Controller
         return api_response($transaction, __('responses.item_updated_successfully'));
     }
 
+    /**
+     * Delete a transaction
+     * 
+     * @param  string  $id id of the transaction
+     * @return array $transaction transaction
+     */
     public function deleteTransaction($id)
     {
         $transaction = $this->transactionService->deleteTransaction($id);
@@ -62,6 +97,11 @@ class TransactionController extends Controller
         return api_response($transaction, __('responses.item_deleted_successfully'));
     }
 
+    /**
+     * Get transaction number
+     * 
+     * @return array $number transaction number
+     */
     public function getTransactionNumber()
     {
         $number = $this->transactionService->getTransactionNumber();

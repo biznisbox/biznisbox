@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\DataService;
 
+/**
+ * @group Data
+ *
+ * APIs for managing data
+ */
 class DataController extends Controller
 {
     private $dataService;
@@ -14,6 +19,15 @@ class DataController extends Controller
         $this->dataService = $dataService;
     }
 
+    /***********************************
+     * Data methods
+     ***********************************/
+    /**
+     * Get data
+     * 
+     * @param  object  $request data from the form (type)
+     * @return array $data data
+     */
     public function returnData($type)
     {
         switch ($type) {
@@ -47,6 +61,12 @@ class DataController extends Controller
         }
     }
 
+    /**
+     * Get data
+     * 
+     * @param  object  $request data from the form (type)
+     * @return array $data data
+     */
     public function getData(Request $request)
     {
         $type = $request->input('type');
@@ -54,6 +74,12 @@ class DataController extends Controller
         return api_response($data, __('responses.data_retrieved_successfully'));
     }
 
+    /**
+     * Get dashboard data
+     *
+     * @param Request $request
+     * @return void
+     */
     public function getDashboardData(Request $request)
     {
         $dashboardService = new \App\Services\DashboardDataService();
@@ -66,6 +92,12 @@ class DataController extends Controller
      * Activity log methods
      ***********************************/
 
+     /**
+      * Get activity logs
+      *
+      * @param Request $request
+      * @return void
+      */
     public function getLogs(Request $request)
     {
         $item_id = $request->input('item_id');
@@ -78,6 +110,12 @@ class DataController extends Controller
      * Category methods
      ***********************************/
 
+     /**
+      * Get categories for a module
+      *
+      * @param Request $request module
+      * @return void
+      */
     public function getCategories(Request $request)
     {
         $module = $request->input('module');
@@ -85,6 +123,12 @@ class DataController extends Controller
         return api_response($data, __('responses.data_retrieved_successfully'));
     }
 
+    /**
+     * Create category
+     *
+     * @param Request $request
+     * @return void
+     */
     public function createCategory(Request $request)
     {
         $data = $request->all();
@@ -95,6 +139,13 @@ class DataController extends Controller
         return api_response($category, __('responses.item_created_successfully'));
     }
 
+    /**
+     * Update category
+     *
+     * @param [type] $id
+     * @param Request $request
+     * @return void
+     */
     public function updateCategory($id, Request $request)
     {
         $data = $request->all();
@@ -105,6 +156,12 @@ class DataController extends Controller
         return api_response($category, __('responses.item_updated_successfully'));
     }
 
+    /**
+     * Delete category
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function deleteCategory($id)
     {
         $category = $this->dataService->deleteCategory($id);
@@ -114,6 +171,12 @@ class DataController extends Controller
         return api_response($category, __('responses.item_deleted_successfully'));
     }
 
+    /**
+     * Get category by id
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function getCategory($id)
     {
         $category = $this->dataService->getCategory($id);
@@ -127,6 +190,12 @@ class DataController extends Controller
      * Dashboard layout methods
      ***********************************/
 
+     /**
+      * Get dashboard layout
+      *
+      * @param Request $request
+      * @return void
+      */
     public function getDashboardLayout(Request $request)
     {
         $type = $request->input('type') ?? 'user';
@@ -134,6 +203,12 @@ class DataController extends Controller
         return api_response($layout, __('responses.data_retrieved_successfully'));
     }
 
+    /**
+     * Update dashboard layout
+     *
+     * @param Request $request
+     * @return void
+     */
     public function updateDashboardLayout(Request $request)
     {
         $layout = $request->layout;
@@ -147,6 +222,13 @@ class DataController extends Controller
     /***********************************
      * Webhook subscription methods
      ***********************************/
+
+    /**
+     * Get webhook subscriptions
+     * 
+     * @param  object  $request data from the form (type)
+     * @return array $webhookSubscriptions webhook subscriptions
+     */
     public function createWebhookSubscription(Request $request)
     {
         $data = $request->all();
@@ -157,6 +239,12 @@ class DataController extends Controller
         return api_response($webhookSubscription, __('responses.item_created_successfully'));
     }
 
+    /**
+     * Delete webhook subscription
+     * 
+     * @param  string  $id id of the webhook subscription
+     * @return array $webhookSubscription webhook subscription
+     */
     public function deleteWebhookSubscription($id)
     {
         $webhookSubscription = $this->dataService->deleteWebhookSubscription($id);

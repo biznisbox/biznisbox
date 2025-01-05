@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\InvoiceRequest;
-use App\Models\Invoice;
 use Illuminate\Http\Request;
 use App\Services\InvoiceService;
+
+/**
+ * @group Invoices
+ *
+ * APIs for managing invoices
+ */
 class InvoiceController extends Controller
 {
     private $invoiceService;
@@ -14,6 +19,11 @@ class InvoiceController extends Controller
         $this->invoiceService = $invoiceService;
     }
 
+    /**
+     * Get all invoices
+     * 
+     * @return array $invoices Invoices
+     */
     public function getInvoices()
     {
         $invoices = $this->invoiceService->getInvoices();
@@ -23,6 +33,12 @@ class InvoiceController extends Controller
         return api_response($invoices, __('responses.data_retrieved_successfully'), 200);
     }
 
+    /**
+     * Get invoice by id
+     * 
+     * @param  string  $id id of the invoice
+     * @return array $invoice Invoice
+     */
     public function getInvoice($id)
     {
         $invoice = $this->invoiceService->getInvoice($id);
@@ -32,6 +48,12 @@ class InvoiceController extends Controller
         return api_response($invoice, __('responses.data_retrieved_successfully'), 200);
     }
 
+    /**
+     * Create a new invoice
+     * 
+     * @param  object  $request data from the form
+     * @return array $invoice Invoice
+     */
     public function createInvoice(InvoiceRequest $request)
     {
         $invoice = $this->invoiceService->createInvoice($request->all());
@@ -41,6 +63,13 @@ class InvoiceController extends Controller
         return api_response($invoice, __('responses.item_created_successfully'), 200);
     }
 
+    /**
+     * Update an invoice
+     * 
+     * @param  object  $request data from the form
+     * @param  string  $id id of the invoice
+     * @return array $invoice Invoice
+     */
     public function updateInvoice(InvoiceRequest $request, $id)
     {
         $invoice = $this->invoiceService->updateInvoice($id, $request->all());
@@ -50,6 +79,12 @@ class InvoiceController extends Controller
         return api_response($invoice, __('responses.item_updated_successfully'), 200);
     }
 
+    /**
+     * Delete an invoice
+     * 
+     * @param  string  $id id of the invoice
+     * @return array $invoice Invoice
+     */
     public function deleteInvoice($id)
     {
         $invoice = $this->invoiceService->deleteInvoice($id);
@@ -59,6 +94,11 @@ class InvoiceController extends Controller
         return api_response($invoice, __('responses.item_deleted_successfully'), 200);
     }
 
+    /**
+     * Get invoice number
+     * 
+     * @return array $invoice Invoice
+     */
     public function getInvoiceNumber()
     {
         $invoice = $this->invoiceService->getInvoiceNumber();
@@ -68,6 +108,12 @@ class InvoiceController extends Controller
         return api_response($invoice, __('responses.data_retrieved_successfully'), 200);
     }
 
+    /**
+     * Share invoice
+     * 
+     * @param  string  $id id of the invoice
+     * @return array $invoice Invoice
+     */
     public function shareInvoice($id)
     {
         $invoice = $this->invoiceService->shareInvoice($id);
@@ -77,6 +123,13 @@ class InvoiceController extends Controller
         return api_response($invoice, __('responses.item_shared_successfully'), 200);
     }
 
+    /**
+     * Get invoice pdf
+     * 
+     * @param  object  $request data from the form
+     * @param  string  $id id of the invoice
+     * @return array $invoice Invoice
+     */
     public function getInvoicePdf(Request $request, $id)
     {
         if (!$request->hasValidSignatureWhileIgnoring(['lang'])) {
@@ -87,6 +140,13 @@ class InvoiceController extends Controller
         return $pdf;
     }
 
+    /**
+     * Add payment to invoice
+     * 
+     * @param Request $request
+     * @param $id Invoice ID
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function addInvoicePayment(Request $request, $id)
     {
         $invoice = $this->invoiceService->addInvoicePayment($id, $request->all());
@@ -102,7 +162,6 @@ class InvoiceController extends Controller
      * @param $id Invoice ID
      * @return \Illuminate\Http\JsonResponse
      */
-
     public function sendInvoiceNotification(Request $request, $id)
     {
         if ($request->has('contact')) {

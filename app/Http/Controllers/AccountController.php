@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Services\AccountService;
 use App\Http\Requests\AccountRequest;
 
+/**
+ * @group Accounts
+ * 
+ * APIs for managing accounts
+ */
 class AccountController extends Controller
 {
     private $accountService;
@@ -13,6 +18,11 @@ class AccountController extends Controller
         $this->accountService = $accountService;
     }
 
+    /**
+     * Get all accounts
+     * 
+     * @return array $accounts All accounts
+     */
     public function getAccounts()
     {
         $accounts = $this->accountService->getAccounts();
@@ -22,6 +32,12 @@ class AccountController extends Controller
         return api_response($accounts, __('responses.data_retrieved_successfully'));
     }
 
+    /**
+     * Get account by id
+     * 
+     * @param  string  $id id of the account
+     * @return array $account account
+     */
     public function getAccount($id)
     {
         $account = $this->accountService->getAccount($id);
@@ -31,6 +47,12 @@ class AccountController extends Controller
         return api_response($account, __('responses.data_retrieved_successfully'));
     }
 
+    /**
+     * Create a new account
+     * 
+     * @param  object  $request data from the form (name)
+     * @return array $account account
+     */
     public function createAccount(AccountRequest $request)
     {
         $data = $request->all();
@@ -41,6 +63,13 @@ class AccountController extends Controller
         return api_response($account, __('responses.item_created_successfully'));
     }
 
+    /**
+     * Update an account
+     * 
+     * @param  object  $request data from the form (name)
+     * @param  string  $id id of the account
+     * @return array $account account
+     */
     public function updateAccount(AccountRequest $request, $id)
     {
         $data = $request->all();
@@ -51,6 +80,12 @@ class AccountController extends Controller
         return api_response($account, __('responses.item_updated_successfully'));
     }
 
+    /**
+     * Delete an account
+     * 
+     * @param  string  $id id of the account
+     * @return array $account account
+     */
     public function deleteAccount($id)
     {
         $account = $this->accountService->deleteAccount($id);

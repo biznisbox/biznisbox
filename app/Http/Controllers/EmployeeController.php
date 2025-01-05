@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Services\EmployeeService;
 use App\Http\Requests\EmployeeRequest;
 
+/**
+ * @group Employees
+ * 
+ * APIs for managing employees
+ */
 class EmployeeController extends Controller
 {
     private $employeeService;
@@ -14,6 +19,11 @@ class EmployeeController extends Controller
         $this->employeeService = $employeeService;
     }
 
+    /**
+     * Get all employees
+     * 
+     * @return array $employees All employees
+     */
     public function getEmployees()
     {
         $employees = $this->employeeService->getEmployees();
@@ -23,6 +33,12 @@ class EmployeeController extends Controller
         return api_response(null, __('responses.item_not_found'), 404);
     }
 
+    /**
+     * Get employee by id
+     * 
+     * @param  string  $id id of the employee
+     * @return array $employee employee
+     */
     public function getEmployee($id)
     {
         $employee = $this->employeeService->getEmployee($id);
@@ -32,6 +48,12 @@ class EmployeeController extends Controller
         return api_response(null, __('responses.item_not_found_with_id'), 404);
     }
 
+    /**
+     * Create a new employee
+     * 
+     * @param  object  $request data from the form (name, email, phone, address, department_id)
+     * @return array $employee employee
+     */
     public function createEmployee(EmployeeRequest $request)
     {
         $data = $request->all();
@@ -42,6 +64,13 @@ class EmployeeController extends Controller
         return api_response(null, __('responses.item_not_created'), 400);
     }
 
+    /**
+     * Update an employee
+     * 
+     * @param  object  $request data from the form (name, email, phone, address, department_id)
+     * @param  string  $id id of the employee
+     * @return array $employee employee
+     */
     public function updateEmployee(EmployeeRequest $request, $id)
     {
         $data = $request->all();
@@ -52,6 +81,12 @@ class EmployeeController extends Controller
         return api_response(null, __('responses.item_not_updated'), 400);
     }
 
+    /**
+     * Delete an employee
+     * 
+     * @param  string  $id id of the employee
+     * @return array $employee employee
+     */
     public function deleteEmployee($id)
     {
         $employee = $this->employeeService->deleteEmployee($id);
@@ -61,6 +96,11 @@ class EmployeeController extends Controller
         return api_response(null, __('responses.item_not_deleted'), 400);
     }
 
+    /**
+     * Get public employees
+     * 
+     * @return array $employees public employees
+     */
     public function getPublicEmployees()
     {
         $employees = $this->employeeService->getPublicEmployees();
@@ -70,6 +110,11 @@ class EmployeeController extends Controller
         return api_response(null, __('responses.item_not_found'), 404);
     }
 
+    /**
+     * Get employee number
+     * 
+     * @return array $employee employee
+     */
     public function getEmployeeNumber()
     {
         $employee = $this->employeeService->getEmployeeNumber();

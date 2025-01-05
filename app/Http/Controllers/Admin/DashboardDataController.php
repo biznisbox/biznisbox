@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Admin\DashboardDataService;
 
+/**
+ * @group Dashboard Data
+ *
+ * APIs for managing dashboard data
+ */
 class DashboardDataController extends Controller
 {
     private $dashboardDataService;
@@ -14,6 +19,12 @@ class DashboardDataController extends Controller
         $this->dashboardDataService = $dashboardDataService;
     }
 
+    /**
+     * Return data for the dashboard
+     * 
+     * @param  object  $request data from the form (type)
+     * @return array $data data
+     */
     public function returnData(Request $request)
     {
         $type = $request->input('type');

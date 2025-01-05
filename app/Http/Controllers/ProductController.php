@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
 use App\Services\ProductService;
-
+/**
+ * @group Products
+ * 
+ * APIs for managing products
+ */
 class ProductController extends Controller
 {
     private $productService;
@@ -13,6 +17,12 @@ class ProductController extends Controller
         $this->productService = $productService;
     }
 
+    /**
+     * Create a new product
+     * 
+     * @param  object  $request data from the form 
+     * @return array $product product
+     */
     public function createProduct(ProductRequest $request)
     {
         $product = $this->productService->createProduct($request->all());
@@ -22,6 +32,13 @@ class ProductController extends Controller
         return api_response($product, __('responses.item_created_successfully'));
     }
 
+    /**
+     * Update product
+     * 
+     * @param  object  $request data from the form 
+     * @param  string  $id id of the product
+     * @return array $product product
+     */
     public function updateProduct(ProductRequest $request, string $id)
     {
         $product = $this->productService->updateProduct($id, $request->all());
@@ -31,6 +48,12 @@ class ProductController extends Controller
         return api_response($product, __('responses.item_updated_successfully'));
     }
 
+    /**
+     * Delete product
+     * 
+     * @param  string  $id id of the product
+     * @return array $product product
+     */
     public function deleteProduct(string $id)
     {
         $product = $this->productService->deleteProduct($id);
@@ -40,6 +63,11 @@ class ProductController extends Controller
         return api_response($product, __('responses.item_deleted_successfully'));
     }
 
+    /**
+     * Get all products
+     * 
+     * @return array $products Products
+     */
     public function getProducts()
     {
         $products = $this->productService->getProducts();
@@ -49,6 +77,12 @@ class ProductController extends Controller
         return api_response($products, __('responses.data_retrieved_successfully'));
     }
 
+    /**
+     * Get product by id
+     * 
+     * @param  string  $id id of the product
+     * @return array $product product
+     */
     public function getProduct(string $id)
     {
         $product = $this->productService->getProduct($id);
@@ -58,6 +92,12 @@ class ProductController extends Controller
         return api_response($product, __('responses.data_retrieved_successfully'));
     }
 
+    /**
+     * Get products by category
+     * 
+     * @param  string  $id id of the category
+     * @return array $products Products
+     */
     public function getProductsByCategory(string $id)
     {
         $products = $this->productService->getProductsByCategory($id);
@@ -67,6 +107,12 @@ class ProductController extends Controller
         return api_response($products, __('responses.data_retrieved_successfully'));
     }
 
+    /**
+     * Get products by barcode
+     * 
+     * @param  string  $barcode barcode of the product
+     * @return array $product product
+     */
     public function getProductByBarcode(string $barcode)
     {
         $product = $this->productService->getProductByBarcode($barcode);
@@ -76,6 +122,11 @@ class ProductController extends Controller
         return api_response($product, __('responses.data_retrieved_successfully'));
     }
 
+    /**
+     * Get product number
+     * 
+     * @return array $product product
+     */
     public function getProductNumber()
     {
         $number = $this->productService->getProductNumber();
