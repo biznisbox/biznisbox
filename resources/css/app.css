@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 :root {
     --primary-50: #eff6ff;
@@ -27,6 +27,7 @@
     --surface-900: #0f172a;
     --surface-950: #030617;
 }
+
 .dark {
     --primary: var(--primary-400);
 }

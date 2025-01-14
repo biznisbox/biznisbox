@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Tymon\JWTAuth\Contracts\JWTSubject;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Spatie\Permission\Traits\HasRoles;
@@ -237,7 +237,7 @@ class User extends Authenticatable implements JWTSubject, Auditable
     public function deleteUser($id)
     {
         // Prevent deleting own account
-        if ($id == auth()->user()->id) {
+        if ($id == auth()->id()) {
             return false;
         }
 
