@@ -25,7 +25,7 @@ class InvoiceController extends Controller
 
     /**
      * Get invoice by key
-     * 
+     *
      * @return array $invoice Invoice
      */
     public function getInvoice(Request $request)
@@ -41,7 +41,7 @@ class InvoiceController extends Controller
 
     /**
      * Pay invoice with stripe
-     * 
+     *
      * @param  object  $request data from the form (key)
      * @return array $payment Payment
      */
@@ -58,7 +58,7 @@ class InvoiceController extends Controller
 
     /**
      * Validate invoice stripe payment
-     * 
+     *
      * @param  object  $request data from the form (invoice, key, method)
      * @return array $payment Payment
      */
@@ -79,7 +79,7 @@ class InvoiceController extends Controller
 
     /**
      * Pay invoice with paypal
-     * 
+     *
      * @param  object  $request data from the form (key)
      * @return array $payment Payment
      */
@@ -96,7 +96,7 @@ class InvoiceController extends Controller
 
     /**
      * Validate invoice paypal payment
-     * 
+     *
      * @param  object  $request data from the form (invoice, key, method)
      * @return array $payment Payment
      */

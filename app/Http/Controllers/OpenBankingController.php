@@ -20,7 +20,7 @@ class OpenBankingController extends Controller
 
     /**
      * List available countries
-     * 
+     *
      * @return array $countries Available countries
      */
     public function listAvailableCountries()
@@ -31,7 +31,7 @@ class OpenBankingController extends Controller
 
     /**
      * List available banks by country
-     * 
+     *
      * @param  object  $request data from the form (country)
      * @return array $banks Available banks
      */
@@ -47,7 +47,7 @@ class OpenBankingController extends Controller
 
     /**
      * Initiate session
-     * 
+     *
      * @param  object  $request data from the form (redirect_url, institution_id)
      * @return array $session Session
      */
@@ -64,7 +64,7 @@ class OpenBankingController extends Controller
 
     /**
      * Create open banking account
-     * 
+     *
      * @param  object  $request data from the form (requisition_id)
      * @return array $account Account
      */

@@ -135,14 +135,7 @@ return [
     |
     */
 
-    'required_claims' => [
-        'iss',
-        'iat',
-        'exp',
-        'nbf',
-        'sub',
-        'jti',
-    ],
+    'required_claims' => ['iss', 'iat', 'exp', 'nbf', 'sub', 'jti'],
 
     /*
     |--------------------------------------------------------------------------

@@ -22,7 +22,7 @@ class BillController extends Controller
 
     /**
      * Get all bills
-     * 
+     *
      * @return array $bills All bills
      */
     public function getBills()
@@ -36,7 +36,7 @@ class BillController extends Controller
 
     /**
      * Get bill by id
-     * 
+     *
      * @param  string  $id id of the bill
      * @return array $bill bill
      */
@@ -51,7 +51,7 @@ class BillController extends Controller
 
     /**
      * Create a new bill
-     * 
+     *
      * @param  object  $request data from the form (bill_number, bill_date, due_date, customer_id, items)
      * @return array $bill bill
      */
@@ -66,7 +66,7 @@ class BillController extends Controller
 
     /**
      * Update a bill
-     * 
+     *
      * @param  object  $request data from the form (bill_number, bill_date, due_date, customer_id, items)
      * @param  string  $id id of the bill
      * @return array $bill bill
@@ -82,7 +82,7 @@ class BillController extends Controller
 
     /**
      * Delete a bill
-     * 
+     *
      * @param  string  $id id of the bill
      * @return array $bill bill
      */
@@ -97,7 +97,7 @@ class BillController extends Controller
 
     /**
      * Get bill number
-     * 
+     *
      * @return array $bill bill
      */
     public function getBillNumber()
@@ -111,7 +111,7 @@ class BillController extends Controller
 
     /**
      * Get bill pdf
-     * 
+     *
      * @param  object  $request data from the form (type)
      * @param  string  $id id of the bill
      * @return array $bill bill

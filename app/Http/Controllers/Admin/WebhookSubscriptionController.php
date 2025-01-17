@@ -21,7 +21,7 @@ class WebhookSubscriptionController extends Controller
 
     /**
      * Get all webhook subscriptions
-     * 
+     *
      * @return array $webhookSubscriptions All webhook subscriptions
      */
     public function getWebhookSubscriptions()
@@ -32,7 +32,7 @@ class WebhookSubscriptionController extends Controller
 
     /**
      * Get webhook subscription by id
-     * 
+     *
      * @param  string  $id id of the webhook subscription
      * @return array $webhookSubscription webhook subscription
      */
@@ -47,7 +47,7 @@ class WebhookSubscriptionController extends Controller
 
     /**
      * Create a new webhook subscription
-     * 
+     *
      * @param  object  $request data from the form (name, url, event)
      * @return array $webhookSubscription webhook subscription
      */
@@ -60,7 +60,7 @@ class WebhookSubscriptionController extends Controller
 
     /**
      * Update webhook subscription
-     * 
+     *
      * @param  object  $request data from the form (name, url, event)
      * @param  string  $id id of the webhook subscription
      * @return array $webhookSubscription webhook subscription
@@ -77,7 +77,7 @@ class WebhookSubscriptionController extends Controller
 
     /**
      * Delete a webhook subscription
-     * 
+     *
      * @param  string  $id id of the webhook subscription
      * @return array $webhookSubscription webhook subscription
      */

@@ -24,7 +24,7 @@ class DataController extends Controller
      ***********************************/
     /**
      * Get data
-     * 
+     *
      * @param  object  $request data from the form (type)
      * @return array $data data
      */
@@ -63,7 +63,7 @@ class DataController extends Controller
 
     /**
      * Get data
-     * 
+     *
      * @param  object  $request data from the form (type)
      * @return array $data data
      */
@@ -92,12 +92,12 @@ class DataController extends Controller
      * Activity log methods
      ***********************************/
 
-     /**
-      * Get activity logs
-      *
-      * @param Request $request
-      * @return void
-      */
+    /**
+     * Get activity logs
+     *
+     * @param Request $request
+     * @return void
+     */
     public function getLogs(Request $request)
     {
         $item_id = $request->input('item_id');
@@ -110,12 +110,12 @@ class DataController extends Controller
      * Category methods
      ***********************************/
 
-     /**
-      * Get categories for a module
-      *
-      * @param Request $request module
-      * @return void
-      */
+    /**
+     * Get categories for a module
+     *
+     * @param Request $request module
+     * @return void
+     */
     public function getCategories(Request $request)
     {
         $module = $request->input('module');
@@ -190,12 +190,12 @@ class DataController extends Controller
      * Dashboard layout methods
      ***********************************/
 
-     /**
-      * Get dashboard layout
-      *
-      * @param Request $request
-      * @return void
-      */
+    /**
+     * Get dashboard layout
+     *
+     * @param Request $request
+     * @return void
+     */
     public function getDashboardLayout(Request $request)
     {
         $type = $request->input('type') ?? 'user';
@@ -225,7 +225,7 @@ class DataController extends Controller
 
     /**
      * Get webhook subscriptions
-     * 
+     *
      * @param  object  $request data from the form (type)
      * @return array $webhookSubscriptions webhook subscriptions
      */
@@ -241,7 +241,7 @@ class DataController extends Controller
 
     /**
      * Delete webhook subscription
-     * 
+     *
      * @param  string  $id id of the webhook subscription
      * @return array $webhookSubscription webhook subscription
      */

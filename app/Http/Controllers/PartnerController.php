@@ -19,8 +19,8 @@ class PartnerController extends Controller
 
     /**
      * Create a new partner
-     * 
-     * @param  object  $request data from the form 
+     *
+     * @param  object  $request data from the form
      * @return array $partner partner
      */
     public function createPartner(Request $request)
@@ -34,8 +34,8 @@ class PartnerController extends Controller
 
     /**
      * Update partner
-     * 
-     * @param  object  $request data from the form 
+     *
+     * @param  object  $request data from the form
      * @param  string  $id id of the partner
      * @return array $partner partner
      */
@@ -50,7 +50,7 @@ class PartnerController extends Controller
 
     /**
      * Delete partner
-     * 
+     *
      * @param  string  $id id of the partner
      * @return array $partner partner
      */
@@ -65,7 +65,7 @@ class PartnerController extends Controller
 
     /**
      * Get all partners
-     * 
+     *
      * @return array $partners Partners
      */
     public function getPartners()
@@ -79,7 +79,7 @@ class PartnerController extends Controller
 
     /**
      * Get partner by id
-     * 
+     *
      * @param  string  $id id of the partner
      * @return array $partner partner
      */
@@ -94,7 +94,7 @@ class PartnerController extends Controller
 
     /**
      * Get partner number
-     * 
+     *
      * @return array $partner partner
      */
     public function getPartnerNumber()
@@ -108,7 +108,7 @@ class PartnerController extends Controller
 
     /**
      * Get partners limited data
-     * 
+     *
      * @param  object  $request data from the form (type)
      * @return array $partners Partners
      */
@@ -127,7 +127,7 @@ class PartnerController extends Controller
 
     /**
      * Get partner activities
-     * 
+     *
      * @return array $partnerActivities Partner activities
      */
     public function createPartnerActivity(Request $request)
@@ -141,8 +141,8 @@ class PartnerController extends Controller
 
     /**
      * Update partner activity
-     * 
-     * @param  object  $request data from the form 
+     *
+     * @param  object  $request data from the form
      * @param  string  $id id of the partner activity
      * @return array $partnerActivity partner activity
      */
@@ -157,7 +157,7 @@ class PartnerController extends Controller
 
     /**
      * Delete partner activity
-     * 
+     *
      * @param  string  $id id of the partner activity
      * @return array $partnerActivity partner activity
      */

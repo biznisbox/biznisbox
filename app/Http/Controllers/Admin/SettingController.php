@@ -49,7 +49,6 @@ class SettingController extends Controller
         return api_response($settings, __('responses.item_updated_successfully'), 200);
     }
 
-
     /**
      * Set company logo
      *
@@ -92,7 +91,6 @@ class SettingController extends Controller
         }
         return api_response($settings, __('responses.data_retrieved_successfully'), 200);
     }
-
 
     /**
      * Update settings

@@ -23,7 +23,7 @@ class UserController extends Controller
 
     /**
      * Get all users
-     * 
+     *
      * @return array $users All users
      */
     public function getUsers()
@@ -37,7 +37,7 @@ class UserController extends Controller
 
     /**
      * Get user by id
-     * 
+     *
      * @param  string  $id id of the user
      * @return array $user user
      */
@@ -50,10 +50,9 @@ class UserController extends Controller
         return api_response($user, __('responses.data_retrieved_successfully'), 200);
     }
 
-
     /**
      * Create a new user
-     * 
+     *
      * @param  object  $request data from the form (name, email, password, role_id)
      * @return array $user user
      */
@@ -69,7 +68,7 @@ class UserController extends Controller
 
     /**
      * Update user by id
-     * 
+     *
      * @param  object  $request data from the form (name, email, role_id)
      * @param  string  $id id of the user
      * @return array $user user
@@ -86,7 +85,7 @@ class UserController extends Controller
 
     /**
      * Delete user by id
-     * 
+     *
      * @param  string  $id id of the user
      * @return array $user user
      */
@@ -101,7 +100,7 @@ class UserController extends Controller
 
     /**
      * Reset password
-     * 
+     *
      * @param  object  $request data from the form (password)
      * @param  string  $id id of the user
      * @return array $user user
@@ -118,7 +117,7 @@ class UserController extends Controller
 
     /**
      * Disable 2fa
-     * 
+     *
      * @param  string  $id id of the user
      * @return array $user user
      */

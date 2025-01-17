@@ -57,7 +57,10 @@
                         </template>
                         <Column :header="$t('form.name')">
                             <template #body="{ data }">
-                                <span>{{ data.first_name }} {{ data.last_name }}</span>
+                                <div class="flex items-center">
+                                    <Avatar v-if="data.avatar_url" :image="data.avatar_url" class="avatar" />
+                                    <span>{{ data.first_name + ' ' + data.last_name }}</span>
+                                </div>
                             </template>
                         </Column>
                         <Column field="email" :header="$t('form.email')" />
@@ -108,4 +111,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.avatar {
+    background-color: transparent !important;
+    margin-right: 0.5rem;
+}
+</style>

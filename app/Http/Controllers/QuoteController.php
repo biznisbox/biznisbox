@@ -22,7 +22,7 @@ class QuoteController extends Controller
 
     /**
      * Get all quotes
-     * 
+     *
      * @return array $quotes Quotes
      */
     public function getQuotes()
@@ -37,7 +37,7 @@ class QuoteController extends Controller
 
     /**
      * Get quote by id
-     * 
+     *
      * @param  string  $id id of the quote
      * @return array $quote Quote
      */
@@ -53,7 +53,7 @@ class QuoteController extends Controller
 
     /**
      * Create a new quote
-     * 
+     *
      * @param  object  $request data from the form
      * @return array $quote Quote
      */
@@ -69,7 +69,7 @@ class QuoteController extends Controller
 
     /**
      * Update a quote
-     * 
+     *
      * @param  object  $request data from the form
      * @param  string  $id id of the quote
      * @return array $quote Quote
@@ -86,7 +86,7 @@ class QuoteController extends Controller
 
     /**
      * Delete a quote
-     * 
+     *
      * @param  string  $id id of the quote
      * @return array $quote Quote
      */
@@ -101,7 +101,7 @@ class QuoteController extends Controller
 
     /**
      * Get quote number
-     * 
+     *
      * @return array $number Quote number
      */
     public function getQuoteNumber()
@@ -115,7 +115,7 @@ class QuoteController extends Controller
 
     /**
      * Share a quote
-     * 
+     *
      * @param  string $id id of the quote
      * @return array $quote Quote
      */
@@ -130,7 +130,7 @@ class QuoteController extends Controller
 
     /**
      * Convert a quote to invoice
-     * 
+     *
      * @param  string $id id of the quote
      * @return array $invoice Invoice
      */
@@ -145,7 +145,7 @@ class QuoteController extends Controller
 
     /**
      * Get quote pdf
-     * 
+     *
      * @param  object  $request data from the form
      * @param  string  $id id of the quote
      * @return array $quote Quote
@@ -162,7 +162,7 @@ class QuoteController extends Controller
 
     /**
      * Send quote notification
-     * 
+     *
      * @param  object  $request data from the form
      * @param  string  $id id of the quote
      * @return array $quote_notification Quote notification

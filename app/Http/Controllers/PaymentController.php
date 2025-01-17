@@ -21,7 +21,7 @@ class PaymentController extends Controller
 
     /**
      * Get all payments
-     * 
+     *
      * @return array $payments Payments
      */
     public function getPayments()
@@ -32,7 +32,7 @@ class PaymentController extends Controller
 
     /**
      * Get payment by id
-     * 
+     *
      * @param  string  $id id of the payment
      * @return array $payment payment
      */

@@ -22,7 +22,7 @@ class TaxController extends Controller
 
     /**
      * Get all taxes
-     * 
+     *
      * @return array $taxes All taxes
      */
     public function getTaxes()
@@ -36,7 +36,7 @@ class TaxController extends Controller
 
     /**
      * Get tax by id
-     * 
+     *
      * @param  string  $id id of the tax
      * @return array $tax tax
      */
@@ -51,7 +51,7 @@ class TaxController extends Controller
 
     /**
      * Create a new tax
-     * 
+     *
      * @param  object  $request data from the form (name and rate)
      * @return array $tax tax
      */

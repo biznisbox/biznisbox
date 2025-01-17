@@ -21,7 +21,7 @@ class ArchiveController extends Controller
 
     /**
      * Get all documents
-     * 
+     *
      * @return array $documents All documents
      */
     public function getDocuments(Request $request)
@@ -36,7 +36,7 @@ class ArchiveController extends Controller
 
     /**
      * Get document by id
-     * 
+     *
      * @param  string  $id id of the document
      * @return array $document document
      */
@@ -51,7 +51,7 @@ class ArchiveController extends Controller
 
     /**
      * Create a new document
-     * 
+     *
      * @param  object  $request data from the form (name, file, folder_id)
      * @return array $document document
      */
@@ -66,7 +66,7 @@ class ArchiveController extends Controller
 
     /**
      * Update a document
-     * 
+     *
      * @param  object  $request data from the form (name, file, folder_id)
      * @param  string  $id id of the document
      * @return array $document document
@@ -82,7 +82,7 @@ class ArchiveController extends Controller
 
     /**
      * Delete a document
-     * 
+     *
      * @param  string  $id id of the document
      * @return array $document document
      */
@@ -97,7 +97,7 @@ class ArchiveController extends Controller
 
     /**
      * Restore a document
-     * 
+     *
      * @param  string  $id id of the document
      * @return array $document document
      */
@@ -112,7 +112,7 @@ class ArchiveController extends Controller
 
     /**
      * Delete a document permanently
-     * 
+     *
      * @param  string  $id id of the document
      * @return array $document document
      */
@@ -127,7 +127,7 @@ class ArchiveController extends Controller
 
     /**
      * Download a document
-     * 
+     *
      * @param  string  $id id of the document
      * @return array $document document
      */
@@ -145,7 +145,7 @@ class ArchiveController extends Controller
 
     /**
      * Preview a document
-     * 
+     *
      * @param  string  $id id of the document
      * @return array $document document
      */
@@ -163,7 +163,7 @@ class ArchiveController extends Controller
 
     /**
      * Move a document
-     * 
+     *
      * @param  object  $request data from the form (folder_id)
      * @param  string  $id id of the document
      * @return array $document document

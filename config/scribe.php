@@ -4,7 +4,7 @@ use Knuckles\Scribe\Extracting\Strategies;
 
 return [
     // The HTML <title> for the generated documentation. If this is empty, Scribe will infer it from config('app.name').
-    'title' => "BiznisBox API documentation",
+    'title' => 'BiznisBox API documentation',
 
     // A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
     'description' => 'BiznisBox API documentation',
@@ -74,7 +74,7 @@ return [
     ],
 
     'external' => [
-        'html_attributes' => []
+        'html_attributes' => [],
     ],
 
     'try_it_out' => [
@@ -129,16 +129,10 @@ This documentation aims to provide all the information you need to work with our
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
 INTRO
     ,
-
     // Example requests for each endpoint will be shown in each of these languages.
     // Supported options are: bash, javascript, php, python
     // To add a language of your own, see https://scribe.knuckles.wtf/laravel/advanced/example-requests
-    'example_languages' => [
-        'bash',
-        'javascript',
-        'php',
-        'python',
-    ],
+    'example_languages' => ['bash', 'javascript', 'php', 'python'],
 
     // Generate a Postman collection (v2.1.0) in addition to HTML docs.
     // For 'static' docs, the collection will be generated to public/docs/collection.json.
@@ -203,10 +197,7 @@ INTRO
     // The strategies Scribe will use to extract information about your routes at each stage.
     // If you create or install a custom strategy, add it here.
     'strategies' => [
-        'metadata' => [
-            Strategies\Metadata\GetFromDocBlocks::class,
-            Strategies\Metadata\GetFromMetadataAttributes::class,
-        ],
+        'metadata' => [Strategies\Metadata\GetFromDocBlocks::class, Strategies\Metadata\GetFromMetadataAttributes::class],
         'urlParameters' => [
             Strategies\UrlParameters\GetFromLaravelAPI::class,
             Strategies\UrlParameters\GetFromUrlParamAttribute::class,
@@ -226,8 +217,8 @@ INTRO
                 [
                     'Content-Type' => 'application/json',
                     'Accept' => 'application/json',
-                ]
-            ]
+                ],
+            ],
         ],
         'bodyParameters' => [
             Strategies\BodyParameters\GetFromFormRequest::class,
@@ -249,8 +240,8 @@ INTRO
                     'config' => [
                         'app.debug' => false,
                     ],
-                ]
-            ]
+                ],
+            ],
         ],
         'responseFields' => [
             Strategies\ResponseFields\GetFromResponseFieldAttribute::class,

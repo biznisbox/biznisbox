@@ -6,7 +6,7 @@ use App\Http\Requests\ProductRequest;
 use App\Services\ProductService;
 /**
  * @group Products
- * 
+ *
  * APIs for managing products
  */
 class ProductController extends Controller
@@ -19,8 +19,8 @@ class ProductController extends Controller
 
     /**
      * Create a new product
-     * 
-     * @param  object  $request data from the form 
+     *
+     * @param  object  $request data from the form
      * @return array $product product
      */
     public function createProduct(ProductRequest $request)
@@ -34,8 +34,8 @@ class ProductController extends Controller
 
     /**
      * Update product
-     * 
-     * @param  object  $request data from the form 
+     *
+     * @param  object  $request data from the form
      * @param  string  $id id of the product
      * @return array $product product
      */
@@ -50,7 +50,7 @@ class ProductController extends Controller
 
     /**
      * Delete product
-     * 
+     *
      * @param  string  $id id of the product
      * @return array $product product
      */
@@ -65,7 +65,7 @@ class ProductController extends Controller
 
     /**
      * Get all products
-     * 
+     *
      * @return array $products Products
      */
     public function getProducts()
@@ -79,7 +79,7 @@ class ProductController extends Controller
 
     /**
      * Get product by id
-     * 
+     *
      * @param  string  $id id of the product
      * @return array $product product
      */
@@ -94,7 +94,7 @@ class ProductController extends Controller
 
     /**
      * Get products by category
-     * 
+     *
      * @param  string  $id id of the category
      * @return array $products Products
      */
@@ -109,7 +109,7 @@ class ProductController extends Controller
 
     /**
      * Get products by barcode
-     * 
+     *
      * @param  string  $barcode barcode of the product
      * @return array $product product
      */
@@ -124,7 +124,7 @@ class ProductController extends Controller
 
     /**
      * Get product number
-     * 
+     *
      * @return array $product product
      */
     public function getProductNumber()

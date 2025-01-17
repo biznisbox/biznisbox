@@ -22,7 +22,7 @@ class InstallerController extends Controller
 
     /**
      * Check requirements
-     * 
+     *
      * @return array $requirements Requirements
      */
     public function checkRequirements()
@@ -30,10 +30,10 @@ class InstallerController extends Controller
         $requirements = $this->installService->checkRequirements();
         return api_response($requirements);
     }
-    
+
     /**
      * Check database connection
-     * 
+     *
      * @param  object  $request data from the form (db_host, db_port, db_name, db_username, db_password)
      * @return array $check Check
      */
@@ -46,7 +46,7 @@ class InstallerController extends Controller
 
     /**
      * Update .env file with database information
-     * 
+     *
      * @param  object  $request data from the form (db_host, db_port, db_name, db_username, db_password)
      * @return array $updated Updated
      */
@@ -59,7 +59,7 @@ class InstallerController extends Controller
 
     /**
      * Migrate and seed database
-     * 
+     *
      * @return array $migration Migration
      */
     public function migrateAndSeed()
@@ -70,7 +70,7 @@ class InstallerController extends Controller
 
     /**
      * Set settings in database
-     * 
+     *
      * @param  object  $request data from the form (app_name, app_url, app_timezone, app_locale, app_currency, app_currency_symbol, app_currency_position)
      * @return array $settings Settings
      */
@@ -83,7 +83,7 @@ class InstallerController extends Controller
 
     /**
      * Create admin user
-     * 
+     *
      * @param  object  $request data from the form (name, email, password)
      * @return array $user User
      */
@@ -96,7 +96,7 @@ class InstallerController extends Controller
 
     /**
      * Check if app is installed
-     * 
+     *
      * @return array $installed Installed
      */
     public function checkAppInstalled()

@@ -7,7 +7,7 @@ use App\Http\Requests\AccountRequest;
 
 /**
  * @group Accounts
- * 
+ *
  * APIs for managing accounts
  */
 class AccountController extends Controller
@@ -20,7 +20,7 @@ class AccountController extends Controller
 
     /**
      * Get all accounts
-     * 
+     *
      * @return array $accounts All accounts
      */
     public function getAccounts()
@@ -34,7 +34,7 @@ class AccountController extends Controller
 
     /**
      * Get account by id
-     * 
+     *
      * @param  string  $id id of the account
      * @return array $account account
      */
@@ -49,7 +49,7 @@ class AccountController extends Controller
 
     /**
      * Create a new account
-     * 
+     *
      * @param  object  $request data from the form (name)
      * @return array $account account
      */
@@ -65,7 +65,7 @@ class AccountController extends Controller
 
     /**
      * Update an account
-     * 
+     *
      * @param  object  $request data from the form (name)
      * @param  string  $id id of the account
      * @return array $account account
@@ -82,7 +82,7 @@ class AccountController extends Controller
 
     /**
      * Delete an account
-     * 
+     *
      * @param  string  $id id of the account
      * @return array $account account
      */

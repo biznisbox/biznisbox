@@ -20,7 +20,7 @@ class AuthController extends Controller
 
     /**
      * Login
-     * 
+     *
      * @param  object  $request data from the form (email, password, otp)
      * @return array $user User
      */
@@ -41,7 +41,7 @@ class AuthController extends Controller
 
     /**
      * Logout
-     * 
+     *
      * @return array $user User
      */
     public function Logout()
@@ -52,7 +52,7 @@ class AuthController extends Controller
 
     /**
      * Refresh token
-     * 
+     *
      * @return array $token Token
      */
     public function Refresh()
@@ -63,7 +63,7 @@ class AuthController extends Controller
 
     /**
      * Me
-     * 
+     *
      * @return array $user User
      */
     public function Me()

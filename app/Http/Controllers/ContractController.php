@@ -21,7 +21,7 @@ class ContractController extends Controller
 
     /**
      * Get all contracts
-     * 
+     *
      * @return array $contracts Contracts
      */
     public function getContracts()
@@ -32,7 +32,7 @@ class ContractController extends Controller
 
     /**
      * Get contract by id
-     * 
+     *
      * @param  string  $id id of the contract
      * @return array $contract contract
      */
@@ -44,8 +44,8 @@ class ContractController extends Controller
 
     /**
      * Create a new contract
-     * 
-     * @param  object  $request data from the form 
+     *
+     * @param  object  $request data from the form
      * @return array $contract contract
      */
     public function createContract(Request $request)
@@ -54,11 +54,11 @@ class ContractController extends Controller
         $contract = $this->contractService->createContract($data);
         return api_response($contract, __('responses.item_created_successfully'), 200);
     }
-    
+
     /**
      * Update contract
-     * 
-     * @param  object  $request data from the form 
+     *
+     * @param  object  $request data from the form
      * @param  string  $id id of the contract
      * @return array $contract contract
      */
@@ -71,7 +71,7 @@ class ContractController extends Controller
 
     /**
      * Delete contract
-     * 
+     *
      * @param  string  $id id of the contract
      * @return array $contract contract
      */
@@ -83,7 +83,7 @@ class ContractController extends Controller
 
     /**
      * Get contract number
-     * 
+     *
      * @return array $contract contract
      */
     public function getContractNumber()
@@ -94,8 +94,8 @@ class ContractController extends Controller
 
     /**
      * Get contract pdf
-     * 
-     * @param  object  $request data from the form 
+     *
+     * @param  object  $request data from the form
      * @param  string  $id id of the contract
      * @return array $contract contract
      */
@@ -111,8 +111,8 @@ class ContractController extends Controller
 
     /**
      * Share contract
-     * 
-     * @param  object  $request data from the form 
+     *
+     * @param  object  $request data from the form
      * @param  string  $id id of the contract
      * @return array $contract contract
      */

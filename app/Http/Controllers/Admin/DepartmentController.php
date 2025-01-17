@@ -22,7 +22,7 @@ class DepartmentController extends Controller
 
     /**
      * Get all departments
-     * 
+     *
      * @return array $departments All departments
      */
     public function getDepartments()
@@ -36,7 +36,7 @@ class DepartmentController extends Controller
 
     /**
      * Get department by id
-     * 
+     *
      * @param  string  $id id of the department
      * @return array $department department
      */
@@ -51,7 +51,7 @@ class DepartmentController extends Controller
 
     /**
      * Create a new department
-     * 
+     *
      * @param  object  $request data from the form (name)
      * @return array $department department
      */
@@ -67,7 +67,7 @@ class DepartmentController extends Controller
 
     /**
      * Update department
-     * 
+     *
      * @param  object  $request data from the form (name)
      * @param  string  $id id of the department
      * @return array $department department
@@ -84,7 +84,7 @@ class DepartmentController extends Controller
 
     /**
      * Delete department
-     * 
+     *
      * @param  string  $id id of the department
      * @return array $department department
      */

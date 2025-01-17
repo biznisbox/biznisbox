@@ -22,7 +22,7 @@ class UnitController extends Controller
 
     /**
      * Get all units
-     * 
+     *
      * @return array $units All units
      */
     public function getUnits()
@@ -37,7 +37,7 @@ class UnitController extends Controller
 
     /**
      * Get unit by id
-     * 
+     *
      * @param  string  $id id of the unit
      * @return array $unit unit
      */
@@ -53,7 +53,7 @@ class UnitController extends Controller
 
     /**
      * Get unit by name
-     * 
+     *
      * @param  string  $name name of the unit
      * @return array $unit unit
      */
@@ -69,7 +69,7 @@ class UnitController extends Controller
 
     /**
      * Create a new unit
-     * 
+     *
      * @param  object  $request data from the form (name)
      * @return array $unit unit
      */
@@ -86,7 +86,7 @@ class UnitController extends Controller
 
     /**
      * Update unit
-     * 
+     *
      * @param  object $request data from the form (name)
      * @param  string  $id id of the unit
      * @return array $unit unit
@@ -104,7 +104,7 @@ class UnitController extends Controller
 
     /**
      * Delete a unit
-     * 
+     *
      * @param  string  $id id of the unit
      * @return array $unit unit
      */

@@ -21,7 +21,7 @@ class DashboardDataController extends Controller
 
     /**
      * Return data for the dashboard
-     * 
+     *
      * @param  object  $request data from the form (type)
      * @return array $data data
      */

@@ -21,7 +21,7 @@ class SupportTicketController extends Controller
 
     /**
      * Get all support tickets
-     * 
+     *
      * @return array $tickets Support tickets
      */
     public function getTickets()
@@ -35,7 +35,7 @@ class SupportTicketController extends Controller
 
     /**
      * Get support ticket by id
-     * 
+     *
      * @param  string  $id id of the support ticket
      * @return array $ticket Support ticket
      */
@@ -50,7 +50,7 @@ class SupportTicketController extends Controller
 
     /**
      * Get support ticket contents by id
-     * 
+     *
      * @param  string  $id id of the support ticket
      * @return array $contents Support ticket contents
      */
@@ -65,7 +65,7 @@ class SupportTicketController extends Controller
 
     /**
      * Create a new support ticket
-     * 
+     *
      * @param  object  $request data from the form
      * @return array $ticket Support ticket
      */
@@ -81,7 +81,7 @@ class SupportTicketController extends Controller
 
     /**
      * Update support ticket
-     * 
+     *
      * @param  object  $request data from the form
      * @param  string  $id id of the support ticket
      * @return array $ticket Support ticket
@@ -98,7 +98,7 @@ class SupportTicketController extends Controller
 
     /**
      * Delete a support ticket
-     * 
+     *
      * @param  string  $id id of the support ticket
      * @return array $ticket Support ticket
      */
@@ -113,7 +113,7 @@ class SupportTicketController extends Controller
 
     /**
      * Get all support ticket messages
-     * 
+     *
      * @param  string  $id id of the support ticket
      * @return array $messages Support ticket messages
      */
@@ -128,7 +128,7 @@ class SupportTicketController extends Controller
 
     /**
      * Create a new support ticket message
-     * 
+     *
      * @param  string  $id id of the support ticket
      * @return array $message Support ticket message
      */
@@ -144,7 +144,7 @@ class SupportTicketController extends Controller
 
     /**
      * Update support ticket message
-     * 
+     *
      * @param  string  $id id of the support ticket
      * @return array $message Support ticket message
      */
@@ -160,7 +160,7 @@ class SupportTicketController extends Controller
 
     /**
      * Delete support ticket message
-     * 
+     *
      * @param  string  $id id of the support ticket
      * @return array $message Support ticket message
      */

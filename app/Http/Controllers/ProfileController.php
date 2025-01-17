@@ -20,7 +20,7 @@ class ProfileController extends Controller
 
     /**
      * Change the theme
-     * 
+     *
      * @param  object  $request data from the form (theme)
      * @return array $response response
      */
@@ -35,7 +35,7 @@ class ProfileController extends Controller
 
     /**
      * Get the profile
-     * 
+     *
      * @return array $profile profile
      */
     public function getProfile()
@@ -47,7 +47,7 @@ class ProfileController extends Controller
 
     /**
      * Update the profile
-     * 
+     *
      * @param  object  $request data from the form (first_name, last_name, email, language)
      * @return array $response response
      */
@@ -67,7 +67,7 @@ class ProfileController extends Controller
 
     /**
      * Update the password
-     * 
+     *
      * @param  object  $request data from the form (current_password, password, password_confirmation)
      * @return array $response response
      */
@@ -90,7 +90,7 @@ class ProfileController extends Controller
 
     /**
      * Set the 2 factor auth
-     * 
+     *
      * @return array $response response
      */
     public function set2FactorAuth(Request $request)
@@ -102,7 +102,7 @@ class ProfileController extends Controller
 
     /**
      * Enable 2 factor auth
-     * 
+     *
      * @param  object  $request data from the form (code, secret)
      * @return array $response response
      */
@@ -124,7 +124,7 @@ class ProfileController extends Controller
 
     /**
      * Disable 2 factor auth
-     * 
+     *
      * @return array $response response
      */
     public function disable2FactorAuth()
@@ -136,7 +136,7 @@ class ProfileController extends Controller
 
     /**
      * Set the profile picture
-     * 
+     *
      * @return array $response response
      */
     public function setProfilePicture(Request $request)
@@ -152,7 +152,7 @@ class ProfileController extends Controller
 
     /**
      * Delete the profile picture
-     * 
+     *
      * @return array $response response
      */
     public function deleteProfilePicture()
@@ -164,7 +164,7 @@ class ProfileController extends Controller
 
     /**
      * Get the current user notifications
-     * 
+     *
      * @return array $notifications notifications
      */
     public function getCurrentUserNotifications()
@@ -175,7 +175,7 @@ class ProfileController extends Controller
 
     /**
      * Mark notification as read
-     * 
+     *
      * @param  string  $id id of the notification
      * @return array $response response
      */
@@ -188,7 +188,7 @@ class ProfileController extends Controller
 
     /**
      * Delete notification
-     * 
+     *
      * @return array $response response
      */
     public function deleteNotification($id)

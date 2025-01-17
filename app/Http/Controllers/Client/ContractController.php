@@ -22,7 +22,7 @@ class ContractController extends Controller
 
     /**
      * Get contract by key
-     * 
+     *
      * @return array $contracts Contract
      */
     public function getContract(Request $request)
@@ -38,7 +38,7 @@ class ContractController extends Controller
 
     /**
      * Sign contract
-     * 
+     *
      * @param  object  $request data from the form (key, name, email, phone, address)
      * @return array $contract Contract
      */

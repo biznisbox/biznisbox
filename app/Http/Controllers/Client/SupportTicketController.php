@@ -20,10 +20,9 @@ class SupportTicketController extends Controller
         $this->supportTicketService = $supportTicketService;
     }
 
-
     /**
      * Get ticket by key
-     * 
+     *
      * @param  object  $request data from the form (key)
      * @return array $ticket ticket
      */
@@ -39,7 +38,7 @@ class SupportTicketController extends Controller
 
     /**
      * Reply on ticket
-     * 
+     *
      * @param  object  $request request data
      * @return array $ticket ticket
      */

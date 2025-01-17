@@ -21,7 +21,7 @@ class QuoteController extends Controller
 
     /**
      * Get quote by key
-     * 
+     *
      * @return array $quote Quote
      */
     public function getQuote(Request $request)
@@ -37,7 +37,7 @@ class QuoteController extends Controller
 
     /**
      * Accept or reject quote
-     * 
+     *
      * @param  object  $request data from the form (key, status)
      * @return array $quote Quote
      */

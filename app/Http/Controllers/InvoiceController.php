@@ -21,7 +21,7 @@ class InvoiceController extends Controller
 
     /**
      * Get all invoices
-     * 
+     *
      * @return array $invoices Invoices
      */
     public function getInvoices()
@@ -35,7 +35,7 @@ class InvoiceController extends Controller
 
     /**
      * Get invoice by id
-     * 
+     *
      * @param  string  $id id of the invoice
      * @return array $invoice Invoice
      */
@@ -50,7 +50,7 @@ class InvoiceController extends Controller
 
     /**
      * Create a new invoice
-     * 
+     *
      * @param  object  $request data from the form
      * @return array $invoice Invoice
      */
@@ -65,7 +65,7 @@ class InvoiceController extends Controller
 
     /**
      * Update an invoice
-     * 
+     *
      * @param  object  $request data from the form
      * @param  string  $id id of the invoice
      * @return array $invoice Invoice
@@ -81,7 +81,7 @@ class InvoiceController extends Controller
 
     /**
      * Delete an invoice
-     * 
+     *
      * @param  string  $id id of the invoice
      * @return array $invoice Invoice
      */
@@ -96,7 +96,7 @@ class InvoiceController extends Controller
 
     /**
      * Get invoice number
-     * 
+     *
      * @return array $invoice Invoice
      */
     public function getInvoiceNumber()
@@ -110,7 +110,7 @@ class InvoiceController extends Controller
 
     /**
      * Share invoice
-     * 
+     *
      * @param  string  $id id of the invoice
      * @return array $invoice Invoice
      */
@@ -125,7 +125,7 @@ class InvoiceController extends Controller
 
     /**
      * Get invoice pdf
-     * 
+     *
      * @param  object  $request data from the form
      * @param  string  $id id of the invoice
      * @return array $invoice Invoice
@@ -142,7 +142,7 @@ class InvoiceController extends Controller
 
     /**
      * Add payment to invoice
-     * 
+     *
      * @param Request $request
      * @param $id Invoice ID
      * @return \Illuminate\Http\JsonResponse

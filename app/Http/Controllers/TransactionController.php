@@ -22,7 +22,7 @@ class TransactionController extends Controller
 
     /**
      * Get all transactions
-     * 
+     *
      * @return array $transactions All transactions
      */
     public function getTransactions()
@@ -36,7 +36,7 @@ class TransactionController extends Controller
 
     /**
      * Get transaction by id
-     * 
+     *
      * @param  string  $id id of the transaction
      * @return array $transaction transaction
      */
@@ -51,7 +51,7 @@ class TransactionController extends Controller
 
     /**
      * Create a new transaction
-     * 
+     *
      * @param  object  $request data from the form (transaction_number, transaction_date, transaction_type, amount, description)
      * @return array $transaction transaction
      */
@@ -67,7 +67,7 @@ class TransactionController extends Controller
 
     /**
      * Update a transaction
-     * 
+     *
      * @param  object  $request data from the form (transaction_number, transaction_date, transaction_type, amount, description)
      * @param  string  $id id of the transaction
      * @return array $transaction transaction
@@ -84,7 +84,7 @@ class TransactionController extends Controller
 
     /**
      * Delete a transaction
-     * 
+     *
      * @param  string  $id id of the transaction
      * @return array $transaction transaction
      */
@@ -99,7 +99,7 @@ class TransactionController extends Controller
 
     /**
      * Get transaction number
-     * 
+     *
      * @return array $number transaction number
      */
     public function getTransactionNumber()

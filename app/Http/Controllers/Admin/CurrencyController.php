@@ -22,7 +22,7 @@ class CurrencyController extends Controller
 
     /**
      * Get all currencies
-     * 
+     *
      * @return array $currencies All currencies
      */
     public function getCurrencies()
@@ -36,7 +36,7 @@ class CurrencyController extends Controller
 
     /**
      * Get currency by id
-     * 
+     *
      * @param  string  $id id of the currency
      * @return array $currency currency
      */
@@ -51,7 +51,7 @@ class CurrencyController extends Controller
 
     /**
      * Live update currency rate
-     * 
+     *
      * @return array $currency currency
      */
     public function liveUpdateCurrencyRate()
@@ -65,7 +65,7 @@ class CurrencyController extends Controller
 
     /**
      * Create a new currency
-     * 
+     *
      * @param  object  $request data from the form (name, code, symbol, rate)
      * @return array $currency currency
      */
@@ -81,7 +81,7 @@ class CurrencyController extends Controller
 
     /**
      * Update currency
-     * 
+     *
      * @param  object  $request data from the form (name, code, symbol, rate)
      * @param  string  $id id of the currency
      * @return array $currency currency
@@ -98,7 +98,7 @@ class CurrencyController extends Controller
 
     /**
      * Delete currency
-     * 
+     *
      * @param  string  $id id of the currency
      * @return array $currency currency
      */

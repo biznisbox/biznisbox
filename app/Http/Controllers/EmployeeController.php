@@ -7,7 +7,7 @@ use App\Http\Requests\EmployeeRequest;
 
 /**
  * @group Employees
- * 
+ *
  * APIs for managing employees
  */
 class EmployeeController extends Controller
@@ -21,7 +21,7 @@ class EmployeeController extends Controller
 
     /**
      * Get all employees
-     * 
+     *
      * @return array $employees All employees
      */
     public function getEmployees()
@@ -35,7 +35,7 @@ class EmployeeController extends Controller
 
     /**
      * Get employee by id
-     * 
+     *
      * @param  string  $id id of the employee
      * @return array $employee employee
      */
@@ -50,7 +50,7 @@ class EmployeeController extends Controller
 
     /**
      * Create a new employee
-     * 
+     *
      * @param  object  $request data from the form (name, email, phone, address, department_id)
      * @return array $employee employee
      */
@@ -66,7 +66,7 @@ class EmployeeController extends Controller
 
     /**
      * Update an employee
-     * 
+     *
      * @param  object  $request data from the form (name, email, phone, address, department_id)
      * @param  string  $id id of the employee
      * @return array $employee employee
@@ -83,7 +83,7 @@ class EmployeeController extends Controller
 
     /**
      * Delete an employee
-     * 
+     *
      * @param  string  $id id of the employee
      * @return array $employee employee
      */
@@ -98,7 +98,7 @@ class EmployeeController extends Controller
 
     /**
      * Get public employees
-     * 
+     *
      * @return array $employees public employees
      */
     public function getPublicEmployees()
@@ -112,7 +112,7 @@ class EmployeeController extends Controller
 
     /**
      * Get employee number
-     * 
+     *
      * @return array $employee employee
      */
     public function getEmployeeNumber()
