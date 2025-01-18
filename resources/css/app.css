@@ -1,35 +1,80 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 :root {
-    --primary-50: #eff6ff;
-    --primary-100: #dbeafe;
-    --primary-200: #bfdbfe;
-    --primary-300: #93c5fd;
-    --primary-400: #60a5fa;
-    --primary-500: #3b82f6;
-    --primary-600: #2563eb;
-    --primary-700: #1d4ed8;
-    --primary-800: #1e40af;
-    --primary-900: #1e3a8a;
-    --primary-950: #172554;
+    --primary-50: #e7f0fb;
+    --primary-100: #cddff6;
+    --primary-200: #a9c7f0;
+    --primary-300: #85aee9;
+    --primary-400: #5f94e0;
+    --primary-500: #4a7dcb;
+    --primary-600: #346bb4;
+    --primary-700: #2c5894;
+    --primary-800: #234473;
+    --primary-900: #1b355b;
+    --primary-950: #142543;
     --surface-0: #ffffff;
-    --surface-50: #f8fafc;
-    --surface-100: #f1f5f9;
-    --surface-200: #e2e8f0;
-    --surface-300: #cbd5e1;
-    --surface-400: #94a3b8;
-    --surface-500: #64748b;
-    --surface-600: #475569;
-    --surface-700: #2e3a4e;
-    --surface-800: #1e293b;
-    --surface-900: #0f172a;
-    --surface-950: #030617;
+    --surface-50: #f4f6f8;
+    --surface-100: #e8edf2;
+    --surface-200: #d1d9e0;
+    --surface-300: #b0bdcf;
+    --surface-400: #889aac;
+    --surface-500: #667789;
+    --surface-600: #4c5d6f;
+    --surface-700: #394657;
+    --surface-800: #283341;
+    --surface-900: #1a242f;
+    --surface-950: #0e151d;
+    --green-50: #f3fdf6;
+    --green-100: #d8f9e3;
+    --green-200: #b5f2cc;
+    --green-300: #83e8aa;
+    --green-400: #4fd982;
+    --green-500: #22c55e;
+    --green-600: #1da34c;
+    --green-700: #17803b;
+    --green-800: #115e2c;
+    --green-900: #0b471f;
+    --green-950: #062b13;
+    --red-50: #fef2f2;
+    --red-100: #fde8e8;
+    --red-200: #fbd5d5;
+    --red-300: #f8b4b4;
+    --red-400: #f48080;
+    --red-500: #ef4444;
+    --red-600: #dc2626;
+    --red-700: #b91c1c;
+    --red-800: #991b1b;
+    --red-900: #7f1d1d;
+    --red-950: #450a0a;
+    --blue-50: #e7f0fb;
+    --blue-100: #cddff6;
+    --blue-200: #a9c7f0;
+    --blue-300: #85aee9;
+    --blue-400: #5f94e0;
+    --blue-500: #4a7dcb;
+    --blue-600: #346bb4;
+    --blue-700: #2c5894;
+    --blue-800: #234473;
+    --blue-900: #1b355b;
+    --blue-950: #142543;
+    --orange-50: #fff7ed;
+    --orange-100: #ffedd5;
+    --orange-200: #fed7aa;
+    --orange-300: #fdba74;
+    --orange-400: #fb923c;
+    --orange-500: #f97316;
+    --orange-600: #ea580c;
+    --orange-700: #c2410c;
+    --orange-800: #9a3412;
+    --orange-900: #7c2d12;
+    --orange-950: #431407;
 }
 
 .dark {
     --primary: var(--primary-400);
+    --surface: var(--surface-950);
 }
 
 /* Toggleable Content */
@@ -59,16 +104,34 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1 !important;
+    background: var(--blue-50) !important;
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888 !important;
+    background: var(--blue-400) !important;
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555 !important;
+    background: var(--blue-500) !important;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: var(--blue-400) !important;
+    border-radius: 5px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: var(--blue-500) !important;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: var(--surface-800) !important;
+}
+
+.dark ::-webkit-scrollbar {
+    width: 5px !important;
 }
 
 /* Custom Classes */
@@ -78,17 +141,16 @@
 
 .card {
     background-color: #ffffff;
-    border: 1px solid #dee2e6;
-    border-radius: 6px;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    border: var(--surface-100) 1px solid;
+    box-shadow: 0 1px 1px 0 var(--surface-200);
     padding: 0.75rem;
-    margin-bottom: 1rem;
+    border-radius: 0.5rem;
 }
 
 .dark .card {
-    background-color: #1e293b;
-    border: var(--surface-100) 1px solid;
-    box-shadow: 0 2px 12px 0 var(--surface-600);
+    background-color: var(--surface-900);
+    border: var(--surface-800) 1px solid;
+    box-shadow: 0 1px 1px 0 var(--surface-700);
 }
 
 .empty-icon {
