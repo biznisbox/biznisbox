@@ -56,7 +56,7 @@
         "tinymce": "^7.6.0",
         "vue": "^3.5.13",
         "vue-axios": "^3.5.2",
-        "vue-i18n": "^10.0.5",
+        "vue-i18n": "^11.0.1",
         "vue-map-ui": "^0.0.18",
         "vue-router": "^4.5.0",
         "vue3-apexcharts": "^1.8.0",
