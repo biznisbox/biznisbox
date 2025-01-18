@@ -20,6 +20,7 @@ return [
     'email_not_sent' => '郵件未發送',
     'email_sent' => '郵件發送成功',
     'password_reset_failed' => '重設密碼失敗',
+    'invalid_current_password' => 'Invalid current password',
     'password_reset_successfully' => '密碼重設成功',
     'two_factor_auth_disabled' => '雙因素驗證已停用',
     'two_factor_auth_disabled_error' => '雙因素驗證停用錯誤',
