@@ -4,7 +4,7 @@
 <!-- Barcode -->
 @section('barcode')
     <!-- prettier-ignore -->
-    <img src="data:image/png;base64, {{!! DNS2D::getBarcodePNG($invoice->id, 'QRCODE') !!}}"  alt="barcode"  width="100"  height="100"  style="margin-top: 10px"  />
+    {!! DNS2D::getBarcodeHtml($invoice->id, 'QRCODE', 3, 3) !!}
 @endsection
 
 <!-- Content -->
