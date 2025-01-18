@@ -54,12 +54,15 @@ class SerialNumberFormatter
         $number = '';
         foreach ($placeholders as $placeholder) {
             $placeholder = explode(':', $placeholder);
+
+            // Check if the placeholder is a date placeholder (for example: 2021/0001) -> reset number to 1 on new year
+            $isDatePlaceholder = $placeholder[0] === 'DATE';
             switch ($placeholder[0]) {
                 case 'DATE':
                     $number .= date($placeholder[1]);
                     break;
                 case 'NUMBER':
-                    $last_item_number = $this->getLastItemNumber($module) + 1; // get last item number from cache
+                    $last_item_number = $this->getLastItemNumber($module, $isDatePlaceholder) + 1; // get last item number from database
                     $number .= str_pad($last_item_number, (int) $placeholder[1], '0', STR_PAD_LEFT);
                     break;
                 case 'TEXT':
@@ -131,21 +134,27 @@ class SerialNumberFormatter
     /**
      * Function for get last item number from database
      * @param string $module - application module (documents, invoices, estimates, etc.)
+     * @param boolean $isDatePlaceholder - date numbering (for example: 2021/0001) - if true, number will be reset to 1 on new year
      * @return integer $last_number - last item number
      */
-    public function getLastItemNumber($module)
+    public function getLastItemNumber($module, $isDatePlaceholder = false)
     {
-        $last_number = DB::table('numbering')->where('year', date('Y'))->where('module', $module)->first();
+        $year = date('Y');
 
-        if (!$last_number) {
-            $last_number = DB::table('numbering')->insert([
+        $lastNumberRecord = DB::table('numbering')->where('year', $year)->where('module', $module)->first();
+
+        if (!$lastNumberRecord) {
+            // If no record exists, initialize it with a default number
+            DB::table('numbering')->insert([
                 'module' => $module,
-                'year' => date('Y'),
-                'number' => 0, // set default number to 0 (if there is no number in database) - this will be incremented to 1
+                'year' => $year,
+                'number' => 0, // Default number is set to 0; will increment to 1 elsewhere if needed
             ]);
+
             return 0;
         }
-        return $last_number->number;
+
+        return $lastNumberRecord->number;
     }
 
     /**
