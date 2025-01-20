@@ -20,6 +20,7 @@ class AccountController extends Controller
 
     /**
      * Get all accounts
+     * @apiResourceModel App\Models\User
      *
      * @return array $accounts All accounts
      */
@@ -34,6 +35,8 @@ class AccountController extends Controller
 
     /**
      * Get account by id
+     * @apiResourceModel App\Models\User
+     * @urlParam id required The id of the account
      *
      * @param  string  $id id of the account
      * @return array $account account
@@ -49,6 +52,7 @@ class AccountController extends Controller
 
     /**
      * Create a new account
+     * @apiResourceModel App\Models\User
      *
      * @param  object  $request data from the form (name)
      * @return array $account account
@@ -65,6 +69,7 @@ class AccountController extends Controller
 
     /**
      * Update an account
+     * @apiResourceModel App\Models\User
      *
      * @param  object  $request data from the form (name)
      * @param  string  $id id of the account
@@ -82,6 +87,8 @@ class AccountController extends Controller
 
     /**
      * Delete an account
+     * @apiResourceModel App\Models\User
+     * @urlParam id required The id of the account
      *
      * @param  string  $id id of the account
      * @return array $account account
