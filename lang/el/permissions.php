@@ -42,4 +42,6 @@ return [
     'admin_webhooks' => 'Webhooks Διαχειριστή',
     'webhooks' => 'Webhooks',
     'contracts' => 'Συμβάσεις',
+    'admin_status_page' => 'Σελίδα Κατάστασης Διαχειριστή',
+    'admin_update_app' => 'Εφαρμογή Ενημέρωσης Διαχειριστή',
 ];
