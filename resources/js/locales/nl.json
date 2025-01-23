@@ -952,7 +952,8 @@
             "units": "Eenheden",
             "email": "E-mailadres",
             "webhooks": "Webhooks",
-            "server_settings": "Server Instellingen"
+            "server_settings": "Server Instellingen",
+            "status_page": "Status pagina"
         },
         "company": {
             "title": "Bedrijf instellingen",
@@ -990,6 +991,15 @@
             "open_banking_secret": "Open bankgeheim",
             "open_banking_help": "U kunt uw client-ID en geheim vinden in uw Noordse account.",
             "online_payments": "Online betalingen"
+        },
+        "status": {
+            "title": "Status pagina",
+            "app_version": "App versie",
+            "latest_version": "Nieuwste versie",
+            "changelog": "Wijzigingslogboek",
+            "view_changelog": "Bekijk Changelog",
+            "new_version_available": "Nieuwe versie beschikbaar om te downloaden",
+            "download_now": "Nu downloaden"
         },
         "user": {
             "title": "Gebruikers",
