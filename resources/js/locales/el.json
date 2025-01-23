@@ -952,7 +952,8 @@
             "units": "Μονάδες",
             "email": "E-mail",
             "webhooks": "Webhooks",
-            "server_settings": "Ρυθμίσεις Διακομιστή"
+            "server_settings": "Ρυθμίσεις Διακομιστή",
+            "status_page": "Σελίδα Κατάστασης"
         },
         "company": {
             "title": "Ρυθμίσεις Εταιρείας",
@@ -990,6 +991,15 @@
             "open_banking_secret": "Ανοικτό Τραπεζικό Μυστικό",
             "open_banking_help": "Μπορείτε να βρείτε το ID και το Μυστικό σας πελάτη στο λογαριασμό σας Nordigen.",
             "online_payments": "Online Πληρωμές"
+        },
+        "status": {
+            "title": "Σελίδα Κατάστασης",
+            "app_version": "Έκδοση Εφαρμογής",
+            "latest_version": "Τελευταία Έκδοση",
+            "changelog": "Αρχείο Αλλαγών",
+            "view_changelog": "Προβολή Αρχείου Αλλαγών",
+            "new_version_available": "Νέα έκδοση διαθέσιμη για λήψη",
+            "download_now": "Άμεση λήψη"
         },
         "user": {
             "title": "Χρήστες",
