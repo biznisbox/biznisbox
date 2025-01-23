@@ -107,4 +107,5 @@ return [
     'cannot_delete_signed_contract' => 'Impossible de supprimer le contrat signé',
     'cannot_update_signed_contract' => 'Impossible de mettre à jour le contrat signé',
     'enable_js_to_use_app' => 'Nous sommes désolés, mais cette application ne fonctionne pas correctement sans JavaScript activé. Veuillez l\'activer pour continuer.',
+    'cannot_delete_own_account' => 'Impossible de supprimer son propre compte',
 ];
