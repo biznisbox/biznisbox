@@ -107,4 +107,5 @@ return [
     'cannot_delete_signed_contract' => 'Allekirjoitettua sopimusta ei voi poistaa',
     'cannot_update_signed_contract' => 'Allekirjoitettua sopimusta ei voi päivittää',
     'enable_js_to_use_app' => 'Olemme pahoillamme, mutta tämä sovellus ei toimi kunnolla ilman JavaScriptiä käytössä. Ota se käyttöön jatkaaksesi.',
+    'cannot_delete_own_account' => 'Omaa tiliä ei voi poistaa',
 ];
