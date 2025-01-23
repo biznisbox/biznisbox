@@ -42,4 +42,6 @@ return [
     'admin_webhooks' => 'Admin Webhooks',
     'webhooks' => 'Webbhookar',
     'contracts' => 'Kontrakt',
+    'admin_status_page' => 'Admins statussida',
+    'admin_update_app' => 'Administratörsuppdateringsapp',
 ];
