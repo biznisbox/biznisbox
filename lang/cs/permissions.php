@@ -42,4 +42,6 @@ return [
     'admin_webhooks' => 'Admin Webhooky',
     'webhooks' => 'Webhooky',
     'contracts' => 'Zakázky',
+    'admin_status_page' => 'Administrace stavové stránky',
+    'admin_update_app' => 'Admin aktualizační aplikace',
 ];
