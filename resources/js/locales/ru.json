@@ -952,7 +952,8 @@
             "units": "Единицы измерения",
             "email": "Почта",
             "webhooks": "Вебхуки",
-            "server_settings": "Настройки сервера"
+            "server_settings": "Настройки сервера",
+            "status_page": "Страница статуса"
         },
         "company": {
             "title": "Настройки компании",
@@ -990,6 +991,15 @@
             "open_banking_secret": "Открытый банковский секрет",
             "open_banking_help": "Вы можете найти свой идентификатор клиента и секрет в вашем Nordigen.",
             "online_payments": "Онлайн платежи"
+        },
+        "status": {
+            "title": "Страница статуса",
+            "app_version": "Версия приложения",
+            "latest_version": "Последняя версия",
+            "changelog": "Список изменений",
+            "view_changelog": "Список изменений",
+            "new_version_available": "Новая версия доступна для скачивания",
+            "download_now": "Скачать сейчас"
         },
         "user": {
             "title": "Пользователи",
