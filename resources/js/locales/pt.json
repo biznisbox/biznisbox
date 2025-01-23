@@ -952,7 +952,8 @@
             "units": "Unidades",
             "email": "e-mail",
             "webhooks": "Webhooks",
-            "server_settings": "Configurações do Servidor"
+            "server_settings": "Configurações do Servidor",
+            "status_page": "Página de estado"
         },
         "company": {
             "title": "Configurações da Empresa",
@@ -990,6 +991,15 @@
             "open_banking_secret": "Abrir Segredo Bancário",
             "open_banking_help": "Você pode encontrar seu Client ID e Secret na sua conta Nordigen.",
             "online_payments": "Pagamentos Online"
+        },
+        "status": {
+            "title": "Página de estado",
+            "app_version": "Versão do aplicativo",
+            "latest_version": "Última Versão",
+            "changelog": "Mudanças",
+            "view_changelog": "Ver alterações",
+            "new_version_available": "Nova versão disponível para download",
+            "download_now": "Baixe agora"
         },
         "user": {
             "title": "Utilizadores",
