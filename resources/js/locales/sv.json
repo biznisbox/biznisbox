@@ -952,7 +952,8 @@
             "units": "Enheter",
             "email": "E-post",
             "webhooks": "Webbhookar",
-            "server_settings": "Serverns inställningar"
+            "server_settings": "Serverns inställningar",
+            "status_page": "Statussida"
         },
         "company": {
             "title": "Företagets inställningar",
@@ -990,6 +991,15 @@
             "open_banking_secret": "Open Banking Secret",
             "open_banking_help": "Du hittar ditt Client ID och Secret på ditt Nordigen-konto.",
             "online_payments": "Betalningar online"
+        },
+        "status": {
+            "title": "Statussida",
+            "app_version": "Appens version",
+            "latest_version": "Senaste versionen",
+            "changelog": "Ändringslogg",
+            "view_changelog": "Visa ändringslogg",
+            "new_version_available": "Ny version tillgänglig för nedladdning",
+            "download_now": "Ladda ner nu"
         },
         "user": {
             "title": "Användare",
