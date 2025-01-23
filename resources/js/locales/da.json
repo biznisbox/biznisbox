@@ -952,7 +952,8 @@
             "units": "Enheder",
             "email": "E-mail",
             "webhooks": "Webhooks",
-            "server_settings": "Server Indstillinger"
+            "server_settings": "Server Indstillinger",
+            "status_page": "Status Side"
         },
         "company": {
             "title": "Virksomhedsindstillinger",
@@ -990,6 +991,15 @@
             "open_banking_secret": "Åben Bankhemmelighed",
             "open_banking_help": "Du kan finde dit klient ID og din Hemmelighed på din Nordigen konto.",
             "online_payments": "Online Betalinger"
+        },
+        "status": {
+            "title": "Status Side",
+            "app_version": "App Version",
+            "latest_version": "Seneste Version",
+            "changelog": "Ændringslog",
+            "view_changelog": "Se Ændringslog",
+            "new_version_available": "Ny version tilgængelig til download",
+            "download_now": "Download nu"
         },
         "user": {
             "title": "Brugere",
