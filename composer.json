@@ -1,8 +1,8 @@
 {
     "name": "biznisbox/biznisbox",
     "type": "project",
-    "version": "2.0.0-beta.4",
-    "description": "BiznisBox is a free and open-source business management system for small and medium-sized businesses.",
+    "version": "2.0.0-beta.5",
+    "description": "Powerful, open-source invoice management software designed to help businesses",
     "keywords": [
         "laravel",
         "invoice",

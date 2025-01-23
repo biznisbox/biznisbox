@@ -1,7 +1,7 @@
 {
     "name": "biznisbox",
-    "version": "2.0.0-beta.4",
-    "description": "Open source invoicing and accounting software",
+    "version": "2.0.0-beta.5",
+    "description": "Powerful, open-source invoice management software designed to help businesses",
     "private": true,
     "type": "module",
     "scripts": {
