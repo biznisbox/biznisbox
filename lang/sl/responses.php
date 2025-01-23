@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'Sporočilo ni bilo poslano',
     'email_sent' => 'Sporočilo uspešno poslano',
     'password_reset_failed' => 'Ponastavitev gesla ni uspela',
+    'invalid_current_password' => 'Neveljavno trenutno geslo',
     'password_reset_successfully' => 'Ponastavitev gesla uspešna',
     'two_factor_auth_disabled' => 'Dvojna preverjanja onemogočena',
     'two_factor_auth_disabled_error' => 'Napaka pri onemogočenju dvojnega preverjanja',
@@ -105,6 +106,6 @@ return [
     'signer_not_found_or_already_signed' => 'Podpisnik ni najdem ali je pogodba že podpisana',
     'cannot_delete_signed_contract' => 'Ni mogoče izbrisati podpisane pogodbe',
     'cannot_update_signed_contract' => 'Ni mogoče spremeniti podpisane pogodbe',
-    'enable_js_to_use_app' =>
-        'Žal nam je, vendar ta aplikacija ne deluje pravilno, če ni omogočen JavaScript. Omogočite ga za nadaljevanje.',
+    'enable_js_to_use_app' => 'Žal nam je, vendar ta aplikacija ne deluje pravilno, če ni omogočen JavaScript. Omogočite ga za nadaljevanje.',
+    'cannot_delete_own_account' => 'Cannot delete own account',
 ];

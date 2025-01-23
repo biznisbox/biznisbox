@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'Лист не надіслано',
     'email_sent' => 'Лист відправлено успішно',
     'password_reset_failed' => 'Не вдалося скинути пароль',
+    'invalid_current_password' => 'Неприпустимий поточний пароль',
     'password_reset_successfully' => 'Пароль успішно скинуто',
     'two_factor_auth_disabled' => 'Двофакторна аутентифікація вимкнена',
     'two_factor_auth_disabled_error' => 'Помилка двофакторної автентифікації відключена',
@@ -105,6 +106,6 @@ return [
     'signer_not_found_or_already_signed' => 'Сигнал не знайдений або вже підписаний',
     'cannot_delete_signed_contract' => 'Не вдалося видалити підписаний контракт',
     'cannot_update_signed_contract' => 'Не вдалося оновити підписаний контракт',
-    'enable_js_to_use_app' =>
-        'Вибачте, але цей додаток не працює належним чином без увімкненого JavaScript. Будь ласка, увімкніть його, щоб продовжити.',
+    'enable_js_to_use_app' => 'Вибачте, але цей додаток не працює належним чином без увімкненого JavaScript. Будь ласка, увімкніть його, щоб продовжити.',
+    'cannot_delete_own_account' => 'Неможливо видалити свій обліковий запис',
 ];

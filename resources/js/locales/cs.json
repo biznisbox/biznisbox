@@ -952,7 +952,8 @@
             "units": "Jednotky",
             "email": "E-mailová adresa",
             "webhooks": "Webhooky",
-            "server_settings": "Nastavení serveru"
+            "server_settings": "Nastavení serveru",
+            "status_page": "Stavová stránka"
         },
         "company": {
             "title": "Nastavení společnosti",
@@ -990,6 +991,15 @@
             "open_banking_secret": "Otevřené bankovní tajemství",
             "open_banking_help": "Své ID a tajné ID klienta můžete najít ve svém severském účtu.",
             "online_payments": "Online platby"
+        },
+        "status": {
+            "title": "Stavová stránka",
+            "app_version": "Verze aplikace",
+            "latest_version": "Nejnovější verze",
+            "changelog": "Seznam změn",
+            "view_changelog": "Zobrazit seznam změn",
+            "new_version_available": "K dispozici je nová verze ke stažení",
+            "download_now": "Stáhnout nyní"
         },
         "user": {
             "title": "Uživatelé",

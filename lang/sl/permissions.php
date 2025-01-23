@@ -42,4 +42,6 @@ return [
     'admin_webhooks' => 'Skrbniki spletnih uporabnikov',
     'webhooks' => 'Spletne kljuke (Webhooks)',
     'contracts' => 'Pogodbe',
+    'admin_status_page' => 'Admin Status stran',
+    'admin_update_app' => 'Admin Update App',
 ];

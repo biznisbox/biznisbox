@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'E-mail ikke sendt',
     'email_sent' => 'E-mail sendt med succes',
     'password_reset_failed' => 'Nulstilling af adgangskode mislykkedes',
+    'invalid_current_password' => 'Ugyldig nuværende adgangskode',
     'password_reset_successfully' => 'Adgangskode nulstillet',
     'two_factor_auth_disabled' => 'To faktor autentificering deaktiveret',
     'two_factor_auth_disabled_error' => 'To-faktor autentificering deaktiveret fejl',
@@ -106,4 +107,5 @@ return [
     'cannot_delete_signed_contract' => 'Kan ikke slette underskrevet kontrakt',
     'cannot_update_signed_contract' => 'Kan ikke opdatere underskrevet kontrakt',
     'enable_js_to_use_app' => 'Vi beklager, men denne app fungerer ikke korrekt, uden at JavaScript er aktiveret. Aktiver den venligst.',
+    'cannot_delete_own_account' => 'Kan ikke slette egen konto',
 ];

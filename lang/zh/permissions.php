@@ -41,5 +41,7 @@ return [
     'admin_email_settings' => '管理員郵件設置',
     'admin_webhooks' => '管理員 Webhooks',
     'webhooks' => 'Webhooks',
-    'contracts' => 'contracts',
+    'contracts' => 'Contracts',
+    'admin_status_page' => 'Admin Status Page',
+    'admin_update_app' => 'Admin Update App',
 ];

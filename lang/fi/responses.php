@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'Sähköpostia ei lähetetty',
     'email_sent' => 'Sähköposti lähetetty onnistuneesti',
     'password_reset_failed' => 'Salasanan vaihtaminen epäonnistui',
+    'invalid_current_password' => 'Virheellinen nykyinen salasana',
     'password_reset_successfully' => 'Salasanan vaihtaminen onnistui',
     'two_factor_auth_disabled' => 'Kaksivaiheinen todennus pois käytöstä',
     'two_factor_auth_disabled_error' => 'Kaksivaiheinen todennus poistettiin käytöstä',
@@ -105,6 +106,6 @@ return [
     'signer_not_found_or_already_signed' => 'Allekirjoittajaa ei löytynyt tai jo allekirjoitettu',
     'cannot_delete_signed_contract' => 'Allekirjoitettua sopimusta ei voi poistaa',
     'cannot_update_signed_contract' => 'Allekirjoitettua sopimusta ei voi päivittää',
-    'enable_js_to_use_app' =>
-        'Olemme pahoillamme, mutta tämä sovellus ei toimi kunnolla ilman JavaScriptiä käytössä. Ota se käyttöön jatkaaksesi.',
+    'enable_js_to_use_app' => 'Olemme pahoillamme, mutta tämä sovellus ei toimi kunnolla ilman JavaScriptiä käytössä. Ota se käyttöön jatkaaksesi.',
+    'cannot_delete_own_account' => 'Omaa tiliä ei voi poistaa',
 ];

@@ -952,7 +952,8 @@
             "units": "Enote",
             "email": "E-pošta",
             "webhooks": "Webhooks",
-            "server_settings": "Nastavitve strežnika"
+            "server_settings": "Nastavitve strežnika",
+            "status_page": "Status Page"
         },
         "company": {
             "title": "Nastavitve podjetja",
@@ -990,6 +991,15 @@
             "open_banking_secret": "Odprta bančna skrivnost",
             "open_banking_help": "Najdete ga v vašem Nordigen računu.",
             "online_payments": "Spletni plačili"
+        },
+        "status": {
+            "title": "Status Page",
+            "app_version": "App Version",
+            "latest_version": "Latest Version",
+            "changelog": "Changelog",
+            "view_changelog": "View Changelog",
+            "new_version_available": "New version available for download",
+            "download_now": "Download now"
         },
         "user": {
             "title": "Uporabniki",

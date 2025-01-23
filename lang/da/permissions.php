@@ -41,5 +41,7 @@ return [
     'admin_email_settings' => 'Admin E-Mail Indstillinger',
     'admin_webhooks' => 'Admin Webhooks',
     'webhooks' => 'Webhooks',
-    'contracts' => 'kontrakter',
+    'contracts' => 'Kontrakter',
+    'admin_status_page' => 'Admin Statusside',
+    'admin_update_app' => 'Admin Opdater App',
 ];

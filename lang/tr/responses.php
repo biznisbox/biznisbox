@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'E-posta gönderilemedi',
     'email_sent' => 'E-posta başarıyla gönderildi',
     'password_reset_failed' => 'Parola sıfırlama başarısız oldu',
+    'invalid_current_password' => 'Invalid current password',
     'password_reset_successfully' => 'Parola sıfırlama başarılı bir şekilde gerçekleşti',
     'two_factor_auth_disabled' => 'İki faktörlü kimlik doğrulama devre dışı bırakıldı',
     'two_factor_auth_disabled_error' => 'İki faktörlü kimlik doğrulama devre dışı bırakma hatası',
@@ -106,4 +107,5 @@ return [
     'cannot_delete_signed_contract' => 'Cannot delete signed contract',
     'cannot_update_signed_contract' => 'Cannot update signed contract',
     'enable_js_to_use_app' => 'We\'re sorry but this app doesn\'t work properly without JavaScript enabled. Please enable it to continue.',
+    'cannot_delete_own_account' => 'Cannot delete own account',
 ];

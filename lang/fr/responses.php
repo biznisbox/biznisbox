@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'Courriel non envoyé',
     'email_sent' => 'E-mail envoyé avec succès',
     'password_reset_failed' => 'La réinitialisation du mot de passe a échoué',
+    'invalid_current_password' => 'Mot de passe actuel invalide',
     'password_reset_successfully' => 'Mot de passe réinitialisé avec succès',
     'two_factor_auth_disabled' => 'Authentification à deux facteurs désactivée',
     'two_factor_auth_disabled_error' => 'Erreur d\'authentification à deux facteurs désactivée',
@@ -89,11 +90,9 @@ return [
     'system_role_cant_edit' => 'Le rôle système ne peut pas être modifié',
     'system_role_cant_delete' => 'Le rôle système ne peut pas être supprimé',
     'unable_to_create_role' => 'Impossible de créer le rôle (super_admin ou client)',
-    'install_database_is_not_empty' =>
-        'La base de données n\'est pas vide. Veuillez supprimer toutes les tables ou fournir une base de données vide.',
+    'install_database_is_not_empty' => 'La base de données n\'est pas vide. Veuillez supprimer toutes les tables ou fournir une base de données vide.',
     'install_database_connection_successful' => 'Connexion à la base de données réussie.',
-    'install_database_connection_failed' =>
-        'La connexion à la base de données a échoué. Veuillez vérifier vos identifiants de base de données.',
+    'install_database_connection_failed' => 'La connexion à la base de données a échoué. Veuillez vérifier vos identifiants de base de données.',
     'install_database_connection_saved' => 'Connexion à la base de données enregistrée avec succès.',
     'app_not_installed' => 'L\'application n\'est pas installée. Veuillez d\'abord installer l\'application.',
     'app_installed' => 'L\'application est déjà installée.',
@@ -107,6 +106,6 @@ return [
     'signer_not_found_or_already_signed' => 'Signataire introuvable ou déjà signé',
     'cannot_delete_signed_contract' => 'Impossible de supprimer le contrat signé',
     'cannot_update_signed_contract' => 'Impossible de mettre à jour le contrat signé',
-    'enable_js_to_use_app' =>
-        'Nous sommes désolés, mais cette application ne fonctionne pas correctement sans JavaScript activé. Veuillez l\'activer pour continuer.',
+    'enable_js_to_use_app' => 'Nous sommes désolés, mais cette application ne fonctionne pas correctement sans JavaScript activé. Veuillez l\'activer pour continuer.',
+    'cannot_delete_own_account' => 'Impossible de supprimer son propre compte',
 ];

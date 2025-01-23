@@ -952,7 +952,8 @@
             "units": "Enheter",
             "email": "E-post",
             "webhooks": "Nettkroker",
-            "server_settings": "Server Innstillinger"
+            "server_settings": "Server Innstillinger",
+            "status_page": "Status side"
         },
         "company": {
             "title": "Bedriftens innstillinger",
@@ -990,6 +991,15 @@
             "open_banking_secret": "Åpne banking hemmelighet",
             "open_banking_help": "Finner du din klient-ID og hemmelig i din Nordig-konto.",
             "online_payments": "Elektroniske betalinger"
+        },
+        "status": {
+            "title": "Status side",
+            "app_version": "App versjon",
+            "latest_version": "Nyeste versjon",
+            "changelog": "Endringslogg",
+            "view_changelog": "Se endringslogg",
+            "new_version_available": "Ny versjon tilgjengelig for nedlasting",
+            "download_now": "Last ned nå"
         },
         "user": {
             "title": "Brukere",

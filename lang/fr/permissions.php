@@ -42,4 +42,6 @@ return [
     'admin_webhooks' => 'Webhooks admin',
     'webhooks' => 'Webhooks',
     'contracts' => 'Contrats',
+    'admin_status_page' => 'Page de statut de l\'administrateur',
+    'admin_update_app' => 'Application de mise à jour de l\'administrateur',
 ];

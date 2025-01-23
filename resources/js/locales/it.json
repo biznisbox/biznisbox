@@ -952,7 +952,8 @@
             "units": "Unità",
             "email": "Email",
             "webhooks": "Webhooks",
-            "server_settings": "Impostazioni Server"
+            "server_settings": "Impostazioni Server",
+            "status_page": "Pagina Di Stato"
         },
         "company": {
             "title": "Impostazioni Azienda",
@@ -990,6 +991,15 @@
             "open_banking_secret": "Open Banking Secret",
             "open_banking_help": "Puoi trovare il tuo ID Client e Secret nel tuo account Nordigen.",
             "online_payments": "Pagamenti Online"
+        },
+        "status": {
+            "title": "Pagina Di Stato",
+            "app_version": "Versione App",
+            "latest_version": "Ultima Versione",
+            "changelog": "Changelog",
+            "view_changelog": "Visualizza Changelog",
+            "new_version_available": "Nuova versione disponibile per il download",
+            "download_now": "Scarica ora"
         },
         "user": {
             "title": "Utenti",

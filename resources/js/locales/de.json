@@ -952,7 +952,8 @@
             "units": "Einheiten",
             "email": "E-Mail",
             "webhooks": "Webhooks",
-            "server_settings": "Servereinstellungen"
+            "server_settings": "Servereinstellungen",
+            "status_page": "Statusseite"
         },
         "company": {
             "title": "Firmeneinstellungen",
@@ -990,6 +991,15 @@
             "open_banking_secret": "Öffne Bankgeheimnis",
             "open_banking_help": "Ihre Client-ID und Ihr Geheimnis finden Sie in Ihrem Nordigen Konto.",
             "online_payments": "Online-Zahlungen"
+        },
+        "status": {
+            "title": "Statusseite",
+            "app_version": "App-Version",
+            "latest_version": "Neueste Version",
+            "changelog": "Changelog",
+            "view_changelog": "Changelog anzeigen",
+            "new_version_available": "Neue Version zum Download verfügbar",
+            "download_now": "Jetzt herunterladen"
         },
         "user": {
             "title": "Benutzer",

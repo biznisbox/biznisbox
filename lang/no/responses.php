@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'E-post ikke sendt',
     'email_sent' => 'E-post sendt',
     'password_reset_failed' => 'Nullstilling av passord mislyktes',
+    'invalid_current_password' => 'Ugyldig nåværende passord',
     'password_reset_successfully' => 'Tilbakestilling av passord vellykket',
     'two_factor_auth_disabled' => 'To-faktor autentisering deaktivert',
     'two_factor_auth_disabled_error' => 'To-faktor autentisering deaktivert feil',
@@ -105,6 +106,6 @@ return [
     'signer_not_found_or_already_signed' => 'Signer ikke funnet eller allerede signert',
     'cannot_delete_signed_contract' => 'Kan ikke slette signert kontrakt',
     'cannot_update_signed_contract' => 'Kan ikke oppdatere signert kontrakt',
-    'enable_js_to_use_app' =>
-        'Beklager, men denne appen fungerer ikke som den skal uten JavaScript aktivert. Vennligst aktiver den for å fortsette.',
+    'enable_js_to_use_app' => 'Beklager, men denne appen fungerer ikke som den skal uten JavaScript aktivert. Vennligst aktiver den for å fortsette.',
+    'cannot_delete_own_account' => 'Kan ikke slette egen konto',
 ];

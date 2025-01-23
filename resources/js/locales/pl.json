@@ -952,7 +952,8 @@
             "units": "Jednostki",
             "email": "E-mail",
             "webhooks": "Webhooki",
-            "server_settings": "Ustawienia serwera"
+            "server_settings": "Ustawienia serwera",
+            "status_page": "Strona statusu"
         },
         "company": {
             "title": "Ustawienia firmy",
@@ -990,6 +991,15 @@
             "open_banking_secret": "Otwarty klucz bankowy",
             "open_banking_help": "Możesz znaleźć swój identyfikator klienta i sekret na swoim koncie Nordigen.",
             "online_payments": "Płatności online"
+        },
+        "status": {
+            "title": "Strona statusu",
+            "app_version": "Wersja aplikacji",
+            "latest_version": "Najnowsza wersja",
+            "changelog": "Lista zmian",
+            "view_changelog": "Zobacz listę zmian",
+            "new_version_available": "Nowa wersja dostępna do pobrania",
+            "download_now": "Pobierz teraz"
         },
         "user": {
             "title": "Użytkownicy",

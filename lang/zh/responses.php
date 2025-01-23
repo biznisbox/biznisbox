@@ -20,6 +20,7 @@ return [
     'email_not_sent' => '郵件未發送',
     'email_sent' => '郵件發送成功',
     'password_reset_failed' => '重設密碼失敗',
+    'invalid_current_password' => 'Invalid current password',
     'password_reset_successfully' => '密碼重設成功',
     'two_factor_auth_disabled' => '雙因素驗證已停用',
     'two_factor_auth_disabled_error' => '雙因素驗證停用錯誤',
@@ -106,4 +107,5 @@ return [
     'cannot_delete_signed_contract' => 'Cannot delete signed contract',
     'cannot_update_signed_contract' => 'Cannot update signed contract',
     'enable_js_to_use_app' => 'We\'re sorry but this app doesn\'t work properly without JavaScript enabled. Please enable it to continue.',
+    'cannot_delete_own_account' => 'Cannot delete own account',
 ];

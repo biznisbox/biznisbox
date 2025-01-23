@@ -20,6 +20,7 @@ return [
     'email_not_sent' => 'Email nem lett elküldve',
     'email_sent' => 'Email sikeresen elküldve',
     'password_reset_failed' => 'A jelszó visszaállítása sikertelen volt',
+    'invalid_current_password' => 'Invalid current password',
     'password_reset_successfully' => 'A jelszó visszaállítása sikeres volt',
     'two_factor_auth_disabled' => 'Kétlépcsős azonosítás letiltva',
     'two_factor_auth_disabled_error' => 'Kétlépcsős azonosítás letiltva hiba',
@@ -106,4 +107,5 @@ return [
     'cannot_delete_signed_contract' => 'Cannot delete signed contract',
     'cannot_update_signed_contract' => 'Cannot update signed contract',
     'enable_js_to_use_app' => 'We\'re sorry but this app doesn\'t work properly without JavaScript enabled. Please enable it to continue.',
+    'cannot_delete_own_account' => 'Cannot delete own account',
 ];
