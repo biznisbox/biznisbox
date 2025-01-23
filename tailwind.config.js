@@ -3,7 +3,8 @@ export default {
     content: [
         './resources/views/**/*.blade.php',
         './resources/js/**/*.{vue,js,ts}',
-        './node_modules/primevue/**/*.{vue,js,ts,jsx,tsx',
+        './resources/js/presets/**/*.{vue,js,ts}',
+        './node_modules/primevue/**/*.{vue,js,ts,jsx,tsx,css}',
         './resources/css/**/*.css',
     ],
     darkMode: 'class',

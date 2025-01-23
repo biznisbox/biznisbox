@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\CurrencyController as AdminCurrencyController;
 use App\Http\Controllers\Admin\UnitController as AdminUnitController;
 use App\Http\Controllers\Admin\WebhookSubscriptionController as AdminWebhookSubscriptionController;
 use App\Http\Controllers\Admin\DashboardDataController as AdminDashboardDataController;
+use App\Http\Controllers\Admin\StatusController as AdminStatusController;
 use App\Http\Controllers\Client\InvoiceController as ClientInvoiceController;
 use App\Http\Controllers\Client\QuoteController as ClientQuoteController;
 use App\Http\Controllers\Client\SupportTicketController as ClientSupportTicketController;
@@ -288,6 +289,9 @@ Route::middleware('auth:api')->group(function () {
 
         Route::get('/settings/company', [AdminSettingController::class, 'getCompanySettings'])->name('adminGetCompanySettings');
         Route::put('/settings/company', [AdminSettingController::class, 'updateCompanySettings'])->name('adminUpdateCompanySettings');
+
+        // Status
+        Route::get('/version', [AdminStatusController::class, 'getVersion'])->name('adminGetVersion');
 
         // Numbering
         Route::group(['middleware' => 'can:admin_numbering'], function () {

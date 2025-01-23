@@ -107,13 +107,19 @@
         "meta": ["server-settings"],
         "icon": "fa fa-server",
         "permission": "",
-        "permissions": ["admin_email_settings"],
+        "permissions": ["admin_email_settings", "admin_status_page"],
         "children": [
             {
                 "name": "admin.menu.email",
                 "meta": ["settings-email"],
                 "permission": "admin_email_settings",
                 "to": "/admin/settings/email"
+            },
+            {
+                "name": "admin.menu.status_page",
+                "meta": ["settings-status-page"],
+                "permission": "admin_status_page",
+                "to": "/admin/status-page"
             }
         ]
     }

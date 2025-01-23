@@ -159,6 +159,11 @@ const routes = [
         admin: true,
     }),
 
+    makeRoute('/admin/status-page', 'admin-status-page', () => import('../views/admin/settings/StatusPage.vue'), {
+        auth: true,
+        admin: true,
+    }),
+
     // Anonymous routes
     makeRoute('/client/invoice/:id', 'client-invoice-view', () => import('../views/client/Invoice.vue'), { auth: false }),
     makeRoute('/client/quote/:id', 'client-quote-view', () => import('../views/client/Quote.vue'), { auth: false }),

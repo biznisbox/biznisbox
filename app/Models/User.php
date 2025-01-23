@@ -248,8 +248,8 @@ class User extends Authenticatable implements JWTSubject, Auditable
                 'email' => null,
                 'password' => null,
                 'active' => false,
-                'deleted_at' => now(),
             ]);
+            $user->delete();
             return true;
         }
         return false;
