@@ -952,7 +952,8 @@
             "units": "Одиниці виміру",
             "email": "Ел. пошта",
             "webhooks": "Вебгаки",
-            "server_settings": "Налаштування сервера"
+            "server_settings": "Налаштування сервера",
+            "status_page": "Сторінка стану"
         },
         "company": {
             "title": "Налаштування компанії",
@@ -990,6 +991,15 @@
             "open_banking_secret": "Відкрити банківський секрет",
             "open_banking_help": "Ви можете знайти ваш ID клієнта і Secret в Вашому обліковому записі Nordigen.",
             "online_payments": "Онлайн платежі"
+        },
+        "status": {
+            "title": "Сторінка стану",
+            "app_version": "Версія програми",
+            "latest_version": "Остання версія",
+            "changelog": "Список змін",
+            "view_changelog": "Перегляд списку змін",
+            "new_version_available": "Доступна нова версія для завантаження",
+            "download_now": "Завантажити зараз"
         },
         "user": {
             "title": "Спільноти",
