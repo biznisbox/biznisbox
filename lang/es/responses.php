@@ -107,4 +107,5 @@ return [
     'cannot_delete_signed_contract' => 'No se puede eliminar contrato firmado',
     'cannot_update_signed_contract' => 'No se puede actualizar el contrato firmado',
     'enable_js_to_use_app' => 'Lo sentimos, pero esta aplicación no funciona correctamente sin Javascript habilitado. Por favor, actívala para continuar.',
+    'cannot_delete_own_account' => 'No se puede eliminar mi cuenta',
 ];
