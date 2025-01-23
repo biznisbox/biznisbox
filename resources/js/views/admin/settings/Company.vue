@@ -1,7 +1,6 @@
 <template>
     <DefaultLayout menu_type="admin">
-        <div id="company_page"></div>
-        <loadingScreen :blocked="loadingData">
+        <LoadingScreen :blocked="loadingData">
             <PageHeader :title="$t('admin.company.title')" />
 
             <div id="company_data" class="card">
@@ -12,7 +11,7 @@
                             size="xlarge"
                             v-if="settings.company_logo"
                             @contextmenu.prevent="removeLogo"
-                            class="bg-transparent transition duration-300 ease-in-out transform hover:scale-110"
+                            class="company-logo transition duration-300 ease-in-out transform hover:scale-110"
                         />
                         <FileUpload
                             name="company_logo"
@@ -79,7 +78,7 @@
             <div id="function_buttons" class="flex gap-2 justify-end">
                 <Button id="update_button" :label="$t('basic.update')" icon="fa fa-floppy-disk" severity="success" @click="validateForm" />
             </div>
-        </loadingScreen>
+        </LoadingScreen>
     </DefaultLayout>
 </template>
 
@@ -132,4 +131,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.company-logo {
+    background-color: transparent !important;
+}
+</style>

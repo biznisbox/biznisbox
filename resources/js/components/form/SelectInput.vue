@@ -19,7 +19,9 @@
             @blur="validate?.$touch()"
         />
         <div v-if="validate && validate?.$dirty && validate?.$invalid" class="flex flex-column">
-            <div v-for="error in validate.$errors" v-bind:key="error?.$propertyPath" class="text-red-500 text-sm">{{ error.$message }}</div>
+            <div v-for="error in validate.$errors" v-bind:key="error?.$propertyPath" class="dark:text-red-400 text-red-500 text-sm">
+                {{ error.$message }}
+            </div>
         </div>
     </div>
 </template>
