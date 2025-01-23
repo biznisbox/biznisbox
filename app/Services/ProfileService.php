@@ -125,10 +125,7 @@ class ProfileService
                     'enabled' => true,
                 ]);
 
-            DB::table('2fa')
-                ->where('user_id', $user->id)
-                ->where('secret', '!=', $secret)
-                ->delete();
+            DB::table('2fa')->where('user_id', $user->id)->where('secret', '!=', $secret)->delete();
 
             User::find(auth()->id())->update(['two_factor_auth' => true]);
 
@@ -144,9 +141,7 @@ class ProfileService
     {
         $user = User::find(auth()->id());
 
-        DB::table('2fa')
-            ->where('user_id', $user->id)
-            ->delete();
+        DB::table('2fa')->where('user_id', $user->id)->delete();
 
         User::find(auth()->id())->update(['two_factor_auth' => false]);
     }
@@ -206,7 +201,9 @@ class ProfileService
      */
     public function markNotificationAsRead($notification_id)
     {
-        $notification = Notification::where('id', $notification_id)->where('user_id', auth()->id())->first();
+        $notification = Notification::where('id', $notification_id)
+            ->where('user_id', auth()->id())
+            ->first();
         return $notification->markAsRead();
     }
 
@@ -217,7 +214,9 @@ class ProfileService
      */
     public function deleteNotification($notification_id)
     {
-        $notification = Notification::where('id', $notification_id)->where('user_id', auth()->id())->first();
+        $notification = Notification::where('id', $notification_id)
+            ->where('user_id', auth()->id())
+            ->first();
         return $notification->delete();
     }
 }

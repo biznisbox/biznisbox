@@ -17,9 +17,7 @@ class WebhookEvent
     /**
      * Create a new event instance.
      */
-    public function __construct(public string $name, public array $data)
-    {
-    }
+    public function __construct(public string $name, public array $data) {}
 
     /**
      * Get the channels the event should broadcast on.

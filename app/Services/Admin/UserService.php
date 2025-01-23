@@ -16,12 +16,17 @@ class UserService
     public function getUsers()
     {
         $users = $this->userModel->getUsers();
+        createActivityLog('retrieve', null, 'App\Models\User', 'getUsers');
         return $users;
     }
 
     public function getUser($id)
     {
         $user = $this->userModel->getUser($id);
+        createActivityLog('retrieve', $id, 'App\Models\User', 'getUser');
+        if (!$user) {
+            return null;
+        }
         return $user;
     }
 
@@ -46,6 +51,7 @@ class UserService
     public function resetPassword($id, $data)
     {
         $user = $this->userModel->resetPassword($id, $data);
+        createActivityLog('resetPassword', $id, 'App\Models\User', 'User');
         return $user;
     }
 
@@ -56,6 +62,7 @@ class UserService
             $user->update(['two_factor_auth' => 0]);
             DB::table('2fa')->where('user_id', $id)->delete();
         }
+        createActivityLog('disable2fa', $id, 'App\Models\User', 'User');
         return $user;
     }
 }

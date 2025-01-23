@@ -243,12 +243,12 @@ class OpenBankingService
             foreach ($openBankingAccounts as $openBanking) {
                 $account = Account::where('open_banking_id', $openBanking['id'])->first();
                 if ($account) {
-                    $transactions = $this->client->account($openBanking['account_id'])->getAccountTransactions(
-                        now()
-                            ->subDays($openBanking['transaction_total_days'])
-                            ->format('Y-m-d'),
-                        now()->format('Y-m-d')
-                    )['transactions']['booked'];
+                    $transactions = $this->client
+                        ->account($openBanking['account_id'])
+                        ->getAccountTransactions(
+                            now()->subDays($openBanking['transaction_total_days'])->format('Y-m-d'),
+                            now()->format('Y-m-d')
+                        )['transactions']['booked'];
                     foreach ($transactions as $transaction) {
                         $this->createTransactionRecord($transaction, $account['id']);
                     }

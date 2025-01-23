@@ -196,7 +196,10 @@ class DataService
     {
         $webhook = new \App\Models\WebhookSubscription();
 
-        $webhook = $webhook->where('id', $id)->where('user_id', auth()->id())->first();
+        $webhook = $webhook
+            ->where('id', $id)
+            ->where('user_id', auth()->id())
+            ->first();
         if (!$webhook) {
             return null;
         }

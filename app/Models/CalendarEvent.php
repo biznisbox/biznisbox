@@ -122,7 +122,9 @@ class CalendarEvent extends Model implements Auditable
      */
     public function updateEvent($id, $data)
     {
-        $event = $this->where('user_id', auth()->id())->where('id', $id)->firstOrFail();
+        $event = $this->where('user_id', auth()->id())
+            ->where('id', $id)
+            ->firstOrFail();
         $event->update($data);
 
         if (isset($data['attendees'])) {
@@ -139,7 +141,9 @@ class CalendarEvent extends Model implements Auditable
      */
     public function deleteEvent($id)
     {
-        $event = $this->where('user_id', auth()->id())->where('id', $id)->firstOrFail();
+        $event = $this->where('user_id', auth()->id())
+            ->where('id', $id)
+            ->firstOrFail();
         $event->attendees()->delete();
         $event->delete();
         return $event;
@@ -152,7 +156,10 @@ class CalendarEvent extends Model implements Auditable
      */
     public function getEvent($id)
     {
-        $event = $this->where('user_id', auth()->id())->where('id', $id)->with('attendees')->firstOrFail();
+        $event = $this->where('user_id', auth()->id())
+            ->where('id', $id)
+            ->with('attendees')
+            ->firstOrFail();
         createActivityLog('retrieve', $event->id, 'App\Models\CalendarEvent', 'CalendarEvent');
         return $event;
     }

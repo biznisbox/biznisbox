@@ -150,10 +150,7 @@ class Quote extends Model implements Auditable
                 foreach ($data['items'] as $item) {
                     $item['total'] = calculateItemTotalHelper($item);
                     if (isset($item['id'])) {
-                        $quote
-                            ->items()
-                            ->where('id', $item['id'])
-                            ->update($item);
+                        $quote->items()->where('id', $item['id'])->update($item);
                     } else {
                         $quote->items()->create($item);
                     }
