@@ -42,4 +42,6 @@ return [
     'admin_webhooks' => 'Админ Webhooks',
     'webhooks' => 'Вебхуки',
     'contracts' => 'Контракты',
+    'admin_status_page' => 'Страница статуса администратора',
+    'admin_update_app' => 'Обновление админа',
 ];
