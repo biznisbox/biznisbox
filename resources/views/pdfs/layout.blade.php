@@ -83,7 +83,7 @@
                                 <img
                                     src="storage/{{ $settings['company_logo'] }}"
                                     alt="logo"
-                                    style="max-width: 200px; max-height: 100px; margin-top: 10px"
+                                    style="max-width: 50px; max-height: 50px; margin: 5px 0"
                                 />
                                 <br />
                             @endif

@@ -3,7 +3,6 @@
 @section('title', __('pdf.invoice') . ' ' . $invoice->number)
 <!-- Barcode -->
 @section('barcode')
-    <!-- prettier-ignore -->
     {!! DNS2D::getBarcodeHtml($invoice->id, 'QRCODE', 3, 3) !!}
 @endsection
 

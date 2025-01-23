@@ -3,7 +3,6 @@
 @section('title', __('pdf.contract') . ' ' . $contract->number)
 <!-- Barcode -->
 @section('barcode')
-    <!-- prettier-ignore -->
     {!! DNS2D::getBarcodeHtml($contract->id, 'QRCODE', 3, 3) !!}
 @endsection
 
