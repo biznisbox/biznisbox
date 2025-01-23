@@ -107,4 +107,5 @@ return [
     'cannot_delete_signed_contract' => 'Nelze odstranit podepsanou smlouvu',
     'cannot_update_signed_contract' => 'Nelze aktualizovat podepsanou smlouvu',
     'enable_js_to_use_app' => 'Je nám líto, ale tato aplikace nefunguje správně, aniž by byl povolen JavaScript. Pro pokračování prosím povolte.',
+    'cannot_delete_own_account' => 'Nelze odstranit vlastní účet',
 ];
