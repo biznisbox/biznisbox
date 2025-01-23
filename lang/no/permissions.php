@@ -42,4 +42,6 @@ return [
     'admin_webhooks' => 'Admin Webhooks',
     'webhooks' => 'Nettkroker',
     'contracts' => 'Kontrakter',
+    'admin_status_page' => 'Admin statusside',
+    'admin_update_app' => 'Admin Oppdater appen',
 ];
