@@ -26,7 +26,7 @@ export default {
     props: {
         id: {
             type: String,
-            default: 'input_' + Math.random().toString(36).substr(2, 9), // random generated
+            default: () => 'input_' + Math.random().toString(36).substring(2, 11),
         },
         type: {
             type: String,

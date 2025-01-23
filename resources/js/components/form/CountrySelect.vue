@@ -51,7 +51,7 @@ export default {
     props: {
         id: {
             type: String,
-            default: 'country_input_' + Math.random().toString(36).substr(2, 9), // random generated
+            default: () => 'country_input_' + Math.random().toString(36).substring(2, 11), // random generated
         },
         label: {
             type: String,

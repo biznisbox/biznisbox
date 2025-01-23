@@ -83,7 +83,11 @@ export default {
                             this.showToast(this.$t('errors.forbidden'), this.$t('basic.error'), 'error')
                         }
                         if (error.response.status === 400) {
-                            this.showToast(error.response.data.message !== undefined ? error.response.data.message : this.$t('errors.bad_request'), this.$t('basic.error'), 'error')
+                            this.showToast(
+                                error.response.data.message !== undefined ? error.response.data.message : this.$t('errors.bad_request'),
+                                this.$t('basic.error'),
+                                'error'
+                            )
                         }
                         if (error.response.status === 405) {
                             this.showToast(this.$t('errors.method_not_allowed'), this.$t('basic.error'), 'error')
