@@ -107,4 +107,5 @@ return [
     'cannot_delete_signed_contract' => 'Kan ondertekend contract niet verwijderen',
     'cannot_update_signed_contract' => 'Kan ondertekend contract niet bijwerken',
     'enable_js_to_use_app' => 'Het spijt ons, maar deze app werkt niet goed zonder JavaScript ingeschakeld. Activeer deze app om door te gaan.',
+    'cannot_delete_own_account' => 'Kan eigen account niet verwijderen',
 ];
