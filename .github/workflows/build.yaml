@@ -53,7 +53,7 @@ jobs:
               run: |
                   composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
                   npm install --production --no-audit
-                  rm -rf .git .github .gitignore .gitattributes .editorconfig .env .eslintrc.cjs .prettierignore .prettierrc.json .jsconfig.json cypress cypress.config.cjs cypress.env.json phpunit.xml version crowdin.yml install.lock
+                  rm -rf .git .github .gitignore .gitattributes .editorconfig tailwind.config.js .env .eslintrc.cjs .prettierignore .prettierrc.json .jsconfig.json phpunit.xml version crowdin.yml install.lock postcss.config.js eslint.config.js sonar-project.properties
             - name: Upload artifacts
               uses: actions/upload-artifact@v4
               with:
