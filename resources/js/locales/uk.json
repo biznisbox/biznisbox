@@ -412,7 +412,8 @@
         "outcome": "Результат",
         "activity_type": "Тип дії",
         "user": "Користувач",
-        "is_internal": "Є внутрішнім"
+        "is_internal": "Є внутрішнім",
+        "picture": "Зображення"
     },
     "address_types": {
         "billing": "Біллінг",
