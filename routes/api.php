@@ -194,7 +194,7 @@ Route::middleware('auth:api')->group(function () {
         Route::put('/documents/{id}', [ArchiveController::class, 'updateDocument'])->name('updateDocument');
         Route::delete('/documents/{id}', [ArchiveController::class, 'deleteDocument'])->name('deleteDocument');
         Route::put('/documents/{id}/restore', [ArchiveController::class, 'restoreDocument'])->name('restoreDocument');
-        Route::put('/documents/{id}/force-delete', [ArchiveController::class, 'forceDeleteDocument'])->name('forceDeleteDocument');
+        Route::put('/documents/{id}/force-delete', [ArchiveController::class, 'deleteDocumentPermanently'])->name('forceDeleteDocument');
         Route::put('/documents/{id}/move', [ArchiveController::class, 'moveDocument'])->name('moveDocument');
     });
 
