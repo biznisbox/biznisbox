@@ -412,7 +412,8 @@
         "outcome": "Rezultat",
         "activity_type": "Tip aktivnosti",
         "user": "Uporabnik",
-        "is_internal": "Interno"
+        "is_internal": "Interno",
+        "picture": "Picture"
     },
     "address_types": {
         "billing": "Obračunavanje",
