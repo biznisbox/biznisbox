@@ -2,12 +2,7 @@
     <DefaultLayout menu_type="admin">
         <PageHeader :title="$t('admin.webhook.title')">
             <template #actions>
-                <Button
-                    :label="$t('admin.webhook.new_webhook_subscription')"
-                    icon="fa fa-plus"
-                    @click="openNewWebhookSubscriptionDialog"
-                    severity="success"
-                />
+                <Button :label="$t('admin.webhook.new_webhook_subscription')" icon="fa fa-plus" @click="openNewWebhookSubscriptionDialog" />
             </template>
         </PageHeader>
 

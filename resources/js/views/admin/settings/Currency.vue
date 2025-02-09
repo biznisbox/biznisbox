@@ -2,7 +2,7 @@
     <DefaultLayout menu_type="admin">
         <PageHeader :title="$t('admin.currency.title')">
             <template #actions>
-                <Button :label="$t('admin.currency.new_currency')" icon="fa fa-plus" @click="openNewCurrencyDialog" severity="success" />
+                <Button :label="$t('admin.currency.new_currency')" icon="fa fa-plus" @click="openNewCurrencyDialog" />
                 <Button
                     v-if="$settings.default_currency === 'EUR'"
                     :label="$t('admin.currency.update_rates')"
