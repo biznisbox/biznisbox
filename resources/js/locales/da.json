@@ -412,7 +412,8 @@
         "outcome": "Resultat",
         "activity_type": "Aktivitet Type",
         "user": "Bruger",
-        "is_internal": "Er Intern"
+        "is_internal": "Er Intern",
+        "picture": "Billede"
     },
     "address_types": {
         "billing": "Fakturering",
