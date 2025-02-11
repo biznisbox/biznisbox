@@ -10,13 +10,13 @@
 
 ## About
 
-BiznisBox is a web application for managing business processes. It is a simple and easy to use application that allows you to manage your business in one place. It is a great tool for small and medium-sized businesses.
+BiznisBox is a web application for managing business processes. It is simple and easy to use and allows you to manage your business in one place. It is a great tool for small and medium-sized enterprises.
 
 <img src="https://biznisbox.com/biznisbox_dashboard.png" width="100%" alt="BiznisBox Dashboard" />
 
 ## Features
 
-BiznisBox is open source invoice management software. It integrates with Stripe and PayPal for payments.
+BiznisBox is open-source invoice management software. It integrates with Stripe and PayPal for payments.
 
 - Customizable dashboard
 - Products
