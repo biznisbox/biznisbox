@@ -412,7 +412,8 @@
         "outcome": "Rezultat",
         "activity_type": "Tip aktivnosti",
         "user": "Uporabnik",
-        "is_internal": "Interno"
+        "is_internal": "Interno",
+        "picture": "Picture"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -953,7 +954,7 @@
             "email": "E-pošta",
             "webhooks": "Webhooks",
             "server_settings": "Nastavitve strežnika",
-            "status_page": "Status Page"
+            "status_page": "Status aplikacije"
         },
         "company": {
             "title": "Nastavitve podjetja",
@@ -993,13 +994,13 @@
             "online_payments": "Spletni plačili"
         },
         "status": {
-            "title": "Status Page",
-            "app_version": "App Version",
-            "latest_version": "Latest Version",
-            "changelog": "Changelog",
-            "view_changelog": "View Changelog",
-            "new_version_available": "New version available for download",
-            "download_now": "Download now"
+            "title": "Status aplikacije",
+            "app_version": "Verzija aplikacije",
+            "latest_version": "Zadnja različica",
+            "changelog": "Dnevnik sprememb",
+            "view_changelog": "Pokaži dnevnik sprememb",
+            "new_version_available": "Nova verzija aplikacije je na voljo za prenos",
+            "download_now": "Prenesi zdaj"
         },
         "user": {
             "title": "Uporabniki",

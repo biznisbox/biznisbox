@@ -412,7 +412,8 @@
         "outcome": "Outcome",
         "activity_type": "Activity Type",
         "user": "User",
-        "is_internal": "Is Internal"
+        "is_internal": "Is Internal",
+        "picture": "Picture"
     },
     "address_types": {
         "billing": "Billing",

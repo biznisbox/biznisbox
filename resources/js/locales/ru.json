@@ -412,7 +412,8 @@
         "outcome": "Результат",
         "activity_type": "Тип деятельности",
         "user": "Пользователь",
-        "is_internal": "Внутренний"
+        "is_internal": "Внутренний",
+        "picture": "Картинка"
     },
     "address_types": {
         "billing": "Биллинг",

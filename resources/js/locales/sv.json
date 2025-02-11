@@ -412,7 +412,8 @@
         "outcome": "Resultat",
         "activity_type": "Typ av aktivitet",
         "user": "Användare",
-        "is_internal": "Är Intern"
+        "is_internal": "Är Intern",
+        "picture": "Bild"
     },
     "address_types": {
         "billing": "Fakturering",

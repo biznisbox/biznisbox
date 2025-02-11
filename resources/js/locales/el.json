@@ -412,7 +412,8 @@
         "outcome": "Αποτέλεσμα",
         "activity_type": "Τύπος Δραστηριότητας",
         "user": "Χρήστης",
-        "is_internal": "Είναι Εσωτερικό"
+        "is_internal": "Είναι Εσωτερικό",
+        "picture": "Εικόνα"
     },
     "address_types": {
         "billing": "Χρέωση",

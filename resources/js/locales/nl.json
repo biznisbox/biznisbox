@@ -412,7 +412,8 @@
         "outcome": "Resultaat",
         "activity_type": "Type activiteit",
         "user": "Gebruiker",
-        "is_internal": "Is intern"
+        "is_internal": "Is intern",
+        "picture": "Afbeelding"
     },
     "address_types": {
         "billing": "Facturering",

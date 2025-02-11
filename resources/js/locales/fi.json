@@ -412,7 +412,8 @@
         "outcome": "Tulos",
         "activity_type": "Aktiviteetin Tyyppi",
         "user": "Käyttäjä",
-        "is_internal": "On Sisäinen"
+        "is_internal": "On Sisäinen",
+        "picture": "Kuva"
     },
     "address_types": {
         "billing": "Laskutus",

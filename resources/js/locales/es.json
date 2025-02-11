@@ -412,7 +412,8 @@
         "outcome": "Salida",
         "activity_type": "Tipo de actividad",
         "user": "Usuario",
-        "is_internal": "Es Interno"
+        "is_internal": "Es Interno",
+        "picture": "Foto"
     },
     "address_types": {
         "billing": "Facturación",

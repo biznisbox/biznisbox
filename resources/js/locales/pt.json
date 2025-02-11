@@ -412,7 +412,8 @@
         "outcome": "Resultado",
         "activity_type": "Tipo de Atividade",
         "user": "Usuário",
-        "is_internal": "É interno"
+        "is_internal": "É interno",
+        "picture": "Imagem"
     },
     "address_types": {
         "billing": "Faturamento",

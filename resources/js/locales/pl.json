@@ -412,7 +412,8 @@
         "outcome": "Rezultat",
         "activity_type": "Typ Aktywności",
         "user": "Użytkownik",
-        "is_internal": "Jest wewn."
+        "is_internal": "Jest wewn.",
+        "picture": "Zdjęcie"
     },
     "address_types": {
         "billing": "Płatność",

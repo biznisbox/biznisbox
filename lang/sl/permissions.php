@@ -43,5 +43,5 @@ return [
     'webhooks' => 'Spletne kljuke (Webhooks)',
     'contracts' => 'Pogodbe',
     'admin_status_page' => 'Admin Status stran',
-    'admin_update_app' => 'Admin Update App',
+    'admin_update_app' => 'Admin posdobitev aplikacije',
 ];
