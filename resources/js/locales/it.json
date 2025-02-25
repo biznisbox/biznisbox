@@ -474,7 +474,7 @@
         "bank_transfer": "Bonifico Bancario",
         "cash": "Contanti",
         "check": "Controlla",
-        "credit_card": "Carta Di Credito",
+        "credit_card": "Carta di pagamento",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Altro"
