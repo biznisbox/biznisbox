@@ -474,7 +474,7 @@
         "bank_transfer": "Τραπεζική Μεταφορά",
         "cash": "Μετρητά",
         "check": "Έλεγχος",
-        "credit_card": "Πιστωτική Κάρτα",
+        "credit_card": "Κάρτα πληρωμής",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Άλλο"
