@@ -474,7 +474,7 @@
         "bank_transfer": "Pankkisiirto",
         "cash": "Käteinen",
         "check": "Tarkista",
-        "credit_card": "Luottokortti",
+        "credit_card": "Maksukortti",
         "paypal": "Paypal",
         "stripe": "Stripe",
         "other": "Muu"
