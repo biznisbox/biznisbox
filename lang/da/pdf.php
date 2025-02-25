@@ -51,7 +51,7 @@ return [
     'payment_methods' => [
         'cash' => 'Kontant',
         'check' => 'Check',
-        'credit_card' => 'Betalingskort',
+        'credit_card' => 'Betaling kort',
         'bank_transfer' => 'Bankoverførsel',
         'paypal' => 'PayPal',
         'stripe' => 'Stripe',
