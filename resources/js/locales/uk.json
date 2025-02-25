@@ -474,7 +474,7 @@
         "bank_transfer": "Банківський переказ",
         "cash": "Готівкою",
         "check": "Перевірити",
-        "credit_card": "Кредитна Картка",
+        "credit_card": "Платіжна картка",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Інше"
