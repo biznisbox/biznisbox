@@ -51,7 +51,7 @@ return [
     'payment_methods' => [
         'cash' => 'Készpénz',
         'check' => 'Csekk',
-        'credit_card' => 'Hitelkártya',
+        'credit_card' => 'Payment card',
         'bank_transfer' => 'Banki átutalás',
         'paypal' => 'Paypal',
         'stripe' => 'Stripe',
