@@ -474,7 +474,7 @@
         "bank_transfer": "Bankoverførsel",
         "cash": "Kontant",
         "check": "Tjek",
-        "credit_card": "Kreditkort",
+        "credit_card": "Betaling kort",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Andet"
