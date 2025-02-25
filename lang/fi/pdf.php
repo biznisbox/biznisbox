@@ -51,7 +51,7 @@ return [
     'payment_methods' => [
         'cash' => 'Käteinen',
         'check' => 'Tarkista',
-        'credit_card' => 'Luottokortti',
+        'credit_card' => 'Maksukortti',
         'bank_transfer' => 'Pankkisiirto',
         'paypal' => 'PayPal',
         'stripe' => 'Stripe',
