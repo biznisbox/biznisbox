@@ -26,7 +26,9 @@ export default {
     methods: {
         generatePassword() {
             if (this.user.auto_generated_password) {
-                this.user.password = Math.random().toString(36).slice(-8)
+                const array = new Uint32Array(1);
+                window.crypto.getRandomValues(array);
+                this.user.password = array[0].toString(36).slice(-8);
             } else {
                 this.user.password = ''
             }
