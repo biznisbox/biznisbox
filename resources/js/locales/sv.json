@@ -474,7 +474,7 @@
         "bank_transfer": "Banköverföring",
         "cash": "Kontant",
         "check": "Kontrollera",
-        "credit_card": "Kreditkort",
+        "credit_card": "Betalkort",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Annat"
