@@ -474,7 +474,7 @@
         "bank_transfer": "Banka Transferi",
         "cash": "Nakit",
         "check": "Çek",
-        "credit_card": "Kredi Kartı",
+        "credit_card": "Payment card",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Diğer"
