@@ -474,7 +474,7 @@
         "bank_transfer": "Bančno nakazilo",
         "cash": "Gotovina",
         "check": "Ček",
-        "credit_card": "Kreditna kartica",
+        "credit_card": "Payment card",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Drugo"
