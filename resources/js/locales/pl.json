@@ -474,7 +474,7 @@
         "bank_transfer": "Przelew bankowy",
         "cash": "Gotówka",
         "check": "Sprawdzanie",
-        "credit_card": "Karta kredytowa",
+        "credit_card": "Karta płatnicza",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Inne"
