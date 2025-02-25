@@ -474,7 +474,7 @@
         "bank_transfer": "Virement bancaire",
         "cash": "Espèces",
         "check": "Contrôler",
-        "credit_card": "Carte de Crédit",
+        "credit_card": "Carte de paiement",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Autres"
