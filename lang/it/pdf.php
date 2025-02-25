@@ -51,7 +51,7 @@ return [
     'payment_methods' => [
         'cash' => 'Contanti',
         'check' => 'Controlla',
-        'credit_card' => 'Carta Di Credito',
+        'credit_card' => 'Carta di pagamento',
         'bank_transfer' => 'Bonifico Bancario',
         'paypal' => 'Paypal',
         'stripe' => 'Stripe',
