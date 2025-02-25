@@ -51,7 +51,7 @@ return [
     'payment_methods' => [
         'cash' => 'Наличные',
         'check' => 'Проверить',
-        'credit_card' => 'Кредитная карта',
+        'credit_card' => 'Платежная карта',
         'bank_transfer' => 'Банковский перевод',
         'paypal' => 'Пайпал',
         'stripe' => 'Stripe',
