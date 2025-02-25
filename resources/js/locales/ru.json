@@ -474,7 +474,7 @@
         "bank_transfer": "Банковский перевод",
         "cash": "Наличные",
         "check": "Проверить",
-        "credit_card": "Кредитная карта",
+        "credit_card": "Платежная карта",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Прочие вопросы"
