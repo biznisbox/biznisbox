@@ -412,7 +412,8 @@
         "outcome": "Ergebnis",
         "activity_type": "Aktivitätstyp",
         "user": "Benutzer",
-        "is_internal": "Ist intern"
+        "is_internal": "Ist intern",
+        "picture": "Bild"
     },
     "address_types": {
         "billing": "Abrechnung",

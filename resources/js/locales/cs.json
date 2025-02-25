@@ -412,7 +412,8 @@
         "outcome": "Výsledek",
         "activity_type": "Typ aktivity",
         "user": "Uživatel",
-        "is_internal": "Je interní"
+        "is_internal": "Je interní",
+        "picture": "Obrázek"
     },
     "address_types": {
         "billing": "Fakturace",
