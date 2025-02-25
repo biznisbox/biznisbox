@@ -18,7 +18,7 @@
                 :rowsPerPageOptions="[5, 10, 20, 50, 100]"
             >
                 <template #empty>
-                    <div class="p-4 pl-0 text-center w-full">
+                    <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                         <i class="fa fa-info-circle empty-icon"></i>
                         <p>{{ $t('admin.units.no_units') }}</p>
                         <Button class="mt-3" :label="$t('admin.units.create_first_unit')" icon="fa fa-plus" @click="openNewUnitDialog" />

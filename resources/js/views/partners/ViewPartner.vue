@@ -211,7 +211,7 @@
                                 <TabPanel value="contact_information">
                                     <DataTable id="contacts_table" :value="partner.contacts">
                                         <template #empty>
-                                            <div class="p-4 pl-0 text-center w-full">
+                                            <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                 <i class="fa fa-info-circle empty-icon"></i>
                                                 <p>{{ $t('partner.no_contacts') }}</p>
                                             </div>
@@ -237,7 +237,7 @@
                                 <TabPanel value="addresses">
                                     <DataTable id="addresses_table" class="col-12" :value="partner.addresses">
                                         <template #empty>
-                                            <div class="p-4 pl-0 text-center w-full">
+                                            <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                 <i class="fa fa-info-circle empty-icon"></i>
                                                 <p>{{ $t('partner.no_addresses') }}</p>
                                             </div>
@@ -270,7 +270,7 @@
                                 <TabPanel value="invoices" v-if="hasPermission('invoices')">
                                     <DataTable :value="partner.invoices" @row-dblclick="viewInvoiceNavigation">
                                         <template #empty>
-                                            <div class="p-4 pl-0 text-center w-full">
+                                            <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                 <i class="fa fa-info-circle empty-icon"></i>
                                                 <p>{{ $t('invoice.no_invoices') }}</p>
                                             </div>
@@ -314,7 +314,7 @@
                                     <div id="quote_table">
                                         <DataTable :value="partner.quotes" @row-dblclick="viewQuoteNavigation">
                                             <template #empty>
-                                                <div class="p-4 pl-0 text-center w-full">
+                                                <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                     <i class="fa fa-info-circle empty-icon"></i>
                                                     <p>{{ $t('quote.no_quotes') }}</p>
                                                 </div>
@@ -378,7 +378,7 @@
                                     <div id="bills_table">
                                         <DataTable :value="partner.bills" @row-dblclick="viewBillNavigation">
                                             <template #empty>
-                                                <div class="p-4 pl-0 text-center w-full">
+                                                <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                     <i class="fa fa-info-circle empty-icon"></i>
                                                     <p>{{ $t('bill.no_bills') }}</p>
                                                 </div>
@@ -434,7 +434,7 @@
                                     <div id="transactions_table">
                                         <DataTable :value="partner.transactions" @row-dblclick="viewTransactionNavigation">
                                             <template #empty>
-                                                <div class="p-4 pl-0 text-center w-full">
+                                                <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                     <i class="fa fa-info-circle empty-icon"></i>
                                                     <p>{{ $t('transaction.no_transactions') }}</p>
                                                 </div>
@@ -490,7 +490,7 @@
                                 <TabPanel value="support" v-if="hasPermission('support')">
                                     <DataTable :value="partner.support_tickets" @row-dblclick="viewSupportTicketNavigation">
                                         <template #empty>
-                                            <div class="p-4 pl-0 text-center w-full">
+                                            <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                 <i class="fa fa-info-circle empty-icon"></i>
                                                 <p>{{ $t('support.no_support_tickets') }}</p>
                                             </div>
@@ -530,7 +530,7 @@
                                     <div id="archive_documents_table">
                                         <DataTable :value="partner.archive_documents" @row-dblclick="downloadFile">
                                             <template #empty>
-                                                <div class="p-4 pl-0 text-center w-full">
+                                                <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                     <i class="fa fa-info-circle empty-icon"></i>
                                                     <p>{{ $t('archive.no_documents') }}</p>
                                                 </div>
