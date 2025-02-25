@@ -474,7 +474,7 @@
         "bank_transfer": "Bank overschrijving",
         "cash": "Contant",
         "check": "Controleer",
-        "credit_card": "Creditcard",
+        "credit_card": "Kaart met betaling",
         "paypal": "Paypal",
         "stripe": "Stripe",
         "other": "anders"
