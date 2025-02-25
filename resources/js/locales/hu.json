@@ -474,7 +474,7 @@
         "bank_transfer": "Banki átutalás",
         "cash": "Készpénz",
         "check": "Csekk",
-        "credit_card": "Hitelkártya",
+        "credit_card": "Payment card",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Egyéb"
