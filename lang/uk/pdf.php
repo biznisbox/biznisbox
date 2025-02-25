@@ -51,7 +51,7 @@ return [
     'payment_methods' => [
         'cash' => 'Готівкою',
         'check' => 'Перевірити',
-        'credit_card' => 'Кредитна Картка',
+        'credit_card' => 'Платіжна картка',
         'bank_transfer' => 'Банківський переказ',
         'paypal' => 'Пайпал',
         'stripe' => 'Stripe',
