@@ -165,7 +165,8 @@
         "upload": "Lähetä",
         "share": "Jaa",
         "delete": "Poista",
-        "sign": "Allekirjoita"
+        "sign": "Allekirjoita",
+        "convert_to_invoice": "Muunna laskuksi"
     },
     "audit_log_type": {
         "internal": "Sisäinen",
