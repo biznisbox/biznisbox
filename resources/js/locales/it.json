@@ -165,7 +165,8 @@
         "upload": "Carica",
         "share": "Condividi",
         "delete": "Elimina",
-        "sign": "Firma"
+        "sign": "Firma",
+        "convert_to_invoice": "Converti in fattura"
     },
     "audit_log_type": {
         "internal": "Interno",
