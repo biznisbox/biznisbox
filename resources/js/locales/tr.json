@@ -165,7 +165,8 @@
         "upload": "Yükleme",
         "share": "Paylaş",
         "delete": "Delete",
-        "sign": "Sign"
+        "sign": "Sign",
+        "convert_to_invoice": "Convert to invoice"
     },
     "audit_log_type": {
         "internal": "İç",
