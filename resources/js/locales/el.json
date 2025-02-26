@@ -165,7 +165,8 @@
         "upload": "Ανέβασμα",
         "share": "Κοινοποίηση",
         "delete": "Διαγραφή",
-        "sign": "Υπογραφή"
+        "sign": "Υπογραφή",
+        "convert_to_invoice": "Μετατροπή σε τιμολόγιο"
     },
     "audit_log_type": {
         "internal": "Εσωτερική",
