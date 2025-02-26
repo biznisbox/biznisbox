@@ -165,7 +165,8 @@
         "upload": "Uploaden",
         "share": "Delen",
         "delete": "Verwijderen",
-        "sign": "Ondertekenen"
+        "sign": "Ondertekenen",
+        "convert_to_invoice": "Converteren naar factuur"
     },
     "audit_log_type": {
         "internal": "Intern",
