@@ -165,7 +165,8 @@
         "upload": "Prześlij",
         "share": "Udostępnij",
         "delete": "Usuń",
-        "sign": "Podpis"
+        "sign": "Podpis",
+        "convert_to_invoice": "Konwertuj do faktury"
     },
     "audit_log_type": {
         "internal": "Wewnętrzne",
