@@ -165,7 +165,8 @@
         "upload": "Выгрузить",
         "share": "Поделиться",
         "delete": "Удалить",
-        "sign": "Знак"
+        "sign": "Знак",
+        "convert_to_invoice": "Преобразовать в счет"
     },
     "audit_log_type": {
         "internal": "Внутренний",
