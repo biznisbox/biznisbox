@@ -165,7 +165,8 @@
         "upload": "Вивантажити",
         "share": "Поділитись",
         "delete": "Видалити",
-        "sign": "Підпис"
+        "sign": "Підпис",
+        "convert_to_invoice": "Перетворити на рахунок"
     },
     "audit_log_type": {
         "internal": "Внутрішній",
