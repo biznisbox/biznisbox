@@ -165,7 +165,8 @@
         "upload": "Last opp",
         "share": "Del",
         "delete": "Slett",
-        "sign": "Signer"
+        "sign": "Signer",
+        "convert_to_invoice": "Konverter til faktura"
     },
     "audit_log_type": {
         "internal": "Intern",
