@@ -165,7 +165,8 @@
         "upload": "Nahrát",
         "share": "Sdílet",
         "delete": "Vymazat",
-        "sign": "Značka"
+        "sign": "Značka",
+        "convert_to_invoice": "Převést na fakturu"
     },
     "audit_log_type": {
         "internal": "Interní",
