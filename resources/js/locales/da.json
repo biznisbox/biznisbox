@@ -165,7 +165,8 @@
         "upload": "Upload",
         "share": "Del",
         "delete": "Slet",
-        "sign": "Underskriv"
+        "sign": "Underskriv",
+        "convert_to_invoice": "Konverter til faktura"
     },
     "audit_log_type": {
         "internal": "Intern",
