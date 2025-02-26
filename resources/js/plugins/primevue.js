@@ -71,6 +71,13 @@ export default {
         app.use(PrimeVue, {
             unstyled: true,
             pt: biznisbox,
+            options: {
+                cssLayer: {
+                    name: 'primevue',
+                    order: 'tailwind-base, primevue, tailwind-utilities',
+                },
+                darkModeSelector: '.dark',
+            },
         })
         app.use(ConfirmationService)
         app.use(ToastService)

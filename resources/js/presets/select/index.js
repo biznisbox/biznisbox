@@ -12,15 +12,16 @@ export default {
             { 'first:ml-0 ml-[-1px]': parent.instance.$name == 'InputGroup' && !props.showButtons },
 
             // Color and Background
-            'bg-surface-0 dark:bg-surface-800',
-            { 'border border-surface-300': !props.invalid },
-
+            'bg-surface-0 dark:bg-surface-900',
+            'border',
             { 'dark:border-surface-700': parent.instance.$name != 'InputGroup' },
             { 'dark:border-surface-600': parent.instance.$name == 'InputGroup' },
             { 'border-surface-300 dark:border-surface-600': !props.invalid },
 
             // Invalid State
-            { 'border border-red-500 dark:border-red-400': props.invalid },
+            'invalid:focus:ring-red-200',
+            'invalid:hover:border-red-500',
+            { 'border-red-500 dark:border-red-400': props.invalid },
 
             // Transitions
             'transition-all',
