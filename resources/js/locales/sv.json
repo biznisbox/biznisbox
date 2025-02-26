@@ -165,7 +165,8 @@
         "upload": "Ladda upp",
         "share": "Dela",
         "delete": "Radera",
-        "sign": "Signera"
+        "sign": "Signera",
+        "convert_to_invoice": "Konvertera till faktura"
     },
     "audit_log_type": {
         "internal": "Intern",
