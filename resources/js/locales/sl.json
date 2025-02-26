@@ -165,7 +165,8 @@
         "upload": "Nalaganje",
         "share": "Deljenje",
         "delete": "Izbriši",
-        "sign": "Podpiši"
+        "sign": "Podpiši",
+        "convert_to_invoice": "Convert to invoice"
     },
     "audit_log_type": {
         "internal": "Notranji",
