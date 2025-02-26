@@ -18,6 +18,7 @@ import sv from '@/locales/sv.json' // Swedish
 import fi from '@/locales/fi.json' // Finnish
 
 const i18n = createI18n({
+    legacy: false,
     locale: 'en', // set locale
     fallbackLocale: 'en', // set fallback locale
     messages: {
