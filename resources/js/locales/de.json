@@ -165,7 +165,8 @@
         "upload": "Hochladen",
         "share": "Teilen",
         "delete": "Löschen",
-        "sign": "Schild"
+        "sign": "Schild",
+        "convert_to_invoice": "In Rechnung umwandeln"
     },
     "audit_log_type": {
         "internal": "Intern",
