@@ -969,7 +969,9 @@
             "company_country": "Selskap land",
             "company_vat": "Company VAT",
             "company_logo": "Firmaets logo",
-            "company_logo_help": "Anbefalt størrelse: 100 x 100px"
+            "company_logo_help": "Anbefalt størrelse: 100 x 100px",
+            "company_website": "Firmaets hjemmeside",
+            "company_primary_color": "Primær farge"
         },
         "integrations": {
             "title": "Integrasjoner",
@@ -1058,7 +1060,8 @@
             "default_date_format": "Standard datoformat",
             "default_time_format": "Standard klokkeslettformat",
             "default_datetime_format": "Standard datoformat",
-            "show_barcode_on_documents": "Vis strekkode på dokumenter"
+            "show_barcode_on_documents": "Vis strekkode på dokumenter",
+            "week_start": "Ukens startdag"
         },
         "taxes": {
             "title": "Mva satser",
