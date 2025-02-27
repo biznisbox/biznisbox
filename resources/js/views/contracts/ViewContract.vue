@@ -93,13 +93,17 @@
 
                 <DisplayData :input="$t('form.signers')" customValue>
                     <ul id="signers-list">
-                        <li v-for="(signer, index) in contract.signers" :key="index">
+                        <li v-for="(signer, index) in contract.signers" :key="index" class="mb-4">
                             <div>
                                 <span class="font-bold">{{ signer.signer_name }}</span>
-                                <div class="">
+                                <div v-if="signer.status == 'signed'">
                                     <img v-if="signer.signature" :src="signer.signature" alt="Signature" class="w-56 h-16" />
-                                    <span v-else class="text-red-400">{{ $t('contract.not_signed') }}</span>
                                 </div>
+
+                                <div v-else-if="signer.status == 'rejected'">
+                                    <span class="text-red-400">{{ $t('status.rejected') }}</span>
+                                </div>
+                                <span v-else class="text-red-400 block">{{ $t('contract.not_signed') }}</span>
                             </div>
                             <div v-if="signer.notes">
                                 <strong>{{ $t('form.notes') }}:</strong>

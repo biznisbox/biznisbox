@@ -9,7 +9,7 @@ export default {
 
             // Spacing
             'm-0',
-            { 'w-full': props.fluid },
+            'w-full',
 
             // Size
             {
