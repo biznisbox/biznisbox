@@ -969,7 +969,9 @@
             "company_country": "Firma Land",
             "company_vat": "Company VAT",
             "company_logo": "Firma Logo",
-            "company_logo_help": "Anbefalet størrelse: 100x100px"
+            "company_logo_help": "Anbefalet størrelse: 100x100px",
+            "company_website": "Virksomhedens Hjemmeside",
+            "company_primary_color": "Primær Farve"
         },
         "integrations": {
             "title": "Integrationer",
@@ -1058,7 +1060,8 @@
             "default_date_format": "Standard Datoformat",
             "default_time_format": "Standard Tidsformat",
             "default_datetime_format": "Standard Datotidsformat",
-            "show_barcode_on_documents": "Vis stregkode på dokumenter"
+            "show_barcode_on_documents": "Vis stregkode på dokumenter",
+            "week_start": "Uge Startdag"
         },
         "taxes": {
             "title": "Moms Priser",
