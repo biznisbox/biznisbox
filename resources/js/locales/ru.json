@@ -969,7 +969,9 @@
             "company_country": "Страна компании",
             "company_vat": "Company VAT",
             "company_logo": "Логотип компании",
-            "company_logo_help": "Рекомендуемый размер: 100x100px"
+            "company_logo_help": "Рекомендуемый размер: 100x100px",
+            "company_website": "Веб-сайт компании",
+            "company_primary_color": "Основной цвет"
         },
         "integrations": {
             "title": "Интеграции",
@@ -1058,7 +1060,8 @@
             "default_date_format": "Формат даты по умолчанию",
             "default_time_format": "Формат времени по умолчанию",
             "default_datetime_format": "Формат по умолчанию",
-            "show_barcode_on_documents": "Показывать штрих-код на документах"
+            "show_barcode_on_documents": "Показывать штрих-код на документах",
+            "week_start": "День начала недели"
         },
         "taxes": {
             "title": "Налоговые ставки",
