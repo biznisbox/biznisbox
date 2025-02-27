@@ -969,7 +969,9 @@
             "company_country": "Land van bedrijf",
             "company_vat": "Company VAT",
             "company_logo": "Bedrijfslogo",
-            "company_logo_help": "Aanbevolen grootte: 100x100px"
+            "company_logo_help": "Aanbevolen grootte: 100x100px",
+            "company_website": "Bedrijfs website",
+            "company_primary_color": "Primaire kleur"
         },
         "integrations": {
             "title": "Integraties",
@@ -1058,7 +1060,8 @@
             "default_date_format": "Standaard datumnotatie",
             "default_time_format": "Standaard Tijdsformaat",
             "default_datetime_format": "Standaard Datumtijd Formaat",
-            "show_barcode_on_documents": "Toon streepjescode op documenten"
+            "show_barcode_on_documents": "Toon streepjescode op documenten",
+            "week_start": "Begindag week"
         },
         "taxes": {
             "title": "BTW tarieven",
