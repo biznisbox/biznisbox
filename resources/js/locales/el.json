@@ -969,7 +969,9 @@
             "company_country": "Εταιρική Χώρα",
             "company_vat": "Company VAT",
             "company_logo": "Λογότυπο Εταιρείας",
-            "company_logo_help": "Συνιστώμενο μέγεθος: 100x100px"
+            "company_logo_help": "Συνιστώμενο μέγεθος: 100x100px",
+            "company_website": "Ιστοσελίδα Εταιρείας",
+            "company_primary_color": "Κύριο Χρώμα"
         },
         "integrations": {
             "title": "Ενσωματώσεις",
@@ -1058,7 +1060,8 @@
             "default_date_format": "Προεπιλεγμένη Μορφή Ημερομηνίας",
             "default_time_format": "Προεπιλεγμένη Μορφή Ώρας",
             "default_datetime_format": "Προεπιλεγμένη Μορφή Ημερομηνίας",
-            "show_barcode_on_documents": "Εμφάνιση barcode στα έγγραφα"
+            "show_barcode_on_documents": "Εμφάνιση barcode στα έγγραφα",
+            "week_start": "Ημέρα Έναρξης Εβδομάδας"
         },
         "taxes": {
             "title": "Φορολογικοί Συντελεστές",
