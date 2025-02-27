@@ -969,7 +969,9 @@
             "company_country": "Pays de la société",
             "company_vat": "Company VAT",
             "company_logo": "Logo de la société",
-            "company_logo_help": "Taille recommandée : 100x100px"
+            "company_logo_help": "Taille recommandée : 100x100px",
+            "company_website": "Company Website",
+            "company_primary_color": "Couleur principale"
         },
         "integrations": {
             "title": "Intégrations",
@@ -1058,7 +1060,8 @@
             "default_date_format": "Format de date par défaut",
             "default_time_format": "Format de l'heure par défaut",
             "default_datetime_format": "Format de date par défaut",
-            "show_barcode_on_documents": "Afficher le code-barres sur les documents"
+            "show_barcode_on_documents": "Afficher le code-barres sur les documents",
+            "week_start": "Week Start Day"
         },
         "taxes": {
             "title": "Taux de taxe",
