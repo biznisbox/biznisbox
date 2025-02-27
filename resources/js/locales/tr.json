@@ -969,7 +969,9 @@
             "company_country": "Şirket Ülke",
             "company_vat": "Şirket KDV",
             "company_logo": "Şirket Logosu",
-            "company_logo_help": "Önerilen boyut: 100x100px"
+            "company_logo_help": "Önerilen boyut: 100x100px",
+            "company_website": "Company Website",
+            "company_primary_color": "Primary Color"
         },
         "integrations": {
             "title": "Entegrasyonlar",
@@ -1058,7 +1060,8 @@
             "default_date_format": "Varsayılan Tarih Formatı",
             "default_time_format": "Varsayılan Saat Formatı",
             "default_datetime_format": "Varsayılan Tarih Saat Formatı",
-            "show_barcode_on_documents": "Belgelerde barkod göster"
+            "show_barcode_on_documents": "Belgelerde barkod göster",
+            "week_start": "Week Start Day"
         },
         "taxes": {
             "title": "Vergi Oranları",
