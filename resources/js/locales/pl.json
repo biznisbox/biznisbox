@@ -969,7 +969,9 @@
             "company_country": "Kraj firmy",
             "company_vat": "Company VAT",
             "company_logo": "Logo firmy",
-            "company_logo_help": "Zalecany rozmiar: 100x100px"
+            "company_logo_help": "Zalecany rozmiar: 100x100px",
+            "company_website": "Strona internetowa firmy",
+            "company_primary_color": "Kolor podstawowy"
         },
         "integrations": {
             "title": "Integracje",
@@ -1058,7 +1060,8 @@
             "default_date_format": "Domyślny format daty",
             "default_time_format": "Domyślny format czasu",
             "default_datetime_format": "Domyślny format daty",
-            "show_barcode_on_documents": "Pokaż kod kreskowy na dokumentach"
+            "show_barcode_on_documents": "Pokaż kod kreskowy na dokumentach",
+            "week_start": "Dzień początkowy tygodnia"
         },
         "taxes": {
             "title": "Stawki podatku",
