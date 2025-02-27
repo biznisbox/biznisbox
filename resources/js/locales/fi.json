@@ -969,7 +969,9 @@
             "company_country": "Yrityksen Maa",
             "company_vat": "Company VAT",
             "company_logo": "Yrityksen Logo",
-            "company_logo_help": "Suositeltu koko: 100x100px"
+            "company_logo_help": "Suositeltu koko: 100x100px",
+            "company_website": "Yrityksen Sivusto",
+            "company_primary_color": "Ensisijainen Väri"
         },
         "integrations": {
             "title": "Integraatiot",
@@ -1058,7 +1060,8 @@
             "default_date_format": "Päivämäärän Oletusmuoto",
             "default_time_format": "Ajan Oletusmuoto",
             "default_datetime_format": "Oletus Päivämäärä Muoto",
-            "show_barcode_on_documents": "Näytä viivakoodi asiakirjoissa"
+            "show_barcode_on_documents": "Näytä viivakoodi asiakirjoissa",
+            "week_start": "Viikon Aloituspäivä"
         },
         "taxes": {
             "title": "Verot",
