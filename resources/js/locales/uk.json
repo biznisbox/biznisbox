@@ -969,7 +969,9 @@
             "company_country": "Країна",
             "company_vat": "Company VAT",
             "company_logo": "Логотип компанії",
-            "company_logo_help": "Рекомендований розмір: 100x100px"
+            "company_logo_help": "Рекомендований розмір: 100x100px",
+            "company_website": "Веб-сайт компанії",
+            "company_primary_color": "Основний колір"
         },
         "integrations": {
             "title": "Ентеграції",
@@ -1058,7 +1060,8 @@
             "default_date_format": "Формат дати за замовчуванням",
             "default_time_format": "Формат часу за замовчуванням",
             "default_datetime_format": "Формат дати і часу за замовчуванням",
-            "show_barcode_on_documents": "Показувати штрих-код на документах"
+            "show_barcode_on_documents": "Показувати штрих-код на документах",
+            "week_start": "День початку тижня"
         },
         "taxes": {
             "title": "Податкові ставки",
