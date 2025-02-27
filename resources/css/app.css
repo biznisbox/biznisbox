@@ -72,6 +72,10 @@
     --orange-950: #431407;
 }
 
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 .dark {
     --primary: var(--primary-400);
     --surface: var(--surface-950);
