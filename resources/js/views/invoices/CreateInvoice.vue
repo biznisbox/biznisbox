@@ -275,7 +275,7 @@
                     </div>
                 </div>
             </form>
-            <div id="function_buttons" class="flex justify-end gap-2">
+            <div id="function_buttons" class="flex justify-end mt-4 gap-2">
                 <Button id="cancel_button" :label="$t('basic.cancel')" icon="fa fa-times" @click="goTo('/invoices')" severity="secondary" />
                 <Button
                     id="save_button"

@@ -68,7 +68,7 @@
                     :validate="v$.user_data.language"
                 />
             </div>
-            <div id="user_profile_buttons" class="flex gap-2 justify-end">
+            <div id="user_profile_buttons" class="flex justify-end mt-4 gap-2">
                 <Button
                     id="update_button"
                     :label="$t('basic.update')"

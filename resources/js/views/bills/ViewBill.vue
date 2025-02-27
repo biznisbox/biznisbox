@@ -116,7 +116,7 @@
                 </div>
             </div>
 
-            <div id="function_buttons" class="flex justify-end mt-5">
+            <div id="function_buttons" class="flex justify-end mt-4 gap-2">
                 <Button id="close_button" :label="$t('basic.close')" icon="fa fa-times" severity="secondary" @click="goTo('/bills')" />
             </div>
         </LoadingScreen>

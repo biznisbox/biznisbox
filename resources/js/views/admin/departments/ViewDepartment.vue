@@ -1,6 +1,6 @@
 <template>
     <DefaultLayout menu_type="admin">
-        <loadingScreen :blocked="loadingData">
+        <LoadingScreen :blocked="loadingData">
             <PageHeader :title="$t('admin.department.view_department')">
                 <template #actions>
                     <Button
@@ -47,7 +47,17 @@
                     <VMapMarker :latlng="[department.latitude, department.longitude]" />
                 </VMap>
             </div>
-        </loadingScreen>
+        </LoadingScreen>
+
+        <div id="function_buttons" class="flex justify-end mt-4 gap-2">
+            <Button
+                id="cancel_button"
+                :label="$t('basic.cancel')"
+                icon="fa fa-times"
+                severity="secondary"
+                @click="goTo('/admin/departments')"
+            />
+        </div>
 
         <!-- Audit log dialog -->
         <Dialog

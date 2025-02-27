@@ -72,7 +72,7 @@
                     </TabPanels>
                 </Tabs>
             </div>
-            <div id="function_buttons" class="flex justify-end mt-4">
+            <div id="function_buttons" class="flex justify-end mt-4 gap-2">
                 <Button
                     id="save_button"
                     :label="$t('basic.save')"
