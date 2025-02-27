@@ -969,7 +969,9 @@
             "company_country": "Företagets land",
             "company_vat": "Company VAT",
             "company_logo": "Företagets logotyp",
-            "company_logo_help": "Rekommenderad storlek: 100x100px"
+            "company_logo_help": "Rekommenderad storlek: 100x100px",
+            "company_website": "Företagets webbplats",
+            "company_primary_color": "Primär färg"
         },
         "integrations": {
             "title": "Integrationer",
@@ -1058,7 +1060,8 @@
             "default_date_format": "Förvalt datumformat",
             "default_time_format": "Förvalt tidsformat",
             "default_datetime_format": "Förvalt datumformat",
-            "show_barcode_on_documents": "Visa streckkod på dokument"
+            "show_barcode_on_documents": "Visa streckkod på dokument",
+            "week_start": "Startdag för veckan"
         },
         "taxes": {
             "title": "Skattesatser",
