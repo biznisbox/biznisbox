@@ -51,7 +51,7 @@ return [
     'payment_methods' => [
         'cash' => 'Gotovina',
         'check' => 'Ček',
-        'credit_card' => 'Payment card',
+        'credit_card' => 'Plačilna kartica',
         'bank_transfer' => 'Bančno nakazilo',
         'paypal' => 'PayPal',
         'stripe' => 'Stripe',
