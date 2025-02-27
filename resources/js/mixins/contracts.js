@@ -95,6 +95,10 @@ export default {
          */
         deleteContract(id) {
             this.makeHttpRequest('DELETE', '/api/contracts/' + id).then((response) => {
+                if (response.data.data.error == true) {
+                    this.showToast(response.data.data.message, this.$t('basic.error'), 'error')
+                    return
+                }
                 this.showToast(response.data.message)
                 this.$router.push({ name: 'contracts' })
             })

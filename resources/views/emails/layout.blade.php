@@ -3,6 +3,9 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
         <style media="all" type="text/css">
             .body,
             body {
@@ -11,7 +14,7 @@
             body,
             p,
             table td {
-                font-family: Helvetica, sans-serif;
+                font-family: 'Roboto', sans-serif;
             }
             .btn a,
             .btn table td {
@@ -240,6 +243,20 @@
     </head>
 
     <body>
+        @if (settings('company_logo') != null)
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="header">
+                <tr>
+                    <td class="content">
+                        <img
+                            src="{{ asset('storage/' . settings('company_logo')) }}"
+                            alt="{{ settings('company_name') }}"
+                            style="margin: 0 auto; display: block; width: 150px; height: auto; margin-top: 24px; margin-bottom: 24px"
+                        />
+                    </td>
+                </tr>
+            </table>
+        @endif
+
         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
             <tr>
                 <td>&nbsp;</td>

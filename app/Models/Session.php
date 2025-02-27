@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use hisorange\BrowserDetect\Parser as Browser;
+use Illuminate\Support\Facades\Mail;
 use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Support\Str;
+use App\Mail\User\LoginNotification;
 
 class Session extends Model implements Auditable
 {
@@ -104,7 +106,22 @@ class Session extends Model implements Auditable
             'longitude' => $ip_data['lon'] ?? null,
             'fingerprint' => self::generateFingerprint(null, $request->ip(), $request->userAgent() ?? '', $user_id),
         ];
+
+        if (self::isFirstTimeLoginIp($user_id, $request->ip())) {
+            $user = User::find($user_id);
+            self::sendLoginNotification($user, (object) $session_data);
+        }
+
         self::create($session_data);
+    }
+
+    public function isFirstTimeLoginIp($user_id, $ip_address)
+    {
+        $session = self::where('user_id', $user_id)->where('ip', $ip_address)->first();
+        if ($session) {
+            return true;
+        }
+        return false;
     }
 
     /*
@@ -176,5 +193,10 @@ class Session extends Model implements Auditable
             $session->expires_at = null;
             $session->save();
         }
+    }
+
+    public static function sendLoginNotification($user, $login)
+    {
+        Mail::to($user->email)->send(new LoginNotification($user, $login));
     }
 }
