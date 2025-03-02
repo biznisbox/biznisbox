@@ -1,6 +1,6 @@
 {
     "name": "biznisbox",
-    "version": "2.0.0-beta.5",
+    "version": "2.0.0",
     "description": "Powerful, open-source invoice management software designed to help businesses",
     "private": true,
     "type": "module",
@@ -53,7 +53,7 @@
         "lodash": "^4.17.21",
         "primevue": "^4.3.1",
         "qrcode.vue": "^3.6.0",
-        "tailwindcss-primeui": "^0.5.0",
+        "tailwindcss-primeui": "^0.5.1",
         "tinymce": "^7.7.0",
         "vue": "^3.5.13",
         "vue-axios": "^3.5.2",
