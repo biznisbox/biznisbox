@@ -107,6 +107,10 @@ export default {
         if (this.$cookies.get('lang')) {
             this.language = this.$cookies.get('lang')
         }
+        else {
+            this.$cookies.set('lang', "en") // fix for the first time when the cookie is not set
+            this.language = "en"
+        }
         this.$i18n.locale = this.language // Set the language to the selected language (default is English)
         this.checkIfInstalled()
         this.getRequirements()
