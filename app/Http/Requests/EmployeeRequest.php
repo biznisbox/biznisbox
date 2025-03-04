@@ -16,7 +16,7 @@ class EmployeeRequest extends FormRequest
         return [
             'department_id' => 'nullable|exists:departments,id',
             'user_id' => 'nullable|exists:users,id',
-            'number' => 'required|string|max:255',
+            'number' => 'string|max:255',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
