@@ -1,7 +1,63 @@
-# v2.0.0 - unreleased
+# v2.0.0
 
-This is next major version of BiznisBox web app. 
+This marks the official release of the new BiznisBox.
 
+## ✨ New Features and Enhancements
+
+- Added an option to reject contracts.
+- Implemented email notifications for first-time logins from a new browser.
+- Introduced a console command for creating users.
+- Added new configuration settings for enhanced customization.
+
+## 🐛 Bug Fixes
+
+- Improved the API's permanent delete function for archive documents.
+- Fixed a security vulnerability related to auto-generated passwords.
+
+## 💄 UI/UX Improvements
+
+- Updated the default font to Roboto for a more modern look.
+- Made minor UI refinements for a smoother user experience.
+- Fixed various dark mode display issues.
+- Updated PDF document templates (invoices, bills, contracts, etc.).
+
+## 🌐 Localization
+
+- Integrated the latest translations from Crowdin, enhancing multilingual support and usability.
+
+**Note**: This release includes several internal updates and improvements that are not listed here.
+
+# v2.0.0-beta.5
+
+**Important**: This release introduces significant changes that are not backwards-compatible with previous versions (v2.x.x-beta.x) due to database migrations and structural updates.
+
+## ✨ New Features and Enhancements
+
+- Added an App Status page view for system health monitoring.
+- Implemented validation for the old password when users change their password.
+- Upgraded to a more secure and up-to-date JWT provider for improved authentication.
+
+## 🐛 Bug Fixes
+
+- Fixed an issue with adding webhooks due to database migration issues.
+- Resolved an issue where admin operations were not being logged when managing users.
+- Addressed a bug preventing images from displaying correctly in documents (related to base64 encoding).
+
+## 💄 UI/UX Improvements
+
+- Updated the color scheme for a more modern and cohesive look.
+- Refined the design of input validation feedback.
+- Added dark mode support to the rich text editor for improved user experience in low-light environments.
+- Replaced the old app logo with a new, updated design.
+- Overhauled the Role page view for a cleaner, more intuitive interface.
+
+## 🧑‍💻 Development Updates
+
+- Introduced support for Swagger generation to improve API documentation.
+
+## 🌐 Localization
+
+- Updated translations with the latest contributions from Crowdin, enhancing multilingual support and usability.
 
 # v2.0.0-beta.4
 
