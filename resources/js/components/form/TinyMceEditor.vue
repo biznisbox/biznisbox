@@ -99,6 +99,7 @@ export default {
                         const image = 'data:' + blobInfo.blob().type + ';base64,' + blobInfo.base64()
                         success({ location: image })
                     } catch (err) {
+                        console.log(err)
                         failure('Image upload failed')
                     }
                 },

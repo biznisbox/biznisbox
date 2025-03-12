@@ -15,9 +15,9 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/biznisbox/biznisbox?style=for-the-badge)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/biznisbox/biznisbox/build.yaml?branch=main&style=for-the-badge)
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/biznisbox/biznisbox/total?style=for-the-badge&label=Releases%20Downloads)
-    </div>
 </div>
 
+</div>
 
 ## About
 
@@ -56,7 +56,7 @@ Documentation is available at [https://docs.biznisbox.com](https://docs.biznisbo
 
 ## Contribute
 
-If you want to participate in the development of the BiznisBox project, you can contribute by: 
+If you want to participate in the development of the BiznisBox project, you can contribute by:
 
 - Reporting bugs
 - Suggesting new features
