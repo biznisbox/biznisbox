@@ -108,7 +108,7 @@ class Session extends Model implements Auditable
             'fingerprint' => $fingerprint,
         ];
 
-        if (self::isFirstTimeLogin($user_id, $fingerprint)) {
+        if (self::isFirstTimeLogin($user_id, $fingerprint, $request)) {
             $user = User::find($user_id);
             self::sendLoginNotification($user, (object) $session_data);
         }
@@ -122,8 +122,13 @@ class Session extends Model implements Auditable
      * @param string $fingerprint  Session fingerprint
      * @return bool
      */
-    public static function isFirstTimeLogin($user_id, $fingerprint)
+    public static function isFirstTimeLogin($user_id, $fingerprint, $request)
     {
+        // If request include Zapier, don't send email
+        if ($request->header('User-Agent') == 'Zapier Agent') {
+            return false;
+        }
+
         $session = self::where('user_id', $user_id)->where('fingerprint', $fingerprint)->first();
         if ($session) {
             return false;
