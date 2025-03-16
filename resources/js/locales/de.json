@@ -414,7 +414,8 @@
         "activity_type": "Aktivitätstyp",
         "user": "Benutzer",
         "is_internal": "Ist intern",
-        "picture": "Bild"
+        "picture": "Bild",
+        "last_used_at": "Zuletzt verwendet am"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -429,6 +430,16 @@
     "entity_types": {
         "company": "Firma",
         "individual": "Individuell"
+    },
+    "time_range": {
+        "one_day": "Ein Tag",
+        "one_week": "Eine Woche",
+        "one_month": "Ein Monat",
+        "three_months": "Drei Monate",
+        "six_months": "Sechs Monate",
+        "one_year": "Ein Jahr",
+        "all_time": "Gesamt",
+        "never": "Nie"
     },
     "industries": {
         "agriculture": "Landwirtschaft",
@@ -582,7 +593,13 @@
         "two_factor_authentication_code": "Zwei-Faktor-Authentifizierungscode",
         "two_factor_authentication_code_info": "Geben Sie den von Ihrer Authentifizierungs-App generierten Code ein, um die Zwei-Faktor-Authentifizierung zu überprüfen.",
         "verify_2fa": "2FA überprüfen",
-        "cannot_remove__default_avatar": "Sie können den Standard-Avatar nicht entfernen."
+        "cannot_remove_default_avatar": "Sie können den Standard-Avatar nicht entfernen.",
+        "personal_access_tokens": "Persönliche Zugangs-Token",
+        "create_personal_access_token": "Persönliches Zugangs-Token erstellen",
+        "no_personal_access_tokens": "Keine persönlichen Zugangs-Tokens gefunden",
+        "generated_personal_access_token_message": "Ihr persönlicher Zugangs-Token wurde generiert. Dies ist das einzige Mal, dass Sie dieses Token sehen, also stellen Sie sicher, dass Sie es an einem sicheren Ort speichern.",
+        "generated_personal_access_token": "Generiertes Persönliches Zugangs-Token",
+        "delete_personal_access_token": "Sind Sie sicher, dass Sie diesen persönlichen Zugangs-Token löschen möchten?"
     },
     "document_types": {
         "document": "Dokument",
