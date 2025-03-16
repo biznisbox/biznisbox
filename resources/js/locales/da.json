@@ -414,7 +414,8 @@
         "activity_type": "Aktivitet Type",
         "user": "Bruger",
         "is_internal": "Er Intern",
-        "picture": "Billede"
+        "picture": "Billede",
+        "last_used_at": "Sidst Brugt Ved"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -429,6 +430,16 @@
     "entity_types": {
         "company": "Virksomhed",
         "individual": "Individuel"
+    },
+    "time_range": {
+        "one_day": "En dag",
+        "one_week": "En uge",
+        "one_month": "En måned",
+        "three_months": "Tre måneder",
+        "six_months": "Seks måneder",
+        "one_year": "Et år",
+        "all_time": "Al tid",
+        "never": "Aldrig"
     },
     "industries": {
         "agriculture": "Landbrug",
@@ -582,7 +593,13 @@
         "two_factor_authentication_code": "To Faktor Godkendelseskode",
         "two_factor_authentication_code_info": "Indtast den kode, der er genereret af din autentificerings-app, for at verificere opsætning af tofaktorgodkendelse.",
         "verify_2fa": "Verificér 2FA",
-        "cannot_remove__default_avatar": "Du kan ikke fjerne standard avatar."
+        "cannot_remove_default_avatar": "Du kan ikke fjerne standard avatar.",
+        "personal_access_tokens": "Personlige Adgangstokens",
+        "create_personal_access_token": "Opret Personlig Adgangstoken",
+        "no_personal_access_tokens": "Ingen personlige adgangstokens fundet",
+        "generated_personal_access_token_message": "Din personlige adgangstoken er blevet genereret. Dette er den eneste gang, du vil se dette token, så sørg for at gemme det et sikkert sted.",
+        "generated_personal_access_token": "Genereret Personlig Adgangstoken",
+        "delete_personal_access_token": "Er du sikker på, at du vil slette dette personlige adgangstoken?"
     },
     "document_types": {
         "document": "Dokument",
