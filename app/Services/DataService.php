@@ -7,6 +7,7 @@ use App\Models\Tax;
 use App\Models\Unit;
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class DataService
@@ -234,5 +235,81 @@ class DataService
                 return null;
                 break;
         }
+    }
+
+    /****************************************
+     * Personal Access Token services
+     ****************************************/
+
+    public function getPersonalAccessTokens()
+    {
+        $personalAccessToken = new \App\Models\PersonalAccessToken();
+        $userId = auth()->id();
+        $personalAccessToken = $personalAccessToken->getPersonalAccessTokens($userId);
+        return $personalAccessToken;
+    }
+
+    public function getPersonalAccessToken($id)
+    {
+        $personalAccessToken = new \App\Models\PersonalAccessToken();
+        $personalAccessToken = $personalAccessToken->getPersonalAccessToken($id);
+
+        if ($personalAccessToken->user_id != auth()->id()) {
+            return null;
+        }
+
+        return $personalAccessToken;
+    }
+
+    public function createPersonalAccessToken($data)
+    {
+        $personalAccessToken = new \App\Models\PersonalAccessToken();
+        $data['user_id'] = auth()->id();
+        $data['name'] = $data['name'] ?? 'Personal Access Token';
+
+        $user = new \App\Models\User();
+        $user = $user->find($data['user_id']);
+
+        $ttl = $data['valid_until'] ?? 'one_day';
+
+        $ttls = [
+            'one_day' => 1440,
+            'one_week' => 10080,
+            'one_month' => 43200,
+            'one_year' => 525600,
+            'never' => 525600 * 100, // 100 years (525600 minutes in a year)
+            'one_hour' => 60,
+            'six_months' => 262800,
+            'custom' => $data['valid_until'],
+        ];
+
+        $token = auth()
+            ->setTTL($ttls[$ttl])
+            ->claims(['personal_access_token' => true])
+            ->login($user);
+
+        $data['type'] = 'personal_access_token';
+        $data['valid_until'] = now()->addMinutes($ttls[$ttl]);
+
+        $personalAccessToken = $personalAccessToken->create($data);
+        return $token;
+    }
+
+    /**
+     * Delete personal access token
+     */
+    public function deletePersonalAccessToken($id)
+    {
+        $personalAccessToken = new \App\Models\PersonalAccessToken();
+
+        $personalAccessToken = $personalAccessToken
+            ->where('id', $id)
+            ->where('user_id', auth()->id())
+            ->first();
+        if (!$personalAccessToken) {
+            return null;
+        }
+        $personalAccessToken = $personalAccessToken->delete($id);
+        return $personalAccessToken;
     }
 }

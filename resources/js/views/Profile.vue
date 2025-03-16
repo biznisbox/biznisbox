@@ -85,6 +85,7 @@
                         <Tab value="login_history"> {{ $t('login_history.login_history') }} </Tab>
                         <Tab value="change_password"> {{ $t('profile.change_password') }} </Tab>
                         <Tab value="two_factor_authentication"> {{ $t('profile.two_factor_authentication') }} </Tab>
+                        <Tab value="personal_access_tokens"> {{ $t('profile.personal_access_tokens') }} </Tab>
                     </TabList>
 
                     <TabPanels>
@@ -149,6 +150,7 @@
                                             <VMapOsmTileLayer />
                                             <VMapZoomControl />
                                             <VMapMarker :latlng="[data.latitude, data.longitude]" />
+                                            <VMapAttributionControl />
                                         </VMap>
                                     </DisplayData>
                                 </template>
@@ -248,10 +250,101 @@
                                 </div>
                             </div>
                         </TabPanel>
+
+                        <TabPanel value="personal_access_tokens">
+                            <div class="flex gap-2 justify-end my-2">
+                                <Button
+                                    :label="$t('profile.create_personal_access_token')"
+                                    :disabled="loadingData"
+                                    @click="showPersonalAccessTokenModal = true"
+                                    severity="success"
+                                    icon="fa fa-key"
+                                />
+                            </div>
+
+                            <DataTable :value="personal_access_tokens" paginator :rows="10" :rows-per-page-options="[10, 20, 50]">
+                                <template #empty>
+                                    <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
+                                        <i class="fa fa-info -circle empty-icon"></i>
+                                        <p>{{ $t('profile.no_personal_access_tokens') }}</p>
+                                    </div>
+                                </template>
+
+                                <Column field="name" :header="$t('form.name')" />
+                                <Column field="valid_until" :header="$t('form.valid_until')">
+                                    <template #body="{ data }">
+                                        <Tag :value="formatDateTime(data.valid_until)" />
+                                    </template>
+                                </Column>
+                                <Column :header="$t('basic.actions')">
+                                    <template #body="{ data }">
+                                        <div class="flex gap-2">
+                                            <Button
+                                                :disabled="loadingData"
+                                                @click="deletePersonalAccessTokenConfirm(data.id)"
+                                                severity="danger"
+                                                icon="fa fa-trash"
+                                            />
+                                        </div>
+                                    </template>
+                                </Column>
+                            </DataTable>
+                        </TabPanel>
                     </TabPanels>
                 </Tabs>
             </div>
         </LoadingScreen>
+
+        <!-- Personal Access Token Modal -->
+        <Dialog
+            v-model:visible="showPersonalAccessTokenModal"
+            :header="$t('profile.create_personal_access_token')"
+            class="w-full m-2 lg:w-1/2"
+            modal
+        >
+            <form id="personal_access_token_form">
+                <TextInput
+                    id="input_name"
+                    v-model="personal_access_token.name"
+                    :label="$t('form.name')"
+                    :placeholder="$t('form.name')"
+                    :disabled="loadingData"
+                />
+                <SelectInput
+                    input="valid_until"
+                    v-model="personal_access_token.valid_until"
+                    :label="$t('form.valid_until')"
+                    :options="valid_until_options"
+                    :disabled="loadingData"
+                />
+                <div id="personal_access_token_buttons" class="flex gap-2 justify-end">
+                    <Button
+                        :label="$t('basic.create')"
+                        :disabled="loadingData"
+                        @click="createPersonalAccessToken"
+                        severity="success"
+                        icon="fa fa-key"
+                    />
+                </div>
+            </form>
+        </Dialog>
+
+        <!-- Generated Personal Access Token Modal -->
+        <Dialog
+            v-model:visible="showGeneratedPersonalAccessToken"
+            :header="$t('profile.generated_personal_access_token')"
+            class="w-full m-2 lg:w-1/2"
+            modal
+        >
+            <div class="p-4 dark:text-surface-200">
+                <p>{{ $t('profile.generated_personal_access_token_message') }}</p>
+                <div class="mt-3">
+                    <span class="flex justify-center my-2 break-all border border-gray-300 p-2 rounded">
+                        {{ generatedPersonalAccessToken }}
+                    </span>
+                </div>
+            </div>
+        </Dialog>
     </DefaultLayout>
 </template>
 
@@ -259,7 +352,7 @@
 import { required, email, sameAs, minLength } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core'
 import QrcodeVue from 'qrcode.vue'
-import { VMap, VMapOsmTileLayer, VMapZoomControl, VMapMarker } from 'vue-map-ui'
+import { VMap, VMapOsmTileLayer, VMapZoomControl, VMapMarker, VMapAttributionControl } from 'vue-map-ui'
 export default {
     name: 'ProfilePage',
     components: {
@@ -268,6 +361,7 @@ export default {
         VMapOsmTileLayer,
         VMapZoomControl,
         VMapMarker,
+        VMapAttributionControl,
     },
     setup() {
         return { v$: useVuelidate() }
@@ -290,9 +384,26 @@ export default {
                 password: '',
                 password_confirmation: '',
             },
+            personal_access_tokens: [],
+            personal_access_token: {
+                name: '',
+                valid_until: 'six_months',
+            },
             two_factor: [],
             two_factor_code: '',
             show_2fa: false,
+            showPersonalAccessTokenModal: false,
+            generatedPersonalAccessToken: '',
+            showGeneratedPersonalAccessToken: false,
+            valid_until_options: [
+                { label: this.$t('time_range.one_day'), value: 'one_day' },
+                { label: this.$t('time_range.one_week'), value: 'one_week' },
+                { label: this.$t('time_range.one_month'), value: 'one_month' },
+                { label: this.$t('time_range.six_months'), value: 'six_months' },
+                { label: this.$t('time_range.one_year'), value: 'one_year' },
+
+                { label: this.$t('time_range.never'), value: 'never' },
+            ],
         }
     },
 
@@ -316,6 +427,7 @@ export default {
     created() {
         this.getProfile()
         this.getLocales()
+        this.getPersonalAccessTokens()
     },
 
     methods: {
@@ -368,7 +480,7 @@ export default {
 
         removeAvatar() {
             if (this.user_data.picture === this.user_data.id + '.png') {
-                this.showToast(this.$t('profile.cannot_remove__default_avatar'), this.$t('basic.info'), 'info')
+                this.showToast(this.$t('profile.cannot_remove_default_avatar'), this.$t('basic.info'), 'info')
                 return false
             }
 
@@ -411,6 +523,39 @@ export default {
                     this.getProfile()
                 }
             )
+        },
+
+        getPersonalAccessTokens() {
+            this.makeHttpRequest('GET', '/api/personal-access-tokens').then((response) => {
+                this.personal_access_tokens = response.data.data
+            })
+        },
+
+        getPersonalAccessToken(id) {
+            this.makeHttpRequest('GET', `/api/personal-access-tokens/${id}`).then((response) => {
+                this.personal_access_token = response.data.data
+            })
+        },
+
+        createPersonalAccessToken() {
+            this.makeHttpRequest('POST', '/api/personal-access-tokens', this.personal_access_token).then((response) => {
+                this.showPersonalAccessTokenModal = false
+                this.generatedPersonalAccessToken = response.data.data
+                this.showGeneratedPersonalAccessToken = true
+                this.getPersonalAccessTokens()
+            })
+        },
+
+        deletePersonalAccessToken(id) {
+            this.makeHttpRequest('DELETE', `/api/personal-access-tokens/${id}`).then((response) => {
+                this.getPersonalAccessTokens()
+            })
+        },
+
+        deletePersonalAccessTokenConfirm(id) {
+            this.confirmDeleteDialog(this.$t('profile.delete_personal_access_token'), this.$t('basic.confirmation'), () => {
+                this.deletePersonalAccessToken(id)
+            })
         },
     },
 

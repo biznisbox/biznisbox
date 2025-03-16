@@ -59,7 +59,7 @@
                                 <TabPanel value="partner_activities">
                                     <div>
                                         <div class="flex justify-between items-center">
-                                            <h3 class="font-bold mb-4">{{ $t('partner.activities') }}</h3>
+                                            <h3 class="font-bold mb-4 dark:text-surface-200">{{ $t('partner.activities') }}</h3>
                                             <Button
                                                 :label="$t('partner.add_activity')"
                                                 icon="fa fa-plus"
@@ -89,12 +89,18 @@
                                                 <template #content="slotProps">
                                                     <div class="flex flex-col mt-2">
                                                         <div class="grid grid-cols-3 gap-2">
-                                                            <span class="text-left font-bold">{{ slotProps.item.subject }}</span>
-                                                            <span class="ml-2 text-sm text-gray-500" v-if="slotProps.item.start_date">{{
-                                                                formatDateTime(slotProps.item.start_date) +
-                                                                ' - ' +
-                                                                formatDateTime(slotProps.item.end_date)
+                                                            <span class="text-left font-bold dark:text-surface-200">{{
+                                                                slotProps.item.subject
                                                             }}</span>
+                                                            <span
+                                                                class="ml-2 text-sm dark:text-surface-200"
+                                                                v-if="slotProps.item.start_date"
+                                                                >{{
+                                                                    formatDateTime(slotProps.item.start_date) +
+                                                                    ' - ' +
+                                                                    formatDateTime(slotProps.item.end_date)
+                                                                }}</span
+                                                            >
                                                         </div>
 
                                                         <div class="flex">
@@ -156,18 +162,18 @@
                                                         <div class="grid">
                                                             <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                                                                 <div>
-                                                                    <div class="block text-sm text-gray-500">
+                                                                    <div class="block text-sm dark:text-surface-200">
                                                                         {{ slotProps.item.location }}
                                                                     </div>
-                                                                    <div class="block text-sm text-gray-500">
+                                                                    <div class="block text-sm dark:text-surface-200">
                                                                         {{ slotProps.item.notes }}
                                                                     </div>
-                                                                    <div class="block text-sm text-gray-500">
+                                                                    <div class="block text-sm dark:text-surface-200">
                                                                         {{ slotProps.item.outcome }}
                                                                     </div>
                                                                     <div
                                                                         v-if="slotProps.item.type === 'note'"
-                                                                        class="block text-sm text-gray-500"
+                                                                        class="block text-sm dark:text-surface-200"
                                                                     >
                                                                         <span v-html="formatHtml(slotProps.item.content)"></span>
                                                                     </div>

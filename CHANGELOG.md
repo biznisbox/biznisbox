@@ -1,3 +1,24 @@
+# v2.1.0
+
+## ✨ New Features and Enhancements
+
+- Added functions for generating personal access tokens.
+
+## 🐛 Bug Fixes
+
+- Fixed an issue where the language cookie was missing during app installation.
+- Fixed a bug preventing user webhooks from being saved via the API (Zapier).
+- Removed the requirement for the item number field (now generated automatically).
+- Fixed an issue causing incorrect behavior in the API (getPublicProducts).
+
+## 💄 UI/UX Improvements
+
+- Improved UI design for displaying partner activities in dark mode.
+
+## 🌐 Localization
+
+- Updated translations with the latest contributions from Crowdin to support better multilingual usability.
+
 # v2.0.0
 
 This marks the official release of the new BiznisBox.
@@ -77,7 +98,6 @@ This marks the official release of the new BiznisBox.
 
 **Note**: This release includes numerous additional changes not listed here.
 
-
 # v2.0.0-beta.3
 
 ## ✨ New Features and Improvements
@@ -96,7 +116,7 @@ This marks the official release of the new BiznisBox.
 
 **Note**: This release includes numerous additional changes not listed here.
 
-# v2.0.0-beta.2  
+# v2.0.0-beta.2
 
 ## ✨ New Features and Improvements
 
@@ -118,6 +138,7 @@ This marks the official release of the new BiznisBox.
 **Important**: This release is not backwards-compatible with previous versions (v1.x.x) due to significant changes, including database migrations and structure updates.
 
 ## ✨ New Features and Improvements
+
 - **App Install UI**: Introduced a new user interface for app installations.
 - **Audit Log View**: Added audit log visibility across all application sections.
 - **Custom Dashboard**: Implemented a customizable dashboard (with more elements to come).
@@ -127,15 +148,17 @@ This marks the official release of the new BiznisBox.
 - **Document Archive**: Improved document archive features.
 
 ## 🐛 Bug Fixes
+
 - **Discounts & Taxes**: Resolved issues with discounts and taxes calculations.
--  **Theme Settings**: Fixed the bug preventing user profile theme settings from being saved.
+- **Theme Settings**: Fixed the bug preventing user profile theme settings from being saved.
 
 ## 💄 UI/UX Changes
+
 - **TailwindCSS Integration**: The user interface is now powered by TailwindCSS.
 - **UI Updates**: Several visual updates have been made to the UI.
 
 ## 🌐 Localization
-- **New Translations**: Added translations for Spanish, French, Portuguese, Italian, Russian, Chinese, Dutch, Norwegian, Danish, Swedish, and Finnish. (Crowdin has been utilized for automatic translation.)
 
+- **New Translations**: Added translations for Spanish, French, Portuguese, Italian, Russian, Chinese, Dutch, Norwegian, Danish, Swedish, and Finnish. (Crowdin has been utilized for automatic translation.)
 
 **Note**: This release includes numerous additional changes not listed here.
