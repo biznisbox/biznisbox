@@ -414,7 +414,8 @@
         "activity_type": "Tipo de actividad",
         "user": "Usuario",
         "is_internal": "Es Interno",
-        "picture": "Foto"
+        "picture": "Foto",
+        "last_used_at": "Última utilización en"
     },
     "address_types": {
         "billing": "Facturación",
@@ -429,6 +430,16 @@
     "entity_types": {
         "company": "Empresa",
         "individual": "Individual"
+    },
+    "time_range": {
+        "one_day": "One day",
+        "one_week": "Una semana",
+        "one_month": "One month",
+        "three_months": "Three months",
+        "six_months": "Six months",
+        "one_year": "Un año",
+        "all_time": "Todo el tiempo",
+        "never": "Nunca"
     },
     "industries": {
         "agriculture": "Agricultura",
@@ -582,7 +593,13 @@
         "two_factor_authentication_code": "Código de Autenticación de Dos Factores",
         "two_factor_authentication_code_info": "Introduzca el código generado por su aplicación de autenticación para verificar la configuración de autenticación de dos factores.",
         "verify_2fa": "Verificar 2FA",
-        "cannot_remove__default_avatar": "No puede eliminar el avatar predeterminado."
+        "cannot_remove_default_avatar": "You cannot remove the default avatar.",
+        "personal_access_tokens": "Tokens de acceso personal",
+        "create_personal_access_token": "Create Personal Access Token",
+        "no_personal_access_tokens": "No se encontraron tokens de acceso personal",
+        "generated_personal_access_token_message": "Your personal access token has been generated. This is the only time you will see this token, so make sure to save it somewhere safe.",
+        "generated_personal_access_token": "Ficha de acceso personal generada",
+        "delete_personal_access_token": "¿Está seguro que desea eliminar este token de acceso personal?"
     },
     "document_types": {
         "document": "Documento",
