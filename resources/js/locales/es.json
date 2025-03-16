@@ -432,11 +432,11 @@
         "individual": "Individual"
     },
     "time_range": {
-        "one_day": "One day",
+        "one_day": "Un día",
         "one_week": "Una semana",
-        "one_month": "One month",
-        "three_months": "Three months",
-        "six_months": "Six months",
+        "one_month": "Un mes",
+        "three_months": "Tres meses",
+        "six_months": "Seis meses",
         "one_year": "Un año",
         "all_time": "Todo el tiempo",
         "never": "Nunca"
@@ -593,11 +593,11 @@
         "two_factor_authentication_code": "Código de Autenticación de Dos Factores",
         "two_factor_authentication_code_info": "Introduzca el código generado por su aplicación de autenticación para verificar la configuración de autenticación de dos factores.",
         "verify_2fa": "Verificar 2FA",
-        "cannot_remove_default_avatar": "You cannot remove the default avatar.",
+        "cannot_remove_default_avatar": "No puede eliminar el avatar predeterminado.",
         "personal_access_tokens": "Tokens de acceso personal",
-        "create_personal_access_token": "Create Personal Access Token",
+        "create_personal_access_token": "Crear token de acceso personal",
         "no_personal_access_tokens": "No se encontraron tokens de acceso personal",
-        "generated_personal_access_token_message": "Your personal access token has been generated. This is the only time you will see this token, so make sure to save it somewhere safe.",
+        "generated_personal_access_token_message": "Su token de acceso personal ha sido generado. Esta es la única vez que verá este token, así que asegúrese de guardarlo en algún lugar seguro.",
         "generated_personal_access_token": "Ficha de acceso personal generada",
         "delete_personal_access_token": "¿Está seguro que desea eliminar este token de acceso personal?"
     },
