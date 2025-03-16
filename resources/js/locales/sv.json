@@ -414,7 +414,8 @@
         "activity_type": "Typ av aktivitet",
         "user": "Användare",
         "is_internal": "Är Intern",
-        "picture": "Bild"
+        "picture": "Bild",
+        "last_used_at": "Senast använd kl."
     },
     "address_types": {
         "billing": "Fakturering",
@@ -429,6 +430,16 @@
     "entity_types": {
         "company": "Företag",
         "individual": "Individuell"
+    },
+    "time_range": {
+        "one_day": "En dag",
+        "one_week": "En vecka",
+        "one_month": "En månad",
+        "three_months": "Tre månader",
+        "six_months": "Sex månader",
+        "one_year": "Ett år",
+        "all_time": "Hela tiden",
+        "never": "Aldrig"
     },
     "industries": {
         "agriculture": "Jordbruk",
@@ -582,7 +593,13 @@
         "two_factor_authentication_code": "Tvåfaktors autentiseringskod",
         "two_factor_authentication_code_info": "Ange koden som genereras av din autentiseringsapp för att verifiera tvåfaktorsautentiseringsinställningar.",
         "verify_2fa": "Verifiera 2FA",
-        "cannot_remove__default_avatar": "Du kan inte ta bort standardavataren."
+        "cannot_remove_default_avatar": "Du kan inte ta bort standardavataren.",
+        "personal_access_tokens": "Personliga åtkomst-Tokens",
+        "create_personal_access_token": "Skapa personlig åtkomsttoken",
+        "no_personal_access_tokens": "Inga personliga åtkomsttokens hittades",
+        "generated_personal_access_token_message": "Din personliga åtkomsttoken har genererats. Detta är den enda gången du ser denna token, så se till att spara den någonstans säkert.",
+        "generated_personal_access_token": "Genererad personlig åtkomsttoken",
+        "delete_personal_access_token": "Är du säker på att du vill ta bort denna personliga åtkomst-token?"
     },
     "document_types": {
         "document": "Dokument",
