@@ -432,11 +432,11 @@
         "individual": "Individuální"
     },
     "time_range": {
-        "one_day": "One day",
+        "one_day": "Jeden den",
         "one_week": "Jeden týden",
-        "one_month": "One month",
-        "three_months": "Three months",
-        "six_months": "Six months",
+        "one_month": "Jeden měsíc",
+        "three_months": "Tři měsíce",
+        "six_months": "Šest měsíců",
         "one_year": "Jeden rok",
         "all_time": "Celý čas",
         "never": "Nikdy"
@@ -593,11 +593,11 @@
         "two_factor_authentication_code": "Kód dvoufaktorového ověření",
         "two_factor_authentication_code_info": "Zadejte kód vygenerovaný vaší ověřovací aplikací pro ověření nastavení dvoufaktorového ověřování.",
         "verify_2fa": "Ověřit 2FA",
-        "cannot_remove_default_avatar": "You cannot remove the default avatar.",
+        "cannot_remove_default_avatar": "Výchozí avatar nelze odstranit.",
         "personal_access_tokens": "Osobní přístupové tokeny",
-        "create_personal_access_token": "Create Personal Access Token",
+        "create_personal_access_token": "Vytvořit osobní přístupový token",
         "no_personal_access_tokens": "Nenalezeny žádné osobní přístupové tokeny",
-        "generated_personal_access_token_message": "Your personal access token has been generated. This is the only time you will see this token, so make sure to save it somewhere safe.",
+        "generated_personal_access_token_message": "Váš osobní přístupový token byl vygenerován. Toto je jediná chvíle, kdy uvidíte tento token a ujistěte se, že ho uložíte někde bezpečně.",
         "generated_personal_access_token": "Generovaný osobní přístupový token",
         "delete_personal_access_token": "Jste si jisti, že chcete odstranit tento osobní přístupový token?"
     },
