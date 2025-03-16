@@ -414,7 +414,8 @@
         "activity_type": "Aktiviteetin Tyyppi",
         "user": "Käyttäjä",
         "is_internal": "On Sisäinen",
-        "picture": "Kuva"
+        "picture": "Kuva",
+        "last_used_at": "Viimeksi Käytetty"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -429,6 +430,16 @@
     "entity_types": {
         "company": "Yritys",
         "individual": "Yksilöllinen"
+    },
+    "time_range": {
+        "one_day": "Yksi päivä",
+        "one_week": "Yksi viikko",
+        "one_month": "Yksi kuukausi",
+        "three_months": "Kolme kuukautta",
+        "six_months": "Kuusi kuukautta",
+        "one_year": "Yksi vuosi",
+        "all_time": "Koko ajan",
+        "never": "Ei Koskaan"
     },
     "industries": {
         "agriculture": "Maatalous",
@@ -582,7 +593,13 @@
         "two_factor_authentication_code": "Kaksivaiheinen Todennuskoodi",
         "two_factor_authentication_code_info": "Syötä tunnistautumissovelluksen luoma koodi, jolla voit tarkistaa kaksivaiheisen tunnistautumisen asetukset.",
         "verify_2fa": "Vahvista 2FA",
-        "cannot_remove__default_avatar": "Et voi poistaa oletus avataria."
+        "cannot_remove_default_avatar": "Et voi poistaa oletus avataria.",
+        "personal_access_tokens": "Henkilökohtaiset Pääsypolkennit",
+        "create_personal_access_token": "Luo Henkilökohtainen Pääsymerkki",
+        "no_personal_access_tokens": "Henkilökohtaisia pääsypoletteja ei löytynyt",
+        "generated_personal_access_token_message": "Henkilökohtainen pääsymerkki on luotu. Tämä on ainoa kerta, kun näet tämän tunnuksen, joten varmista, että tallennat sen johonkin turvalliseen paikkaan.",
+        "generated_personal_access_token": "Luotu Henkilökohtainen Pääsymerkki",
+        "delete_personal_access_token": "Oletko varma, että haluat poistaa tämän henkilökohtaisen pääsytunnuksen?"
     },
     "document_types": {
         "document": "Asiakirja",
