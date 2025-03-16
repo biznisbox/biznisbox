@@ -414,7 +414,8 @@
         "activity_type": "Typ aktivity",
         "user": "Uživatel",
         "is_internal": "Je interní",
-        "picture": "Obrázek"
+        "picture": "Obrázek",
+        "last_used_at": "Poslední použití v"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -429,6 +430,16 @@
     "entity_types": {
         "company": "Článek 2",
         "individual": "Individuální"
+    },
+    "time_range": {
+        "one_day": "One day",
+        "one_week": "Jeden týden",
+        "one_month": "One month",
+        "three_months": "Three months",
+        "six_months": "Six months",
+        "one_year": "Jeden rok",
+        "all_time": "Celý čas",
+        "never": "Nikdy"
     },
     "industries": {
         "agriculture": "Zemědělství",
@@ -582,7 +593,13 @@
         "two_factor_authentication_code": "Kód dvoufaktorového ověření",
         "two_factor_authentication_code_info": "Zadejte kód vygenerovaný vaší ověřovací aplikací pro ověření nastavení dvoufaktorového ověřování.",
         "verify_2fa": "Ověřit 2FA",
-        "cannot_remove__default_avatar": "Výchozí avatar nelze odstranit."
+        "cannot_remove_default_avatar": "You cannot remove the default avatar.",
+        "personal_access_tokens": "Osobní přístupové tokeny",
+        "create_personal_access_token": "Create Personal Access Token",
+        "no_personal_access_tokens": "Nenalezeny žádné osobní přístupové tokeny",
+        "generated_personal_access_token_message": "Your personal access token has been generated. This is the only time you will see this token, so make sure to save it somewhere safe.",
+        "generated_personal_access_token": "Generovaný osobní přístupový token",
+        "delete_personal_access_token": "Jste si jisti, že chcete odstranit tento osobní přístupový token?"
     },
     "document_types": {
         "document": "Dokument",
