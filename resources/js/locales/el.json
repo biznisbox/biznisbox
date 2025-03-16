@@ -414,7 +414,8 @@
         "activity_type": "Τύπος Δραστηριότητας",
         "user": "Χρήστης",
         "is_internal": "Είναι Εσωτερικό",
-        "picture": "Εικόνα"
+        "picture": "Εικόνα",
+        "last_used_at": "Τελευταία Χρήση Σε"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -429,6 +430,16 @@
     "entity_types": {
         "company": "Εταιρεία",
         "individual": "Ατομικό"
+    },
+    "time_range": {
+        "one_day": "Μία ημέρα",
+        "one_week": "Μία εβδομάδα",
+        "one_month": "Ένας μήνας",
+        "three_months": "Τρεις μήνες",
+        "six_months": "Έξι μήνες",
+        "one_year": "Ένας χρόνος",
+        "all_time": "Όλη την ώρα",
+        "never": "Ποτέ"
     },
     "industries": {
         "agriculture": "Γεωργία",
@@ -582,7 +593,13 @@
         "two_factor_authentication_code": "Κωδικός Ελέγχου Ταυτότητας Δύο Παραγόντων",
         "two_factor_authentication_code_info": "Εισάγετε τον κωδικό που δημιουργήθηκε από την εφαρμογή ελέγχου ταυτότητας για να επαληθεύσετε τη ρύθμιση ελέγχου ταυτότητας δύο παραγόντων.",
         "verify_2fa": "Επιβεβαίωση 2FA",
-        "cannot_remove__default_avatar": "Δεν μπορείτε να καταργήσετε το προεπιλεγμένο avatar."
+        "cannot_remove_default_avatar": "Δεν μπορείτε να καταργήσετε το προεπιλεγμένο avatar.",
+        "personal_access_tokens": "Προσωπικά Διακριτικά Πρόσβασης",
+        "create_personal_access_token": "Δημιουργία Προσωπικού Διακριτικού Πρόσβασης",
+        "no_personal_access_tokens": "Δεν βρέθηκαν προσωπικά διακριτικά πρόσβασης",
+        "generated_personal_access_token_message": "Το προσωπικό σας διακριτικό πρόσβασης έχει δημιουργηθεί. Αυτή είναι η μόνη φορά που θα δείτε αυτό το διακριτικό, οπότε φροντίστε να το αποθηκεύσετε κάπου ασφαλές.",
+        "generated_personal_access_token": "Δημιουργημένο Προσωπικό Διακριτικό Πρόσβασης",
+        "delete_personal_access_token": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το προσωπικό διακριτικό πρόσβασης?"
     },
     "document_types": {
         "document": "Έγγραφο",
