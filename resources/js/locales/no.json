@@ -414,7 +414,8 @@
         "activity_type": "Aktivitetstype",
         "user": "Bruker",
         "is_internal": "Er intern",
-        "picture": "Bilde"
+        "picture": "Bilde",
+        "last_used_at": "Sist brukt den"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -429,6 +430,16 @@
     "entity_types": {
         "company": "Firma",
         "individual": "Individuell"
+    },
+    "time_range": {
+        "one_day": "Én dag",
+        "one_week": "Én uke",
+        "one_month": "Én måned",
+        "three_months": "Tre måneder",
+        "six_months": "Seks måneder",
+        "one_year": "Ett år",
+        "all_time": "Hele tiden",
+        "never": "Aldri"
     },
     "industries": {
         "agriculture": "Jordbruk",
@@ -582,7 +593,13 @@
         "two_factor_authentication_code": "To-faktor autentiserings kode",
         "two_factor_authentication_code_info": "Skriv inn koden som er generert av din autentiseringsapp for å bekrefte to-faktor autentiseringsoppsett.",
         "verify_2fa": "Verifiser 2FA",
-        "cannot_remove__default_avatar": "Du kan ikke fjerne standard avataren."
+        "cannot_remove_default_avatar": "Du kan ikke fjerne standard avataren.",
+        "personal_access_tokens": "Personlige tilgangsnøkler",
+        "create_personal_access_token": "Opprett personlig tilgangsnøkkel",
+        "no_personal_access_tokens": "Ingen personlige tilgangsnøkler funnet",
+        "generated_personal_access_token_message": "Ditt personlige tilgangstoken er generert. Dette er bare tiden du vil se denne koden, så sørg for å lagre det et trygt sted.",
+        "generated_personal_access_token": "Generert personlig tilgangsnøkkel",
+        "delete_personal_access_token": "Er du sikker på at du vil slette denne personlige tilgangstoken?"
     },
     "document_types": {
         "document": "Dokument",
