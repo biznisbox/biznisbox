@@ -414,7 +414,8 @@
         "activity_type": "Тип деятельности",
         "user": "Пользователь",
         "is_internal": "Внутренний",
-        "picture": "Картинка"
+        "picture": "Картинка",
+        "last_used_at": "Последнее использование в"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -429,6 +430,16 @@
     "entity_types": {
         "company": "Компания",
         "individual": "Индивидуальный"
+    },
+    "time_range": {
+        "one_day": "Один день",
+        "one_week": "Одна неделя",
+        "one_month": "Один месяц",
+        "three_months": "Три месяца",
+        "six_months": "Шесть месяцев",
+        "one_year": "Один год",
+        "all_time": "За все время",
+        "never": "Никогда"
     },
     "industries": {
         "agriculture": "Сельское хозяйство",
@@ -582,7 +593,13 @@
         "two_factor_authentication_code": "Код двухфакторной аутентификации",
         "two_factor_authentication_code_info": "Введите код, созданный вашим приложением-аутентификатором для проверки двухфакторной аутентификации.",
         "verify_2fa": "Проверить 2FA",
-        "cannot_remove__default_avatar": "Нельзя удалить аватар по умолчанию."
+        "cannot_remove_default_avatar": "Нельзя удалить аватар по умолчанию.",
+        "personal_access_tokens": "Персональные токены доступа",
+        "create_personal_access_token": "Создать токен персонального доступа",
+        "no_personal_access_tokens": "Маркеры персонального доступа не найдены",
+        "generated_personal_access_token_message": "Ваш персональный токен доступа был создан. Это единственный раз, когда вы увидите этот токен, поэтому убедитесь, что он сохранён в безопасном месте.",
+        "generated_personal_access_token": "Генерируемый персональный токен доступа",
+        "delete_personal_access_token": "Вы уверены, что хотите удалить этот персональный токен доступа?"
     },
     "document_types": {
         "document": "Документ",
