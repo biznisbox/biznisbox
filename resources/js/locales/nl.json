@@ -414,7 +414,8 @@
         "activity_type": "Type activiteit",
         "user": "Gebruiker",
         "is_internal": "Is intern",
-        "picture": "Afbeelding"
+        "picture": "Afbeelding",
+        "last_used_at": "Laatst gebruikt op"
     },
     "address_types": {
         "billing": "Facturering",
@@ -429,6 +430,16 @@
     "entity_types": {
         "company": "Bedrijfsnaam",
         "individual": "Individueel"
+    },
+    "time_range": {
+        "one_day": "number@@0 dagen",
+        "one_week": "Een week",
+        "one_month": "Een maand",
+        "three_months": "Drie maanden",
+        "six_months": "Zes maanden",
+        "one_year": "Een jaar",
+        "all_time": "Gehele tijd",
+        "never": "Nooit"
     },
     "industries": {
         "agriculture": "Landbouw",
@@ -582,7 +593,13 @@
         "two_factor_authentication_code": "Twee Factor Authenticatie Code",
         "two_factor_authentication_code_info": "Voer de door uw authenticatie-app gegenereerde code in om de tweestapsverificatie te verifiëren.",
         "verify_2fa": "2FA verifiëren",
-        "cannot_remove__default_avatar": "Je kunt de standaard avatar niet verwijderen."
+        "cannot_remove_default_avatar": "Je kunt de standaard avatar niet verwijderen.",
+        "personal_access_tokens": "Persoonlijke toegangstokens",
+        "create_personal_access_token": "Persoonlijke toegangstoken aanmaken",
+        "no_personal_access_tokens": "Geen persoonlijke toegangstokens gevonden",
+        "generated_personal_access_token_message": "Uw persoonlijke toegangstoken is gegenereerd. Dit is de enige keer dat u dit token ziet, dus zorg ervoor dat u het ergens veilig opslaat.",
+        "generated_personal_access_token": "Gegenereerde persoonlijke toegangstoken",
+        "delete_personal_access_token": "Weet u zeker dat u deze persoonlijke toegangstoets wilt verwijderen?"
     },
     "document_types": {
         "document": "Document",
