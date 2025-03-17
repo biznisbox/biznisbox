@@ -50,4 +50,12 @@ return [
     'login_os' => 'OS: :os',
     'login_date' => 'Date and time: :date',
     'if_this_was_not_you' => 'If this was not you, please change your password immediately and contact administrator.',
+    'personal_access_token_created' => 'Personal Access Token Created',
+    'subject_personal_access_token_created' => 'Personal Access Token Created',
+    'new_personal_access_token_generated' => 'A new personal access token has been generated in your account.',
+    'personal_access_token' => 'Personal Access Token',
+    'personal_access_token_details' => 'Personal Access Token Details',
+    'personal_access_token_name' => 'Token Name',
+    'personal_access_token_valid_until' => 'Valid Until',
+    'if_this_was_not_you_personal_access_token' => 'If this was not you, please delete the token immediately and contact administrator.',
 ];
