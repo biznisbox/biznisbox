@@ -50,4 +50,12 @@ return [
     'login_os' => 'OS: :os',
     'login_date' => 'Date et heure : :date',
     'if_this_was_not_you' => 'Si ce n\'est pas vous, veuillez changer votre mot de passe immédiatement et contacter l\'administrateur.',
+    'personal_access_token_created' => 'Jeton d\'accès personnel créé',
+    'subject_personal_access_token_created' => 'Jeton d\'accès personnel créé',
+    'new_personal_access_token_generated' => 'Un nouveau jeton d\'accès personnel a été généré dans votre compte.',
+    'personal_access_token' => 'Jeton d\'accès personnel',
+    'personal_access_token_details' => 'Détails du jeton d\'accès personnel',
+    'personal_access_token_name' => 'Nom du jeton',
+    'personal_access_token_valid_until' => 'Valable jusqu\'au',
+    'if_this_was_not_you_personal_access_token' => 'Si ce n\'est pas vous, s\'il vous plaît supprimer le jeton immédiatement et contacter l\'administrateur.',
 ];
