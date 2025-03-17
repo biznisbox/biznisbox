@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\App;
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -299,6 +301,6 @@ return [
         |
         */
 
-        'storage' => PHPOpenSourceSaver\JWTAuth\Providers\Storage\Illuminate::class,
+        'storage' => \App\Utils\JwtBlackList::class,
     ],
 ];
