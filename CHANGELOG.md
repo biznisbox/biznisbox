@@ -2,14 +2,14 @@
 
 ## ✨ New Features and Enhancements
 
-- Added functions for generating personal access tokens.
+- Added functions for generating personal access tokens for authentication (mobile apps, etc.).
 
 ## 🐛 Bug Fixes
 
 - Fixed an issue where the language cookie was missing during app installation.
 - Fixed a bug preventing user webhooks from being saved via the API (Zapier).
 - Removed the requirement for the item number field (now generated automatically).
-- Fixed an issue causing incorrect behavior in the API (getPublicProducts).
+- Fixed an issue causing incorrect behavior in the API (`getPublicProducts`).
 
 ## 💄 UI/UX Improvements
 

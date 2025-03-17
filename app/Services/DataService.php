@@ -2,12 +2,13 @@
 
 namespace App\Services;
 
+use App\Mail\User\PersonalAccessTokenCreated;
 use App\Models\ActivityLog;
 use App\Models\Tax;
 use App\Models\Unit;
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class DataService
@@ -292,6 +293,10 @@ class DataService
         $data['valid_until'] = now()->addMinutes($ttls[$ttl]);
 
         $personalAccessToken = $personalAccessToken->create($data);
+
+        Mail::to($user->email, $user->first_name . ' ' . $user->last_name)->send(
+            new PersonalAccessTokenCreated($user, $personalAccessToken)
+        );
         return $token;
     }
 
