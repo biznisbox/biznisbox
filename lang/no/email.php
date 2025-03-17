@@ -50,4 +50,12 @@ return [
     'login_os' => 'OS: :os',
     'login_date' => 'Dato og klokkeslett: :date',
     'if_this_was_not_you' => 'Hvis dette ikke var deg, vennligst endre passordet umiddelbart og kontakt administrator.',
+    'personal_access_token_created' => 'Personlig tilgangsnøkkel opprettet',
+    'subject_personal_access_token_created' => 'Personlig tilgangsnøkkel opprettet',
+    'new_personal_access_token_generated' => 'En ny personlig tilgangstoken ble generert på kontoen din.',
+    'personal_access_token' => 'Personlige tilgangsnøkkel',
+    'personal_access_token_details' => 'Detaljer for personlig tilgangsnøkkel',
+    'personal_access_token_name' => 'Sjetongens navn',
+    'personal_access_token_valid_until' => 'Gyldig til',
+    'if_this_was_not_you_personal_access_token' => 'Hvis dette ikke var deg, vennligst slett tokenet umiddelbart og kontakt administrator.',
 ];
