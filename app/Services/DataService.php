@@ -7,6 +7,7 @@ use App\Models\ActivityLog;
 use App\Models\Tax;
 use App\Models\Unit;
 use App\Models\Category;
+use App\Utils\JwtBlackList;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -292,6 +293,8 @@ class DataService
         $data['type'] = 'personal_access_token';
         $data['valid_until'] = now()->addMinutes($ttls[$ttl]);
 
+        $data['token'] = getJwtPayloadData($token)['jti'];
+
         $personalAccessToken = $personalAccessToken->create($data);
 
         Mail::to($user->email, $user->first_name . ' ' . $user->last_name)->send(
@@ -314,6 +317,16 @@ class DataService
         if (!$personalAccessToken) {
             return null;
         }
+
+        // Revoke the token
+        DB::table(JwtBlackList::TABLE_NAME)->insert([
+            'id' => Str::orderedUuid(),
+            'key' => $personalAccessToken->token,
+            'valid_until' => null,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
         $personalAccessToken = $personalAccessToken->delete($id);
         return $personalAccessToken;
     }

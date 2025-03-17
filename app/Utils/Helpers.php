@@ -663,3 +663,17 @@ if (!function_exists('isAppInstalled')) {
         }
     }
 }
+
+if(!function_exists('getJwtPayloadData')){
+    /**
+     * Get JWT payload data
+     * @param string $token - JWT token
+     * @return array $payload - payload data
+     */
+    function getJwtPayloadData($token)
+    {
+        $token = explode('.', $token);
+        $payload = json_decode(base64_decode($token[1]), true);
+        return $payload;
+    }
+}
