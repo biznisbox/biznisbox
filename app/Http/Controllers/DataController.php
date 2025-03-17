@@ -253,4 +253,54 @@ class DataController extends Controller
         }
         return api_response($webhookSubscription, __('responses.item_deleted_successfully'));
     }
+
+    /****************************************
+     * Personal access token methods
+     ****************************************/
+
+    /**
+     * Get personal access tokens
+     */
+    public function getPersonalAccessTokens()
+    {
+        $personalAccessTokens = $this->dataService->getPersonalAccessTokens();
+        return api_response($personalAccessTokens, __('responses.data_retrieved_successfully'));
+    }
+
+    /**
+     * Get personal access token
+     */
+    public function getPersonalAccessToken($id)
+    {
+        $personalAccessToken = $this->dataService->getPersonalAccessToken($id);
+        if (!$personalAccessToken) {
+            return api_response($personalAccessToken, __('responses.item_not_found_with_id'), 404);
+        }
+        return api_response($personalAccessToken, __('responses.data_retrieved_successfully'));
+    }
+
+    /**
+     * Create personal access token
+     */
+    public function createPersonalAccessToken(Request $request)
+    {
+        $data = $request->all();
+        $token = $this->dataService->createPersonalAccessToken($data);
+        if (!$token) {
+            return api_response($token, __('responses.item_not_created'), 400);
+        }
+        return api_response($token, __('responses.item_created_successfully'));
+    }
+
+    /**
+     * Delete personal access token
+     */
+    public function deletePersonalAccessToken($id)
+    {
+        $personalAccessToken = $this->dataService->deletePersonalAccessToken($id);
+        if (!$personalAccessToken) {
+            return api_response($personalAccessToken, __('responses.item_not_deleted'), 400);
+        }
+        return api_response($personalAccessToken, __('responses.item_deleted_successfully'));
+    }
 }

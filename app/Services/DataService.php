@@ -2,11 +2,14 @@
 
 namespace App\Services;
 
+use App\Mail\User\PersonalAccessTokenCreated;
 use App\Models\ActivityLog;
 use App\Models\Tax;
 use App\Models\Unit;
 use App\Models\Category;
+use App\Utils\JwtBlackList;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class DataService
@@ -186,7 +189,6 @@ class DataService
     public function createWebhookSubscription($data)
     {
         $webhook = new \App\Models\WebhookSubscription();
-        $data['headers'] = $this->formatHeaderForBackend($data['headers']);
         $data['user_id'] = auth()->id();
         $webhook = $webhook->create($data);
         return $webhook;
@@ -237,12 +239,95 @@ class DataService
         }
     }
 
-    private function formatHeaderForBackend($header)
+    /****************************************
+     * Personal Access Token services
+     ****************************************/
+
+    public function getPersonalAccessTokens()
     {
-        $formattedHeader = [];
-        foreach ($header as $h) {
-            $formattedHeader[$h['key']] = $h['value'];
+        $personalAccessToken = new \App\Models\PersonalAccessToken();
+        $userId = auth()->id();
+        $personalAccessToken = $personalAccessToken->getPersonalAccessTokens($userId);
+        return $personalAccessToken;
+    }
+
+    public function getPersonalAccessToken($id)
+    {
+        $personalAccessToken = new \App\Models\PersonalAccessToken();
+        $personalAccessToken = $personalAccessToken->getPersonalAccessToken($id);
+
+        if ($personalAccessToken->user_id != auth()->id()) {
+            return null;
         }
-        return $formattedHeader;
+
+        return $personalAccessToken;
+    }
+
+    public function createPersonalAccessToken($data)
+    {
+        $personalAccessToken = new \App\Models\PersonalAccessToken();
+        $data['user_id'] = auth()->id();
+        $data['name'] = $data['name'] ?? 'Personal Access Token';
+
+        $user = new \App\Models\User();
+        $user = $user->find($data['user_id']);
+
+        $ttl = $data['valid_until'] ?? 'one_day';
+
+        $ttls = [
+            'one_day' => 1440,
+            'one_week' => 10080,
+            'one_month' => 43200,
+            'one_year' => 525600,
+            'never' => 525600 * 100, // 100 years (525600 minutes in a year)
+            'one_hour' => 60,
+            'six_months' => 262800,
+            'custom' => $data['valid_until'],
+        ];
+
+        $token = auth()
+            ->setTTL($ttls[$ttl])
+            ->claims(['personal_access_token' => true])
+            ->login($user);
+
+        $data['type'] = 'personal_access_token';
+        $data['valid_until'] = now()->addMinutes($ttls[$ttl]);
+
+        $data['token'] = getJwtPayloadData($token)['jti'];
+
+        $personalAccessToken = $personalAccessToken->create($data);
+
+        Mail::to($user->email, $user->first_name . ' ' . $user->last_name)->send(
+            new PersonalAccessTokenCreated($user, $personalAccessToken)
+        );
+        return $token;
+    }
+
+    /**
+     * Delete personal access token
+     */
+    public function deletePersonalAccessToken($id)
+    {
+        $personalAccessToken = new \App\Models\PersonalAccessToken();
+
+        $personalAccessToken = $personalAccessToken
+            ->where('id', $id)
+            ->where('user_id', auth()->id())
+            ->first();
+        if (!$personalAccessToken) {
+            return null;
+        }
+
+        // Revoke the token
+        DB::table(JwtBlackList::TABLE_NAME)->insert([
+            'id' => Str::orderedUuid(),
+            'key' => $personalAccessToken->token,
+            'valid_until' => null,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $personalAccessToken = $personalAccessToken->delete($id);
+        return $personalAccessToken;
     }
 }

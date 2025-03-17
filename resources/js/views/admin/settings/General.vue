@@ -26,15 +26,32 @@
                         />
                     </div>
 
-                    <SelectInput
-                        id="available_currency_select"
-                        v-model="settings.default_currency"
-                        :label="$t('admin.general.default_currency')"
-                        :options="currencies"
-                        class="col-12"
-                        option-value="code"
-                        option-label="name"
-                    />
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <SelectInput
+                            id="available_currency_select"
+                            v-model="settings.default_currency"
+                            :label="$t('admin.general.default_currency')"
+                            :options="currencies"
+                            class="col-12"
+                            option-value="code"
+                            option-label="name"
+                        />
+
+                        <SelectInput
+                            id="week_start_select"
+                            v-model="settings.week_start"
+                            :label="$t('admin.general.week_start')"
+                            :options="[
+                                { value: 0, label: $t('day.sunday') },
+                                { value: 1, label: $t('day.monday') },
+                                { value: 2, label: $t('day.tuesday') },
+                                { value: 3, label: $t('day.wednesday') },
+                                { value: 4, label: $t('day.thursday') },
+                                { value: 5, label: $t('day.friday') },
+                                { value: 6, label: $t('day.saturday') },
+                            ]"
+                        />
+                    </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
                         <SelectInput
@@ -79,7 +96,7 @@
                     </div>
                 </form>
             </div>
-            <div id="function_buttons" class="flex gap-2 justify-end">
+            <div id="function_buttons" class="flex justify-end mt-4 gap-2">
                 <Button id="save_button" :label="$t('basic.save')" icon="fa fa-floppy-disk" severity="success" @click="updateSettings" />
             </div>
         </LoadingScreen>

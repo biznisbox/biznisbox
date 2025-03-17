@@ -271,12 +271,6 @@ return [
          */
         'font_height_ratio' => 1.1,
 
-        /**
-         * Use the HTML5 Lib parser
-         *
-         * @deprecated This feature is now always on in dompdf 2.x
-         * @var bool
-         */
-        'enable_html5_parser' => true,
+        'unicode_enabled' => true,
     ],
 ];

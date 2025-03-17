@@ -59,7 +59,7 @@
                                 <TabPanel value="partner_activities">
                                     <div>
                                         <div class="flex justify-between items-center">
-                                            <h3 class="font-bold mb-4">{{ $t('partner.activities') }}</h3>
+                                            <h3 class="font-bold mb-4 dark:text-surface-200">{{ $t('partner.activities') }}</h3>
                                             <Button
                                                 :label="$t('partner.add_activity')"
                                                 icon="fa fa-plus"
@@ -89,12 +89,18 @@
                                                 <template #content="slotProps">
                                                     <div class="flex flex-col mt-2">
                                                         <div class="grid grid-cols-3 gap-2">
-                                                            <span class="text-left font-bold">{{ slotProps.item.subject }}</span>
-                                                            <span class="ml-2 text-sm text-gray-500" v-if="slotProps.item.start_date">{{
-                                                                formatDateTime(slotProps.item.start_date) +
-                                                                ' - ' +
-                                                                formatDateTime(slotProps.item.end_date)
+                                                            <span class="text-left font-bold dark:text-surface-200">{{
+                                                                slotProps.item.subject
                                                             }}</span>
+                                                            <span
+                                                                class="ml-2 text-sm dark:text-surface-200"
+                                                                v-if="slotProps.item.start_date"
+                                                                >{{
+                                                                    formatDateTime(slotProps.item.start_date) +
+                                                                    ' - ' +
+                                                                    formatDateTime(slotProps.item.end_date)
+                                                                }}</span
+                                                            >
                                                         </div>
 
                                                         <div class="flex">
@@ -156,18 +162,18 @@
                                                         <div class="grid">
                                                             <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                                                                 <div>
-                                                                    <div class="block text-sm text-gray-500">
+                                                                    <div class="block text-sm dark:text-surface-200">
                                                                         {{ slotProps.item.location }}
                                                                     </div>
-                                                                    <div class="block text-sm text-gray-500">
+                                                                    <div class="block text-sm dark:text-surface-200">
                                                                         {{ slotProps.item.notes }}
                                                                     </div>
-                                                                    <div class="block text-sm text-gray-500">
+                                                                    <div class="block text-sm dark:text-surface-200">
                                                                         {{ slotProps.item.outcome }}
                                                                     </div>
                                                                     <div
                                                                         v-if="slotProps.item.type === 'note'"
-                                                                        class="block text-sm text-gray-500"
+                                                                        class="block text-sm dark:text-surface-200"
                                                                     >
                                                                         <span v-html="formatHtml(slotProps.item.content)"></span>
                                                                     </div>
@@ -211,7 +217,7 @@
                                 <TabPanel value="contact_information">
                                     <DataTable id="contacts_table" :value="partner.contacts">
                                         <template #empty>
-                                            <div class="p-4 pl-0 text-center w-full">
+                                            <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                 <i class="fa fa-info-circle empty-icon"></i>
                                                 <p>{{ $t('partner.no_contacts') }}</p>
                                             </div>
@@ -237,7 +243,7 @@
                                 <TabPanel value="addresses">
                                     <DataTable id="addresses_table" class="col-12" :value="partner.addresses">
                                         <template #empty>
-                                            <div class="p-4 pl-0 text-center w-full">
+                                            <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                 <i class="fa fa-info-circle empty-icon"></i>
                                                 <p>{{ $t('partner.no_addresses') }}</p>
                                             </div>
@@ -270,7 +276,7 @@
                                 <TabPanel value="invoices" v-if="hasPermission('invoices')">
                                     <DataTable :value="partner.invoices" @row-dblclick="viewInvoiceNavigation">
                                         <template #empty>
-                                            <div class="p-4 pl-0 text-center w-full">
+                                            <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                 <i class="fa fa-info-circle empty-icon"></i>
                                                 <p>{{ $t('invoice.no_invoices') }}</p>
                                             </div>
@@ -314,7 +320,7 @@
                                     <div id="quote_table">
                                         <DataTable :value="partner.quotes" @row-dblclick="viewQuoteNavigation">
                                             <template #empty>
-                                                <div class="p-4 pl-0 text-center w-full">
+                                                <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                     <i class="fa fa-info-circle empty-icon"></i>
                                                     <p>{{ $t('quote.no_quotes') }}</p>
                                                 </div>
@@ -378,7 +384,7 @@
                                     <div id="bills_table">
                                         <DataTable :value="partner.bills" @row-dblclick="viewBillNavigation">
                                             <template #empty>
-                                                <div class="p-4 pl-0 text-center w-full">
+                                                <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                     <i class="fa fa-info-circle empty-icon"></i>
                                                     <p>{{ $t('bill.no_bills') }}</p>
                                                 </div>
@@ -434,7 +440,7 @@
                                     <div id="transactions_table">
                                         <DataTable :value="partner.transactions" @row-dblclick="viewTransactionNavigation">
                                             <template #empty>
-                                                <div class="p-4 pl-0 text-center w-full">
+                                                <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                     <i class="fa fa-info-circle empty-icon"></i>
                                                     <p>{{ $t('transaction.no_transactions') }}</p>
                                                 </div>
@@ -490,7 +496,7 @@
                                 <TabPanel value="support" v-if="hasPermission('support')">
                                     <DataTable :value="partner.support_tickets" @row-dblclick="viewSupportTicketNavigation">
                                         <template #empty>
-                                            <div class="p-4 pl-0 text-center w-full">
+                                            <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                 <i class="fa fa-info-circle empty-icon"></i>
                                                 <p>{{ $t('support.no_support_tickets') }}</p>
                                             </div>
@@ -530,7 +536,7 @@
                                     <div id="archive_documents_table">
                                         <DataTable :value="partner.archive_documents" @row-dblclick="downloadFile">
                                             <template #empty>
-                                                <div class="p-4 pl-0 text-center w-full">
+                                                <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                     <i class="fa fa-info-circle empty-icon"></i>
                                                     <p>{{ $t('archive.no_documents') }}</p>
                                                 </div>
@@ -561,134 +567,133 @@
                     </div>
                 </div>
             </div>
-            <div id="function_buttons" class="flex justify-end mt-4">
+            <div id="function_buttons" class="flex justify-end mt-4 gap-2">
                 <Button :label="$t('basic.close')" icon="fa fa-times" @click="goTo('/partners')" severity="secondary" />
             </div>
-
-            <!-- Edit add activity dialog -->
-            <Dialog
-                v-model:visible="showAddEditActivityDialog"
-                modal
-                maximizable
-                class="w-full m-2 lg:w-1/2"
-                :header="activityDialogMode === 'add' ? $t('partner.add_activity') : $t('partner.edit_activity')"
-                :draggable="false"
-            >
-                <div id="add_edit_activity_form">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <SelectInput
-                            v-model="activity.partner_contact_id"
-                            :label="$t('form.contact')"
-                            :options="partner.contacts"
-                            option-value="id"
-                            option-label="name"
-                            show-clear
-                        />
-                        <SelectInput
-                            v-model="v$.activity.type.$model"
-                            :label="$t('form.activity_type')"
-                            :options="[
-                                { value: 'call', name: $t('partner_activity_types.call') },
-                                { value: 'task', name: $t('partner_activity_types.task') },
-                                { value: 'video_call', name: $t('partner_activity_types.video_call') },
-                                { value: 'meeting', name: $t('partner_activity_types.meeting') },
-                                { value: 'email', name: $t('partner_activity_types.email') },
-                                { value: 'visit', name: $t('partner_activity_types.visit') },
-                                { value: 'note', name: $t('partner_activity_types.note') },
-                                { value: 'other', name: $t('partner_activity_types.other') },
-                            ]"
-                            option-value="value"
-                            option-label="name"
-                            :validate="v$.activity.type"
-                        />
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <SelectInput
-                            v-model="v$.activity.status.$model"
-                            :label="$t('form.status')"
-                            :options="[
-                                { value: 'not_started', name: $t('status.not_started') },
-                                { value: 'planned', name: $t('status.planned') },
-                                { value: 'in_progress', name: $t('status.in_progress') },
-                                { value: 'completed', name: $t('status.completed') },
-                                { value: 'cancelled', name: $t('status.cancelled') },
-                                { value: 'other', name: $t('basic.other') },
-                            ]"
-                            option-value="value"
-                            option-label="name"
-                            :validate="v$.activity.status"
-                        />
-
-                        <SelectInput
-                            v-model="v$.activity.priority.$model"
-                            :label="$t('form.priority')"
-                            :options="[
-                                { value: 'low', name: $t('priority.low') },
-                                { value: 'normal', name: $t('priority.normal') },
-                                { value: 'medium', name: $t('priority.medium') },
-                                { value: 'high', name: $t('priority.high') },
-                            ]"
-                            option-value="value"
-                            option-label="name"
-                            :validate="v$.activity.priority"
-                        />
-                    </div>
-
-                    <TextInput v-model="v$.activity.subject.$model" :label="$t('form.subject')" :validate="v$.activity.subject" />
-                    <TinyMceEditor v-model="v$.activity.content.$model" :label="$t('form.content')" :validate="v$.activity.content" />
-                    <TextAreaInput v-model="activity.location" :label="$t('form.location')" />
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <DateInput v-model="activity.start_date" :label="$t('form.start_date')" showTime />
-                        <DateInput v-model="activity.end_date" :label="$t('form.end_date')" showTime />
-                    </div>
-
-                    <TextAreaInput v-model="activity.notes" :label="$t('form.notes')" />
-                    <TextAreaInput v-model="activity.outcome" :label="$t('form.outcome')" v-if="activity.status === 'completed'" />
+        </LoadingScreen>
+        <!-- Edit add activity dialog -->
+        <Dialog
+            v-model:visible="showAddEditActivityDialog"
+            modal
+            maximizable
+            class="w-full m-2 lg:w-1/2"
+            :header="activityDialogMode === 'add' ? $t('partner.add_activity') : $t('partner.edit_activity')"
+            :draggable="false"
+        >
+            <div id="add_edit_activity_form">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <SelectInput
+                        v-model="activity.partner_contact_id"
+                        :label="$t('form.contact')"
+                        :options="partner.contacts"
+                        option-value="id"
+                        option-label="name"
+                        show-clear
+                    />
+                    <SelectInput
+                        v-model="v$.activity.type.$model"
+                        :label="$t('form.activity_type')"
+                        :options="[
+                            { value: 'call', name: $t('partner_activity_types.call') },
+                            { value: 'task', name: $t('partner_activity_types.task') },
+                            { value: 'video_call', name: $t('partner_activity_types.video_call') },
+                            { value: 'meeting', name: $t('partner_activity_types.meeting') },
+                            { value: 'email', name: $t('partner_activity_types.email') },
+                            { value: 'visit', name: $t('partner_activity_types.visit') },
+                            { value: 'note', name: $t('partner_activity_types.note') },
+                            { value: 'other', name: $t('partner_activity_types.other') },
+                        ]"
+                        option-value="value"
+                        option-label="name"
+                        :validate="v$.activity.type"
+                    />
                 </div>
 
-                <template #footer>
-                    <div id="function_buttons" class="flex justify-end gap-2">
-                        <Button
-                            id="activity_delete_button"
-                            :label="$t('basic.delete')"
-                            icon="fa fa-trash"
-                            severity="danger"
-                            @click="deletePartnerActivity(activity.id)"
-                            v-if="activityDialogMode === 'edit'"
-                        />
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <SelectInput
+                        v-model="v$.activity.status.$model"
+                        :label="$t('form.status')"
+                        :options="[
+                            { value: 'not_started', name: $t('status.not_started') },
+                            { value: 'planned', name: $t('status.planned') },
+                            { value: 'in_progress', name: $t('status.in_progress') },
+                            { value: 'completed', name: $t('status.completed') },
+                            { value: 'cancelled', name: $t('status.cancelled') },
+                            { value: 'other', name: $t('basic.other') },
+                        ]"
+                        option-value="value"
+                        option-label="name"
+                        :validate="v$.activity.status"
+                    />
 
-                        <Button
-                            id="activity_cancel_button"
-                            :label="$t('basic.cancel')"
-                            icon="fa fa-times"
-                            severity="secondary"
-                            @click="showAddEditActivityDialog = false"
-                        />
-                        <Button
-                            id="activity_save_button"
-                            :label="activityDialogMode == 'add' ? $t('basic.save') : $t('basic.update')"
-                            icon="fa fa-save"
-                            @click="addUpdateActivityValidation"
-                            severity="success"
-                        />
-                    </div>
-                </template>
-            </Dialog>
+                    <SelectInput
+                        v-model="v$.activity.priority.$model"
+                        :label="$t('form.priority')"
+                        :options="[
+                            { value: 'low', name: $t('priority.low') },
+                            { value: 'normal', name: $t('priority.normal') },
+                            { value: 'medium', name: $t('priority.medium') },
+                            { value: 'high', name: $t('priority.high') },
+                        ]"
+                        option-value="value"
+                        option-label="name"
+                        :validate="v$.activity.priority"
+                    />
+                </div>
 
-            <!--Audit log dialog -->
-            <Dialog
-                v-model:visible="showAuditLogDialog"
-                modal
-                maximizable
-                class="w-full m-2 lg:w-1/2"
-                :header="$t('audit_log.audit_log')"
-                :draggable="false"
-            >
-                <AuditLog :item_id="$route.params.id" item_type="Partner" />
-            </Dialog>
-        </LoadingScreen>
+                <TextInput v-model="v$.activity.subject.$model" :label="$t('form.subject')" :validate="v$.activity.subject" />
+                <TinyMceEditor v-model="v$.activity.content.$model" :label="$t('form.content')" :validate="v$.activity.content" />
+                <TextAreaInput v-model="activity.location" :label="$t('form.location')" />
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <DateInput v-model="activity.start_date" :label="$t('form.start_date')" showTime />
+                    <DateInput v-model="activity.end_date" :label="$t('form.end_date')" showTime />
+                </div>
+
+                <TextAreaInput v-model="activity.notes" :label="$t('form.notes')" />
+                <TextAreaInput v-model="activity.outcome" :label="$t('form.outcome')" v-if="activity.status === 'completed'" />
+            </div>
+
+            <template #footer>
+                <div id="function_buttons" class="flex justify-end gap-2">
+                    <Button
+                        id="activity_delete_button"
+                        :label="$t('basic.delete')"
+                        icon="fa fa-trash"
+                        severity="danger"
+                        @click="deletePartnerActivity(activity.id)"
+                        v-if="activityDialogMode === 'edit'"
+                    />
+
+                    <Button
+                        id="activity_cancel_button"
+                        :label="$t('basic.cancel')"
+                        icon="fa fa-times"
+                        severity="secondary"
+                        @click="showAddEditActivityDialog = false"
+                    />
+                    <Button
+                        id="activity_save_button"
+                        :label="activityDialogMode == 'add' ? $t('basic.save') : $t('basic.update')"
+                        icon="fa fa-save"
+                        @click="addUpdateActivityValidation"
+                        severity="success"
+                    />
+                </div>
+            </template>
+        </Dialog>
+
+        <!--Audit log dialog -->
+        <Dialog
+            v-model:visible="showAuditLogDialog"
+            modal
+            maximizable
+            class="w-full m-2 lg:w-1/2"
+            :header="$t('audit_log.audit_log')"
+            :draggable="false"
+        >
+            <AuditLog :item_id="$route.params.id" item_type="Partner" />
+        </Dialog>
     </DefaultLayout>
 </template>
 <script>

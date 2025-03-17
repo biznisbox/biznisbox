@@ -61,8 +61,8 @@
                                         :validate="v$.event.end"
                                     />
                                     <div class="flex items-center gap-2 lg:col-span-1">
-                                        <label class="dark:text-surface-200" for="all_day_input">{{ $t('form.all_day') }}</label>
                                         <Checkbox id="all_day_input" v-model="event.all_day" name="all_day" binary />
+                                        <label class="dark:text-surface-200" for="all_day_input">{{ $t('form.all_day') }}</label>
                                     </div>
                                 </div>
 
@@ -307,7 +307,7 @@ export default {
                 start: info.dateStr,
                 end: info.dateStr,
                 all_day: true,
-                color: '#007bff',
+                color: '#346bb4',
                 show_as: 'busy',
                 status: 'confirmed',
                 description: '',
@@ -323,7 +323,7 @@ export default {
                 start: '',
                 end: '',
                 all_day: true,
-                color: '#007bff',
+                color: '#346bb4',
                 show_as: 'busy',
                 status: 'confirmed',
                 description: '',

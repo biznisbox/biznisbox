@@ -69,7 +69,7 @@
             </div>
         </LoadingScreen>
 
-        <div id="function_buttons" class="flex gap-2 justify-end">
+        <div id="function_buttons" class="flex justify-end mt-4 gap-2">
             <Button id="cancel_button" :label="$t('basic.cancel')" icon="fa fa-times" severity="secondary" @click="goTo('/admin/roles')" />
         </div>
 

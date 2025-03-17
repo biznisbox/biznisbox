@@ -67,15 +67,26 @@
                         <TextInput id="company_email_input" v-model="settings.company_email" :label="$t('admin.company.company_email')" />
                     </div>
 
-                    <TextInput
-                        id="company_vat_input"
-                        v-model="settings.company_vat"
-                        class="col-12"
-                        :label="$t('admin.company.company_vat')"
-                    />
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <TextInput id="company_vat_input" v-model="settings.company_vat" :label="$t('admin.company.company_vat')" />
+
+                        <TextInput
+                            id="company_website_input"
+                            v-model="settings.company_websit"
+                            :label="$t('admin.company.company_website')"
+                        />
+                    </div>
+
+                    <div class="flex flex-col gap-2 mb-2">
+                        <label for="color_input" class="dark:text-surface-200">{{ $t('admin.company.company_primary_color') }}</label>
+                        <div class="grid grid-cols-12 gap-2 items-center">
+                            <ColorPicker id="color_input" v-model="settings.company_color" class="col-span-1" />
+                            <TextInput id="company_color_input" v-model="settings.company_color" class="col-span-11" />
+                        </div>
+                    </div>
                 </form>
             </div>
-            <div id="function_buttons" class="flex gap-2 justify-end">
+            <div id="function_buttons" class="flex justify-end mt-4 gap-2">
                 <Button id="update_button" :label="$t('basic.update')" icon="fa fa-floppy-disk" severity="success" @click="validateForm" />
             </div>
         </LoadingScreen>

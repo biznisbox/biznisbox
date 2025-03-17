@@ -14,7 +14,7 @@ class BillRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'number' => 'required|string',
+            'number' => 'string|max:255',
             'supplier_id' => 'nullable|exists:partners,id',
             'supplier_name' => 'nullable|string',
             'supplier_address_id' => 'nullable|exists:partner_addresses,id',

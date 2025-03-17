@@ -73,7 +73,7 @@
                 </form>
             </div>
 
-            <div class="flex justify-end mt-4 gap-2">
+            <div id="function_buttons" class="flex justify-end mt-4 gap-2">
                 <Button :label="$t('basic.cancel')" @click="goTo('/products')" severity="secondary" id="cancel_button" icon="fa fa-times" />
                 <Button :label="$t('basic.update')" @click="validateForm" severity="success" id="update_button" icon="fa fa-save" />
             </div>

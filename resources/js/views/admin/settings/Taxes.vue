@@ -18,7 +18,7 @@
                 dataKey="id"
             >
                 <template #empty>
-                    <div class="p-4 pl-0 text-center w-full">
+                    <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                         <i class="fa fa-info-circle empty-icon"></i>
                         <p>{{ $t('admin.taxes.no_taxes') }}</p>
                         <Button class="mt-3" :label="$t('admin.taxes.create_first_tax')" icon="fa fa-plus" @click="openNewTaxDialog" />

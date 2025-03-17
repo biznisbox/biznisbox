@@ -21,7 +21,7 @@ class QuoteRequest extends FormRequest
             'sales_person_id' => 'nullable|exists:employees,id',
             'date' => 'required|date',
             'valid_until' => 'required|date',
-            'number' => 'required|string',
+            'number' => 'string|max:255',
             'type' => 'nullable|string',
             'status' => 'nullable|string',
             'currency' => 'required|string',

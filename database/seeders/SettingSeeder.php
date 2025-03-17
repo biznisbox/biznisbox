@@ -23,29 +23,38 @@ class SettingSeeder extends Seeder
         Setting::firstOrCreate(['key' => 'company_email'], ['value' => null, 'type' => 'string', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'company_logo'], ['value' => null, 'type' => 'string', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'company_vat'], ['value' => null, 'type' => 'string', 'is_public' => 1]);
+        Setting::firstOrCreate(['key' => 'company_color'], ['value' => '#346bb4', 'type' => 'string', 'is_public' => 1]);
+        Setting::firstOrCreate(['key' => 'company_website'], ['value' => null, 'type' => 'string', 'is_public' => 1]);
+        Setting::firstOrCreate(['key' => 'company_description'], ['value' => null, 'type' => 'string', 'is_public' => 1]);
 
+        // Default settings
         Setting::firstOrCreate(['key' => 'default_currency'], ['value' => 'EUR', 'type' => 'string', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'default_lang'], ['value' => 'en', 'type' => 'string', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'default_timezone'], ['value' => 'Europe/Ljubljana', 'type' => 'string', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'date_format'], ['value' => 'DD.MM.YYYY', 'type' => 'string', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'time_format'], ['value' => 'HH:mm', 'type' => 'string', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'datetime_format'], ['value' => 'DD.MM.YYYY HH:mm', 'type' => 'string', 'is_public' => 1]);
+        Setting::firstOrCreate(['key' => 'week_start'], ['value' => 1, 'type' => 'integer', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'show_barcode_on_documents'], ['value' => true, 'type' => 'boolean', 'is_public' => 1]);
 
+        // Stripe settings
         Setting::firstOrCreate(['key' => 'stripe_available'], ['value' => false, 'type' => 'boolean', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'stripe_key'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
         Setting::firstOrCreate(['key' => 'stripe_account_id'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
 
+        // Open Banking settings
         Setting::firstOrCreate(['key' => 'open_banking_available'], ['value' => false, 'type' => 'boolean', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'open_banking_id'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
         Setting::firstOrCreate(['key' => 'open_banking_secret'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
 
+        // PayPal settings
         Setting::firstOrCreate(['key' => 'paypal_client_id'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
         Setting::firstOrCreate(['key' => 'paypal_secret'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
         Setting::firstOrCreate(['key' => 'paypal_available'], ['value' => false, 'type' => 'boolean', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'paypal_test_mode'], ['value' => true, 'type' => 'boolean', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'paypal_account_id'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
 
+        // Set default number formats
         Setting::firstOrCreate(
             ['key' => 'quote_number_format'],
             ['value' => '{{TEXT:QUO}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
@@ -102,8 +111,15 @@ class SettingSeeder extends Seeder
             ['value' => '{{TEXT:CON}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
         );
 
+        // Set default payment method
         Setting::firstOrCreate(['key' => 'default_payment_method'], ['value' => 'bank_transfer', 'type' => 'string', 'is_public' => 1]);
 
+        // Set default due days
+        Setting::firstOrCreate(['key' => 'invoice_due_days'], ['value' => 14, 'type' => 'integer', 'is_public' => 1]);
+        Setting::firstOrCreate(['key' => 'quote_valid_days'], ['value' => 30, 'type' => 'integer', 'is_public' => 1]);
+        Setting::firstOrCreate(['key' => 'bill_due_days'], ['value' => 30, 'type' => 'integer', 'is_public' => 1]);
+
+        // Set default currency
         Currency::firstOrCreate(['code' => 'EUR'], ['name' => 'Euro', 'symbol' => '€', 'exchange_rate' => 1, 'status' => 'active']);
     }
 }

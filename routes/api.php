@@ -46,6 +46,12 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/me', [AuthController::class, 'Me'])->name('me'); // Get current user data
     Route::get('/logs', [DataController::class, 'getLogs'])->name('getLogs');
 
+    // Personal Access Tokens
+    Route::get('/personal-access-tokens', [DataController::class, 'getPersonalAccessTokens'])->name('getPersonalAccessTokens');
+    Route::get('/personal-access-tokens/{id}', [DataController::class, 'getPersonalAccessToken'])->name('getPersonalAccessToken');
+    Route::post('/personal-access-tokens', [DataController::class, 'createPersonalAccessToken'])->name('createPersonalAccessToken');
+    Route::delete('/personal-access-tokens/{id}', [DataController::class, 'deletePersonalAccessToken'])->name('deletePersonalAccessToken');
+
     // Category routes
     Route::get('/categories', [DataController::class, 'getCategories'])->name('getCategories');
     Route::get('/categories/{id}', [DataController::class, 'getCategory'])->name('getCategory');
@@ -194,7 +200,7 @@ Route::middleware('auth:api')->group(function () {
         Route::put('/documents/{id}', [ArchiveController::class, 'updateDocument'])->name('updateDocument');
         Route::delete('/documents/{id}', [ArchiveController::class, 'deleteDocument'])->name('deleteDocument');
         Route::put('/documents/{id}/restore', [ArchiveController::class, 'restoreDocument'])->name('restoreDocument');
-        Route::put('/documents/{id}/force-delete', [ArchiveController::class, 'forceDeleteDocument'])->name('forceDeleteDocument');
+        Route::put('/documents/{id}/force-delete', [ArchiveController::class, 'deleteDocumentPermanently'])->name('forceDeleteDocument');
         Route::put('/documents/{id}/move', [ArchiveController::class, 'moveDocument'])->name('moveDocument');
     });
 

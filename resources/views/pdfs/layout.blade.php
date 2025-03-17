@@ -1,17 +1,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="{{ app()->getLocale() }}">
     <head>
-        <meta http-equiv="Content-Type" content="charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>{{ $settings['company_name'] }}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
         <style>
             @page {
                 margin: 25px;
             }
 
             * {
-                font-family: Arial, Helvetica, sans-serif;
+                font-family: "Roboto", sans-serif;
                 font-size: 12px;
-                line-height: 1.5;
+                line-height: 1.0;
                 color: #333333;
             }
 

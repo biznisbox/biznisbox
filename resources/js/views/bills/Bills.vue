@@ -19,7 +19,7 @@
                 v-model:filters="filters"
             >
                 <template #empty>
-                    <div class="p-4 pl-0 text-center w-full">
+                    <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                         <i class="fa fa-info-circle empty-icon"></i>
                         <p>{{ $t('bill.no_bills') }}</p>
                         <Button

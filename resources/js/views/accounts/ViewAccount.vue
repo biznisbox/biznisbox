@@ -108,7 +108,7 @@
                             </TabPanels>
                         </Tabs>
                     </div>
-                    <div id="function_buttons" class="flex justify-end mt-2">
+                    <div id="function_buttons" class="flex justify-end mt-4 gap-2">
                         <Button
                             id="close_button"
                             :label="$t('basic.close')"

@@ -2,7 +2,7 @@
     <DefaultLayout menu_type="admin">
         <PageHeader :title="$t('admin.currency.title')">
             <template #actions>
-                <Button :label="$t('admin.currency.new_currency')" icon="fa fa-plus" @click="openNewCurrencyDialog" severity="success" />
+                <Button :label="$t('admin.currency.new_currency')" icon="fa fa-plus" @click="openNewCurrencyDialog" />
                 <Button
                     v-if="$settings.default_currency === 'EUR'"
                     :label="$t('admin.currency.update_rates')"
@@ -26,7 +26,7 @@
                 :rowsPerPageOptions="[5, 10, 20, 50]"
             >
                 <template #empty>
-                    <div class="p-4 pl-0 text-center w-full">
+                    <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                         <i class="fa fa-info-circle empty-icon"></i>
                         <p>{{ $t('admin.currency.no_currencies') }}</p>
                     </div>

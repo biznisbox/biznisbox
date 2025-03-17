@@ -9,7 +9,7 @@ export default {
 
             // Spacing
             'm-0',
-            { 'w-full': props.fluid },
+            'w-full',
 
             // Size
             {
@@ -25,15 +25,13 @@ export default {
             { 'first:ml-0 -ml-px': parent.instance.$name == 'InputGroup' && !props.showButtons },
 
             // Colors
-            'text-surface-800 dark:text-white/80',
+            'text-surface-600 dark:text-surface-200',
             'placeholder:text-surface-400 dark:placeholder:text-surface-500',
             'bg-surface-0 dark:bg-surface-900',
             'border',
             { 'border-surface-300 dark:border-surface-600': !props.invalid },
 
             // Invalid State
-            'invalid:focus:ring-red-200',
-            'invalid:hover:border-red-500',
             { 'border-red-500 dark:border-red-400': props.invalid },
 
             // States
@@ -56,7 +54,6 @@ export default {
             // Misc
             'appearance-none',
             'transition-colors duration-200',
-            'w-full',
         ],
     }),
 }

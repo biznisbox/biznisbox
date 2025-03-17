@@ -202,7 +202,7 @@ class Product extends Model implements Auditable
      */
     public function getPublicProducts()
     {
-        $products = $this->get([
+        $products = $this->where('active', true)->get([
             'id',
             'number',
             'name',
@@ -217,7 +217,7 @@ class Product extends Model implements Auditable
             'type',
             'barcode',
             'tax',
-        ])->where('active', true);
+        ]);
         createActivityLog('retrievePublic', null, 'App\Models\Product', 'Product');
         return $products;
     }

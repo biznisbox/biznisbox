@@ -26,7 +26,7 @@ class TransactionRequest extends FormRequest
             'type' => 'required|string',
             'from_account' => 'nullable|exists:accounts,id',
             'to_account' => 'nullable|exists:accounts,id',
-            'name' => 'required|string',
+            'number' => 'string|max:255',
             'description' => 'nullable|string',
             'amount' => 'required|numeric',
             'currency' => 'required|string',

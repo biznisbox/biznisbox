@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use hisorange\BrowserDetect\Parser as Browser;
+use Illuminate\Support\Facades\Mail;
 use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Support\Str;
+use App\Mail\User\LoginNotification;
 
 class Session extends Model implements Auditable
 {
@@ -86,6 +88,7 @@ class Session extends Model implements Auditable
         $ip_data = self::getIpLocation($request->ip());
         $client = new Browser();
         $client_data = $client->parse($request->userAgent() ?? '');
+        $fingerprint = self::generateFingerprint(null, $request->ip(), $request->userAgent() ?? '', $user_id);
         $session_data = [
             'user_id' => $user_id,
             'token' => $token,
@@ -102,9 +105,35 @@ class Session extends Model implements Auditable
             'region' => $ip_data['regionName'] ?? null,
             'latitude' => $ip_data['lat'] ?? null,
             'longitude' => $ip_data['lon'] ?? null,
-            'fingerprint' => self::generateFingerprint(null, $request->ip(), $request->userAgent() ?? '', $user_id),
+            'fingerprint' => $fingerprint,
         ];
+
+        if (self::isFirstTimeLogin($user_id, $fingerprint, $request)) {
+            $user = User::find($user_id);
+            self::sendLoginNotification($user, (object) $session_data);
+        }
+
         self::create($session_data);
+    }
+
+    /*
+     * Check if session is first time login
+     * @param string $user_id  User ID
+     * @param string $fingerprint  Session fingerprint
+     * @return bool
+     */
+    public static function isFirstTimeLogin($user_id, $fingerprint, $request)
+    {
+        // If request include Zapier, don't send email
+        if ($request->header('User-Agent') == 'Zapier Agent') {
+            return false;
+        }
+
+        $session = self::where('user_id', $user_id)->where('fingerprint', $fingerprint)->first();
+        if ($session) {
+            return false;
+        }
+        return true;
     }
 
     /*
@@ -113,7 +142,6 @@ class Session extends Model implements Auditable
      * @param string $token session token
      * @return void
      */
-
     public static function revokeSession($user_id, $token)
     {
         $session = self::where('user_id', $user_id)->where('token', $token)->first();
@@ -176,5 +204,10 @@ class Session extends Model implements Auditable
             $session->expires_at = null;
             $session->save();
         }
+    }
+
+    public static function sendLoginNotification($user, $login)
+    {
+        Mail::to($user->email, $user->first_name . ' ' . $user->last_name)->send(new LoginNotification($user, $login));
     }
 }

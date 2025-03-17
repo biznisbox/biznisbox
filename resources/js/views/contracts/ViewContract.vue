@@ -93,13 +93,17 @@
 
                 <DisplayData :input="$t('form.signers')" customValue>
                     <ul id="signers-list">
-                        <li v-for="(signer, index) in contract.signers" :key="index">
+                        <li v-for="(signer, index) in contract.signers" :key="index" class="mb-4">
                             <div>
                                 <span class="font-bold">{{ signer.signer_name }}</span>
-                                <div class="">
+                                <div v-if="signer.status == 'signed'">
                                     <img v-if="signer.signature" :src="signer.signature" alt="Signature" class="w-56 h-16" />
-                                    <span v-else class="text-red-400">{{ $t('contract.not_signed') }}</span>
                                 </div>
+
+                                <div v-else-if="signer.status == 'rejected'">
+                                    <span class="text-red-400">{{ $t('status.rejected') }}</span>
+                                </div>
+                                <span v-else class="text-red-400 block">{{ $t('contract.not_signed') }}</span>
                             </div>
                             <div v-if="signer.notes">
                                 <strong>{{ $t('form.notes') }}:</strong>
@@ -111,44 +115,48 @@
                 </DisplayData>
             </div>
 
-            <!-- Shared dialog -->
-            <Dialog
-                ref="shareDialog"
-                v-model:visible="shareDialog"
-                :header="$t('contract.share_dialog')"
-                modal
-                class="w-full m-2 lg:w-1/2"
-                :draggable="false"
-            >
-                <div id="share_dialog_content">
-                    <div class="text-center">{{ $t('contract.share_dialog_text') }}</div>
-
-                    <div class="flex justify-center my-2">
-                        <qrcode-vue :value="shareUrl" :size="140" level="H" />
-                    </div>
-
-                    <div class="flex gap-2 w-full">
-                        <InputText v-model="shareUrl" class="w-full" />
-                        <Button :label="$t('basic.copy')" icon="fa fa-copy" @click="copyToClipboard(shareUrl)" />
-                    </div>
-                </div>
-                <template #footer>
-                    <Button :label="$t('basic.cancel')" icon="fa fa-times" severity="secondary" @click="shareDialog = false" />
-                </template>
-            </Dialog>
-
-            <!--Audit log dialog -->
-            <Dialog
-                v-model:visible="showAuditLogDialog"
-                modal
-                maximizable
-                class="w-full m-2 lg:w-1/2"
-                :header="$t('audit_log.audit_log')"
-                :draggable="false"
-            >
-                <AuditLog :item_id="$route.params.id" item_type="Contract" :hiddenFields="['sha256', 'user_id']" />
-            </Dialog>
+            <div id="function_buttons" class="flex justify-end mt-4 gap-2">
+                <Button id="close_button" :label="$t('basic.close')" icon="fa fa-times" severity="secondary" @click="goTo('/contracts')" />
+            </div>
         </LoadingScreen>
+
+        <!-- Shared dialog -->
+        <Dialog
+            ref="shareDialog"
+            v-model:visible="shareDialog"
+            :header="$t('contract.share_dialog')"
+            modal
+            class="w-full m-2 lg:w-1/2"
+            :draggable="false"
+        >
+            <div id="share_dialog_content">
+                <div class="text-center">{{ $t('contract.share_dialog_text') }}</div>
+
+                <div class="flex justify-center my-2">
+                    <qrcode-vue :value="shareUrl" :size="140" level="H" />
+                </div>
+
+                <div class="flex gap-2 w-full">
+                    <InputText v-model="shareUrl" class="w-full" />
+                    <Button :label="$t('basic.copy')" icon="fa fa-copy" @click="copyToClipboard(shareUrl)" />
+                </div>
+            </div>
+            <template #footer>
+                <Button :label="$t('basic.cancel')" icon="fa fa-times" severity="secondary" @click="shareDialog = false" />
+            </template>
+        </Dialog>
+
+        <!--Audit log dialog -->
+        <Dialog
+            v-model:visible="showAuditLogDialog"
+            modal
+            maximizable
+            class="w-full m-2 lg:w-1/2"
+            :header="$t('audit_log.audit_log')"
+            :draggable="false"
+        >
+            <AuditLog :item_id="$route.params.id" item_type="Contract" :hiddenFields="['sha256', 'user_id']" />
+        </Dialog>
     </DefaultLayout>
 </template>
 <script>

@@ -60,7 +60,7 @@
                         @row-click="openDocument"
                     >
                         <template #empty>
-                            <div class="p-4 pl-0 text-center w-full">
+                            <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                 <div v-if="currentFolder !== 'trash'">
                                     <i class="fa fa-info-circle empty-icon"></i>
                                     <p>{{ $t('archive.no_documents') }}</p>

@@ -212,7 +212,8 @@
                     </div>
                 </div>
             </div>
-            <div id="function_buttons" class="flex justify-end mt-4">
+
+            <div id="function_buttons" class="flex justify-end mt-4 gap-2">
                 <Button id="cancel_button" :label="$t('basic.close')" icon="fa fa-times" severity="secondary" @click="goTo('/invoices')" />
             </div>
         </LoadingScreen>

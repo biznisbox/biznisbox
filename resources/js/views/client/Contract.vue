@@ -60,9 +60,21 @@
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
-                            <DisplayData :input="$t('form.start_date')" :value="formatDate(contract.start_date)" />
-                            <DisplayData :input="$t('form.end_date')" :value="formatDate(contract.end_date)" />
-                            <DisplayData :input="$t('form.date_for_signature')" :value="formatDate(contract.date_for_signature)" />
+                            <DisplayData
+                                v-if="contract.start_date != null"
+                                :input="$t('form.start_date')"
+                                :value="formatDate(contract.start_date)"
+                            />
+                            <DisplayData
+                                v-if="contract.end_date != null"
+                                :input="$t('form.end_date')"
+                                :value="formatDate(contract.end_date)"
+                            />
+                            <DisplayData
+                                v-if="contract.date_for_signature != null"
+                                :input="$t('form.date_for_signature')"
+                                :value="formatDate(contract.date_for_signature)"
+                            />
                         </div>
 
                         <div v-if="!loadingData && contract.signers.length > 0" id="partner_data">
@@ -88,13 +100,17 @@
 
                         <DisplayData :input="$t('form.signers')" customValue>
                             <ul id="signers-list">
-                                <li v-for="(signer, index) in contract.signers" :key="index">
+                                <li v-for="(signer, index) in contract.signers" :key="index" class="mb-4">
                                     <div>
                                         <span class="font-bold">{{ signer.signer_name }}</span>
-                                        <div class="">
+                                        <div v-if="signer.status == 'signed'">
                                             <img v-if="signer.signature" :src="signer.signature" alt="Signature" class="w-56 h-16" />
-                                            <span v-else class="text-red-400">{{ $t('contract.not_signed') }}</span>
                                         </div>
+
+                                        <div v-else-if="signer.status == 'rejected'">
+                                            <span class="text-red-400">{{ $t('status.rejected') }}</span>
+                                        </div>
+                                        <span v-else class="text-red-400 block">{{ $t('contract.not_signed') }}</span>
                                     </div>
                                     <div v-if="signer.notes">
                                         <strong>{{ $t('form.notes') }}:</strong>
@@ -126,7 +142,7 @@
                             :width="500"
                             :options="{
                                 backgroundColor: '#f8f9fa',
-                                penColor: '#141414',
+                                penColor: penColor,
                             }"
                         />
 
@@ -146,14 +162,21 @@
                     </div>
                     <div class="flex items-center mt-2">
                         <Checkbox v-model="sign_dialog_data.accept_terms" binary />
-                        <span class="ml-2">{{ $t('contract.accept_sign_terms') }}</span>
+                        <span class="ml-2 dark:text-surface-200">{{ $t('contract.accept_sign_terms') }}</span>
                     </div>
                 </div>
 
                 <template #footer>
                     <div class="flex justify-end gap-2">
                         <Button :label="$t('basic.cancel')" severity="secondary" @click="show_sign_dialog = false" />
-                        <Button :label="$t('basic.sign')" severity="success" icon="fa fa-signature" @click="signContract" />
+                        <Button :label="$t('basic.reject')" severity="danger" icon="fa fa-ban" @click="rejectContract" />
+                        <Button
+                            :label="$t('basic.sign')"
+                            severity="success"
+                            icon="fa fa-signature"
+                            :disabled="!sign_dialog_data.accept_terms"
+                            @click="signContract"
+                        />
                     </div>
                 </template>
             </Dialog>
@@ -169,6 +192,7 @@ export default {
         return {
             no_found: false,
             show_sign_dialog: false,
+            penColor: '#141414',
             contract: {
                 title: '',
                 content: '',
@@ -186,6 +210,7 @@ export default {
                 accept_terms: false,
                 signature: '',
                 notes: '',
+                sign_status: 'signed',
             },
         }
     },
@@ -213,6 +238,7 @@ export default {
                 accept_terms: false,
                 signature: '',
                 notes: '',
+                contract_status: 'signed',
             }
         },
 
@@ -232,10 +258,11 @@ export default {
         },
 
         signContract() {
-            if (!this.sign_dialog_data.accept_terms) {
+            if (!this.sign_dialog_data.accept_terms && this.sign_dialog_data.sign_status == 'signed') {
                 this.showToast(this.$t('contract.accept_terms_required'), this.$t('basic.error'), 'error')
                 return
             }
+
             this.sign_dialog_data.signature = this.$refs.signature.saveSignature()
 
             this.makeHttpRequest('POST', '/api/client/contract/sign', this.sign_dialog_data, { key: this.$route.query.key })
@@ -249,6 +276,11 @@ export default {
                     this.resetSignDialog()
                     this.show_sign_dialog = false
                 })
+        },
+
+        rejectContract() {
+            this.sign_dialog_data.sign_status = 'rejected'
+            this.signContract()
         },
     },
 }

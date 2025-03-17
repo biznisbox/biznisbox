@@ -3,7 +3,6 @@
 use Knuckles\Scribe\Extracting\Strategies;
 
 return [
-    // The HTML <title> for the generated documentation. If this is empty, Scribe will infer it from config('app.name').
     'title' => 'BiznisBox API documentation',
 
     // A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
@@ -107,7 +106,7 @@ return [
         'in' => 'bearer',
 
         // The name of the auth parameter (e.g. token, key, apiKey) or header (e.g. Authorization, Api-Key).
-        'name' => 'key',
+        'name' => 'Authorization',
 
         // The value of the parameter to be used by Scribe to authenticate response calls.
         // This will NOT be included in the generated documentation. If empty, Scribe will use a random value.
@@ -160,7 +159,7 @@ INTRO
 
     'groups' => [
         // Endpoints which don't have a @group will be placed in this default group.
-        'default' => 'Endpoints',
+        'default' => 'General',
 
         // By default, Scribe will sort groups alphabetically, and endpoints in the order their routes are defined.
         // You can override this by listing the groups, subgroups and endpoints here in the order you want them.

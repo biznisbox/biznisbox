@@ -66,13 +66,8 @@ export default {
          **/
         openDocument(document) {
             if (this.currentFolder === 'trash') {
-                this.$confirm.require({
-                    message: this.$t('archive.restore_confirm_document'),
-                    header: this.$t('basic.confirmation'),
-                    icon: 'fa fa-circle-exclamation',
-                    accept: () => {
-                        this.restoreDocument(document.data.id)
-                    },
+                this.confirmDeleteDialog(this.$t('archive.restore_confirm_document'), this.$t('basic.confirmation'), () => {
+                    this.restoreDocument(document.data.id)
                 })
             } else {
                 this.getDocument(document.data.id)

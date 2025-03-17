@@ -141,7 +141,6 @@ class Contract extends Model implements Auditable
     public function updateContract($id, $data)
     {
         $sha256 = hash('sha256', $data['content']);
-
         $contract = $this->where('id', $id)->first();
 
         if (!$contract) {
@@ -150,7 +149,7 @@ class Contract extends Model implements Auditable
 
         // If the contract is signed, by only one signer, it cannot be updated
         $signers = $contract->signers()->where('status', 'signed')->count();
-        if ($contract->status == 'signed' || $signers >= 1) {
+        if ($contract->status == 'signed' || $signers >= 1 || $contract->status == 'rejected') {
             return [
                 'error' => true,
                 'message' => __('responses.cannot_update_signed_contract'),
@@ -213,7 +212,11 @@ class Contract extends Model implements Auditable
     {
         $contract = $this->where('id', $id)->first();
 
-        if ($contract->status == 'signed') {
+        if (
+            $contract->status == 'signed' ||
+            $contract->signers()->where('status', 'signed')->count() >= 1 ||
+            $contract->status == 'rejected'
+        ) {
             return [
                 'error' => true,
                 'message' => __('responses.cannot_delete_signed_contract'),
@@ -286,7 +289,9 @@ class Contract extends Model implements Auditable
                 // notification for internal users
                 createNotification($signer->user_id, 'ContractForSign', 'NewContractForSign', 'info', 'Sign', $local_url);
             }
-            Mail::to($signer->signer_email)->send(new \App\Mail\Client\ContractNotification($contract, $url, $signer));
+            Mail::to($signer->signer_email, $signer->signer_name)->send(
+                new \App\Mail\Client\ContractNotification($contract, $url, $signer)
+            );
         }
         return $contract;
     }
@@ -310,8 +315,8 @@ class Contract extends Model implements Auditable
         }
 
         $signer_update = $signer->update([
-            'status' => 'signed',
-            'signature' => $data['signature'],
+            'status' => $data['sign_status'],
+            'signature' => $data['sign_status'] == 'signed' ? $data['signature'] : null,
             'signature_ip' => $request->ip(),
             'signature_user_agent' => $request->userAgent(),
             'signature_date_time' => now(),
@@ -325,22 +330,43 @@ class Contract extends Model implements Auditable
             ];
         }
 
-        $signers = $contract->signers()->where('status', '!=', 'signed')->get();
-
-        createNotification($contract->user_id, 'SignedContract', 'ContractSignedBySigner', 'info', 'view', 'contracts/' . $contract->id);
-        sendWebhookForEvent('contract:signed_by_signer', $contract->toArray());
-
-        if (count($signers) == 0) {
-            $contract->update(['status' => 'signed', 'signed_date' => now()]);
+        if ($data['sign_status'] == 'rejected') {
+            $contract->update(['status' => 'rejected']);
             createNotification(
                 $contract->user_id,
-                'SignedContract',
-                'ContractSignedByAllSigners',
+                'RejectedContract',
+                'ContractRejectedBySigner',
                 'info',
                 'view',
                 'contracts/' . $contract->id
             );
-            sendWebhookForEvent('contract:signed', $contract->toArray());
+            sendWebhookForEvent('contract:rejected_by_signer', $contract->toArray());
+        }
+
+        if ($data['sign_status'] == 'signed') {
+            createNotification(
+                $contract->user_id,
+                'SignedContract',
+                'ContractSignedBySigner',
+                'info',
+                'view',
+                'contracts/' . $contract->id
+            );
+            $signers = $contract->signers()->where('status', '!=', 'signed')->get();
+
+            if (count($signers) == 0) {
+                $contract->update(['status' => 'signed', 'signed_date' => now()]);
+                createNotification(
+                    $contract->user_id,
+                    'SignedContract',
+                    'ContractSignedByAllSigners',
+                    'info',
+                    'view',
+                    'contracts/' . $contract->id
+                );
+                sendWebhookForEvent('contract:signed', $contract->toArray());
+            }
+            sendWebhookForEvent('contract:signed_by_signer', $contract->toArray());
         }
 
         return $contract;

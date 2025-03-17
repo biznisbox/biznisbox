@@ -76,7 +76,7 @@
                     />
                 </form>
             </div>
-            <div id="function_buttons" class="flex gap-2 justify-end mb-5">
+            <div id="function_buttons" class="flex justify-end mt-4 gap-2 mb-5">
                 <Button
                     id="save_button"
                     :label="$t('basic.save')"
@@ -105,7 +105,7 @@
                 </div>
             </div>
 
-            <div id="function_buttons" class="flex gap-2 justify-end">
+            <div id="function_buttons" class="flex justify-end mt-4 gap-2">
                 <Button
                     id="send_test_email_button"
                     :label="$t('admin.mail.send_test_email')"

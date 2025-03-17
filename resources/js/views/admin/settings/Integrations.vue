@@ -112,7 +112,7 @@
                 </Tabs>
             </div>
 
-            <div id="function_buttons" class="flex gap-2 justify-end">
+            <div id="function_buttons" class="flex justify-end mt-4 gap-2">
                 <Button id="save_button" :label="$t('basic.save')" icon="fa fa-floppy-disk" severity="success" @click="updateSettings" />
             </div>
         </LoadingScreen>
