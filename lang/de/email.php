@@ -50,4 +50,12 @@ return [
     'login_os' => 'OS: :os',
     'login_date' => 'Datum und Uhrzeit: :date',
     'if_this_was_not_you' => 'Falls dies nicht Sie waren, ändern Sie bitte umgehend Ihr Passwort und wenden Sie sich an den Administrator.',
+    'personal_access_token_created' => 'Personal Access Token Created',
+    'subject_personal_access_token_created' => 'Personal Access Token Created',
+    'new_personal_access_token_generated' => 'A new personal access token has been generated in your account.',
+    'personal_access_token' => 'Persönliches Zugangs-Token',
+    'personal_access_token_details' => 'Persönlicher Zugangs-Token Details',
+    'personal_access_token_name' => 'Tokenname',
+    'personal_access_token_valid_until' => 'Valid Until',
+    'if_this_was_not_you_personal_access_token' => 'Falls dies nicht Sie waren, löschen Sie bitte sofort das Token und wenden Sie sich an den Administrator.',
 ];
