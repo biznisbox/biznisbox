@@ -50,4 +50,12 @@ return [
     'login_os' => 'SO: :os',
     'login_date' => 'Data e hora: :date',
     'if_this_was_not_you' => 'Se isso não foi você, por favor, mude sua senha imediatamente e entre em contato com o administrador.',
+    'personal_access_token_created' => 'Token de acesso pessoal criado',
+    'subject_personal_access_token_created' => 'Token de acesso pessoal criado',
+    'new_personal_access_token_generated' => 'Um novo token de acesso pessoal foi gerado em sua conta.',
+    'personal_access_token' => 'Token de acesso pessoal',
+    'personal_access_token_details' => 'Detalhes do Token de Acesso Pessoal',
+    'personal_access_token_name' => 'Nome do token',
+    'personal_access_token_valid_until' => 'Válido até',
+    'if_this_was_not_you_personal_access_token' => 'Se isto não foi você, exclua o token imediatamente e contate o administrador.',
 ];
