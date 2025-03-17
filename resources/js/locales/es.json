@@ -165,7 +165,8 @@
         "upload": "Subir",
         "share": "Compartir",
         "delete": "Eliminar",
-        "sign": "Signo"
+        "sign": "Signo",
+        "convert_to_invoice": "Convertir a factura"
     },
     "audit_log_type": {
         "internal": "Interno",
@@ -413,7 +414,8 @@
         "activity_type": "Tipo de actividad",
         "user": "Usuario",
         "is_internal": "Es Interno",
-        "picture": "Foto"
+        "picture": "Foto",
+        "last_used_at": "Última utilización en"
     },
     "address_types": {
         "billing": "Facturación",
@@ -428,6 +430,16 @@
     "entity_types": {
         "company": "Empresa",
         "individual": "Individual"
+    },
+    "time_range": {
+        "one_day": "Un día",
+        "one_week": "Una semana",
+        "one_month": "Un mes",
+        "three_months": "Tres meses",
+        "six_months": "Seis meses",
+        "one_year": "Un año",
+        "all_time": "Todo el tiempo",
+        "never": "Nunca"
     },
     "industries": {
         "agriculture": "Agricultura",
@@ -474,7 +486,7 @@
         "bank_transfer": "Transferencia bancaria",
         "cash": "Dinero",
         "check": "Comprobar",
-        "credit_card": "Tarjeta de crédito",
+        "credit_card": "Tarjeta de pago",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Otro"
@@ -581,7 +593,13 @@
         "two_factor_authentication_code": "Código de Autenticación de Dos Factores",
         "two_factor_authentication_code_info": "Introduzca el código generado por su aplicación de autenticación para verificar la configuración de autenticación de dos factores.",
         "verify_2fa": "Verificar 2FA",
-        "cannot_remove__default_avatar": "No puede eliminar el avatar predeterminado."
+        "cannot_remove_default_avatar": "No puede eliminar el avatar predeterminado.",
+        "personal_access_tokens": "Tokens de acceso personal",
+        "create_personal_access_token": "Crear token de acceso personal",
+        "no_personal_access_tokens": "No se encontraron tokens de acceso personal",
+        "generated_personal_access_token_message": "Su token de acceso personal ha sido generado. Esta es la única vez que verá este token, así que asegúrese de guardarlo en algún lugar seguro.",
+        "generated_personal_access_token": "Ficha de acceso personal generada",
+        "delete_personal_access_token": "¿Está seguro que desea eliminar este token de acceso personal?"
     },
     "document_types": {
         "document": "Documento",
@@ -968,7 +986,9 @@
             "company_country": "País de la empresa",
             "company_vat": "Company VAT",
             "company_logo": "Logo de empresa",
-            "company_logo_help": "Tamaño recomendado: 100x100px"
+            "company_logo_help": "Tamaño recomendado: 100x100px",
+            "company_website": "Sitio web de la empresa",
+            "company_primary_color": "Color principal"
         },
         "integrations": {
             "title": "Integraciones",
@@ -1057,7 +1077,8 @@
             "default_date_format": "Formato de fecha por defecto",
             "default_time_format": "Formato de hora por defecto",
             "default_datetime_format": "Formato de fecha por defecto",
-            "show_barcode_on_documents": "Mostrar código de barras en documentos"
+            "show_barcode_on_documents": "Mostrar código de barras en documentos",
+            "week_start": "Día de inicio de semana"
         },
         "taxes": {
             "title": "Impuestos",

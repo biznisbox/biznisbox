@@ -165,7 +165,8 @@
         "upload": "Lähetä",
         "share": "Jaa",
         "delete": "Poista",
-        "sign": "Allekirjoita"
+        "sign": "Allekirjoita",
+        "convert_to_invoice": "Muunna laskuksi"
     },
     "audit_log_type": {
         "internal": "Sisäinen",
@@ -413,7 +414,8 @@
         "activity_type": "Aktiviteetin Tyyppi",
         "user": "Käyttäjä",
         "is_internal": "On Sisäinen",
-        "picture": "Kuva"
+        "picture": "Kuva",
+        "last_used_at": "Viimeksi Käytetty"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -428,6 +430,16 @@
     "entity_types": {
         "company": "Yritys",
         "individual": "Yksilöllinen"
+    },
+    "time_range": {
+        "one_day": "Yksi päivä",
+        "one_week": "Yksi viikko",
+        "one_month": "Yksi kuukausi",
+        "three_months": "Kolme kuukautta",
+        "six_months": "Kuusi kuukautta",
+        "one_year": "Yksi vuosi",
+        "all_time": "Koko ajan",
+        "never": "Ei Koskaan"
     },
     "industries": {
         "agriculture": "Maatalous",
@@ -474,7 +486,7 @@
         "bank_transfer": "Pankkisiirto",
         "cash": "Käteinen",
         "check": "Tarkista",
-        "credit_card": "Luottokortti",
+        "credit_card": "Maksukortti",
         "paypal": "Paypal",
         "stripe": "Stripe",
         "other": "Muu"
@@ -581,7 +593,13 @@
         "two_factor_authentication_code": "Kaksivaiheinen Todennuskoodi",
         "two_factor_authentication_code_info": "Syötä tunnistautumissovelluksen luoma koodi, jolla voit tarkistaa kaksivaiheisen tunnistautumisen asetukset.",
         "verify_2fa": "Vahvista 2FA",
-        "cannot_remove__default_avatar": "Et voi poistaa oletus avataria."
+        "cannot_remove_default_avatar": "Et voi poistaa oletus avataria.",
+        "personal_access_tokens": "Henkilökohtaiset Pääsypolkennit",
+        "create_personal_access_token": "Luo Henkilökohtainen Pääsymerkki",
+        "no_personal_access_tokens": "Henkilökohtaisia pääsypoletteja ei löytynyt",
+        "generated_personal_access_token_message": "Henkilökohtainen pääsymerkki on luotu. Tämä on ainoa kerta, kun näet tämän tunnuksen, joten varmista, että tallennat sen johonkin turvalliseen paikkaan.",
+        "generated_personal_access_token": "Luotu Henkilökohtainen Pääsymerkki",
+        "delete_personal_access_token": "Oletko varma, että haluat poistaa tämän henkilökohtaisen pääsytunnuksen?"
     },
     "document_types": {
         "document": "Asiakirja",
@@ -968,7 +986,9 @@
             "company_country": "Yrityksen Maa",
             "company_vat": "Company VAT",
             "company_logo": "Yrityksen Logo",
-            "company_logo_help": "Suositeltu koko: 100x100px"
+            "company_logo_help": "Suositeltu koko: 100x100px",
+            "company_website": "Yrityksen Sivusto",
+            "company_primary_color": "Ensisijainen Väri"
         },
         "integrations": {
             "title": "Integraatiot",
@@ -1057,7 +1077,8 @@
             "default_date_format": "Päivämäärän Oletusmuoto",
             "default_time_format": "Ajan Oletusmuoto",
             "default_datetime_format": "Oletus Päivämäärä Muoto",
-            "show_barcode_on_documents": "Näytä viivakoodi asiakirjoissa"
+            "show_barcode_on_documents": "Näytä viivakoodi asiakirjoissa",
+            "week_start": "Viikon Aloituspäivä"
         },
         "taxes": {
             "title": "Verot",

@@ -165,7 +165,8 @@
         "upload": "Nalaganje",
         "share": "Deljenje",
         "delete": "Izbriši",
-        "sign": "Podpiši"
+        "sign": "Podpiši",
+        "convert_to_invoice": "Pretvori v račun"
     },
     "audit_log_type": {
         "internal": "Notranji",
@@ -413,7 +414,8 @@
         "activity_type": "Tip aktivnosti",
         "user": "Uporabnik",
         "is_internal": "Interno",
-        "picture": "Picture"
+        "picture": "Slika",
+        "last_used_at": "Nazadnje uporabljen"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -428,6 +430,16 @@
     "entity_types": {
         "company": "Podjetje",
         "individual": "Posameznik"
+    },
+    "time_range": {
+        "one_day": "En dan",
+        "one_week": "En teden",
+        "one_month": "En mesec",
+        "three_months": "Tri mesece",
+        "six_months": "Šest mesecev",
+        "one_year": "Eno leto",
+        "all_time": "Ves čas",
+        "never": "Nikoli"
     },
     "industries": {
         "agriculture": "Kmetijstvo",
@@ -474,7 +486,7 @@
         "bank_transfer": "Bančno nakazilo",
         "cash": "Gotovina",
         "check": "Ček",
-        "credit_card": "Kreditna kartica",
+        "credit_card": "Plačilna kartica",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Drugo"
@@ -581,7 +593,13 @@
         "two_factor_authentication_code": "Koda dvojne avtentikacije",
         "two_factor_authentication_code_info": "Vnesite kodo, ki jo je ustvarila vaša aplikacija za preverjanje pristnosti, da preverite nastavitev dvofaktorske avtentikacije.",
         "verify_2fa": "Preveri 2FA",
-        "cannot_remove__default_avatar": "Ne morete odstraniti privzete sličice."
+        "cannot_remove_default_avatar": "Ni mogoče odstraniti privzete profilne slike",
+        "personal_access_tokens": "Osebni dostopni žetoni",
+        "create_personal_access_token": "Ustvarite osebni dostopni žeton",
+        "no_personal_access_tokens": "Ni osebnih dostopnih žetonov",
+        "generated_personal_access_token_message": "Vaš osebni dostopni žeton je bil ustvarjen. To je edini čas, ko boste videli ta žeton, zato ga shranite na varno mesto.",
+        "generated_personal_access_token": "Ustvarjen žeton osebnega dostopa",
+        "delete_personal_access_token": "Ali ste prepričani, da želite izbrisati ta žeton osebnega dostopa?"
     },
     "document_types": {
         "document": "Dokument",
@@ -968,7 +986,9 @@
             "company_country": "Država podjetja",
             "company_vat": "Davčna številka podjetja",
             "company_logo": "Logotip podjetja",
-            "company_logo_help": "Priporočena velikost je 200x100px"
+            "company_logo_help": "Priporočena velikost je 200x100px",
+            "company_website": "Spletno mesto podjetja",
+            "company_primary_color": "Primarna barva"
         },
         "integrations": {
             "title": "Integracije",
@@ -1057,7 +1077,8 @@
             "default_date_format": "Privzeti format datuma",
             "default_time_format": "Privzeti format časa",
             "default_datetime_format": "Privzeti format datuma in časa",
-            "show_barcode_on_documents": "Prikaži črtno kodo na dokumentih"
+            "show_barcode_on_documents": "Prikaži črtno kodo na dokumentih",
+            "week_start": "Dan začetka tedna"
         },
         "taxes": {
             "title": "Davčne stopnje",

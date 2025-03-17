@@ -51,7 +51,7 @@ return [
     'payment_methods' => [
         'cash' => '現金',
         'check' => '支票',
-        'credit_card' => '信用卡',
+        'credit_card' => 'Payment card',
         'bank_transfer' => '銀行轉帳',
         'paypal' => '貝寶',
         'stripe' => 'Stripe',

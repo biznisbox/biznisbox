@@ -165,7 +165,8 @@
         "upload": "Вивантажити",
         "share": "Поділитись",
         "delete": "Видалити",
-        "sign": "Підпис"
+        "sign": "Підпис",
+        "convert_to_invoice": "Перетворити на рахунок"
     },
     "audit_log_type": {
         "internal": "Внутрішній",
@@ -413,7 +414,8 @@
         "activity_type": "Тип дії",
         "user": "Користувач",
         "is_internal": "Є внутрішнім",
-        "picture": "Зображення"
+        "picture": "Зображення",
+        "last_used_at": "Останній використаний"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -428,6 +430,16 @@
     "entity_types": {
         "company": "Організація",
         "individual": "Індивід"
+    },
+    "time_range": {
+        "one_day": "Один день",
+        "one_week": "Один тиждень",
+        "one_month": "Один місяць",
+        "three_months": "Три місяці",
+        "six_months": "Шість місяців",
+        "one_year": "Один рік",
+        "all_time": "За весь час",
+        "never": "Ніколи"
     },
     "industries": {
         "agriculture": "Сільське господарство",
@@ -474,7 +486,7 @@
         "bank_transfer": "Банківський переказ",
         "cash": "Готівкою",
         "check": "Перевірити",
-        "credit_card": "Кредитна Картка",
+        "credit_card": "Платіжна картка",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Інше"
@@ -581,7 +593,13 @@
         "two_factor_authentication_code": "Код двофакторної аутентифікації",
         "two_factor_authentication_code_info": "Введіть код, згенерований вашим додатком аутентифікації, щоб перевірити налаштування двофакторної автентифікації.",
         "verify_2fa": "Перевірка 2FA",
-        "cannot_remove__default_avatar": "Не можна видалити аватар за замовчуванням."
+        "cannot_remove_default_avatar": "Не можна видалити аватар за замовчуванням.",
+        "personal_access_tokens": "Токени особистого доступу",
+        "create_personal_access_token": "Створити персональний токен доступу",
+        "no_personal_access_tokens": "Персональні токени доступу не знайдені",
+        "generated_personal_access_token_message": "Ваш персональний токен доступу. Це єдиний раз, коли ви побачите цей токен, тому переконайтеся, що він буде збережений в безпеці.",
+        "generated_personal_access_token": "Згенерований токен персонального доступу",
+        "delete_personal_access_token": "Ви впевнені, що бажаєте видалити цей персональний токен доступу?"
     },
     "document_types": {
         "document": "Документ",
@@ -968,7 +986,9 @@
             "company_country": "Країна",
             "company_vat": "Company VAT",
             "company_logo": "Логотип компанії",
-            "company_logo_help": "Рекомендований розмір: 100x100px"
+            "company_logo_help": "Рекомендований розмір: 100x100px",
+            "company_website": "Веб-сайт компанії",
+            "company_primary_color": "Основний колір"
         },
         "integrations": {
             "title": "Ентеграції",
@@ -1057,7 +1077,8 @@
             "default_date_format": "Формат дати за замовчуванням",
             "default_time_format": "Формат часу за замовчуванням",
             "default_datetime_format": "Формат дати і часу за замовчуванням",
-            "show_barcode_on_documents": "Показувати штрих-код на документах"
+            "show_barcode_on_documents": "Показувати штрих-код на документах",
+            "week_start": "День початку тижня"
         },
         "taxes": {
             "title": "Податкові ставки",

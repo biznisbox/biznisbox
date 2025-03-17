@@ -51,7 +51,7 @@ return [
     'payment_methods' => [
         'cash' => 'Μετρητά',
         'check' => 'Έλεγχος',
-        'credit_card' => 'Πιστωτική Κάρτα',
+        'credit_card' => 'Κάρτα πληρωμής',
         'bank_transfer' => 'Τραπεζική Μεταφορά',
         'paypal' => 'Paypal',
         'stripe' => 'Stripe',

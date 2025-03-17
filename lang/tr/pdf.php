@@ -51,7 +51,7 @@ return [
     'payment_methods' => [
         'cash' => 'Nakit',
         'check' => 'Çek',
-        'credit_card' => 'Kredi Kartı',
+        'credit_card' => 'Payment card',
         'bank_transfer' => 'Banka Transferi',
         'paypal' => 'Paypal',
         'stripe' => 'Stripe',

@@ -165,7 +165,8 @@
         "upload": "Nahrát",
         "share": "Sdílet",
         "delete": "Vymazat",
-        "sign": "Značka"
+        "sign": "Značka",
+        "convert_to_invoice": "Převést na fakturu"
     },
     "audit_log_type": {
         "internal": "Interní",
@@ -413,7 +414,8 @@
         "activity_type": "Typ aktivity",
         "user": "Uživatel",
         "is_internal": "Je interní",
-        "picture": "Obrázek"
+        "picture": "Obrázek",
+        "last_used_at": "Poslední použití v"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -428,6 +430,16 @@
     "entity_types": {
         "company": "Článek 2",
         "individual": "Individuální"
+    },
+    "time_range": {
+        "one_day": "Jeden den",
+        "one_week": "Jeden týden",
+        "one_month": "Jeden měsíc",
+        "three_months": "Tři měsíce",
+        "six_months": "Šest měsíců",
+        "one_year": "Jeden rok",
+        "all_time": "Celý čas",
+        "never": "Nikdy"
     },
     "industries": {
         "agriculture": "Zemědělství",
@@ -581,7 +593,13 @@
         "two_factor_authentication_code": "Kód dvoufaktorového ověření",
         "two_factor_authentication_code_info": "Zadejte kód vygenerovaný vaší ověřovací aplikací pro ověření nastavení dvoufaktorového ověřování.",
         "verify_2fa": "Ověřit 2FA",
-        "cannot_remove__default_avatar": "Výchozí avatar nelze odstranit."
+        "cannot_remove_default_avatar": "Výchozí avatar nelze odstranit.",
+        "personal_access_tokens": "Osobní přístupové tokeny",
+        "create_personal_access_token": "Vytvořit osobní přístupový token",
+        "no_personal_access_tokens": "Nenalezeny žádné osobní přístupové tokeny",
+        "generated_personal_access_token_message": "Váš osobní přístupový token byl vygenerován. Toto je jediná chvíle, kdy uvidíte tento token a ujistěte se, že ho uložíte někde bezpečně.",
+        "generated_personal_access_token": "Generovaný osobní přístupový token",
+        "delete_personal_access_token": "Jste si jisti, že chcete odstranit tento osobní přístupový token?"
     },
     "document_types": {
         "document": "Dokument",
@@ -968,7 +986,9 @@
             "company_country": "Země společnosti",
             "company_vat": "Company VAT",
             "company_logo": "Logo společnosti",
-            "company_logo_help": "Doporučená velikost: 100x100px"
+            "company_logo_help": "Doporučená velikost: 100x100px",
+            "company_website": "Webová stránka společnosti",
+            "company_primary_color": "Primární barva"
         },
         "integrations": {
             "title": "Integrace",
@@ -1057,7 +1077,8 @@
             "default_date_format": "Výchozí formát data",
             "default_time_format": "Výchozí formát času",
             "default_datetime_format": "Výchozí formát data a času",
-            "show_barcode_on_documents": "Zobrazit čárový kód na dokumentech"
+            "show_barcode_on_documents": "Zobrazit čárový kód na dokumentech",
+            "week_start": "Počáteční den týdne"
         },
         "taxes": {
             "title": "Daňové sazby",

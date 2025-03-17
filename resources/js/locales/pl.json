@@ -165,7 +165,8 @@
         "upload": "Prześlij",
         "share": "Udostępnij",
         "delete": "Usuń",
-        "sign": "Podpis"
+        "sign": "Podpis",
+        "convert_to_invoice": "Konwertuj do faktury"
     },
     "audit_log_type": {
         "internal": "Wewnętrzne",
@@ -413,7 +414,8 @@
         "activity_type": "Typ Aktywności",
         "user": "Użytkownik",
         "is_internal": "Jest wewn.",
-        "picture": "Zdjęcie"
+        "picture": "Zdjęcie",
+        "last_used_at": "Ostatnio używane"
     },
     "address_types": {
         "billing": "Płatność",
@@ -428,6 +430,16 @@
     "entity_types": {
         "company": "W związku z tym Komisja odrzuciła ten argument.",
         "individual": "Indywidualne"
+    },
+    "time_range": {
+        "one_day": "Jeden dzień",
+        "one_week": "Jeden tydzień",
+        "one_month": "Jeden miesiąc",
+        "three_months": "Trzy miesiące",
+        "six_months": "Sześć miesięcy",
+        "one_year": "Jeden rok",
+        "all_time": "Cały czas",
+        "never": "Nigdy"
     },
     "industries": {
         "agriculture": "Rolnictwo",
@@ -474,7 +486,7 @@
         "bank_transfer": "Przelew bankowy",
         "cash": "Gotówka",
         "check": "Sprawdzanie",
-        "credit_card": "Karta kredytowa",
+        "credit_card": "Karta płatnicza",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Inne"
@@ -581,7 +593,13 @@
         "two_factor_authentication_code": "Kod uwierzytelniania dwuetapowego",
         "two_factor_authentication_code_info": "Wprowadź kod wygenerowany przez aplikację uwierzytelniającą, aby zweryfikować konfigurację uwierzytelniania dwuskładnikowego.",
         "verify_2fa": "Zweryfikuj 2FA",
-        "cannot_remove__default_avatar": "Nie można usunąć domyślnego awatara."
+        "cannot_remove_default_avatar": "Nie można usunąć domyślnego awatara.",
+        "personal_access_tokens": "Osobiste tokeny dostępu",
+        "create_personal_access_token": "Utwórz Osobisty Token Dostępu",
+        "no_personal_access_tokens": "Nie znaleziono osobistych tokenów dostępu",
+        "generated_personal_access_token_message": "Twój osobisty token dostępu został wygenerowany. Jest to jedyny raz, gdy zobaczysz ten token, więc upewnij się, że zapisz go gdzieś bezpieczny.",
+        "generated_personal_access_token": "Wygenerowany osobisty token dostępu",
+        "delete_personal_access_token": "Czy na pewno chcesz usunąć ten osobisty token dostępu?"
     },
     "document_types": {
         "document": "Dokument",
@@ -968,7 +986,9 @@
             "company_country": "Kraj firmy",
             "company_vat": "Company VAT",
             "company_logo": "Logo firmy",
-            "company_logo_help": "Zalecany rozmiar: 100x100px"
+            "company_logo_help": "Zalecany rozmiar: 100x100px",
+            "company_website": "Strona internetowa firmy",
+            "company_primary_color": "Kolor podstawowy"
         },
         "integrations": {
             "title": "Integracje",
@@ -1057,7 +1077,8 @@
             "default_date_format": "Domyślny format daty",
             "default_time_format": "Domyślny format czasu",
             "default_datetime_format": "Domyślny format daty",
-            "show_barcode_on_documents": "Pokaż kod kreskowy na dokumentach"
+            "show_barcode_on_documents": "Pokaż kod kreskowy na dokumentach",
+            "week_start": "Dzień początkowy tygodnia"
         },
         "taxes": {
             "title": "Stawki podatku",

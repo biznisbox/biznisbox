@@ -165,7 +165,8 @@
         "upload": "Charger",
         "share": "Partager",
         "delete": "Supprimez",
-        "sign": "Signer"
+        "sign": "Signer",
+        "convert_to_invoice": "Convertir en facture"
     },
     "audit_log_type": {
         "internal": "Interne",
@@ -413,7 +414,8 @@
         "activity_type": "Type d'activité",
         "user": "Utilisateur",
         "is_internal": "Est interne",
-        "picture": "Image"
+        "picture": "Image",
+        "last_used_at": "Dernière utilisation le"
     },
     "address_types": {
         "billing": "Facturation",
@@ -428,6 +430,16 @@
     "entity_types": {
         "company": "Entreprise",
         "individual": "Individuel"
+    },
+    "time_range": {
+        "one_day": "Un jour",
+        "one_week": "Une semaine",
+        "one_month": "Un mois",
+        "three_months": "3 mois",
+        "six_months": "6 mois",
+        "one_year": "Un an",
+        "all_time": "Tous les temps",
+        "never": "Jamais"
     },
     "industries": {
         "agriculture": "L'agriculture",
@@ -474,7 +486,7 @@
         "bank_transfer": "Virement bancaire",
         "cash": "Espèces",
         "check": "Contrôler",
-        "credit_card": "Carte de Crédit",
+        "credit_card": "Carte de paiement",
         "paypal": "PayPal",
         "stripe": "Stripe",
         "other": "Autres"
@@ -581,7 +593,13 @@
         "two_factor_authentication_code": "Code d'authentification à deux facteurs",
         "two_factor_authentication_code_info": "Entrez le code généré par votre application d'authentification pour vérifier la configuration de l'authentification à deux facteurs.",
         "verify_2fa": "Vérifier l’authentification 2FA",
-        "cannot_remove__default_avatar": "Vous ne pouvez pas supprimer l'avatar par défaut."
+        "cannot_remove_default_avatar": "Vous ne pouvez pas supprimer l'avatar par défaut.",
+        "personal_access_tokens": "Jetons d'accès personnel",
+        "create_personal_access_token": "Créer un jeton d'accès personnel",
+        "no_personal_access_tokens": "Aucun jeton d'accès personnel trouvé",
+        "generated_personal_access_token_message": "Votre jeton d'accès personnel a été généré. C'est la seule fois que vous verrez ce jeton, alors assurez-vous de le sauvegarder dans un endroit sûr.",
+        "generated_personal_access_token": "Jeton d'accès personnel généré",
+        "delete_personal_access_token": "Êtes-vous sûr de vouloir supprimer ce jeton d'accès personnel ?"
     },
     "document_types": {
         "document": "Document",
@@ -968,7 +986,9 @@
             "company_country": "Pays de la société",
             "company_vat": "Company VAT",
             "company_logo": "Logo de la société",
-            "company_logo_help": "Taille recommandée : 100x100px"
+            "company_logo_help": "Taille recommandée : 100x100px",
+            "company_website": "Site Web de la société",
+            "company_primary_color": "Couleur principale"
         },
         "integrations": {
             "title": "Intégrations",
@@ -1057,7 +1077,8 @@
             "default_date_format": "Format de date par défaut",
             "default_time_format": "Format de l'heure par défaut",
             "default_datetime_format": "Format de date par défaut",
-            "show_barcode_on_documents": "Afficher le code-barres sur les documents"
+            "show_barcode_on_documents": "Afficher le code-barres sur les documents",
+            "week_start": "Jour de début de la semaine"
         },
         "taxes": {
             "title": "Taux de taxe",
