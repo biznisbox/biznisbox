@@ -50,4 +50,12 @@ return [
     'login_os' => 'OS: :os',
     'login_date' => 'Datum och tid: :date',
     'if_this_was_not_you' => 'Om detta inte var du, vänligen ändra ditt lösenord omedelbart och kontakta administratören.',
+    'personal_access_token_created' => 'Personlig åtkomsttoken skapad',
+    'subject_personal_access_token_created' => 'Personlig åtkomsttoken skapad',
+    'new_personal_access_token_generated' => 'En ny personlig åtkomsttoken har skapats på ditt konto.',
+    'personal_access_token' => 'Personlig åtkomsttoken',
+    'personal_access_token_details' => 'Personliga åtkomsttoken detaljer',
+    'personal_access_token_name' => 'Token Namn',
+    'personal_access_token_valid_until' => 'Giltig till',
+    'if_this_was_not_you_personal_access_token' => 'Om detta inte var du, ta bort token omedelbart och kontakta administratören.',
 ];
