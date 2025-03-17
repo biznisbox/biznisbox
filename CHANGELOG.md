@@ -7,7 +7,7 @@
 ## 🐛 Bug Fixes
 
 - Fixed an issue where the language cookie was missing during app installation.
-- Fixed a bug preventing user webhooks from being saved via the API (Zapier).
+- Fixed a bug preventing user webhooks from being saved via the API.
 - Removed the requirement for the item number field (now generated automatically).
 - Fixed an issue causing incorrect behavior in the API (`getPublicProducts`).
 

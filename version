@@ -60,7 +60,9 @@ function update_versions($type = 'PATCH') {
     $version_js = implode('.', $version_js);
     update_version($version);
     update_version_js($version_js);
-    return $version;
+
+    // Echo notification for the console
+    return 'Version updated to ' . $version . ' in composer.json and package.json. Do\'t forget to run npm install and composer update.';
 }
 
 function get_last_version_github(){

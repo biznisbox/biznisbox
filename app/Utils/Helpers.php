@@ -664,7 +664,7 @@ if (!function_exists('isAppInstalled')) {
     }
 }
 
-if(!function_exists('getJwtPayloadData')){
+if (!function_exists('getJwtPayloadData')) {
     /**
      * Get JWT payload data
      * @param string $token - JWT token
