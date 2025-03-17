@@ -50,4 +50,12 @@ return [
     'login_os' => 'OS: :os',
     'login_date' => 'Дата і час: :date',
     'if_this_was_not_you' => 'Якщо це не Ви, будь ласка, змініть ваш пароль негайно та зверніться до адміністратора.',
+    'personal_access_token_created' => 'Створено токен персонального доступу',
+    'subject_personal_access_token_created' => 'Створено токен персонального доступу',
+    'new_personal_access_token_generated' => 'Новий персональний токен доступу був створений в вашому обліковому записі.',
+    'personal_access_token' => 'Токен персонального доступу',
+    'personal_access_token_details' => 'Деталі токену персонального доступу',
+    'personal_access_token_name' => 'Ім\'я токену',
+    'personal_access_token_valid_until' => 'Дійсний до',
+    'if_this_was_not_you_personal_access_token' => 'Якщо це не ви, будь ласка, негайно видаліть токен і зверніться до адміністратора.',
 ];
