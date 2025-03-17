@@ -50,4 +50,12 @@ return [
     'login_os' => 'Käyttöjärjestelmä: :os',
     'login_date' => 'Päivämäärä ja aika: :date',
     'if_this_was_not_you' => 'Jos tämä ei ole sinä, vaihda salasana välittömästi ja ota yhteyttä järjestelmänvalvojaan.',
+    'personal_access_token_created' => 'Henkilökohtainen Pääsymerkki Luotu',
+    'subject_personal_access_token_created' => 'Henkilökohtainen Pääsymerkki Luotu',
+    'new_personal_access_token_generated' => 'Tililläsi on luotu uusi henkilökohtainen pääsymerkki.',
+    'personal_access_token' => 'Henkilökohtainen Pääsymerkki',
+    'personal_access_token_details' => 'Henkilökohtaiset Pääsymerkin Tiedot',
+    'personal_access_token_name' => 'Pääsymerkin Nimi',
+    'personal_access_token_valid_until' => 'Voimassa Kunnes',
+    'if_this_was_not_you_personal_access_token' => 'Jos tämä ei ole sinä, poista tunnus välittömästi ja ota yhteyttä järjestelmänvalvojaan.',
 ];
