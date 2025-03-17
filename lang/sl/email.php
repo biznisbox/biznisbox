@@ -50,4 +50,12 @@ return [
     'login_os' => 'Operacijski sistem :os',
     'login_date' => 'Datum in čas :date',
     'if_this_was_not_you' => 'V primeru, da ne prepoznate prijave, prosimo nemudoma spremenite geslo in kontaktirajte administratorja.',
+    'personal_access_token_created' => 'Personal Access Token Created',
+    'subject_personal_access_token_created' => 'Personal Access Token Created',
+    'new_personal_access_token_generated' => 'A new personal access token has been generated in your account.',
+    'personal_access_token' => 'Personal Access Token',
+    'personal_access_token_details' => 'Personal Access Token Details',
+    'personal_access_token_name' => 'Token Name',
+    'personal_access_token_valid_until' => 'Valid Until',
+    'if_this_was_not_you_personal_access_token' => 'If this was not you, please delete the token immediately and contact administrator.',
 ];
