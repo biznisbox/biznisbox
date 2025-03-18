@@ -1146,7 +1146,8 @@
             "mail_from_name": "Назва пошти",
             "send_test_email": "Надіслати тестовий лист",
             "send_test_email_to": "Відправити тестовий лист до",
-            "sendmail_path": "Шлях до Sendmail"
+            "sendmail_path": "Шлях до Sendmail",
+            "no_email_selected": "Адресу ел. пошти не вибрано"
         },
         "numbering": {
             "title": "Параметри числових форматів",
