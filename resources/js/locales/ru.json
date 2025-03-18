@@ -1146,7 +1146,8 @@
             "mail_from_name": "Почта от имени",
             "send_test_email": "Отправить тестовое письмо",
             "send_test_email_to": "Отправить тестовое письмо",
-            "sendmail_path": "Путь к Sendmail"
+            "sendmail_path": "Путь к Sendmail",
+            "no_email_selected": "Email не выбран"
         },
         "numbering": {
             "title": "Параметры форматов чисел",
