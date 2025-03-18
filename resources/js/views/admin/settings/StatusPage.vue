@@ -55,6 +55,10 @@ export default {
     line-height: 1.5;
 }
 
+.dark .changelog {
+    color: var(--surface-200);
+}
+
 .changelog h1 {
     font-size: 18px;
     margin-bottom: 10px;
