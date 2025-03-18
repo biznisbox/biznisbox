@@ -1146,7 +1146,8 @@
             "mail_from_name": "Email Από Όνομα",
             "send_test_email": "Αποστολή δοκιμαστικού email",
             "send_test_email_to": "Αποστολή δοκιμαστικού email στο",
-            "sendmail_path": "Διαδρομή Sendmail"
+            "sendmail_path": "Διαδρομή Sendmail",
+            "no_email_selected": "Δεν έχει επιλεγεί email"
         },
         "numbering": {
             "title": "Ρυθμίσεις μορφών αριθμών",
