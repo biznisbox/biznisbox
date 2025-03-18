@@ -1146,7 +1146,8 @@
             "mail_from_name": "E-Mail Absender Name",
             "send_test_email": "Test-E-Mail senden",
             "send_test_email_to": "Test-E-Mail senden an",
-            "sendmail_path": "Sendmail-Pfad"
+            "sendmail_path": "Sendmail-Pfad",
+            "no_email_selected": "Keine E-Mail ausgewählt"
         },
         "numbering": {
             "title": "Zahlenformatierungseinstellungen",
