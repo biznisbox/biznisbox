@@ -1146,7 +1146,8 @@
             "mail_from_name": "Posta Dal Nome",
             "send_test_email": "Invia email di prova",
             "send_test_email_to": "Invia email di prova a",
-            "sendmail_path": "Percorso Sendmail"
+            "sendmail_path": "Percorso Sendmail",
+            "no_email_selected": "Nessuna email selezionata"
         },
         "numbering": {
             "title": "Impostazioni dei formati numerici",
