@@ -1146,7 +1146,8 @@
             "mail_from_name": "Levélküldési név",
             "send_test_email": "Teszt e-mail küldése",
             "send_test_email_to": "Tesztlevél küldése ide",
-            "sendmail_path": "Sendmail elérési út"
+            "sendmail_path": "Sendmail elérési út",
+            "no_email_selected": "No email selected"
         },
         "numbering": {
             "title": "Számszöveg formátumok beállítása",
