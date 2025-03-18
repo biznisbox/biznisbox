@@ -23,7 +23,7 @@ class SettingSeeder extends Seeder
         Setting::firstOrCreate(['key' => 'company_email'], ['value' => null, 'type' => 'string', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'company_logo'], ['value' => null, 'type' => 'string', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'company_vat'], ['value' => null, 'type' => 'string', 'is_public' => 1]);
-        Setting::firstOrCreate(['key' => 'company_color'], ['value' => '#346bb4', 'type' => 'string', 'is_public' => 1]);
+        Setting::firstOrCreate(['key' => 'company_color'], ['value' => '346bb4', 'type' => 'string', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'company_website'], ['value' => null, 'type' => 'string', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'company_description'], ['value' => null, 'type' => 'string', 'is_public' => 1]);
 

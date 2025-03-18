@@ -25,7 +25,7 @@ class UnitRequest extends FormRequest
             'name' => 'required|max:255|unique:units,name',
             'description' => 'nullable|max:255',
             'symbol' => 'required|max:20',
-            'active' => 'required',
+            'active' => 'required|boolean',
         ];
     }
 }
