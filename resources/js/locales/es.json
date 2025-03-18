@@ -1146,7 +1146,8 @@
             "mail_from_name": "Nombre de Correo",
             "send_test_email": "Enviar email de prueba",
             "send_test_email_to": "Enviar email de prueba a",
-            "sendmail_path": "Ruta de envío"
+            "sendmail_path": "Ruta de envío",
+            "no_email_selected": "Ningún email seleccionado"
         },
         "numbering": {
             "title": "Configuración de formatos numéricos",
