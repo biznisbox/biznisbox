@@ -1146,7 +1146,8 @@
             "mail_from_name": "Mail Fra Navn",
             "send_test_email": "Send test e-mail",
             "send_test_email_to": "Send test e-mail til",
-            "sendmail_path": "Sti Til Sendmail"
+            "sendmail_path": "Sti Til Sendmail",
+            "no_email_selected": "Ingen e-mail valgt"
         },
         "numbering": {
             "title": "Indstillinger for nummerformater",
