@@ -1146,7 +1146,8 @@
             "mail_from_name": "Nome do E-mail",
             "send_test_email": "Enviar e-mail de teste",
             "send_test_email_to": "Enviar e-mail de teste para",
-            "sendmail_path": "Caminho do Sendmail"
+            "sendmail_path": "Caminho do Sendmail",
+            "no_email_selected": "Nenhum e-mail selecionado"
         },
         "numbering": {
             "title": "Configurações de números formatos",

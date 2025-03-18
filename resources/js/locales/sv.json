@@ -1146,7 +1146,8 @@
             "mail_from_name": "E-post från namn",
             "send_test_email": "Skicka testmail",
             "send_test_email_to": "Skicka testmail till",
-            "sendmail_path": "Sökväg för Sendmail"
+            "sendmail_path": "Sökväg för Sendmail",
+            "no_email_selected": "Ingen e-post vald"
         },
         "numbering": {
             "title": "Inställningar för antal format",

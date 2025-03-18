@@ -1146,7 +1146,8 @@
             "mail_from_name": "Mail Ime Pošiljatelja",
             "send_test_email": "Pošlji preskusno e-pošto",
             "send_test_email_to": "Pošlji testni email na",
-            "sendmail_path": "Sendmail Path"
+            "sendmail_path": "Sendmail Path",
+            "no_email_selected": "No email selected"
         },
         "numbering": {
             "title": "Številčenje",

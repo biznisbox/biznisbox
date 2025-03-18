@@ -1146,7 +1146,8 @@
             "mail_from_name": "Poczta od nazwy",
             "send_test_email": "Wyślij wiadomość testową",
             "send_test_email_to": "Wyślij wiadomość testową do",
-            "sendmail_path": "Ścieżka Sendmail"
+            "sendmail_path": "Ścieżka Sendmail",
+            "no_email_selected": "Nie wybrano adresu e-mail"
         },
         "numbering": {
             "title": "Ustawienia formatów numerów",

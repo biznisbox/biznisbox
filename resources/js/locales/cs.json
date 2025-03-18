@@ -1146,7 +1146,8 @@
             "mail_from_name": "Jméno pošty",
             "send_test_email": "Odeslat testovací e-mail",
             "send_test_email_to": "Odeslat testovací e-mail na",
-            "sendmail_path": "Cesta k odeslání pošty"
+            "sendmail_path": "Cesta k odeslání pošty",
+            "no_email_selected": "Nebyl vybrán žádný e-mail"
         },
         "numbering": {
             "title": "Nastavení formátů čísel",

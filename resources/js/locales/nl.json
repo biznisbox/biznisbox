@@ -1146,7 +1146,8 @@
             "mail_from_name": "E-mail van naam",
             "send_test_email": "Testmail verzenden",
             "send_test_email_to": "Testmail verzenden naar",
-            "sendmail_path": "Sendmail pad"
+            "sendmail_path": "Sendmail pad",
+            "no_email_selected": "Geen e-mail geselecteerd"
         },
         "numbering": {
             "title": "Nummer formaten instellingen",

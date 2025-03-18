@@ -1146,7 +1146,8 @@
             "mail_from_name": "E-post fra navn",
             "send_test_email": "Send test-e-post",
             "send_test_email_to": "Send test-epost til",
-            "sendmail_path": "Sti for Sendmail"
+            "sendmail_path": "Sti for Sendmail",
+            "no_email_selected": "Ingen e-post valgt"
         },
         "numbering": {
             "title": "Antall formater innstillinger",

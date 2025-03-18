@@ -1146,7 +1146,8 @@
             "mail_from_name": "Sähköpostin Lähettäjä Nimi",
             "send_test_email": "Lähetä testisähköposti",
             "send_test_email_to": "Lähetä testiviesti osoitteeseen",
-            "sendmail_path": "Sendmailin Polku"
+            "sendmail_path": "Sendmailin Polku",
+            "no_email_selected": "Sähköpostia ei ole valittu"
         },
         "numbering": {
             "title": "Numeroformaattien asetukset",

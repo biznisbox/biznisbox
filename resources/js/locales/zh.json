@@ -1146,7 +1146,8 @@
             "mail_from_name": "寄件者名稱",
             "send_test_email": "Send test email",
             "send_test_email_to": "寄送測試郵件至",
-            "sendmail_path": "Sendmail 路徑"
+            "sendmail_path": "Sendmail 路徑",
+            "no_email_selected": "No email selected"
         },
         "numbering": {
             "title": "Number formats settings",

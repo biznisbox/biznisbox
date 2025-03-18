@@ -1146,7 +1146,8 @@
             "mail_from_name": "E-posta Adından",
             "send_test_email": "Test E-Postası Gönder",
             "send_test_email_to": "Test e-postasını şuraya gönder",
-            "sendmail_path": "Sendmail Yolu"
+            "sendmail_path": "Sendmail Yolu",
+            "no_email_selected": "No email selected"
         },
         "numbering": {
             "title": "Numara Formatı Ayarları",
