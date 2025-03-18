@@ -70,7 +70,7 @@
                     <TextInput
                         v-if="mail_settings.mail_mailer === 'sendmail'"
                         id="sendmail_path"
-                        v-model="mail_settings.sendmail_path"
+                        v-model="mail_settings.mail_sendmail_path"
                         :label="$t('admin.mail.sendmail_path')"
                         :disabled="mail_settings.mail_mailer !== 'sendmail'"
                     />
@@ -133,6 +133,7 @@ export default {
                 mail_encryption: '',
                 mail_from_address: '',
                 mail_from_name: '',
+                mail_sendmail_path: '',
             },
             test_mail: {
                 emails: [],
@@ -158,7 +159,7 @@ export default {
 
         sentTestEmail() {
             if (this.test_mail.emails.length === 0) {
-                return
+                return this.showToast(this.$t('admin.mail.no_email_selected'), this.$t('basic.error'), 'error')
             }
             this.makeHttpRequest('POST', '/api/admin/settings/email/test', this.test_mail).then((response) => {
                 this.showToast(response.data.message)
