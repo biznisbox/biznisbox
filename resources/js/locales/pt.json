@@ -550,7 +550,8 @@
         "activity": "Atividade",
         "activities": "Atividades",
         "edit_activity": "Editar Atividade",
-        "partner_activities": "Atividades de parceiro"
+        "partner_activities": "Atividades de parceiro",
+        "send_email": "Enviar e-mail"
     },
     "partner_activity_types": {
         "call": "Chamada",
