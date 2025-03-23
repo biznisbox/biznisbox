@@ -108,4 +108,6 @@ return [
     'cannot_update_signed_contract' => 'Nie można zaktualizować podpisanej umowy',
     'enable_js_to_use_app' => 'Przykro nam, ale ta aplikacja nie działa poprawnie bez włączonej obsługi JavaScript. Proszę włączyć ją, aby kontynuować.',
     'cannot_delete_own_account' => 'Nie można usunąć własnego konta',
+    'item_not_sent' => 'Produkt nie został wysłany',
+    'item_sent_successfully' => 'Element wysłany pomyślnie',
 ];
