@@ -108,4 +108,6 @@ return [
     'cannot_update_signed_contract' => 'Unterschriebener Vertrag kann nicht aktualisiert werden',
     'enable_js_to_use_app' => 'Es tut uns leid, aber diese App funktioniert nicht korrekt, ohne JavaScript aktiviert zu haben. Bitte aktivieren Sie sie, um fortzufahren.',
     'cannot_delete_own_account' => 'Eigenes Konto kann nicht gelöscht werden',
+    'item_not_sent' => 'Artikel nicht gesendet',
+    'item_sent_successfully' => 'Artikel erfolgreich gesendet',
 ];
