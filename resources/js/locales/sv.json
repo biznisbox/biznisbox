@@ -550,7 +550,8 @@
         "activity": "Aktivitet",
         "activities": "Aktiviteter",
         "edit_activity": "Redigera aktivitet",
-        "partner_activities": "Aktiviteter för partner"
+        "partner_activities": "Aktiviteter för partner",
+        "send_email": "Skicka e-post"
     },
     "partner_activity_types": {
         "call": "Ring",
