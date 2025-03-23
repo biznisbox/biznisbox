@@ -550,7 +550,8 @@
         "activity": "Δραστηριότητα",
         "activities": "Δραστηριότητες",
         "edit_activity": "Επεξεργασία Δραστηριότητας",
-        "partner_activities": "Δραστηριότητες Συνεργατών"
+        "partner_activities": "Δραστηριότητες Συνεργατών",
+        "send_email": "Αποστολή email"
     },
     "partner_activity_types": {
         "call": "Κλήση",
