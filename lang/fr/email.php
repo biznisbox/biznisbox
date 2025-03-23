@@ -57,5 +57,6 @@ return [
     'personal_access_token_details' => 'Détails du jeton d\'accès personnel',
     'personal_access_token_name' => 'Nom du jeton',
     'personal_access_token_valid_until' => 'Valable jusqu\'au',
-    'if_this_was_not_you_personal_access_token' => 'Si ce n\'est pas vous, s\'il vous plaît supprimer le jeton immédiatement et contacter l\'administrateur.',
+    'if_this_was_not_you_personal_access_token' =>
+        'Si ce n\'est pas vous, s\'il vous plaît supprimer le jeton immédiatement et contacter l\'administrateur.',
 ];

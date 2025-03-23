@@ -198,12 +198,6 @@
                                 </template>
                             </Column>
 
-                            <Column field="fax_number" :header="$t('form.fax_number')">
-                                <template #body="slotProps">
-                                    <TextInput :id="`fax_number_${slotProps.index}`" v-model="slotProps.data.fax_number" />
-                                </template>
-                            </Column>
-
                             <Column field="notes" :header="$t('form.notes')">
                                 <template #body="slotProps">
                                     <TextInput :id="`notes_${slotProps.index}`" v-model="slotProps.data.notes" />

@@ -169,4 +169,21 @@ class PartnerController extends Controller
         }
         return api_response($partnerActivity, __('responses.item_deleted_successfully'));
     }
+
+    /**
+     * Send partner message to email
+     *
+     * @param  object  $request data from the form
+     */
+    public function sendEmailToPartnerContact(Request $request)
+    {
+        $partnerContactId = $request->input('partner_contact_id');
+        $subject = $request->input('subject');
+        $message = $request->input('content');
+        $partnerContact = $this->partnerService->sendEmailToPartnerContact($partnerContactId, $subject, $message);
+        if (!$partnerContact) {
+            return api_response(null, __('responses.item_not_sent'), 400);
+        }
+        return api_response($partnerContact, __('responses.item_sent_successfully'));
+    }
 }

@@ -4,6 +4,9 @@ namespace App\Services;
 
 use App\Models\Partner;
 use App\Models\PartnerActivity;
+use App\Models\PartnerContact;
+use App\Mail\Client\SendPartnerMessage;
+use Illuminate\Support\Facades\Mail;
 
 class PartnerService
 {
@@ -74,5 +77,47 @@ class PartnerService
         $partnerActivity = new PartnerActivity();
         $partnerActivity = $partnerActivity->deletePartnerActivity($id);
         return $partnerActivity;
+    }
+
+    public function sendEmailToPartnerContact($partnerContactId, $subject, $message)
+    {
+        // Get partner contact
+        $partnerContact = PartnerContact::find($partnerContactId);
+        if (!$partnerContact) {
+            return false;
+        }
+
+        // Get current user data to use as sender
+        $user = auth()->user();
+        $from_email = $user->email;
+        $from_name = $user->first_name . ' ' . $user->last_name;
+
+        // Send email
+        $email = Mail::to($partnerContact->email, $partnerContact->name)->send(
+            new SendPartnerMessage($from_email, $from_name, $subject, $message)
+        );
+
+        if (!$email) {
+            return false;
+        }
+
+        // Create partner activity
+        $data = [
+            'partner_id' => $partnerContact->partner_id,
+            'partner_contact_id' => $partnerContact->id,
+            'start_date' => date('Y-m-d H:i:s'),
+            'end_date' => date('Y-m-d H:i:s'),
+            'content' => $message,
+            'subject' => $subject,
+            'status' => 'completed',
+            'priority' => 'normal',
+            'type' => 'email',
+            'employee_id' => getEmployeeIdFromUserId($user->id),
+        ];
+        $partnerActivity = $this->createPartnerActivity($data);
+        if (!$partnerActivity) {
+            return false;
+        }
+        return true;
     }
 }

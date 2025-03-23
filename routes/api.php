@@ -103,6 +103,7 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/partners', [PartnerController::class, 'getPartners'])->name('getPartners');
         Route::get('/partners/{id}', [PartnerController::class, 'getPartner'])->name('getPartner');
         Route::get('/partner/number', [PartnerController::class, 'getPartnerNumber'])->name('getPartnerNumber');
+        Route::post('/partner/message', [PartnerController::class, 'sendEmailToPartnerContact'])->name('sendEmailToPartnerContact');
     });
 
     // Partner Limited is for the other users who can't access all the partners -> used in the other parts of the app

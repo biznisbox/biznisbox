@@ -1,3 +1,10 @@
+## Unreleased
+
+## ✨ New Features and Enhancements
+
+- Added a new feature for sending email to partner contact.
+
+
 # v2.1.1
 
 ## 🐛 Bug Fixes

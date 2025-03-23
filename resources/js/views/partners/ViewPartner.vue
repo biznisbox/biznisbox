@@ -231,10 +231,21 @@
                                             </template>
                                         </Column>
                                         <Column field="function" :header="$t('form.function')" />
-                                        <Column field="email" :header="$t('form.email')" />
-                                        <Column field="phone_number" :header="$t('form.phone_number')" />
-                                        <Column field="mobile_number" :header="$t('form.mobile_number')" />
-                                        <Column field="fax_number" :header="$t('form.fax_number')" />
+                                        <Column field="email" :header="$t('form.email')">
+                                            <template #body="{ data }">
+                                                <span v-if="data.email" @click="openSendEmailDialog(data)">{{ data.email }}</span>
+                                            </template>
+                                        </Column>
+                                        <Column field="phone_number" :header="$t('form.phone_number')">
+                                            <template #body="{ data }">
+                                                <a :href="'tel:' + data.phone_number">{{ data.phone_number }}</a>
+                                            </template>
+                                        </Column>
+                                        <Column field="mobile_number" :header="$t('form.mobile_number')">
+                                            <template #body="{ data }">
+                                                <a :href="'tel:' + data.mobile_number">{{ data.mobile_number }}</a>
+                                            </template>
+                                        </Column>
                                         <Column field="notes" :header="$t('form.notes')" />
                                     </DataTable>
                                 </TabPanel>
@@ -571,6 +582,46 @@
                 <Button :label="$t('basic.close')" icon="fa fa-times" @click="goTo('/partners')" severity="secondary" />
             </div>
         </LoadingScreen>
+
+        <!-- Send email to partner contact dialog -->
+        <Dialog
+            v-model:visible="showSendEmailDialog"
+            modal
+            maximizable
+            class="w-full m-2 lg:w-1/2"
+            :header="$t('partner.send_email')"
+            :draggable="false"
+        >
+            <div id="send_email_form">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <SelectInput
+                        v-model="partner_email_message.partner_contact_id"
+                        :label="$t('form.contact')"
+                        :options="partner.contacts"
+                        option-value="id"
+                        option-label="name"
+                        show-clear
+                    />
+                    <TextInput v-model="partner_email_message.subject" :label="$t('form.subject')" />
+                </div>
+
+                <TinyMceEditor v-model="partner_email_message.content" :label="$t('form.content')" />
+            </div>
+
+            <template #footer>
+                <div id="function_buttons" class="flex justify-end gap-2">
+                    <Button
+                        id="email_cancel_button"
+                        :label="$t('basic.cancel')"
+                        icon="fa fa-times"
+                        severity="secondary"
+                        @click="closeSendEmailDialog"
+                    />
+                    <Button id="email_send_button" :label="$t('basic.send')" icon="fa fa-envelope" @click="sendEmail" severity="success" />
+                </div>
+            </template>
+        </Dialog>
+
         <!-- Edit add activity dialog -->
         <Dialog
             v-model:visible="showAddEditActivityDialog"
@@ -729,6 +780,7 @@ export default {
             showAuditLogDialog: false,
             showAddEditActivityDialog: false,
             activityDialogMode: 'add',
+            showSendEmailDialog: false,
         }
     },
 
@@ -769,6 +821,32 @@ export default {
                 notes: '',
                 outcome: '',
             }
+        },
+
+        resetPartnerEmailMessage() {
+            this.partner_email_message = {
+                partner_contact_id: null,
+                subject: '',
+                content: '',
+            }
+        },
+
+        sendEmail() {
+            if (this.partner_email_message.partner_contact_id === null) {
+                this.showToast(this.$t('basic.invalid_form'), this.$t('basic.error'), 'error')
+                return
+            }
+            this.sendEmailToPartner()
+        },
+
+        openSendEmailDialog(partner) {
+            this.resetPartnerEmailMessage()
+            this.partner_email_message.partner_contact_id = partner.id
+            this.showSendEmailDialog = true
+        },
+
+        closeSendEmailDialog() {
+            this.showSendEmailDialog = false
         },
 
         addUpdateActivityValidation() {
