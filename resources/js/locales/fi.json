@@ -550,7 +550,8 @@
         "activity": "Toiminta",
         "activities": "Toiminnot",
         "edit_activity": "Muokkaa Toimintaa",
-        "partner_activities": "Yhteistyökumppaneiden Toiminta"
+        "partner_activities": "Yhteistyökumppaneiden Toiminta",
+        "send_email": "Lähetä sähköposti"
     },
     "partner_activity_types": {
         "call": "Soita",
