@@ -550,7 +550,8 @@
         "activity": "Aktivita",
         "activities": "Aktivity",
         "edit_activity": "Upravit aktivitu",
-        "partner_activities": "Partnerské aktivity"
+        "partner_activities": "Partnerské aktivity",
+        "send_email": "Poslat e-mail"
     },
     "partner_activity_types": {
         "call": "Hovor",
