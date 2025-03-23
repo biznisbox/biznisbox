@@ -550,7 +550,8 @@
         "activity": "Активність",
         "activities": "Події",
         "edit_activity": "Редагувати дію",
-        "partner_activities": "Активність партнера"
+        "partner_activities": "Активність партнера",
+        "send_email": "Надіслати ел. листа"
     },
     "partner_activity_types": {
         "call": "Дзвінок",
