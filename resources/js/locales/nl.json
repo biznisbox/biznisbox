@@ -550,7 +550,8 @@
         "activity": "Activiteit",
         "activities": "Activiteiten",
         "edit_activity": "Activiteit bewerken",
-        "partner_activities": "Partner activiteiten"
+        "partner_activities": "Partner activiteiten",
+        "send_email": "E-mail verzenden"
     },
     "partner_activity_types": {
         "call": "Oproepen",
