@@ -550,7 +550,8 @@
         "activity": "Aktivnost",
         "activities": "Aktivnosti",
         "edit_activity": "Uredi aktivnost",
-        "partner_activities": "Partnerjeve aktivnosti"
+        "partner_activities": "Partnerjeve aktivnosti",
+        "send_email": "Send email"
     },
     "partner_activity_types": {
         "call": "Klic",
