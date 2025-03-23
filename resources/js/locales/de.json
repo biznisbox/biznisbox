@@ -550,7 +550,8 @@
         "activity": "Aktivität",
         "activities": "Aktivitäten",
         "edit_activity": "Aktivität bearbeiten",
-        "partner_activities": "Partneraktivitäten"
+        "partner_activities": "Partneraktivitäten",
+        "send_email": "E-Mail senden"
     },
     "partner_activity_types": {
         "call": "Anruf",
