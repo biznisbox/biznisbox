@@ -87,6 +87,10 @@ class PartnerService
             return false;
         }
 
+        if(!$partnerContact->email || !$partnerContact->name || filter_var($partnerContact->email , FILTER_VALIDATE_EMAIL) === false) {
+            return false;
+        }
+
         // Get current user data to use as sender
         $user = auth()->user();
         $from_email = $user->email;
