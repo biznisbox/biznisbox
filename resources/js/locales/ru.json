@@ -550,7 +550,8 @@
         "activity": "Активность",
         "activities": "Действия",
         "edit_activity": "Изменить активность",
-        "partner_activities": "Партнерская деятельность"
+        "partner_activities": "Партнерская деятельность",
+        "send_email": "Отправить email"
     },
     "partner_activity_types": {
         "call": "Звонок",
