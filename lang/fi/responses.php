@@ -108,4 +108,6 @@ return [
     'cannot_update_signed_contract' => 'Allekirjoitettua sopimusta ei voi päivittää',
     'enable_js_to_use_app' => 'Olemme pahoillamme, mutta tämä sovellus ei toimi kunnolla ilman JavaScriptiä käytössä. Ota se käyttöön jatkaaksesi.',
     'cannot_delete_own_account' => 'Omaa tiliä ei voi poistaa',
+    'item_not_sent' => 'Kohdetta ei lähetetty',
+    'item_sent_successfully' => 'Kohde lähetetty onnistuneesti',
 ];
