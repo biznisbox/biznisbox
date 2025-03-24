@@ -1035,9 +1035,13 @@
             "reset_password": "Återställ lösenord",
             "send_details_to": "Skicka information till",
             "never_logged_in": "Aldrig inloggad",
+            "never_used": "Använd aldrig",
             "auto_generate_password": "Generera lösenord automatiskt",
             "delete_confirm_user": "Är du säker på att du vill ta bort denna användare?",
-            "disable_2fa": "Inaktivera 2FA"
+            "disable_2fa": "Inaktivera 2FA",
+            "personal_access_tokens": "Personliga åtkomst-Tokens",
+            "no_personal_access_tokens": "Inga personliga åtkomsttokens hittades",
+            "delete_confirm_personal_access_token": "Är du säker på att du vill ta bort denna personliga åtkomst-token?"
         },
         "department": {
             "title": "Avdelningar",
