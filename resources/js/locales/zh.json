@@ -550,7 +550,8 @@
         "activity": "Activity",
         "activities": "Activities",
         "edit_activity": "Edit Activity",
-        "partner_activities": "Partner Activities"
+        "partner_activities": "Partner Activities",
+        "send_email": "Send email"
     },
     "partner_activity_types": {
         "call": "Call",
@@ -1034,9 +1035,13 @@
             "reset_password": "Reset Password",
             "send_details_to": "Send details to",
             "never_logged_in": "Never logged in",
+            "never_used": "Never used",
             "auto_generate_password": "Auto-generate password",
             "delete_confirm_user": "Are you sure you want to delete this user?",
-            "disable_2fa": "停用2FA"
+            "disable_2fa": "停用2FA",
+            "personal_access_tokens": "Personal Access Tokens",
+            "no_personal_access_tokens": "No personal access tokens found",
+            "delete_confirm_personal_access_token": "Are you sure you want to delete this personal access token?"
         },
         "department": {
             "title": "Departments",
@@ -1146,7 +1151,8 @@
             "mail_from_name": "寄件者名稱",
             "send_test_email": "Send test email",
             "send_test_email_to": "寄送測試郵件至",
-            "sendmail_path": "Sendmail 路徑"
+            "sendmail_path": "Sendmail 路徑",
+            "no_email_selected": "No email selected"
         },
         "numbering": {
             "title": "Number formats settings",

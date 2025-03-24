@@ -550,7 +550,8 @@
         "activity": "Aktivitet",
         "activities": "Aktiviteter",
         "edit_activity": "Rediger aktivitet",
-        "partner_activities": "Øvrige aktiviteter"
+        "partner_activities": "Øvrige aktiviteter",
+        "send_email": "Send e-post"
     },
     "partner_activity_types": {
         "call": "Ring",
@@ -1034,9 +1035,13 @@
             "reset_password": "Tilbakestill passord",
             "send_details_to": "Send detaljer til",
             "never_logged_in": "Aldri logget inn",
+            "never_used": "Aldri brukt",
             "auto_generate_password": "Autogenerer passord",
             "delete_confirm_user": "Er du sikker på at du vil slette denne brukeren?",
-            "disable_2fa": "Deaktiver 2FA"
+            "disable_2fa": "Deaktiver 2FA",
+            "personal_access_tokens": "Personlige tilgangsnøkler",
+            "no_personal_access_tokens": "Ingen personlige tilgangsnøkler funnet",
+            "delete_confirm_personal_access_token": "Er du sikker på at du vil slette denne personlige tilgangstoken?"
         },
         "department": {
             "title": "Avdelinger",
@@ -1146,7 +1151,8 @@
             "mail_from_name": "E-post fra navn",
             "send_test_email": "Send test-e-post",
             "send_test_email_to": "Send test-epost til",
-            "sendmail_path": "Sti for Sendmail"
+            "sendmail_path": "Sti for Sendmail",
+            "no_email_selected": "Ingen e-post valgt"
         },
         "numbering": {
             "title": "Antall formater innstillinger",

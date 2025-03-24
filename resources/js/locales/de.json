@@ -550,7 +550,8 @@
         "activity": "Aktivität",
         "activities": "Aktivitäten",
         "edit_activity": "Aktivität bearbeiten",
-        "partner_activities": "Partneraktivitäten"
+        "partner_activities": "Partneraktivitäten",
+        "send_email": "E-Mail senden"
     },
     "partner_activity_types": {
         "call": "Anruf",
@@ -1034,9 +1035,13 @@
             "reset_password": "Passwort zurücksetzen",
             "send_details_to": "Details senden an",
             "never_logged_in": "Niemals eingeloggt",
+            "never_used": "Nie verwendet",
             "auto_generate_password": "Passwort automatisch generieren",
             "delete_confirm_user": "Sind Sie sicher, dass Sie diesen Benutzer löschen möchten?",
-            "disable_2fa": "2FA deaktivieren"
+            "disable_2fa": "2FA deaktivieren",
+            "personal_access_tokens": "Persönliche Zugangs-Token",
+            "no_personal_access_tokens": "Keine persönlichen Zugangs-Tokens gefunden",
+            "delete_confirm_personal_access_token": "Sind Sie sicher, dass Sie diesen persönlichen Zugangs-Token löschen möchten?"
         },
         "department": {
             "title": "Abteilungen",
@@ -1146,7 +1151,8 @@
             "mail_from_name": "E-Mail Absender Name",
             "send_test_email": "Test-E-Mail senden",
             "send_test_email_to": "Test-E-Mail senden an",
-            "sendmail_path": "Sendmail-Pfad"
+            "sendmail_path": "Sendmail-Pfad",
+            "no_email_selected": "Keine E-Mail ausgewählt"
         },
         "numbering": {
             "title": "Zahlenformatierungseinstellungen",

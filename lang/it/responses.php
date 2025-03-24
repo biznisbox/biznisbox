@@ -109,4 +109,6 @@ return [
     'enable_js_to_use_app' =>
         'Siamo spiacenti ma questa app non funziona correttamente senza JavaScript abilitato. Si prega di abilitarla per continuare.',
     'cannot_delete_own_account' => 'Impossibile eliminare il proprio account',
+    'item_not_sent' => 'Elemento non inviato',
+    'item_sent_successfully' => 'Oggetto inviato con successo',
 ];

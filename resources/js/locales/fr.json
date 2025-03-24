@@ -550,7 +550,8 @@
         "activity": "Activité",
         "activities": "Activités",
         "edit_activity": "Modifier l'activité",
-        "partner_activities": "Activités des partenaires"
+        "partner_activities": "Activités des partenaires",
+        "send_email": "Envoyer un e-mail"
     },
     "partner_activity_types": {
         "call": "Appel",
@@ -1034,9 +1035,13 @@
             "reset_password": "Réinitialiser le mot de passe",
             "send_details_to": "Envoyer les détails à",
             "never_logged_in": "Jamais connecté",
+            "never_used": "Jamais utilisé",
             "auto_generate_password": "Générer automatiquement le mot de passe",
             "delete_confirm_user": "Êtes-vous sûr de vouloir supprimer cet utilisateur ?",
-            "disable_2fa": "Désactiver l'A2F"
+            "disable_2fa": "Désactiver l'A2F",
+            "personal_access_tokens": "Jetons d'accès personnel",
+            "no_personal_access_tokens": "Aucun jeton d'accès personnel trouvé",
+            "delete_confirm_personal_access_token": "Êtes-vous sûr de vouloir supprimer ce jeton d'accès personnel ?"
         },
         "department": {
             "title": "Services",
@@ -1146,7 +1151,8 @@
             "mail_from_name": "Nom de l'expéditeur du mail",
             "send_test_email": "Envoyer un e-mail de test",
             "send_test_email_to": "Envoyer un e-mail de test à",
-            "sendmail_path": "Chemin de Sendmail"
+            "sendmail_path": "Chemin de Sendmail",
+            "no_email_selected": "Aucun e-mail sélectionné"
         },
         "numbering": {
             "title": "Paramètres des formats de numéros",

@@ -550,7 +550,8 @@
         "activity": "Activity",
         "activities": "Activities",
         "edit_activity": "Edit Activity",
-        "partner_activities": "Partner Activities"
+        "partner_activities": "Partner Activities",
+        "send_email": "Send email"
     },
     "partner_activity_types": {
         "call": "Call",
@@ -1034,9 +1035,13 @@
             "reset_password": "Şifreyi Sıfırla",
             "send_details_to": "Detayları gönder",
             "never_logged_in": "Hiç giriş yapmadı",
+            "never_used": "Never used",
             "auto_generate_password": "Parolayı otomatik olarak oluştur",
             "delete_confirm_user": "Bu kullanıcıyı silmek istediğinizden emin misiniz?",
-            "disable_2fa": "2FA'yı Devre Dışı Bırak"
+            "disable_2fa": "2FA'yı Devre Dışı Bırak",
+            "personal_access_tokens": "Personal Access Tokens",
+            "no_personal_access_tokens": "No personal access tokens found",
+            "delete_confirm_personal_access_token": "Are you sure you want to delete this personal access token?"
         },
         "department": {
             "title": "Departmanlar",
@@ -1146,7 +1151,8 @@
             "mail_from_name": "E-posta Adından",
             "send_test_email": "Test E-Postası Gönder",
             "send_test_email_to": "Test e-postasını şuraya gönder",
-            "sendmail_path": "Sendmail Yolu"
+            "sendmail_path": "Sendmail Yolu",
+            "no_email_selected": "No email selected"
         },
         "numbering": {
             "title": "Numara Formatı Ayarları",

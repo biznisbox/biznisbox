@@ -108,4 +108,6 @@ return [
     'cannot_update_signed_contract' => 'Cannot update signed contract',
     'enable_js_to_use_app' => 'We\'re sorry but this app doesn\'t work properly without JavaScript enabled. Please enable it to continue.',
     'cannot_delete_own_account' => 'Cannot delete own account',
+    'item_not_sent' => 'Item not sent',
+    'item_sent_successfully' => 'Item sent successfully',
 ];

@@ -108,4 +108,6 @@ return [
     'cannot_update_signed_contract' => 'Kan ikke opdatere underskrevet kontrakt',
     'enable_js_to_use_app' => 'Vi beklager, men uden aktiveret JavaScript fungerer denne app ikke korrekt. Aktivér venligst JavaScript.',
     'cannot_delete_own_account' => 'Kan ikke slette egen konto',
+    'item_not_sent' => 'Vare ikke sendt',
+    'item_sent_successfully' => 'Element sendt succesfuldt',
 ];

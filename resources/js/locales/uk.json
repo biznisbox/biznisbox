@@ -550,7 +550,8 @@
         "activity": "Активність",
         "activities": "Події",
         "edit_activity": "Редагувати дію",
-        "partner_activities": "Активність партнера"
+        "partner_activities": "Активність партнера",
+        "send_email": "Надіслати ел. листа"
     },
     "partner_activity_types": {
         "call": "Дзвінок",
@@ -1034,9 +1035,13 @@
             "reset_password": "Скидання пароля",
             "send_details_to": "Відправити подробиці до",
             "never_logged_in": "Ніколи не входив",
+            "never_used": "Ніколи не використано",
             "auto_generate_password": "Автоматично згенерувати пароль",
             "delete_confirm_user": "Ви впевнені, що хочете видалити цього користувача?",
-            "disable_2fa": "Вимкнути 2FA"
+            "disable_2fa": "Вимкнути 2FA",
+            "personal_access_tokens": "Токени особистого доступу",
+            "no_personal_access_tokens": "Персональні токени доступу не знайдені",
+            "delete_confirm_personal_access_token": "Ви впевнені, що бажаєте видалити цей персональний токен доступу?"
         },
         "department": {
             "title": "Відділи",
@@ -1146,7 +1151,8 @@
             "mail_from_name": "Назва пошти",
             "send_test_email": "Надіслати тестовий лист",
             "send_test_email_to": "Відправити тестовий лист до",
-            "sendmail_path": "Шлях до Sendmail"
+            "sendmail_path": "Шлях до Sendmail",
+            "no_email_selected": "Адресу ел. пошти не вибрано"
         },
         "numbering": {
             "title": "Параметри числових форматів",

@@ -109,4 +109,6 @@ return [
     'enable_js_to_use_app' =>
         'Žal nam je, vendar ta aplikacija ne deluje pravilno, če ni omogočen JavaScript. Omogočite ga za nadaljevanje.',
     'cannot_delete_own_account' => 'Ne morate izbrisati lastnega računa',
+    'item_not_sent' => 'Item not sent',
+    'item_sent_successfully' => 'Item sent successfully',
 ];

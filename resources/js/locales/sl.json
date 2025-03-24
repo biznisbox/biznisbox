@@ -550,7 +550,8 @@
         "activity": "Aktivnost",
         "activities": "Aktivnosti",
         "edit_activity": "Uredi aktivnost",
-        "partner_activities": "Partnerjeve aktivnosti"
+        "partner_activities": "Partnerjeve aktivnosti",
+        "send_email": "Pošlji sporočilo"
     },
     "partner_activity_types": {
         "call": "Klic",
@@ -1034,9 +1035,13 @@
             "reset_password": "Ponastavi geslo",
             "send_details_to": "Pošlji podrobnosti na",
             "never_logged_in": "Prijava ni bila izvedena",
+            "never_used": "Nikoli uporabljeno",
             "auto_generate_password": "Samodejno ustvari geslo",
             "delete_confirm_user": "Ali ste prepričani, da želite izbrisati uporabnika?",
-            "disable_2fa": "Onemogoči 2FA"
+            "disable_2fa": "Onemogoči 2FA",
+            "personal_access_tokens": "Osebni dostopni žetoni",
+            "no_personal_access_tokens": "Ni osebnih dostopnih žetonov",
+            "delete_confirm_personal_access_token": "Ali ste prepričani, da želite izbrisati ta žeton osebnega dostopa?"
         },
         "department": {
             "title": "Oddeleki",
@@ -1146,7 +1151,8 @@
             "mail_from_name": "Mail Ime Pošiljatelja",
             "send_test_email": "Pošlji preskusno e-pošto",
             "send_test_email_to": "Pošlji testni email na",
-            "sendmail_path": "Sendmail Path"
+            "sendmail_path": "Sendmail Path",
+            "no_email_selected": "Elektronski naslov ni izbran"
         },
         "numbering": {
             "title": "Številčenje",

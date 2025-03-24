@@ -51,13 +51,12 @@ return [
     'login_os' => 'SO: :os',
     'login_date' => 'Fecha y hora: :date',
     'if_this_was_not_you' => 'Si no fue usted, por favor cambie su contraseña inmediatamente y póngase en contacto con el administrador.',
-    'personal_access_token_created' => 'Personal Access Token Created',
-    'subject_personal_access_token_created' => 'Personal Access Token Created',
-    'new_personal_access_token_generated' => 'A new personal access token has been generated in your account.',
+    'personal_access_token_created' => 'Token de acceso personal creado',
+    'subject_personal_access_token_created' => 'Token de acceso personal creado',
+    'new_personal_access_token_generated' => 'Se ha generado un nuevo token de acceso personal en tu cuenta.',
     'personal_access_token' => 'Token de acceso personal',
     'personal_access_token_details' => 'Detalles del token de acceso personal',
     'personal_access_token_name' => 'Nombre del Token',
-    'personal_access_token_valid_until' => 'Valid Until',
-    'if_this_was_not_you_personal_access_token' =>
-        'Si no fue usted, por favor elimine el token inmediatamente y póngase en contacto con el administrador.',
+    'personal_access_token_valid_until' => 'Válido hasta',
+    'if_this_was_not_you_personal_access_token' => 'Si no fue usted, por favor elimine el token inmediatamente y póngase en contacto con el administrador.',
 ];

@@ -550,7 +550,8 @@
         "activity": "Aktivita",
         "activities": "Aktivity",
         "edit_activity": "Upravit aktivitu",
-        "partner_activities": "Partnerské aktivity"
+        "partner_activities": "Partnerské aktivity",
+        "send_email": "Poslat e-mail"
     },
     "partner_activity_types": {
         "call": "Hovor",
@@ -1034,9 +1035,13 @@
             "reset_password": "Obnovit heslo",
             "send_details_to": "Poslat podrobnosti na",
             "never_logged_in": "Nikdy se nepřihlásilo",
+            "never_used": "Nikdy nepoužito",
             "auto_generate_password": "Automatické generování hesla",
             "delete_confirm_user": "Opravdu chcete smazat tohoto uživatele?",
-            "disable_2fa": "Zakázat 2FA"
+            "disable_2fa": "Zakázat 2FA",
+            "personal_access_tokens": "Osobní přístupové tokeny",
+            "no_personal_access_tokens": "Nenalezeny žádné osobní přístupové tokeny",
+            "delete_confirm_personal_access_token": "Jste si jisti, že chcete odstranit tento osobní přístupový token?"
         },
         "department": {
             "title": "Oddělení",
@@ -1146,7 +1151,8 @@
             "mail_from_name": "Jméno pošty",
             "send_test_email": "Odeslat testovací e-mail",
             "send_test_email_to": "Odeslat testovací e-mail na",
-            "sendmail_path": "Cesta k odeslání pošty"
+            "sendmail_path": "Cesta k odeslání pošty",
+            "no_email_selected": "Nebyl vybrán žádný e-mail"
         },
         "numbering": {
             "title": "Nastavení formátů čísel",

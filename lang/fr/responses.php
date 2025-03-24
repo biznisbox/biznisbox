@@ -111,4 +111,6 @@ return [
     'enable_js_to_use_app' =>
         'Nous sommes désolés, mais cette application ne fonctionne pas correctement sans JavaScript activé. Veuillez l\'activer pour continuer.',
     'cannot_delete_own_account' => 'Impossible de supprimer son propre compte',
+    'item_not_sent' => 'Élément non envoyé',
+    'item_sent_successfully' => 'Élément envoyé avec succès',
 ];

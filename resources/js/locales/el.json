@@ -550,7 +550,8 @@
         "activity": "Δραστηριότητα",
         "activities": "Δραστηριότητες",
         "edit_activity": "Επεξεργασία Δραστηριότητας",
-        "partner_activities": "Δραστηριότητες Συνεργατών"
+        "partner_activities": "Δραστηριότητες Συνεργατών",
+        "send_email": "Αποστολή email"
     },
     "partner_activity_types": {
         "call": "Κλήση",
@@ -1034,9 +1035,13 @@
             "reset_password": "Επαναφορά Κωδικού Πρόσβασης",
             "send_details_to": "Αποστολή λεπτομερειών σε",
             "never_logged_in": "Ποτέ μη συνδεδεμένος",
+            "never_used": "Ποτέ δεν χρησιμοποιείται",
             "auto_generate_password": "Αυτόματη δημιουργία κωδικού πρόσβασης",
             "delete_confirm_user": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον χρήστη?",
-            "disable_2fa": "Απενεργοποίηση 2FA"
+            "disable_2fa": "Απενεργοποίηση 2FA",
+            "personal_access_tokens": "Προσωπικά Διακριτικά Πρόσβασης",
+            "no_personal_access_tokens": "Δεν βρέθηκαν προσωπικά διακριτικά πρόσβασης",
+            "delete_confirm_personal_access_token": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το προσωπικό διακριτικό πρόσβασης?"
         },
         "department": {
             "title": "Τμήματα",
@@ -1146,7 +1151,8 @@
             "mail_from_name": "Email Από Όνομα",
             "send_test_email": "Αποστολή δοκιμαστικού email",
             "send_test_email_to": "Αποστολή δοκιμαστικού email στο",
-            "sendmail_path": "Διαδρομή Sendmail"
+            "sendmail_path": "Διαδρομή Sendmail",
+            "no_email_selected": "Δεν έχει επιλεγεί email"
         },
         "numbering": {
             "title": "Ρυθμίσεις μορφών αριθμών",

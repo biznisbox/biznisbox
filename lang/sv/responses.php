@@ -109,4 +109,6 @@ return [
     'enable_js_to_use_app' =>
         'Vi beklagar, men den här appen fungerar inte ordentligt utan JavaScript aktiverat. Aktivera den för att fortsätta.',
     'cannot_delete_own_account' => 'Kan inte ta bort eget konto',
+    'item_not_sent' => 'Objektet har inte skickats',
+    'item_sent_successfully' => 'Objektet har skickats',
 ];

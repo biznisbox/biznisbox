@@ -109,4 +109,6 @@ return [
     'enable_js_to_use_app' =>
         'Beklager, men denne appen fungerer ikke som den skal uten JavaScript aktivert. Vennligst aktiver den for å fortsette.',
     'cannot_delete_own_account' => 'Kan ikke slette egen konto',
+    'item_not_sent' => 'Artikkel ikke sendt',
+    'item_sent_successfully' => 'Element vellykket sendt',
 ];

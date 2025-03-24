@@ -109,4 +109,6 @@ return [
     'enable_js_to_use_app' =>
         'Het spijt ons, maar deze app werkt niet goed zonder JavaScript ingeschakeld. Activeer deze app om door te gaan.',
     'cannot_delete_own_account' => 'Kan eigen account niet verwijderen',
+    'item_not_sent' => 'Item niet verzonden',
+    'item_sent_successfully' => 'Item succesvol verzonden',
 ];

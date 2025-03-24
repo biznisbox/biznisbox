@@ -550,7 +550,8 @@
         "activity": "Activiteit",
         "activities": "Activiteiten",
         "edit_activity": "Activiteit bewerken",
-        "partner_activities": "Partner activiteiten"
+        "partner_activities": "Partner activiteiten",
+        "send_email": "E-mail verzenden"
     },
     "partner_activity_types": {
         "call": "Oproepen",
@@ -1034,9 +1035,13 @@
             "reset_password": "Wachtwoord opnieuw instellen",
             "send_details_to": "Verzend details naar",
             "never_logged_in": "Nooit ingelogd",
+            "never_used": "Nooit gebruikt",
             "auto_generate_password": "Automatisch wachtwoord genereren",
             "delete_confirm_user": "Weet u zeker dat u deze gebruiker wilt verwijderen?",
-            "disable_2fa": "2FA uitschakelen"
+            "disable_2fa": "2FA uitschakelen",
+            "personal_access_tokens": "Persoonlijke toegangstokens",
+            "no_personal_access_tokens": "Geen persoonlijke toegangstokens gevonden",
+            "delete_confirm_personal_access_token": "Weet u zeker dat u deze persoonlijke toegangstoets wilt verwijderen?"
         },
         "department": {
             "title": "Afdelingen",
@@ -1146,7 +1151,8 @@
             "mail_from_name": "E-mail van naam",
             "send_test_email": "Testmail verzenden",
             "send_test_email_to": "Testmail verzenden naar",
-            "sendmail_path": "Sendmail pad"
+            "sendmail_path": "Sendmail pad",
+            "no_email_selected": "Geen e-mail geselecteerd"
         },
         "numbering": {
             "title": "Nummer formaten instellingen",

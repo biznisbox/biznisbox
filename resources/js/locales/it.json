@@ -550,7 +550,8 @@
         "activity": "Attività",
         "activities": "Attività",
         "edit_activity": "Modifica Attività",
-        "partner_activities": "Attività Partner"
+        "partner_activities": "Attività Partner",
+        "send_email": "Invia email"
     },
     "partner_activity_types": {
         "call": "Chiama",
@@ -1034,9 +1035,13 @@
             "reset_password": "Reimposta Password",
             "send_details_to": "Invia dettagli a",
             "never_logged_in": "Non aver mai effettuato l'accesso",
+            "never_used": "Mai usato",
             "auto_generate_password": "Generazione automatica password",
             "delete_confirm_user": "Sei sicuro di voler eliminare questo utente?",
-            "disable_2fa": "Disabilita 2FA"
+            "disable_2fa": "Disabilita 2FA",
+            "personal_access_tokens": "Token Di Accesso Personale",
+            "no_personal_access_tokens": "Nessun token di accesso personale trovato",
+            "delete_confirm_personal_access_token": "Sei sicuro di voler eliminare questo token di accesso personale?"
         },
         "department": {
             "title": "Dipartimenti",
@@ -1146,7 +1151,8 @@
             "mail_from_name": "Posta Dal Nome",
             "send_test_email": "Invia email di prova",
             "send_test_email_to": "Invia email di prova a",
-            "sendmail_path": "Percorso Sendmail"
+            "sendmail_path": "Percorso Sendmail",
+            "no_email_selected": "Nessuna email selezionata"
         },
         "numbering": {
             "title": "Impostazioni dei formati numerici",
