@@ -1035,9 +1035,13 @@
             "reset_password": "Tilbakestill passord",
             "send_details_to": "Send detaljer til",
             "never_logged_in": "Aldri logget inn",
+            "never_used": "Aldri brukt",
             "auto_generate_password": "Autogenerer passord",
             "delete_confirm_user": "Er du sikker på at du vil slette denne brukeren?",
-            "disable_2fa": "Deaktiver 2FA"
+            "disable_2fa": "Deaktiver 2FA",
+            "personal_access_tokens": "Personlige tilgangsnøkler",
+            "no_personal_access_tokens": "Ingen personlige tilgangsnøkler funnet",
+            "delete_confirm_personal_access_token": "Er du sikker på at du vil slette denne personlige tilgangstoken?"
         },
         "department": {
             "title": "Avdelinger",
