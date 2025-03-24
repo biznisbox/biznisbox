@@ -1039,9 +1039,9 @@
             "auto_generate_password": "Automatické generování hesla",
             "delete_confirm_user": "Opravdu chcete smazat tohoto uživatele?",
             "disable_2fa": "Zakázat 2FA",
-            "personal_access_tokens": "Personal Access Tokens",
+            "personal_access_tokens": "Osobní přístupové tokeny",
             "no_personal_access_tokens": "Nenalezeny žádné osobní přístupové tokeny",
-            "delete_confirm_personal_access_token": "Are you sure you want to delete this personal access token?"
+            "delete_confirm_personal_access_token": "Jste si jisti, že chcete odstranit tento osobní přístupový token?"
         },
         "department": {
             "title": "Oddělení",
