@@ -1035,9 +1035,13 @@
             "reset_password": "Сбросить пароль",
             "send_details_to": "Отправить подробности",
             "never_logged_in": "Никогда не входил",
+            "never_used": "Не использовано",
             "auto_generate_password": "Сгенерировать пароль автоматически",
             "delete_confirm_user": "Вы уверены, что хотите удалить этого пользователя?",
-            "disable_2fa": "Отключить 2FA"
+            "disable_2fa": "Отключить 2FA",
+            "personal_access_tokens": "Персональные токены доступа",
+            "no_personal_access_tokens": "Маркеры персонального доступа не найдены",
+            "delete_confirm_personal_access_token": "Вы уверены, что хотите удалить этот персональный токен доступа?"
         },
         "department": {
             "title": "Отделы",
