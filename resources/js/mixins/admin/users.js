@@ -16,6 +16,7 @@ export default {
                 send_details_to: [],
                 sessions: [],
                 roles: [],
+                personal_access_tokens: [],
                 last_login_at: '',
                 active: true,
                 two_factor_auth: false,
@@ -89,6 +90,19 @@ export default {
             this.makeHttpRequest('POST', `/api/admin/users/${id}/disable-2fa`).then((response) => {
                 this.showToast(response.data.message)
                 this.getUser(id)
+            })
+        },
+
+        deletePersonalAccessToken(id, userId) {
+            this.makeHttpRequest('DELETE', `/api/admin/users/${id}/personal-access-tokens`).then((response) => {
+                this.showToast(response.data.message)
+                this.getUser(userId)
+            })
+        },
+
+        deletePersonalAccessTokenAsk(id, userId) {
+            this.confirmDeleteDialog(this.$t('admin.user.delete_confirm_personal_access_token'), this.$t('basic.confirmation'), () => {
+                this.deletePersonalAccessToken(id, userId)
             })
         },
     },

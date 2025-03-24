@@ -584,7 +584,7 @@ if (!function_exists('getUserIdFromEmployeeId')) {
     }
 }
 
-if(!function_exists('getEmployeeIdFromUserId')) {
+if (!function_exists('getEmployeeIdFromUserId')) {
     /**
      * Get employee id from user id
      * @param string $user_id - user id

@@ -279,7 +279,7 @@ class DataService
             'one_week' => 10080,
             'one_month' => 43200,
             'one_year' => 525600,
-            'never' => 525600 * 100, // 100 years (525600 minutes in a year)
+            'never' => 525600 * 50, // 50 years (mysql cant insert 100 years :( ) -> 525600 minutes in a year
             'one_hour' => 60,
             'six_months' => 262800,
             'custom' => $data['valid_until'],
@@ -291,7 +291,7 @@ class DataService
             ->login($user);
 
         $data['type'] = 'personal_access_token';
-        $data['valid_until'] = now()->addMinutes($ttls[$ttl]);
+        $data['valid_until'] = now()->addMinutes($ttls[$ttl])->toDateTimeString();
 
         $data['token'] = getJwtPayloadData($token)['jti'];
 

@@ -182,7 +182,6 @@ Route::middleware('auth:api')->group(function () {
     });
 
     // Transaction
-
     Route::group(['middleware' => 'can:transactions'], function () {
         Route::get('/transactions', [TransactionController::class, 'getTransactions'])->name('getTransactions');
         Route::get('/transactions/{id}', [TransactionController::class, 'getTransaction'])->name('getTransaction');
@@ -193,7 +192,6 @@ Route::middleware('auth:api')->group(function () {
     });
 
     // Archive
-
     Route::group(['middleware' => 'can:archive', 'prefix' => '/archive'], function () {
         Route::get('/documents', [ArchiveController::class, 'getDocuments'])->name('getDocuments');
         Route::get('/documents/{id}', [ArchiveController::class, 'getDocument'])->name('getDocument');
@@ -259,6 +257,9 @@ Route::middleware('auth:api')->group(function () {
             Route::put('/users/{id}', [AdminUserController::class, 'updateUser'])->name('adminUpdateUser');
             Route::delete('/users/{id}', [AdminUserController::class, 'deleteUser'])->name('adminDeleteUser');
             Route::put('/users/{id}/reset-password', [AdminUserController::class, 'resetPassword'])->name('adminResetPassword');
+            Route::delete('/users/{id}/personal-access-tokens', [AdminUserController::class, 'deleteAdminPersonalAccessToken'])->name(
+                'adminDeletePersonalAccessToken'
+            );
             Route::post('/users/{id}/disable-2fa', [AdminUserController::class, 'disable2fa'])->name('adminDisable2fa');
         });
 
@@ -278,6 +279,7 @@ Route::middleware('auth:api')->group(function () {
             Route::post('/roles', [AdminPermissionRoleController::class, 'createRole'])->name('adminCreateRole');
             Route::put('/roles/{id}', [AdminPermissionRoleController::class, 'updateRole'])->name('adminUpdateRole');
             Route::delete('/roles/{id}', [AdminPermissionRoleController::class, 'deleteRole'])->name('adminDeleteRole');
+
             Route::get('/permissions', [AdminPermissionRoleController::class, 'getPermissions'])->name('getPermissions');
         });
 

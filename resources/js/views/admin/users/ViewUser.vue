@@ -58,12 +58,14 @@
                     <Tabs value="sessions_tab">
                         <TabList>
                             <Tab value="sessions_tab">{{ $t('login_history.login_history') }}</Tab>
+                            <Tab value="personal_access_tokens_tab">{{ $t('admin.user.personal_access_tokens') }}</Tab>
                         </TabList>
                         <TabPanels>
+                            <!-- Login history tab -->
                             <TabPanel value="sessions_tab">
                                 <DataTable :value="user.sessions" paginator :rows="10" :rows-per-page-options="[10, 20, 50]">
                                     <template #empty>
-                                        <div class="p-4 pl-0 text-center w-full">
+                                        <div class="p-4 pl-0 text-center w-full dark:text-surface-200">
                                             <i class="fa fa-info-circle empty-icon"></i>
                                             <p>{{ $t('login_history.no_login_history') }}</p>
                                         </div>
@@ -102,6 +104,54 @@
                                     </Column>
                                 </DataTable>
                             </TabPanel>
+
+                            <!--Personal access tokens tab -->
+                            <TabPanel value="personal_access_tokens_tab">
+                                <DataTable :value="user.personal_access_tokens" paginator :rows="10" :rows-per-page-options="[10, 20, 50]">
+                                    <template #empty>
+                                        <div class="p-4 pl-0 text-center w-full dark:text-surface-200">
+                                            <i class="fa fa-info -circle empty-icon"></i>
+                                            <p>{{ $t('admin.user.no_personal_access_tokens') }}</p>
+                                        </div>
+                                    </template>
+                                    <Column field="name" :header="$t('form.name')" />
+                                    <Column field="last_used_at" :header="$t('form.last_used_at')">
+                                        <template #body="{ data }">
+                                            <span v-if="data.last_used_at">
+                                                {{ formatDateTime(data.last_used_at) }}
+                                            </span>
+                                            <span v-else>
+                                                <Tag severity="danger" :value="$t('admin.user.never_used')" />
+                                            </span>
+                                        </template>
+                                    </Column>
+                                    <Column field="created_at" :header="$t('form.created_at')">
+                                        <template #body="{ data }">
+                                            {{ formatDateTime(data.created_at) }}
+                                        </template>
+                                    </Column>
+                                    <Column field="valid_until" :header="$t('form.valid_until')">
+                                        <template #body="{ data }">
+                                            <span v-if="data.valid_until">
+                                                {{ formatDateTime(data.valid_until) }}
+                                            </span>
+                                            <span v-else>
+                                                <Tag severity="danger" :value="$t('time_range.never')" />
+                                            </span>
+                                        </template>
+                                    </Column>
+                                    <Column field="actions" :header="$t('basic.actions')">
+                                        <template #body="{ data }">
+                                            <Button
+                                                icon="fa fa-trash"
+                                                :label="$t('basic.delete')"
+                                                severity="danger"
+                                                @click="deletePersonalAccessTokenAsk(data.id, user.id)"
+                                            />
+                                        </template>
+                                    </Column>
+                                </DataTable>
+                            </TabPanel>
                         </TabPanels>
                     </Tabs>
                 </div>
@@ -118,7 +168,7 @@
 
             <!-- Password Dialog -->
             <Dialog v-model:visible="showPasswordDialog" :header="$t('admin.user.reset_password')" modal>
-                <form class="mt-3">
+                <form class="flex flex-col gap-4">
                     <div class="flex items-center gap-2">
                         <Checkbox v-model="user.auto_generated_password" binary @change="generatePasswordEdit" />
                         <label>{{ $t('admin.user.auto_generate_password') }}</label>

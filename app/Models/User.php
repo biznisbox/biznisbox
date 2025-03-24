@@ -65,6 +65,11 @@ class User extends Authenticatable implements JWTSubject, Auditable
         return $this->hasMany(Session::class);
     }
 
+    public function personalAccessTokens()
+    {
+        return $this->hasMany(PersonalAccessToken::class);
+    }
+
     /**
      * Get the full name attribute.
      * @return string
@@ -143,7 +148,7 @@ class User extends Authenticatable implements JWTSubject, Auditable
 
     public function getUser($id)
     {
-        $user = $this->with('roles', 'permissions', 'sessions')->find($id);
+        $user = $this->with('roles', 'permissions', 'sessions', 'personalAccessTokens')->find($id);
         if ($user) {
             return $user;
         }

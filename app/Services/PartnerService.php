@@ -87,7 +87,7 @@ class PartnerService
             return false;
         }
 
-        if(!$partnerContact->email || !$partnerContact->name || filter_var($partnerContact->email , FILTER_VALIDATE_EMAIL) === false) {
+        if (!$partnerContact->email || !$partnerContact->name || filter_var($partnerContact->email, FILTER_VALIDATE_EMAIL) === false) {
             return false;
         }
 

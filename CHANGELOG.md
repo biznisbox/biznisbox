@@ -3,10 +3,15 @@
 ## ✨ New Features and Enhancements
 
 - Added a new feature for sending email to partner contact.
+- Added feature to view and manage user personal access tokens by admin.
 
-## 🧪 Experiment
+## 🧪 Experiment (may be deleted in feature)
 
 - Added feature for get real IP address of user (not proxy).
+
+## 🐛 Bug Fixes
+
+- Fixed security issue with showing token value in the API response.
 
 # v2.1.1
 
