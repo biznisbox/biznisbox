@@ -1035,9 +1035,13 @@
             "reset_password": "Restablecer contraseña",
             "send_details_to": "Enviar detalles a",
             "never_logged_in": "Nunca iniciar sesión",
+            "never_used": "Nunca usado",
             "auto_generate_password": "Generar contraseña automáticamente",
             "delete_confirm_user": "¿Está seguro que desea eliminar este usuario?",
-            "disable_2fa": "Desactivar 2FA"
+            "disable_2fa": "Desactivar 2FA",
+            "personal_access_tokens": "Personal Access Tokens",
+            "no_personal_access_tokens": "No se encontraron tokens de acceso personal",
+            "delete_confirm_personal_access_token": "Are you sure you want to delete this personal access token?"
         },
         "department": {
             "title": "Departamentos",
