@@ -4,6 +4,9 @@
 
 - Added a new feature for sending email to partner contact.
 
+## 🧪 Experiment
+
+- Added feature for get real IP address of user (not proxy).
 
 # v2.1.1
 
