@@ -1035,13 +1035,13 @@
             "reset_password": "Ponastavi geslo",
             "send_details_to": "Pošlji podrobnosti na",
             "never_logged_in": "Prijava ni bila izvedena",
-            "never_used": "Never used",
+            "never_used": "Nikoli uporabljeno",
             "auto_generate_password": "Samodejno ustvari geslo",
             "delete_confirm_user": "Ali ste prepričani, da želite izbrisati uporabnika?",
             "disable_2fa": "Onemogoči 2FA",
-            "personal_access_tokens": "Personal Access Tokens",
-            "no_personal_access_tokens": "No personal access tokens found",
-            "delete_confirm_personal_access_token": "Are you sure you want to delete this personal access token?"
+            "personal_access_tokens": "Osebni dostopni žetoni",
+            "no_personal_access_tokens": "Ni osebnih dostopnih žetonov",
+            "delete_confirm_personal_access_token": "Ali ste prepričani, da želite izbrisati ta žeton osebnega dostopa?"
         },
         "department": {
             "title": "Oddeleki",
