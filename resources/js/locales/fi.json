@@ -1035,9 +1035,13 @@
             "reset_password": "Nollaa Salasana",
             "send_details_to": "Lähetä tiedot",
             "never_logged_in": "Ei koskaan kirjautunut sisään",
+            "never_used": "Ei koskaan käytetty",
             "auto_generate_password": "Luo salasana automaattisesti",
             "delete_confirm_user": "Oletko varma, että haluat poistaa tämän käyttäjän?",
-            "disable_2fa": "Poista 2FA Käytöstä"
+            "disable_2fa": "Poista 2FA Käytöstä",
+            "personal_access_tokens": "Henkilökohtaiset Pääsypolkennit",
+            "no_personal_access_tokens": "Henkilökohtaisia pääsypoletteja ei löytynyt",
+            "delete_confirm_personal_access_token": "Oletko varma, että haluat poistaa tämän henkilökohtaisen pääsytunnuksen?"
         },
         "department": {
             "title": "Osastot",
