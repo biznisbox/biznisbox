@@ -1,4 +1,7 @@
-## Unreleased
+# Unreleased
+
+
+# 2.2.0
 
 ## ✨ New Features and Enhancements
 
@@ -12,6 +15,10 @@
 ## 🐛 Bug Fixes
 
 - Fixed security issue with showing token value in the API response.
+
+## 🌐 Localization
+
+- Updated translations with the latest contributions from Crowdin to support better multilingual usability.
 
 # v2.1.1
 
