@@ -106,7 +106,8 @@ return [
     'signer_not_found_or_already_signed' => 'Assinante não encontrado ou já assinado',
     'cannot_delete_signed_contract' => 'Não é possível excluir o contrato assinado',
     'cannot_update_signed_contract' => 'Não é possível atualizar o contrato assinado',
-    'enable_js_to_use_app' => 'Lamentamos, mas este aplicativo não funciona corretamente sem JavaScript habilitado. Por favor, ative-o para continuar.',
+    'enable_js_to_use_app' =>
+        'Lamentamos, mas este aplicativo não funciona corretamente sem JavaScript habilitado. Por favor, ative-o para continuar.',
     'cannot_delete_own_account' => 'Não é possível excluir a própria conta',
     'item_not_sent' => 'Item não enviado',
     'item_sent_successfully' => 'Item enviado com sucesso',

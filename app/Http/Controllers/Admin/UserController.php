@@ -129,4 +129,18 @@ class UserController extends Controller
         }
         return api_response($user, __('responses.two_factor_auth_disabled'), 200);
     }
+
+    /**
+     * Delete personal access token
+     *
+     * @param  string  $id id of the personal access token
+     */
+    public function deleteAdminPersonalAccessToken($id)
+    {
+        $personalAccessToken = $this->userService->deleteAdminPersonalAccessToken($id);
+        if (!$personalAccessToken) {
+            return api_response($personalAccessToken, __('responses.item_not_deleted'), 400);
+        }
+        return api_response($personalAccessToken, __('responses.item_deleted_successfully'), 200);
+    }
 }

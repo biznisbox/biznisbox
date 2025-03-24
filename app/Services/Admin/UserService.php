@@ -4,6 +4,8 @@ namespace App\Services\Admin;
 
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use App\Utils\JwtBlackList;
+use Illuminate\Support\Str;
 
 class UserService
 {
@@ -64,5 +66,29 @@ class UserService
         }
         createActivityLog('disable2fa', $id, 'App\Models\User', 'User');
         return $user;
+    }
+
+    public function deleteAdminPersonalAccessToken($id)
+    {
+        $personalAccessToken = new \App\Models\PersonalAccessToken();
+
+        $personalAccessToken = $personalAccessToken->where('id', $id)->first();
+        if (!$personalAccessToken) {
+            return false;
+        }
+
+        // Revoke the token
+        DB::table(JwtBlackList::TABLE_NAME)->insert([
+            'id' => Str::orderedUuid(),
+            'key' => $personalAccessToken->token,
+            'valid_until' => null,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $personalAccessToken = $personalAccessToken->delete($id);
+
+        createActivityLog('deleteAdminPersonalAccessToken', $id, 'App\Models\PersonalAccessToken', 'PersonalAccessToken');
+        return $personalAccessToken;
     }
 }

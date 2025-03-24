@@ -1,3 +1,28 @@
+## Unreleased
+
+## ✨ New Features and Enhancements
+
+- Added a new feature for sending email to partner contact.
+- Added feature to view and manage user personal access tokens by admin.
+
+## 🧪 Experiment (may be deleted in feature)
+
+- Added feature for get real IP address of user (not proxy).
+
+## 🐛 Bug Fixes
+
+- Fixed security issue with showing token value in the API response.
+
+# v2.1.1
+
+## 🐛 Bug Fixes
+
+- Fixed an issue with WorldSeeder by locking the package version
+- Fixed color format for the company color in settings
+- Fixed an issue where the sendmail path was not displayed in settings
+- Fixed unit updating issue in settings
+- Fixed text color of changelog on the status page
+
 # v2.1.0
 
 ## ✨ New Features and Enhancements

@@ -251,12 +251,13 @@
                             </div>
                         </TabPanel>
 
+                        <!-- Personal Access Tokens -->
                         <TabPanel value="personal_access_tokens">
                             <div class="flex gap-2 justify-end my-2">
                                 <Button
                                     :label="$t('profile.create_personal_access_token')"
                                     :disabled="loadingData"
-                                    @click="showPersonalAccessTokenModal = true"
+                                    @click="openPersonalAccessTokenModal"
                                     severity="success"
                                     icon="fa fa-key"
                                 />
@@ -401,7 +402,6 @@ export default {
                 { label: this.$t('time_range.one_month'), value: 'one_month' },
                 { label: this.$t('time_range.six_months'), value: 'six_months' },
                 { label: this.$t('time_range.one_year'), value: 'one_year' },
-
                 { label: this.$t('time_range.never'), value: 'never' },
             ],
         }
@@ -556,6 +556,18 @@ export default {
             this.confirmDeleteDialog(this.$t('profile.delete_personal_access_token'), this.$t('basic.confirmation'), () => {
                 this.deletePersonalAccessToken(id)
             })
+        },
+
+        resetPersonalAccessTokenDialog() {
+            this.personal_access_token = {
+                name: '',
+                valid_until: 'six_months',
+            }
+        },
+
+        openPersonalAccessTokenModal() {
+            this.resetPersonalAccessTokenDialog()
+            this.showPersonalAccessTokenModal = true
         },
     },
 

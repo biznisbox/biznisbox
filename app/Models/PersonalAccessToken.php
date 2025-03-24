@@ -15,12 +15,13 @@ class PersonalAccessToken extends Model implements Auditable
 
     protected $fillable = ['user_id', 'name', 'token', 'type', 'active', 'last_used_at', 'valid_until'];
 
-    protected $hidden = ['updated_at'];
+    protected $hidden = ['updated_at', 'token'];
 
     protected function casts(): array
     {
         return [
             'active' => 'boolean',
+            'valid_until' => 'datetime',
         ];
     }
 

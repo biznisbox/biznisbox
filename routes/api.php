@@ -103,6 +103,7 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/partners', [PartnerController::class, 'getPartners'])->name('getPartners');
         Route::get('/partners/{id}', [PartnerController::class, 'getPartner'])->name('getPartner');
         Route::get('/partner/number', [PartnerController::class, 'getPartnerNumber'])->name('getPartnerNumber');
+        Route::post('/partner/message', [PartnerController::class, 'sendEmailToPartnerContact'])->name('sendEmailToPartnerContact');
     });
 
     // Partner Limited is for the other users who can't access all the partners -> used in the other parts of the app
@@ -181,7 +182,6 @@ Route::middleware('auth:api')->group(function () {
     });
 
     // Transaction
-
     Route::group(['middleware' => 'can:transactions'], function () {
         Route::get('/transactions', [TransactionController::class, 'getTransactions'])->name('getTransactions');
         Route::get('/transactions/{id}', [TransactionController::class, 'getTransaction'])->name('getTransaction');
@@ -192,7 +192,6 @@ Route::middleware('auth:api')->group(function () {
     });
 
     // Archive
-
     Route::group(['middleware' => 'can:archive', 'prefix' => '/archive'], function () {
         Route::get('/documents', [ArchiveController::class, 'getDocuments'])->name('getDocuments');
         Route::get('/documents/{id}', [ArchiveController::class, 'getDocument'])->name('getDocument');
@@ -258,6 +257,9 @@ Route::middleware('auth:api')->group(function () {
             Route::put('/users/{id}', [AdminUserController::class, 'updateUser'])->name('adminUpdateUser');
             Route::delete('/users/{id}', [AdminUserController::class, 'deleteUser'])->name('adminDeleteUser');
             Route::put('/users/{id}/reset-password', [AdminUserController::class, 'resetPassword'])->name('adminResetPassword');
+            Route::delete('/users/{id}/personal-access-tokens', [AdminUserController::class, 'deleteAdminPersonalAccessToken'])->name(
+                'adminDeletePersonalAccessToken'
+            );
             Route::post('/users/{id}/disable-2fa', [AdminUserController::class, 'disable2fa'])->name('adminDisable2fa');
         });
 
@@ -277,6 +279,7 @@ Route::middleware('auth:api')->group(function () {
             Route::post('/roles', [AdminPermissionRoleController::class, 'createRole'])->name('adminCreateRole');
             Route::put('/roles/{id}', [AdminPermissionRoleController::class, 'updateRole'])->name('adminUpdateRole');
             Route::delete('/roles/{id}', [AdminPermissionRoleController::class, 'deleteRole'])->name('adminDeleteRole');
+
             Route::get('/permissions', [AdminPermissionRoleController::class, 'getPermissions'])->name('getPermissions');
         });
 

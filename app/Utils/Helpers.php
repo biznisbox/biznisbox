@@ -584,6 +584,22 @@ if (!function_exists('getUserIdFromEmployeeId')) {
     }
 }
 
+if (!function_exists('getEmployeeIdFromUserId')) {
+    /**
+     * Get employee id from user id
+     * @param string $user_id - user id
+     * @return string $employee_id - employee id
+     */
+    function getEmployeeIdFromUserId($user_id)
+    {
+        if (!$user_id) {
+            return null;
+        }
+        $employee = \App\Models\Employee::where('user_id', $user_id)->first();
+        return $employee->id;
+    }
+}
+
 if (!function_exists('sendWebhookForEvent')) {
     /**
      * Send webhook for event (event: partner:created, partner:updated, partner:deleted)

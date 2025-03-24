@@ -64,6 +64,11 @@ export default {
                 notes: '',
                 outcome: '',
             },
+            partner_email_message: {
+                partner_contact_id: null,
+                subject: '',
+                content: '',
+            },
         }
     },
 
@@ -181,6 +186,17 @@ export default {
                 this.showToast(response.data.message)
                 this.showAddEditActivityDialog = false
                 this.getPartner(this.partner.id)
+            })
+        },
+
+        /**
+         * Send email to partner
+         * @return {void}
+         */
+        sendEmailToPartner() {
+            this.makeHttpRequest('POST', '/api/partner/message', this.partner_email_message).then((response) => {
+                this.showToast(response.data.message)
+                this.showSendEmailDialog = false
             })
         },
     },

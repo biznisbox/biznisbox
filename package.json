@@ -1,6 +1,6 @@
 {
     "name": "biznisbox",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "description": "Powerful, open-source invoice management software designed to help businesses",
     "private": true,
     "type": "module",
@@ -12,13 +12,13 @@
         "lint:fix": "eslint --fix ."
     },
     "devDependencies": {
-        "@eslint/js": "^9.22.0",
+        "@eslint/js": "^9.23.0",
         "@fortawesome/fontawesome-free": "^6.7.2",
         "@prettier/plugin-php": "^0.22.4",
-        "@vitejs/plugin-vue": "^5.2.1",
+        "@vitejs/plugin-vue": "^5.2.3",
         "autoprefixer": "^10.4.21",
-        "axios": "^1.8.3",
-        "eslint": "^9.22.0",
+        "axios": "^1.8.4",
+        "eslint": "^9.23.0",
         "eslint-plugin-vue": "^10.0.0",
         "globals": "^16.0.0",
         "laravel-vite-plugin": "^1.2.0",
@@ -27,7 +27,7 @@
         "prettier": "^3.5.3",
         "prettier-plugin-blade": "^2.1.21",
         "tailwindcss": "^3.4.17",
-        "vite": "6.2.1",
+        "vite": "6.2.2",
         "vite-plugin-vue-devtools": "^7.7.2"
     },
     "dependencies": {
@@ -54,7 +54,7 @@
         "primevue": "^4.3.2",
         "qrcode.vue": "^3.6.0",
         "tailwindcss-primeui": "^0.5.1",
-        "tinymce": "^7.7.1",
+        "tinymce": "^7.7.2",
         "vue": "^3.5.13",
         "vue-axios": "^3.5.2",
         "vue-i18n": "^11.1.2",

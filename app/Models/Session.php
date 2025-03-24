@@ -85,15 +85,15 @@ class Session extends Model implements Auditable
     public static function saveSession($user_id, $token, $expires_at)
     {
         $request = Request::capture();
-        $ip_data = self::getIpLocation($request->ip());
+        $ip_data = self::getIpLocation($request->getClientIp());
         $client = new Browser();
         $client_data = $client->parse($request->userAgent() ?? '');
-        $fingerprint = self::generateFingerprint(null, $request->ip(), $request->userAgent() ?? '', $user_id);
+        $fingerprint = self::generateFingerprint(null, $request->getClientIp(), $request->userAgent() ?? '', $user_id);
         $session_data = [
             'user_id' => $user_id,
             'token' => $token,
             'expires_at' => $expires_at,
-            'ip' => $request->ip(),
+            'ip' => $request->getClientIp(),
             'user_agent' => $request->userAgent(),
             'device_type' => $client_data->deviceType(),
             'os' => $client_data->platformName(),

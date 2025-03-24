@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UnitRequest;
 use App\Services\Admin\UnitService;
+use Illuminate\Http\Request;
 
 /**
  * @group Units
@@ -41,7 +42,7 @@ class UnitController extends Controller
      * @param  string  $id id of the unit
      * @return array $unit unit
      */
-    public function getUnit($id)
+    public function getUnit(Request $request, $id)
     {
         $unit = $this->unitService->getUnit($id);
 
@@ -57,7 +58,7 @@ class UnitController extends Controller
      * @param  string  $name name of the unit
      * @return array $unit unit
      */
-    public function getUnitByName($name)
+    public function getUnitByName(Request $request, $name)
     {
         $unit = $this->unitService->getUnitByName($name);
 
@@ -91,7 +92,7 @@ class UnitController extends Controller
      * @param  string  $id id of the unit
      * @return array $unit unit
      */
-    public function updateUnit(UnitRequest $request, $id)
+    public function updateUnit(Request $request, $id)
     {
         $data = $request->all();
         $unit = $this->unitService->updateUnit($id, $data);
@@ -108,7 +109,7 @@ class UnitController extends Controller
      * @param  string  $id id of the unit
      * @return array $unit unit
      */
-    public function deleteUnit($id)
+    public function deleteUnit(Request $request, $id)
     {
         if (!$id) {
             return api_response(null, __('responses.item_not_found_with_id'), 404);

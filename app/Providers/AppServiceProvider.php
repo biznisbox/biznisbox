@@ -24,7 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Trust the X-Forwarded-For header (for getting client IP address)
+        Request::setTrustedProxies(['REMOTE_ADDR'], Request::HEADER_X_FORWARDED_FOR);
+
+        // For generating API documentation
         if (class_exists(\Knuckles\Scribe\Scribe::class)) {
             Scribe::beforeResponseCall(function (Request $request, ExtractedEndpointData $endpointData) {
                 // Add a header to all requests
