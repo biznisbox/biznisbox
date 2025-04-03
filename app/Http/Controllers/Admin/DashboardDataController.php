@@ -10,6 +10,7 @@ use App\Services\Admin\DashboardDataService;
  * @group Dashboard Data
  *
  * APIs for managing dashboard data
+ * @authenticated
  */
 class DashboardDataController extends Controller
 {

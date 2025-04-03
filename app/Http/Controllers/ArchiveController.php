@@ -9,6 +9,7 @@ use App\Services\ArchiveService;
  * @group Archive
  *
  * APIs for managing archive
+ * @authenticated
  */
 class ArchiveController extends Controller
 {
@@ -35,7 +36,7 @@ class ArchiveController extends Controller
     }
 
     /**
-     * Get document by id
+     * Get document by ID
      *
      * @param  string  $id id of the document
      * @return array $document document

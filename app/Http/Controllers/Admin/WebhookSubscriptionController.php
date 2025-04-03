@@ -10,6 +10,7 @@ use App\Services\Admin\WebhookSubscriptionService;
  * @group Webhook Subscriptions
  *
  * APIs for managing webhook subscriptions
+ * @authenticated
  */
 class WebhookSubscriptionController extends Controller
 {

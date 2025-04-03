@@ -10,6 +10,7 @@ use App\Services\Admin\CurrencyService;
  * @group Currencies
  *
  * APIs for managing currencies
+ * @authenticated
  */
 class CurrencyController extends Controller
 {

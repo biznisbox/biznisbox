@@ -9,6 +9,7 @@ use App\Http\Requests\AccountRequest;
  * @group Accounts
  *
  * APIs for managing accounts
+ * @authenticated
  */
 class AccountController extends Controller
 {

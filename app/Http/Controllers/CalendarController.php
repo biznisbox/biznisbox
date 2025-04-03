@@ -9,6 +9,7 @@ use App\Services\CalendarService;
  * @group Calendar
  *
  * APIs for managing calendar events
+ * @authenticated
  */
 class CalendarController extends Controller
 {

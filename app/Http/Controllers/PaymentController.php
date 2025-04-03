@@ -9,6 +9,7 @@ use App\Services\PaymentService;
  * @group Payments
  *
  * APIs for managing payments
+ * @authenticated
  */
 class PaymentController extends Controller
 {

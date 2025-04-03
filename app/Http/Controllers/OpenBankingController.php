@@ -8,6 +8,7 @@ use App\Services\OpenBankingService;
  * @group Open Banking
  *
  * APIs for managing open banking
+ * @authenticated
  */
 class OpenBankingController extends Controller
 {

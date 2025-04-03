@@ -10,6 +10,7 @@ use App\Http\Requests\QuoteRequest;
  * @group Quotes
  *
  * APIs for managing quotes
+ * @authenticated
  */
 class QuoteController extends Controller
 {

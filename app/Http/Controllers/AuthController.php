@@ -43,6 +43,7 @@ class AuthController extends Controller
      * Logout
      *
      * @return array $user User
+     * @authenticated
      */
     public function Logout()
     {
@@ -54,6 +55,7 @@ class AuthController extends Controller
      * Refresh token
      *
      * @return array $token Token
+     * @authenticated
      */
     public function Refresh()
     {
@@ -65,6 +67,7 @@ class AuthController extends Controller
      * Me
      *
      * @return array $user User
+     * @authenticated
      */
     public function Me()
     {

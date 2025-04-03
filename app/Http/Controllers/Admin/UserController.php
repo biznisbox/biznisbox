@@ -11,6 +11,7 @@ use App\Http\Requests\Admin\UserRequest;
  * @group Users
  *
  * APIs for managing users
+ * @authenticated
  */
 class UserController extends Controller
 {

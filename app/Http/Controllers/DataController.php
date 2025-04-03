@@ -9,6 +9,7 @@ use App\Services\DataService;
  * @group Data
  *
  * APIs for managing data
+ * @authenticated
  */
 class DataController extends Controller
 {
@@ -65,6 +66,7 @@ class DataController extends Controller
      * Get data
      *
      * @param  object  $request data from the form (type)
+     * @queryParam type string required Type of data to retrieve. Example: units, taxes, employees, users, departments, products, locales, currencies
      * @return array $data data
      */
     public function getData(Request $request)
@@ -96,6 +98,8 @@ class DataController extends Controller
      * Get activity logs
      *
      * @param Request $request
+     * @queryParam item_id string required ID of the item
+     * @queryParam item_type string required Type of the item (e.g. Invoice, User)
      * @return void
      */
     public function getLogs(Request $request)

@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
  * @group Units
  *
  * APIs for managing units
+ * @authenticated
  */
 class UnitController extends Controller
 {

@@ -9,6 +9,7 @@ use App\Services\SupportTicketService;
  * @group Support Tickets
  *
  * APIs for managing support tickets
+ * @authenticated
  */
 class SupportTicketController extends Controller
 {

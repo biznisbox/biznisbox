@@ -9,6 +9,7 @@ use App\Services\ContractService;
  * @group Contracts
  *
  * APIs for managing contracts
+ * @authenticated
  */
 class ContractController extends Controller
 {

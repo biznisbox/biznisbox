@@ -10,6 +10,7 @@ use App\Services\Admin\TaxService;
  * @group Taxes
  *
  * APIs for managing taxes
+ * @authenticated
  */
 class TaxController extends Controller
 {

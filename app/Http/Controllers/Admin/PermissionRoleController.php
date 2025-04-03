@@ -10,6 +10,7 @@ use App\Services\Admin\PermissionRoleService;
  * @group Permission Roles
  *
  * APIs for managing permission roles
+ * @authenticated
  */
 class PermissionRoleController extends Controller
 {

@@ -10,6 +10,7 @@ use App\Services\Admin\SettingService;
  * @group Settings
  *
  * APIs for managing settings
+ * @authenticated
  */
 class SettingController extends Controller
 {

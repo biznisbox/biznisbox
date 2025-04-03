@@ -10,6 +10,7 @@ use App\Services\InvoiceService;
  * @group Invoices
  *
  * APIs for managing invoices
+ * @authenticated
  */
 class InvoiceController extends Controller
 {

@@ -1,5 +1,10 @@
 # Unreleased
 
+## ✨ New Features and Enhancements
+
+- Updated generation of the API documentation to include new endpoints and features.
+
+## 🐛 Bug Fixes
 
 # 2.2.0
 

@@ -8,6 +8,7 @@ use App\Services\ProductService;
  * @group Products
  *
  * APIs for managing products
+ * @authenticated
  */
 class ProductController extends Controller
 {

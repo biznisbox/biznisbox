@@ -8,6 +8,7 @@ use App\Services\ProfileService;
  * @group User Profile
  *
  * APIs for managing current user profile
+ * @authenticated
  */
 class ProfileController extends Controller
 {

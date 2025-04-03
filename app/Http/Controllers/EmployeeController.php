@@ -9,6 +9,7 @@ use App\Http\Requests\EmployeeRequest;
  * @group Employees
  *
  * APIs for managing employees
+ * @authenticated
  */
 class EmployeeController extends Controller
 {

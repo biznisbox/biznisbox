@@ -10,6 +10,7 @@ use App\Services\TransactionService;
  * @group Transactions
  *
  * APIs for managing transactions
+ * @authenticated
  */
 class TransactionController extends Controller
 {

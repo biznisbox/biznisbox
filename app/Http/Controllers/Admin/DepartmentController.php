@@ -10,6 +10,7 @@ use App\Services\Admin\DepartmentService;
  * @group Departments
  *
  * APIs for managing departments
+ * @authenticated
  */
 class DepartmentController extends Controller
 {

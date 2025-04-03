@@ -8,6 +8,7 @@ use App\Services\PartnerService;
  * @group Partners
  *
  * APIs for managing partners
+ * @authenticated
  */
 class PartnerController extends Controller
 {

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
  * @group Bills
  *
  * APIs for managing bills
+ * @authenticated
  */
 class BillController extends Controller
 {
@@ -24,6 +25,7 @@ class BillController extends Controller
      * Get all bills
      *
      * @return array $bills All bills
+     * @authenticated
      */
     public function getBills()
     {
