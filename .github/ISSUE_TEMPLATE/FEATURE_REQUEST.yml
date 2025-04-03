@@ -1,7 +1,7 @@
 name: Feature request
 description: Suggest an idea for this project💡
 title: '💡[Feature request]: '
-labels: ['🎉feature', 'triage']
+labels: ['🎉feature', '👁️triage']
 assignees:
     - patik123
 body:
@@ -35,7 +35,7 @@ body:
       id: terms
       attributes:
           label: Code of Conduct
-          description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/biznisbox/biznisbox/blob/main/CODE_OF_CONDUCT.md)
+          description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/biznisbox/biznisbox/blob/main/CODE_OF_CONDUCT)
           options:
               - label: I agree to follow this project's Code of Conduct
                 required: true
