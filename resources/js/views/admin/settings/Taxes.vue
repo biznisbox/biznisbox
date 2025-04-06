@@ -168,13 +168,8 @@ export default {
         },
 
         deleteTaxAsk(id) {
-            this.$confirm.require({
-                message: this.$t('admin.taxes.delete_confirm_tax'),
-                header: this.$t('basic.confirmation'),
-                icon: 'fa fa-circle-exclamation',
-                accept: () => {
-                    this.deleteTax(id)
-                },
+            this.confirmDeleteDialog(this.$t('admin.taxes.delete_confirm_tax'), this.$t('basic.confirmation'), () => {
+                this.deleteTax(id)
             })
         },
     },

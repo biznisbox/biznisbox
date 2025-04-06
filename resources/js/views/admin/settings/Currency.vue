@@ -90,7 +90,7 @@
                             :label="$t('basic.delete')"
                             icon="fa fa-trash"
                             severity="danger"
-                            @click="deleteCurrency(currency.id)"
+                            @click="deleteCurrencyAsk(currency.id)"
                         />
                     </div>
                     <div class="flex-grow"></div>
@@ -197,6 +197,12 @@ export default {
                 this.showToast(response.data.message)
                 this.getCurrencies()
                 this.showNewEditCurrencyDialog = false
+            })
+        },
+
+        deleteCurrencyAsk(id) {
+            this.confirmDeleteDialog(this.$t('admin.currency.delete_confirm_currency'), this.$t('basic.confirmation'), () => {
+                this.deleteCurrency(id)
             })
         },
 

@@ -39,7 +39,7 @@
             <LoadingScreen :blocked="loadingData">
                 <form>
                     <TextInput v-model="v$.unit.name.$model" :label="$t('form.name')" :validate="v$.unit.name" />
-                    <TextAreaInput v-model="v$.unit.description.$model" :label="$t('form.description')" :validate="v$.unit.description" />
+                    <TextAreaInput v-model="unit.description" :label="$t('form.description')" />
                     <TextInput v-model="v$.unit.symbol.$model" :label="$t('form.symbol')" :validate="v$.unit.symbol" />
                 </form>
             </LoadingScreen>
@@ -51,7 +51,7 @@
                             :label="$t('basic.delete')"
                             icon="fa fa-trash"
                             severity="danger"
-                            @click="deleteUnit(unit.id)"
+                            @click="deleteUnitAsk(unit.id)"
                             v-if="dialogMethod === 'edit' && unit.id !== ''"
                         />
                     </div>
@@ -102,7 +102,6 @@ export default {
         return {
             unit: {
                 name: { required },
-                description: { required },
                 symbol: { required },
             },
         }
@@ -159,6 +158,12 @@ export default {
                 this.showNewEditUnitDialog = false
                 this.showToast(response.data.message)
                 this.getUnits()
+            })
+        },
+
+        deleteUnitAsk(id) {
+            this.confirmDeleteDialog(this.$t('admin.units.delete_confirm_unit'), this.$t('basic.confirmation'), () => {
+                this.deleteUnit(id)
             })
         },
 

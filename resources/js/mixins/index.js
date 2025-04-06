@@ -138,6 +138,7 @@ export default {
             this.$confirm.require({
                 message: message,
                 header: header,
+                modal: true,
                 icon: 'fa fa-circle-exclamation',
                 acceptLabel: this.$t('basic.yes'),
                 acceptClass:
