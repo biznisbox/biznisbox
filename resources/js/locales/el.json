@@ -415,7 +415,11 @@
         "user": "Χρήστης",
         "is_internal": "Είναι Εσωτερικό",
         "picture": "Εικόνα",
-        "last_used_at": "Τελευταία Χρήση Σε"
+        "last_used_at": "Τελευταία Χρήση Σε",
+        "module": "Πρόσθετο",
+        "parent_category": "Γονική Κατηγορία",
+        "icon": "Εικονίδιο",
+        "additional_info": "Πρόσθετες Πληροφορίες"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -842,7 +846,8 @@
         "no_items": "Δεν υπάρχουν στοιχεία",
         "select_item": "Επιλογή αντικειμένου",
         "date_and_due_date": "Ημερομηνία και ημερομηνία λήξης",
-        "delete_confirm_bill": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το λογαριασμό?"
+        "delete_confirm_bill": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το λογαριασμό?",
+        "no_payment_method": "Καμία μέθοδος πληρωμής"
     },
     "account": {
         "account": "Λογαριασμοί Λογαριασμών",
@@ -973,7 +978,8 @@
             "email": "E-mail",
             "webhooks": "Webhooks",
             "server_settings": "Ρυθμίσεις Διακομιστή",
-            "status_page": "Σελίδα Κατάστασης"
+            "status_page": "Σελίδα Κατάστασης",
+            "data_collection": "Συλλογή Δεδομένων"
         },
         "company": {
             "title": "Ρυθμίσεις Εταιρείας",
@@ -1182,6 +1188,23 @@
             "delete_confirm_webhook_subscription": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή τη συνδρομή webhook?",
             "add_header": "Προσθήκη Κεφαλίδας",
             "remove_header": "Αφαίρεση Κεφαλίδας"
+        },
+        "data_collection": {
+            "title": "Συλλογή Δεδομένων",
+            "data_collection": "Συλλογή Δεδομένων",
+            "transaction_categories": "Κατηγορίες Συναλλαγών",
+            "document_types": "Τύποι Εγγράφων",
+            "payment_methods": "Τρόποι Πληρωμής",
+            "contract_types": "Τύποι Συμβολαίου",
+            "new_data_collection_item": "Νέο Στοιχείο Συλλογής Δεδομένων",
+            "edit_data_collection_item": "Επεξεργασία Στοιχείου Συλλογής Δεδομένων",
+            "icon_tooltip": "Μπορείτε να χρησιμοποιήσετε εικονίδια γραμματοσειράς. Μπορείτε να βρείτε τη λίστα των εικονιδίων εδώ: https://fontawesome.com/icons",
+            "no_document_types": "Δεν βρέθηκαν τύποι εγγράφων",
+            "no_payment_methods": "Δεν βρέθηκαν τρόποι πληρωμής",
+            "no_transaction_categories": "Δεν βρέθηκαν κατηγορίες συναλλαγών",
+            "no_contract_types": "Δεν βρέθηκαν τύποι συμβάσεων",
+            "delete_category_ask": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το στοιχείο συλλογής δεδομένων?",
+            "delete_category_success": "Το στοιχείο συλλογής δεδομένων διαγράφηκε με επιτυχία"
         }
     },
     "month": {
