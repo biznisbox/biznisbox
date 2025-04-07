@@ -415,7 +415,11 @@
         "user": "Benutzer",
         "is_internal": "Ist intern",
         "picture": "Bild",
-        "last_used_at": "Zuletzt verwendet am"
+        "last_used_at": "Zuletzt verwendet am",
+        "module": "Modul",
+        "parent_category": "Übergeordnete Kategorie",
+        "icon": "Symbol",
+        "additional_info": "Zusätzliche Info"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -842,7 +846,8 @@
         "no_items": "Keine Elemente",
         "select_item": "Element auswählen",
         "date_and_due_date": "Datum und Enddatum",
-        "delete_confirm_bill": "Sind Sie sicher, dass Sie diese Rechnung löschen möchten?"
+        "delete_confirm_bill": "Sind Sie sicher, dass Sie diese Rechnung löschen möchten?",
+        "no_payment_method": "Keine Zahlungsmethode"
     },
     "account": {
         "account": "Konto | Konten",
@@ -973,7 +978,8 @@
             "email": "E-Mail",
             "webhooks": "Webhooks",
             "server_settings": "Servereinstellungen",
-            "status_page": "Statusseite"
+            "status_page": "Statusseite",
+            "data_collection": "Datenerfassung"
         },
         "company": {
             "title": "Firmeneinstellungen",
@@ -1182,6 +1188,23 @@
             "delete_confirm_webhook_subscription": "Sind Sie sicher, dass Sie dieses Webhook Abonnement löschen möchten?",
             "add_header": "Header hinzufügen",
             "remove_header": "Header entfernen"
+        },
+        "data_collection": {
+            "title": "Datenerfassung",
+            "data_collection": "Datenerfassung",
+            "transaction_categories": "Transaktionskategorien",
+            "document_types": "Dokumententypen",
+            "payment_methods": "Zahlungsarten",
+            "contract_types": "Vertragstypen",
+            "new_data_collection_item": "Neues Datenerfassungselement",
+            "edit_data_collection_item": "Datensammel-Element bearbeiten",
+            "icon_tooltip": "Du kannst Font Awesome Icons verwenden. Die Liste der Icons findest du hier: https://fontawesome.com/icons",
+            "no_document_types": "Keine Dokumenttypen gefunden",
+            "no_payment_methods": "Keine Zahlungsmethoden gefunden",
+            "no_transaction_categories": "Keine Transaktionskategorien gefunden",
+            "no_contract_types": "Keine Vertragstypen gefunden",
+            "delete_category_ask": "Sind Sie sicher, dass Sie dieses Datensammlungselement löschen möchten?",
+            "delete_category_success": "Datensammlungselement erfolgreich gelöscht"
         }
     },
     "month": {
