@@ -44,4 +44,5 @@ return [
     'contracts' => 'Pogodbe',
     'admin_status_page' => 'Admin Status stran',
     'admin_update_app' => 'Admin posdobitev aplikacije',
+    'admin_data_collection' => 'Admin Data Collection',
 ];
