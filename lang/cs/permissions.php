@@ -44,4 +44,5 @@ return [
     'contracts' => 'Zakázky',
     'admin_status_page' => 'Administrace stavové stránky',
     'admin_update_app' => 'Admin aktualizační aplikace',
+    'admin_data_collection' => 'Shromažďování dat správce',
 ];
