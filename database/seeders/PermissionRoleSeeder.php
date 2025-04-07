@@ -53,6 +53,7 @@ class PermissionRoleSeeder extends Seeder
         Permission::firstOrCreate(['name' => 'admin_webhooks', 'display_name' => 'permissions.admin_webhooks']);
         Permission::firstOrCreate(['name' => 'admin_status_page', 'display_name' => 'permissions.admin_status_page']);
         Permission::firstOrCreate(['name' => 'admin_update_app', 'display_name' => 'permissions.admin_update_app']);
+        Permission::firstOrCreate(['name' => 'admin_data_collection', 'display_name' => 'permissions.admin_data_collection']);
 
         // Client permissions
         Permission::firstOrCreate(['name' => 'client', 'display_name' => 'permissions.client']);

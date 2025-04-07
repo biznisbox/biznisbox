@@ -4,9 +4,17 @@
 
 - Updated generation of the API documentation to include new endpoints and features.
 - Add confirmations for deleting taxes, units and webhooks
+- Add feature for manage data types (payment methods, contract types, etc.)
 
 ## 🐛 Bug Fixes
+
 - fix generating user profile image when using the command
+- fix bill delete response
+- fix notification display options in bill module
+
+## 💣 Breaking changes
+
+- Due the implementation of custom payment methods, the old field `payment_method` in the invoice table has been removed. The new field is `payment_method_id` old field data is not migrated to the new field. The old field is not used anymore in the app. If you want to migrate the data, you can do it manually.
 
 # 2.2.0
 

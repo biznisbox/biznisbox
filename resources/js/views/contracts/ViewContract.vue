@@ -45,8 +45,8 @@
                 <div class="grid md:grid-cols-3 grid-cols-1 gap-2">
                     <DisplayData :input="$t('form.number')" :value="contract.number" />
                     <DisplayData :input="$t('form.name')" :value="contract.title" />
-                    <DisplayData :input="$t('form.type')" customValue v-if="contract.type">
-                        <Tag :value="contract.type" severity="info" />
+                    <DisplayData :input="$t('form.type')" customValue v-if="contract.category != null && contract.category?.name">
+                        <Tag :value="contract.category?.name" severity="info" />
                     </DisplayData>
                 </div>
 
@@ -65,9 +65,13 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
-                    <DisplayData :input="$t('form.start_date')" :value="formatDate(contract.start_date)" />
-                    <DisplayData :input="$t('form.end_date')" :value="formatDate(contract.end_date)" />
-                    <DisplayData :input="$t('form.date_for_signature')" :value="formatDate(contract.date_for_signature)" />
+                    <DisplayData v-if="contract.start_date" :input="$t('form.start_date')" :value="formatDate(contract.start_date)" />
+                    <DisplayData v-if="contract.end_date" :input="$t('form.end_date')" :value="formatDate(contract.end_date)" />
+                    <DisplayData
+                        v-if="contract.date_for_signature"
+                        :input="$t('form.date_for_signature')"
+                        :value="formatDate(contract.date_for_signature)"
+                    />
                 </div>
 
                 <div v-if="!loadingData" id="partner_data">

@@ -26,7 +26,7 @@ class Bill extends Model implements Auditable
         'supplier_country',
         'currency',
         'currency_rate',
-        'payment_method',
+        'payment_method_id',
         'status',
         'date',
         'due_date',
@@ -68,6 +68,11 @@ class Bill extends Model implements Auditable
         return $this->belongsTo(Partner::class, 'supplier_id');
     }
 
+    public function paymentMethod()
+    {
+        return $this->belongsTo(Category::class, 'payment_method_id');
+    }
+
     public function getPreviewAttribute()
     {
         return URL::signedRoute('getBillPdf', [
@@ -93,7 +98,7 @@ class Bill extends Model implements Auditable
 
     public function getBill($id)
     {
-        $bill = $this->with(['items'])->find($id);
+        $bill = $this->with(['items', 'paymentMethod'])->find($id);
         createActivityLog('retrieve', $id, 'App\Models\Bill', 'Bill');
         return $bill;
     }
@@ -154,6 +159,15 @@ class Bill extends Model implements Auditable
     public function deleteBill($id)
     {
         $bill = $this->find($id);
+        if (!$bill) {
+            return false;
+        }
+        if ($bill->status == 'paid') {
+            return [
+                'status' => false,
+                'message' => __('responses.bill_not_found_or_already_paid'),
+            ];
+        }
         $bill->items()->delete();
         $bill->delete();
         sendWebhookForEvent('bill:deleted', ['id' => $id]);

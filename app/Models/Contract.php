@@ -18,6 +18,7 @@ class Contract extends Model implements Auditable
 
     protected $fillable = [
         'user_id',
+        'category_id',
         'partner_id',
         'partner_address_id',
         'category_id',
@@ -92,14 +93,14 @@ class Contract extends Model implements Auditable
 
     public function getContracts()
     {
-        $contracts = $this->with('signers', 'partner:id,name,type,entity_type')->get();
+        $contracts = $this->with('signers', 'category:id,name,color', 'partner:id,name,type,entity_type')->get();
         createActivityLog('retrieve', null, 'App\Models\Contract', 'Contract');
         return $contracts;
     }
 
     public function getContract($id)
     {
-        $contract = $this->with('signers', 'partner:id,name,type,entity_type')->where('id', $id)->first();
+        $contract = $this->with('signers', 'category:id,name,color', 'partner:id,name,type,entity_type')->where('id', $id)->first();
         createActivityLog('retrieve', $id, 'App\Models\Contract', 'Contract');
         return $contract;
     }
@@ -243,6 +244,7 @@ class Contract extends Model implements Auditable
     {
         $contract = $this->with(
             'partner:id,name,type,entity_type',
+            'category:id,name,color',
             'signers:contract_id,sign_order,signature,signature_date_time,signature_ip,signature_user_agent,signer_email,signer_name,signer_phone,status'
         )
             ->select([

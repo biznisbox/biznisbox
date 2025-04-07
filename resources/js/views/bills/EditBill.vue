@@ -63,6 +63,9 @@
                                         v-model="slotProps.data.item"
                                         :options="products"
                                         data-key="id"
+                                        filter
+                                        item-label="name"
+                                        item-value="id"
                                         placeholder="Select item"
                                         v-if="slotProps.data.added"
                                         @change="selectItem(slotProps.index, slotProps.data)"

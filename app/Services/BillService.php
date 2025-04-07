@@ -40,11 +40,13 @@ class BillService
     public function deleteBill($id)
     {
         $bill = $this->billModel->deleteBill($id);
+        return $bill;
     }
 
     public function getBillNumber()
     {
-        return $this->billModel->getBillNumber();
+        $billNumber = $this->billModel->getBillNumber();
+        return $billNumber;
     }
 
     public function getBillPdf($id, $type = 'stream')

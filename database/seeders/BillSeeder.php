@@ -17,6 +17,7 @@ class BillSeeder extends Seeder
 
             $supplier = \App\Models\Partner::where('type', 'supplier')->orWhere('type', 'both')->get()->random();
             $supplier_address = $supplier->addresses->random();
+            $payment_method = \App\Models\Category::where('module', 'payment_methods')->get()->random();
             $discount = fake()->randomFloat(2, 0, 100);
             \App\Models\Bill::create([
                 'id' => $id,
@@ -36,7 +37,7 @@ class BillSeeder extends Seeder
                 'notes' => fake()->text(200),
                 'footer' => fake()->text(200),
                 'discount' => $discount,
-                'payment_method' => fake()->randomElement(['cash', 'bank_transfer', 'credit_card', 'paypal', 'stripe', 'other']),
+                'payment_method_id' => $payment_method->id,
                 'discount_type' => 'percent',
                 'total' => 0,
             ]);

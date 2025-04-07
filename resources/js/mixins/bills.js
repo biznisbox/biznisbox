@@ -5,6 +5,7 @@ export default {
             suppliers: [],
             products: [],
             supplierAddresses: [],
+            paymentMethods: [],
             bill: {
                 id: '',
                 number: '',
@@ -75,7 +76,7 @@ export default {
          */
         createBill() {
             this.makeHttpRequest('POST', '/api/bills', this.bill).then((response) => {
-                this.showToast(response.data.message, '', 'success')
+                this.showToast(response.data.message)
                 this.$router.push({ name: 'bills' })
             })
         },
@@ -87,7 +88,7 @@ export default {
          */
         updateBill() {
             this.makeHttpRequest('PUT', '/api/bills/' + this.bill.id, this.bill).then((response) => {
-                this.showToast(response.data.message, '', 'success')
+                this.showToast(response.data.message)
                 this.$router.push({ name: 'bills' })
             })
         },
@@ -99,7 +100,7 @@ export default {
          */
         deleteBill(id) {
             this.makeHttpRequest('DELETE', '/api/bills/' + id).then((response) => {
-                this.showToast(response.data.message, '', 'success')
+                this.showToast(response.data.message)
                 this.$router.push({ name: 'bills' })
             })
         },
@@ -142,6 +143,16 @@ export default {
         getBillNumber() {
             this.makeHttpRequest('GET', '/api/bill/number').then((response) => {
                 this.bill.number = response.data.data
+            })
+        },
+
+        /**
+         * Get payment methods
+         * @returns {array} payment methods
+         */
+        getPaymentMethods() {
+            this.getCategories('payment_methods').then((response) => {
+                this.paymentMethods = response
             })
         },
     },

@@ -415,7 +415,11 @@
         "user": "User",
         "is_internal": "Is Internal",
         "picture": "Picture",
-        "last_used_at": "Last Used At"
+        "last_used_at": "Last Used At",
+        "module": "Module",
+        "parent_category": "Parent Category",
+        "icon": "Icon",
+        "additional_info": "Additional Info"
     },
     "address_types": {
         "billing": "Billing",
@@ -842,7 +846,8 @@
         "no_items": "No items",
         "select_item": "Select item",
         "date_and_due_date": "Date and due date",
-        "delete_confirm_bill": "Are you sure you want to delete this bill?"
+        "delete_confirm_bill": "Are you sure you want to delete this bill?",
+        "no_payment_method": "No payment method"
     },
     "account": {
         "account": "Account | Accounts",
@@ -973,7 +978,8 @@
             "email": "Email",
             "webhooks": "Webhooks",
             "server_settings": "Server Settings",
-            "status_page": "Status Page"
+            "status_page": "Status Page",
+            "data_collection": "Data Collection"
         },
         "company": {
             "title": "Company Settings",
@@ -1182,6 +1188,23 @@
             "delete_confirm_webhook_subscription": "Are you sure you want to delete this webhook subscription?",
             "add_header": "Add Header",
             "remove_header": "Remove Header"
+        },
+        "data_collection": {
+            "title": "Data Collection",
+            "data_collection": "Data Collection",
+            "transaction_categories": "Transaction Categories",
+            "document_types": "Document Types",
+            "payment_methods": "Payment Methods",
+            "contract_types": "Contract Types",
+            "new_data_collection_item": "New Data Collection Item",
+            "edit_data_collection_item": "Edit Data Collection Item",
+            "icon_tooltip": "You can use Font Awesome icons. You can find the list of icons here: https://fontawesome.com/icons",
+            "no_document_types": "No document types found",
+            "no_payment_methods": "No payment methods found",
+            "no_transaction_categories": "No transaction categories found",
+            "no_contract_types": "No contract types found",
+            "delete_category_ask": "Are you sure you want to delete this data collection item?",
+            "delete_category_success": "Data collection item deleted successfully"
         }
     },
     "month": {

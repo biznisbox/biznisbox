@@ -34,7 +34,14 @@
                             option-value="id"
                             option-label="name"
                         />
-                        <SelectInput v-model="contract.contract_type_id" :label="$t('form.contract_type')" :options="contractTypes" />
+                        <SelectInput
+                            v-model="contract.category_id"
+                            :label="$t('form.contract_type')"
+                            filter
+                            :options="contractTypes"
+                            option-value="id"
+                            option-label="name"
+                        />
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -181,6 +188,7 @@ export default {
         this.getPartners()
         this.getUsers()
         this.getContractNumber()
+        this.getContractTypes()
     },
 
     validations() {

@@ -18,7 +18,7 @@ class Category extends Model implements Auditable
 
     protected $appends = ['key', 'label', 'children'];
 
-    protected $hidden = ['module', 'parent_id', 'created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at'];
 
     public function generateTags(): array
     {

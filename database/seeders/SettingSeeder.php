@@ -6,6 +6,7 @@ use App\Models\Currency;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Setting;
+use App\Models\Category;
 
 class SettingSeeder extends Seeder
 {
@@ -121,5 +122,19 @@ class SettingSeeder extends Seeder
 
         // Set default currency
         Currency::firstOrCreate(['code' => 'EUR'], ['name' => 'Euro', 'symbol' => '€', 'exchange_rate' => 1, 'status' => 'active']);
+
+        // Seed default payment methods
+        Category::firstOrCreate(
+            ['name' => 'Cash'],
+            ['module' => 'payment_methods', 'icon' => 'fas fa-money-bill', 'additional_info' => 'cash']
+        );
+        Category::firstOrCreate(
+            ['name' => 'PayPal'],
+            ['module' => 'payment_methods', 'icon' => 'fab fa-paypal', 'additional_info' => 'paypal']
+        );
+        Category::firstOrCreate(
+            ['name' => 'Stripe'],
+            ['module' => 'payment_methods', 'icon' => 'fab fa-stripe', 'additional_info' => 'stripe']
+        );
     }
 }

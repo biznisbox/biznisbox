@@ -27,7 +27,7 @@ class InvoiceRequest extends FormRequest
             'currency' => 'required|string',
             'currency_rate' => 'nullable|numeric',
             'default_currency' => 'nullable|string',
-            'payment_method' => 'nullable|string',
+            'payment_method_id' => 'nullable|string',
             'customer_name' => 'nullable|string',
             'customer_address' => 'nullable|string',
             'customer_city' => 'nullable|string',

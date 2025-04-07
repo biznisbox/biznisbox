@@ -22,13 +22,13 @@ class Invoice extends Model implements Auditable
         'customer_id',
         'payer_id',
         'sales_person_id',
+        'payment_method_id',
         'type',
         'number',
         'status',
         'currency',
         'currency_rate',
         'default_currency',
-        'payment_method',
         'customer_name',
         'customer_address_id',
         'customer_address',
@@ -99,6 +99,11 @@ class Invoice extends Model implements Auditable
         return $this->hasMany(Transaction::class, 'invoice_id');
     }
 
+    public function paymentMethod()
+    {
+        return $this->belongsTo(Category::class, 'payment_method_id');
+    }
+
     public function getPreviewAttribute()
     {
         return URL::signedRoute('getInvoicePdf', [
@@ -146,7 +151,14 @@ class Invoice extends Model implements Auditable
      */
     public function getInvoice($id)
     {
-        $invoice = self::with('items', 'customer', 'payer', 'salesPerson:first_name,id,last_name,email', 'transactions')->find($id);
+        $invoice = self::with(
+            'items',
+            'customer',
+            'payer',
+            'paymentMethod',
+            'salesPerson:first_name,id,last_name,email',
+            'transactions'
+        )->find($id);
         if (!$invoice) {
             return null;
         }
@@ -353,7 +365,7 @@ class Invoice extends Model implements Auditable
      */
     public function getClientInvoice($id, $log = false)
     {
-        $invoice = $this->with('items', 'transactions', 'salesPerson:id,first_name,last_name,email')->find($id);
+        $invoice = $this->with('items', 'transactions', 'paymentMethod', 'salesPerson:id,first_name,last_name,email')->find($id);
         unset($invoice->notes);
         if ($log === true) {
             createActivityLog('retrieve', $id, 'App\Models\Invoice', 'Invoice');

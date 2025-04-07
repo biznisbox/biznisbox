@@ -77,6 +77,12 @@
                 "to": "/admin/settings/general"
             },
             {
+                "name": "admin.menu.data_collection",
+                "meta": ["settings-data-collection"],
+                "permission": "admin_data_collection",
+                "to": "/admin/settings/data-collection"
+            },
+            {
                 "name": "admin.menu.settings_currency",
                 "meta": ["settings-currency"],
                 "permission": "admin_currencies",

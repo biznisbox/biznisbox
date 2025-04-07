@@ -24,7 +24,7 @@ class BillRequest extends FormRequest
             'supplier_country' => 'nullable|string',
             'currency' => 'required|string',
             'currency_rate' => 'nullable|numeric',
-            'payment_method' => 'nullable|string',
+            'payment_method_id' => 'nullable|string',
             'status' => 'nullable|string',
             'date' => 'required|date',
             'due_date' => 'required|date',

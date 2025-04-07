@@ -4,6 +4,7 @@ export default {
     data() {
         return {
             invoices: [],
+            paymentMethods: [],
             shareUrl: '',
             partners: [],
             customerAddresses: [],
@@ -48,7 +49,8 @@ export default {
                 ],
                 currency: 'EUR',
                 currency_rate: 1,
-                payment_method: '',
+                payment_method_id: null,
+                payment_method: {},
                 notes: '',
                 discount: 0,
                 discount_type: 'percent', // percent, fixed
@@ -173,6 +175,16 @@ export default {
         sendInvoiceNotification(id) {
             this.makeHttpRequest('POST', `/api/invoice/${id}/send`, null, null, null, false).then((response) => {
                 this.showToast(response.data.message)
+            })
+        },
+
+        /**
+         * Get payment methods
+         * @returns {array} payment methods
+         */
+        getPaymentMethods() {
+            this.getCategories('payment_methods').then((response) => {
+                this.paymentMethods = response
             })
         },
     },

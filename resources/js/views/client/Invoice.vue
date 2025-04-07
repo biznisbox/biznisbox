@@ -122,8 +122,11 @@
                             <span v-else>{{ $t('invoice.no_sales_person') }}</span>
                         </DisplayData>
 
-                        <DisplayData v-if="!loadingData" :input="$t('form.payment_method')" custom-value>
-                            <span v-if="invoice.payment_method">{{ $t('payment_methods.' + invoice.payment_method) }}</span>
+                        <DisplayData :input="$t('form.payment_method')" custom-value>
+                            <span v-if="invoice.payment_method" class="flex items-center">
+                                <i :class="invoice.payment_method.icon"></i>
+                                <span class="ml-1">{{ invoice.payment_method.name }}</span>
+                            </span>
                             <span v-else>{{ $t('invoice.no_payment_method') }}</span>
                         </DisplayData>
                     </div>
@@ -175,28 +178,26 @@
                             </DisplayData>
                         </div>
 
-                        <div>
-                            <table class="w-full">
-                                <tr>
-                                    <td class="w-6 font-bold mb-1">{{ $t('form.discount') }}</td>
-                                    <td class="text-right">
-                                        <span v-if="invoice.discount_type === 'percent'">{{ invoice.discount + ' %' }}</span>
-                                        <span v-if="invoice.discount_type === 'fixed'">{{
-                                            invoice.discount + ' ' + $settings.default_currency
-                                        }}</span>
-                                    </td>
-                                </tr>
-                                <tr v-if="invoice.currency != $settings.default_currency">
-                                    <td class="w-6 font-bold mb-1">{{ $t('form.currency_rate') }}</td>
-                                    <td class="text-right">
-                                        {{ `1 ${$settings.default_currency} = ${invoice.currency_rate} ${invoice.currency}` }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-6 font-bold mb-1">{{ $t('form.total') }}</td>
-                                    <td class="text-right">{{ formatMoney(invoice.total, invoice.currency) }}</td>
-                                </tr>
-                            </table>
+                        <div id="invoice_calculations_table">
+                            <DisplayData :input="$t('form.discount')" custom-value displayInline>
+                                <span v-if="invoice.discount_type === 'percent'">{{ invoice.discount + ' %' }}</span>
+                                <span v-if="invoice.discount_type === 'fixed'">{{
+                                    invoice.discount + ' ' + $settings.default_currency
+                                }}</span>
+                            </DisplayData>
+
+                            <DisplayData
+                                v-if="invoice.currency != $settings.default_currency"
+                                :input="$t('form.currency_rate')"
+                                custom-value
+                                displayInline
+                            >
+                                {{ `1 ${$settings.default_currency} = ${invoice.currency_rate} ${invoice.currency}` }}
+                            </DisplayData>
+
+                            <DisplayData :input="$t('form.total')" custom-value displayInline>
+                                {{ formatMoney(invoice.total, invoice.currency) }}
+                            </DisplayData>
                         </div>
                     </div>
                 </div>
@@ -272,6 +273,12 @@ export default {
             no_found: false,
             showTransactionsDialog: false,
             invoice: {
+                id: '',
+                sales_person_id: '',
+                sales_person: {},
+                footer: '',
+                payment_method_id: '',
+                payment_method: {},
                 number: '',
                 date: '',
                 due_date: '',
@@ -290,7 +297,6 @@ export default {
                 status: 'draft',
                 items: [],
                 currency: 'EUR',
-                payment_method: '',
                 terms: '',
                 notes: '',
                 discount: 0,

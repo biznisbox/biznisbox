@@ -17,6 +17,7 @@ class InvoiceSeeder extends Seeder
 
             $customer = \App\Models\Partner::all()->random();
             $customer_address = $customer->addresses->first();
+            $payment_method = \App\Models\Category::where('module', 'payment_methods')->get()->random();
             $discount = fake()->randomFloat(2, 0, 100);
             \App\Models\Invoice::create([
                 'id' => $id,
@@ -45,7 +46,7 @@ class InvoiceSeeder extends Seeder
                 'notes' => fake()->text(200),
                 'footer' => fake()->text(200),
                 'discount' => $discount,
-                'payment_method' => fake()->randomElement(['cash', 'bank_transfer', 'credit_card', 'paypal', 'stripe', 'other']),
+                'payment_method_id' => $payment_method->id,
                 'discount_type' => 'percent',
                 'total' => 0,
             ]);

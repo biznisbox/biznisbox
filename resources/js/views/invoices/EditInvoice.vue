@@ -100,23 +100,21 @@
                         v-model="invoice.sales_person_id"
                         :label="$t('form.sales_person')"
                         :options="employees"
+                        filter
+                        show-clear
                         option-value="id"
                         option-label="label"
                     />
                     <SelectInput
                         id="payment_method_input"
-                        v-model="v$.invoice.payment_method.$model"
+                        v-model="v$.invoice.payment_method_id.$model"
                         :label="$t('form.payment_method')"
-                        :options="[
-                            { label: $t('payment_methods.bank_transfer'), value: 'bank_transfer' },
-                            { label: $t('payment_methods.cash'), value: 'cash' },
-                            { label: $t('payment_methods.check'), value: 'check' },
-                            { label: $t('payment_methods.credit_card'), value: 'credit_card' },
-                            { label: $t('payment_methods.paypal'), value: 'paypal' },
-                            { label: $t('payment_methods.stripe'), value: 'stripe' },
-                            { label: $t('payment_methods.other'), value: 'other' },
-                        ]"
-                        :validate="v$.invoice.payment_method"
+                        :options="paymentMethods"
+                        option-value="id"
+                        option-label="name"
+                        :show-clear="true"
+                        filter
+                        :validate="v$.invoice.payment_method_id"
                     />
                 </div>
 
@@ -136,6 +134,7 @@
                                     v-model="slotProps.data.item"
                                     :options="products"
                                     data-key="id"
+                                    filter
                                     :placeholder="$t('invoice.select_item')"
                                     @change="selectItem(slotProps.index, slotProps.data)"
                                 >
@@ -319,6 +318,7 @@ export default {
         this.getProducts()
         this.getCurrencies()
         this.getEmployees()
+        this.getPaymentMethods()
         this.getInvoice(this.$route.params.id)
     },
     validations() {
@@ -330,7 +330,7 @@ export default {
                 due_date: { required },
                 currency: { required },
                 total: { required },
-                payment_method: { required },
+                payment_method_id: { required },
             },
         }
     },

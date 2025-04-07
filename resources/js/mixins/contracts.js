@@ -145,5 +145,11 @@ export default {
                 this.shareDialog = true
             })
         },
+
+        getContractTypes() {
+            this.getCategories('contract_types').then((response) => {
+                this.contractTypes = response
+            })
+        },
     },
 }

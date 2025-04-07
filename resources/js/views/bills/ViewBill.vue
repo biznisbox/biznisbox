@@ -58,6 +58,16 @@
                     </DisplayData>
                 </div>
 
+                <div>
+                    <DisplayData :input="$t('form.payment_method')" custom-value>
+                        <span v-if="bill.payment_method" class="flex items-center">
+                            <i :class="bill.payment_method.icon"></i>
+                            <span class="ml-1">{{ bill.payment_method.name }}</span>
+                        </span>
+                        <span v-else>{{ $t('bill.no_payment_method') }}</span>
+                    </DisplayData>
+                </div>
+
                 <div v-if="!loadingData" id="bill_items">
                     <DataTable :value="bill.items">
                         <template #empty>
@@ -98,20 +108,24 @@
                         </DisplayData>
                     </div>
 
-                    <div id="invoice_calculations">
-                        <div>
-                            <table class="w-full">
-                                <tr>
-                                    <td class="font-bold">{{ $t('form.discount') }}</td>
-                                    <td class="text-right">{{ bill.discount }} %</td>
-                                </tr>
+                    <div id="bill_calculations_table">
+                        <DisplayData :input="$t('form.discount')" custom-value displayInline>
+                            <span v-if="bill.discount_type === 'percent'">{{ bill.discount + ' %' }}</span>
+                            <span v-if="bill.discount_type === 'fixed'">{{ bill.discount + ' ' + $settings.default_currency }}</span>
+                        </DisplayData>
 
-                                <tr>
-                                    <td class="font-bold">{{ $t('form.total') }}</td>
-                                    <td class="text-right">{{ formatMoney(bill.total, bill.currency) }}</td>
-                                </tr>
-                            </table>
-                        </div>
+                        <DisplayData
+                            v-if="bill.currency != $settings.default_currency"
+                            :input="$t('form.currency_rate')"
+                            custom-value
+                            displayInline
+                        >
+                            {{ `1 ${$settings.default_currency} = ${bill.currency_rate} ${bill.currency}` }}
+                        </DisplayData>
+
+                        <DisplayData :input="$t('form.total')" custom-value displayInline>
+                            {{ formatMoney(bill.total, bill.currency) }}
+                        </DisplayData>
                     </div>
                 </div>
             </div>

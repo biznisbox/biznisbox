@@ -139,6 +139,11 @@ const routes = [
         admin: true,
     }),
 
+    makeRoute('/admin/settings/data-collection', 'admin-data-collection', () => import('../views/admin/settings/DataCollection.vue'), {
+        auth: true,
+        admin: true,
+    }),
+
     makeRoute('/admin/integrations', 'admin-integrations', () => import('../views/admin/settings/Integrations.vue'), {
         auth: true,
         admin: true,
