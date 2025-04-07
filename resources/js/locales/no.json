@@ -415,7 +415,11 @@
         "user": "Bruker",
         "is_internal": "Er intern",
         "picture": "Bilde",
-        "last_used_at": "Sist brukt den"
+        "last_used_at": "Sist brukt den",
+        "module": "Modul",
+        "parent_category": "Overordnet kategori",
+        "icon": "Ikon",
+        "additional_info": "Mer informasjon"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -842,7 +846,8 @@
         "no_items": "Ingen elementer",
         "select_item": "Velg element",
         "date_and_due_date": "Forfallsdato dato og dato",
-        "delete_confirm_bill": "Er du sikker på at du vil slette denne regningen?"
+        "delete_confirm_bill": "Er du sikker på at du vil slette denne regningen?",
+        "no_payment_method": "Ingen betalingsmåte"
     },
     "account": {
         "account": "Konto ∙Kontoer",
@@ -973,7 +978,8 @@
             "email": "E-post",
             "webhooks": "Nettkroker",
             "server_settings": "Server Innstillinger",
-            "status_page": "Status side"
+            "status_page": "Status side",
+            "data_collection": "Data samling"
         },
         "company": {
             "title": "Bedriftens innstillinger",
@@ -1182,6 +1188,23 @@
             "delete_confirm_webhook_subscription": "Er du sikker på at du vil slette dette webhook-abonnementet?",
             "add_header": "Legg til topptekst",
             "remove_header": "Fjern topptekst"
+        },
+        "data_collection": {
+            "title": "Data samling",
+            "data_collection": "Data samling",
+            "transaction_categories": "Transaksjons kategorier",
+            "document_types": "Dokument typer",
+            "payment_methods": "Betalingsmåter",
+            "contract_types": "Kontrakt typer",
+            "new_data_collection_item": "Ny datainnsamlingselement",
+            "edit_data_collection_item": "Rediger datainnsamlingselement",
+            "icon_tooltip": "Du kan bruke Font Awesome ikoner. Du finner listen over ikonene her: https://fontawesome.com/icons",
+            "no_document_types": "Ingen dokumenttyper funnet",
+            "no_payment_methods": "Ingen betalingsmetoder funnet",
+            "no_transaction_categories": "Ingen transaksjonskategorier funnet",
+            "no_contract_types": "Ingen kontrakttyper funnet",
+            "delete_category_ask": "Er du sikker på at du vil slette denne datainnsamlingen?",
+            "delete_category_success": "Datainnsamlingen ble slettet"
         }
     },
     "month": {
