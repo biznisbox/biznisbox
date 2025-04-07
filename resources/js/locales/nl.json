@@ -415,7 +415,11 @@
         "user": "Gebruiker",
         "is_internal": "Is intern",
         "picture": "Afbeelding",
-        "last_used_at": "Laatst gebruikt op"
+        "last_used_at": "Laatst gebruikt op",
+        "module": "Module",
+        "parent_category": "Bovenliggende categorie",
+        "icon": "Pictogram",
+        "additional_info": "Extra informatie"
     },
     "address_types": {
         "billing": "Facturering",
@@ -842,7 +846,8 @@
         "no_items": "Geen artikelen",
         "select_item": "Selecteer een item",
         "date_and_due_date": "Datum en vervaldatum",
-        "delete_confirm_bill": "Weet je zeker dat je deze rekening wilt verwijderen?"
+        "delete_confirm_bill": "Weet je zeker dat je deze rekening wilt verwijderen?",
+        "no_payment_method": "Geen betaalmethode"
     },
     "account": {
         "account": "Nabijheid rekening accounts",
@@ -973,7 +978,8 @@
             "email": "E-mailadres",
             "webhooks": "Webhooks",
             "server_settings": "Server Instellingen",
-            "status_page": "Status pagina"
+            "status_page": "Status pagina",
+            "data_collection": "Verzamelen van gegevens"
         },
         "company": {
             "title": "Bedrijf instellingen",
@@ -1182,6 +1188,23 @@
             "delete_confirm_webhook_subscription": "Weet u zeker dat u dit webhook abonnement wilt verwijderen?",
             "add_header": "Koptekst toevoegen",
             "remove_header": "Koptekst verwijderen"
+        },
+        "data_collection": {
+            "title": "Verzamelen van gegevens",
+            "data_collection": "Verzamelen van gegevens",
+            "transaction_categories": "Transactie categorieën",
+            "document_types": "Document typen",
+            "payment_methods": "Betalingsmethoden",
+            "contract_types": "Contract Types",
+            "new_data_collection_item": "Nieuw data collectie item",
+            "edit_data_collection_item": "Bewerk Data Collection Item",
+            "icon_tooltip": "Gebruik de Font Awesome iconen. Hier vindt u de lijst met pictogrammen: https://fontawesome.com/iconen",
+            "no_document_types": "Geen documenttypes gevonden",
+            "no_payment_methods": "Geen betaalmethoden gevonden",
+            "no_transaction_categories": "Geen transactiecategorieën gevonden",
+            "no_contract_types": "Geen contracttypes gevonden",
+            "delete_category_ask": "Weet je zeker dat je deze gegevensverzameling wilt verwijderen?",
+            "delete_category_success": "Verzamelen van gegevens is succesvol verwijderd"
         }
     },
     "month": {
