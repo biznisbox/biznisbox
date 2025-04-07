@@ -415,7 +415,11 @@
         "user": "Пользователь",
         "is_internal": "Внутренний",
         "picture": "Картинка",
-        "last_used_at": "Последнее использование в"
+        "last_used_at": "Последнее использование в",
+        "module": "Модуль",
+        "parent_category": "Родительская категория",
+        "icon": "Иконка",
+        "additional_info": "Дополнительная информация"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -842,7 +846,8 @@
         "no_items": "Нет элементов",
         "select_item": "Выберите элемент",
         "date_and_due_date": "Дата и дата окончания",
-        "delete_confirm_bill": "Вы уверены, что хотите удалить этот счет?"
+        "delete_confirm_bill": "Вы уверены, что хотите удалить этот счет?",
+        "no_payment_method": "Нет способа оплаты"
     },
     "account": {
         "account": "Аккаунт | Аккаунты",
@@ -973,7 +978,8 @@
             "email": "Почта",
             "webhooks": "Вебхуки",
             "server_settings": "Настройки сервера",
-            "status_page": "Страница статуса"
+            "status_page": "Страница статуса",
+            "data_collection": "Сбор данных"
         },
         "company": {
             "title": "Настройки компании",
@@ -1182,6 +1188,23 @@
             "delete_confirm_webhook_subscription": "Вы уверены, что хотите удалить эту подписку на webhook?",
             "add_header": "Добавить заголовок",
             "remove_header": "Удалить заголовок"
+        },
+        "data_collection": {
+            "title": "Сбор данных",
+            "data_collection": "Сбор данных",
+            "transaction_categories": "Категории транзакций",
+            "document_types": "Типы документов",
+            "payment_methods": "Способы оплаты",
+            "contract_types": "Типы контрактов",
+            "new_data_collection_item": "Новый элемент сбора данных",
+            "edit_data_collection_item": "Изменить элемент сбора данных",
+            "icon_tooltip": "Вы можете использовать Font Awesome иконки. Вы можете найти список иконок здесь: https://fontawesome.com/icons",
+            "no_document_types": "Типы документов не найдены",
+            "no_payment_methods": "Способы оплаты не найдены",
+            "no_transaction_categories": "Не найдено категорий транзакций",
+            "no_contract_types": "Типы контрактов не найдены",
+            "delete_category_ask": "Вы уверены, что хотите удалить этот элемент коллекции данных?",
+            "delete_category_success": "Элемент сбора данных успешно удален"
         }
     },
     "month": {
