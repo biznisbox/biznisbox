@@ -415,7 +415,11 @@
         "user": "Użytkownik",
         "is_internal": "Jest wewn.",
         "picture": "Zdjęcie",
-        "last_used_at": "Ostatnio używane"
+        "last_used_at": "Ostatnio używane",
+        "module": "Moduł",
+        "parent_category": "Kategoria nadrzędna",
+        "icon": "Ikona",
+        "additional_info": "Dodatkowe informacje"
     },
     "address_types": {
         "billing": "Płatność",
@@ -842,7 +846,8 @@
         "no_items": "Brak elementów",
         "select_item": "Wybierz element",
         "date_and_due_date": "Data i termin płatności",
-        "delete_confirm_bill": "Czy na pewno chcesz usunąć ten rachunek?"
+        "delete_confirm_bill": "Czy na pewno chcesz usunąć ten rachunek?",
+        "no_payment_method": "Brak metody płatności"
     },
     "account": {
         "account": "Konto | Konta",
@@ -973,7 +978,8 @@
             "email": "E-mail",
             "webhooks": "Webhooki",
             "server_settings": "Ustawienia serwera",
-            "status_page": "Strona statusu"
+            "status_page": "Strona statusu",
+            "data_collection": "Gromadzenie danych"
         },
         "company": {
             "title": "Ustawienia firmy",
@@ -1182,6 +1188,23 @@
             "delete_confirm_webhook_subscription": "Czy na pewno chcesz usunąć tę subskrypcję webhook?",
             "add_header": "Dodaj nagłówek",
             "remove_header": "Usuń nagłówek"
+        },
+        "data_collection": {
+            "title": "Gromadzenie danych",
+            "data_collection": "Gromadzenie danych",
+            "transaction_categories": "Kategorie transakcji",
+            "document_types": "Typy dokumentów",
+            "payment_methods": "Metody płatności",
+            "contract_types": "Rodzaje umów",
+            "new_data_collection_item": "Nowy element zbierania danych",
+            "edit_data_collection_item": "Edytuj element zbierania danych",
+            "icon_tooltip": "Możesz użyć ikony Font Awesome (Font Awesome ikony). Lista ikon znajduje się tutaj: https://fontawesome.com/icons",
+            "no_document_types": "Nie znaleziono typów dokumentów",
+            "no_payment_methods": "Nie znaleziono metod płatności",
+            "no_transaction_categories": "Nie znaleziono kategorii transakcji",
+            "no_contract_types": "Nie znaleziono typów umów",
+            "delete_category_ask": "Czy na pewno chcesz usunąć ten element kolekcji danych?",
+            "delete_category_success": "Element zbierania danych został pomyślnie usunięty"
         }
     },
     "month": {
