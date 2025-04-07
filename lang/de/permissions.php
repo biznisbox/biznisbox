@@ -44,4 +44,5 @@ return [
     'contracts' => 'Verträge',
     'admin_status_page' => 'Admin-Statusseite',
     'admin_update_app' => 'Admin-Update-App',
+    'admin_data_collection' => 'Admin-Datenerfassung',
 ];
