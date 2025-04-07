@@ -106,9 +106,9 @@ return [
     'signer_not_found_or_already_signed' => 'Podpisník nebyl nalezen nebo již byl podepsán',
     'cannot_delete_signed_contract' => 'Nelze odstranit podepsanou smlouvu',
     'cannot_update_signed_contract' => 'Nelze aktualizovat podepsanou smlouvu',
-    'enable_js_to_use_app' =>
-        'Je nám líto, ale tato aplikace nefunguje správně, aniž by byl povolen JavaScript. Pro pokračování prosím povolte.',
+    'enable_js_to_use_app' => 'Je nám líto, ale tato aplikace nefunguje správně, aniž by byl povolen JavaScript. Pro pokračování prosím povolte.',
     'cannot_delete_own_account' => 'Nelze odstranit vlastní účet',
     'item_not_sent' => 'Položka nebyla odeslána',
     'item_sent_successfully' => 'Položka byla úspěšně odeslána',
+    'bill_not_found_or_already_paid' => 'Faktura nebyla nalezena nebo již zaplacena',
 ];
