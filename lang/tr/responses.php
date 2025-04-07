@@ -110,4 +110,5 @@ return [
     'cannot_delete_own_account' => 'Cannot delete own account',
     'item_not_sent' => 'Item not sent',
     'item_sent_successfully' => 'Item sent successfully',
+    'bill_not_found_or_already_paid' => 'Bill not found or already paid',
 ];
