@@ -110,4 +110,5 @@ return [
     'cannot_delete_own_account' => 'Kan ikke slette egen konto',
     'item_not_sent' => 'Vare ikke sendt',
     'item_sent_successfully' => 'Element sendt succesfuldt',
+    'bill_not_found_or_already_paid' => 'Faktura ikke fundet eller allerede betalt',
 ];
