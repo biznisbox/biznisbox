@@ -415,7 +415,11 @@
         "user": "Bruger",
         "is_internal": "Er Intern",
         "picture": "Billede",
-        "last_used_at": "Sidst Brugt Ved"
+        "last_used_at": "Sidst Brugt Ved",
+        "module": "Modul",
+        "parent_category": "Overordnet Kategori",
+        "icon": "Ikon",
+        "additional_info": "Yderligere Info"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -842,7 +846,8 @@
         "no_items": "Ingen elementer",
         "select_item": "Vælg element",
         "date_and_due_date": "Dato og forfaldsdato",
-        "delete_confirm_bill": "Er du sikker på du vil slette denne regning?"
+        "delete_confirm_bill": "Er du sikker på du vil slette denne regning?",
+        "no_payment_method": "Ingen betalingsmetode"
     },
     "account": {
         "account": "Konto - Konti",
@@ -973,7 +978,8 @@
             "email": "E-mail",
             "webhooks": "Webhooks",
             "server_settings": "Server Indstillinger",
-            "status_page": "Status Side"
+            "status_page": "Status Side",
+            "data_collection": "Indsamling Af Data"
         },
         "company": {
             "title": "Virksomhedsindstillinger",
@@ -1182,6 +1188,23 @@
             "delete_confirm_webhook_subscription": "Er du sikker på, at du vil slette dette webhook abonnement?",
             "add_header": "Tilføj Overskrift",
             "remove_header": "Fjern Header"
+        },
+        "data_collection": {
+            "title": "Indsamling Af Data",
+            "data_collection": "Indsamling Af Data",
+            "transaction_categories": "Transaktionen Kategorier",
+            "document_types": "Dokumenttyper",
+            "payment_methods": "Betalingsmetoder",
+            "contract_types": "Kontrakt Typer",
+            "new_data_collection_item": "Nyt Dataindsamlingspunkt",
+            "edit_data_collection_item": "Rediger Dataindsamlingspunkt",
+            "icon_tooltip": "Du kan bruge Font Awesome ikoner. Du kan finde listen over ikoner her: https://fontawesome.com/icons",
+            "no_document_types": "Ingen dokumenttyper fundet",
+            "no_payment_methods": "Ingen betalingsmetoder fundet",
+            "no_transaction_categories": "Ingen transaktionskategorier fundet",
+            "no_contract_types": "Ingen aftaletyper fundet",
+            "delete_category_ask": "Er du sikker på, at du vil slette dette dataindsamlingselement?",
+            "delete_category_success": "Dataindsamlingselement slettet succesfuldt"
         }
     },
     "month": {
