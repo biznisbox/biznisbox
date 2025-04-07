@@ -415,7 +415,11 @@
         "user": "Käyttäjä",
         "is_internal": "On Sisäinen",
         "picture": "Kuva",
-        "last_used_at": "Viimeksi Käytetty"
+        "last_used_at": "Viimeksi Käytetty",
+        "module": "Moduuli",
+        "parent_category": "Ylätason Kategoria",
+        "icon": "Kuvake",
+        "additional_info": "Lisätiedot"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -842,7 +846,8 @@
         "no_items": "Ei kohteita",
         "select_item": "Valitse kohde",
         "date_and_due_date": "Päivämäärä ja eräpäivä",
-        "delete_confirm_bill": "Oletko varma, että haluat poistaa tämän laskun?"
+        "delete_confirm_bill": "Oletko varma, että haluat poistaa tämän laskun?",
+        "no_payment_method": "Ei maksutapaa"
     },
     "account": {
         "account": "Tili - Tilit",
@@ -973,7 +978,8 @@
             "email": "Sähköposti",
             "webhooks": "Verkkokoukut",
             "server_settings": "Palvelimen Asetukset",
-            "status_page": "Tila Sivu"
+            "status_page": "Tila Sivu",
+            "data_collection": "Tietojen Kerääminen"
         },
         "company": {
             "title": "Yrityksen Asetukset",
@@ -1182,6 +1188,23 @@
             "delete_confirm_webhook_subscription": "Oletko varma, että haluat poistaa tämän webhook tilauksen?",
             "add_header": "Lisää Otsikko",
             "remove_header": "Poista Otsikko"
+        },
+        "data_collection": {
+            "title": "Tietojen Kerääminen",
+            "data_collection": "Tietojen Kerääminen",
+            "transaction_categories": "Tapahtuman Kategoriat",
+            "document_types": "Asiakirjan Tyypit",
+            "payment_methods": "Maksutavat",
+            "contract_types": "Sopimustyypit",
+            "new_data_collection_item": "Uusi Tiedonkeruukohde",
+            "edit_data_collection_item": "Muokkaa Tiedonkeruun Kohdetta",
+            "icon_tooltip": "Voit käyttää Font Awesome kuvakkeita. Löydät kuvakkeiden listan täältä: https://fontawesome.com/icons",
+            "no_document_types": "Asiakirjatyyppejä ei löytynyt",
+            "no_payment_methods": "Maksutapoja ei löytynyt",
+            "no_transaction_categories": "Tapahtumakategorioita ei löytynyt",
+            "no_contract_types": "Sopimustyyppejä ei löytynyt",
+            "delete_category_ask": "Oletko varma, että haluat poistaa tämän tiedonkeruun kohteen?",
+            "delete_category_success": "Tiedonkeruun kohde poistettu onnistuneesti"
         }
     },
     "month": {
