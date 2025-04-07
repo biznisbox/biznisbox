@@ -415,7 +415,11 @@
         "user": "Usuario",
         "is_internal": "Es Interno",
         "picture": "Foto",
-        "last_used_at": "Última utilización en"
+        "last_used_at": "Última utilización en",
+        "module": "Módulo",
+        "parent_category": "Categoría padre",
+        "icon": "Icono",
+        "additional_info": "Información adicional"
     },
     "address_types": {
         "billing": "Facturación",
@@ -842,7 +846,8 @@
         "no_items": "No hay elementos",
         "select_item": "Seleccionar elemento",
         "date_and_due_date": "Fecha y fecha de fin",
-        "delete_confirm_bill": "¿Está seguro que desea eliminar esta factura?"
+        "delete_confirm_bill": "¿Está seguro que desea eliminar esta factura?",
+        "no_payment_method": "Sin método de pago"
     },
     "account": {
         "account": "Cuenta | Cuentas",
@@ -973,7 +978,8 @@
             "email": "E-mail",
             "webhooks": "Webhooks",
             "server_settings": "Ajustes del servidor",
-            "status_page": "Página de estado"
+            "status_page": "Página de estado",
+            "data_collection": "Recogida de datos"
         },
         "company": {
             "title": "Configuración de la empresa",
@@ -1182,6 +1188,23 @@
             "delete_confirm_webhook_subscription": "¿Está seguro de que desea eliminar esta suscripción a webhook?",
             "add_header": "Añadir cabecera",
             "remove_header": "Eliminar cabecera"
+        },
+        "data_collection": {
+            "title": "Recogida de datos",
+            "data_collection": "Recogida de datos",
+            "transaction_categories": "Categorías de la transacción",
+            "document_types": "Tipos de documentos",
+            "payment_methods": "Métodos de pago",
+            "contract_types": "Tipos de Contrato",
+            "new_data_collection_item": "Nuevo elemento de recogida de datos",
+            "edit_data_collection_item": "Editar elemento de recopilación de datos",
+            "icon_tooltip": "Puedes utilizar iconos de Font Awesome . Puedes encontrar la lista de iconos aquí: https://fontawesome.com/icons",
+            "no_document_types": "No se encontraron tipos de documentos",
+            "no_payment_methods": "No se encontraron métodos de pago",
+            "no_transaction_categories": "No se encontraron categorías de transacción",
+            "no_contract_types": "No se encontraron tipos de contrato",
+            "delete_category_ask": "¿Está seguro de que desea eliminar este elemento de recopilación de datos?",
+            "delete_category_success": "Elemento de recolección de datos eliminado correctamente"
         }
     },
     "month": {
