@@ -43,6 +43,7 @@ class CreateUser extends Command
                     return Command::FAILURE;
                 }
                 $user->assignRole($role);
+                $user->generateUserAvatar($user->id, $this->argument('first_name'), $this->argument('last_name'));
                 $this->info('User created successfully.');
                 return Command::SUCCESS;
             }

@@ -3,11 +3,10 @@
 ## ✨ New Features and Enhancements
 
 - Updated generation of the API documentation to include new endpoints and features.
-- Add confirmations for deleting taxes and units.
+- Add confirmations for deleting taxes, units and webhooks
 
 ## 🐛 Bug Fixes
-
-
+- fix generating user profile image when using the command
 
 # 2.2.0
 

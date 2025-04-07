@@ -135,7 +135,7 @@
                             :label="$t('basic.delete')"
                             icon="fa fa-trash"
                             severity="danger"
-                            @click="deleteWebhookSubscription(webhook_subscription.id)"
+                            @click="deleteWebhookSubscriptionAsk(webhook_subscription.id)"
                         />
                     </div>
                     <div class="flex-grow"></div>
@@ -239,6 +239,12 @@ export default {
                 this.showToast(response.data.message)
                 this.getWebhookSubscriptions()
                 this.showNewEditWebhookSubscriptionDialog = false
+            })
+        },
+
+        deleteWebhookSubscriptionAsk(id) {
+            this.confirmDeleteDialog(this.$t('admin.webhook.delete_confirm_webhook_subscription'), this.$t('basic.confirmation'), () => {
+                this.deleteWebhookSubscription(id)
             })
         },
 
