@@ -14,6 +14,8 @@
 - fix bill delete response
 - fix notification display options in bill module
 - fix translations on the payment responses
+- fix bugs in the process of adding the open banking account
+- fix bug with validation of payment_id when updating the transaction
 
 ## 💣 Breaking changes
 

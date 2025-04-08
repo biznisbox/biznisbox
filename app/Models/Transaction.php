@@ -76,6 +76,11 @@ class Transaction extends Model implements Auditable
         return $this->belongsTo(Bill::class, 'bill_id', 'id');
     }
 
+    public function payment()
+    {
+        return $this->belongsTo(OnlinePayment::class, 'payment_id', 'id');
+    }
+
     public function customer()
     {
         return $this->belongsTo(Partner::class, 'customer_id', 'id');
@@ -98,7 +103,7 @@ class Transaction extends Model implements Auditable
 
     public function getTransaction($id)
     {
-        $transaction = $this->with(['account', 'category', 'invoice', 'bill', 'customer', 'supplier'])->find($id);
+        $transaction = $this->with(['account', 'category', 'invoice', 'bill', 'customer', 'supplier', 'payment:number,id,payment_method,amount,currency'])->find($id);
         if ($transaction) {
             createActivityLog('retrieve', $id, 'App\Models\Transaction', 'Transaction');
             return $transaction;
@@ -108,28 +113,8 @@ class Transaction extends Model implements Auditable
 
     public function createTransaction($data)
     {
+        $data = $this->setTransactionLogic($data);
         $data['number'] = self::getTransactionNumber();
-
-        if ($data['type'] == 'expense') {
-            $data['from_account'] = $data['account_id'];
-        } elseif ($data['type'] == 'income') {
-            $data['to_account'] = $data['account_id'];
-        }
-
-        if ($data['type'] == 'expense') {
-            $data['invoice_id'] = null;
-            $data['customer_id'] = null;
-        }
-
-        if ($data['type'] == 'income') {
-            $data['bill_id'] = null;
-            $data['supplier_id'] = null;
-        }
-
-        if ($data['type'] == 'transfer') {
-            $data['customer_id'] = null;
-            $data['supplier_id'] = null;
-        }
 
         $transaction = $this->create($data);
         if ($transaction) {
@@ -142,10 +127,16 @@ class Transaction extends Model implements Auditable
 
     public function updateTransaction($id, $data)
     {
+        $data = $this->setTransactionLogic($data);
         $transaction = $this->find($id);
-        $data['number'] = $transaction->number; // keep the same number - do not change it
+        if (!$transaction) {
+            return false;
+        }
+
+        $data['number'] = $transaction->number;
         $transaction = $transaction->update($data);
         if ($transaction) {
+            $transaction = $this->find($id);
             sendWebhookForEvent('transaction:updated', $transaction->toArray());
             return $transaction;
         }
@@ -176,5 +167,35 @@ class Transaction extends Model implements Auditable
             return $transactions;
         }
         return false;
+    }
+
+    private function setTransactionLogic($data)
+    {
+        if ($data['type'] == 'expense') {
+            $data['from_account'] = $data['account_id'];
+        } elseif ($data['type'] == 'income') {
+            $data['to_account'] = $data['account_id'];
+        }
+
+        if ($data['type'] == 'expense') {
+            $data['invoice_id'] = null;
+            $data['customer_id'] = null;
+        }
+
+        if ($data['type'] == 'income') {
+            $data['bill_id'] = null;
+            $data['supplier_id'] = null;
+        }
+
+        if ($data['type'] == 'transfer') {
+            $data['customer_id'] = null;
+            $data['supplier_id'] = null;
+        }
+        if ($data['type'] == 'transfer') {
+            $data['from_account'] = $data['account_id'];
+            $data['to_account'] = $data['to_account'];
+        }
+
+        return $data;
     }
 }

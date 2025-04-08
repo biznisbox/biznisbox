@@ -30,15 +30,12 @@ class OnlinePaymentService
             'type' => 'online',
             'amount' => $invoice->total,
             'currency' => $invoice->currency,
-            'description' => __('responses.payment_for_invoice', [
-                'invoice' => $invoice->number,
-            ]),
+            'description' => $invoice->number,
             'status' => 'pending',
             'payment_response' => $payment_session,
             'payment_document_type' => 'App\Models\Invoice',
             'payment_document_id' => $invoice->id,
-            'key' => $key,
-            'notes' => 'status.payment_initiated',
+            'key' => $key, // this is used to identify the external access token
         ]);
 
         incrementLastItemNumber('payment');
@@ -66,19 +63,18 @@ class OnlinePaymentService
                 'status' => 'paid',
                 'payment_response' => $payment_session,
                 'payment_ref' => $payment_session->payment_intent,
-                'notes' => __('responses.payment_successful'),
             ]);
 
             $invoice = Invoice::find($payment->payment_document_id);
 
             $payment_method = Category::where([
-                'module' => 'payment_methods',
-                'additional_notes' => 'stripe',
+                'module' => 'payment_method',
+                'additional_info' => 'stripe',
             ])->first();
 
             $invoice->update([
                 'status' => 'paid',
-                'payment_method' => $payment_method->id,
+                'payment_method_id' => $payment_method->id ?? null,
             ]);
 
             $transaction = Transaction::create([
@@ -91,10 +87,9 @@ class OnlinePaymentService
                 'description' => $payment->description,
                 'status' => 'completed',
                 'payment_id' => $payment->id,
-                'notes' => __('responses.payment_successful'),
                 'reference' => $payment_session->payment_intent,
                 'date' => date('Y-m-d'),
-                'payment_method' => $payment_method->id,
+                'payment_method_id' => $payment_method->id,
             ]);
 
             incrementLastItemNumber('transaction');
@@ -122,7 +117,6 @@ class OnlinePaymentService
         OnlinePayment::where('id', $payment_id)->update([
             'status' => 'failed',
             'payment_response' => $payment_session,
-            'notes' => __('responses.payment_failed'),
         ]);
 
         return [
@@ -151,15 +145,12 @@ class OnlinePaymentService
             'type' => 'online',
             'amount' => $invoice->total,
             'currency' => $invoice->currency,
-            'description' => __('responses.payment_for_invoice', [
-                'invoice' => $invoice->number,
-            ]),
+            'description' => $invoice->number,
             'status' => 'pending',
             'payment_response' => $payment_session,
             'payment_document_type' => 'App\Models\Invoice',
             'payment_document_id' => $invoice->id,
             'key' => $key,
-            'notes' => 'status.payment_initiated',
         ]);
 
         incrementLastItemNumber('payment');
@@ -188,19 +179,18 @@ class OnlinePaymentService
                 'status' => 'paid',
                 'payment_response' => $payment['payment_response'],
                 'payment_ref' => $payment['payment_response']['id'],
-                'notes' => __('responses.payment_successful'),
             ]);
 
             $invoice = Invoice::find($online_payment->payment_document_id);
 
             $payment_method = Category::where([
-                'module' => 'payment_methods',
-                'additional_notes' => 'paypal',
+                'module' => 'payment_method',
+                'additional_info' => 'paypal',
             ])->first();
 
             $invoice->update([
                 'status' => 'paid',
-                'payment_method' => $payment_method->id,
+                'payment_method_id' => $payment_method->id ?? null,
             ]);
 
             $transaction = Transaction::create([
@@ -213,10 +203,9 @@ class OnlinePaymentService
                 'description' => $online_payment->description,
                 'status' => 'completed',
                 'payment_id' => $online_payment->id,
-                'notes' => __('responses.payment_successful'),
                 'reference' => $payment['payment_response']['id'],
                 'date' => date('Y-m-d'),
-                'payment_method' => $payment_method->id,
+                'payment_method_id' => $payment_method->id ?? null,
             ]);
 
             incrementLastItemNumber('transaction');

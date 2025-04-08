@@ -47,7 +47,7 @@ class Account extends Model implements Auditable
 
     public function generateTags(): array
     {
-        return ['Bill'];
+        return ['Account'];
     }
 
     public function openBanking()

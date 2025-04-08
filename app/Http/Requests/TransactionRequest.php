@@ -20,7 +20,7 @@ class TransactionRequest extends FormRequest
             'supplier_id' => 'nullable|exists:partners,id',
             'account_id' => 'nullable|exists:accounts,id',
             'category_id' => 'nullable|exists:categories,id',
-            'payment_id' => 'nullable|exists:payments,id',
+            'payment_id' => 'nullable|exists:online_payments,id',
             'bank_transaction_id' => 'nullable|exists:bank_transactions,id',
             'number' => 'nullable|string',
             'type' => 'required|string',

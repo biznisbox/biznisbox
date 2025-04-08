@@ -64,12 +64,12 @@ class OpenBankingService
     {
         if ($this->config['open_banking_available']) {
             $banks = $this->client->institution->getInstitutionsByCountry($countryCode);
-            // Sandbox bug in development -> for testing purposes
+            // Sandbox in development -> for testing purposes
             if (config('app.debug')) {
                 array_push($banks, [
                     'id' => 'SANDBOXFINANCE_SFIN0000',
                     'name' => 'Sandbox Finance',
-                    'logo' => 'https://cdn.nordigen.com/ais/SANDBOXFINANCE_SFIN0000.png',
+                    'logo' => 'https://cdn-logos.gocardless.com/ais/SANDBOXFINANCE_SFIN0000.png',
                 ]);
             }
             return $banks;
@@ -136,7 +136,7 @@ class OpenBankingService
                             'iban' => $accountData['iban'] ?? null,
                             'currency' => $accountData['currency'] ?? null,
                             'bank_name' => $bank['name'] ?? null,
-                            'payment_available' => json_encode($bank['supported_payments']) ?? false,
+                            'payment_available' => false,
                             'bank_logo' => $bank['logo'] ?? null,
                             'connection_status' => 'CONNECTED',
                             'transaction_total_days' => $bank['transaction_total_days'] ?? 90,
@@ -203,7 +203,7 @@ class OpenBankingService
         $transaction = Transaction::firstOrCreate(
             ['bank_transaction_id' => $transaction_data['transactionId'] ?? null],
             [
-                'number' => generateNextNumber(settings('transaction_number_format'), 'transaction'),
+                'number' => Transaction::getTransactionNumber(),
                 'bank_transaction_id' => $transaction_data['transactionId'] ?? null,
                 'type' => $transaction_data['transactionAmount']['amount'] < 0 ? 'expense' : 'income',
                 'amount' => str_replace('-', '', $transaction_data['transactionAmount']['amount']) ?? 0,

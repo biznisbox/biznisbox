@@ -86,7 +86,7 @@ export default {
         updateTransaction() {
             this.makeHttpRequest('PUT', '/api/transactions/' + this.transaction.id, this.transaction).then((response) => {
                 this.showToast(response.data.message)
-                this.$router.push({ name: 'transactions-view', params: { id: this.transaction.id } })
+                this.$router.push({ name: 'transaction-view', params: { id: this.transaction.id } })
             })
         },
 
