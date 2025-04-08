@@ -111,4 +111,8 @@ return [
     'item_not_sent' => 'Objektet har inte skickats',
     'item_sent_successfully' => 'Objektet har skickats',
     'bill_not_found_or_already_paid' => 'Fakturan hittades inte eller har redan betalats',
+    'payment_for_invoice :invoice' => 'Betalning för faktura :invoice',
+    'invalid_payment_id' => 'Ogiltigt betalnings-ID',
+    'payment_successful' => 'Betalning slutförd',
+    'payment_failed' => 'Betalningen misslyckades',
 ];
