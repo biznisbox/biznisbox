@@ -81,4 +81,5 @@ return [
         'expired' => 'Έληξε',
         'waiting_signature' => 'Υπογραφή Σε Αναμονή',
     ],
+    'no_payment_method' => 'Καμία Μέθοδος Πληρωμής',
 ];
