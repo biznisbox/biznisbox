@@ -682,7 +682,8 @@
         "converted_to_invoice": "Tarjous muutettu laskuksi",
         "expired": "Tämä tarjous on vanhentunut. Et voi hyväksyä tai hylätä sitä.",
         "rejected": "Tämä tarjous on hylätty onnistuneesti.",
-        "accepted": "Tämä tarjous on hyväksytty onnistuneesti."
+        "accepted": "Tämä tarjous on hyväksytty onnistuneesti.",
+        "no_payment_method": "Ei maksutapaa"
     },
     "status": {
         "draft": "Luonnos",
