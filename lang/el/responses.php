@@ -111,4 +111,8 @@ return [
     'item_not_sent' => 'Το στοιχείο δεν εστάλη',
     'item_sent_successfully' => 'Το στοιχείο εστάλη επιτυχώς',
     'bill_not_found_or_already_paid' => 'Λογαριασμός δεν βρέθηκε ή έχει ήδη πληρωθεί',
+    'payment_for_invoice :invoice' => 'Πληρωμή τιμολογίου :invoice',
+    'invalid_payment_id' => 'Μη έγκυρο ID πληρωμής',
+    'payment_successful' => 'Επιτυχής πληρωμή',
+    'payment_failed' => 'Η πληρωμή απέτυχε',
 ];
