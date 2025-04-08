@@ -682,7 +682,8 @@
         "converted_to_invoice": "Devis converti en facture",
         "expired": "Ce devis a expiré. Vous ne pouvez pas l'accepter ou le rejeter.",
         "rejected": "Ce devis a été rejeté avec succès.",
-        "accepted": "Ce devis a été accepté avec succès."
+        "accepted": "Ce devis a été accepté avec succès.",
+        "no_payment_method": "Aucun moyen de paiement"
     },
     "status": {
         "draft": "Brouillon",
