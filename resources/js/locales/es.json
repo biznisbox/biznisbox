@@ -682,7 +682,8 @@
         "converted_to_invoice": "Cotización convertida en factura",
         "expired": "Esta cotización ha caducado. No puede aceptarla o rechazarla.",
         "rejected": "Esta cita ha sido rechazada con éxito.",
-        "accepted": "Este presupuesto ha sido aceptado con éxito."
+        "accepted": "Este presupuesto ha sido aceptado con éxito.",
+        "no_payment_method": "Sin método de pago"
     },
     "status": {
         "draft": "Fabricación",
