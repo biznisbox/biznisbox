@@ -682,7 +682,8 @@
         "converted_to_invoice": "Offert konverterad till faktura",
         "expired": "Denna offert har löpt ut. Du kan inte acceptera eller avvisa den.",
         "rejected": "Detta citat har förkastats framgångsrikt.",
-        "accepted": "Detta citat har accepterats framgångsrikt."
+        "accepted": "Detta citat har accepterats framgångsrikt.",
+        "no_payment_method": "Ingen betalningsmetod"
     },
     "status": {
         "draft": "Utkast",
