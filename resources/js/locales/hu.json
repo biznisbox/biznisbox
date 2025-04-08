@@ -682,7 +682,8 @@
         "converted_to_invoice": "Ajánlat átalakítva számlává",
         "expired": "Ez az ajánlat lejárt. Nem fogadhatja el vagy utasíthatja el.",
         "rejected": "Ez az ajánlat sikeresen el lett utasítva.",
-        "accepted": "Ezt az ajánlatot sikeresen elfogadták."
+        "accepted": "Ezt az ajánlatot sikeresen elfogadták.",
+        "no_payment_method": "No payment method"
     },
     "status": {
         "draft": "Tervezet",
