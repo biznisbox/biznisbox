@@ -111,4 +111,8 @@ return [
     'item_not_sent' => 'Produkt nie został wysłany',
     'item_sent_successfully' => 'Element wysłany pomyślnie',
     'bill_not_found_or_already_paid' => 'Nie znaleziono rachunku lub już zapłacono',
+    'payment_for_invoice :invoice' => 'Płatność za fakturę :invoice',
+    'invalid_payment_id' => 'Nieprawidłowy identyfikator płatności',
+    'payment_successful' => 'Płatność zakończona powodzeniem',
+    'payment_failed' => 'Płatność nie powiodła się',
 ];
