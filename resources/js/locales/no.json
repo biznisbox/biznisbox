@@ -682,7 +682,8 @@
         "converted_to_invoice": "Tilbud konvertert til faktura",
         "expired": "Dette tilbudet er utløpt. Du kan ikke akseptere eller avvise det.",
         "rejected": "Dette tilbudet er avvist",
-        "accepted": "Dette tilbudet er blitt godkjent."
+        "accepted": "Dette tilbudet er blitt godkjent.",
+        "no_payment_method": "Ingen betalingsmåte"
     },
     "status": {
         "draft": "Utkast",
