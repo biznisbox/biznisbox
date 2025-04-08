@@ -682,7 +682,8 @@
         "converted_to_invoice": "Ponudba pretvorjena v račun",
         "expired": "Ta predračun je potekel. Ne morete ga sprejeti ali zavrniti.",
         "rejected": "Ta predračun je bil uspešno zavrnjen.",
-        "accepted": "Ta predračun je bil uspešno sprejet."
+        "accepted": "Ta predračun je bil uspešno sprejet.",
+        "no_payment_method": "No payment method"
     },
     "status": {
         "draft": "Osnutek",
