@@ -81,4 +81,5 @@ return [
         'expired' => 'Истёк',
         'waiting_signature' => 'Ожидание подписи',
     ],
+    'no_payment_method' => 'Нет метода оплаты',
 ];
