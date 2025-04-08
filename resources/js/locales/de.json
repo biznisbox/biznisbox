@@ -682,7 +682,8 @@
         "converted_to_invoice": "Angebot in Rechnung umgewandelt",
         "expired": "Dieses Angebot ist abgelaufen. Sie können es nicht akzeptieren oder ablehnen.",
         "rejected": "Dieses Zitat wurde erfolgreich abgelehnt.",
-        "accepted": "Dieses Zitat wurde erfolgreich angenommen."
+        "accepted": "Dieses Zitat wurde erfolgreich angenommen.",
+        "no_payment_method": "Keine Zahlungsmethode"
     },
     "status": {
         "draft": "Entwurf",
