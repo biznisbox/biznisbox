@@ -111,4 +111,8 @@ return [
     'item_not_sent' => 'Položka nebyla odeslána',
     'item_sent_successfully' => 'Položka byla úspěšně odeslána',
     'bill_not_found_or_already_paid' => 'Faktura nebyla nalezena nebo již zaplacena',
+    'payment_for_invoice :invoice' => 'Platba faktury :invoice',
+    'invalid_payment_id' => 'Neplatné ID platby',
+    'payment_successful' => 'Platba úspěšná',
+    'payment_failed' => 'Platba se nezdařila',
 ];
