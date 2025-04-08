@@ -682,7 +682,8 @@
         "converted_to_invoice": "Wycena przekonwertowana na fakturę",
         "expired": "Ta oferta wygasła. Nie możesz jej zaakceptować lub odrzucić.",
         "rejected": "Ta oferta została pomyślnie odrzucona.",
-        "accepted": "Ta oferta została pomyślnie zaakceptowana."
+        "accepted": "Ta oferta została pomyślnie zaakceptowana.",
+        "no_payment_method": "Brak metody płatności"
     },
     "status": {
         "draft": "Szkic",
