@@ -10,13 +10,43 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::table('invoices', function (Blueprint $table) {
-            $table->renameColumn('payment_method', 'payment_method_id');
-        });
+        if (Schema::hasColumn('transactions', 'payment_method')) {
+            Schema::table('transactions', function (Blueprint $table) {
+                $table->renameColumn('payment_method', 'payment_method_id');
+            });
+        }
 
-        Schema::table('bills', function (Blueprint $table) {
-            $table->renameColumn('payment_method', 'payment_method_id');
-        });
+        if (Schema::hasColumn('invoices', 'payment_method')) {
+            Schema::table('invoices', function (Blueprint $table) {
+                $table->renameColumn('payment_method', 'payment_method_id');
+            });
+        }
+
+        if (Schema::hasColumn('bills', 'payment_method')) {
+            Schema::table('bills', function (Blueprint $table) {
+                $table->renameColumn('payment_method', 'payment_method_id');
+            });
+        }
+
+        if (Schema::hasColumn('quotes', 'payment_method')) {
+            Schema::table('quotes', function (Blueprint $table) {
+                $table->renameColumn('payment_method', 'payment_method_id');
+            });
+        }
+
+        // Add column to archive table
+        if (!Schema::hasColumn('archive', 'document_type_id')) {
+            Schema::table('archive', function (Blueprint $table) {
+                $table
+                    ->foreignUuid('document_type_id')
+                    ->nullable()
+                    ->references('id')
+                    ->on('categories')
+                    ->after('user_id')
+                    ->onDelete('set null')
+                    ->onUpdate('cascade');
+            });
+        }
     }
 
     /**
@@ -24,12 +54,35 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::table('invoices', function (Blueprint $table) {
-            $table->renameColumn('payment_method_id', 'payment_method');
-        });
+        if (Schema::hasColumn('transactions', 'payment_method_id')) {
+            Schema::table('transactions', function (Blueprint $table) {
+                $table->renameColumn('payment_method_id', 'payment_method');
+            });
+        }
+        if (Schema::hasColumn('invoices', 'payment_method')) {
+            Schema::table('invoices', function (Blueprint $table) {
+                $table->renameColumn('payment_method', 'payment_method_id');
+            });
+        }
 
-        Schema::table('bills', function (Blueprint $table) {
-            $table->renameColumn('payment_method_id', 'payment_method');
-        });
+        if (Schema::hasColumn('bills', 'payment_method_id')) {
+            Schema::table('bills', function (Blueprint $table) {
+                $table->renameColumn('payment_method_id', 'payment_method');
+            });
+        }
+
+        if (Schema::hasColumn('quotes', 'payment_method_id')) {
+            Schema::table('quotes', function (Blueprint $table) {
+                $table->renameColumn('payment_method_id', 'payment_method');
+            });
+        }
+
+        // Remove column from archive table
+        if (Schema::hasColumn('archive', 'document_type_id')) {
+            Schema::table('archive', function (Blueprint $table) {
+                $table->dropForeign(['document_type_id']);
+                $table->dropColumn('document_type_id');
+            });
+        }
     }
 };

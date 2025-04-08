@@ -45,7 +45,12 @@
             @endif
             <br />
             <strong>{{ __('pdf.payment_method') }}</strong>
-            <span style="color: rgb(28, 118, 220)">{{ __('pdf.payment_methods.' . $invoice->payment_method) }}</span>
+            @if ($invoice->paymentMethod == null)
+                <span style="color: rgb(41, 147, 196)">{{ __('pdf.no_payment_method') }}</span>
+            @endif
+            @if ($invoice->paymentMethod != null)
+                <span style="color: rgb(28, 118, 220)">{{ __('pdf.payment_methods.' . $invoice->paymentMethod->additional_info) }}</span>
+            @endif
         </p>
         <!-- Data about client and payer -->
         <table id="customer_payer_data" width="100%" style="margin-top: 20px">

@@ -19,13 +19,13 @@ class Quote extends Model implements Auditable
         'customer_id',
         'payer_id',
         'sales_person_id',
+        'payment_method_id',
         'type',
         'number',
         'status',
         'currency',
         'default_currency',
         'currency_rate',
-        'payment_method',
         'customer_name',
         'customer_address_id',
         'customer_address',
@@ -88,6 +88,11 @@ class Quote extends Model implements Auditable
     public function salesPerson()
     {
         return $this->belongsTo(Employee::class, 'sales_person_id');
+    }
+
+    public function paymentMethod()
+    {
+        return $this->belongsTo(Category::class, 'payment_method_id');
     }
 
     public function getPreviewAttribute()
@@ -176,7 +181,7 @@ class Quote extends Model implements Auditable
 
     public function getQuote($id)
     {
-        $quote = $this->with('items')->find($id);
+        $quote = $this->with('items', 'paymentMethod')->find($id);
         createActivityLog('retrieve', $id, 'App\Models\Quote', 'Quote');
         return $quote;
     }
@@ -211,7 +216,7 @@ class Quote extends Model implements Auditable
 
     public function getClientQuote($id, $log = false, $update_viewed = false)
     {
-        $quote = $this->with('items', 'salesPerson:id,first_name,last_name,email')->find($id);
+        $quote = $this->with('items', 'salesPerson:id,first_name,last_name,email', 'paymentMethod:id,icon,name')->find($id);
         unset($quote->notes);
 
         if ($log) {

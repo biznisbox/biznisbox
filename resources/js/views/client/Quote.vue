@@ -119,6 +119,16 @@
                     </div>
                 </div>
 
+                <div v-if="!loadingData">
+                    <DisplayData :input="$t('form.payment_method')" custom-value>
+                        <span v-if="quote.payment_method" class="flex items-center">
+                            <i :class="quote.payment_method.icon"></i>
+                            <span class="ml-1">{{ quote.payment_method.name }}</span>
+                        </span>
+                        <span v-else>{{ $t('quote.no_payment_method') }}</span>
+                    </DisplayData>
+                </div>
+
                 <div v-if="!loadingData" id="quote_items">
                     <DataTable :value="quote.items">
                         <template #empty>

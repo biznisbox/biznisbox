@@ -21,6 +21,7 @@ class TransactionSeeder extends Seeder
             $bill_id = null;
             $customer_id = null;
             $supplier_id = null;
+            $payment_method = \App\Models\Category::where('module', 'payment_method')->get()->random();
 
             if ($type === 'transfer') {
                 $from_account = \App\Models\Account::all()->random()->id;

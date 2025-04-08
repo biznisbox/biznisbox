@@ -44,11 +44,14 @@
                 <span style="color: rgb(105, 105, 188)">{{ __('pdf.statuses.other') }}</span>
             @endif
             <br />
-            @if($bill->payment_method != null)
             <strong>{{ __('pdf.payment_method') }}</strong>
-            <span style="color: rgb(28, 118, 220)">{{ __('pdf.payment_methods.' . $bill->payment_method) }}</span>
-            <br />
+            @if ($bill->paymentMethod == null)
+                <span style="color: rgb(41, 147, 196)">{{ __('pdf.no_payment_method') }}</span>
             @endif
+            @if ($bill->paymentMethod != null)
+                <span style="color: rgb(28, 118, 220)">{{ __('pdf.payment_methods.' . $bill->paymentMethod->additional_info) }}</span>
+            @endif
+            <br />
             @if($bill->reference != null)
             <strong>{{ __('pdf.reference') }}</strong>
             {{ $bill->reference }}

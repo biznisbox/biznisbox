@@ -24,6 +24,7 @@ class Archive extends Model implements Auditable
         'storage_location_id',
         'connected_document_id',
         'connected_document_type',
+        'document_type_id',
         'name',
         'type',
         'description',
@@ -70,6 +71,11 @@ class Archive extends Model implements Auditable
         return $this->belongsTo(Department::class, 'storage_location_id');
     }
 
+    public function documentType()
+    {
+        return $this->belongsTo(Category::class, 'document_type_id');
+    }
+
     public function getDownloadLinkAttribute()
     {
         return URL::SignedRoute('downloadDocument', ['id' => $this->id]);
@@ -87,7 +93,7 @@ class Archive extends Model implements Auditable
 
     public function getDocument($id)
     {
-        $document = $this->with('connectedDocument', 'partner', 'storageLocation')->find($id);
+        $document = $this->with('connectedDocument', 'partner', 'storageLocation', 'documentType')->find($id);
         createActivityLog('retrieve', $id, 'App\Models\Archive', 'Archive');
         return $document;
     }
@@ -102,16 +108,16 @@ class Archive extends Model implements Auditable
         // Get all documents
         if ($folderId == 'all') {
             createActivityLog('retrieve', null, 'App\Models\Archive', 'Archive');
-            return $this->with('connectedDocument', 'partner', 'storageLocation')->get();
+            return $this->with('connectedDocument', 'partner', 'storageLocation', 'documentType')->get();
         }
         // Get documents without folder
         if ($folderId == 'null' || $folderId == null) {
             createActivityLog('retrieve', null, 'App\Models\Archive', 'Archive');
-            return $this->with('connectedDocument', 'partner', 'storageLocation')->whereNull('folder_id')->get();
+            return $this->with('connectedDocument', 'partner', 'storageLocation', 'documentType')->whereNull('folder_id')->get();
         }
         // Get documents by folder id
         createActivityLog('retrieve', null, 'App\Models\Archive', 'Archive');
-        return $this->with('connectedDocument', 'partner', 'storageLocation')->where('folder_id', $folderId)->get();
+        return $this->with('connectedDocument', 'partner', 'storageLocation', 'documentType')->where('folder_id', $folderId)->get();
     }
 
     public function deleteDocument($id)

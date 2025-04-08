@@ -7,6 +7,7 @@ use App\Models\Invoice;
 use App\Models\Transaction;
 use App\Integrations\Stripe;
 use App\Integrations\PayPal;
+use App\Models\Category;
 
 class OnlinePaymentService
 {
@@ -29,7 +30,7 @@ class OnlinePaymentService
             'type' => 'online',
             'amount' => $invoice->total,
             'currency' => $invoice->currency,
-            'description' => __('Payment for Invoice #:invoice', [
+            'description' => __('responses.payment_for_invoice', [
                 'invoice' => $invoice->number,
             ]),
             'status' => 'pending',
@@ -37,7 +38,7 @@ class OnlinePaymentService
             'payment_document_type' => 'App\Models\Invoice',
             'payment_document_id' => $invoice->id,
             'key' => $key,
-            'notes' => 'Payment initiated',
+            'notes' => 'status.payment_initiated',
         ]);
 
         incrementLastItemNumber('payment');
@@ -55,7 +56,7 @@ class OnlinePaymentService
         if (!$payment) {
             return [
                 'error' => true,
-                'message' => __('Payment not found'),
+                'message' => __('responses.invalid_payment_id'),
             ];
         }
         $payment_session = (new Stripe())->retrievePaymentSession($payment->payment_id);
@@ -65,13 +66,19 @@ class OnlinePaymentService
                 'status' => 'paid',
                 'payment_response' => $payment_session,
                 'payment_ref' => $payment_session->payment_intent,
-                'notes' => 'Payment successful',
+                'notes' => __('responses.payment_successful'),
             ]);
 
             $invoice = Invoice::find($payment->payment_document_id);
+
+            $payment_method = Category::where([
+                'module' => 'payment_methods',
+                'additional_notes' => 'stripe',
+            ])->first();
+
             $invoice->update([
                 'status' => 'paid',
-                'payment_method' => 'stripe',
+                'payment_method' => $payment_method->id,
             ]);
 
             $transaction = Transaction::create([
@@ -84,10 +91,10 @@ class OnlinePaymentService
                 'description' => $payment->description,
                 'status' => 'completed',
                 'payment_id' => $payment->id,
-                'notes' => 'Payment successful',
+                'notes' => __('responses.payment_successful'),
                 'reference' => $payment_session->payment_intent,
                 'date' => date('Y-m-d'),
-                'payment_method' => 'stripe',
+                'payment_method' => $payment_method->id,
             ]);
 
             incrementLastItemNumber('transaction');
@@ -108,20 +115,20 @@ class OnlinePaymentService
 
             return [
                 'data' => $transaction,
-                'message' => __('Payment successful'),
+                'message' => __('responses.payment_successful'),
             ];
         }
 
         OnlinePayment::where('id', $payment_id)->update([
             'status' => 'failed',
             'payment_response' => $payment_session,
-            'notes' => 'Payment failed',
+            'notes' => __('responses.payment_failed'),
         ]);
 
         return [
             'error' => true,
             'data' => $payment_session,
-            'message' => __('Payment not successful'),
+            'message' => __('responses.payment_failed'),
         ];
     }
 
@@ -144,7 +151,7 @@ class OnlinePaymentService
             'type' => 'online',
             'amount' => $invoice->total,
             'currency' => $invoice->currency,
-            'description' => __('Payment for Invoice #:invoice', [
+            'description' => __('responses.payment_for_invoice', [
                 'invoice' => $invoice->number,
             ]),
             'status' => 'pending',
@@ -152,7 +159,7 @@ class OnlinePaymentService
             'payment_document_type' => 'App\Models\Invoice',
             'payment_document_id' => $invoice->id,
             'key' => $key,
-            'notes' => 'Payment initiated',
+            'notes' => 'status.payment_initiated',
         ]);
 
         incrementLastItemNumber('payment');
@@ -181,13 +188,19 @@ class OnlinePaymentService
                 'status' => 'paid',
                 'payment_response' => $payment['payment_response'],
                 'payment_ref' => $payment['payment_response']['id'],
-                'notes' => 'Payment successful',
+                'notes' => __('responses.payment_successful'),
             ]);
 
             $invoice = Invoice::find($online_payment->payment_document_id);
+
+            $payment_method = Category::where([
+                'module' => 'payment_methods',
+                'additional_notes' => 'paypal',
+            ])->first();
+
             $invoice->update([
                 'status' => 'paid',
-                'payment_method' => 'paypal',
+                'payment_method' => $payment_method->id,
             ]);
 
             $transaction = Transaction::create([
@@ -200,10 +213,10 @@ class OnlinePaymentService
                 'description' => $online_payment->description,
                 'status' => 'completed',
                 'payment_id' => $online_payment->id,
-                'notes' => 'Payment successful',
+                'notes' => __('responses.payment_successful'),
                 'reference' => $payment['payment_response']['id'],
                 'date' => date('Y-m-d'),
-                'payment_method' => 'paypal',
+                'payment_method' => $payment_method->id,
             ]);
 
             incrementLastItemNumber('transaction');
@@ -224,7 +237,7 @@ class OnlinePaymentService
 
             return [
                 'data' => $transaction,
-                'message' => __('Payment successful'),
+                'message' => __('responses.payment_successful'),
             ];
         }
 

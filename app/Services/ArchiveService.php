@@ -77,6 +77,7 @@ class ArchiveService
                     'visibility' => 'private',
                     'protection_level' => $request->protection_level ?? 'internal',
                     'storage_location_id' => $request->storage_location_id ?? null,
+                    'document_type_id' => $request->document_type_id ?? null,
                 ]);
                 if ($document) {
                     sendWebhookForEvent('archive:document_created', $document->toArray());
@@ -112,6 +113,7 @@ class ArchiveService
                 'visibility' => $request->visibility,
                 'protection_level' => $request->protection_level,
                 'storage_location_id' => $request->storage_location_id,
+                'document_type_id' => $request->document_type_id,
             ]);
             sendWebhookForEvent('archive:document_updated', $document->toArray());
             return $document;

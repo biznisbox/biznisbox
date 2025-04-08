@@ -31,7 +31,7 @@ class Transaction extends Model implements Auditable
         'amount',
         'currency',
         'exchange_rate',
-        'payment_method',
+        'payment_method_id',
         'reference',
         'status',
         'date',

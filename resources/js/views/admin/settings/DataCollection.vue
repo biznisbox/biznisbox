@@ -7,9 +7,7 @@
                         id="add_category_button"
                         icon="fa fa-plus"
                         :label="$t('basic.add')"
-                        class="p-button-success"
                         @click="openNewEditCategoryDialog('create')"
-                        v-if="!loadingData"
                     />
                 </template>
             </PageHeader>
@@ -17,9 +15,9 @@
             <Tabs v-model:value="activeTab" class="mb-4">
                 <TabList>
                     <Tab value="transaction">{{ $t('admin.data_collection.transaction_categories') }}</Tab>
-                    <Tab value="document_types">{{ $t('admin.data_collection.document_types') }}</Tab>
-                    <Tab value="payment_methods">{{ $t('admin.data_collection.payment_methods') }}</Tab>
-                    <Tab value="contract_types">{{ $t('admin.data_collection.contract_types') }}</Tab>
+                    <Tab value="document_type">{{ $t('admin.data_collection.document_types') }}</Tab>
+                    <Tab value="payment_method">{{ $t('admin.data_collection.payment_methods') }}</Tab>
+                    <Tab value="contract_type">{{ $t('admin.data_collection.contract_types') }}</Tab>
                 </TabList>
 
                 <TabPanels>
@@ -74,7 +72,7 @@
                             </Column>
                         </DataTable>
                     </TabPanel>
-                    <TabPanel value="document_types">
+                    <TabPanel value="document_type">
                         <DataTable :value="document_types" data-key="id">
                             <template #empty>
                                 <div class="p-4 pl-0 text-center w-full">
@@ -127,7 +125,7 @@
                             </Column>
                         </DataTable>
                     </TabPanel>
-                    <TabPanel value="payment_methods">
+                    <TabPanel value="payment_method">
                         <DataTable :value="payment_methods" data-key="id">
                             <template #empty>
                                 <div class="p-4 pl-0 text-center w-full">
@@ -143,11 +141,11 @@
                                 </template>
                             </Column>
 
-                            <Column field="description" :header="$t('form.type')" />
+                            <Column field="description" :header="$t('form.description')" />
 
                             <Column field="additional_info" :header="$t('form.additional_info')">
                                 <template #body="{ data }">
-                                    <span>{{ data.additional_info ? data.additional_info : '-' }}</span>
+                                    <span>{{ data.additional_info ? $t(`payment_methods.${data.additional_info}`) : '-' }}</span>
                                 </template>
                             </Column>
 
@@ -170,7 +168,7 @@
                             </Column>
                         </DataTable>
                     </TabPanel>
-                    <TabPanel value="contract_types">
+                    <TabPanel value="contract_type">
                         <DataTable :value="contract_types" data-key="id">
                             <template #empty>
                                 <div class="p-4 pl-0 text-center w-full">
@@ -185,7 +183,7 @@
                                 </template>
                             </Column>
 
-                            <Column field="description" :header="$t('form.type')" />
+                            <Column field="description" :header="$t('form.description')" />
 
                             <Column :header="$t('form.icon')">
                                 <template #body="{ data }">
@@ -244,9 +242,9 @@
                             v-model="category.module"
                             :options="[
                                 { label: $t('admin.data_collection.transaction_categories'), value: 'transaction' },
-                                { label: $t('admin.data_collection.document_types'), value: 'document_types' },
-                                { label: $t('admin.data_collection.payment_methods'), value: 'payment_methods' },
-                                { label: $t('admin.data_collection.contract_types'), value: 'contract_types' },
+                                { label: $t('admin.data_collection.document_types'), value: 'document_type' },
+                                { label: $t('admin.data_collection.payment_methods'), value: 'payment_method' },
+                                { label: $t('admin.data_collection.contract_types'), value: 'contract_type' },
                             ]"
                             option-label="label"
                             option-value="value"
@@ -270,7 +268,7 @@
                         />
 
                         <div v-if="category.module !== 'transaction'" class="flex flex-col gap-2 mb-2">
-                            <label class="dark:text-surface-200">Color</label>
+                            <label for="category_color_input" class="dark:text-surface-200">Color</label>
                             <ColorPicker id="category_color_input" v-model="category.color" />
                         </div>
 
@@ -284,10 +282,27 @@
                         />
 
                         <TextInput
+                            v-if="category.module !== 'transaction' && category.module !== 'payment_method'"
                             id="category_additional_info_input"
                             v-model="category.additional_info"
                             :label="$t('form.additional_info')"
                             placeholder="Additional info"
+                        />
+
+                        <SelectInput
+                            v-if="category.module == 'payment_method'"
+                            id="category_additional_info_input"
+                            v-model="category.additional_info"
+                            :options="[
+                                { label: $t('payment_methods.stripe'), value: 'stripe' },
+                                { label: $t('payment_methods.paypal'), value: 'paypal' },
+                                { label: $t('payment_methods.bank_transfer'), value: 'bank_transfer' },
+                                { label: $t('payment_methods.cash'), value: 'cash' },
+                                { label: $t('payment_methods.other'), value: 'other' },
+                            ]"
+                            option-label="label"
+                            option-value="value"
+                            :label="$t('form.type')"
                         />
 
                         <TextInput
@@ -298,7 +313,7 @@
                             placeholder="Description"
                         />
                         <SelectInput
-                            v-if="category.module !== 'transaction'"
+                            v-if="category.module !== 'transaction' && category.module !== 'payment_method'"
                             id="category_parent_id_input"
                             v-model="category.parent_id"
                             :options="availableParentCategories"
@@ -338,7 +353,6 @@
 <script>
 import TextInput from '@/components/form/TextInput.vue'
 import CategoryMixin from '@/mixins/categories'
-import { set } from 'lodash'
 export default {
     name: 'AdminDataCollectionPage',
     mixins: [CategoryMixin],
@@ -367,9 +381,9 @@ export default {
     },
     created() {
         this.getCategoryItems('transaction')
-        this.getCategoryItems('document_types')
-        this.getCategoryItems('payment_methods')
-        this.getCategoryItems('contract_types')
+        this.getCategoryItems('document_type')
+        this.getCategoryItems('payment_method')
+        this.getCategoryItems('contract_type')
     },
 
     methods: {
@@ -377,11 +391,11 @@ export default {
             this.getCategories(category).then((response) => {
                 if (category === 'transaction') {
                     this.transaction = response
-                } else if (category === 'document_types') {
+                } else if (category === 'document_type') {
                     this.document_types = response
-                } else if (category === 'payment_methods') {
+                } else if (category === 'payment_method') {
                     this.payment_methods = response
-                } else if (category === 'contract_types') {
+                } else if (category === 'contract_type') {
                     this.contract_types = response
                 }
             })

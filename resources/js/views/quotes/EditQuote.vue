@@ -107,18 +107,12 @@
                         />
                         <SelectInput
                             id="payment_method_input"
-                            v-model="v$.quote.payment_method.$model"
+                            v-model="v$.quote.payment_method_id.$model"
                             :label="$t('form.payment_method')"
-                            :options="[
-                                { label: $t('payment_methods.bank_transfer'), value: 'bank_transfer' },
-                                { label: $t('payment_methods.cash'), value: 'cash' },
-                                { label: $t('payment_methods.check'), value: 'check' },
-                                { label: $t('payment_methods.credit_card'), value: 'credit_card' },
-                                { label: $t('payment_methods.paypal'), value: 'paypal' },
-                                { label: $t('payment_methods.stripe'), value: 'stripe' },
-                                { label: $t('payment_methods.other'), value: 'other' },
-                            ]"
-                            :validate="v$.quote.payment_method"
+                            :options="paymentMethods"
+                            option-value="id"
+                            option-label="name"
+                            :validate="v$.quote.payment_method_id"
                         />
                     </div>
 
@@ -310,6 +304,7 @@ export default {
         this.getTaxes()
         this.getEmployees()
         this.getCurrencies()
+        this.getPaymentMethods()
         this.getQuote(this.$route.params.id)
     },
     validations() {
@@ -321,7 +316,7 @@ export default {
                 valid_until: { required },
                 currency: { required },
                 total: { required },
-                payment_method: { required },
+                payment_method_id: { required },
             },
         }
     },

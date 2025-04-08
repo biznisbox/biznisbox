@@ -41,7 +41,7 @@
 
                 <div class="grid grid-cols-1 lg:col-span-8">
                     <div class="card">
-                        <Tabs value="partner_activities">
+                        <Tabs value="partner_activities" scrollable>
                             <TabList>
                                 <Tab value="partner_activities">{{ $t('partner.partner_activities') }}</Tab>
                                 <Tab value="contact_information">{{ $t('partner.contact_information') }}</Tab>

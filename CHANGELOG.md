@@ -5,16 +5,19 @@
 - Updated generation of the API documentation to include new endpoints and features.
 - Add confirmations for deleting taxes, units and webhooks
 - Add feature for manage data types (payment methods, contract types, etc.)
+- Add field for document type in the archive table
+- Update design of the PDF documents (invoices, bills, quotes, etc.)
 
 ## 🐛 Bug Fixes
 
 - fix generating user profile image when using the command
 - fix bill delete response
 - fix notification display options in bill module
+- fix translations on the payment responses
 
 ## 💣 Breaking changes
 
-- Due the implementation of custom payment methods, the old field `payment_method` in the invoice table has been removed. The new field is `payment_method_id` old field data is not migrated to the new field. The old field is not used anymore in the app. If you want to migrate the data, you can do it manually.
+- Due the implementation of custom payment methods, the old field `payment_method` in the invoice, transaction, quote and bill table has been renamed to `payment_method_id` old field data is not migrated to the new field. If you want to migrate the data, you can do it manually, app will not show properly the data in the old field.
 
 # 2.2.0
 

@@ -8,6 +8,7 @@ export default {
             partners: [],
             payerAddresses: [],
             customerAddresses: [],
+            paymentMethods: [],
             quote: {
                 number: '',
                 date: '',
@@ -180,6 +181,16 @@ export default {
         sendQuoteNotification(id) {
             this.makeHttpRequest('POST', `/api/quote/${id}/send`, null, null, null, false).then((response) => {
                 this.showToast(response.data.message)
+            })
+        },
+
+        /**
+         * Get payment methods
+         * @returns {array} payment methods
+         */
+        getPaymentMethods() {
+            this.getCategories('payment_method').then((response) => {
+                this.paymentMethods = response
             })
         },
     },

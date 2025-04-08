@@ -147,7 +147,7 @@ export default {
         },
 
         getContractTypes() {
-            this.getCategories('contract_types').then((response) => {
+            this.getCategories('contract_type').then((response) => {
                 this.contractTypes = response
             })
         },

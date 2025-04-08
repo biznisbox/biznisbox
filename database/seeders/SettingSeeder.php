@@ -125,16 +125,12 @@ class SettingSeeder extends Seeder
 
         // Seed default payment methods
         Category::firstOrCreate(
-            ['name' => 'Cash'],
-            ['module' => 'payment_methods', 'icon' => 'fas fa-money-bill', 'additional_info' => 'cash']
+            ['additional_info' => 'paypal'],
+            ['module' => 'payment_method', 'icon' => 'fab fa-paypal', 'name' => 'PayPal', 'color' => '003087']
         );
         Category::firstOrCreate(
-            ['name' => 'PayPal'],
-            ['module' => 'payment_methods', 'icon' => 'fab fa-paypal', 'additional_info' => 'paypal']
-        );
-        Category::firstOrCreate(
-            ['name' => 'Stripe'],
-            ['module' => 'payment_methods', 'icon' => 'fab fa-stripe', 'additional_info' => 'stripe']
+            ['additional_info' => 'stripe'],
+            ['module' => 'payment_method', 'icon' => 'fab fa-stripe', 'name' => 'Stripe', 'color' => '635BFF']
         );
     }
 }

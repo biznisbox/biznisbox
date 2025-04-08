@@ -96,6 +96,18 @@
                     <DisplayData :input="$t('form.currency')" :value="formatText(quote.currency)" />
                 </div>
 
+                <div>
+                    <div v-if="!loadingData">
+                        <DisplayData :input="$t('form.payment_method')" custom-value>
+                            <span v-if="quote.payment_method" class="flex items-center">
+                                <i :class="quote.payment_method.icon"></i>
+                                <span class="ml-1">{{ quote.payment_method.name }}</span>
+                            </span>
+                            <span v-else>{{ $t('quote.no_payment_method') }}</span>
+                        </DisplayData>
+                    </div>
+                </div>
+
                 <div id="quote_items">
                     <DataTable :value="quote.items">
                         <template #empty>
@@ -152,29 +164,24 @@
                         </DisplayData>
                     </div>
 
-                    <div class="grid">
-                        <table class="w-full">
-                            <tr>
-                                <td class="w-6 font-bold mb-1">{{ $t('form.discount') }}</td>
-                                <td class="text-right">
-                                    <span v-if="quote.discount_type === 'percent'">{{ quote.discount + ' %' }}</span>
-                                    <span v-if="quote.discount_type === 'fixed'">{{
-                                        quote.discount + ' ' + $settings.default_currency
-                                    }}</span>
-                                </td>
-                            </tr>
-                            <tr v-if="quote.currency != $settings.default_currency">
-                                <td class="w-6 font-bold">{{ $t('form.currency_rate') }}</td>
-                                <td class="text-right">
-                                    {{ `1 ${$settings.default_currency} = ${quote.currency_rate} ${quote.currency}` }}
-                                </td>
-                            </tr>
+                    <div id="quote_calculations_table">
+                        <DisplayData :input="$t('form.discount')" custom-value displayInline>
+                            <span v-if="quote.discount_type === 'percent'">{{ quote.discount + ' %' }}</span>
+                            <span v-if="quote.discount_type === 'fixed'">{{ quote.discount + ' ' + $settings.default_currency }}</span>
+                        </DisplayData>
 
-                            <tr>
-                                <td class="w-6 font-bold">{{ $t('form.total') }}</td>
-                                <td class="text-right">{{ formatMoney(quote.total, quote.currency) }}</td>
-                            </tr>
-                        </table>
+                        <DisplayData
+                            v-if="quote.currency != $settings.default_currency"
+                            :input="$t('form.currency_rate')"
+                            custom-value
+                            displayInline
+                        >
+                            {{ `1 ${$settings.default_currency} = ${quote.currency_rate} ${quote.currency}` }}
+                        </DisplayData>
+
+                        <DisplayData :input="$t('form.total')" custom-value displayInline>
+                            {{ formatMoney(quote.total, quote.currency) }}
+                        </DisplayData>
                     </div>
                 </div>
             </div>

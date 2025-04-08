@@ -7,6 +7,7 @@ export default {
             currentDocument: null,
             selectDocumentArray: [],
             moveFolderId: null,
+            documentTypes: [],
             document: {
                 id: '',
                 number: '',
@@ -24,6 +25,7 @@ export default {
                 preview_link: '',
                 storage_location: '',
                 download_link: '',
+                document_type_id: '',
             },
             folder: {
                 id: '',
@@ -287,6 +289,12 @@ export default {
                         this.showToast('Error', error.response.data.message, 'error')
                     }
                 })
+        },
+
+        getDocumentTypes() {
+            this.getCategories('document_type').then((response) => {
+                this.documentTypes = response
+            })
         },
     },
 }

@@ -183,7 +183,7 @@ export default {
          * @returns {array} payment methods
          */
         getPaymentMethods() {
-            this.getCategories('payment_methods').then((response) => {
+            this.getCategories('payment_method').then((response) => {
                 this.paymentMethods = response
             })
         },

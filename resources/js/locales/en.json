@@ -682,7 +682,8 @@
         "converted_to_invoice": "Quote converted to invoice",
         "expired": "This quote has expired. You can not accept or reject it.",
         "rejected": "This quote has been rejected successfully.",
-        "accepted": "This quote has been accepted successfully."
+        "accepted": "This quote has been accepted successfully.",
+        "no_payment_method": "No payment method"
     },
     "status": {
         "draft": "Draft",

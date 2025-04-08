@@ -14,10 +14,9 @@ class BillSeeder extends Seeder
     {
         for ($i = 0; $i < 50; $i++) {
             $id = fake()->uuid();
-
             $supplier = \App\Models\Partner::where('type', 'supplier')->orWhere('type', 'both')->get()->random();
             $supplier_address = $supplier->addresses->random();
-            $payment_method = \App\Models\Category::where('module', 'payment_methods')->get()->random();
+            $payment_method = \App\Models\Category::where('module', 'payment_method')->get()->random();
             $discount = fake()->randomFloat(2, 0, 100);
             \App\Models\Bill::create([
                 'id' => $id,

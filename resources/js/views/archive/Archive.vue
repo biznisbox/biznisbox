@@ -281,6 +281,15 @@
                         v-if="!editDocument && document.storage_location"
                     />
 
+                    <DisplayData custom-value :input="$t('form.document_type')" v-if="!editDocument && document.document_type">
+                        <Tag
+                            v-if="document.document_type"
+                            :icon="document.document_type?.icon"
+                            class="flex gap-2"
+                            :value="document.document_type?.name"
+                        />
+                    </DisplayData>
+
                     <div v-if="editDocument" class="mt-2">
                         <SelectInput
                             id="document_status"
@@ -349,6 +358,18 @@
                                 :label="$t('form.storage_location')"
                                 placeholder="Select a storage location"
                             />
+
+                            <SelectInput
+                                id="document_type_input"
+                                v-model="document.document_type_id"
+                                :options="documentTypes"
+                                option-label="name"
+                                option-value="id"
+                                show-clear
+                                filter
+                                :label="$t('form.document_type')"
+                                placeholder="Select a document type"
+                            />
                         </div>
                     </div>
                 </div>
@@ -403,6 +424,7 @@
                     'partner_id',
                     'connected_document_id',
                     'storage_location_id',
+                    'document_type_id',
                     'folder_id',
                     'file_name',
                     'file_mime',
@@ -449,6 +471,7 @@ export default {
         this.getDocuments(this.currentFolder || null)
         this.getPartners()
         this.getDocuments('all')
+        this.getDocumentTypes()
         this.getDepartments()
     },
 
