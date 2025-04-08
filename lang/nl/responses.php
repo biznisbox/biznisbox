@@ -111,4 +111,8 @@ return [
     'item_not_sent' => 'Item niet verzonden',
     'item_sent_successfully' => 'Item succesvol verzonden',
     'bill_not_found_or_already_paid' => 'Factuur niet gevonden of reeds betaald',
+    'payment_for_invoice :invoice' => 'Betaling voor factuur :factuur',
+    'invalid_payment_id' => 'Ongeldige betalings-ID',
+    'payment_successful' => 'Betaling succesvol',
+    'payment_failed' => 'Betaling mislukt',
 ];
