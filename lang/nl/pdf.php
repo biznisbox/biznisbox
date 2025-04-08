@@ -81,4 +81,5 @@ return [
         'expired' => 'Verlopen',
         'waiting_signature' => 'Wachten op handtekening',
     ],
+    'no_payment_method' => 'Geen betaalmethode',
 ];
