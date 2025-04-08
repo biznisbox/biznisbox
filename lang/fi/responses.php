@@ -111,4 +111,8 @@ return [
     'item_not_sent' => 'Kohdetta ei lähetetty',
     'item_sent_successfully' => 'Kohde lähetetty onnistuneesti',
     'bill_not_found_or_already_paid' => 'Laskua ei löytynyt tai jo maksettu',
+    'payment_for_invoice :invoice' => 'Maksu laskusta :invoice',
+    'invalid_payment_id' => 'Virheellinen maksutunnus',
+    'payment_successful' => 'Maksu onnistui',
+    'payment_failed' => 'Maksu epäonnistui',
 ];
