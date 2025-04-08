@@ -81,4 +81,5 @@ return [
         'expired' => 'Udløbet',
         'waiting_signature' => 'Afventer signatur',
     ],
+    'no_payment_method' => 'Ingen Betalingsmetode',
 ];
