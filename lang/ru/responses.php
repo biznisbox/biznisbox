@@ -111,4 +111,8 @@ return [
     'item_not_sent' => 'Предмет не отправлен',
     'item_sent_successfully' => 'Элемент успешно отправлен',
     'bill_not_found_or_already_paid' => 'Счет не найден или уже оплачен',
+    'payment_for_invoice :invoice' => 'Оплата для счета :invoice',
+    'invalid_payment_id' => 'Неверный ID платежа',
+    'payment_successful' => 'Платеж выполнен',
+    'payment_failed' => 'Платеж не удался',
 ];
