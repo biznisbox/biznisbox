@@ -682,7 +682,8 @@
         "converted_to_invoice": "Preventivo convertito in fattura",
         "expired": "Questo preventivo è scaduto. Non puoi accettarlo o rifiutarlo.",
         "rejected": "Questa citazione è stata respinta con successo.",
-        "accepted": "Questo preventivo è stato accettato con successo."
+        "accepted": "Questo preventivo è stato accettato con successo.",
+        "no_payment_method": "Nessun metodo di pagamento"
     },
     "status": {
         "draft": "Bozza",
