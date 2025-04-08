@@ -81,4 +81,5 @@ return [
         'expired' => 'Förfallen',
         'waiting_signature' => 'Väntande signatur',
     ],
+    'no_payment_method' => 'Ingen betalningsmetod',
 ];
