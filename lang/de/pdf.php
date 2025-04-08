@@ -81,4 +81,5 @@ return [
         'expired' => 'Abgelaufen',
         'waiting_signature' => 'Warte Unterschrift',
     ],
+    'no_payment_method' => 'Keine Zahlungsmethode',
 ];
