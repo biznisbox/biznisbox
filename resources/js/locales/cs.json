@@ -682,7 +682,8 @@
         "converted_to_invoice": "Cenová nabídka převedena na fakturu",
         "expired": "Tato cenová nabídka vypršela. Nelze ji přijmout nebo odmítnout.",
         "rejected": "Tato cenová nabídka byla úspěšně odmítnuta.",
-        "accepted": "Tato nabídka byla úspěšně přijata."
+        "accepted": "Tato nabídka byla úspěšně přijata.",
+        "no_payment_method": "Žádný způsob platby"
     },
     "status": {
         "draft": "Koncept",
