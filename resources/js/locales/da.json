@@ -682,7 +682,8 @@
         "converted_to_invoice": "Tilbud konverteret til faktura",
         "expired": "Dette tilbud er udløbet. Du kan ikke acceptere eller afvise det.",
         "rejected": "Dette citat er blevet afvist med succes.",
-        "accepted": "Dette citat er blevet accepteret med succes."
+        "accepted": "Dette citat er blevet accepteret med succes.",
+        "no_payment_method": "Ingen betalingsmetode"
     },
     "status": {
         "draft": "Kladde",
