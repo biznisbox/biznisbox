@@ -682,7 +682,8 @@
         "converted_to_invoice": "Prijsopgave omgezet naar factuur",
         "expired": "Deze offerte is verlopen. U kunt het niet accepteren of afwijzen.",
         "rejected": "Deze offerte is met succes afgewezen.",
-        "accepted": "Deze offerte is met succes geaccepteerd."
+        "accepted": "Deze offerte is met succes geaccepteerd.",
+        "no_payment_method": "Geen betaalmethode"
     },
     "status": {
         "draft": "Kladversie",
