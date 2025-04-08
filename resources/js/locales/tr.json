@@ -682,7 +682,8 @@
         "converted_to_invoice": "Teklif faturaya dönüştürüldü",
         "expired": "Bu teklif süresi doldu. Kabul edemez veya reddedemezsiniz.",
         "rejected": "Bu teklif başarılı bir şekilde reddedildi.",
-        "accepted": "Bu teklif başarılı bir şekilde kabul edildi."
+        "accepted": "Bu teklif başarılı bir şekilde kabul edildi.",
+        "no_payment_method": "No payment method"
     },
     "status": {
         "draft": "Taslak",
