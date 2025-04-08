@@ -682,7 +682,8 @@
         "converted_to_invoice": "Orçamento convertido para fatura",
         "expired": "Esta cotação expirou. Você não pode aceitar ou rejeitá-la.",
         "rejected": "Esta cotação foi rejeitada com sucesso.",
-        "accepted": "Esta cotação foi aceita com sucesso."
+        "accepted": "Esta cotação foi aceita com sucesso.",
+        "no_payment_method": "Nenhum método de pagamento"
     },
     "status": {
         "draft": "Rascunho",
