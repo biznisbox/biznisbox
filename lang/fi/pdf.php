@@ -81,4 +81,5 @@ return [
         'expired' => 'Vanhentunut',
         'waiting_signature' => 'Odotetaan Allekirjoitusta',
     ],
+    'no_payment_method' => 'Ei Maksutapaa',
 ];
