@@ -81,5 +81,5 @@ return [
         'expired' => 'Poteklo',
         'waiting_signature' => 'Čakanje na podpis',
     ],
-    'no_payment_method' => 'No Payment Method',
+    'no_payment_method' => 'Način plačila ni določen',
 ];
