@@ -103,7 +103,15 @@ class Transaction extends Model implements Auditable
 
     public function getTransaction($id)
     {
-        $transaction = $this->with(['account', 'category', 'invoice', 'bill', 'customer', 'supplier', 'payment:number,id,payment_method,amount,currency'])->find($id);
+        $transaction = $this->with([
+            'account',
+            'category',
+            'invoice',
+            'bill',
+            'customer',
+            'supplier',
+            'payment:number,id,payment_method,amount,currency',
+        ])->find($id);
         if ($transaction) {
             createActivityLog('retrieve', $id, 'App\Models\Transaction', 'Transaction');
             return $transaction;
