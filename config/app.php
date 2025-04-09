@@ -144,4 +144,21 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Demo Mode
+    |--------------------------------------------------------------------------
+    | This value determines if the application is in demo mode. In demo mode,
+    | the application will have limited functionality and will not allow
+    | certain actions, such as creating or deleting records. This is useful
+    | for demonstration purposes or for testing the application without
+    | affecting the production data.
+    |
+    */
+    'demo' => [
+        'enabled' => env('APP_DEMO_MODE', false),
+        'username' => env('APP_DEMO_USERNAME', 'demo@example.com'),
+        'password' => env('APP_DEMO_PASSWORD', 'password'),
+    ],
 ];

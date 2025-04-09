@@ -57,7 +57,7 @@ class TransactionSeeder extends Seeder
                 'amount' => fake()->randomFloat(2, 1, 1000),
                 'currency' => settings('default_currency'),
                 'exchange_rate' => 1,
-                'payment_method' => fake()->randomElement(['cash', 'bank_transfer', 'credit_card', 'paypal', 'stripe', 'other']),
+                'payment_method_id' => $payment_method->id,
                 'status' => fake()->randomElement(['draft', 'completed', 'reconciled']),
                 'reconciled' => false,
             ]);

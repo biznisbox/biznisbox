@@ -7,6 +7,7 @@
 - Add feature for manage data types (payment methods, contract types, etc.)
 - Add field for document type in the archive table
 - Update design of the PDF documents (invoices, bills, quotes, etc.)
+- Add features for reset demo data in the demo mode (only for demo mode)
 
 ## 🐛 Bug Fixes
 
