@@ -57,5 +57,6 @@ return [
     'personal_access_token_details' => 'Persönlicher Zugangs-Token Details',
     'personal_access_token_name' => 'Tokenname',
     'personal_access_token_valid_until' => 'Gültig bis',
-    'if_this_was_not_you_personal_access_token' => 'Falls dies nicht Sie waren, löschen Sie bitte sofort das Token und wenden Sie sich an den Administrator.',
+    'if_this_was_not_you_personal_access_token' =>
+        'Falls dies nicht Sie waren, löschen Sie bitte sofort das Token und wenden Sie sich an den Administrator.',
 ];

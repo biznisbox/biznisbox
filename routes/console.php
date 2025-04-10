@@ -33,10 +33,8 @@ Schedule::command('biznisbox:update-item-statuses')
         insertScheduleRun('biznisbox:update-item-statuses', 'failed', $output);
     });
 
-
 // Reset demo data
-if(config('app.demo.enabled') === true)
-{
+if (config('app.demo.enabled') === true) {
     Schedule::command('app:demo-reset-data')
         ->withoutOverlapping()
         ->everySixHours()

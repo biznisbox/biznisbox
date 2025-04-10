@@ -31,10 +31,7 @@ class DemoResetData extends Command
     {
         $this->info('Resetting demo data...');
 
-        if(config('app.demo.enabled') === true)
-        {
-
-            
+        if (config('app.demo.enabled') === true) {
             // Truncate all tables -> this works only for MySQL
             // Get all tables in the database
             $tables = DB::select('SHOW TABLES');
@@ -74,7 +71,7 @@ class DemoResetData extends Command
                 'first_name' => 'Demo',
                 'last_name' => 'User',
                 'email' => 'user@example.com',
-                'password'=> Hash::make('password'),
+                'password' => Hash::make('password'),
             ]);
 
             // Assign the user to the demo role
@@ -86,17 +83,15 @@ class DemoResetData extends Command
                 'first_name' => 'Demo',
                 'last_name' => 'Admin',
                 'email' => 'admin@example.com',
-                'password'=> Hash::make('password'),
+                'password' => Hash::make('password'),
             ]);
 
             // Assign the user to the demo role
             $admin->assignRole('super_admin');
             $admin->generateUserAvatar($admin->id, 'Demo', 'Admin');
-            
+
             $this->info('Demo data reset successfully.');
-        }
-        else
-        {
+        } else {
             $this->error('Demo mode is not enabled. Please enable it in the config/app.php file.');
         }
     }
