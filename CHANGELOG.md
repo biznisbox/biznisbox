@@ -1,26 +1,30 @@
-# Unreleased
+# 2.3.0
+
+**Important**: This release is not backwards-compatible with previous versions (v2.x.x) due to significant changes, including database migrations and structure updates.
 
 ## ✨ New Features and Enhancements
 
-- Updated generation of the API documentation to include new endpoints and features.
-- Add confirmations for deleting taxes, units and webhooks
-- Add feature for manage data types (payment methods, contract types, etc.)
-- Add field for document type in the archive table
-- Update design of the PDF documents (invoices, bills, quotes, etc.)
-- Add features for reset demo data in the demo mode (only for demo mode)
+- Updated API documentation to include new endpoints and features.
+- Added confirmation prompts for deleting taxes, units, and webhooks.
+- Introduced management features for data types (e.g., payment methods, contract types, etc.).
+- Added a "Document Type" field to the archive table.
+- Redesigned PDF documents (invoices, bills, quotes, etc.).
+- Added the ability to reset demo data (available only in demo mode).
 
 ## 🐛 Bug Fixes
 
-- fix generating user profile image when using the command
-- fix bill delete response
-- fix notification display options in bill module
-- fix translations on the payment responses
-- fix bugs in the process of adding the open banking account
-- fix bug with validation of payment_id when updating the transaction
+- Fixed generation of user profile images when using the command.
+- Fixed bill deletion response.
+- Fixed notification display options in the bill module.
+- Fixed translation issues in payment responses.
+- Fixed bugs during the process of adding an open banking account.
+- Fixed validation bug for `payment_id` when updating a transaction.
 
 ## 💣 Breaking changes
 
-- Due the implementation of custom payment methods, the old field `payment_method` in the invoice, transaction, quote and bill table has been renamed to `payment_method_id` old field data is not migrated to the new field. If you want to migrate the data, you can do it manually, app will not show properly the data in the old field.
+- As part of the implementation of custom data collections, the old `payment_method` field in the invoice, transaction, quote, and bill tables has been renamed to `payment_method_id`.
+
+**⚠️ Note**: Data from the old field is not automatically migrated. If you wish to retain the old data, manual migration is required. Otherwise, the app will not display this data correctly.
 
 # 2.2.0
 

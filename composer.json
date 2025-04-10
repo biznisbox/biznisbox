@@ -1,7 +1,7 @@
 {
     "name": "biznisbox/biznisbox",
     "type": "project",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "description": "BiznisBox is the all-in-one business platform that helps you manage your business, from invoicing to contracts, and more.",
     "keywords": [
         "laravel",
