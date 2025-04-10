@@ -39,7 +39,7 @@ if(config('app.demo.enabled') === true)
 {
     Schedule::command('app:demo-reset-data')
         ->withoutOverlapping()
-        ->hourly()
+        ->everySixHours()
         ->onSuccess(function (Stringable $output) {
             insertScheduleRun('app:demo-reset-data', 'success', $output);
         })

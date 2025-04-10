@@ -5,6 +5,8 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class DemoResetData extends Command
 {
@@ -67,15 +69,35 @@ class DemoResetData extends Command
                 '--force' => true,
             ]);
 
+            // Create a demo users
+            $user = User::create([
+                'first_name' => 'Demo',
+                'last_name' => 'User',
+                'email' => 'user@example.com',
+                'password'=> Hash::make('password'),
+            ]);
+
+            // Assign the user to the demo role
+            $user->assignRole('user');
+            $user->generateUserAvatar($user->id, 'Demo', 'User');
+
+            // Create a demo admin
+            $admin = User::create([
+                'first_name' => 'Demo',
+                'last_name' => 'Admin',
+                'email' => 'admin@example.com',
+                'password'=> Hash::make('password'),
+            ]);
+
+            // Assign the user to the demo role
+            $admin->assignRole('super_admin');
+            $admin->generateUserAvatar($admin->id, 'Demo', 'Admin');
+            
             $this->info('Demo data reset successfully.');
         }
         else
         {
             $this->error('Demo mode is not enabled. Please enable it in the config/app.php file.');
-
         }
-
-
-
     }
 }
