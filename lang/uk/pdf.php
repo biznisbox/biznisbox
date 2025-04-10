@@ -81,4 +81,5 @@ return [
         'expired' => 'Термін дії закінчився',
         'waiting_signature' => 'Очікування підпису',
     ],
+    'no_payment_method' => 'Немає способів оплати',
 ];

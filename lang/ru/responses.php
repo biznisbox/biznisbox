@@ -106,9 +106,13 @@ return [
     'signer_not_found_or_already_signed' => 'Сигнал не найден или уже подписан',
     'cannot_delete_signed_contract' => 'Не удается удалить подписанный контракт',
     'cannot_update_signed_contract' => 'Не удается обновить подписанный контракт',
-    'enable_js_to_use_app' =>
-        'Мы сожалеем, но это приложение не работает должным образом без включения JavaScript. Пожалуйста, включите его, чтобы продолжить.',
+    'enable_js_to_use_app' => 'Мы сожалеем, но это приложение не работает должным образом без включения JavaScript. Пожалуйста, включите его, чтобы продолжить.',
     'cannot_delete_own_account' => 'Не удается удалить свой аккаунт',
     'item_not_sent' => 'Предмет не отправлен',
     'item_sent_successfully' => 'Элемент успешно отправлен',
+    'bill_not_found_or_already_paid' => 'Счет не найден или уже оплачен',
+    'payment_for_invoice :invoice' => 'Оплата для счета :invoice',
+    'invalid_payment_id' => 'Неверный ID платежа',
+    'payment_successful' => 'Платеж выполнен',
+    'payment_failed' => 'Платеж не удался',
 ];

@@ -44,4 +44,5 @@ return [
     'contracts' => 'Sopimukset',
     'admin_status_page' => 'Ylläpitäjän Tila Sivu',
     'admin_update_app' => 'Ylläpitäjän Päivityssovellus',
+    'admin_data_collection' => 'Ylläpitäjän Tietojen Kerääminen',
 ];

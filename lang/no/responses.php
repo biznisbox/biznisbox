@@ -106,9 +106,13 @@ return [
     'signer_not_found_or_already_signed' => 'Signer ikke funnet eller allerede signert',
     'cannot_delete_signed_contract' => 'Kan ikke slette signert kontrakt',
     'cannot_update_signed_contract' => 'Kan ikke oppdatere signert kontrakt',
-    'enable_js_to_use_app' =>
-        'Beklager, men denne appen fungerer ikke som den skal uten JavaScript aktivert. Vennligst aktiver den for å fortsette.',
+    'enable_js_to_use_app' => 'Beklager, men denne appen fungerer ikke som den skal uten JavaScript aktivert. Vennligst aktiver den for å fortsette.',
     'cannot_delete_own_account' => 'Kan ikke slette egen konto',
     'item_not_sent' => 'Artikkel ikke sendt',
     'item_sent_successfully' => 'Element vellykket sendt',
+    'bill_not_found_or_already_paid' => 'Regning ikke funnet eller allerede betalt',
+    'payment_for_invoice :invoice' => 'Betaling for faktura :invoice',
+    'invalid_payment_id' => 'Ugyldig betalings-ID',
+    'payment_successful' => 'Vellykket betaling',
+    'payment_failed' => 'Betaling mislyktes',
 ];

@@ -106,9 +106,13 @@ return [
     'signer_not_found_or_already_signed' => 'Handtekening niet gevonden of al ondertekend',
     'cannot_delete_signed_contract' => 'Kan ondertekend contract niet verwijderen',
     'cannot_update_signed_contract' => 'Kan ondertekend contract niet bijwerken',
-    'enable_js_to_use_app' =>
-        'Het spijt ons, maar deze app werkt niet goed zonder JavaScript ingeschakeld. Activeer deze app om door te gaan.',
+    'enable_js_to_use_app' => 'Het spijt ons, maar deze app werkt niet goed zonder JavaScript ingeschakeld. Activeer deze app om door te gaan.',
     'cannot_delete_own_account' => 'Kan eigen account niet verwijderen',
     'item_not_sent' => 'Item niet verzonden',
     'item_sent_successfully' => 'Item succesvol verzonden',
+    'bill_not_found_or_already_paid' => 'Factuur niet gevonden of reeds betaald',
+    'payment_for_invoice :invoice' => 'Betaling voor factuur :factuur',
+    'invalid_payment_id' => 'Ongeldige betalings-ID',
+    'payment_successful' => 'Betaling succesvol',
+    'payment_failed' => 'Betaling mislukt',
 ];

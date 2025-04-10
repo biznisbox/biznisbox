@@ -415,7 +415,11 @@
         "user": "Uporabnik",
         "is_internal": "Interno",
         "picture": "Slika",
-        "last_used_at": "Nazadnje uporabljen"
+        "last_used_at": "Nazadnje uporabljen",
+        "module": "Modul",
+        "parent_category": "Nadrejena kategorija",
+        "icon": "Ikona",
+        "additional_info": "Dodatne informacije"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -678,7 +682,8 @@
         "converted_to_invoice": "Ponudba pretvorjena v račun",
         "expired": "Ta predračun je potekel. Ne morete ga sprejeti ali zavrniti.",
         "rejected": "Ta predračun je bil uspešno zavrnjen.",
-        "accepted": "Ta predračun je bil uspešno sprejet."
+        "accepted": "Ta predračun je bil uspešno sprejet.",
+        "no_payment_method": "Način plačila ni določen"
     },
     "status": {
         "draft": "Osnutek",
@@ -842,7 +847,8 @@
         "no_items": "Ni postavk",
         "select_item": "Izberi postavko",
         "date_and_due_date": "Datum in datum zapadlosti",
-        "delete_confirm_bill": "Ali ste prepričani, da želite izbrisati izbrani prejeti račun?"
+        "delete_confirm_bill": "Ali ste prepričani, da želite izbrisati izbrani prejeti račun?",
+        "no_payment_method": "Način plačila ni določen"
     },
     "account": {
         "account": "Račun | Računi",
@@ -961,7 +967,7 @@
             "integrations": "Integracije",
             "roles": "Vloge",
             "users": "Uporabniki",
-            "departments": "Oddelek",
+            "departments": "Oddeleki",
             "settings": "Nastavitve",
             "settings_general": "Splošno",
             "settings_currency": "Valute",
@@ -973,7 +979,8 @@
             "email": "E-pošta",
             "webhooks": "Webhooks",
             "server_settings": "Nastavitve strežnika",
-            "status_page": "Status aplikacije"
+            "status_page": "Status aplikacije",
+            "data_collection": "Šifranti"
         },
         "company": {
             "title": "Nastavitve podjetja",
@@ -1182,6 +1189,23 @@
             "delete_confirm_webhook_subscription": "Ali ste prepričani, da želite izbrisati to naročnino webhook?",
             "add_header": "Dodaj glavo",
             "remove_header": "Odstrani glavo"
+        },
+        "data_collection": {
+            "title": "Šifranti",
+            "data_collection": "Šifranti",
+            "transaction_categories": "Kategorije transakcij",
+            "document_types": "Vrste dokumentov",
+            "payment_methods": "Načini plačila",
+            "contract_types": "Tip pogodbe",
+            "new_data_collection_item": "Nov element šifranta",
+            "edit_data_collection_item": "Urejanje elementa šifranta",
+            "icon_tooltip": "Uporabite lahko ikone Font Awesome. Seznam ikon najdete tukaj: https://fontawesome.com/icons",
+            "no_document_types": "Vrste dokumentov niso najdene",
+            "no_payment_methods": "Načini plačila niso bili najdeni",
+            "no_transaction_categories": "Kategorije transakcij niso najdene",
+            "no_contract_types": "Ni najdenih tipov pogodb",
+            "delete_category_ask": "Ali ste prepričani, da želite izbrisati ta element šifrantov?",
+            "delete_category_success": "Element šifranta je bil uspešno izbrisan"
         }
     },
     "month": {

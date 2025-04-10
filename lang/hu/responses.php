@@ -110,4 +110,9 @@ return [
     'cannot_delete_own_account' => 'Cannot delete own account',
     'item_not_sent' => 'Item not sent',
     'item_sent_successfully' => 'Item sent successfully',
+    'bill_not_found_or_already_paid' => 'Bill not found or already paid',
+    'payment_for_invoice :invoice' => 'Payment for invoice :invoice',
+    'invalid_payment_id' => 'Invalid payment ID',
+    'payment_successful' => 'Payment successful',
+    'payment_failed' => 'Payment failed',
 ];

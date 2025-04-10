@@ -106,9 +106,13 @@ return [
     'signer_not_found_or_already_signed' => 'Assinante não encontrado ou já assinado',
     'cannot_delete_signed_contract' => 'Não é possível excluir o contrato assinado',
     'cannot_update_signed_contract' => 'Não é possível atualizar o contrato assinado',
-    'enable_js_to_use_app' =>
-        'Lamentamos, mas este aplicativo não funciona corretamente sem JavaScript habilitado. Por favor, ative-o para continuar.',
+    'enable_js_to_use_app' => 'Lamentamos, mas este aplicativo não funciona corretamente sem JavaScript habilitado. Por favor, ative-o para continuar.',
     'cannot_delete_own_account' => 'Não é possível excluir a própria conta',
     'item_not_sent' => 'Item não enviado',
     'item_sent_successfully' => 'Item enviado com sucesso',
+    'bill_not_found_or_already_paid' => 'Conta não encontrada ou já paga',
+    'payment_for_invoice :invoice' => 'Pagamento para fatura :invoice',
+    'invalid_payment_id' => 'ID de pagamento inválido',
+    'payment_successful' => 'Pagamento bem-sucedido',
+    'payment_failed' => 'Pagamento falhou',
 ];

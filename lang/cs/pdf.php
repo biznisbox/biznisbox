@@ -81,4 +81,5 @@ return [
         'expired' => 'Vypršela platnost',
         'waiting_signature' => 'Čekající podpis',
     ],
+    'no_payment_method' => 'Bez způsobu platby',
 ];

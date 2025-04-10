@@ -415,7 +415,11 @@
         "user": "Användare",
         "is_internal": "Är Intern",
         "picture": "Bild",
-        "last_used_at": "Senast använd kl."
+        "last_used_at": "Senast använd kl.",
+        "module": "Modul",
+        "parent_category": "Överordnad kategori",
+        "icon": "Ikon",
+        "additional_info": "Ytterligare information"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -678,7 +682,8 @@
         "converted_to_invoice": "Offert konverterad till faktura",
         "expired": "Denna offert har löpt ut. Du kan inte acceptera eller avvisa den.",
         "rejected": "Detta citat har förkastats framgångsrikt.",
-        "accepted": "Detta citat har accepterats framgångsrikt."
+        "accepted": "Detta citat har accepterats framgångsrikt.",
+        "no_payment_method": "Ingen betalningsmetod"
     },
     "status": {
         "draft": "Utkast",
@@ -842,7 +847,8 @@
         "no_items": "Inga objekt",
         "select_item": "Välj objekt",
         "date_and_due_date": "Datum och förfallodag",
-        "delete_confirm_bill": "Är du säker på att du vill ta bort denna räkning?"
+        "delete_confirm_bill": "Är du säker på att du vill ta bort denna räkning?",
+        "no_payment_method": "Ingen betalningsmetod"
     },
     "account": {
         "account": "Konto <unk> Konton",
@@ -973,7 +979,8 @@
             "email": "E-post",
             "webhooks": "Webbhookar",
             "server_settings": "Serverns inställningar",
-            "status_page": "Statussida"
+            "status_page": "Statussida",
+            "data_collection": "Insamling av data"
         },
         "company": {
             "title": "Företagets inställningar",
@@ -1182,6 +1189,23 @@
             "delete_confirm_webhook_subscription": "Är du säker på att du vill ta bort denna webhook-prenumeration?",
             "add_header": "Lägg till sidhuvud",
             "remove_header": "Ta bort sidhuvud"
+        },
+        "data_collection": {
+            "title": "Insamling av data",
+            "data_collection": "Insamling av data",
+            "transaction_categories": "Transaktion Kategorier",
+            "document_types": "Dokumenttyper",
+            "payment_methods": "Betalningsmetoder",
+            "contract_types": "Kontraktstyper",
+            "new_data_collection_item": "Nytt datainsamlingsobjekt",
+            "edit_data_collection_item": "Redigera datainsamlingsobjekt",
+            "icon_tooltip": "Du kan använda typsnitt Awesome ikoner. Du kan hitta listan över ikoner här: https://fontawesome.com/icons",
+            "no_document_types": "Inga dokumenttyper hittades",
+            "no_payment_methods": "Inga betalningsmetoder hittades",
+            "no_transaction_categories": "Inga transaktionskategorier hittades",
+            "no_contract_types": "Inga kontraktstyper hittades",
+            "delete_category_ask": "Är du säker på att du vill ta bort detta datainsamlingsobjekt?",
+            "delete_category_success": "Datainsamlingsobjektet har tagits bort"
         }
     },
     "month": {

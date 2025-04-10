@@ -106,9 +106,13 @@ return [
     'signer_not_found_or_already_signed' => 'Сигнал не знайдений або вже підписаний',
     'cannot_delete_signed_contract' => 'Не вдалося видалити підписаний контракт',
     'cannot_update_signed_contract' => 'Не вдалося оновити підписаний контракт',
-    'enable_js_to_use_app' =>
-        'Вибачте, але цей додаток не працює належним чином без увімкненого JavaScript. Будь ласка, увімкніть його, щоб продовжити.',
+    'enable_js_to_use_app' => 'Вибачте, але цей додаток не працює належним чином без увімкненого JavaScript. Будь ласка, увімкніть його, щоб продовжити.',
     'cannot_delete_own_account' => 'Неможливо видалити свій обліковий запис',
     'item_not_sent' => 'Елемент не відправлено',
     'item_sent_successfully' => 'Елемент успішно відправлено',
+    'bill_not_found_or_already_paid' => 'Рахунок не знайдений або вже сплачений',
+    'payment_for_invoice :invoice' => 'Оплата для рахунку :invoice',
+    'invalid_payment_id' => 'Неправильний ID платежу',
+    'payment_successful' => 'Оплата пройшла успішно',
+    'payment_failed' => 'Не вдалося оплатити',
 ];

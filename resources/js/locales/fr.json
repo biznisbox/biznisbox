@@ -415,7 +415,11 @@
         "user": "Utilisateur",
         "is_internal": "Est interne",
         "picture": "Image",
-        "last_used_at": "Dernière utilisation le"
+        "last_used_at": "Dernière utilisation le",
+        "module": "Module",
+        "parent_category": "Catégorie parente",
+        "icon": "Icône",
+        "additional_info": "Infos supplémentaires"
     },
     "address_types": {
         "billing": "Facturation",
@@ -678,7 +682,8 @@
         "converted_to_invoice": "Devis converti en facture",
         "expired": "Ce devis a expiré. Vous ne pouvez pas l'accepter ou le rejeter.",
         "rejected": "Ce devis a été rejeté avec succès.",
-        "accepted": "Ce devis a été accepté avec succès."
+        "accepted": "Ce devis a été accepté avec succès.",
+        "no_payment_method": "Aucun moyen de paiement"
     },
     "status": {
         "draft": "Brouillon",
@@ -842,7 +847,8 @@
         "no_items": "Aucun élément",
         "select_item": "Sélectionner un élément",
         "date_and_due_date": "Date et date d'échéance",
-        "delete_confirm_bill": "Êtes-vous sûr de vouloir supprimer cette facture ?"
+        "delete_confirm_bill": "Êtes-vous sûr de vouloir supprimer cette facture ?",
+        "no_payment_method": "Aucun moyen de paiement"
     },
     "account": {
         "account": "Compte | Comptes",
@@ -973,7 +979,8 @@
             "email": "Courriel",
             "webhooks": "Webhooks",
             "server_settings": "Paramètres du serveur",
-            "status_page": "Page de statut"
+            "status_page": "Page de statut",
+            "data_collection": "Collecte de données"
         },
         "company": {
             "title": "Paramètres de la société",
@@ -1182,6 +1189,23 @@
             "delete_confirm_webhook_subscription": "Êtes-vous sûr de vouloir supprimer cet abonnement au webhook?",
             "add_header": "Ajouter un en-tête",
             "remove_header": "Supprimer l'en-tête"
+        },
+        "data_collection": {
+            "title": "Collecte de données",
+            "data_collection": "Collecte de données",
+            "transaction_categories": "Catégories de transaction",
+            "document_types": "Types de document",
+            "payment_methods": "Moyens de paiement",
+            "contract_types": "Types de Contrats",
+            "new_data_collection_item": "Nouvel élément de collecte de données",
+            "edit_data_collection_item": "Modifier l'élément de collecte de données",
+            "icon_tooltip": "Vous pouvez utiliser les icônes Font Awesome. Vous pouvez trouver la liste des icônes ici : https://fontawesome.com/icons",
+            "no_document_types": "Aucun type de document trouvé",
+            "no_payment_methods": "Aucun moyen de paiement trouvé",
+            "no_transaction_categories": "Aucune catégorie de transaction trouvée",
+            "no_contract_types": "Aucun type de contrat trouvé",
+            "delete_category_ask": "Êtes-vous sûr de vouloir supprimer cet élément de collecte de données ?",
+            "delete_category_success": "Élément de collecte de données supprimé avec succès"
         }
     },
     "month": {

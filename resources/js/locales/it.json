@@ -415,7 +415,11 @@
         "user": "Utente",
         "is_internal": "È Interno",
         "picture": "Immagine",
-        "last_used_at": "Ultimo Utilizzato Il"
+        "last_used_at": "Ultimo Utilizzato Il",
+        "module": "Modulo",
+        "parent_category": "Categoria Genitore",
+        "icon": "Icona",
+        "additional_info": "Informazioni Aggiuntive"
     },
     "address_types": {
         "billing": "Fatturazione",
@@ -678,7 +682,8 @@
         "converted_to_invoice": "Preventivo convertito in fattura",
         "expired": "Questo preventivo è scaduto. Non puoi accettarlo o rifiutarlo.",
         "rejected": "Questa citazione è stata respinta con successo.",
-        "accepted": "Questo preventivo è stato accettato con successo."
+        "accepted": "Questo preventivo è stato accettato con successo.",
+        "no_payment_method": "Nessun metodo di pagamento"
     },
     "status": {
         "draft": "Bozza",
@@ -842,7 +847,8 @@
         "no_items": "Nessun elemento",
         "select_item": "Seleziona elemento",
         "date_and_due_date": "Data e scadenza",
-        "delete_confirm_bill": "Sei sicuro di voler eliminare questa bolletta?"
+        "delete_confirm_bill": "Sei sicuro di voler eliminare questa bolletta?",
+        "no_payment_method": "Nessun metodo di pagamento"
     },
     "account": {
         "account": "Account <unk> Account",
@@ -973,7 +979,8 @@
             "email": "Email",
             "webhooks": "Webhooks",
             "server_settings": "Impostazioni Server",
-            "status_page": "Pagina Di Stato"
+            "status_page": "Pagina Di Stato",
+            "data_collection": "Raccolta Dati"
         },
         "company": {
             "title": "Impostazioni Azienda",
@@ -1182,6 +1189,23 @@
             "delete_confirm_webhook_subscription": "Sei sicuro di voler eliminare questo abbonamento a webhook?",
             "add_header": "Aggiungi Intestazione",
             "remove_header": "Rimuovi Intestazione"
+        },
+        "data_collection": {
+            "title": "Raccolta Dati",
+            "data_collection": "Raccolta Dati",
+            "transaction_categories": "Categorie Di Transazione",
+            "document_types": "Tipi Di Documento",
+            "payment_methods": "Metodi Di Pagamento",
+            "contract_types": "Tipi Di Contratto",
+            "new_data_collection_item": "Nuovo Elemento Di Raccolta Dati",
+            "edit_data_collection_item": "Modifica Elemento Raccolta Dati",
+            "icon_tooltip": "Puoi usare Font Awesome icons. Puoi trovare la lista delle icone qui: https://fontawesome.com/icons",
+            "no_document_types": "Nessun tipo di documento trovato",
+            "no_payment_methods": "Nessun metodo di pagamento trovato",
+            "no_transaction_categories": "Nessuna categoria di transazione trovata",
+            "no_contract_types": "Nessun tipo di contratto trovato",
+            "delete_category_ask": "Sei sicuro di voler eliminare questo elemento di raccolta dati?",
+            "delete_category_success": "Voce raccolta dati eliminata con successo"
         }
     },
     "month": {

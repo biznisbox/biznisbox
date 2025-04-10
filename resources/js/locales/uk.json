@@ -415,7 +415,11 @@
         "user": "Користувач",
         "is_internal": "Є внутрішнім",
         "picture": "Зображення",
-        "last_used_at": "Останній використаний"
+        "last_used_at": "Останній використаний",
+        "module": "Модуль",
+        "parent_category": "Батьківська категорія",
+        "icon": "Іконка",
+        "additional_info": "Додаткова інформація"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -678,7 +682,8 @@
         "converted_to_invoice": "Котирування перетворено на рахунок",
         "expired": "Термін дії цитати закінчився. Ви не можете прийняти або відхилити його.",
         "rejected": "Ця цитата була успішно відхилена.",
-        "accepted": "Ця цитата була успішно прийнята."
+        "accepted": "Ця цитата була успішно прийнята.",
+        "no_payment_method": "Немає способу оплати"
     },
     "status": {
         "draft": "Креслення",
@@ -842,7 +847,8 @@
         "no_items": "Товарів немає",
         "select_item": "Виберіть елемент",
         "date_and_due_date": "Дата і дата завершення",
-        "delete_confirm_bill": "Ви впевнені, що хочете видалити рахунок?"
+        "delete_confirm_bill": "Ви впевнені, що хочете видалити рахунок?",
+        "no_payment_method": "Немає способу оплати"
     },
     "account": {
         "account": "Обліковий запис | Рахунки",
@@ -973,7 +979,8 @@
             "email": "Ел. пошта",
             "webhooks": "Вебгаки",
             "server_settings": "Налаштування сервера",
-            "status_page": "Сторінка стану"
+            "status_page": "Сторінка стану",
+            "data_collection": "Колекція даних"
         },
         "company": {
             "title": "Налаштування компанії",
@@ -1182,6 +1189,23 @@
             "delete_confirm_webhook_subscription": "Ви дійсно бажаєте видалити цю підписку на вебхук?",
             "add_header": "Додати заголовок",
             "remove_header": "Видалити заголовок"
+        },
+        "data_collection": {
+            "title": "Колекція даних",
+            "data_collection": "Колекція даних",
+            "transaction_categories": "Категорії транзакцій",
+            "document_types": "Типи документів",
+            "payment_methods": "Способи оплати",
+            "contract_types": "Типи контрактів",
+            "new_data_collection_item": "Новий елемент збору даних",
+            "edit_data_collection_item": "Редагувати Елемент Збору даних",
+            "icon_tooltip": "Можна використовувати піктограми із шрифтами Awesom. Можна знайти список значків тут: https://fontawesome.com/icons",
+            "no_document_types": "Типи документів не знайдені",
+            "no_payment_methods": "Не знайдено способів оплати",
+            "no_transaction_categories": "Не знайдено категорій операцій",
+            "no_contract_types": "Не знайдено жодного типу контрактів",
+            "delete_category_ask": "Ви дійсно бажаєте видалити цей елемент збору даних?",
+            "delete_category_success": "Елемент збору даних успішно видалено"
         }
     },
     "month": {

@@ -57,6 +57,5 @@ return [
     'personal_access_token_details' => 'Henkilökohtaiset Pääsymerkin Tiedot',
     'personal_access_token_name' => 'Pääsymerkin Nimi',
     'personal_access_token_valid_until' => 'Voimassa Kunnes',
-    'if_this_was_not_you_personal_access_token' =>
-        'Jos tämä ei ole sinä, poista tunnus välittömästi ja ota yhteyttä järjestelmänvalvojaan.',
+    'if_this_was_not_you_personal_access_token' => 'Jos tämä ei ole sinä, poista tunnus välittömästi ja ota yhteyttä järjestelmänvalvojaan.',
 ];

@@ -415,7 +415,11 @@
         "user": "Usuário",
         "is_internal": "É interno",
         "picture": "Imagem",
-        "last_used_at": "Último uso em"
+        "last_used_at": "Último uso em",
+        "module": "Módulo",
+        "parent_category": "Categoria Pai",
+        "icon": "Ícone",
+        "additional_info": "Informação Adicional"
     },
     "address_types": {
         "billing": "Faturamento",
@@ -678,7 +682,8 @@
         "converted_to_invoice": "Orçamento convertido para fatura",
         "expired": "Esta cotação expirou. Você não pode aceitar ou rejeitá-la.",
         "rejected": "Esta cotação foi rejeitada com sucesso.",
-        "accepted": "Esta cotação foi aceita com sucesso."
+        "accepted": "Esta cotação foi aceita com sucesso.",
+        "no_payment_method": "Nenhum método de pagamento"
     },
     "status": {
         "draft": "Rascunho",
@@ -842,7 +847,8 @@
         "no_items": "Nenhum item",
         "select_item": "Selecione o item",
         "date_and_due_date": "Data e prazo",
-        "delete_confirm_bill": "Tem certeza de que deseja excluir esta fatura?"
+        "delete_confirm_bill": "Tem certeza de que deseja excluir esta fatura?",
+        "no_payment_method": "Nenhum método de pagamento"
     },
     "account": {
         "account": "Contas da Conta 2020",
@@ -973,7 +979,8 @@
             "email": "e-mail",
             "webhooks": "Webhooks",
             "server_settings": "Configurações do Servidor",
-            "status_page": "Página de estado"
+            "status_page": "Página de estado",
+            "data_collection": "Coleta de dados"
         },
         "company": {
             "title": "Configurações da Empresa",
@@ -1182,6 +1189,23 @@
             "delete_confirm_webhook_subscription": "Tem certeza de que deseja excluir esta assinatura do webhook?",
             "add_header": "Adicionar Cabeçalho",
             "remove_header": "Remover Cabeçalho"
+        },
+        "data_collection": {
+            "title": "Coleta de dados",
+            "data_collection": "Coleta de dados",
+            "transaction_categories": "Categorias de transação",
+            "document_types": "Tipos de documentos",
+            "payment_methods": "Métodos de pagamento",
+            "contract_types": "Tipos de Contrato",
+            "new_data_collection_item": "Novo item da coleção de dados",
+            "edit_data_collection_item": "Editar item da coleção de dados",
+            "icon_tooltip": "Você pode usar ícones de Font Awesome. Você pode encontrar a lista de ícones aqui: https://fontawesome.com/icons",
+            "no_document_types": "Nenhum tipo de documento encontrado",
+            "no_payment_methods": "Nenhum método de pagamento encontrado",
+            "no_transaction_categories": "Nenhuma categoria de transação encontrada",
+            "no_contract_types": "Nenhum tipo de contrato foi encontrado",
+            "delete_category_ask": "Tem certeza de que deseja excluir este item de coleta de dados?",
+            "delete_category_success": "Item da coleção de dados excluído com sucesso"
         }
     },
     "month": {

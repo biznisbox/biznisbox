@@ -415,7 +415,11 @@
         "user": "Uživatel",
         "is_internal": "Je interní",
         "picture": "Obrázek",
-        "last_used_at": "Poslední použití v"
+        "last_used_at": "Poslední použití v",
+        "module": "Modul",
+        "parent_category": "Nadřazená kategorie",
+        "icon": "Ikona",
+        "additional_info": "Další informace"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -678,7 +682,8 @@
         "converted_to_invoice": "Cenová nabídka převedena na fakturu",
         "expired": "Tato cenová nabídka vypršela. Nelze ji přijmout nebo odmítnout.",
         "rejected": "Tato cenová nabídka byla úspěšně odmítnuta.",
-        "accepted": "Tato nabídka byla úspěšně přijata."
+        "accepted": "Tato nabídka byla úspěšně přijata.",
+        "no_payment_method": "Žádný způsob platby"
     },
     "status": {
         "draft": "Koncept",
@@ -842,7 +847,8 @@
         "no_items": "Žádné položky",
         "select_item": "Vybrat položku",
         "date_and_due_date": "Datum a datum splatnosti",
-        "delete_confirm_bill": "Jste si jisti, že chcete odstranit tento účet?"
+        "delete_confirm_bill": "Jste si jisti, že chcete odstranit tento účet?",
+        "no_payment_method": "Žádný způsob platby"
     },
     "account": {
         "account": "Účet | Účty",
@@ -973,7 +979,8 @@
             "email": "E-mailová adresa",
             "webhooks": "Webhooky",
             "server_settings": "Nastavení serveru",
-            "status_page": "Stavová stránka"
+            "status_page": "Stavová stránka",
+            "data_collection": "Shromažďování údajů"
         },
         "company": {
             "title": "Nastavení společnosti",
@@ -1182,6 +1189,23 @@
             "delete_confirm_webhook_subscription": "Jste si jisti, že chcete odstranit toto předplatné webového háčku?",
             "add_header": "Přidat záhlaví",
             "remove_header": "Odstranit záhlaví"
+        },
+        "data_collection": {
+            "title": "Shromažďování údajů",
+            "data_collection": "Shromažďování údajů",
+            "transaction_categories": "Kategorie transakcí",
+            "document_types": "Typy dokumentů",
+            "payment_methods": "Způsoby platby",
+            "contract_types": "Typy kontraktů",
+            "new_data_collection_item": "Nová položka pro sběr dat",
+            "edit_data_collection_item": "Upravit položku kolekce dat",
+            "icon_tooltip": "Písmo Awesome ikony můžete použít zde: https://fontawesome.com/icons",
+            "no_document_types": "Nebyly nalezeny žádné typy dokumentů",
+            "no_payment_methods": "Nebyly nalezeny žádné platební metody",
+            "no_transaction_categories": "Nebyly nalezeny žádné kategorie transakcí",
+            "no_contract_types": "Nebyly nalezeny žádné typy smluv",
+            "delete_category_ask": "Jste si jisti, že chcete odstranit tuto položku pro sběr dat?",
+            "delete_category_success": "Položka sběru dat byla úspěšně odstraněna"
         }
     },
     "month": {

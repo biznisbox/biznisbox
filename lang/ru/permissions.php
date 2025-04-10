@@ -44,4 +44,5 @@ return [
     'contracts' => 'Контракты',
     'admin_status_page' => 'Страница статуса администратора',
     'admin_update_app' => 'Обновление админа',
+    'admin_data_collection' => 'Админ сбор данных',
 ];
