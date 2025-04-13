@@ -1,23 +1,39 @@
 <div align="center">
-    <div style="margin-top: 20px;">
-        <h1><b>BiznisBox</b></h1>
-        <h3>Open-source business management software</h3>
-    </div>
-    <div style="margin-top: 20px;">
-        <a href="https://www.biznisbox.com">
-        <img src="https://biznisbox.com/app_logo.png" width="200" height="200" alt="BiznisBox Logo" />
-        </a>
-    </div>
-  <div style="margin-top: 20px;">
+  <img src="https://biznisbox.com/app_logo.png" width="150" height="150" alt="BiznisBox Logo" style="margin-bottom: 20px;" />
+  <br />
+  <h1>BiznisBox</h1>
+  <h3>Open-Source Business Management Software</h3>
+  
+  <p>
+    <strong>All-in-one solution for invoices, quotes, documents, and payments.</strong>
+  </p>
 
-![License](https://img.shields.io/github/license/biznisbox/biznisbox?style=for-the-badge)
-![Release](https://img.shields.io/github/v/release/biznisbox/biznisbox?label=Current%20version&style=for-the-badge)
-![GitHub contributors](https://img.shields.io/github/contributors/biznisbox/biznisbox?style=for-the-badge)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/biznisbox/biznisbox/build.yaml?branch=main&style=for-the-badge)
-![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/biznisbox/biznisbox/total?style=for-the-badge&label=Releases%20Downloads)
+  <div>
+    <!-- Badges -->
+    <a href="https://github.com/biznisbox/biznisbox/releases/latest">
+      <img src="https://img.shields.io/github/v/release/biznisbox/biznisbox?label=Latest%20Version&style=flat-square" alt="Release" />
+    </a>
+    <a href="https://github.com/biznisbox/biznisbox/blob/main/LICENSE">
+      <img src="https://img.shields.io/github/license/biznisbox/biznisbox?style=flat-square" alt="License" />
+    </a>
+    <a href="https://github.com/biznisbox/biznisbox/graphs/contributors">
+      <img src="https://img.shields.io/github/contributors/biznisbox/biznisbox?style=flat-square" alt="Contributors" />
+    </a>
+    <a href="https://github.com/biznisbox/biznisbox/stargazers">
+      <img src="https://img.shields.io/github/stars/biznisbox/biznisbox?style=flat-square" alt="Stars" />
+    </a>
+  </div>
 
-</div>
+  <p>
+    <a href="https://www.biznisbox.com"><strong>🌐 Website</strong></a> •
+    <a href="https://docs.biznisbox.com"><strong>📚 Docs</strong></a> •
+    <a href="#features"><strong>✨ Features</strong></a> •
+    <a href="#-contribute"><strong>🤝 Contribute</strong></a>
+  </p>
 
+  <img src="https://biznisbox.com/biznisbox_dashboard.png" width="100%" alt="BiznisBox Dashboard Preview" />
+
+  <div> <p> <strong>⭐ Star this repo if you find it useful!</strong></p> </div>
 </div>
 
 ## About
@@ -27,6 +43,7 @@ BiznisBox is a web application that allows you to manage your invoices, quotes, 
 <div align="center">
   <img src="https://biznisbox.com/biznisbox_dashboard.png" width="100%" alt="BiznisBox Dashboard" />
 </div>
+
 
 ## Features
 
@@ -47,6 +64,7 @@ BiznisBox is open-source business management software that includes the followin
 - **Open Banking Integration** – Supports GoCardless
 - **Payment Gateway Integration** – Supports Stripe & PayPal for online payments
 
+
 ## Need help?
 
 If you need help, please contact us at our email address: [app@biznisbox.com](mailto:app@biznisbox.com).
@@ -55,17 +73,16 @@ You can also open an [issue on GitHub](https://github.com/biznisbox/biznisbox/is
 
 Documentation is available at [https://docs.biznisbox.com](https://docs.biznisbox.com).
 
-## Contribute
+## 🤝 Contribute
 
-If you want to participate in the development of the BiznisBox project, you can contribute by:
+We welcome contributions! Here’s how you can help:
 
-- Reporting bugs
-- Suggesting new features
-- Writing documentation
-- Translating the application
-- Submitting pull requests
+- 🐛 Report bugs on  [GitHub Issues](https://github.com/biznisbox/biznisbox/issues).
+- 💡 Suggest features via discussions.
+- 📖 Improve docs or translate the app.
+- 🔧 Submit PRs for fixes/new features.
 
-We are looking for contributors to help us improve the application.
+First time contributing? Check out our [Contributor Guide](https://docs.biznisbox.com/docs/developer-guide/contributing).
 
 ## License
 
