@@ -58,4 +58,12 @@ return [
     'personal_access_token_name' => 'Nome do token',
     'personal_access_token_valid_until' => 'Válido até',
     'if_this_was_not_you_personal_access_token' => 'Se isto não foi você, exclua o token imediatamente e contate o administrador.',
+    'subject_support_ticket' => 'Notificação ao Chamado',
+    'new_support_ticket' => 'Um novo ticket de suporte foi criado.',
+    'support_ticket_details' => 'Detalhes Chamado Suporte',
+    'support_ticket_number' => 'Número: :number',
+    'support_ticket_status' => 'Status: :status',
+    'support_ticket_subject' => 'Assunto: :subject',
+    'click_on_the_button_below_to_view_ticket' => 'Clique no botão abaixo para ver o bilhete.',
+    'view_ticket' => 'Ver Ticket',
 ];
