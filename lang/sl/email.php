@@ -57,6 +57,13 @@ return [
     'personal_access_token_details' => 'Podatki žetona',
     'personal_access_token_name' => 'Ime žetona',
     'personal_access_token_valid_until' => 'Veljaven do',
-    'if_this_was_not_you_personal_access_token' =>
-        'V primeru, da tega niste naredili vi, prosimo nemudoma izbrišite žeton in kontaktirajte administratorja.',
+    'if_this_was_not_you_personal_access_token' => 'V primeru, da tega niste naredili vi, prosimo nemudoma izbrišite žeton in kontaktirajte administratorja.',
+    'subject_support_ticket' => 'Support ticket notification',
+    'new_support_ticket' => 'A new support ticket has been created.',
+    'support_ticket_details' => 'Support Ticket Details',
+    'support_ticket_number' => 'Number: :number',
+    'support_ticket_status' => 'Status: :status',
+    'support_ticket_subject' => 'Subject: :subject',
+    'click_on_the_button_below_to_view_ticket' => 'Click on the button below to view the ticket.',
+    'view_ticket' => 'View Ticket',
 ];
