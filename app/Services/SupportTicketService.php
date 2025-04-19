@@ -4,6 +4,9 @@ namespace App\Services;
 
 use App\Models\SupportTicket;
 use App\Models\SupportTicketContent;
+use App\Models\PartnerContact;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Client\SupportTicketNotification;
 
 class SupportTicketService
 {
@@ -114,5 +117,48 @@ class SupportTicketService
             return $ticket;
         }
         return false;
+    }
+
+    public function sendTicketNotificationToContact($id)
+    {
+        $ticket = $this->supportTicketModel->getClientTicket($id);
+
+        if ($ticket->is_internal == true) {
+            return false;
+        }
+
+        if ($ticket->custom_contact) {
+            $url = url(
+                '/client/support/' .
+                    $ticket->id .
+                    '?key=' .
+                    generateExternalKey('support', $ticket->id, 'system', null, $ticket->contact_email, 'email') .
+                    '&lang=' .
+                    app()->getLocale()
+            );
+
+            Mail::to($ticket->contact_email, $ticket->contact_name)->send(
+                new \App\Mail\Client\SupportTicketNotification($ticket, $url, null)
+            );
+            return true;
+        } else {
+            $contacts = PartnerContact::where('id', $ticket->contact_id)->whereNotNull('email')->get();
+
+            foreach ($contacts as $contact) {
+                $url = url(
+                    '/client/support/' .
+                        $ticket->id .
+                        '?key=' .
+                        generateExternalKey('support', $ticket->id, 'system', null, $contact->email, 'email') .
+                        '&lang=' .
+                        app()->getLocale()
+                );
+
+                Mail::to($contact->email, $contact->name)->send(new \App\Mail\Client\SupportTicketNotification($ticket, $url, $contact));
+            }
+        }
+
+        createActivityLog('sendSupportTicketNotification', $ticket->id, 'App\Models\SupportTicket', 'SupportTicket');
+        return true;
     }
 }

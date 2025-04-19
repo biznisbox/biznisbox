@@ -253,9 +253,23 @@ export default {
             })
         },
 
+        /**
+         * Get partners
+         * @returns {void}
+         */
         getPartners() {
             this.makeHttpRequest('GET', '/api/partner/limited?type=customer,both,supplier').then((response) => {
                 this.partners = response.data.data
+            })
+        },
+
+        /**
+         * Send ticket notification to contact
+         * @returns {void}
+         */
+        sendTicketNotificationToContact(id) {
+            this.makeHttpRequest('POST', `/api/support-ticket/${id}/send`, null, null, null, false).then((response) => {
+                this.showToast(response.data.message)
             })
         },
     },

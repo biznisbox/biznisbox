@@ -218,6 +218,9 @@ Route::middleware('auth:api')->group(function () {
         );
         Route::get('/support-ticket/number', [SupportTicketController::class, 'getTicketNumber'])->name('getTicketNumber');
         Route::get('/support-ticket/share/{id}', [SupportTicketController::class, 'shareTicket'])->name('shareTicket');
+        Route::post('/support-ticket/{id}/send', [SupportTicketController::class, 'sendTicketNotificationToContact'])->name(
+            'sendTicketNotificationToContact'
+        );
     });
 
     // Contract

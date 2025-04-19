@@ -44,7 +44,6 @@ BiznisBox is a web application that allows you to manage your invoices, quotes, 
   <img src="https://biznisbox.com/biznisbox_dashboard.png" width="100%" alt="BiznisBox Dashboard" />
 </div>
 
-
 ## Features
 
 BiznisBox is open-source business management software that includes the following features:
@@ -64,7 +63,6 @@ BiznisBox is open-source business management software that includes the followin
 - **Open Banking Integration** – Supports GoCardless
 - **Payment Gateway Integration** – Supports Stripe & PayPal for online payments
 
-
 ## Need help?
 
 If you need help, please contact us at our email address: [app@biznisbox.com](mailto:app@biznisbox.com).
@@ -77,7 +75,7 @@ Documentation is available at [https://docs.biznisbox.com](https://docs.biznisbo
 
 We welcome contributions! Here’s how you can help:
 
-- 🐛 Report bugs on  [GitHub Issues](https://github.com/biznisbox/biznisbox/issues).
+- 🐛 Report bugs on [GitHub Issues](https://github.com/biznisbox/biznisbox/issues).
 - 💡 Suggest features via discussions.
 - 📖 Improve docs or translate the app.
 - 🔧 Submit PRs for fixes/new features.

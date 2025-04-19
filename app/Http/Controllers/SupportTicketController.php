@@ -201,4 +201,14 @@ class SupportTicketController extends Controller
         }
         return api_response(null, __('responses.item_not_shared'), 400);
     }
+
+    public function sendTicketNotificationToContact(Request $request, $id)
+    {
+        $ticket = $this->supportTicketService->sendTicketNotificationToContact($id);
+
+        if ($ticket) {
+            return api_response($ticket, __('responses.notification_sent_successfully'));
+        }
+        return api_response(null, __('responses.notification_not_sent'), 400);
+    }
 }

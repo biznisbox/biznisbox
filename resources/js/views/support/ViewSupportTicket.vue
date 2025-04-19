@@ -29,6 +29,11 @@
                                 command: () => markSupportTicketAsResolved(),
                             },
                             { label: $t('support.mark_as_closed'), icon: 'fa fa-times', command: () => markSupportTicketAsClosed() },
+                            {
+                                label: $t('basic.send'),
+                                icon: 'fa fa-paper-plane',
+                                command: () => sendTicketNotificationToContact(supportTicket.id),
+                            },
                         ]"
                         @click="markSupportTicketAsResolved"
                     />
@@ -289,6 +294,7 @@ import SupportMixin from '@/mixins/support'
 import QrcodeVue from 'qrcode.vue'
 import { required, requiredIf } from '@/plugins/i18n-validators'
 import { useVuelidate } from '@vuelidate/core'
+import { icon } from 'leaflet'
 export default {
     name: 'ViewSupportTicketPage',
     mixins: [SupportMixin],
