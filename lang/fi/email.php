@@ -57,6 +57,13 @@ return [
     'personal_access_token_details' => 'Henkilökohtaiset Pääsymerkin Tiedot',
     'personal_access_token_name' => 'Pääsymerkin Nimi',
     'personal_access_token_valid_until' => 'Voimassa Kunnes',
-    'if_this_was_not_you_personal_access_token' =>
-        'Jos tämä ei ole sinä, poista tunnus välittömästi ja ota yhteyttä järjestelmänvalvojaan.',
+    'if_this_was_not_you_personal_access_token' => 'Jos tämä ei ole sinä, poista tunnus välittömästi ja ota yhteyttä järjestelmänvalvojaan.',
+    'subject_support_ticket' => 'Tue lipunkäyttöilmoitusta',
+    'new_support_ticket' => 'Uusi tukipyyntö on luotu.',
+    'support_ticket_details' => 'Tue Tiketin Tietoja',
+    'support_ticket_number' => 'Lukumäärä: :number',
+    'support_ticket_status' => 'Tila: :status',
+    'support_ticket_subject' => 'Aihe: :subject',
+    'click_on_the_button_below_to_view_ticket' => 'Klikkaa alla olevaa painiketta nähdäksesi lipun.',
+    'view_ticket' => 'Näytä Tukipyyntö',
 ];
