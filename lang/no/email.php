@@ -58,4 +58,12 @@ return [
     'personal_access_token_name' => 'Sjetongens navn',
     'personal_access_token_valid_until' => 'Gyldig til',
     'if_this_was_not_you_personal_access_token' => 'Hvis dette ikke var deg, vennligst slett tokenet umiddelbart og kontakt administrator.',
+    'subject_support_ticket' => 'Varsling om støtte sak',
+    'new_support_ticket' => 'En ny support billett er opprettet.',
+    'support_ticket_details' => 'Støtte saks detaljer',
+    'support_ticket_number' => 'Nummer: :number',
+    'support_ticket_status' => 'Status: :status',
+    'support_ticket_subject' => 'Emne: :person',
+    'click_on_the_button_below_to_view_ticket' => 'Klikk på knappen nedenfor for å se saken.',
+    'view_ticket' => 'Vis sak',
 ];
