@@ -58,4 +58,12 @@ return [
     'personal_access_token_name' => 'Token Namn',
     'personal_access_token_valid_until' => 'Giltig till',
     'if_this_was_not_you_personal_access_token' => 'Om detta inte var du, ta bort token omedelbart och kontakta administratören.',
+    'subject_support_ticket' => 'Support ärendeavisering',
+    'new_support_ticket' => 'Ett nytt supportärende har skapats.',
+    'support_ticket_details' => 'Support Ärendeuppgifter',
+    'support_ticket_number' => 'Antal: :number',
+    'support_ticket_status' => 'Status: :status',
+    'support_ticket_subject' => 'Angående: Ämne',
+    'click_on_the_button_below_to_view_ticket' => 'Klicka på knappen nedan för att se biljetten.',
+    'view_ticket' => 'Visa ärende',
 ];
