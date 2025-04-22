@@ -1205,7 +1205,9 @@
             "no_transaction_categories": "Ingen transaksjonskategorier funnet",
             "no_contract_types": "Ingen kontrakttyper funnet",
             "delete_category_ask": "Er du sikker på at du vil slette denne datainnsamlingen?",
-            "delete_category_success": "Datainnsamlingen ble slettet"
+            "delete_category_success": "Datainnsamlingen ble slettet",
+            "product_categories": "Produkt kategorier",
+            "no_product_categories": "Ingen produktkategorier funnet"
         }
     },
     "month": {
