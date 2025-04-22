@@ -1205,7 +1205,9 @@
             "no_transaction_categories": "No transaction categories found",
             "no_contract_types": "No contract types found",
             "delete_category_ask": "Are you sure you want to delete this data collection item?",
-            "delete_category_success": "Data collection item deleted successfully"
+            "delete_category_success": "Data collection item deleted successfully",
+            "product_categories": "Product categories",
+            "no_product_categories": "No product categories found"
         }
     },
     "month": {
