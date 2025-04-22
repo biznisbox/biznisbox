@@ -107,14 +107,14 @@
                     />
                     <SelectInput
                         id="payment_method_input"
-                        v-model="v$.invoice.payment_method.$model"
+                        v-model="v$.invoice.payment_method_id.$model"
                         :label="$t('form.payment_method')"
                         :options="paymentMethods"
                         option-value="id"
                         option-label="name"
                         :show-clear="true"
                         filter
-                        :validate="v$.invoice.payment_method"
+                        :validate="v$.invoice.payment_method_id"
                     />
                 </div>
 
@@ -329,7 +329,7 @@ export default {
                 due_date: { required },
                 currency: { required },
                 total: { required },
-                payment_method: { required },
+                payment_method_id: { required },
             },
         }
     },
