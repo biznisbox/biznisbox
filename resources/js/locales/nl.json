@@ -1205,7 +1205,9 @@
             "no_transaction_categories": "Geen transactiecategorieën gevonden",
             "no_contract_types": "Geen contracttypes gevonden",
             "delete_category_ask": "Weet je zeker dat je deze gegevensverzameling wilt verwijderen?",
-            "delete_category_success": "Verzamelen van gegevens is succesvol verwijderd"
+            "delete_category_success": "Verzamelen van gegevens is succesvol verwijderd",
+            "product_categories": "Product categorieën",
+            "no_product_categories": "Geen product categorieën gevonden"
         }
     },
     "month": {
