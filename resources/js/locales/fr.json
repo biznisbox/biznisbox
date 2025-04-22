@@ -1205,7 +1205,9 @@
             "no_transaction_categories": "Aucune catégorie de transaction trouvée",
             "no_contract_types": "Aucun type de contrat trouvé",
             "delete_category_ask": "Êtes-vous sûr de vouloir supprimer cet élément de collecte de données ?",
-            "delete_category_success": "Élément de collecte de données supprimé avec succès"
+            "delete_category_success": "Élément de collecte de données supprimé avec succès",
+            "product_categories": "Catégories de produits",
+            "no_product_categories": "Aucune catégorie de produit trouvée"
         }
     },
     "month": {
