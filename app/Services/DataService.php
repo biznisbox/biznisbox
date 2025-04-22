@@ -98,10 +98,10 @@ class DataService
     /****************************************
      * Category services
      ****************************************/
-    public function getCategories($module)
+    public function getCategories($module, $list = false)
     {
         $categories = new Category();
-        $categories = $categories->getCategoriesByModule($module);
+        $categories = $categories->getCategoriesByModule($module, $list);
         return $categories;
     }
 

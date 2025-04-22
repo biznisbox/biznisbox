@@ -45,7 +45,18 @@
                         <DisplayData :input="$t('form.min_stock')" :value="product.stock_min" />
                         <DisplayData :input="$t('form.max_stock')" :value="product.stock_max" />
                     </div>
-                    <DisplayData :input="$t('form.barcode')" :value="product.barcode" />
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <DisplayData :input="$t('form.tax')" :value="product.tax + '%'" />
+                        <DisplayData :input="$t('form.category')" custom-value v-if="product.category">
+                            <div class="flex">
+                                <i v-if="product.category?.icon" :class="product.category.icon"></i>
+                                <span class="ml-2">{{ product.category.name }}</span>
+                            </div>
+                        </DisplayData>
+                        <DisplayData :input="$t('form.barcode')" :value="product.barcode" />
+                    </div>
+
                     <DisplayData :input="$t('form.description')" customValue v-if="product.description">
                         <div v-html="formatHtml(product.description)"></div>
                     </DisplayData>

@@ -123,11 +123,17 @@ class Category extends Model implements Auditable
     /**
      * Get category by module
      * @param string $module Module of the category (in which module it will be used - ex. 'archive')
+     * @param boolean $showAll Used for indicate for show all ungrouped
      * @return object Category object
      */
-    public function getCategoriesByModule($module)
+    public function getCategoriesByModule($module, $showAll = false)
     {
-        $categories = $this->with('children')->where('module', $module)->whereNull('parent_id')->get();
+        if ($showAll == 'true') {
+            $categories = $this->where('module', $module)->get();
+        } else {
+            $categories = $this->with('children')->where('module', $module)->whereNull('parent_id')->get();
+        }
+
         createActivityLog('retrieve', null, 'App\Models\Category', 'Category');
         return $categories;
     }

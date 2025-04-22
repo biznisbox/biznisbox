@@ -6,9 +6,9 @@ export default {
          * @return {Promise}
          *
          */
-        getCategories(module) {
+        getCategories(module, list = false) {
             return new Promise((resolve, reject) => {
-                this.makeHttpRequest('GET', '/api/categories', null, { module: module })
+                this.makeHttpRequest('GET', '/api/categories', null, { module: module, list: list })
                     .then((response) => {
                         resolve(response.data.data)
                     })

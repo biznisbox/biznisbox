@@ -2,6 +2,7 @@ export default {
     data() {
         return {
             products: [],
+            product_categories: [],
             product: {
                 category_id: '',
                 name: '',
@@ -111,6 +112,16 @@ export default {
         getProductNumber() {
             this.makeHttpRequest('GET', '/api/product/number').then((response) => {
                 this.product.number = response.data.data
+            })
+        },
+
+        /**
+         * Get products
+         * @returns {void}
+         */
+        getProductCategories() {
+            this.getCategories('product_category').then((response) => {
+                this.product_categories = response
             })
         },
     },

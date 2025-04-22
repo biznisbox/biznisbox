@@ -18,6 +18,7 @@
                     <Tab value="document_type">{{ $t('admin.data_collection.document_types') }}</Tab>
                     <Tab value="payment_method">{{ $t('admin.data_collection.payment_methods') }}</Tab>
                     <Tab value="contract_type">{{ $t('admin.data_collection.contract_types') }}</Tab>
+                    <Tab value="product_category">{{ $t('admin.data_collection.product_categories') }}</Tab>
                 </TabList>
 
                 <TabPanels>
@@ -221,6 +222,48 @@
                             </Column>
                         </DataTable>
                     </TabPanel>
+                    <TabPanel value="product_category">
+                        <DataTable :value="product_categories" data-key="id">
+                            <template #empty>
+                                <div class="p-4 pl-0 text-center w-full">
+                                    <i class="fa fa-info-circle empty-icon"></i>
+                                    <p>{{ $t('admin.data_collection.no_product_categories') }}</p>
+                                </div>
+                            </template>
+
+                            <Column field="name" :header="$t('form.name')">
+                                <template #body="{ data }">
+                                    <span>{{ data.name ? data.name : '-' }}</span>
+                                </template>
+                            </Column>
+
+                            <Column field="description" :header="$t('form.description')" />
+
+                            <Column :header="$t('form.icon')">
+                                <template #body="{ data }">
+                                    <i :class="data.icon" :style="`color: #${data.color}`"></i>
+                                </template>
+                            </Column>
+
+                            <Column :header="$t('basic.actions')">
+                                <template #body="{ data }">
+                                    <Button
+                                        id="category_edit_button"
+                                        icon="fa fa-edit"
+                                        severity="success"
+                                        @click="openNewEditCategoryDialog('edit', data.id)"
+                                    />
+                                    <Button
+                                        id="category_delete_button"
+                                        icon="fa fa-trash"
+                                        class="ml-2"
+                                        severity="danger"
+                                        @click="deleteCategoryAsk(data.id)"
+                                    />
+                                </template>
+                            </Column>
+                        </DataTable>
+                    </TabPanel>
                 </TabPanels>
             </Tabs>
 
@@ -245,6 +288,7 @@
                                 { label: $t('admin.data_collection.document_types'), value: 'document_type' },
                                 { label: $t('admin.data_collection.payment_methods'), value: 'payment_method' },
                                 { label: $t('admin.data_collection.contract_types'), value: 'contract_type' },
+                                { label: $t('admin.data_collection.product_categories'), value: 'product_category' },
                             ]"
                             option-label="label"
                             option-value="value"
@@ -282,7 +326,11 @@
                         />
 
                         <TextInput
-                            v-if="category.module !== 'transaction' && category.module !== 'payment_method'"
+                            v-if="
+                                category.module !== 'transaction' &&
+                                category.module !== 'payment_method' &&
+                                category.module !== 'product_category'
+                            "
                             id="category_additional_info_input"
                             v-model="category.additional_info"
                             :label="$t('form.additional_info')"
@@ -313,7 +361,13 @@
                             placeholder="Description"
                         />
                         <SelectInput
-                            v-if="category.module !== 'transaction' && category.module !== 'payment_method'"
+                            v-if="
+                                category.module !== 'transaction' &&
+                                category.module !== 'payment_method' &&
+                                category.module !== 'product_category' &&
+                                category.module !== 'document_type' &&
+                                category.module !== 'contract_type'
+                            "
                             id="category_parent_id_input"
                             v-model="category.parent_id"
                             :options="availableParentCategories"
@@ -367,6 +421,7 @@ export default {
             document_types: [],
             payment_methods: [],
             contract_types: [],
+            product_categories: [],
             category: {
                 id: null,
                 parent_id: null,
@@ -384,11 +439,12 @@ export default {
         this.getCategoryItems('document_type')
         this.getCategoryItems('payment_method')
         this.getCategoryItems('contract_type')
+        this.getCategoryItems('product_category')
     },
 
     methods: {
         getCategoryItems(category) {
-            this.getCategories(category).then((response) => {
+            this.getCategories(category, true).then((response) => {
                 if (category === 'transaction') {
                     this.transaction = response
                 } else if (category === 'document_type') {
@@ -397,6 +453,8 @@ export default {
                     this.payment_methods = response
                 } else if (category === 'contract_type') {
                     this.contract_types = response
+                } else if (category == 'product_category') {
+                    this.product_categories = response
                 }
             })
         },

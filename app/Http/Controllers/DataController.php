@@ -123,7 +123,8 @@ class DataController extends Controller
     public function getCategories(Request $request)
     {
         $module = $request->input('module');
-        $data = $this->dataService->getCategories($module);
+        $list = $request->input('list', false);
+        $data = $this->dataService->getCategories($module, $list);
         return api_response($data, __('responses.data_retrieved_successfully'));
     }
 

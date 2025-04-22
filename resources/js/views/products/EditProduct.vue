@@ -49,14 +49,28 @@
                             :validate="v$.product.unit"
                         />
                     </div>
-                    <SelectInput
-                        id="select_product_tax"
-                        v-model="product.tax"
-                        :label="$t('form.tax')"
-                        :options="taxes"
-                        option-label="name"
-                        option-value="value"
-                    />
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <SelectInput
+                            id="select_product_tax"
+                            v-model="product.tax"
+                            :label="$t('form.tax')"
+                            :options="taxes"
+                            option-label="name"
+                            option-value="value"
+                        />
+
+                        <SelectInput
+                            id="select_product_category_id"
+                            v-model="product.category_id"
+                            :label="$t('form.category')"
+                            :options="product_categories"
+                            option-label="name"
+                            filter
+                            option-value="id"
+                        />
+                    </div>
+
                     <div v-if="product.type == 'product'" class="grid grid-cols-1 md:grid-cols-3 gap-2">
                         <NumberInput id="stock_input" v-model="product.stock" :label="$t('form.stock')" type="items" />
                         <NumberInput id="min_stock_input" v-model="product.stock_min" :label="$t('form.min_stock')" type="items" />
@@ -94,6 +108,7 @@ export default {
     created() {
         this.getUnits()
         this.getTaxes()
+        this.getProductCategories()
         this.getProduct(this.$route.params.id)
     },
 
