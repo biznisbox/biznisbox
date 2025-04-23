@@ -1206,8 +1206,8 @@
             "no_contract_types": "Ni najdenih tipov pogodb",
             "delete_category_ask": "Ali ste prepričani, da želite izbrisati ta element šifrantov?",
             "delete_category_success": "Element šifranta je bil uspešno izbrisan",
-            "product_categories": "Product categories",
-            "no_product_categories": "No product categories found"
+            "product_categories": "Kategorije izdelkov",
+            "no_product_categories": "Kategorije izdelkov niso najdene"
         }
     },
     "month": {
