@@ -1,3 +1,16 @@
+# 2.4.0
+
+## ✨ New Features and Enhancements
+
+- Added a new feature for sending support ticket notifications to users.
+- Added a new feature for selecting a product category when creating/updating a product.
+
+## 🐛 Bug Fixes
+
+- Fixed an issue with not saving the payment method when creating a invoice.
+- Fixed an issue with selecting bill items when creating/updating a bill.
+- Fixed an validation issue with the quote selecting payment method.
+
 # 2.3.0
 
 **Important**: This release is not backwards-compatible with previous versions (v2.x.x) due to significant changes, including database migrations and structure updates.

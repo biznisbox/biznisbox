@@ -41,7 +41,7 @@ class DemoResetData extends Command
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
             // Truncate all tables except the migrations and schedule_runs table
             foreach ($tableNames as $tableName) {
-                if ($tableName !== 'migrations' && $tableName !== 'schedule_runs') {
+                if ($tableName !== 'migrations' && $tableName !== 'schedule_runs' && $tableName !== 'failed_jobs') {
                     DB::table($tableName)->truncate();
                 }
             }
