@@ -31,7 +31,7 @@
     <a href="#-contribute"><strong>🤝 Contribute</strong></a>
   </p>
 
-  <img src="https://biznisbox.com/biznisbox_dashboard.png" width="100%" alt="BiznisBox Dashboard Preview" />
+  <img src="https://biznisbox.com/og-image.png" width="100%" alt="BiznisBox Dashboard Preview" />
 
   <div> <p> <strong>⭐ Star this repo if you find it useful!</strong></p> </div>
 </div>
