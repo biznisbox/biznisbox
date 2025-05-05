@@ -1,0 +1,57 @@
+name: Build release Docker image
+on:
+    workflow_dispatch:
+
+    push:
+        tags:
+            - 'v*.*.*'
+            - 'v*.*.*-*'
+            - 'v*.*.*+*'
+            - 'v*.*.*-*+*'
+env:
+    VERSION: 'dev'
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Get the tag name (for release builds)
+              if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+              id: get_tag_name_release
+              run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v2
+
+            - name: Login to GitHub Container Registry
+              uses: docker/login-action@v2
+              with:
+                  registry: ghcr.io
+                  username: ${{ github.actor }}
+                  password: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Build and push Docker image (release)
+              if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+              uses: docker/build-push-action@v4
+              with:
+                  context: .
+                  file: Dockerfile
+                  push: true
+                  tags: |
+                      ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ steps.get_tag_name_release.outputs.VERSION }}
+                      ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:latest
+                      ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.sha }}
+                      ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:dev
+
+            - name: Build and push Docker image (dev)
+              if: github.event_name == 'workflow_dispatch'
+              uses: docker/build-push-action@v4
+              with:
+                  context: .
+                  file: Dockerfile
+                  push: true
+                  tags: |
+                      ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:${{ github.sha }}
+                      ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:dev
