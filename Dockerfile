@@ -42,6 +42,7 @@ RUN composer install --optimize-autoloader --no-dev --no-interaction
 COPY ./docker/php/entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY ./docker/php/supervisord.conf /etc/supervisor/conf.d/app.conf
 COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./docker/php/php.ini /usr/local/etc/php/conf.d/php.ini
 
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
@@ -58,6 +59,13 @@ RUN mkdir -p /var/www/html/storage/framework/sessions \
     && chmod -R o+r /var/www/html/vendor
 
 FROM php:8.4-fpm-alpine AS production
+
+LABEL org.opencontainers.image.authors="BiznisBox"
+LABEL org.opencontainers.image.url="https://www.biznisbox.com"
+LABEL org.opencontainers.image.documentation="https://docs.biznisbox.com"
+LABEL org.opencontainers.image.version="1.0.0"
+LABEL org.opencontainers.image.title="BiznisBox"
+LABEL org.opencontainers.image.description="BiznisBox is the all-in-one business platform that helps you manage your business, from invoicing to contracts, and more."
 
 RUN apk add --no-cache \
         nginx \
@@ -82,6 +90,7 @@ COPY --from=app_build /etc/supervisor/conf.d/app.conf /etc/supervisor/conf.d/app
 COPY --from=app_build /etc/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY --from=app_build /etc/nginx/http.d/default.conf /etc/nginx/http.d/default.conf 
 COPY --from=app_build /usr/local/bin/entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY --from=app_build /usr/local/etc/php/conf.d/php.ini /usr/local/etc/php/conf.d/php.ini
 
 RUN chmod +x /usr/local/bin/entrypoint.sh \
     && mkdir -p /var/run/nginx /var/lib/nginx/tmp \

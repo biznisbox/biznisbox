@@ -21,3 +21,9 @@ sonar-project.properties
 eslint.config.js
 version
 install.lock
+/.vscode
+/.DS_Store
+/storage/app/public/*
+/storage/app/scribe/*
+/.phpunit.result.cache
+/storage/app/archive/*
