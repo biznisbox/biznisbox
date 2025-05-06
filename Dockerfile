@@ -60,13 +60,6 @@ RUN mkdir -p /var/www/html/storage/framework/sessions \
 
 FROM php:8.4-fpm-alpine AS production
 
-LABEL org.opencontainers.image.authors="BiznisBox"
-LABEL org.opencontainers.image.url="https://www.biznisbox.com"
-LABEL org.opencontainers.image.documentation="https://docs.biznisbox.com"
-LABEL org.opencontainers.image.version="1.0.0"
-LABEL org.opencontainers.image.title="BiznisBox"
-LABEL org.opencontainers.image.description="BiznisBox is the all-in-one business platform that helps you manage your business, from invoicing to contracts, and more."
-
 RUN apk add --no-cache \
         nginx \
         supervisor \
