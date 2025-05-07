@@ -23,7 +23,11 @@ class Localization
         } elseif ($request->hasCookie('lang')) {
             app()->setLocale($request->cookie('lang'));
         } else {
-            app()->setLocale(settings('default_lang'));
+            try {
+                app()->setLocale(settings('default_lang'));
+            } catch (\Exception $e) {
+                app()->setLocale('en');
+            }
         }
 
         return $next($request);
