@@ -1,3 +1,13 @@
+# 2.5.0
+
+## ✨ New Features and Enhancements
+
+- Added support for Docker image building and deployment.
+
+## 🐛 Bug Fixes
+
+- Fixed an issues with default language when project is not installed (default language is English).
+
 # 2.4.0
 
 ## ✨ New Features and Enhancements
