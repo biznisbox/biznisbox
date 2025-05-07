@@ -58,4 +58,12 @@ return [
     'personal_access_token_name' => 'Token Navn',
     'personal_access_token_valid_until' => 'Gyldig Indtil',
     'if_this_was_not_you_personal_access_token' => 'Hvis dette ikke var dig, skal du slette token med det samme og kontakte administrator.',
+    'subject_support_ticket' => 'Support billet notifikation',
+    'new_support_ticket' => 'En ny supportbillet er blevet oprettet.',
+    'support_ticket_details' => 'Support Bestillings Detaljer',
+    'support_ticket_number' => 'Nummer: :number',
+    'support_ticket_status' => 'Status: :status',
+    'support_ticket_subject' => 'Emne: :subject',
+    'click_on_the_button_below_to_view_ticket' => 'Klik på knappen nedenfor for at se bestillingen.',
+    'view_ticket' => 'Se Bestilling',
 ];

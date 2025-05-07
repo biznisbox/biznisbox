@@ -1205,7 +1205,9 @@
             "no_transaction_categories": "Не найдено категорий транзакций",
             "no_contract_types": "Типы контрактов не найдены",
             "delete_category_ask": "Вы уверены, что хотите удалить этот элемент коллекции данных?",
-            "delete_category_success": "Элемент сбора данных успешно удален"
+            "delete_category_success": "Элемент сбора данных успешно удален",
+            "product_categories": "Категории товаров",
+            "no_product_categories": "Категории товаров не найдены"
         }
     },
     "month": {
