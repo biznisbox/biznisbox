@@ -57,6 +57,13 @@ return [
     'personal_access_token_details' => 'Détails du jeton d\'accès personnel',
     'personal_access_token_name' => 'Nom du jeton',
     'personal_access_token_valid_until' => 'Valable jusqu\'au',
-    'if_this_was_not_you_personal_access_token' =>
-        'Si ce n\'est pas vous, s\'il vous plaît supprimer le jeton immédiatement et contacter l\'administrateur.',
+    'if_this_was_not_you_personal_access_token' => 'Si ce n\'est pas vous, s\'il vous plaît supprimer le jeton immédiatement et contacter l\'administrateur.',
+    'subject_support_ticket' => 'Notification de ticket de support',
+    'new_support_ticket' => 'Un nouveau ticket d\'assistance a été créé.',
+    'support_ticket_details' => 'Détails du ticket de support',
+    'support_ticket_number' => 'Nombre: :number',
+    'support_ticket_status' => 'Statut: :status',
+    'support_ticket_subject' => 'Objet: :subject',
+    'click_on_the_button_below_to_view_ticket' => 'Cliquez sur le bouton ci-dessous pour voir le billet.',
+    'view_ticket' => 'Voir le ticket',
 ];

@@ -1205,7 +1205,9 @@
             "no_transaction_categories": "Tapahtumakategorioita ei löytynyt",
             "no_contract_types": "Sopimustyyppejä ei löytynyt",
             "delete_category_ask": "Oletko varma, että haluat poistaa tämän tiedonkeruun kohteen?",
-            "delete_category_success": "Tiedonkeruun kohde poistettu onnistuneesti"
+            "delete_category_success": "Tiedonkeruun kohde poistettu onnistuneesti",
+            "product_categories": "Tuoteryhmät",
+            "no_product_categories": "Tuoteryhmiä ei löytynyt"
         }
     },
     "month": {

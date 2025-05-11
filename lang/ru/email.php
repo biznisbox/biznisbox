@@ -58,4 +58,12 @@ return [
     'personal_access_token_name' => 'Имя токена',
     'personal_access_token_valid_until' => 'Действителен до',
     'if_this_was_not_you_personal_access_token' => 'Если это не вы, удалите токен немедленно и свяжитесь с администратором.',
+    'subject_support_ticket' => 'Уведомление о заявке',
+    'new_support_ticket' => 'Был создан новый тикет поддержки.',
+    'support_ticket_details' => 'Информация о Поддержке',
+    'support_ticket_number' => 'Число: :number',
+    'support_ticket_status' => 'Статус: :status',
+    'support_ticket_subject' => 'Тема: :subject',
+    'click_on_the_button_below_to_view_ticket' => 'Нажмите на кнопку ниже, чтобы просмотреть тикет.',
+    'view_ticket' => 'Просмотр тикета',
 ];
