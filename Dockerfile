@@ -93,7 +93,6 @@ RUN chmod +x /usr/local/bin/entrypoint.sh \
 RUN rm -rf /var/cache/apk/* /tmp/* /usr/local/bin/composer /usr/local/bin/phpunit /root/.composer /root/.npm /root/.cache
 
 VOLUME /var/www/html/storage
-VOLUME /var/www/html/bootstrap/cache
 
 EXPOSE 80
 
