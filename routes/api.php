@@ -397,6 +397,7 @@ Route::group(['prefix' => 'install', 'middleware' => CheckIfInstalled::class], f
     Route::post('/migrate-seed', [InstallerController::class, 'migrateAndSeed'])->name('migrateAndSeed');
     Route::post('/set-settings', [InstallerController::class, 'setSettingsInDb'])->name('setSettingsInDb');
     Route::post('/create-user', [InstallerController::class, 'createAdminUser'])->name('createAdminUser');
+    Route::get('/get-db-config', [InstallerController::class, 'getDbInfoFromEnv'])->name('getDbConfig');
 });
 
 // Signed URLs

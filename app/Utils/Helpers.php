@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Str;
 use App\Events\WebhookEvent;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 if (!function_exists('api_response')) {
     /**
@@ -656,17 +657,6 @@ if (!function_exists('updateScheduleRun')) {
     }
 }
 
-if (!function_exists('checkIfRunAppInDocker')) {
-    /**
-     * Check if app is running in docker
-     * @return bool
-     */
-    function checkIfRunAppInDocker()
-    {
-        return is_file('/.dockerenv');
-    }
-}
-
 if (!function_exists('isAppInstalled')) {
     /**
      * Check if app is installed
@@ -674,9 +664,22 @@ if (!function_exists('isAppInstalled')) {
      */
     function isAppInstalled()
     {
-        if (file_exists(base_path('install.lock'))) {
-            return true;
+        try {
+            if (file_exists(base_path('/storage/install.lock'))) {
+                return true;
+            }
+
+            if (settings('app_installed') == true) {
+                if (!file_exists(base_path('/storage/install.lock'))) {
+                    file_put_contents(base_path('/storage/install.lock'), 'installed');
+                }
+                return true;
+            }
+        } catch (\Exception $e) {
+            return false;
         }
+
+        return false;
     }
 }
 

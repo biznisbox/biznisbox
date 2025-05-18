@@ -4,7 +4,7 @@
             <div class="p-2 shadow-md border border-surface-300 rounded-md w-full md:w-96 mx-4">
                 <LoadingScreen :blocked="loadingData" class="p-1">
                     <img
-                        v-if="$settings['company_logo'] != undefined && $settings['company_logo'] != null"
+                        v-if="$settings && $settings['company_logo'] != null"
                         :src="`/storage/${$settings['company_logo']}`"
                         class="w-32 h-32 mx-auto"
                         alt="logo"

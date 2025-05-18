@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Log;
 
 class InstallService
 {
+    /**
+     * Create a database connection
+     *
+     * @param  array  $data Database connection data
+     * @return \Illuminate\Database\Connection
+     */
     public function createConnection($data)
     {
         $driver = $data['driver'];
@@ -33,6 +39,12 @@ class InstallService
         return DB::connection($driver);
     }
 
+    /**
+     * Check database connection
+     *
+     * @param  array  $data Database connection data
+     * @return array $check Check
+     */
     public function checkDbConnection($data)
     {
         try {
@@ -67,6 +79,31 @@ class InstallService
         return $check;
     }
 
+    /**
+     * Get database settings from .env file
+     *
+     * @return array $dbSettings Database settings
+     */
+    public function getDbSettingsFromEnv()
+    {
+        $dbSettings = [
+            'driver' => env('DB_CONNECTION'),
+            'host' => env('DB_HOST'),
+            'port' => env('DB_PORT'),
+            'database' => env('DB_DATABASE'),
+            'username' => env('DB_USERNAME'),
+            'password' => env('DB_PASSWORD'),
+        ];
+
+        return $dbSettings;
+    }
+
+    /**
+     * Update .env file with database information
+     *
+     * @param  array  $data Database connection data
+     * @return array $updated Updated
+     */
     public function updateEnvFileWithDbInfo($data)
     {
         $data = [
@@ -86,6 +123,11 @@ class InstallService
         ];
     }
 
+    /**
+     * Migrate database tables
+     *
+     * @return array $migration Migration
+     */
     public function migrateDb()
     {
         // Migrate the database
@@ -104,6 +146,11 @@ class InstallService
         }
     }
 
+    /**
+     * Seed the database
+     *
+     * @return array $seeder Seeder
+     */
     public function seedDb()
     {
         // Seed the database
@@ -123,6 +170,11 @@ class InstallService
         }
     }
 
+    /**
+     * Check requirements
+     *
+     * @return array $requirements Requirements
+     */
     public function checkRequirements()
     {
         $requirements = [];
@@ -185,6 +237,11 @@ class InstallService
         return $requirements;
     }
 
+    /**
+     * Check if .env file exists
+     *
+     * @return bool
+     */
     public function checkEnvFile()
     {
         $envFile = base_path('.env');
@@ -194,6 +251,11 @@ class InstallService
         return false;
     }
 
+    /**
+     * Create .env file from .env.example
+     *
+     * @return void
+     */
     public function createEnvFile()
     {
         $envFile = base_path('.env.example');
@@ -203,6 +265,11 @@ class InstallService
         }
     }
 
+    /**
+     * Migrate and seed database
+     *
+     * @return array $migration Migration
+     */
     public function migrateAndSeed()
     {
         Artisan::call('cache:clear');
@@ -229,17 +296,32 @@ class InstallService
         ];
     }
 
+    /**
+     * Set app installed
+     *
+     * @return void
+     */
     public function setAppInstalled()
     {
         // Create install.lock file
-        if (!file_exists(base_path('install.lock'))) {
-            $file = fopen(base_path('install.lock'), 'w');
+        if (!file_exists(storage_path('install.lock'))) {
+            $file = fopen(storage_path('install.lock'), 'w');
+            if ($file) {
+                fwrite($file, 'installed');
+            } else {
+                Log::error('Failed to create install.lock file');
+            }
             fclose($file);
         }
 
         settings(['app_installed' => true], 'set');
     }
 
+    /**
+     * Set JWT secret
+     *
+     * @return array $jwtSecret JWT secret
+     */
     public function setJwtSecret()
     {
         writeInEnvFile([
@@ -252,6 +334,12 @@ class InstallService
         ];
     }
 
+    /**
+     * Set settings in database
+     *
+     * @param  array  $data Settings data
+     * @return array $settings Settings
+     */
     public function setSettingsInDb($data)
     {
         settings($data, 'set');
@@ -262,6 +350,12 @@ class InstallService
         ];
     }
 
+    /**
+     * Create admin user
+     *
+     * @param  array  $data User data
+     * @return array $user User
+     */
     public function createAdminUser($data)
     {
         $user = User::create([
@@ -286,7 +380,12 @@ class InstallService
         ];
     }
 
-    public function checkAppInstalled()
+    /**
+     * Check if app is installed
+     *
+     * @return array $installed Installed
+     */
+    public function checkIfAppInstalled()
     {
         if (isAppInstalled()) {
             return [

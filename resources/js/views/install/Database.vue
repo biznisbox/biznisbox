@@ -61,6 +61,7 @@ export default {
     created() {
         document.title = this.$t('install.installation')
         this.checkIfInstalled()
+        this.getDatabaseConfig()
     },
 
     methods: {
@@ -87,10 +88,24 @@ export default {
                 .then((response) => {
                     if (response.data.data.status == true) {
                         this.checked = true
+                        this.showToast(response.data.data.message, this.$t('basic.success'), 'success')
                         this.error = ''
                     } else {
                         this.checked = false
+                        this.showToast(response.data.data.message, this.$t('basic.error'), 'error')
                         this.error = response.data.data.error
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        },
+
+        getDatabaseConfig() {
+            this.makeHttpRequest('GET', `/api/install/get-db-config`)
+                .then((response) => {
+                    if (response.data.status == 'success') {
+                        this.database = response.data.data
                     }
                 })
                 .catch((error) => {

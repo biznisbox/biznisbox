@@ -14,7 +14,6 @@ use App\Services\Install\InstallService;
 class InstallerController extends Controller
 {
     private $installService;
-
     public function __construct(InstallService $installService)
     {
         $this->installService = $installService;
@@ -101,7 +100,18 @@ class InstallerController extends Controller
      */
     public function checkAppInstalled()
     {
-        $installed = $this->installService->checkAppInstalled();
+        $installed = $this->installService->checkIfAppInstalled();
         return api_response($installed);
+    }
+
+    /**
+     * Get database information from .env file
+     *
+     * @return array $dbInfo Database information
+     */
+    public function getDbInfoFromEnv()
+    {
+        $dbInfo = $this->installService->getDbSettingsFromEnv();
+        return api_response($dbInfo);
     }
 }
