@@ -47,6 +47,7 @@
 <script>
 import UserMenu from '@/data/user_menu_items.json'
 import AdminMenu from '@/data/admin_menu_items.json'
+import ClientPortalMenu from '@/data/client_menu_items.json'
 export default {
     name: 'SideMenuComponent',
     props: {
@@ -64,7 +65,14 @@ export default {
     },
     computed: {
         menu_items() {
-            return this.menu_type === 'user' ? UserMenu : AdminMenu
+            if (this.menu_type === 'user') {
+                return UserMenu
+            } else if (this.menu_type === 'admin') {
+                return AdminMenu
+            } else if (this.menu_type === 'client') {
+                return ClientPortalMenu
+            }
+            return []
         },
     },
     methods: {

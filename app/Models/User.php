@@ -119,6 +119,8 @@ class User extends Authenticatable implements JWTSubject, Auditable
                 'permissions' => $this->getPermissionsViaRoles()->pluck('name')->toArray(),
                 'roles' => $this->getRoleNames()->toArray(),
                 'avatar_url' => $this->avatar_url,
+                'partner_id' => getPartnerIdFromUserId($this->id) ?? null,
+                'partner_contact_id' => getPartnerContactIdFromUserId($this->id) ?? null,
             ],
         ];
     }
@@ -248,6 +250,20 @@ class User extends Authenticatable implements JWTSubject, Auditable
 
         $user = $this->find($id);
         if ($user) {
+            // If user has personal access tokens, delete them
+            if ($user->personalAccessTokens()->count() > 0) {
+                $user->personalAccessTokens()->delete();
+            }
+            // If user is client portal user, delete the user
+            if ($user->roles->contains('name', 'client')) {
+                $partnerContact = PartnerContact::where('user_id', $user->id)->first();
+                if ($partnerContact) {
+                    $partnerContact->client_portal = false;
+                    $partnerContact->user_id = null;
+                    $partnerContact->save();
+                }
+            }
+
             $user->syncRoles([]);
             $user->update([
                 'email' => null,

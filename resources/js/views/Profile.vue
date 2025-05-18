@@ -1,5 +1,5 @@
 <template>
-    <DefaultLayout>
+    <DefaultLayout :menu_type="user_role_menu">
         <LoadingScreen :blocked="loadingData">
             <PageHeader :title="$t('profile.profile')" />
             <div class="card">
@@ -371,6 +371,7 @@ export default {
     data() {
         return {
             expandedRows: [],
+            user_role_menu: 'user',
             user_data: {
                 first_name: '',
                 last_name: '',
@@ -434,6 +435,13 @@ export default {
         getProfile() {
             this.makeHttpRequest('GET', '/api/profile').then((response) => {
                 this.user_data = response.data.data
+                if (this.user_data.permissions.includes('admin')) {
+                    this.user_role_menu = 'admin'
+                } else if (this.user_data.role === 'client') {
+                    this.user_role_menu = 'client'
+                } else {
+                    this.user_role_menu = 'user'
+                }
             })
         },
         saveUser() {

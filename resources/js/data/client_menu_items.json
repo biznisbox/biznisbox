@@ -1,0 +1,50 @@
+[
+    {
+        "name": "client_portal.menu.dashboard",
+        "meta": ["dashboard"],
+        "icon": "fa fa-dashboard",
+        "permission": "",
+        "permissions": [],
+        "to": "/client-portal"
+    },
+    {
+        "name": "client_portal.menu.partner_details",
+        "meta": ["partner_details"],
+        "icon": "fa fa-user",
+        "permission": "client",
+        "permissions": [],
+        "to": "/client-portal/partner-details"
+    },
+    {
+        "name": "client_portal.menu.invoices",
+        "meta": ["invoices"],
+        "icon": "fa fa-file-invoice-dollar",
+        "permission": "client",
+        "permissions": [],
+        "to": "/client-portal/invoices"
+    },
+    {
+        "name": "client_portal.menu.quotes",
+        "meta": ["quotes"],
+        "icon": "fa fa-file-invoice",
+        "permission": "client",
+        "permissions": [],
+        "to": "/client-portal/quotes"
+    },
+    {
+        "name": "client_portal.menu.contracts",
+        "meta": ["contracts"],
+        "icon": "fa fa-file-contract",
+        "permission": "client",
+        "permissions": [],
+        "to": "/client-portal/contracts"
+    },
+    {
+        "name": "client_portal.menu.support",
+        "meta": ["support"],
+        "icon": "fa fa-headset",
+        "permission": "client",
+        "permissions": [],
+        "to": "/client-portal/support"
+    }
+]

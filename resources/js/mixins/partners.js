@@ -199,5 +199,15 @@ export default {
                 this.showSendEmailDialog = false
             })
         },
+
+        /**
+         * Add partner to client portal
+         */
+        addContactToClientPortal(partner_data) {
+            this.makeHttpRequest('POST', '/api/partner/client-portal/' + partner_data.id).then((response) => {
+                this.showToast(response.data.message)
+                this.getPartner(this.partner.id)
+            })
+        },
     },
 }

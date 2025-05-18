@@ -6,7 +6,11 @@ use App\Models\Partner;
 use App\Models\PartnerActivity;
 use App\Models\PartnerContact;
 use App\Mail\Client\SendPartnerMessage;
+use App\Models\User;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
+use App\Mail\Client\ClientPortalNotification;
+use Illuminate\Support\Facades\URL;
 
 class PartnerService
 {
@@ -122,6 +126,52 @@ class PartnerService
         if (!$partnerActivity) {
             return false;
         }
+        return true;
+    }
+
+    public function addPartnerContactToClientPortal($partnerContactId)
+    {
+        $partnerContact = PartnerContact::find($partnerContactId);
+        if (!$partnerContact) {
+            return false;
+        }
+
+        if (!$partnerContact->email || !$partnerContact->name || filter_var($partnerContact->email, FILTER_VALIDATE_EMAIL) === false) {
+            return false;
+        }
+
+        // If user is already in client portal, return false
+        if ($partnerContact->client_portal) {
+            return false;
+        }
+        $password = generateRandomPassword(12);
+        $user = new User();
+        $user = $user->createUser([
+            'first_name' => $partnerContact->name,
+            'last_name' => '',
+            'email' => $partnerContact->email,
+            'password' => $password,
+            'active' => true,
+            'language' => 'en',
+            'timezone' => 'UTC',
+            'role' => 'client',
+        ]);
+        if (!$user) {
+            return false;
+        }
+
+        $user = User::where('email', $partnerContact->email)->first();
+
+        // Update partner contact
+        $partnerContact->client_portal = true;
+        $partnerContact->user_id = $user->id;
+        $partnerContact->save();
+        // Send notification email
+        $email = Mail::to($partnerContact->email, $partnerContact->name)->send(
+            new ClientPortalNotification($partnerContact->partner, $password, $partnerContact)
+        );
+        createActivityLog('addPartnerContactToClientPortal', $partnerContact->partner_id, 'App\Models\Partner', 'Partner');
+
         return true;
     }
 }

@@ -69,7 +69,10 @@ export default {
                     this.showToast(this.$t('auth.login_success'), this.$t('auth.welcome_back'), 'success')
                     this.$cookies.set('token', response.data.data.access_token, '2h')
                     this.$cookies.set('lang', jwtDecode(response.data.data.access_token).data?.language, '1y')
-                    if (this.$route.query.redirect) {
+                    const roles = jwtDecode(response.data.data.access_token).data?.roles
+                    if (roles.includes('client')) {
+                        this.$router.push({ name: 'client-portal-dashboard' })
+                    } else if (this.$route.query.redirect) {
                         this.$router.push(this.$route.query.redirect)
                     } else {
                         this.$router.push({ name: 'dashboard' })

@@ -18,6 +18,7 @@ use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\SupportTicketController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ContractController;
+// Admin controllers
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\DepartmentController as AdminDepartmentController;
 use App\Http\Controllers\Admin\PermissionRoleController as AdminPermissionRoleController;
@@ -28,10 +29,18 @@ use App\Http\Controllers\Admin\UnitController as AdminUnitController;
 use App\Http\Controllers\Admin\WebhookSubscriptionController as AdminWebhookSubscriptionController;
 use App\Http\Controllers\Admin\DashboardDataController as AdminDashboardDataController;
 use App\Http\Controllers\Admin\StatusController as AdminStatusController;
+// Client controllers
 use App\Http\Controllers\Client\InvoiceController as ClientInvoiceController;
 use App\Http\Controllers\Client\QuoteController as ClientQuoteController;
 use App\Http\Controllers\Client\SupportTicketController as ClientSupportTicketController;
 use App\Http\Controllers\Client\ContractController as ClientContractController;
+// Client Portal
+use App\Http\Controllers\ClientPortal\DashboardController as ClientPortalDashboardController;
+use App\Http\Controllers\ClientPortal\InvoiceController as ClientPortalInvoiceController;
+use App\Http\Controllers\ClientPortal\QuoteController as ClientPortalQuoteController;
+use App\Http\Controllers\ClientPortal\SupportTicketController as ClientPortalSupportTicketController;
+use App\Http\Controllers\ClientPortal\ContractController as ClientPortalContractController;
+// Other
 use App\Http\Controllers\Install\InstallerController;
 use App\Http\Middleware\CheckIfInstalled;
 
@@ -104,6 +113,9 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/partners/{id}', [PartnerController::class, 'getPartner'])->name('getPartner');
         Route::get('/partner/number', [PartnerController::class, 'getPartnerNumber'])->name('getPartnerNumber');
         Route::post('/partner/message', [PartnerController::class, 'sendEmailToPartnerContact'])->name('sendEmailToPartnerContact');
+        Route::post('/partner/client-portal/{id}', [PartnerController::class, 'addPartnerContactToClientPortal'])->name(
+            'addPartnerContactToClientPortal'
+        );
     });
 
     // Partner Limited is for the other users who can't access all the partners -> used in the other parts of the app
@@ -364,6 +376,13 @@ Route::middleware('auth:api')->group(function () {
                 'adminDeleteWebhookSubscription'
             );
         });
+    });
+
+    // Client Portal
+    Route::group(['prefix' => 'client-portal'], function () {
+        Route::get('/dashboard', [ClientPortalDashboardController::class, 'getDashboardData'])->name('getClientPortalDashboardData');
+        Route::get('/invoices', [ClientPortalInvoiceController::class, 'getInvoices'])->name('getClientPortalInvoices');
+        Route::get('/invoices/{id}', [ClientPortalInvoiceController::class, 'getInvoiceById'])->name('getClientPortalInvoice');
     });
 });
 

@@ -601,6 +601,63 @@ if (!function_exists('getEmployeeIdFromUserId')) {
     }
 }
 
+if (!function_exists('getUserIdFromPartnerContactId')) {
+    /**
+     * Get user id from partner contact id
+     * @param string $contact_id - contact id
+     * @return string $user_id - user id
+     */
+    function getUserIdFromPartnerContactId($contact_id)
+    {
+        if (!$contact_id) {
+            return null;
+        }
+        $contact = \App\Models\PartnerContact::find($contact_id);
+        if (!$contact) {
+            return null;
+        }
+        return $contact->user_id;
+    }
+}
+
+if (!function_exists('getPartnerIdFromUserId')) {
+    /**
+     * Get partner id from user id
+     * @param string $user_id - user id
+     * @return string $partner_id - partner id
+     */
+    function getPartnerIdFromUserId($user_id)
+    {
+        if (!$user_id) {
+            return null;
+        }
+        $contact = \App\Models\PartnerContact::where('user_id', $user_id)->first();
+        if (!$contact) {
+            return null;
+        }
+        return $contact->partner_id;
+    }
+}
+
+if (!function_exists('getPartnerContactIdFromUserId')) {
+    /**
+     * Get partner contact id from user id
+     * @param string $user_id - user id
+     * @return string $contact_id - contact id
+     */
+    function getPartnerContactIdFromUserId($user_id)
+    {
+        if (!$user_id) {
+            return null;
+        }
+        $contact = \App\Models\PartnerContact::where('user_id', $user_id)->first();
+        if (!$contact) {
+            return null;
+        }
+        return $contact->id;
+    }
+}
+
 if (!function_exists('sendWebhookForEvent')) {
     /**
      * Send webhook for event (event: partner:created, partner:updated, partner:deleted)
@@ -694,5 +751,17 @@ if (!function_exists('getJwtPayloadData')) {
         $token = explode('.', $token);
         $payload = json_decode(base64_decode($token[1]), true);
         return $payload;
+    }
+}
+
+if (!function_exists('generateRandomPassword')) {
+    /**
+     * Generate random password
+     * @param int $length - length of password
+     * @return string $password - generated password
+     */
+    function generateRandomPassword($length = 10)
+    {
+        return Str::random($length);
     }
 }

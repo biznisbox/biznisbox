@@ -183,6 +183,48 @@ const routes = [
     makeRoute('/install/company', 'install-company', () => import('../views/install/Company.vue'), { auth: false }),
     makeRoute('/install/finish', 'install-finished', () => import('../views/install/Finish.vue'), { auth: false }),
 
+    // Client Portal
+    makeRoute('/client-portal', 'client-portal-dashboard', () => import('../views/client_portal/ClientDashboard.vue'), {
+        auth: false,
+        client: true,
+    }),
+    makeRoute('/client-portal/invoices', 'client-portal-invoices', () => import('../views/client_portal/Invoices.vue'), {
+        auth: false,
+        client: true,
+    }),
+    makeRoute('/client-portal/invoices/:id', 'client-portal-invoice-view', () => import('../views/client_portal/ViewInvoice.vue'), {
+        auth: false,
+        client: true,
+    }),
+    makeRoute('/client-portal/quotes', 'client-portal-quotes', () => import('../views/client_portal/Quotes.vue'), {
+        auth: false,
+        client: true,
+    }),
+
+    makeRoute('/client-portal/quotes/:id', 'client-portal-quote-view', () => import('../views/client_portal/ViewQuote.vue'), {
+        auth: false,
+        client: true,
+    }),
+
+    makeRoute('/client-portal/contracts', 'client-portal-contracts', () => import('../views/client_portal/Contracts.vue'), {
+        auth: false,
+        client: true,
+    }),
+    makeRoute('/client-portal/contracts/:id', 'client-portal-contract-view', () => import('../views/client_portal/ViewContract.vue'), {
+        auth: false,
+        client: true,
+    }),
+
+    makeRoute('/client-portal/support', 'client-portal-support', () => import('../views/client_portal/Support.vue'), {  
+        auth: false,
+        client: true,
+    }),
+
+    makeRoute('/client-portal/partner-details', 'client-portal-partner-details', () => import('../views/client_portal/PartnerDetails.vue'), {
+        auth: false,
+        client: true,
+    }),
+
     // 404 - Not Found (Always keep this as the last route)
     {
         path: '/:pathMatch(.*)*',
@@ -197,7 +239,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     const token = cookies.get('token')
-    if (to.meta.auth && !to.meta.admin) {
+    if (to.meta.auth && !to.meta.admin && !to.meta.client) {
         // Check if route requires auth
         if (token) {
             next()
@@ -207,6 +249,13 @@ router.beforeEach((to, from, next) => {
     } else if (to.meta.admin) {
         // Check if route requires admin permissions
         if (token && jwtDecode(token).data.permissions.includes('admin')) {
+            next()
+        } else {
+            next({ name: 'auth-login', query: { redirect: to.fullPath } })
+        }
+    } else if (to.meta.client) {
+        // Check if route requires client permissions
+        if (token && jwtDecode(token).data.permissions.includes('client')) {
             next()
         } else {
             next({ name: 'auth-login', query: { redirect: to.fullPath } })
