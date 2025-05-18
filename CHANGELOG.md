@@ -1,3 +1,8 @@
+# 2.6.0
+
+## ✨ New Features and Enhancements
+- Refined Docker build process; install.lock now stored in the storage folder for improved structure.
+
 # 2.5.0
 
 ## ✨ New Features and Enhancements
