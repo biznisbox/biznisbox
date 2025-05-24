@@ -43,7 +43,7 @@ if [ ! -f "$ENV_FILE" ]; then
     sed -i "s|^MAIL_USERNAME=.*|MAIL_USERNAME=${MAIL_USERNAME:-null}|g" "$ENV_FILE"
     sed -i "s|^MAIL_PASSWORD=.*|MAIL_PASSWORD=${MAIL_PASSWORD:-null}|g" "$ENV_FILE"
     sed -i "s|^MAIL_ENCRYPTION=.*|MAIL_ENCRYPTION=${MAIL_ENCRYPTION:-tls}|g" "$ENV_FILE"
-    sed -i "s|^MAIL_FROM_ADDRESS=.*|MAIL_FROM_ADDRESS=${MAIL_FROM_ADDRESS:-null}|g" "$ENV_FILE"
+    sed -i "s|^MAIL_FROM_ADDRESS=.*|MAIL_FROM_ADDRESS=${MAIL_FROM_ADDRESS:-demo@example.com}|g" "$ENV_FILE"
     sed -i "s|^MAIL_FROM_NAME=.*|MAIL_FROM_NAME=${MAIL_FROM_NAME:-BiznisBox}|g" "$ENV_FILE"
 
     # App demo mode
