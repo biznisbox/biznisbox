@@ -324,9 +324,12 @@ class InstallService
      */
     public function setJwtSecret()
     {
-        writeInEnvFile([
-            'JWT_SECRET' => Str::random(64),
-        ]);
+        $defaultJwtSecretInEnv = '123456789012345678901234567890123456789012345678901234567890';
+        if (config('jwt.secret') == null || config('jwt.secret') == $defaultJwtSecretInEnv) {
+            writeInEnvFile([
+                'JWT_SECRET' => Str::random(64),
+            ]);
+        }
 
         return [
             'status' => true,

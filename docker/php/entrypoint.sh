@@ -53,6 +53,8 @@ if [ ! -f "$ENV_FILE" ]; then
         sed -i "s|^MAIL_MAILER=.*|MAIL_MAILER=log|g" "$ENV_FILE"
     fi
 
+    sed -i "s|^APP_MODE=.*|APP_MODE=${APP_MODE:-production}|g" "$ENV_FILE"
+
     echo ".env file generated."
 else
     echo ".env file already exists, skipping generation."
@@ -96,11 +98,25 @@ else
     echo "Skipping optimization (OPTIMIZE_APP is not 'true')."
 fi
 
+# Ensure the www-data user owns the application files
+chown -R www-data:www-data /var/www/html
 if [ "$(whoami)" = 'root' ]; then
-    chown www-data:www-data "$ENV_FILE"
-    chmod 644 "$ENV_FILE"
+    echo "Running as root, switching to www-data user for command execution."
+    exec su-exec www-data "$0" "$@"
+fi
+
+# If APP_MODE is set to 'demo' or 'development', install composer to image 
+if [ "${APP_MODE}" = "demo" ] || [ "${APP_MODE}" = "development" ]; then
+    echo "Installing Composer for demo/development mode..."
+    if [ ! -f /usr/local/bin/composer ]; then
+        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('composer-setup.php'); exit(1); }"
+        php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+        rm composer-setup.php
+    fi
+    echo "Composer installed."
 else
-    echo "Warning: entrypoint.sh not running as root, cannot guarantee correct permissions for .env file."
+    echo "Skipping Composer installation (APP_MODE is not 'demo' or 'development')."
 fi
 
 echo "Container setup complete. Executing command: $@"
