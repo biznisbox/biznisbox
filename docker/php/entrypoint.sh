@@ -72,39 +72,6 @@ if [ -z "${current_app_key}" ]; then
     echo "APP_KEY generated."
 fi
 
-if [ "${RUN_MIGRATIONS}" = "true" ]; then
-    echo "Running database migrations (RUN_MIGRATIONS=true)..."
-    if [ "$(whoami)" = 'root' ]; then
-        su-exec www-data php artisan migrate --force --no-interaction
-    else
-        php artisan migrate --force --no-interaction
-    fi
-    echo "Migrations complete."
-else
-    echo "Skipping migrations (RUN_MIGRATIONS is not 'true')."
-fi
-
-if [ "${OPTIMIZE_APP}" = "true" ]; then
-    echo "Optimizing application (OPTIMIZE_APP=true)..."
-     if [ "$(whoami)" = 'root' ]; then
-        su-exec www-data php artisan config:cache
-        su-exec www-data php artisan route:cache
-     else
-        php artisan config:cache
-        php artisan route:cache
-     fi
-    echo "Optimization complete."
-else
-    echo "Skipping optimization (OPTIMIZE_APP is not 'true')."
-fi
-
-# Ensure the www-data user owns the application files
-chown -R www-data:www-data /var/www/html
-if [ "$(whoami)" = 'root' ]; then
-    echo "Running as root, switching to www-data user for command execution."
-    exec su-exec www-data "$0" "$@"
-fi
-
 # If APP_MODE is set to 'demo' or 'development', install composer to image 
 if [ "${APP_MODE}" = "demo" ] || [ "${APP_MODE}" = "development" ]; then
     echo "Installing Composer for demo/development mode..."
