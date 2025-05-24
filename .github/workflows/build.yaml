@@ -95,6 +95,7 @@ jobs:
               if: github.event_name == 'schedule'
               uses: ncipollo/release-action@v1
               with:
+                  tag: nightly-${{ github.run_id }}
                   allowUpdates: true
                   name: BiznisBox Nightly Build
                   artifacts: ${{ github.workspace }}/${{ env.ENV_ARTIFACT_NAME }}.zip
@@ -106,6 +107,7 @@ jobs:
               if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && !startsWith(github.ref, 'refs/tags/'))
               uses: ncipollo/release-action@v1
               with:
+                  tag: dev
                   allowUpdates: true
                   name: BiznisBox Dev Build
                   artifacts: ${{ github.workspace }}/${{ env.ENV_ARTIFACT_NAME }}.zip
