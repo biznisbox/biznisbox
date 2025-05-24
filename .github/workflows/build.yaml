@@ -11,7 +11,6 @@ on:
         - cron: '0 0 * * 0'
 env:
     TYPE_OF_BUILD: 'production'
-    ENV_ARTIFACT_NAME: ''
     GITHUB_SHA: ${{ github.sha }}
 jobs:
     build:
@@ -24,7 +23,6 @@ jobs:
               env:
                   TYPE_OF_BUILD: 'nightly'
               run: |
-                  echo "ENV_ARTIFACT_NAME=$TYPE_OF_BUILD" >> $GITHUB_ENV
                   echo "TYPE_OF_BUILD=$TYPE_OF_BUILD" >> $GITHUB_ENV
                   echo "Scheduled build"
             - name: Setup build type - production
@@ -32,7 +30,6 @@ jobs:
               env:
                   TYPE_OF_BUILD: 'development'
               run: |
-                  echo "ENV_ARTIFACT_NAME=$TYPE_OF_BUILD" >> $GITHUB_ENV
                   echo "TYPE_OF_BUILD=$TYPE_OF_BUILD" >> $GITHUB_ENV
                   echo "Pushed to main branch or manual dispatch - development build"
             - name: Setup build type - release
@@ -40,7 +37,6 @@ jobs:
               env:
                   TYPE_OF_BUILD: 'release'
               run: |
-                  echo "ENV_ARTIFACT_NAME=$TYPE_OF_BUILD" >> $GITHUB_ENV
                   echo "TYPE_OF_BUILD=$TYPE_OF_BUILD" >> $GITHUB_ENV
                   echo "Pushed a tag - release build"
             - name: Setup PHP with PECL extension
@@ -68,7 +64,7 @@ jobs:
             - name: Upload artifacts
               uses: actions/upload-artifact@v4
               with:
-                  name: ${{ env.ENV_ARTIFACT_NAME }}
+                  name: biznisbox
                   include-hidden-files: true # Include hidden files in the artifact (fix for .env .gitignore ...)
                   path: ${{ github.workspace }}/
     release:
@@ -84,7 +80,7 @@ jobs:
               uses: ncipollo/release-action@v1
               with:
                   allowUpdates: true
-                  artifacts: ${{ github.workspace }}/release.zip
+                  artifacts: ${{ github.workspace }}/biznisbox.zip
                   name: ${{ github.ref_name }}
                   draft: true
                   tag: ${{ github.ref_name }}
@@ -95,14 +91,15 @@ jobs:
               if: github.event_name == 'schedule'
               uses: ncipollo/release-action@v1
               with:
-                  tag: nightly-${{ github.run_id }}
+                  tag: dev
                   allowUpdates: true
-                  name: BiznisBox Nightly Build
-                  artifacts: ${{ github.workspace }}/nightly.zip
+                  name: BiznisBox Dev Build
+                  artifacts: ${{ github.workspace }}/biznisbox.zip
                   draft: true
                   body: |
-                      This is a nightly build of BiznisBox.
-                      It includes the latest changes from the main branch.
+                        This is a nightly build of BiznisBox.
+                        It includes the latest changes from the main branch.
+                        Run ID: ${{ github.run_id }}
             - name: Create dev release
               if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && !startsWith(github.ref, 'refs/tags/'))
               uses: ncipollo/release-action@v1
@@ -110,14 +107,9 @@ jobs:
                   tag: dev
                   allowUpdates: true
                   name: BiznisBox Dev Build
-                  artifacts: ${{ github.workspace }}/development.zip
+                  artifacts: ${{ github.workspace }}/biznisbox.zip
                   draft: true
                   body: |
                       This is a development build of BiznisBox.
                       It includes the latest changes from the main branch.
-            - name: Notify about the build
-              run: |
-                  echo "Build completed successfully!"
-                  echo "Build Type: ${{ env.TYPE_OF_BUILD }}"
-                  echo "Artifact Name: ${{ env.ENV_ARTIFACT_NAME }}"
-                  echo "SHA: ${{ github.sha }}"
+                      Run ID: ${{ github.run_id }}
