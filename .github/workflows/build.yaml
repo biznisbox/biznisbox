@@ -74,8 +74,8 @@ jobs:
             - name: Create ZIP archive
               run: |
                   cd ${{ github.workspace }}
-                  zip -r biznisbox.zip . -x .git\* .github\* .env .editorconfig .gitattributes .gitignore tailwind.config.js postcss.config.js phpunit.xml version crowdin.yml install.lock
-                  tar -czf biznisbox.tar.gz . --exclude='.git' --exclude='.github' --exclude='.env' --exclude='.editorconfig' --exclude='.gitattributes' --exclude='.gitignore' --exclude='tailwind.config.js' --exclude='postcss.config.js' --exclude='phpunit.xml' --exclude='version' --exclude='crowdin.yml' --exclude='install.lock'
+                  zip -r biznisbox.zip . 
+                  tar -czf biznisbox.tar.gz . 
             - name: Create release
               if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
               uses: softprops/action-gh-release@v1
