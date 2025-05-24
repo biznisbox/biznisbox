@@ -49,6 +49,10 @@ if [ ! -f "$ENV_FILE" ]; then
     # App demo mode
     sed -i "s|^APP_DEMO_MODE=.*|APP_DEMO_MODE=${APP_DEMO_MODE:-false}|g" "$ENV_FILE"
 
+    if [ "${APP_DEMO_MODE}" = "true" ]; then
+        sed -i "s|^MAIL_MAILER=.*|MAIL_MAILER=log|g" "$ENV_FILE"
+    fi
+
     echo ".env file generated."
 else
     echo ".env file already exists, skipping generation."
