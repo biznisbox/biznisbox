@@ -1205,7 +1205,9 @@
             "no_transaction_categories": "Nebyly nalezeny žádné kategorie transakcí",
             "no_contract_types": "Nebyly nalezeny žádné typy smluv",
             "delete_category_ask": "Jste si jisti, že chcete odstranit tuto položku pro sběr dat?",
-            "delete_category_success": "Položka sběru dat byla úspěšně odstraněna"
+            "delete_category_success": "Položka sběru dat byla úspěšně odstraněna",
+            "product_categories": "Kategorie produktů",
+            "no_product_categories": "Nebyly nalezeny žádné kategorie produktů"
         }
     },
     "month": {
