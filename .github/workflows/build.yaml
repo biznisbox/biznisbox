@@ -3,6 +3,9 @@ on:
     push:
         branches:
             - main
+        tags:
+            - v*
+    workflow_dispatch:
     schedule:
         # Every week on Sunday at midnight
         - cron: '0 0 * * 0'
@@ -32,10 +35,18 @@ jobs:
                   echo "ENV_ARTIFACT_NAME=$TYPE_OF_BUILD" >> $GITHUB_ENV
                   echo "TYPE_OF_BUILD=$TYPE_OF_BUILD" >> $GITHUB_ENV
                   echo "Pushed to main - production build"
+            - name: Setup build type - release
+              if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+              env:
+                  TYPE_OF_BUILD: 'release'
+              run: |
+                  echo "ENV_ARTIFACT_NAME=$TYPE_OF_BUILD" >> $GITHUB_ENV
+                  echo "TYPE_OF_BUILD=$TYPE_OF_BUILD" >> $GITHUB_ENV
+                  echo "Pushed a tag - release build"
             - name: Setup PHP with PECL extension
               uses: shivammathur/setup-php@v2
               with:
-                  php-version: '8.3'
+                  php-version: '8.4'
                   extensions: mbstring, intl, gd, pdo_mysql, zip, exif, pcntl, bcmath, soap, imagick, xdebug, opcache, imagick
                   tools: composer:v2
             - name: Install Composer dependencies
@@ -60,3 +71,48 @@ jobs:
                   name: ${{ env.ENV_ARTIFACT_NAME }}
                   include-hidden-files: true # Include hidden files in the artifact (fix for .env .gitignore ...)
                   path: ${{ github.workspace }}/
+            - name: Create ZIP archive
+              run: |
+                  cd ${{ github.workspace }}
+                  zip -r biznisbox.zip . -x .git\* .github\* .env .editorconfig .gitattributes .gitignore tailwind.config.js postcss.config.js phpunit.xml version crowdin.yml install.lock
+                  tar -czf biznisbox.tar.gz . --exclude='.git' --exclude='.github' --exclude='.env' --exclude='.editorconfig' --exclude='.gitattributes' --exclude='.gitignore' --exclude='tailwind.config.js' --exclude='postcss.config.js' --exclude='phpunit.xml' --exclude='version' --exclude='crowdin.yml' --exclude='install.lock'
+            - name: Create release
+              if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+              uses: softprops/action-gh-release@v1
+              with:
+                  tag_name: ${{ github.ref_name }}
+                  files: |
+                      ${{ github.workspace }}/biznisbox.zip
+                      ${{ github.workspace }}/biznisbox.tar.gz
+                  draft: true
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Create nightly release
+              if: github.event_name == 'schedule'
+              uses: softprops/action-gh-release@v1
+              with:
+                  tag_name: nightly
+                  files: |
+                      ${{ github.workspace }}/biznisbox.zip
+                      ${{ github.workspace }}/biznisbox.tar.gz
+                  draft: true
+                  body: |
+                      This is a nightly build of BiznisBox. It is not intended for production use.
+                      Please use the latest stable release for production environments.
+                  prerelease: true
+            - name: Create dev release
+              if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && !startsWith(github.ref, 'refs/tags/'))
+              uses: softprops/action-gh-release@v1
+              with:
+                  tag_name: dev
+                  files: |
+                      ${{ github.workspace }}/biznisbox.zip
+                      ${{ github.workspace }}/biznisbox.tar.gz
+                  draft: true
+                  prerelease: true
+            - name: Notify about the build
+              run: |
+                  echo "Build completed successfully!"
+                  echo "Build Type: ${{ env.TYPE_OF_BUILD }}"
+                  echo "Artifact Name: ${{ env.ENV_ARTIFACT_NAME }}"
+                  echo "SHA: ${{ github.sha }}"

@@ -72,8 +72,7 @@ RUN apk add --no-cache \
         libxml2 \
         su-exec \
         oniguruma \
-        sendmail \
-        zip unzip git curl
+        sendmail 
 
 COPY --from=app_build /usr/local/etc/php/conf.d/ /usr/local/etc/php/conf.d/
 COPY --from=app_build /usr/local/lib/php/extensions/ /usr/local/lib/php/extensions/
