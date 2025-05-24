@@ -13,23 +13,42 @@ if [ ! -f "$ENV_FILE" ]; then
 
     cp "$ENV_EXAMPLE_FILE" "$ENV_FILE"
 
+    # Basic environment variable substitution
     sed -i "s|^APP_NAME=.*|APP_NAME=${APP_NAME:-BiznisBox}|g" "$ENV_FILE"
     sed -i "s|^APP_ENV=.*|APP_ENV=${APP_ENV:-production}|g" "$ENV_FILE"
     sed -i "s|^APP_DEBUG=.*|APP_DEBUG=${APP_DEBUG:-false}|g" "$ENV_FILE" 
     sed -i "s|^APP_URL=.*|APP_URL=${APP_URL:-http://localhost}|g" "$ENV_FILE"
 
+    # APP_KEY
     if [ -n "${APP_KEY}" ]; then
         escaped_app_key=$(printf '%s\n' "${APP_KEY}" | sed -e 's/[\/&]/\\&/g')
         sed -i "s|^APP_KEY=.*|APP_KEY=${escaped_app_key}|g" "$ENV_FILE"
     fi
 
+    # Database configuration
     sed -i "s|^APP_TIMEZONE=.*|APP_TIMEZONE=${APP_TIMEZONE:-UTC}|g" "$ENV_FILE"
+    sed -i "s|^DB_URL=.*|DB_URL=${DB_URL:-null}|g" "$ENV_FILE"
     sed -i "s|^DB_CONNECTION=.*|DB_CONNECTION=${DB_CONNECTION:-mysql}|g" "$ENV_FILE"
     sed -i "s|^DB_HOST=.*|DB_HOST=${DB_HOST:-db}|g" "$ENV_FILE"
     sed -i "s|^DB_PORT=.*|DB_PORT=${DB_PORT:-3306}|g" "$ENV_FILE"
     sed -i "s|^DB_DATABASE=.*|DB_DATABASE=${DB_DATABASE:-biznisbox}|g" "$ENV_FILE"
     sed -i "s|^DB_USERNAME=.*|DB_USERNAME=${DB_USERNAME:-biznisbox_user}|g" "$ENV_FILE"
     sed -i "s|^DB_PASSWORD=.*|DB_PASSWORD=${DB_PASSWORD:-password}|g" "$ENV_FILE"
+    sed -i "s|^CACHE_DRIVER=.*|CACHE_DRIVER=${CACHE_DRIVER:-file}|g" "$ENV_FILE"
+
+    # Email configuration
+    sed -i "s|^MAIL_MAILER=.*|MAIL_MAILER=${MAIL_MAILER:-log}|g" "$ENV_FILE"
+    sed -i "s|^MAIL_HOST=.*|MAIL_HOST=${MAIL_HOST:-mail}|g" "$ENV_FILE"
+    sed -i "s|^MAIL_PORT=.*|MAIL_PORT=${MAIL_PORT:-587}|g" "$ENV_FILE"
+    sed -i "s|^MAIL_USERNAME=.*|MAIL_USERNAME=${MAIL_USERNAME:-null}|g" "$ENV_FILE"
+    sed -i "s|^MAIL_PASSWORD=.*|MAIL_PASSWORD=${MAIL_PASSWORD:-null}|g" "$ENV_FILE"
+    sed -i "s|^MAIL_ENCRYPTION=.*|MAIL_ENCRYPTION=${MAIL_ENCRYPTION:-tls}|g" "$ENV_FILE"
+    sed -i "s|^MAIL_FROM_ADDRESS=.*|MAIL_FROM_ADDRESS=${MAIL_FROM_ADDRESS:-null}|g" "$ENV_FILE"
+    sed -i "s|^MAIL_FROM_NAME=.*|MAIL_FROM_NAME=${MAIL_FROM_NAME:-BiznisBox}|g" "$ENV_FILE"
+
+    # App demo mode
+    sed -i "s|^APP_DEMO_MODE=.*|APP_DEMO_MODE=${APP_DEMO_MODE:-false}|g" "$ENV_FILE"
+
     echo ".env file generated."
 else
     echo ".env file already exists, skipping generation."

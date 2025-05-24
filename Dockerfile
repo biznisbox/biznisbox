@@ -71,7 +71,9 @@ RUN apk add --no-cache \
         freetype \
         libxml2 \
         su-exec \
-        oniguruma 
+        oniguruma \
+        sendmail \
+        zip unzip git curl
 
 COPY --from=app_build /usr/local/etc/php/conf.d/ /usr/local/etc/php/conf.d/
 COPY --from=app_build /usr/local/lib/php/extensions/ /usr/local/lib/php/extensions/
