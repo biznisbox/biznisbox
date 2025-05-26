@@ -34,7 +34,6 @@ if [ ! -f "$ENV_FILE" ]; then
     sed -i "s|^DB_DATABASE=.*|DB_DATABASE=${DB_DATABASE:-biznisbox}|g" "$ENV_FILE"
     sed -i "s|^DB_USERNAME=.*|DB_USERNAME=${DB_USERNAME:-biznisbox_user}|g" "$ENV_FILE"
     sed -i "s|^DB_PASSWORD=.*|DB_PASSWORD=${DB_PASSWORD:-password}|g" "$ENV_FILE"
-    sed -i "s|^CACHE_DRIVER=.*|CACHE_DRIVER=${CACHE_DRIVER:-file}|g" "$ENV_FILE"
 
     # Email configuration
     sed -i "s|^MAIL_MAILER=.*|MAIL_MAILER=${MAIL_MAILER:-log}|g" "$ENV_FILE"
@@ -60,6 +59,12 @@ else
     echo ".env file already exists, skipping generation."
 fi
 
+# Set ownership and permissions
+chown -R www-data:www-data /var/www/html
+chmod -R 755 /var/www/html
+# Ensure the .env file is readable by www-data
+chmod 644 "$ENV_FILE"
+# Generate APP_KEY if not set
 current_app_key=$(grep '^APP_KEY=' "$ENV_FILE" | cut -d '=' -f2-)
 if [ -z "${current_app_key}" ]; then
     echo "APP_KEY is empty in .env, generating new key..."
