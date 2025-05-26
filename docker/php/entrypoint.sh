@@ -47,6 +47,7 @@ if [ ! -f "$ENV_FILE" ]; then
 
     # App demo mode
     sed -i "s|^APP_DEMO_MODE=.*|APP_DEMO_MODE=${APP_DEMO_MODE:-false}|g" "$ENV_FILE"
+    sed -i "s|^QUEUE_CONNECTION=.*|QUEUE_CONNECTION=${QUEUE_CONNECTION:-database}|g" "$ENV_FILE"
 
     if [ "${APP_DEMO_MODE}" = "true" ]; then
         sed -i "s|^MAIL_MAILER=.*|MAIL_MAILER=log|g" "$ENV_FILE"
@@ -64,6 +65,20 @@ chown -R www-data:www-data /var/www/html
 chmod -R 755 /var/www/html
 # Ensure the .env file is readable by www-data
 chmod 644 "$ENV_FILE"
+
+# Storage directory setup link php artisan storage:link
+if [ -d /var/www/html/storage ]; then
+    echo "Setting up storage directory..."
+    if [ "$(whoami)" = 'root' ]; then
+        su-exec www-data php artisan storage:link --force --no-interaction
+    else
+        php artisan storage:link --force --no-interaction
+    fi
+    echo "Storage directory setup complete."
+else
+    echo "Storage directory does not exist, skipping setup."
+fi
+
 # Generate APP_KEY if not set
 current_app_key=$(grep '^APP_KEY=' "$ENV_FILE" | cut -d '=' -f2-)
 if [ -z "${current_app_key}" ]; then
