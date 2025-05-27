@@ -1090,7 +1090,8 @@
             "default_time_format": "Standard Tidsformat",
             "default_datetime_format": "Standard Datotidsformat",
             "show_barcode_on_documents": "Vis stregkode på dokumenter",
-            "week_start": "Uge Startdag"
+            "week_start": "Uge Startdag",
+            "exchange_rate_provider": "Udbyder Af Valutakurs"
         },
         "taxes": {
             "title": "Moms Priser",
