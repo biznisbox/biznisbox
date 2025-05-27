@@ -1090,7 +1090,8 @@
             "default_time_format": "Förvalt tidsformat",
             "default_datetime_format": "Förvalt datumformat",
             "show_barcode_on_documents": "Visa streckkod på dokument",
-            "week_start": "Startdag för veckan"
+            "week_start": "Startdag för veckan",
+            "exchange_rate_provider": "Växelkurs-leverantör"
         },
         "taxes": {
             "title": "Skattesatser",
