@@ -1090,7 +1090,8 @@
             "default_time_format": "Privzeti format časa",
             "default_datetime_format": "Privzeti format datuma in časa",
             "show_barcode_on_documents": "Prikaži črtno kodo na dokumentih",
-            "week_start": "Dan začetka tedna"
+            "week_start": "Dan začetka tedna",
+            "exchange_rate_provider": "Exchange Rate Provider"
         },
         "taxes": {
             "title": "Davčne stopnje",
