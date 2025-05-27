@@ -1090,7 +1090,8 @@
             "default_time_format": "Προεπιλεγμένη Μορφή Ώρας",
             "default_datetime_format": "Προεπιλεγμένη Μορφή Ημερομηνίας",
             "show_barcode_on_documents": "Εμφάνιση barcode στα έγγραφα",
-            "week_start": "Ημέρα Έναρξης Εβδομάδας"
+            "week_start": "Ημέρα Έναρξης Εβδομάδας",
+            "exchange_rate_provider": "Πάροχος Συναλλαγματικών Ισοτιμιών"
         },
         "taxes": {
             "title": "Φορολογικοί Συντελεστές",
