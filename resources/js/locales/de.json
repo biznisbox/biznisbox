@@ -1090,7 +1090,8 @@
             "default_time_format": "Standard-Zeitformat",
             "default_datetime_format": "Standardformat für Datumszeit",
             "show_barcode_on_documents": "Barcode auf Dokumenten anzeigen",
-            "week_start": "Wochentag"
+            "week_start": "Wochentag",
+            "exchange_rate_provider": "Wechselkurs-Anbieter"
         },
         "taxes": {
             "title": "Steuersätze",
