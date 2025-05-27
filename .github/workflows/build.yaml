@@ -102,9 +102,9 @@ jobs:
                   artifacts: ${{ github.workspace }}/biznisbox.zip
                   draft: true
                   body: |
-                        This is a nightly build of BiznisBox.
-                        It includes the latest changes from the main branch.
-                        Run ID: ${{ github.run_id }}
+                      This is a nightly build of BiznisBox.
+                      It includes the latest changes from the main branch.
+                      Run ID: ${{ github.run_id }}
             - name: Create dev release
               if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && !startsWith(github.ref, 'refs/tags/'))
               uses: ncipollo/release-action@v1

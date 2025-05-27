@@ -48,7 +48,8 @@ if [ ! -f "$ENV_FILE" ]; then
     # App demo mode
     sed -i "s|^APP_DEMO_MODE=.*|APP_DEMO_MODE=${APP_DEMO_MODE:-false}|g" "$ENV_FILE"
     sed -i "s|^QUEUE_CONNECTION=.*|QUEUE_CONNECTION=${QUEUE_CONNECTION:-database}|g" "$ENV_FILE"
-
+    sed -i "s|^JWT_SECRET=.*|JWT_SECRET=${JWT_SECRET:-123456789012345678901234567890123456789012345678901234567890}|g" "$ENV_FILE"
+    
     if [ "${APP_DEMO_MODE}" = "true" ]; then
         sed -i "s|^MAIL_MAILER=.*|MAIL_MAILER=log|g" "$ENV_FILE"
     fi
@@ -104,6 +105,15 @@ if [ "${APP_MODE}" = "demo" ] || [ "${APP_MODE}" = "development" ]; then
     echo "Composer installed."
 else
     echo "Skipping Composer installation (APP_MODE is not 'demo' or 'development')."
+fi
+
+# Run migrations and seed the database 
+if [ "$(whoami)" = 'root' ]; then
+    su-exec www-data php artisan migrate --force --no-interaction
+    su-exec www-data php artisan db:seed --class=ProductionSeeder --force --no-interaction
+else
+    php artisan migrate --force --no-interaction
+    php artisan db:seed --force --no-interaction
 fi
 
 echo "Container setup complete. Executing command: $@"

@@ -1090,7 +1090,8 @@
             "default_time_format": "Default Time Format",
             "default_datetime_format": "Default Datetime Format",
             "show_barcode_on_documents": "Show barcode on documents",
-            "week_start": "Week Start Day"
+            "week_start": "Week Start Day",
+            "exchange_rate_provider": "Exchange Rate Provider"
         },
         "taxes": {
             "title": "Tax Rates",

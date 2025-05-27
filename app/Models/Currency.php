@@ -40,43 +40,6 @@ class Currency extends Model implements Auditable
         return ['Currencies'];
     }
 
-    public function liveUpdateCurrencyRate()
-    {
-        if (!settings('default_currency') == 'EUR') {
-            return [
-                'message' => __('responses.default_currency_must_be_eur'),
-                'status' => false,
-            ];
-        }
-        $currencies = $this->all();
-        foreach ($currencies as $currency) {
-            $rate = $this->getExchangeRateByECB($currency->code);
-            $this->where('id', $currency->id)->update(['exchange_rate' => $rate]);
-        }
-        $this->where('code', 'EUR')->update(['exchange_rate' => 1]);
-        return [
-            'message' => __('responses.currency_rate_updated'),
-            'status' => true,
-        ];
-    }
-
-    private function getExchangeRateByECB($code = null)
-    {
-        $url = 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml';
-        $xml = simplexml_load_file($url);
-
-        $json = json_encode($xml);
-
-        $array = json_decode($json, true);
-
-        foreach ($array['Cube']['Cube']['Cube'] as $key => $value) {
-            if ($value['@attributes']['currency'] == $code) {
-                return $value['@attributes']['rate'];
-            }
-        }
-        return true;
-    }
-
     public function getCurrencyRate($from, $to)
     {
         $currency = $this->where('code', $from)->first();
