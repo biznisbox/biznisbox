@@ -1090,7 +1090,8 @@
             "default_time_format": "Alapértelmezett időformátum",
             "default_datetime_format": "Alapértelmezett dátum/idő formátum",
             "show_barcode_on_documents": "Vonalkód megjelenítése az iratokon",
-            "week_start": "Week Start Day"
+            "week_start": "Week Start Day",
+            "exchange_rate_provider": "Exchange Rate Provider"
         },
         "taxes": {
             "title": "Adókulcsok",
