@@ -1090,7 +1090,8 @@
             "default_time_format": "Ajan Oletusmuoto",
             "default_datetime_format": "Oletus Päivämäärä Muoto",
             "show_barcode_on_documents": "Näytä viivakoodi asiakirjoissa",
-            "week_start": "Viikon Aloituspäivä"
+            "week_start": "Viikon Aloituspäivä",
+            "exchange_rate_provider": "Valuuttakurssin Tarjoaja"
         },
         "taxes": {
             "title": "Verot",
