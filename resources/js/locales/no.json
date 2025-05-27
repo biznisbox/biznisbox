@@ -1090,7 +1090,8 @@
             "default_time_format": "Standard klokkeslettformat",
             "default_datetime_format": "Standard datoformat",
             "show_barcode_on_documents": "Vis strekkode på dokumenter",
-            "week_start": "Ukens startdag"
+            "week_start": "Ukens startdag",
+            "exchange_rate_provider": "Valutakurs leverandør"
         },
         "taxes": {
             "title": "Mva satser",
