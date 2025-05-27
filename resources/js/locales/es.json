@@ -1090,7 +1090,8 @@
             "default_time_format": "Formato de hora por defecto",
             "default_datetime_format": "Formato de fecha por defecto",
             "show_barcode_on_documents": "Mostrar código de barras en documentos",
-            "week_start": "Día de inicio de semana"
+            "week_start": "Día de inicio de semana",
+            "exchange_rate_provider": "Proveedor de tipo de cambio"
         },
         "taxes": {
             "title": "Impuestos",
