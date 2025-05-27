@@ -1090,7 +1090,8 @@
             "default_time_format": "Формат времени по умолчанию",
             "default_datetime_format": "Формат по умолчанию",
             "show_barcode_on_documents": "Показывать штрих-код на документах",
-            "week_start": "День начала недели"
+            "week_start": "День начала недели",
+            "exchange_rate_provider": "Поставщик обменного курса"
         },
         "taxes": {
             "title": "Налоговые ставки",
