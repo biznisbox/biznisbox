@@ -1090,7 +1090,8 @@
             "default_time_format": "Standaard Tijdsformaat",
             "default_datetime_format": "Standaard Datumtijd Formaat",
             "show_barcode_on_documents": "Toon streepjescode op documenten",
-            "week_start": "Begindag week"
+            "week_start": "Begindag week",
+            "exchange_rate_provider": "Wisselkoers Provider"
         },
         "taxes": {
             "title": "BTW tarieven",
