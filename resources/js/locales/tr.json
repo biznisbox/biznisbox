@@ -1090,7 +1090,8 @@
             "default_time_format": "Varsayılan Saat Formatı",
             "default_datetime_format": "Varsayılan Tarih Saat Formatı",
             "show_barcode_on_documents": "Belgelerde barkod göster",
-            "week_start": "Week Start Day"
+            "week_start": "Week Start Day",
+            "exchange_rate_provider": "Exchange Rate Provider"
         },
         "taxes": {
             "title": "Vergi Oranları",
