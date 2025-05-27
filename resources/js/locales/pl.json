@@ -1090,7 +1090,8 @@
             "default_time_format": "Domyślny format czasu",
             "default_datetime_format": "Domyślny format daty",
             "show_barcode_on_documents": "Pokaż kod kreskowy na dokumentach",
-            "week_start": "Dzień początkowy tygodnia"
+            "week_start": "Dzień początkowy tygodnia",
+            "exchange_rate_provider": "Dostawca kursu wymiany walut"
         },
         "taxes": {
             "title": "Stawki podatku",
