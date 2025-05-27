@@ -1090,7 +1090,8 @@
             "default_time_format": "Format de l'heure par défaut",
             "default_datetime_format": "Format de date par défaut",
             "show_barcode_on_documents": "Afficher le code-barres sur les documents",
-            "week_start": "Jour de début de la semaine"
+            "week_start": "Jour de début de la semaine",
+            "exchange_rate_provider": "Fournisseur de taux de change"
         },
         "taxes": {
             "title": "Taux de taxe",
