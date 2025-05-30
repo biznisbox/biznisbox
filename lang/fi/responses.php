@@ -115,4 +115,5 @@ return [
     'invalid_payment_id' => 'Virheellinen maksutunnus',
     'payment_successful' => 'Maksu onnistui',
     'payment_failed' => 'Maksu epäonnistui',
+    'invalid_signature' => 'Virheellinen allekirjoitus tai vanhentunut',
 ];
