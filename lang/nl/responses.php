@@ -115,4 +115,5 @@ return [
     'invalid_payment_id' => 'Ongeldige betalings-ID',
     'payment_successful' => 'Betaling succesvol',
     'payment_failed' => 'Betaling mislukt',
+    'invalid_signature' => 'Ongeldige handtekening of verlopen',
 ];
