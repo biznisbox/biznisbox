@@ -115,4 +115,5 @@ return [
     'invalid_payment_id' => 'Neplatné ID platby',
     'payment_successful' => 'Platba úspěšná',
     'payment_failed' => 'Platba se nezdařila',
+    'invalid_signature' => 'Neplatný podpis nebo vypršela platnost',
 ];
