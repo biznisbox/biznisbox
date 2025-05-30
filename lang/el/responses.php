@@ -115,4 +115,5 @@ return [
     'invalid_payment_id' => 'Μη έγκυρο ID πληρωμής',
     'payment_successful' => 'Επιτυχής πληρωμή',
     'payment_failed' => 'Η πληρωμή απέτυχε',
+    'invalid_signature' => 'Μη έγκυρη υπογραφή ή έχει λήξει',
 ];
