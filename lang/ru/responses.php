@@ -115,4 +115,5 @@ return [
     'invalid_payment_id' => 'Неверный ID платежа',
     'payment_successful' => 'Платеж выполнен',
     'payment_failed' => 'Платеж не удался',
+    'invalid_signature' => 'Неверная подпись или просрочена',
 ];
