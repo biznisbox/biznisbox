@@ -115,4 +115,5 @@ return [
     'invalid_payment_id' => 'Nieprawidłowy identyfikator płatności',
     'payment_successful' => 'Płatność zakończona powodzeniem',
     'payment_failed' => 'Płatność nie powiodła się',
+    'invalid_signature' => 'Nieprawidłowy podpis lub wygasł',
 ];
