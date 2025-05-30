@@ -115,4 +115,5 @@ return [
     'invalid_payment_id' => 'Неправильний ID платежу',
     'payment_successful' => 'Оплата пройшла успішно',
     'payment_failed' => 'Не вдалося оплатити',
+    'invalid_signature' => 'Неприпустимий підпис або він закінчився',
 ];
