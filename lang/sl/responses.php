@@ -115,5 +115,5 @@ return [
     'invalid_payment_id' => 'Neveljaven ID plačila',
     'payment_successful' => 'Plačilo uspešno',
     'payment_failed' => 'Plačila ni bilo mogoče opraviti',
-    'invalid_signature' => 'Invalid signature or expired',
+    'invalid_signature' => 'Podpis je neveljaven ali je potekel',
 ];
