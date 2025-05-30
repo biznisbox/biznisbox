@@ -115,4 +115,5 @@ return [
     'invalid_payment_id' => 'ID pagamento non valido',
     'payment_successful' => 'Pagamento riuscito',
     'payment_failed' => 'Pagamento non riuscito',
+    'invalid_signature' => 'Firma non valida o scaduta',
 ];
