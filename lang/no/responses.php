@@ -115,4 +115,5 @@ return [
     'invalid_payment_id' => 'Ugyldig betalings-ID',
     'payment_successful' => 'Vellykket betaling',
     'payment_failed' => 'Betaling mislyktes',
+    'invalid_signature' => 'Ugyldig signatur eller utløpt',
 ];
