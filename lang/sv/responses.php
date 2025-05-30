@@ -115,4 +115,5 @@ return [
     'invalid_payment_id' => 'Ogiltigt betalnings-ID',
     'payment_successful' => 'Betalning slutförd',
     'payment_failed' => 'Betalningen misslyckades',
+    'invalid_signature' => 'Ogiltig signatur eller förfallen',
 ];
