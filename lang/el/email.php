@@ -49,8 +49,7 @@ return [
     'login_browser' => 'Περιηγητής: :browser',
     'login_os' => 'OS: :os',
     'login_date' => 'Ημερομηνία και ώρα: :date',
-    'if_this_was_not_you' =>
-        'Εάν δεν είστε εσείς, παρακαλούμε να αλλάξετε αμέσως τον κωδικό πρόσβασής σας και επικοινωνήστε με το διαχειριστή.',
+    'if_this_was_not_you' => 'Εάν δεν είστε εσείς, παρακαλούμε να αλλάξετε αμέσως τον κωδικό πρόσβασής σας και επικοινωνήστε με το διαχειριστή.',
     'personal_access_token_created' => 'Το Προσωπικό Διακριτικό Πρόσβασης Δημιουργήθηκε',
     'subject_personal_access_token_created' => 'Το Προσωπικό Διακριτικό Πρόσβασης Δημιουργήθηκε',
     'new_personal_access_token_generated' => 'Ένα νέο προσωπικό διακριτικό πρόσβασης έχει δημιουργηθεί στο λογαριασμό σας.',
@@ -58,6 +57,13 @@ return [
     'personal_access_token_details' => 'Προσωπικές Λεπτομέρειες Διακριτικού Πρόσβασης',
     'personal_access_token_name' => 'Όνομα Διακριτικού',
     'personal_access_token_valid_until' => 'Έγκυρο Μέχρι',
-    'if_this_was_not_you_personal_access_token' =>
-        'Εάν δεν είστε εσείς, διαγράψτε αμέσως το διακριτικό και επικοινωνήστε με το διαχειριστή.',
+    'if_this_was_not_you_personal_access_token' => 'Εάν δεν είστε εσείς, διαγράψτε αμέσως το διακριτικό και επικοινωνήστε με το διαχειριστή.',
+    'subject_support_ticket' => 'Ειδοποίηση αιτήματος υποστήριξης',
+    'new_support_ticket' => 'Έχει δημιουργηθεί ένα νέο εισιτήριο υποστήριξης.',
+    'support_ticket_details' => 'Λεπτομέρειες Αιτήματος Υποστήριξης',
+    'support_ticket_number' => 'Αριθμός: :number',
+    'support_ticket_status' => 'Κατάσταση: :status',
+    'support_ticket_subject' => 'Θέμα: :subject',
+    'click_on_the_button_below_to_view_ticket' => 'Κάντε κλικ στο παρακάτω κουμπί για να δείτε το εισιτήριο.',
+    'view_ticket' => 'Προβολή Αιτήματος',
 ];

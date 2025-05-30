@@ -58,4 +58,12 @@ return [
     'personal_access_token_name' => 'Nazwa tokenu',
     'personal_access_token_valid_until' => 'Ważny do',
     'if_this_was_not_you_personal_access_token' => 'Jeśli to nie Ty, usuń token natychmiast i skontaktuj się z administratorem.',
+    'subject_support_ticket' => 'Powiadomienie o zgłoszeniu',
+    'new_support_ticket' => 'Utworzono nowy bilet pomocniczy.',
+    'support_ticket_details' => 'Szczegóły zgłoszenia pomocy technicznej',
+    'support_ticket_number' => 'Numer: :number',
+    'support_ticket_status' => 'Status: :status',
+    'support_ticket_subject' => 'Temat: Temat',
+    'click_on_the_button_below_to_view_ticket' => 'Kliknij poniższy przycisk, aby wyświetlić zgłoszenie.',
+    'view_ticket' => 'Zobacz zgłoszenie',
 ];

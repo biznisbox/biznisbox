@@ -57,6 +57,13 @@ return [
     'personal_access_token_details' => 'Persönlicher Zugangs-Token Details',
     'personal_access_token_name' => 'Tokenname',
     'personal_access_token_valid_until' => 'Gültig bis',
-    'if_this_was_not_you_personal_access_token' =>
-        'Falls dies nicht Sie waren, löschen Sie bitte sofort das Token und wenden Sie sich an den Administrator.',
+    'if_this_was_not_you_personal_access_token' => 'Falls dies nicht Sie waren, löschen Sie bitte sofort das Token und wenden Sie sich an den Administrator.',
+    'subject_support_ticket' => 'Support-Ticket-Benachrichtigung',
+    'new_support_ticket' => 'Ein neues Support-Ticket wurde erstellt.',
+    'support_ticket_details' => 'Support-Ticket-Details',
+    'support_ticket_number' => 'Nummer: :number',
+    'support_ticket_status' => 'Status: Status',
+    'support_ticket_subject' => 'Betrifft: :subject',
+    'click_on_the_button_below_to_view_ticket' => 'Klicken Sie auf die Schaltfläche unten, um das Ticket anzuzeigen.',
+    'view_ticket' => 'Ticket ansehen',
 ];

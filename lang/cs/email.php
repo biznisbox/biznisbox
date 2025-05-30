@@ -58,4 +58,12 @@ return [
     'personal_access_token_name' => 'Název tokenu',
     'personal_access_token_valid_until' => 'Platné do',
     'if_this_was_not_you_personal_access_token' => 'Pokud jste to nebyli vy, odstraňte tento token okamžitě a kontaktujte správce.',
+    'subject_support_ticket' => 'Upozornění na tiket podpory',
+    'new_support_ticket' => 'Byl vytvořen nový tiket podpory.',
+    'support_ticket_details' => 'Detaily požadavku podpory',
+    'support_ticket_number' => 'Počet: :number',
+    'support_ticket_status' => 'Stav: :status',
+    'support_ticket_subject' => 'Předmět: :předmět',
+    'click_on_the_button_below_to_view_ticket' => 'Klikněte na tlačítko níže pro zobrazení tiketu.',
+    'view_ticket' => 'Zobrazit tiket',
 ];

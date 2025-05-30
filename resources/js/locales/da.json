@@ -1090,7 +1090,8 @@
             "default_time_format": "Standard Tidsformat",
             "default_datetime_format": "Standard Datotidsformat",
             "show_barcode_on_documents": "Vis stregkode på dokumenter",
-            "week_start": "Uge Startdag"
+            "week_start": "Uge Startdag",
+            "exchange_rate_provider": "Udbyder Af Valutakurs"
         },
         "taxes": {
             "title": "Moms Priser",
@@ -1205,7 +1206,9 @@
             "no_transaction_categories": "Ingen transaktionskategorier fundet",
             "no_contract_types": "Ingen aftaletyper fundet",
             "delete_category_ask": "Er du sikker på, at du vil slette dette dataindsamlingselement?",
-            "delete_category_success": "Dataindsamlingselement slettet succesfuldt"
+            "delete_category_success": "Dataindsamlingselement slettet succesfuldt",
+            "product_categories": "Produkt kategorier",
+            "no_product_categories": "Ingen produktkategorier fundet"
         }
     },
     "month": {

@@ -106,8 +106,7 @@ return [
     'signer_not_found_or_already_signed' => 'Signer hittades inte eller är redan signerad',
     'cannot_delete_signed_contract' => 'Kan inte ta bort undertecknat kontrakt',
     'cannot_update_signed_contract' => 'Kan inte uppdatera undertecknat kontrakt',
-    'enable_js_to_use_app' =>
-        'Vi beklagar, men den här appen fungerar inte ordentligt utan JavaScript aktiverat. Aktivera den för att fortsätta.',
+    'enable_js_to_use_app' => 'Vi beklagar, men den här appen fungerar inte ordentligt utan JavaScript aktiverat. Aktivera den för att fortsätta.',
     'cannot_delete_own_account' => 'Kan inte ta bort eget konto',
     'item_not_sent' => 'Objektet har inte skickats',
     'item_sent_successfully' => 'Objektet har skickats',
@@ -116,4 +115,5 @@ return [
     'invalid_payment_id' => 'Ogiltigt betalnings-ID',
     'payment_successful' => 'Betalning slutförd',
     'payment_failed' => 'Betalningen misslyckades',
+    'invalid_signature' => 'Ogiltig signatur eller förfallen',
 ];

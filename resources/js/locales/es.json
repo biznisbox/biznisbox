@@ -1090,7 +1090,8 @@
             "default_time_format": "Formato de hora por defecto",
             "default_datetime_format": "Formato de fecha por defecto",
             "show_barcode_on_documents": "Mostrar código de barras en documentos",
-            "week_start": "Día de inicio de semana"
+            "week_start": "Día de inicio de semana",
+            "exchange_rate_provider": "Proveedor de tipo de cambio"
         },
         "taxes": {
             "title": "Impuestos",
@@ -1205,7 +1206,9 @@
             "no_transaction_categories": "No se encontraron categorías de transacción",
             "no_contract_types": "No se encontraron tipos de contrato",
             "delete_category_ask": "¿Está seguro de que desea eliminar este elemento de recopilación de datos?",
-            "delete_category_success": "Elemento de recolección de datos eliminado correctamente"
+            "delete_category_success": "Elemento de recolección de datos eliminado correctamente",
+            "product_categories": "Categorías de productos",
+            "no_product_categories": "No se encontraron categorías de productos"
         }
     },
     "month": {

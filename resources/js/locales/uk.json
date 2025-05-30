@@ -1090,7 +1090,8 @@
             "default_time_format": "Формат часу за замовчуванням",
             "default_datetime_format": "Формат дати і часу за замовчуванням",
             "show_barcode_on_documents": "Показувати штрих-код на документах",
-            "week_start": "День початку тижня"
+            "week_start": "День початку тижня",
+            "exchange_rate_provider": "Постачальник обмінного курсу"
         },
         "taxes": {
             "title": "Податкові ставки",
@@ -1205,7 +1206,9 @@
             "no_transaction_categories": "Не знайдено категорій операцій",
             "no_contract_types": "Не знайдено жодного типу контрактів",
             "delete_category_ask": "Ви дійсно бажаєте видалити цей елемент збору даних?",
-            "delete_category_success": "Елемент збору даних успішно видалено"
+            "delete_category_success": "Елемент збору даних успішно видалено",
+            "product_categories": "Категорії товарів",
+            "no_product_categories": "Не знайдено категорій товарів"
         }
     },
     "month": {
