@@ -1091,7 +1091,7 @@
             "default_datetime_format": "Privzeti format datuma in časa",
             "show_barcode_on_documents": "Prikaži črtno kodo na dokumentih",
             "week_start": "Dan začetka tedna",
-            "exchange_rate_provider": "Exchange Rate Provider"
+            "exchange_rate_provider": "Ponudnik menjalnega tečaja"
         },
         "taxes": {
             "title": "Davčne stopnje",
