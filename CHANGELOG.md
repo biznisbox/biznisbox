@@ -1,3 +1,17 @@
+# 2.7.0
+## ✨ New Features and Enhancements
+- Introduced a new option for get exchange rates from the currency API (https://github.com/fawazahmed0/exchange-api).
+- Updates on the Docker build process to ensure compatibility with the latest changes.
+
+
+## 🧑‍💻 Development Updates
+- Updated the Dockerfile to use the latest PHP version and dependencies.
+- Improved the Docker build process to ensure a more efficient and streamlined setup.
+- Docker build images are now available on Docker Hub for easier deployment and testing and GitHub Packages.
+
+## 🌐 Localization
+- Updated translations with the latest contributions from Crowdin to support better multilingual usability.
+
 # 2.6.0
 
 ## ✨ New Features and Enhancements
