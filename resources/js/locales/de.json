@@ -1090,7 +1090,8 @@
             "default_time_format": "Standard-Zeitformat",
             "default_datetime_format": "Standardformat für Datumszeit",
             "show_barcode_on_documents": "Barcode auf Dokumenten anzeigen",
-            "week_start": "Wochentag"
+            "week_start": "Wochentag",
+            "exchange_rate_provider": "Wechselkurs-Anbieter"
         },
         "taxes": {
             "title": "Steuersätze",
@@ -1205,7 +1206,9 @@
             "no_transaction_categories": "Keine Transaktionskategorien gefunden",
             "no_contract_types": "Keine Vertragstypen gefunden",
             "delete_category_ask": "Sind Sie sicher, dass Sie dieses Datensammlungselement löschen möchten?",
-            "delete_category_success": "Datensammlungselement erfolgreich gelöscht"
+            "delete_category_success": "Datensammlungselement erfolgreich gelöscht",
+            "product_categories": "Produktkategorien",
+            "no_product_categories": "Keine Produktkategorien gefunden"
         }
     },
     "month": {

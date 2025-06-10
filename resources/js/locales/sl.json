@@ -1090,7 +1090,8 @@
             "default_time_format": "Privzeti format časa",
             "default_datetime_format": "Privzeti format datuma in časa",
             "show_barcode_on_documents": "Prikaži črtno kodo na dokumentih",
-            "week_start": "Dan začetka tedna"
+            "week_start": "Dan začetka tedna",
+            "exchange_rate_provider": "Ponudnik menjalnega tečaja"
         },
         "taxes": {
             "title": "Davčne stopnje",
@@ -1205,7 +1206,9 @@
             "no_transaction_categories": "Kategorije transakcij niso najdene",
             "no_contract_types": "Ni najdenih tipov pogodb",
             "delete_category_ask": "Ali ste prepričani, da želite izbrisati ta element šifrantov?",
-            "delete_category_success": "Element šifranta je bil uspešno izbrisan"
+            "delete_category_success": "Element šifranta je bil uspešno izbrisan",
+            "product_categories": "Kategorije izdelkov",
+            "no_product_categories": "Kategorije izdelkov niso najdene"
         }
     },
     "month": {

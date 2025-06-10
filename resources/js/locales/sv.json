@@ -1090,7 +1090,8 @@
             "default_time_format": "Förvalt tidsformat",
             "default_datetime_format": "Förvalt datumformat",
             "show_barcode_on_documents": "Visa streckkod på dokument",
-            "week_start": "Startdag för veckan"
+            "week_start": "Startdag för veckan",
+            "exchange_rate_provider": "Växelkurs-leverantör"
         },
         "taxes": {
             "title": "Skattesatser",
@@ -1205,7 +1206,9 @@
             "no_transaction_categories": "Inga transaktionskategorier hittades",
             "no_contract_types": "Inga kontraktstyper hittades",
             "delete_category_ask": "Är du säker på att du vill ta bort detta datainsamlingsobjekt?",
-            "delete_category_success": "Datainsamlingsobjektet har tagits bort"
+            "delete_category_success": "Datainsamlingsobjektet har tagits bort",
+            "product_categories": "Produktkategorier",
+            "no_product_categories": "Inga produktkategorier hittades"
         }
     },
     "month": {

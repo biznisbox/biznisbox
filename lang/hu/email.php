@@ -58,4 +58,12 @@ return [
     'personal_access_token_name' => 'Token Name',
     'personal_access_token_valid_until' => 'Valid Until',
     'if_this_was_not_you_personal_access_token' => 'If this was not you, please delete the token immediately and contact administrator.',
+    'subject_support_ticket' => 'Support ticket notification',
+    'new_support_ticket' => 'A new support ticket has been created.',
+    'support_ticket_details' => 'Support Ticket Details',
+    'support_ticket_number' => 'Number: :number',
+    'support_ticket_status' => 'Status: :status',
+    'support_ticket_subject' => 'Subject: :subject',
+    'click_on_the_button_below_to_view_ticket' => 'Click on the button below to view the ticket.',
+    'view_ticket' => 'View Ticket',
 ];

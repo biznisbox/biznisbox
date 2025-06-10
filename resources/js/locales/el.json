@@ -1090,7 +1090,8 @@
             "default_time_format": "Προεπιλεγμένη Μορφή Ώρας",
             "default_datetime_format": "Προεπιλεγμένη Μορφή Ημερομηνίας",
             "show_barcode_on_documents": "Εμφάνιση barcode στα έγγραφα",
-            "week_start": "Ημέρα Έναρξης Εβδομάδας"
+            "week_start": "Ημέρα Έναρξης Εβδομάδας",
+            "exchange_rate_provider": "Πάροχος Συναλλαγματικών Ισοτιμιών"
         },
         "taxes": {
             "title": "Φορολογικοί Συντελεστές",
@@ -1205,7 +1206,9 @@
             "no_transaction_categories": "Δεν βρέθηκαν κατηγορίες συναλλαγών",
             "no_contract_types": "Δεν βρέθηκαν τύποι συμβάσεων",
             "delete_category_ask": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το στοιχείο συλλογής δεδομένων?",
-            "delete_category_success": "Το στοιχείο συλλογής δεδομένων διαγράφηκε με επιτυχία"
+            "delete_category_success": "Το στοιχείο συλλογής δεδομένων διαγράφηκε με επιτυχία",
+            "product_categories": "Κατηγορίες προϊόντων",
+            "no_product_categories": "Δεν βρέθηκαν κατηγορίες προϊόντων"
         }
     },
     "month": {
