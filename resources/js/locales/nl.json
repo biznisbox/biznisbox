@@ -419,7 +419,8 @@
         "module": "Module",
         "parent_category": "Bovenliggende categorie",
         "icon": "Pictogram",
-        "additional_info": "Extra informatie"
+        "additional_info": "Extra informatie",
+        "client_portal": "Client Portaal"
     },
     "address_types": {
         "billing": "Facturering",
@@ -555,7 +556,8 @@
         "activities": "Activiteiten",
         "edit_activity": "Activiteit bewerken",
         "partner_activities": "Partner activiteiten",
-        "send_email": "E-mail verzenden"
+        "send_email": "E-mail verzenden",
+        "add_to_client_portal": "Toevoegen aan klantenportaal"
     },
     "partner_activity_types": {
         "call": "Oproepen",
@@ -1572,5 +1574,18 @@
         "finish_installation_description": "De installatie is voltooid. U kunt nu inloggen op uw account.",
         "go_to_login": "Ga naar login",
         "installation": "Installatie"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Dashboard",
+            "invoices": "Rekeningen",
+            "quotes": "Offertes",
+            "transactions": "Transacties",
+            "support": "Ondersteuning",
+            "contracts": "Contracten",
+            "partner_details": "Partner details"
+        },
+        "partner_details": "Partner details",
+        "dashboard": "Dashboard"
     }
 }
