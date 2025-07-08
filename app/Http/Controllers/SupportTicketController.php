@@ -202,6 +202,12 @@ class SupportTicketController extends Controller
         return api_response(null, __('responses.item_not_shared'), 400);
     }
 
+    /**
+     * Send ticket notification to contact
+     *
+     * @param  string  $id id of the support ticket
+     * @return array $ticket Support ticket
+     */
     public function sendTicketNotificationToContact(Request $request, $id)
     {
         $ticket = $this->supportTicketService->sendTicketNotificationToContact($id);

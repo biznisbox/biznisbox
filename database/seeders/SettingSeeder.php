@@ -123,6 +123,9 @@ class SettingSeeder extends Seeder
         // Set default currency
         Currency::firstOrCreate(['code' => 'EUR'], ['name' => 'Euro', 'symbol' => '€', 'exchange_rate' => 1, 'status' => 'active']);
 
+        // Set default exchange rate provider
+        Setting::firstOrCreate(['key' => 'exchange_rate_provider'], ['value' => 'ecb', 'type' => 'string', 'is_public' => 1]);
+
         // Seed default payment methods
         Category::firstOrCreate(
             ['additional_info' => 'paypal'],

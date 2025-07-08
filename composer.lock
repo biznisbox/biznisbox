@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6e36b898488ee4abbbd71c098ecc607",
+    "content-hash": "68d778038e7c074c78dbbba49ff1183e",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -1067,6 +1067,7 @@
                 }
             ],
             "time": "2025-06-16T00:02:10+00:00"
+
         },
         {
             "name": "fruitcake/php-cors",
@@ -6175,6 +6176,7 @@
                 "source": "https://github.com/ramsey/uuid/tree/4.9.0"
             },
             "time": "2025-06-25T14:20:11+00:00"
+
         },
         {
             "name": "sabberworm/php-css-parser",
@@ -6483,6 +6485,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/31c05679102c73f3b0d05790d2400182745a5615",
                 "reference": "31c05679102c73f3b0d05790d2400182745a5615",
+
                 "shasum": ""
             },
             "require": {
@@ -6545,6 +6548,7 @@
             "support": {
                 "issues": "https://github.com/spatie/laravel-permission/issues",
                 "source": "https://github.com/spatie/laravel-permission/tree/6.20.0"
+
             },
             "funding": [
                 {
@@ -6553,6 +6557,7 @@
                 }
             ],
             "time": "2025-06-05T07:33:07+00:00"
+
         },
         {
             "name": "spatie/laravel-webhook-server",
@@ -6838,6 +6843,7 @@
             ],
             "support": {
                 "source": "https://github.com/symfony/console/tree/v7.3.1"
+
             },
             "funding": [
                 {
@@ -6854,6 +6860,7 @@
                 }
             ],
             "time": "2025-06-27T19:55:54+00:00"
+
         },
         {
             "name": "symfony/css-selector",
@@ -6999,6 +7006,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/error-handler/zipball/35b55b166f6752d6aaf21aa042fc5ed280fce235",
                 "reference": "35b55b166f6752d6aaf21aa042fc5ed280fce235",
+
                 "shasum": ""
             },
             "require": {
@@ -8735,7 +8743,6 @@
             ],
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
-            "support": {
                 "source": "https://github.com/symfony/translation/tree/v7.3.1"
             },
             "funding": [
@@ -8918,6 +8925,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/var-dumper/zipball/6e209fbe5f5a7b6043baba46fe5735a4b85d0d42",
                 "reference": "6e209fbe5f5a7b6043baba46fe5735a4b85d0d42",
+            "time": "2025-05-24T14:28:13+00:00"
                 "shasum": ""
             },
             "require": {
@@ -9079,6 +9087,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/yaml/zipball/0c3555045a46ab3cd4cc5a69d161225195230edb",
                 "reference": "0c3555045a46ab3cd4cc5a69d161225195230edb",
+
                 "shasum": ""
             },
             "require": {
@@ -10338,6 +10347,7 @@
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.26"
+
             },
             "funding": [
                 {
@@ -10362,6 +10372,7 @@
                 }
             ],
             "time": "2025-07-04T05:58:21+00:00"
+
         },
         {
             "name": "sebastian/cli-parser",

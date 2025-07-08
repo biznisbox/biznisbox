@@ -90,9 +90,23 @@
                         />
                     </div>
 
-                    <div class="flex flex-col gap-2 mb-2">
-                        <label class="dark:text-surface-200">{{ $t('admin.general.show_barcode_on_documents') }} </label>
-                        <ToggleSwitch v-model="settings.show_barcode_on_documents" />
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div class="flex flex-col gap-2 mb-2">
+                            <label class="dark:text-surface-200">{{ $t('admin.general.show_barcode_on_documents') }} </label>
+                            <ToggleSwitch v-model="settings.show_barcode_on_documents" />
+                        </div>
+
+                        <SelectInput
+                            id="exchange_rate_provider_select"
+                            v-model="settings.exchange_rate_provider"
+                            :label="$t('admin.general.exchange_rate_provider')"
+                            :options="[
+                                { value: 'ecb', label: 'European Central Bank (ECB)' },
+                                { value: 'exchange-api', label: 'ExchangeRate-API' },
+                            ]"
+                            option-value="value"
+                            option-label="label"
+                        />
                     </div>
                 </form>
             </div>
