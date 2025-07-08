@@ -66,4 +66,10 @@ return [
     'support_ticket_subject' => 'Emne: :person',
     'click_on_the_button_below_to_view_ticket' => 'Klikk på knappen nedenfor for å se saken.',
     'view_ticket' => 'Vis sak',
+    'new_user_for_client_portal' => 'En ny bruker er opprettet for klientportalen.',
+    'client_portal_details' => 'Klientportal tilgangsdetaljer',
+    'client_portal_email' => 'Client Portal Email: :email',
+    'client_portal_password' => 'Klient Portal passord:',
+    'login_to_client_portal' => 'Logg inn på klient Portal',
+    'client_portal_notification_subject' => 'Varsling om klientportaltilgang',
 ];
