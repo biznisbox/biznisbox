@@ -1583,6 +1583,8 @@
             "support": "Support",
             "contracts": "Contracts",
             "partner_details": "Partner Details"
-        }
+        },
+        "partner_details": "Partner details",
+        "dashboard": "Dashboard"
     }
 }

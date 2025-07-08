@@ -30,21 +30,5 @@
         "permission": "client",
         "permissions": [],
         "to": "/client-portal/quotes"
-    },
-    {
-        "name": "client_portal.menu.contracts",
-        "meta": ["contracts"],
-        "icon": "fa fa-file-contract",
-        "permission": "client",
-        "permissions": [],
-        "to": "/client-portal/contracts"
-    },
-    {
-        "name": "client_portal.menu.support",
-        "meta": ["support"],
-        "icon": "fa fa-headset",
-        "permission": "client",
-        "permissions": [],
-        "to": "/client-portal/support"
     }
 ]

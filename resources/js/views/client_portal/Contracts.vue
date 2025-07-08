@@ -1,8 +1,6 @@
 <template>
     <DefaultLayout menu_type="client">
         <PageHeader :title="$t('client_portal.partner_details')" />
-
-        
     </DefaultLayout>
 </template>
 <script>

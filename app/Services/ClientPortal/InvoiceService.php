@@ -26,10 +26,10 @@ class InvoiceService
             })
             ->first();
 
-            // remove notes
-            if ($invoice) {
-                $invoice->notes = null;
-            }
+        // remove notes
+        if ($invoice) {
+            $invoice->notes = null;
+        }
 
         return $invoice;
     }

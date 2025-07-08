@@ -215,15 +215,20 @@ const routes = [
         client: true,
     }),
 
-    makeRoute('/client-portal/support', 'client-portal-support', () => import('../views/client_portal/Support.vue'), {  
+    makeRoute('/client-portal/support', 'client-portal-support', () => import('../views/client_portal/Support.vue'), {
         auth: false,
         client: true,
     }),
 
-    makeRoute('/client-portal/partner-details', 'client-portal-partner-details', () => import('../views/client_portal/PartnerDetails.vue'), {
-        auth: false,
-        client: true,
-    }),
+    makeRoute(
+        '/client-portal/partner-details',
+        'client-portal-partner-details',
+        () => import('../views/client_portal/PartnerDetails.vue'),
+        {
+            auth: false,
+            client: true,
+        }
+    ),
 
     // 404 - Not Found (Always keep this as the last route)
     {
@@ -238,6 +243,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+    console.log(`Navigating to: ${to.fullPath}`)
     const token = cookies.get('token')
     if (to.meta.auth && !to.meta.admin && !to.meta.client) {
         // Check if route requires auth

@@ -10,8 +10,6 @@
                 dataKey="id"
                 :rows="10"
                 :rowsPerPageOptions="[5, 10, 20, 50, 100]"
-                filter-display="menu"
-                v-model:filters="filters"
                 @row-dblclick="viewInvoiceNavigationClientPortal"
             >
                 <template #empty>
@@ -21,28 +19,17 @@
                     </div>
                 </template>
 
-                <Column field="number" :header="$t('form.number')">
-                    <template #filter="{ filterModel }">
-                        <InputText v-model="filterModel.value" type="text" placeholder="Search by number" />
-                    </template>
-                </Column>
+                <Column field="number" :header="$t('form.number')"> </Column>
 
                 <Column field="date" :header="$t('invoice.date_and_due_date')">
                     <template #body="{ data }">
                         <span>{{ formatDate(data.date) }}</span> <br />
                         <span>{{ formatDate(data.due_date) }}</span>
                     </template>
-                    <template #filter="{ filterModel }">
-                        <InputText v-model="filterModel.value" type="text" placeholder="Search by date" />
-                    </template>
                 </Column>
                 <Column field="total" :header="$t('form.total')">
                     <template #body="{ data }">
                         {{ formatMoney(data.total, data.currency) }}
-                    </template>
-
-                    <template #filter="{ filterModel }">
-                        <InputText v-model="filterModel.value" type="text" placeholder="Search by total" />
                     </template>
                 </Column>
                 <Column field="status" :header="$t('form.status')">
@@ -57,23 +44,6 @@
                         <Tag v-if="data.status === 'partial'" severity="warn">{{ $t('status.partial') }}</Tag>
                         <Tag v-if="data.status === 'overpaid'" severity="danger">{{ $t('status.overpaid') }}</Tag>
                     </template>
-                    <template #filter="{ filterModel }">
-                        <Select
-                            v-model="filterModel.value"
-                            :options="[
-                                { label: $t('status.paid'), value: 'paid' },
-                                { label: $t('status.unpaid'), value: 'unpaid' },
-                                { label: $t('status.overdue'), value: 'overdue' },
-                                { label: $t('status.draft'), value: 'draft' },
-                                { label: $t('status.sent'), value: 'sent' },
-                                { label: $t('status.refunded'), value: 'refunded' },
-                                { label: $t('status.cancelled'), value: 'cancelled' },
-                            ]"
-                            option-label="label"
-                            option-value="value"
-                            show-clear
-                        />
-                    </template>
                 </Column>
                 <template #paginatorstart>
                     <Button icon="fa fa-sync" @click="getInvoices" id="refresh_button" />
@@ -85,7 +55,7 @@
 
 <script>
 export default {
-    name: 'ClientPortalInvoices',
+    name: 'ClientPortalInvoicesPage',
     data() {
         return {
             invoices: null,

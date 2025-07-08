@@ -1,6 +1,5 @@
 <template>
     <DefaultLayout menu_type="client">
-
         <PageHeader :title="invoice.number" />
 
         <LoadingScreen :blocked="loadingData">
@@ -166,15 +165,19 @@
             </div>
 
             <div id="function_buttons" class="flex justify-end mt-4 gap-2">
-                <Button id="cancel_button" :label="$t('basic.close')" icon="fa fa-times" severity="secondary" @click="goTo('/client-portal/invoices')" />
+                <Button
+                    id="cancel_button"
+                    :label="$t('basic.close')"
+                    icon="fa fa-times"
+                    severity="secondary"
+                    @click="goTo('/client-portal/invoices')"
+                />
             </div>
         </LoadingScreen>
     </DefaultLayout>
 </template>
 
 <script>
-import LoadingScreen from '@/components/LoadingScreen.vue'
-
 export default {
     name: 'ClientPortalViewInvoice',
     data() {

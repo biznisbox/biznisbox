@@ -38,8 +38,7 @@ use App\Http\Controllers\Client\ContractController as ClientContractController;
 use App\Http\Controllers\ClientPortal\DashboardController as ClientPortalDashboardController;
 use App\Http\Controllers\ClientPortal\InvoiceController as ClientPortalInvoiceController;
 use App\Http\Controllers\ClientPortal\QuoteController as ClientPortalQuoteController;
-use App\Http\Controllers\ClientPortal\SupportTicketController as ClientPortalSupportTicketController;
-use App\Http\Controllers\ClientPortal\ContractController as ClientPortalContractController;
+use App\Http\Controllers\ClientPortal\PartnerController as ClientPortalPartnerController;
 // Other
 use App\Http\Controllers\Install\InstallerController;
 use App\Http\Middleware\CheckIfInstalled;
@@ -383,6 +382,9 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/dashboard', [ClientPortalDashboardController::class, 'getDashboardData'])->name('getClientPortalDashboardData');
         Route::get('/invoices', [ClientPortalInvoiceController::class, 'getInvoices'])->name('getClientPortalInvoices');
         Route::get('/invoices/{id}', [ClientPortalInvoiceController::class, 'getInvoiceById'])->name('getClientPortalInvoice');
+        Route::get('/quotes', [ClientPortalQuoteController::class, 'getQuotes'])->name('getClientPortalQuotes');
+        Route::get('/quotes/{id}', [ClientPortalQuoteController::class, 'getQuoteById'])->name('getClientPortalQuote');
+        Route::get('/partner-details', [ClientPortalPartnerController::class, 'getPartnerDetails'])->name('getClientPortalPartnerDetails');
     });
 });
 
