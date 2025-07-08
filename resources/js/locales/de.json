@@ -419,7 +419,8 @@
         "module": "Modul",
         "parent_category": "Übergeordnete Kategorie",
         "icon": "Symbol",
-        "additional_info": "Zusätzliche Info"
+        "additional_info": "Zusätzliche Info",
+        "client_portal": "Kundenportal"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -555,7 +556,8 @@
         "activities": "Aktivitäten",
         "edit_activity": "Aktivität bearbeiten",
         "partner_activities": "Partneraktivitäten",
-        "send_email": "E-Mail senden"
+        "send_email": "E-Mail senden",
+        "add_to_client_portal": "Zum Kundenportal hinzufügen"
     },
     "partner_activity_types": {
         "call": "Anruf",
@@ -1572,5 +1574,18 @@
         "finish_installation_description": "Die Installation ist abgeschlossen. Sie können sich jetzt in Ihr Konto einloggen.",
         "go_to_login": "Zum Login",
         "installation": "Installation"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Dashboard",
+            "invoices": "Rechnungen",
+            "quotes": "Zitate",
+            "transactions": "Transaktionen",
+            "support": "Unterstützung",
+            "contracts": "Verträge",
+            "partner_details": "Partner-Details"
+        },
+        "partner_details": "Partner-Details",
+        "dashboard": "Dashboard"
     }
 }
