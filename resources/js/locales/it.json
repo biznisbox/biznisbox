@@ -419,7 +419,8 @@
         "module": "Modulo",
         "parent_category": "Categoria Genitore",
         "icon": "Icona",
-        "additional_info": "Informazioni Aggiuntive"
+        "additional_info": "Informazioni Aggiuntive",
+        "client_portal": "Portale Client"
     },
     "address_types": {
         "billing": "Fatturazione",
@@ -555,7 +556,8 @@
         "activities": "Attività",
         "edit_activity": "Modifica Attività",
         "partner_activities": "Attività Partner",
-        "send_email": "Invia email"
+        "send_email": "Invia email",
+        "add_to_client_portal": "Aggiungi al portale client"
     },
     "partner_activity_types": {
         "call": "Chiama",
@@ -1572,5 +1574,18 @@
         "finish_installation_description": "L'installazione è completa. Ora puoi accedere al tuo account.",
         "go_to_login": "Vai al login",
         "installation": "Installazione"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Dashboard",
+            "invoices": "Fatture",
+            "quotes": "Quotazioni",
+            "transactions": "Transazioni",
+            "support": "Supporto",
+            "contracts": "Contratti",
+            "partner_details": "Dettagli Partner"
+        },
+        "partner_details": "Dettagli partner",
+        "dashboard": "Dashboard"
     }
 }
