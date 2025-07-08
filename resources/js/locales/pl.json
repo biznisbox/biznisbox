@@ -419,7 +419,8 @@
         "module": "Moduł",
         "parent_category": "Kategoria nadrzędna",
         "icon": "Ikona",
-        "additional_info": "Dodatkowe informacje"
+        "additional_info": "Dodatkowe informacje",
+        "client_portal": "Portal klienta"
     },
     "address_types": {
         "billing": "Płatność",
@@ -555,7 +556,8 @@
         "activities": "Aktywności",
         "edit_activity": "Edytuj Aktywność",
         "partner_activities": "Aktywności partnera",
-        "send_email": "Wyślij e-mail"
+        "send_email": "Wyślij e-mail",
+        "add_to_client_portal": "Dodaj do portalu klienta"
     },
     "partner_activity_types": {
         "call": "Połącz",
@@ -1572,5 +1574,18 @@
         "finish_installation_description": "Instalacja zakończona. Możesz teraz zalogować się na swoje konto.",
         "go_to_login": "Przejdź do logowania",
         "installation": "Instalacja"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Pulpit",
+            "invoices": "Faktury",
+            "quotes": "Oferty",
+            "transactions": "Transakcje",
+            "support": "Wsparcie",
+            "contracts": "Kontrakty",
+            "partner_details": "Szczegóły partnera"
+        },
+        "partner_details": "Szczegóły partnera",
+        "dashboard": "Pulpit"
     }
 }
