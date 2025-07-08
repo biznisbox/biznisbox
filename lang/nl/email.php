@@ -66,4 +66,10 @@ return [
     'support_ticket_subject' => 'Betreft: :subject',
     'click_on_the_button_below_to_view_ticket' => 'Klik op de knop hieronder om de ticket te bekijken.',
     'view_ticket' => 'Bekijk Ticket',
+    'new_user_for_client_portal' => 'Er is een nieuwe gebruiker aangemaakt voor het client-portaal.',
+    'client_portal_details' => 'Toegang tot klantportaal details',
+    'client_portal_email' => 'Client Portal Email: :email',
+    'client_portal_password' => 'Klant Portal wachtwoord:',
+    'login_to_client_portal' => 'Inloggen op Client Portaal',
+    'client_portal_notification_subject' => 'Client Portal toegang notificatie',
 ];
