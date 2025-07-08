@@ -419,7 +419,8 @@
         "module": "Modul",
         "parent_category": "Overordnet Kategori",
         "icon": "Ikon",
-        "additional_info": "Yderligere Info"
+        "additional_info": "Yderligere Info",
+        "client_portal": "Klient Portal"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -555,7 +556,8 @@
         "activities": "Aktiviteter",
         "edit_activity": "Rediger Aktivitet",
         "partner_activities": "Partner Aktiviteter",
-        "send_email": "Send e-mail"
+        "send_email": "Send e-mail",
+        "add_to_client_portal": "Føj til klientportal"
     },
     "partner_activity_types": {
         "call": "Opkald",
@@ -1572,5 +1574,18 @@
         "finish_installation_description": "Installationen er færdig. Du kan nu logge ind på din konto.",
         "go_to_login": "Gå til login",
         "installation": "Installation"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Instrumentbræt",
+            "invoices": "Fakturaer",
+            "quotes": "Tilbud",
+            "transactions": "Transaktioner",
+            "support": "Support",
+            "contracts": "Kontrakter",
+            "partner_details": "Partner Detaljer"
+        },
+        "partner_details": "Partner detaljer",
+        "dashboard": "Instrumentbræt"
     }
 }
