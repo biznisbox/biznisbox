@@ -66,4 +66,10 @@ return [
     'support_ticket_subject' => 'Předmět: :předmět',
     'click_on_the_button_below_to_view_ticket' => 'Klikněte na tlačítko níže pro zobrazení tiketu.',
     'view_ticket' => 'Zobrazit tiket',
+    'new_user_for_client_portal' => 'Pro klientský portál byl vytvořen nový uživatel.',
+    'client_portal_details' => 'Podrobnosti o přístupovém portálu klienta',
+    'client_portal_email' => 'Client Portal Email: :email',
+    'client_portal_password' => 'Heslo portálu klienta:',
+    'login_to_client_portal' => 'Přihlásit se do klientského portálu',
+    'client_portal_notification_subject' => 'Oznámení o přístupu klienta portálu',
 ];
