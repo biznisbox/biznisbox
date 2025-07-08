@@ -419,7 +419,8 @@
         "module": "Moduuli",
         "parent_category": "Ylätason Kategoria",
         "icon": "Kuvake",
-        "additional_info": "Lisätiedot"
+        "additional_info": "Lisätiedot",
+        "client_portal": "Asiakkaan Portaali"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -555,7 +556,8 @@
         "activities": "Toiminnot",
         "edit_activity": "Muokkaa Toimintaa",
         "partner_activities": "Yhteistyökumppaneiden Toiminta",
-        "send_email": "Lähetä sähköposti"
+        "send_email": "Lähetä sähköposti",
+        "add_to_client_portal": "Lisää asiakasportaaliin"
     },
     "partner_activity_types": {
         "call": "Soita",
@@ -1572,5 +1574,18 @@
         "finish_installation_description": "Asennus on valmis. Voit nyt kirjautua sisään tilillesi.",
         "go_to_login": "Siirry kirjautumiseen",
         "installation": "Asennus"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Hallintapaneeli",
+            "invoices": "Laskut",
+            "quotes": "Lainaukset",
+            "transactions": "Tapahtumat",
+            "support": "Tuki",
+            "contracts": "Sopimukset",
+            "partner_details": "Kumppanin Tiedot"
+        },
+        "partner_details": "Kumppanin tiedot",
+        "dashboard": "Hallintapaneeli"
     }
 }
