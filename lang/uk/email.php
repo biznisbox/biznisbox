@@ -66,4 +66,10 @@ return [
     'support_ticket_subject' => 'Тема: :subject',
     'click_on_the_button_below_to_view_ticket' => 'Натисніть на кнопку нижче, щоб переглянути тікет.',
     'view_ticket' => 'Переглянути тікет',
+    'new_user_for_client_portal' => 'Новий користувач був створений для клієнтського порталу.',
+    'client_portal_details' => 'Деталі доступу до клієнтського порталу',
+    'client_portal_email' => 'Client Portal Email: :email',
+    'client_portal_password' => 'Пароль клієнтського порталу:',
+    'login_to_client_portal' => 'Увійти в портал клієнта',
+    'client_portal_notification_subject' => 'Повідомлення доступу клієнтського порталу',
 ];
