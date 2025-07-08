@@ -1,3 +1,13 @@
+# 2.8.0
+
+## ✨ New Features and Enhancements
+
+- Added a new feature for add partner contact access to client portal.
+- Introduced a new feature client portal for partners, allowing them to see their quotes, invoices.
+- Add * as trusted proxy for all requests in the app (see `bootstrap/app.php`)
+
+
+
 # 2.7.0
 
 ## ✨ New Features and Enhancements
