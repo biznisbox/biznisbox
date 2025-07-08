@@ -419,7 +419,8 @@
         "module": "Modul",
         "parent_category": "Överordnad kategori",
         "icon": "Ikon",
-        "additional_info": "Ytterligare information"
+        "additional_info": "Ytterligare information",
+        "client_portal": "Kundportal"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -555,7 +556,8 @@
         "activities": "Aktiviteter",
         "edit_activity": "Redigera aktivitet",
         "partner_activities": "Aktiviteter för partner",
-        "send_email": "Skicka e-post"
+        "send_email": "Skicka e-post",
+        "add_to_client_portal": "Lägg till i klientportalen"
     },
     "partner_activity_types": {
         "call": "Ring",
@@ -1572,5 +1574,18 @@
         "finish_installation_description": "Installationen är klar. Du kan nu logga in på ditt konto.",
         "go_to_login": "Gå till inloggning",
         "installation": "Installation"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Instrumentpanel",
+            "invoices": "Fakturor",
+            "quotes": "Offerter",
+            "transactions": "Transaktioner",
+            "support": "Stöd",
+            "contracts": "Kontrakt",
+            "partner_details": "Partner Detaljer"
+        },
+        "partner_details": "Information om partnern",
+        "dashboard": "Instrumentpanel"
     }
 }
