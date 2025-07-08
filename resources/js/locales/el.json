@@ -419,7 +419,8 @@
         "module": "Πρόσθετο",
         "parent_category": "Γονική Κατηγορία",
         "icon": "Εικονίδιο",
-        "additional_info": "Πρόσθετες Πληροφορίες"
+        "additional_info": "Πρόσθετες Πληροφορίες",
+        "client_portal": "Πύλη Πελάτη"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -555,7 +556,8 @@
         "activities": "Δραστηριότητες",
         "edit_activity": "Επεξεργασία Δραστηριότητας",
         "partner_activities": "Δραστηριότητες Συνεργατών",
-        "send_email": "Αποστολή email"
+        "send_email": "Αποστολή email",
+        "add_to_client_portal": "Προσθήκη στην πύλη του πελάτη"
     },
     "partner_activity_types": {
         "call": "Κλήση",
@@ -1572,5 +1574,18 @@
         "finish_installation_description": "Η εγκατάσταση έχει ολοκληρωθεί. Μπορείτε τώρα να συνδεθείτε στο λογαριασμό σας.",
         "go_to_login": "Πηγαίνετε να συνδεθείτε",
         "installation": "Εγκατάσταση"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Ταμπλό",
+            "invoices": "Τιμολόγια",
+            "quotes": "Προσφορές",
+            "transactions": "Συναλλαγές",
+            "support": "Υποστήριξη",
+            "contracts": "Συμβάσεις",
+            "partner_details": "Λεπτομέρειες Συνεργάτη"
+        },
+        "partner_details": "Λεπτομέρειες συνεργάτη",
+        "dashboard": "Ταμπλό"
     }
 }
