@@ -66,4 +66,10 @@ return [
     'support_ticket_subject' => 'Assunto: :subject',
     'click_on_the_button_below_to_view_ticket' => 'Clique no botão abaixo para ver o bilhete.',
     'view_ticket' => 'Ver Ticket',
+    'new_user_for_client_portal' => 'Um novo usuário foi criado para o portal do cliente.',
+    'client_portal_details' => 'Detalhes de acesso Portal do Cliente',
+    'client_portal_email' => 'Client Portal Email: :email',
+    'client_portal_password' => 'Senha do Portal do Cliente:',
+    'login_to_client_portal' => 'Login do Portal do Cliente',
+    'client_portal_notification_subject' => 'Notificação de Acesso Portal Cliente',
 ];
