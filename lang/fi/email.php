@@ -66,4 +66,10 @@ return [
     'support_ticket_subject' => 'Aihe: :subject',
     'click_on_the_button_below_to_view_ticket' => 'Klikkaa alla olevaa painiketta nähdäksesi lipun.',
     'view_ticket' => 'Näytä Tukipyyntö',
+    'new_user_for_client_portal' => 'Asiakkaan portaalia varten on luotu uusi käyttäjä.',
+    'client_portal_details' => 'Asiakkaan portaalin käyttötiedot',
+    'client_portal_email' => 'Client Portal Email: :email',
+    'client_portal_password' => 'Asiakkaan Portaalin Salasana:',
+    'login_to_client_portal' => 'Kirjaudu asiakasportaaliin',
+    'client_portal_notification_subject' => 'Asiakkaan portaalin käyttöoikeuksia koskeva ilmoitus',
 ];
