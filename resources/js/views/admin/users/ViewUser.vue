@@ -254,11 +254,11 @@ export default {
         resetPasswordForm() {
             this.resetPassword(this.$route.params.id, this.password)
             this.showPasswordDialog = false
-            ;(this.user.auto_generated_password = false),
+            ;((this.user.auto_generated_password = false),
                 (this.password = {
                     password: '',
                     send_details_to: [],
-                })
+                }))
         },
 
         userEditNavigation(id) {

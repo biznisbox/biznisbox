@@ -247,6 +247,20 @@
                                             </template>
                                         </Column>
                                         <Column field="notes" :header="$t('form.notes')" />
+                                        <Column field="client_portal" :header="$t('form.client_portal')">
+                                            <template #body="{ data }">
+                                                <Tag v-if="data.client_portal" :value="$t('basic.yes')" severity="success" />
+                                                <div v-else>
+                                                    <Button
+                                                        icon="fa fa-user-plus"
+                                                        :label="$t('partner.add_to_client_portal')"
+                                                        severity="success"
+                                                        outlined
+                                                        @click="addContactToClientPortal(data)"
+                                                    />
+                                                </div>
+                                            </template>
+                                        </Column>
                                     </DataTable>
                                 </TabPanel>
 

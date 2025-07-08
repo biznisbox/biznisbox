@@ -419,7 +419,8 @@
         "module": "Module",
         "parent_category": "Parent Category",
         "icon": "Icon",
-        "additional_info": "Additional Info"
+        "additional_info": "Additional Info",
+        "client_portal": "Client Portal"
     },
     "address_types": {
         "billing": "Billing",
@@ -555,7 +556,8 @@
         "activities": "Activities",
         "edit_activity": "Edit Activity",
         "partner_activities": "Partner Activities",
-        "send_email": "Send email"
+        "send_email": "Send email",
+        "add_to_client_portal": "Add to client portal"
     },
     "partner_activity_types": {
         "call": "Call",
@@ -1572,5 +1574,18 @@
         "finish_installation_description": "The installation is complete. You can now log in to your account.",
         "go_to_login": "Go to login",
         "installation": "Installation"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Dashboard",
+            "invoices": "Invoices",
+            "quotes": "Quotes",
+            "transactions": "Transactions",
+            "support": "Support",
+            "contracts": "Contracts",
+            "partner_details": "Partner Details"
+        },
+        "partner_details": "Partner details",
+        "dashboard": "Dashboard"
     }
 }

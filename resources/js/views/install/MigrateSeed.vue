@@ -9,7 +9,7 @@
                 <ProgressSpinner />
             </div>
 
-            <div v-if="error != ''" class="mt-6">
+            <div v-if="error != ''" class="mt-6 text-center">
                 <p class="text-red-500 font-bold">{{ error }}</p>
             </div>
         </div>
@@ -32,7 +32,7 @@ export default {
                     if (response.data.data.status === true) {
                         this.nextStep()
                     } else {
-                        this.error = response.data.message
+                        this.error = response.data.data.message || this.$t('install.error_creating_tables')
                     }
                 })
                 .catch((error) => {

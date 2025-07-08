@@ -19,7 +19,7 @@ export default {
             const dates = response.data.data.dates
             const counts = response.data.data.counts
 
-            ;(this.options = {
+            ;((this.options = {
                 chart: {
                     toolbar: {
                         show: false,
@@ -40,7 +40,7 @@ export default {
                         name: 'Logins',
                         data: counts,
                     },
-                ])
+                ]))
         })
     },
 }

@@ -187,4 +187,18 @@ class PartnerController extends Controller
         }
         return api_response($partnerContact, __('responses.item_sent_successfully'));
     }
+
+    /**
+     * Add partner contact to client portal
+     *
+     * @param  object  $request data from the form
+     */
+    public function addPartnerContactToClientPortal(Request $request, $id)
+    {
+        $partnerContact = $this->partnerService->addPartnerContactToClientPortal($id);
+        if (!$partnerContact) {
+            return api_response(null, __('responses.item_not_created'), 400);
+        }
+        return api_response($partnerContact, __('responses.item_created_successfully'));
+    }
 }
