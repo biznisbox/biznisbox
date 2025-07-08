@@ -66,4 +66,10 @@ return [
     'support_ticket_subject' => 'Angående: Ämne',
     'click_on_the_button_below_to_view_ticket' => 'Klicka på knappen nedan för att se biljetten.',
     'view_ticket' => 'Visa ärende',
+    'new_user_for_client_portal' => 'En ny användare har skapats för klientportalen.',
+    'client_portal_details' => 'Åtkomstdetaljer för klientportalen',
+    'client_portal_email' => 'Client Portal Email: :email',
+    'client_portal_password' => 'Lösenord för kundportalen:',
+    'login_to_client_portal' => 'Logga in till klientportalen',
+    'client_portal_notification_subject' => 'Meddelande om åtkomst till klientportalen',
 ];
