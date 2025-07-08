@@ -66,4 +66,10 @@ return [
     'support_ticket_subject' => 'Temat: Temat',
     'click_on_the_button_below_to_view_ticket' => 'Kliknij poniższy przycisk, aby wyświetlić zgłoszenie.',
     'view_ticket' => 'Zobacz zgłoszenie',
+    'new_user_for_client_portal' => 'Nowy użytkownik został utworzony dla portalu klienta.',
+    'client_portal_details' => 'Szczegóły dostępu do portalu klienta',
+    'client_portal_email' => 'Client Portal Email: :email',
+    'client_portal_password' => 'Hasło portalu klienta:',
+    'login_to_client_portal' => 'Zaloguj się do portalu klienta',
+    'client_portal_notification_subject' => 'Powiadomienie o dostępie do portalu klienta',
 ];
