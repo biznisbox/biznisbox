@@ -419,7 +419,8 @@
         "module": "Модуль",
         "parent_category": "Батьківська категорія",
         "icon": "Іконка",
-        "additional_info": "Додаткова інформація"
+        "additional_info": "Додаткова інформація",
+        "client_portal": "Портал клієнта"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -555,7 +556,8 @@
         "activities": "Події",
         "edit_activity": "Редагувати дію",
         "partner_activities": "Активність партнера",
-        "send_email": "Надіслати ел. листа"
+        "send_email": "Надіслати ел. листа",
+        "add_to_client_portal": "Додати до клієнтського порталу"
     },
     "partner_activity_types": {
         "call": "Дзвінок",
@@ -1572,5 +1574,18 @@
         "finish_installation_description": "Встановлення завершено. Ви можете увійти в свій обліковий запис.",
         "go_to_login": "Перейти до входу",
         "installation": "Інсталяція"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Приладна дошка",
+            "invoices": "Рахунки",
+            "quotes": "Комерційні пропозиції",
+            "transactions": "Транзакції",
+            "support": "Підтримка",
+            "contracts": "Контракти",
+            "partner_details": "Деталі партнера"
+        },
+        "partner_details": "Деталі партнера",
+        "dashboard": "Приладна дошка"
     }
 }
