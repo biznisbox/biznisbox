@@ -419,7 +419,8 @@
         "module": "Módulo",
         "parent_category": "Categoría padre",
         "icon": "Icono",
-        "additional_info": "Información adicional"
+        "additional_info": "Información adicional",
+        "client_portal": "Portal del cliente"
     },
     "address_types": {
         "billing": "Facturación",
@@ -555,7 +556,8 @@
         "activities": "Actividades",
         "edit_activity": "Editar actividad",
         "partner_activities": "Actividades de socios",
-        "send_email": "Enviar email"
+        "send_email": "Enviar email",
+        "add_to_client_portal": "Añadir al portal del cliente"
     },
     "partner_activity_types": {
         "call": "Llamar",
@@ -1572,5 +1574,18 @@
         "finish_installation_description": "La instalación se ha completado. Ahora puede iniciar sesión en su cuenta.",
         "go_to_login": "Ir al inicio de sesión",
         "installation": "Instalación"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Tablero",
+            "invoices": "Facturas",
+            "quotes": "Cotizaciones",
+            "transactions": "Transacciones",
+            "support": "Soporte",
+            "contracts": "Contratos",
+            "partner_details": "Detalles del socio"
+        },
+        "partner_details": "Detalles del socio",
+        "dashboard": "Tablero"
     }
 }
