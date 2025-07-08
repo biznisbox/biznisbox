@@ -66,4 +66,10 @@ return [
     'support_ticket_subject' => 'Betrifft: :subject',
     'click_on_the_button_below_to_view_ticket' => 'Klicken Sie auf die Schaltfläche unten, um das Ticket anzuzeigen.',
     'view_ticket' => 'Ticket ansehen',
+    'new_user_for_client_portal' => 'Für das Client-Portal wurde ein neuer Benutzer erstellt.',
+    'client_portal_details' => 'Zugangsdaten zum Kundenportal',
+    'client_portal_email' => 'Client Portal Email: :email',
+    'client_portal_password' => 'Kundenportal Passwort:',
+    'login_to_client_portal' => 'Zum Kundenportal anmelden',
+    'client_portal_notification_subject' => 'Kundenportal Zugangsbenachrichtigung',
 ];
