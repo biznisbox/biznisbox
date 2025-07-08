@@ -419,7 +419,8 @@
         "module": "Modul",
         "parent_category": "Nadrejena kategorija",
         "icon": "Ikona",
-        "additional_info": "Dodatne informacije"
+        "additional_info": "Dodatne informacije",
+        "client_portal": "Client Portal"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -555,7 +556,8 @@
         "activities": "Aktivnosti",
         "edit_activity": "Uredi aktivnost",
         "partner_activities": "Partnerjeve aktivnosti",
-        "send_email": "Pošlji sporočilo"
+        "send_email": "Pošlji sporočilo",
+        "add_to_client_portal": "Add to client portal"
     },
     "partner_activity_types": {
         "call": "Klic",
@@ -1572,5 +1574,18 @@
         "finish_installation_description": "Namestitev je končana. Zdaj se lahko prijavite v vaš račun.",
         "go_to_login": "Pojdite na prijavo",
         "installation": "Namestitev"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Dashboard",
+            "invoices": "Invoices",
+            "quotes": "Quotes",
+            "transactions": "Transactions",
+            "support": "Support",
+            "contracts": "Contracts",
+            "partner_details": "Partner Details"
+        },
+        "partner_details": "Partner details",
+        "dashboard": "Dashboard"
     }
 }
