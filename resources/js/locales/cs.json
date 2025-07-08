@@ -419,7 +419,8 @@
         "module": "Modul",
         "parent_category": "Nadřazená kategorie",
         "icon": "Ikona",
-        "additional_info": "Další informace"
+        "additional_info": "Další informace",
+        "client_portal": "Portál klienta"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -555,7 +556,8 @@
         "activities": "Aktivity",
         "edit_activity": "Upravit aktivitu",
         "partner_activities": "Partnerské aktivity",
-        "send_email": "Poslat e-mail"
+        "send_email": "Poslat e-mail",
+        "add_to_client_portal": "Přidat na klientský portál"
     },
     "partner_activity_types": {
         "call": "Hovor",
@@ -1572,5 +1574,18 @@
         "finish_installation_description": "Instalace je dokončena. Nyní se můžete přihlásit ke svému účtu.",
         "go_to_login": "Přejít na přihlášení",
         "installation": "Montáž"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Nástěnka",
+            "invoices": "Faktury",
+            "quotes": "Citace",
+            "transactions": "Transakce",
+            "support": "Podpora",
+            "contracts": "Zakázky",
+            "partner_details": "Podrobnosti o partnerovi"
+        },
+        "partner_details": "Podrobnosti o partnerovi",
+        "dashboard": "Nástěnka"
     }
 }
