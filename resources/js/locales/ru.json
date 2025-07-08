@@ -419,7 +419,8 @@
         "module": "Модуль",
         "parent_category": "Родительская категория",
         "icon": "Иконка",
-        "additional_info": "Дополнительная информация"
+        "additional_info": "Дополнительная информация",
+        "client_portal": "Портал Клиента"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -555,7 +556,8 @@
         "activities": "Действия",
         "edit_activity": "Изменить активность",
         "partner_activities": "Партнерская деятельность",
-        "send_email": "Отправить email"
+        "send_email": "Отправить email",
+        "add_to_client_portal": "Добавить в клиентский портал"
     },
     "partner_activity_types": {
         "call": "Звонок",
@@ -1572,5 +1574,18 @@
         "finish_installation_description": "Установка завершена. Теперь вы можете войти в свою учетную запись.",
         "go_to_login": "Войти",
         "installation": "Установка"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Панель",
+            "invoices": "Счета",
+            "quotes": "Предложения",
+            "transactions": "Транзакции",
+            "support": "Поддержка",
+            "contracts": "Контракты",
+            "partner_details": "Информация о партнере"
+        },
+        "partner_details": "Информация о партнере",
+        "dashboard": "Панель"
     }
 }
