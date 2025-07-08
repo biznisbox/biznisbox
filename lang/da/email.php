@@ -66,4 +66,10 @@ return [
     'support_ticket_subject' => 'Emne: :subject',
     'click_on_the_button_below_to_view_ticket' => 'Klik på knappen nedenfor for at se bestillingen.',
     'view_ticket' => 'Se Bestilling',
+    'new_user_for_client_portal' => 'En ny bruger er blevet oprettet til klientportalen.',
+    'client_portal_details' => 'Kunde Portal adgang detaljer',
+    'client_portal_email' => 'Client Portal Email: :email',
+    'client_portal_password' => 'Klient Portal Adgangskode:',
+    'login_to_client_portal' => 'Log ind på portalen',
+    'client_portal_notification_subject' => 'Adgang til klient Portal notifikation',
 ];
