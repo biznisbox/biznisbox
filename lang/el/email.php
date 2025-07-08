@@ -66,4 +66,10 @@ return [
     'support_ticket_subject' => 'Θέμα: :subject',
     'click_on_the_button_below_to_view_ticket' => 'Κάντε κλικ στο παρακάτω κουμπί για να δείτε το εισιτήριο.',
     'view_ticket' => 'Προβολή Αιτήματος',
+    'new_user_for_client_portal' => 'Ένας νέος χρήστης έχει δημιουργηθεί για την πύλη του πελάτη.',
+    'client_portal_details' => 'Πληροφορίες πρόσβασης στην πύλη πελάτη',
+    'client_portal_email' => 'Client Portal Email: :email',
+    'client_portal_password' => 'Κωδικός Πρόσβασης Πύλης Πελάτη:',
+    'login_to_client_portal' => 'Σύνδεση στην Πύλη Πελάτη',
+    'client_portal_notification_subject' => 'Ειδοποιήσεις πρόσβασης πύλης πελάτη',
 ];
