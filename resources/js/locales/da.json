@@ -1586,6 +1586,11 @@
             "partner_details": "Partner Detaljer"
         },
         "partner_details": "Partner detaljer",
-        "dashboard": "Instrumentbræt"
+        "dashboard": "Instrumentbræt",
+        "number_of_contracts": "Antal kontrakter",
+        "number_of_unpaid_invoices": "Antal ubetalte fakturaer",
+        "number_of_quotes": "Antal citater",
+        "number_of_bills": "Antal regninger",
+        "number_of_support_tickets": "Antal billetter til support"
     }
 }
