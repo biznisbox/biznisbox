@@ -15,7 +15,7 @@ class InvoiceController extends Controller
         $this->invoiceService = $invoiceService;
     }
 
-    public function getInvoices(Request $request)
+    public function getInvoices()
     {
         $invoices = $this->invoiceService->getInvoices();
 
@@ -26,7 +26,7 @@ class InvoiceController extends Controller
         return api_response($invoices, __('responses.data_retrieved_successfully'));
     }
 
-    public function getInvoiceById(Request $request, $invoiceId)
+    public function getInvoiceById($invoiceId)
     {
         $invoice = $this->invoiceService->getInvoiceById($invoiceId);
 

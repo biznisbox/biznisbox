@@ -97,6 +97,15 @@
                                 <span>{{ formatFileSize(data.file_size) }}</span>
                             </template>
                         </Column>
+
+                        <Column field="status" :header="$t('form.status')">
+                            <template #body="{ data }">
+                                <Tag v-if="data.status !== 'archived'" :severity="data.status === 'active' ? 'success' : 'danger'">{{
+                                    $t(`status.${data.status}`)
+                                }}</Tag>
+                                <Tag v-else>{{ $t(`status.${data.status}`) }}</Tag>
+                            </template>
+                        </Column>
                     </DataTable>
                 </div>
             </div>
@@ -110,9 +119,7 @@
             :style="{ width: '400px' }"
             class="m-2"
         >
-            <form>
-                <TextInput id="folder_name_input" v-model="folder.name" :label="$t('archive.folder_name')" />
-            </form>
+            <TextInput id="folder_name_input" v-model="folder.name" :label="$t('archive.folder_name')" />
             <template #footer>
                 <div id="function_buttons" class="flex gap-2 justify-end flex-wrap">
                     <Button
@@ -152,18 +159,87 @@
             :style="{ width: '400px' }"
             class="m-2"
         >
-            <div id="upload_document_section" class="my-2">
+            <TextInput
+                id="document_name_input"
+                v-model="document.name"
+                :label="$t('form.name')"
+                placeholder="Enter document name"
+                class="mt-2 w-full"
+            />
+            <TextInput
+                id="document_description"
+                v-model="document.description"
+                :label="$t('form.description')"
+                placeholder="Enter a description"
+                class="mt-2 w-full"
+            />
+            <SelectInput
+                id="document_folder"
+                v-model="document.folder_id"
+                :options="folders"
+                option-label="label"
+                option-value="id"
+                show-clear
+                filter
+                :label="$t('archive.select_folder')"
+                placeholder="Select a folder"
+            />
+
+            <div id="upload_document_section" class="mt-4">
                 <FileUpload
                     id="file_uploader"
+                    ref="uploadDocumentInput"
                     name="file"
+                    mode="basic"
                     url="/api/archive/documents"
                     @before-send="uploadDocument"
                     @upload="afterUploadDocument"
+                    @select="getDocumentName"
                 />
             </div>
+
+            <SelectInput
+                id="document_status"
+                v-model="document.status"
+                :options="[
+                    { label: $t('status.active'), value: 'active' },
+                    { label: $t('status.inactive'), value: 'inactive' },
+                    { label: $t('status.archived'), value: 'archived' },
+                ]"
+                option-label="label"
+                option-value="value"
+                :label="$t('form.status')"
+                placeholder="Select a status"
+            />
+
+            <SelectInput
+                id="protection_level"
+                v-model="document.protection_level"
+                :options="[
+                    { label: $t('protection_level.public'), value: 'public' },
+                    { label: $t('protection_level.private'), value: 'private' },
+                    { label: $t('protection_level.internal'), value: 'internal' },
+                    { label: $t('protection_level.confidential'), value: 'confidential' },
+                    { label: $t('protection_level.secret'), value: 'secret' },
+                    { label: $t('protection_level.top_secret'), value: 'top_secret' },
+                ]"
+                option-label="label"
+                option-value="value"
+                :label="$t('form.protection_level')"
+                placeholder="Select a protection level"
+            />
+
             <template #footer>
                 <div id="function_buttons" class="flex gap-2 justify-content-end">
                     <Button :label="$t('basic.cancel')" icon="fa fa-times" severity="secondary" @click="closeNewDocumentDialog" />
+                    <Button
+                        id="save_document_button"
+                        :label="$t('basic.save')"
+                        icon="fa fa-save"
+                        severity="success"
+                        @click="makeUploadDocument"
+                        :disabled="!document.name"
+                    />
                 </div>
             </template>
         </Dialog>
@@ -505,8 +581,30 @@ export default {
         },
 
         uploadDocument(event) {
-            event.formData.append('folder_id', this.currentFolder || null)
+            console.log(this.document)
+            event.formData.append('name', this.document.name || '')
+            event.formData.append('folder_id', this.document.folder_id || null)
+            event.formData.append('description', this.document.description || '')
+            event.formData.append('protection_level', this.document.protection_level || null)
+            event.formData.append('status', this.document.status || 'active')
             event.xhr.setRequestHeader('Authorization', `Bearer ${this.token}`)
+        },
+
+        makeUploadDocument() {
+            if (this.$refs.uploadDocumentInput) {
+                this.$refs.uploadDocumentInput.upload()
+            } else {
+                this.showToast(this.$t('archive.upload_error'), this.$t('basic.error'), 'error')
+            }
+        },
+
+        getDocumentName(event) {
+            console.log(event)
+            if (event.files && event.files.length > 0) {
+                this.document.name = event.files[0].name
+            } else {
+                this.document.name = ''
+            }
         },
 
         afterUploadDocument() {

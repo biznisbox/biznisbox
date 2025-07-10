@@ -193,7 +193,7 @@ class PartnerController extends Controller
      *
      * @param  object  $request data from the form
      */
-    public function addPartnerContactToClientPortal(Request $request, $id)
+    public function addPartnerContactToClientPortal($id)
     {
         $partnerContact = $this->partnerService->addPartnerContactToClientPortal($id);
         if (!$partnerContact) {

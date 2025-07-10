@@ -193,7 +193,7 @@ class SupportTicketController extends Controller
      * @param  string  $id id of the support ticket
      * @return array $ticket Support ticket
      */
-    public function shareTicket(Request $request, $id)
+    public function shareTicket($id)
     {
         $ticket = $this->supportTicketService->shareTicket($id);
         if ($ticket) {
@@ -208,7 +208,7 @@ class SupportTicketController extends Controller
      * @param  string  $id id of the support ticket
      * @return array $ticket Support ticket
      */
-    public function sendTicketNotificationToContact(Request $request, $id)
+    public function sendTicketNotificationToContact($id)
     {
         $ticket = $this->supportTicketService->sendTicketNotificationToContact($id);
 

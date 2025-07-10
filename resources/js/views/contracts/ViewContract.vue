@@ -4,14 +4,16 @@
             <PageHeader :title="contract.title">
                 <template #actions>
                     <Button
-                        v-if="contract.status !== 'signed' || contract.status !== 'rejected' || contract.status !== 'cancelled'"
+                        v-if="contract.status !== 'signed' && contract.status !== 'rejected' && contract.status !== 'cancelled'"
+                        id="edit_button"
                         :label="$t('basic.edit')"
                         severity="success"
                         icon="fa fa-edit"
                         @click="$router.push(`/contracts/${contract.id}/edit`)"
                     />
                     <Button
-                        v-if="contract.status !== 'signed' || contract.status !== 'rejected' || contract.status !== 'cancelled'"
+                        v-if="contract.status !== 'signed' && contract.status !== 'rejected' && contract.status !== 'cancelled'"
+                        id="delete_button"
                         :label="$t('basic.delete')"
                         icon="fa fa-trash"
                         severity="danger"

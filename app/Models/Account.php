@@ -65,7 +65,7 @@ class Account extends Model implements Auditable
 
     public function createAccount($data)
     {
-        if ($data['is_default'] == true) {
+        if ($data['is_default']) {
             $this->changeDefaultAccount();
         }
         $account = self::create($data);
@@ -79,7 +79,7 @@ class Account extends Model implements Auditable
     public function updateAccount($id, $data)
     {
         $account = self::where('id', $id)->first();
-        if ($data['is_default'] == true) {
+        if ($data['is_default']) {
             $this->changeDefaultAccount();
         }
         $account->update($data);

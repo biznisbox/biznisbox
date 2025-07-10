@@ -2,27 +2,29 @@ FROM php:8.4-fpm-alpine AS app_build
 
 RUN apk add --no-cache \
         build-base \
-        nodejs \
-        npm \
-        libzip-dev \
-        libpng-dev \
-        libjpeg-turbo-dev \
+        curl \
         freetype-dev \
-        libxml2-dev \
-        postgresql-dev \
-        oniguruma-dev \ 
-        nginx \
-        supervisor \
-        mysql-client \
-        postgresql-libs \
+        freetype \
+        git \
+        libxml2 \
         libzip \
         libpng \
         libjpeg-turbo \
-        freetype \
-        libxml2 \
+        libzip-dev \
+        libpng-dev \
+        libxml2-dev \
+        libjpeg-turbo-dev \
+        mysql-client \
+        nodejs \
+        npm \
+        nginx \
+        oniguruma-dev \ 
+        postgresql-dev \
+        postgresql-libs \
+        supervisor \
         su-exec \
-        oniguruma \ 
-        zip unzip git curl
+        unzip \
+        zip   
 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) \
@@ -61,15 +63,15 @@ RUN mkdir -p /var/www/html/storage/framework/sessions \
 FROM php:8.4-fpm-alpine AS production
 
 RUN apk add --no-cache \
-        nginx \
-        supervisor \
-        mysql-client \
-        postgresql-libs \
+        freetype \
         libzip \
         libpng \
         libjpeg-turbo \
-        freetype \
         libxml2 \
+        mysql-client \
+        nginx \
+        supervisor \
+        postgresql-libs \
         su-exec \
         oniguruma 
 
@@ -88,9 +90,7 @@ COPY --from=app_build /usr/local/etc/php/conf.d/php.ini /usr/local/etc/php/conf.
 RUN chmod +x /usr/local/bin/entrypoint.sh \
     && mkdir -p /var/run/nginx /var/lib/nginx/tmp \
     && chown -R www-data:www-data /var/lib/nginx /var/run/nginx \
-    && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public /var/www/html/vendor
-
-RUN rm -rf /var/cache/apk/* /tmp/* /usr/local/bin/composer /usr/local/bin/phpunit /root/.composer /root/.npm /root/.cache
+    && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public /var/www/html/vendor && rm -rf /var/cache/apk/* /tmp/* /usr/local/bin/composer /usr/local/bin/phpunit /root/.composer /root/.npm /root/.cache
 
 VOLUME /var/www/html/storage
 

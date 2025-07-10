@@ -24,7 +24,7 @@ class AuthController extends Controller
      * @param  object  $request data from the form (email, password, otp)
      * @return array $user User
      */
-    public function Login(Request $request)
+    public function userLogin(Request $request)
     {
         $data = $request->validate([
             'email' => 'required|email',
@@ -45,7 +45,7 @@ class AuthController extends Controller
      * @return array $user User
      * @authenticated
      */
-    public function Logout()
+    public function userLogout()
     {
         $this->authService->Logout();
         return api_response(null, __('responses.logout_successful'));
@@ -57,7 +57,7 @@ class AuthController extends Controller
      * @return array $token Token
      * @authenticated
      */
-    public function Refresh()
+    public function tokenRefresh()
     {
         $token = $this->authService->Refresh();
         return api_response($token, __('responses.token_refreshed'));
@@ -69,7 +69,7 @@ class AuthController extends Controller
      * @return array $user User
      * @authenticated
      */
-    public function Me()
+    public function meData()
     {
         $user = $this->authService->Me();
         if (!$user) {

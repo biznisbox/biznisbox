@@ -34,7 +34,7 @@ export default {
                     toolbarViewerRight: {
                         presentationMode: false,
                         openFile: false,
-                        print: true,
+                        print: false,
                         download: true,
                         viewBookmark: false,
                     },

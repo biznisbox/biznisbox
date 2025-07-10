@@ -10,7 +10,7 @@
                 <span v-if="$settings.company_vat">{{ $t('form.tax_id') + ': ' + $settings.company_vat }}</span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-2">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-2" v-if="displayTicket">
                 <!-- Metadata view -->
                 <div class="col-span-1 md:col-span-5">
                     <div class="card">
@@ -96,6 +96,11 @@
                     </div>
                 </div>
             </div>
+            <div v-else>
+                <p class="text-center text-xl font-bold">
+                    {{ $t('errors.not_found') }}
+                </p>
+            </div>
         </LoadingScreen>
     </div>
 </template>
@@ -109,6 +114,12 @@ export default {
         this.getClientSupportTicket(this.$route.params.id)
     },
 
+    data() {
+        return {
+            displayTicket: false,
+        }
+    },
+
     methods: {
         /**
          * Get client support tickets
@@ -116,6 +127,7 @@ export default {
          */
         getClientSupportTicket() {
             this.makeHttpRequest('GET', '/api/client/support-ticket?key=' + this.$route.query.key).then((response) => {
+                this.displayTicket = true
                 this.supportTicket = response.data.data
             })
         },

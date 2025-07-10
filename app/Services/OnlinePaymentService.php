@@ -67,10 +67,7 @@ class OnlinePaymentService
 
             $invoice = Invoice::find($payment->payment_document_id);
 
-            $payment_method = Category::where([
-                'module' => 'payment_method',
-                'additional_info' => 'stripe',
-            ])->first();
+            $payment_method = self::getPaymentMethod('stripe');
 
             $invoice->update([
                 'status' => 'paid',
@@ -183,10 +180,7 @@ class OnlinePaymentService
 
             $invoice = Invoice::find($online_payment->payment_document_id);
 
-            $payment_method = Category::where([
-                'module' => 'payment_method',
-                'additional_info' => 'paypal',
-            ])->first();
+            $payment_method = self::getPaymentMethod('paypal');
 
             $invoice->update([
                 'status' => 'paid',
@@ -231,5 +225,13 @@ class OnlinePaymentService
         }
 
         return $payment;
+    }
+
+    private function getPaymentMethod($method)
+    {
+        return Category::where([
+            'module' => 'payment_method',
+            'additional_info' => $method,
+        ])->first();
     }
 }

@@ -44,14 +44,14 @@ use App\Http\Controllers\Install\InstallerController;
 use App\Http\Middleware\CheckIfInstalled;
 
 Route::group(['prefix' => 'auth'], function () {
-    Route::post('/login', [AuthController::class, 'Login'])->name('login');
-    Route::post('/logout', [AuthController::class, 'Logout'])->name('logout');
+    Route::post('/login', [AuthController::class, 'userLogin'])->name('login');
+    Route::post('/logout', [AuthController::class, 'userLogout'])->name('logout');
 });
 
 Route::middleware('auth:api')->group(function () {
-    Route::post('/auth/refresh', [AuthController::class, 'Refresh'])->name('refresh');
+    Route::post('/auth/refresh', [AuthController::class, 'tokenRefresh'])->name('refresh');
     Route::get('/data', [DataController::class, 'getData'])->name('getData');
-    Route::get('/me', [AuthController::class, 'Me'])->name('me'); // Get current user data
+    Route::get('/me', [AuthController::class, 'meData'])->name('me'); // Get current user data
     Route::get('/logs', [DataController::class, 'getLogs'])->name('getLogs');
 
     // Personal Access Tokens

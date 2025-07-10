@@ -31,7 +31,7 @@ return new class extends Migration {
 
         Schema::create('partner_addresses', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('partner_id')->nullable()->references('id')->on('partners')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('partner_id')->nullable()->references('id')->on('partners')->nullOnDelete()->cascadeOnUpdate();
             $table->boolean('is_primary')->default(false);
             $table->string('type')->nullable(); // billing, shipping, mailing, office
             $table->string('address')->nullable();
@@ -44,7 +44,7 @@ return new class extends Migration {
 
         Schema::create('partner_contacts', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('partner_id')->nullable()->references('id')->on('partners')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->uuid('partner_id')->nullable()->references('id')->on('partners')->nullOnDelete()->cascadeOnUpdate();
             $table->boolean('is_primary')->default(false);
             $table->string('name')->nullable();
             $table->string('function')->nullable();

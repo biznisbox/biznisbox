@@ -1,12 +1,22 @@
+# 2.9.0
+
+## ✨ New Features and Enhancements
+
+- Updated the design of the Partner Details page, specifically the contract grid section under Contact Email.
+- Redesigned the "Add Document to Archive" form for improved usability and layout.
+- Added a new Document Status column to the archive table for better tracking and visibility.
+
+## 🐛 Bug Fixes
+
+- Fixed a UI issue that occurred when a client attempted to open a non-existent support ticket.
+
 # 2.8.0
 
 ## ✨ New Features and Enhancements
 
 - Added a new feature for add partner contact access to client portal.
 - Introduced a new feature client portal for partners, allowing them to see their quotes, invoices.
-- Add * as trusted proxy for all requests in the app (see `bootstrap/app.php`)
-
-
+- Add \* as trusted proxy for all requests in the app (see `bootstrap/app.php`)
 
 # 2.7.0
 

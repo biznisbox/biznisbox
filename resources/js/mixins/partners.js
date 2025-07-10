@@ -197,6 +197,7 @@ export default {
             this.makeHttpRequest('POST', '/api/partner/message', this.partner_email_message).then((response) => {
                 this.showToast(response.data.message)
                 this.showSendEmailDialog = false
+                this.getPartner(this.partner.id)
             })
         },
 

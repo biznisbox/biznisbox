@@ -233,7 +233,13 @@
                                         <Column field="function" :header="$t('form.function')" />
                                         <Column field="email" :header="$t('form.email')">
                                             <template #body="{ data }">
-                                                <span v-if="data.email" @click="openSendEmailDialog(data)">{{ data.email }}</span>
+                                                <span
+                                                    v-if="data.email"
+                                                    @click="openSendEmailDialog(data)"
+                                                    class="cursor-pointer text-blue-600 hover:underline"
+                                                >
+                                                    {{ data.email }}</span
+                                                >
                                             </template>
                                         </Column>
                                         <Column field="phone_number" :header="$t('form.phone_number')">

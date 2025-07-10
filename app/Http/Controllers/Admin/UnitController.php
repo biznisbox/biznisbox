@@ -43,7 +43,7 @@ class UnitController extends Controller
      * @param  string  $id id of the unit
      * @return array $unit unit
      */
-    public function getUnit(Request $request, $id)
+    public function getUnit($id)
     {
         $unit = $this->unitService->getUnit($id);
 
@@ -59,7 +59,7 @@ class UnitController extends Controller
      * @param  string  $name name of the unit
      * @return array $unit unit
      */
-    public function getUnitByName(Request $request, $name)
+    public function getUnitByName($name)
     {
         $unit = $this->unitService->getUnitByName($name);
 
@@ -110,7 +110,7 @@ class UnitController extends Controller
      * @param  string  $id id of the unit
      * @return array $unit unit
      */
-    public function deleteUnit(Request $request, $id)
+    public function deleteUnit($id)
     {
         if (!$id) {
             return api_response(null, __('responses.item_not_found_with_id'), 404);
