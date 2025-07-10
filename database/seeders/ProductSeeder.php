@@ -31,7 +31,7 @@ class ProductSeeder extends Seeder
                 'barcode' => fake()->ean13(),
                 'active' => fake()->boolean(),
             ]);
-            incrementLastItemNumber('product');
+            incrementLastItemNumber('product', settings('product_number_format'));
         }
     }
 }

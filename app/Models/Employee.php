@@ -75,7 +75,7 @@ class Employee extends Model implements Auditable
     {
         $data['number'] = self::getEmployeeNumber();
         $employee = $this->create($data);
-        incrementLastItemNumber('employee');
+        incrementLastItemNumber('employee', settings('employee_number_format'));
         sendWebhookForEvent('employee:created', $employee->toArray());
         return $employee;
     }

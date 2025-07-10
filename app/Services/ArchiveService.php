@@ -81,7 +81,7 @@ class ArchiveService
                 ]);
                 if ($document) {
                     sendWebhookForEvent('archive:document_created', $document->toArray());
-                    incrementLastItemNumber('archive');
+                    incrementLastItemNumber('archive', settings('archive_number_format'));
                     return $document;
                 }
                 Storage::delete('archive/' . $diskFileName);

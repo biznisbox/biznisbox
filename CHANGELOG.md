@@ -5,6 +5,7 @@
 - Updated the design of the Partner Details page, specifically the contract grid section under Contact Email.
 - Redesigned the "Add Document to Archive" form for improved usability and layout.
 - Added a new Document Status column to the archive table for better tracking and visibility.
+- The numbering system for all modules (invoices, quotes, etc.) now supports automatic yearly resets. If the numbering format includes a date placeholder (e.g., `{{DATE:Y}}`), the counter will reset to 1 at the beginning of each new year. Formats without a date will continue to increment sequentially. 
 
 ## 🐛 Bug Fixes
 

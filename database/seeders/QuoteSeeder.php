@@ -89,7 +89,7 @@ class QuoteSeeder extends Seeder
             $quote->total = $total - ($total * $discount) / 100;
             $quote->save();
 
-            incrementLastItemNumber('quote');
+            incrementLastItemNumber('quote', settings('quote_number_format'));
         }
     }
 }

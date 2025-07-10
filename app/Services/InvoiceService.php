@@ -128,7 +128,7 @@ class InvoiceService
                 $invoice->status = 'overpaid';
             }
             $invoice->save();
-            incrementLastItemNumber('transaction');
+            incrementLastItemNumber('transaction', settings('transaction_number_format'));
             createActivityLog('addInvoicePayment', $invoice_id, 'App\Models\Invoice', 'Invoice');
             sendWebhookForEvent('invoice:payment_received', $transaction->toArray());
             return $transaction;

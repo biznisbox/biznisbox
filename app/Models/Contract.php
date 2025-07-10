@@ -135,7 +135,7 @@ class Contract extends Model implements Auditable
             }
         }
         sendWebhookForEvent('contract:created', $contract->toArray());
-        incrementLastItemNumber('contract');
+        incrementLastItemNumber('contract', settings('contract_number_format'));
         return $contract;
     }
 

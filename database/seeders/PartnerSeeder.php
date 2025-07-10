@@ -73,7 +73,7 @@ class PartnerSeeder extends Seeder
                     'notes' => fake()->text(200),
                 ]);
             }
-            incrementLastItemNumber('partner');
+            incrementLastItemNumber('partner', settings('partner_number_format'));
         }
     }
 }

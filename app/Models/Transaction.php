@@ -126,7 +126,7 @@ class Transaction extends Model implements Auditable
 
         $transaction = $this->create($data);
         if ($transaction) {
-            incrementLastItemNumber('transaction');
+            incrementLastItemNumber('transaction', settings('transaction_number_format'));
             sendWebhookForEvent('transaction:created', $transaction->toArray());
             return $transaction;
         }

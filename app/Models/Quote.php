@@ -136,7 +136,7 @@ class Quote extends Model implements Auditable
             $total = calculateTotalHelper($items, $quote['discount'], $quote['discount_type'], $quote['currency_rate']);
             $quote->total = $total;
             $quote->save();
-            incrementLastItemNumber('quote');
+            incrementLastItemNumber('quote', settings('quote_number_format'));
             sendWebhookForEvent('quote:created', $quote->toArray());
             return $quote;
         }
@@ -208,7 +208,7 @@ class Quote extends Model implements Auditable
         foreach ($quote['items'] as $item) {
             $invoice->items()->create($item->toArray());
         }
-        incrementLastItemNumber('invoice');
+        incrementLastItemNumber('invoice', settings('invoice_number_format'));
         createActivityLog('convert_to_invoice', $id, 'App\Models\Quote', 'Quote');
         sendWebhookForEvent('quote:converted', $invoice->toArray());
         return $invoice->id;

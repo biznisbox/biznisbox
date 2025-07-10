@@ -125,7 +125,7 @@ class SupportTicket extends Model implements Auditable
         }
 
         if ($supportTicket) {
-            incrementLastItemNumber('support_ticket');
+            incrementLastItemNumber('support_ticket', settings('support_ticket_number_format'));
             sendWebhookForEvent('support_ticket:created', $supportTicket->toArray());
             return $supportTicket;
         }

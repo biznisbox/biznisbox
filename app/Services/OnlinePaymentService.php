@@ -38,7 +38,7 @@ class OnlinePaymentService
             'key' => $key, // this is used to identify the external access token
         ]);
 
-        incrementLastItemNumber('payment');
+        incrementLastItemNumber('payment', settings('payment_number_format'));
 
         return [
             'payment_id' => $payment->id,
@@ -89,7 +89,7 @@ class OnlinePaymentService
                 'payment_method_id' => $payment_method->id,
             ]);
 
-            incrementLastItemNumber('transaction');
+            incrementLastItemNumber('transaction', settings('transaction_number_format'));
             createNotification(
                 getUserIdFromEmployeeId($invoice->sales_person_id),
                 'InvoicePayment',
@@ -150,7 +150,7 @@ class OnlinePaymentService
             'key' => $key,
         ]);
 
-        incrementLastItemNumber('payment');
+        incrementLastItemNumber('payment', settings('payment_number_format'));
 
         return [
             'payment_id' => $payment['id'],
@@ -202,7 +202,7 @@ class OnlinePaymentService
                 'payment_method_id' => $payment_method->id ?? null,
             ]);
 
-            incrementLastItemNumber('transaction');
+            incrementLastItemNumber('transaction', settings('transaction_number_format'));
             createNotification(
                 getUserIdFromEmployeeId($invoice->sales_person_id),
                 'InvoicePayment',

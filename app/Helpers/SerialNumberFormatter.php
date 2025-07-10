@@ -20,10 +20,11 @@ class SerialNumberFormatter
     public static function getPlaceholders($string)
     {
         $placeholders = [];
-        $matches = [];
         preg_match_all('/{{(.*?)}}/', $string, $matches);
-        foreach ($matches[1] as $match) {
-            $placeholders[] = $match;
+        if (isset($matches[1])) {
+            foreach ($matches[1] as $match) {
+                $placeholders[] = $match;
+            }
         }
         return $placeholders;
     }
@@ -35,12 +36,27 @@ class SerialNumberFormatter
     public function validatePlaceholders($placeholders)
     {
         foreach ($placeholders as $placeholder) {
-            $placeholder = explode(':', $placeholder);
-            if (!in_array($placeholder[0], $this->validPlaceholders)) {
+            $placeholderParts = explode(':', $placeholder, 2);
+            if (!in_array($placeholderParts[0], $this->validPlaceholders)) {
                 return false;
             }
         }
         return true;
+    }
+
+    /**
+     * Checks if the format contains a DATE placeholder, which implies a yearly reset.
+     * @param array $placeholders
+     * @return bool
+     */
+    private function formatHasYearlyReset(array $placeholders): bool
+    {
+        foreach ($placeholders as $placeholder) {
+            if (strpos($placeholder, 'DATE') === 0) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -52,21 +68,25 @@ class SerialNumberFormatter
     public function generateNumber($placeholders, $delimiter = '-', $module = null)
     {
         $number = '';
-        foreach ($placeholders as $placeholder) {
-            $placeholder = explode(':', $placeholder);
+        // KEY CHANGE: Determine ONCE if this format requires a yearly reset.
+        $needsYearlyReset = $this->formatHasYearlyReset($placeholders);
 
-            // Check if the placeholder is a date placeholder (for example: 2021/0001) -> reset number to 1 on new year
-            $isDatePlaceholder = $placeholder[0] === 'DATE';
-            switch ($placeholder[0]) {
+        foreach ($placeholders as $placeholder) {
+            $placeholderParts = explode(':', $placeholder, 2);
+            $type = $placeholderParts[0];
+            $value = $placeholderParts[1] ?? null;
+
+            switch ($type) {
                 case 'DATE':
-                    $number .= date($placeholder[1]);
+                    $number .= date($value);
                     break;
                 case 'NUMBER':
-                    $last_item_number = $this->getLastItemNumber($module, $isDatePlaceholder) + 1; // get last item number from database
-                    $number .= str_pad($last_item_number, (int) $placeholder[1], '0', STR_PAD_LEFT);
+                    $last_item_number = $this->getLastItemNumber($module, $needsYearlyReset) + 1;
+                    $number .= str_pad($last_item_number, (int) $value, '0', STR_PAD_LEFT);
                     break;
                 case 'TEXT':
-                    $number .= $placeholder[1];
+                    // Support quoted text
+                    $number .= trim($value, '"');
                     break;
                 case 'DELIMITER':
                     $number .= $delimiter;
@@ -81,7 +101,7 @@ class SerialNumberFormatter
     /**
      * Function for generate next number
      * @param string  $format - number format
-     * @param integer $last_item_number - last item number
+     * @param string  $module - application module
      */
     public function generateNumberFromFormat($format, $module = null)
     {
@@ -93,64 +113,26 @@ class SerialNumberFormatter
     }
 
     /**
-     * Function for increment last item number
+     * Function for get last item number from database.
+     *
      * @param string $module - application module (documents, invoices, estimates, etc.)
-     * @return integer $last_item_number - last item number (incremented)
-     */
-    public function incrementLastItemNumber($module)
-    {
-        $last_item_number = $this->getLastItemNumber($module) + 1; // get last item number from cache
-        DB::table('numbering')
-            ->where([
-                'module' => $module,
-                'year' => date('Y'),
-            ])
-            ->update([
-                'number' => $last_item_number,
-            ]);
-        return $last_item_number;
-    }
-
-    /**
-     * Function for decrement last item number
-     * @param string $module - application module (documents, invoices, estimates, etc.)
-     * @return integer $last_item_number - last item number (decremented)
-     */
-
-    public function decrementLastItemNumber($module)
-    {
-        $last_item_number = $this->getLastItemNumber($module) - 1; // get last item number from cache
-        DB::table('numbering')
-            ->where([
-                'module' => $module,
-                'year' => date('Y'),
-            ])
-            ->update([
-                'number' => $last_item_number,
-            ]);
-        return $last_item_number;
-    }
-
-    /**
-     * Function for get last item number from database
-     * @param string $module - application module (documents, invoices, estimates, etc.)
-     * @param boolean $isDatePlaceholder - date numbering (for example: 2021/0001) - if true, number will be reset to 1 on new year
+     * @param boolean $needsYearlyReset - If true, number resets to 0 on new year.
      * @return integer $last_number - last item number
      */
-    public function getLastItemNumber($module, $isDatePlaceholder = false)
+    public function getLastItemNumber($module, $needsYearlyReset = false)
     {
-        $year = date('Y');
+        // If the format includes a date, the year is the current year.
+        // Otherwise, we use a constant year (0) for a continuous, non-resetting counter.
+        $year = $needsYearlyReset ? date('Y') : 0;
 
-        $lastNumberRecord = DB::table('numbering')->where('year', $year)->where('module', $module)->first();
+        $lastNumberRecord = DB::table('numbering')->where('module', $module)->where('year', $year)->first();
 
         if (!$lastNumberRecord) {
-            // If no record exists, initialize it with a default number
             DB::table('numbering')->insert([
                 'module' => $module,
                 'year' => $year,
-                'number' => 0, // Default number is set to 0; will increment to 1 elsewhere if needed
+                'number' => 0,
             ]);
-
             return 0;
         }
 
@@ -158,19 +140,55 @@ class SerialNumberFormatter
     }
 
     /**
+     * Function for increment last item number
+     * @param string $module - application module
+     * @param string $format - The number format string is required to determine the reset logic
+     * @return integer $new_number - new last item number
+     */
+    public function incrementLastItemNumber($module, $format)
+    {
+        $placeholders = $this->getPlaceholders($format);
+        $needsYearlyReset = $this->formatHasYearlyReset($placeholders);
+        $year = $needsYearlyReset ? date('Y') : 0;
+
+        // Use `increment` for an atomic update to prevent race conditions.
+        // This also handles the case where the row doesn't exist yet, but it's safer to ensure it does.
+        $this->getLastItemNumber($module, $needsYearlyReset); // This ensures the row exists.
+
+        return DB::table('numbering')->where('module', $module)->where('year', $year)->increment('number');
+    }
+
+    /**
+     * Function for decrement last item number
+     * @param string $module - application module
+     * @param string $format - The number format string is required to determine the reset logic
+     * @return integer $new_number - new last item number
+     */
+    public function decrementLastItemNumber($module, $format)
+    {
+        $placeholders = $this->getPlaceholders($format);
+        $needsYearlyReset = $this->formatHasYearlyReset($placeholders);
+        $year = $needsYearlyReset ? date('Y') : 0;
+
+        $this->getLastItemNumber($module, $needsYearlyReset); // Ensures row exists.
+
+        return DB::table('numbering')->where('module', $module)->where('year', $year)->decrement('number');
+    }
+
+    /**
      * Function for convert number format to array for frontend
-     * @param string $format - number format
-     * @return array $number_format - number format array for frontend
+     * @param string $item
+     * @return array
      */
     public static function convertNumberFormatToArray($item)
     {
         $items = self::getPlaceholders($item);
         $number_format = [];
-        foreach ($items as $item) {
-            $item = explode(':', $item);
+        foreach ($items as $itemValue) {
+            $parts = explode(':', $itemValue, 2);
             $number_format[] = [
-                'type' => $item[0],
-                'value' => $item[1] ?? null,
+                'type' => $parts[0],
+                'value' => $parts[1] ?? null,
             ];
         }
         return $number_format;
@@ -178,25 +196,31 @@ class SerialNumberFormatter
 
     /**
      * Function for convert number format to string for backend
-     * @param array $number_format - number format
-     * @return string $number_format_string - number format string for backend
+     * @param array $number_format
+     * @return string
      */
     public static function convertNumberFormatToString($number_format)
     {
         $number_format_string = '';
         foreach ($number_format as $item) {
-            $number_format_string .= '{{' . $item['type'] . ':' . $item['value'] . '}}';
+            $valuePart = isset($item['value']) ? ':' . $item['value'] : '';
+            $number_format_string .= '{{' . $item['type'] . $valuePart . '}}';
         }
         return $number_format_string;
     }
 
+    /**
+     * @param array $format
+     * @param string $module
+     * @return string
+     */
     public function generatePreview($format, $module = 'invoice')
     {
         $string = self::convertNumberFormatToString($format);
         $placeholders = self::getPlaceholders($string);
-        if (!self::validatePlaceholders($placeholders)) {
+        if (!$this->validatePlaceholders($placeholders)) {
             return __('response.invalid_format');
         }
-        return self::generateNumber($placeholders, '-', $module);
+        return $this->generateNumber($placeholders, '-', $module);
     }
 }

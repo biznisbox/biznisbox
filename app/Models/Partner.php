@@ -142,7 +142,7 @@ class Partner extends Model implements Auditable
                     processRelation($partner->contacts(), $data['contacts']);
                 }
             }
-            incrementLastItemNumber('partner');
+            incrementLastItemNumber('partner', settings('partner_number_format'));
             DB::commit();
             $partner = $this->getPartner($partner->id); // get partner with addresses and contacts
             sendWebhookForEvent('partner:created', $partner->toArray());

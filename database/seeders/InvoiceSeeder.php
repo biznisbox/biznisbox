@@ -78,7 +78,7 @@ class InvoiceSeeder extends Seeder
             $invoice->total = $total - ($total * $discount) / 100;
             $invoice->save();
 
-            incrementLastItemNumber('invoice');
+            incrementLastItemNumber('invoice', settings('invoice_number_format'));
         }
     }
 }

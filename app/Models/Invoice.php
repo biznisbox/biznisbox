@@ -207,7 +207,7 @@ class Invoice extends Model implements Auditable
             }
             $invoice->save();
             sendWebhookForEvent('invoice:created', $invoice->toArray());
-            incrementLastItemNumber('invoice');
+            incrementLastItemNumber('invoice', settings('invoice_number_format'));
             return $invoice;
         }
     }

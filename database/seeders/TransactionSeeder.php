@@ -61,7 +61,7 @@ class TransactionSeeder extends Seeder
                 'status' => fake()->randomElement(['draft', 'completed', 'reconciled']),
                 'reconciled' => false,
             ]);
-            incrementLastItemNumber('transaction');
+            incrementLastItemNumber('transaction', settings('transaction_number_format'));
         }
     }
 }

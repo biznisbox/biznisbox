@@ -43,7 +43,7 @@ class ContractSeeder extends Seeder
                     'sign_order' => $j + 1,
                 ]);
             }
-            incrementLastItemNumber('contract');
+            incrementLastItemNumber('contract', settings('contract_number_format'));
         }
     }
 }

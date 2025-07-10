@@ -135,7 +135,7 @@ class Product extends Model implements Auditable
         if (!$product) {
             return false;
         }
-        incrementLastItemNumber('product');
+        incrementLastItemNumber('product', settings('product_number_format'));
         sendWebhookForEvent('product:created', $product->toArray());
         return $product;
     }

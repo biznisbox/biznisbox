@@ -125,7 +125,7 @@ class Bill extends Model implements Auditable
             $bill->total = $total;
             $bill->save();
             sendWebhookForEvent('bill:created', $bill->toArray());
-            incrementLastItemNumber('bill');
+            incrementLastItemNumber('bill', settings('bill_number_format'));
             return $bill;
         }
         return false;

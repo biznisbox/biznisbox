@@ -66,10 +66,10 @@ if (!function_exists('incrementLastItemNumber')) {
      * @param string $module - module name
      * @return void
      */
-    function incrementLastItemNumber($module)
+    function incrementLastItemNumber($module, $format = null)
     {
         $number = new SerialNumberFormatter();
-        $number->incrementLastItemNumber($module);
+        $number->incrementLastItemNumber($module, $format);
     }
 }
 

@@ -216,7 +216,7 @@ class OpenBankingService
                 'status' => 'completed',
             ]
         );
-        incrementLastItemNumber('transaction');
+        incrementLastItemNumber('transaction', settings('transaction_number_format'));
         return $transaction;
     }
 
