@@ -1586,6 +1586,11 @@
             "partner_details": "Kumppanin Tiedot"
         },
         "partner_details": "Kumppanin tiedot",
-        "dashboard": "Hallintapaneeli"
+        "dashboard": "Hallintapaneeli",
+        "number_of_contracts": "Sopimusten lukumäärä",
+        "number_of_unpaid_invoices": "Maksamattomien laskujen määrä",
+        "number_of_quotes": "Lainauksien määrä",
+        "number_of_bills": "Laskujen lukumäärä",
+        "number_of_support_tickets": "Tukipyyntöjen määrä"
     }
 }
