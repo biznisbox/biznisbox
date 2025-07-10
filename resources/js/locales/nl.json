@@ -1586,6 +1586,11 @@
             "partner_details": "Partner details"
         },
         "partner_details": "Partner details",
-        "dashboard": "Dashboard"
+        "dashboard": "Dashboard",
+        "number_of_contracts": "Aantal contracten",
+        "number_of_unpaid_invoices": "Aantal onbetaalde facturen",
+        "number_of_quotes": "Aantal offertes",
+        "number_of_bills": "Aantal contracten",
+        "number_of_support_tickets": "Aantal support tickets"
     }
 }
