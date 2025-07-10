@@ -1586,6 +1586,11 @@
             "partner_details": "Detalhes do parceiro"
         },
         "partner_details": "Detalhes do parceiro",
-        "dashboard": "Painel"
+        "dashboard": "Painel",
+        "number_of_contracts": "Número de contratos",
+        "number_of_unpaid_invoices": "Número de faturas a pagar",
+        "number_of_quotes": "Número de Cotações",
+        "number_of_bills": "Número de faturas",
+        "number_of_support_tickets": "Número de tickets de suporte"
     }
 }
