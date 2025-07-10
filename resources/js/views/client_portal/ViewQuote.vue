@@ -115,10 +115,6 @@
 
                 <div id="quote_calculations" class="grid grid-cols-2">
                     <div id="quote_notes">
-                        <DisplayData :input="$t('form.notes')" custom-value v-if="quote.notes && !loadingData">
-                            <span v-html="formatHtml(quote.notes)"></span>
-                        </DisplayData>
-
                         <DisplayData :input="$t('form.footer')" custom-value v-if="quote.footer && !loadingData">
                             <span v-html="formatHtml(quote.footer)"></span>
                         </DisplayData>

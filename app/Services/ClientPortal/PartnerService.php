@@ -12,19 +12,10 @@ class PartnerService
 
         $partnerData = Partner::with(['contacts', 'addresses'])
             ->where('id', $partnerId)
-            ->first();
+            ->first()
+            ?->makeHidden(['notes', 'contacts.notes', 'addresses.notes']); // remove notes
 
-        if ($partnerData) {
-            $partnerData->notes = null;
-
-            foreach ($partnerData->contacts as $contact) {
-                $contact->notes = null;
-            }
-
-            foreach ($partnerData->addresses as $address) {
-                $address->notes = null;
-            }
-        }
+        createActivityLog('retrieve', $partnerId, 'App\Models\Partner', 'Partner', auth()->id(), 'App\Models\User', 'client_portal');
 
         return $partnerData;
     }

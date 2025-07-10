@@ -133,10 +133,6 @@
 
                 <div id="invoice_calculations" class="grid grid-cols-1 lg:grid-cols-2">
                     <div id="invoice_notes">
-                        <DisplayData v-if="invoice.notes && !loadingData" :input="$t('form.notes')" custom-value>
-                            <span v-html="formatHtml(invoice.notes)"></span>
-                        </DisplayData>
-
                         <DisplayData v-if="invoice.footer && !loadingData" :input="$t('form.footer')" custom-value>
                             <span v-html="formatHtml(invoice.footer)"></span>
                         </DisplayData>

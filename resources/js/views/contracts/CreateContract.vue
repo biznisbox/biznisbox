@@ -33,6 +33,8 @@
                             :options="partners"
                             option-value="id"
                             option-label="name"
+                            filter
+                            showClear
                         />
                         <SelectInput
                             v-model="contract.category_id"
@@ -41,6 +43,7 @@
                             :options="contractTypes"
                             option-value="id"
                             option-label="name"
+                            showClear
                         />
                     </div>
 

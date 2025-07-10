@@ -39,6 +39,7 @@ use App\Http\Controllers\ClientPortal\DashboardController as ClientPortalDashboa
 use App\Http\Controllers\ClientPortal\InvoiceController as ClientPortalInvoiceController;
 use App\Http\Controllers\ClientPortal\QuoteController as ClientPortalQuoteController;
 use App\Http\Controllers\ClientPortal\PartnerController as ClientPortalPartnerController;
+use App\Http\Controllers\ClientPortal\ContractController as ClientPortalContractController;
 // Other
 use App\Http\Controllers\Install\InstallerController;
 use App\Http\Middleware\CheckIfInstalled;
@@ -385,6 +386,8 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/quotes', [ClientPortalQuoteController::class, 'getQuotes'])->name('getClientPortalQuotes');
         Route::get('/quotes/{id}', [ClientPortalQuoteController::class, 'getQuoteById'])->name('getClientPortalQuote');
         Route::get('/partner-details', [ClientPortalPartnerController::class, 'getPartnerDetails'])->name('getClientPortalPartnerDetails');
+        Route::get('/contracts', [ClientPortalContractController::class, 'getContracts'])->name('getClientPortalContracts');
+        Route::get('/contracts/{id}', [ClientPortalContractController::class, 'getContract'])->name('getClientPortalContract');
     });
 });
 

@@ -15,9 +15,9 @@ class DashboardController extends Controller
         $this->dashboardService = $dashboardService;
     }
 
-    public function getDashboardData(Request $request)
+    public function getDashboardData()
     {
-        $partner = $this->dashboardService->getPartnerDashboardData();
+        $partner = $this->dashboardService->getClientPortalDashboardData();
 
         if (!$partner) {
             return api_response(null, __('responses.item_not_found'), 404);

@@ -1,7 +1,7 @@
 <template>
     <DefaultLayout menu_type="client">
         <LoadingScreen :blocked="loadingData">
-            <PageHeader :title="$t('client_portal.partner_details')" />
+            <PageHeader :title="partner ? partner.name : $t('client_portal.partner_details')" />
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-3">
                 <div class="grid grid-cols-1 lg:col-span-4">

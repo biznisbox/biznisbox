@@ -21,6 +21,7 @@ import LoadingScreen from '@/components/LoadingScreen.vue'
 import OtpInput from '@/components/form/OtpInput.vue'
 import AuditLog from '@/components/AuditLog.vue'
 import PdfViewer from '@/components/PdfViewer.vue'
+import DashboardCardWithIcon from '@/components/dashboard/DashboardCardWithIcon.vue'
 
 export default {
     install(app) {
@@ -44,5 +45,6 @@ export default {
         app.component('AuditLog', AuditLog)
         app.component('MultiSelectInput', MultiSelectInput)
         app.component('PdfViewer', PdfViewer)
+        app.component('DashboardCardWithIcon', DashboardCardWithIcon)
     },
 }
