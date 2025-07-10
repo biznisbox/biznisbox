@@ -1586,6 +1586,11 @@
             "partner_details": "Partner Detaljer"
         },
         "partner_details": "Information om partnern",
-        "dashboard": "Instrumentpanel"
+        "dashboard": "Instrumentpanel",
+        "number_of_contracts": "Antal kontrakt",
+        "number_of_unpaid_invoices": "Antal obetalda fakturor",
+        "number_of_quotes": "Antal offerter",
+        "number_of_bills": "Antal räkningar",
+        "number_of_support_tickets": "Antal supportärenden"
     }
 }
