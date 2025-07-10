@@ -1586,6 +1586,11 @@
             "partner_details": "Detaljer for partner"
         },
         "partner_details": "Detaljer for partner",
-        "dashboard": "Kontrollpanel"
+        "dashboard": "Kontrollpanel",
+        "number_of_contracts": "Antall kontrakter",
+        "number_of_unpaid_invoices": "Antall ubetalte fakturaer",
+        "number_of_quotes": "Antall tilbud",
+        "number_of_bills": "Antall regninger",
+        "number_of_support_tickets": "Antall saker til støtte"
     }
 }
