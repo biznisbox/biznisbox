@@ -1586,6 +1586,11 @@
             "partner_details": "Detalles del socio"
         },
         "partner_details": "Detalles del socio",
-        "dashboard": "Tablero"
+        "dashboard": "Tablero",
+        "number_of_contracts": "Número de contratos",
+        "number_of_unpaid_invoices": "Número de facturas pendientes de pago",
+        "number_of_quotes": "Número de comillas",
+        "number_of_bills": "Número de facturas",
+        "number_of_support_tickets": "Número de tickets de soporte"
     }
 }
