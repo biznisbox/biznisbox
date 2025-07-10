@@ -1586,6 +1586,11 @@
             "partner_details": "Информация о партнере"
         },
         "partner_details": "Информация о партнере",
-        "dashboard": "Панель"
+        "dashboard": "Панель",
+        "number_of_contracts": "Количество контрактов",
+        "number_of_unpaid_invoices": "Количество неоплаченных счетов",
+        "number_of_quotes": "Количество котировок",
+        "number_of_bills": "Количество счетов",
+        "number_of_support_tickets": "Количество заявок на поддержку"
     }
 }
