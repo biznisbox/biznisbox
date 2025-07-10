@@ -1586,6 +1586,11 @@
             "partner_details": "Деталі партнера"
         },
         "partner_details": "Деталі партнера",
-        "dashboard": "Приладна дошка"
+        "dashboard": "Приладна дошка",
+        "number_of_contracts": "Кількість договорів",
+        "number_of_unpaid_invoices": "Кількість неоплачених рахунків",
+        "number_of_quotes": "Кількість лапок",
+        "number_of_bills": "Кількість рахунків",
+        "number_of_support_tickets": "Кількість квитків на підтримку"
     }
 }
