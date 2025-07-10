@@ -1586,6 +1586,11 @@
             "partner_details": "Partner Details"
         },
         "partner_details": "Partner details",
-        "dashboard": "Dashboard"
+        "dashboard": "Dashboard",
+        "number_of_contracts": "Number of contracts",
+        "number_of_unpaid_invoices": "Number of unpaid invoices",
+        "number_of_quotes": "Number of quotes",
+        "number_of_bills": "Number of bills",
+        "number_of_support_tickets": "Number of support tickets"
     }
 }
