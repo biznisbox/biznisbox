@@ -1586,6 +1586,11 @@
             "partner_details": "Szczegóły partnera"
         },
         "partner_details": "Szczegóły partnera",
-        "dashboard": "Pulpit"
+        "dashboard": "Pulpit",
+        "number_of_contracts": "Liczba umów",
+        "number_of_unpaid_invoices": "Liczba niespłaconych faktur",
+        "number_of_quotes": "Liczba kwotowań",
+        "number_of_bills": "Liczba rachunków",
+        "number_of_support_tickets": "Liczba biletów wsparcia"
     }
 }
