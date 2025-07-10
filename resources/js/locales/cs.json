@@ -1586,6 +1586,11 @@
             "partner_details": "Podrobnosti o partnerovi"
         },
         "partner_details": "Podrobnosti o partnerovi",
-        "dashboard": "Nástěnka"
+        "dashboard": "Nástěnka",
+        "number_of_contracts": "Počet smluv",
+        "number_of_unpaid_invoices": "Počet nezaplacených faktur",
+        "number_of_quotes": "Počet kotací",
+        "number_of_bills": "Počet účtů",
+        "number_of_support_tickets": "Počet podpůrných lístků"
     }
 }
