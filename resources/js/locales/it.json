@@ -1586,6 +1586,11 @@
             "partner_details": "Dettagli Partner"
         },
         "partner_details": "Dettagli partner",
-        "dashboard": "Dashboard"
+        "dashboard": "Dashboard",
+        "number_of_contracts": "Numero di contratti",
+        "number_of_unpaid_invoices": "Numero di fatture non pagate",
+        "number_of_quotes": "Numero di preventivi",
+        "number_of_bills": "Numero di fatture",
+        "number_of_support_tickets": "Numero di ticket di supporto"
     }
 }
