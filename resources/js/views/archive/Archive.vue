@@ -349,7 +349,7 @@
                     <DisplayData
                         :input="$t('form.protection_level')"
                         :value="$t(`protection_level.${document.protection_level}`)"
-                        v-if="!editDocument && document.protection_level"
+                        v-if="!editDocument && document.protection_level !== null && document.protection_level !== 'null'"
                     />
                     <DisplayData
                         :input="$t('form.storage_location')"
