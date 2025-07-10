@@ -1586,6 +1586,11 @@
             "partner_details": "Partner-Details"
         },
         "partner_details": "Partner-Details",
-        "dashboard": "Dashboard"
+        "dashboard": "Dashboard",
+        "number_of_contracts": "Anzahl der Verträge",
+        "number_of_unpaid_invoices": "Anzahl der unbezahlten Rechnungen",
+        "number_of_quotes": "Anzahl der Zitate",
+        "number_of_bills": "Anzahl der Rechnungen",
+        "number_of_support_tickets": "Anzahl der Support-Tickets"
     }
 }
