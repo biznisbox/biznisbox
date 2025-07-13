@@ -6,7 +6,7 @@
 - Redesigned the "Add Document to Archive" form for improved usability and layout.
 - Added a new Document Status column to the archive table for better tracking and visibility.
 - The numbering system for all modules (invoices, quotes, etc.) now supports automatic yearly resets. If the numbering format includes a date placeholder (e.g., `{{DATE:Y}}`), the counter will reset to 1 at the beginning of each new year. Formats without a date will continue to increment sequentially.
-- Updates on client portal for partners, allowing them to see their quotes, invoices, and contracts.
+- Updates on the client portal for partners, allowing them to see their quotes, invoices, and contracts.
 
 ## 🐛 Bug Fixes
 
@@ -16,22 +16,22 @@
 
 ## ✨ New Features and Enhancements
 
-- Added a new feature for add partner contact access to client portal.
-- Introduced a new feature client portal for partners, allowing them to see their quotes, invoices.
+- Added a new feature to add partner contact access to the client portal.
+- Introduced a new feature client portal for partners, allowing them to see their quotes and invoices.
 - Add \* as trusted proxy for all requests in the app (see `bootstrap/app.php`)
 
 # 2.7.0
 
 ## ✨ New Features and Enhancements
 
-- Introduced a new option for get exchange rates from the currency API (https://github.com/fawazahmed0/exchange-api).
+- Introduced a new option for getting exchange rates from the currency API (https://github.com/fawazahmed0/exchange-api).
 - Updates on the Docker build process to ensure compatibility with the latest changes.
 
 ## 🧑‍💻 Development Updates
 
 - Updated the Dockerfile to use the latest PHP version and dependencies.
 - Improved the Docker build process to ensure a more efficient and streamlined setup.
-- Docker build images are now available on Docker Hub for easier deployment and testing and GitHub Packages.
+- Docker build images are now available on Docker Hub for easier deployment and testing, and on GitHub Packages.
 
 ## 🌐 Localization
 
@@ -41,7 +41,7 @@
 
 ## ✨ New Features and Enhancements
 
-- Refined Docker build process; install.lock now stored in the storage folder for improved structure.
+- Refined Docker build process; install.lock is now stored in the storage folder for improved structure.
 
 # 2.5.0
 
@@ -51,7 +51,7 @@
 
 ## 🐛 Bug Fixes
 
-- Fixed an issues with default language when project is not installed (default language is English).
+- Fixed an issue with the default language when the project is not installed (default language is English).
 
 # 2.4.0
 
@@ -62,9 +62,9 @@
 
 ## 🐛 Bug Fixes
 
-- Fixed an issue with not saving the payment method when creating a invoice.
+- Fixed an issue with not saving the payment method when creating an invoice.
 - Fixed an issue with selecting bill items when creating/updating a bill.
-- Fixed an validation issue with the quote selecting payment method.
+- Fixed a validation issue with the quote selecting payment method.
 
 # 2.3.0
 
@@ -118,10 +118,10 @@
 ## 🐛 Bug Fixes
 
 - Fixed an issue with WorldSeeder by locking the package version
-- Fixed color format for the company color in settings
+- Fixed colour format for the company colour in settings
 - Fixed an issue where the sendmail path was not displayed in settings
-- Fixed unit updating issue in settings
-- Fixed text color of changelog on the status page
+- Fixed the unit updating issue in settings
+- Fixed text colour of changelog on the status page
 
 # v2.1.0
 
@@ -134,7 +134,7 @@
 - Fixed an issue where the language cookie was missing during app installation.
 - Fixed a bug preventing user webhooks from being saved via the API.
 - Removed the requirement for the item number field (now generated automatically).
-- Fixed an issue causing incorrect behavior in the API (`getPublicProducts`).
+- Fixed an issue causing incorrect behaviour in the API (`getPublicProducts`).
 
 ## 💄 UI/UX Improvements
 
@@ -153,7 +153,7 @@ This marks the official release of the new BiznisBox.
 - Added an option to reject contracts.
 - Implemented email notifications for first-time logins from a new browser.
 - Introduced a console command for creating users.
-- Added new configuration settings for enhanced customization.
+- Added new configuration settings for enhanced customisation.
 
 ## 🐛 Bug Fixes
 
@@ -191,7 +191,7 @@ This marks the official release of the new BiznisBox.
 
 ## 💄 UI/UX Improvements
 
-- Updated the color scheme for a more modern and cohesive look.
+- Updated the colour scheme for a more modern and cohesive look.
 - Refined the design of input validation feedback.
 - Added dark mode support to the rich text editor for improved user experience in low-light environments.
 - Replaced the old app logo with a new, updated design.
@@ -209,8 +209,8 @@ This marks the official release of the new BiznisBox.
 
 ## ✨ New Features and Improvements
 
-- Add function for sharing contacts with other users (via magic link).
-- Add function for internal tickets in the support module.
+- Add a function for sharing contacts with other users (via magic link).
+- Add a function for internal tickets in the support module.
 
 ## 🐛 Bug Fixes
 
@@ -232,7 +232,7 @@ This marks the official release of the new BiznisBox.
 ## 🐛 Bug Fixes
 
 - Resolved an issue preventing the map icons from displaying in the production build.
-- Corrected formatting errors with invoice, bills ... numbers format to ensure consistency and accuracy.
+- Corrected formatting errors with invoices, bills, and number format to ensure consistency and accuracy.
 - Fixed multiple issues encountered during BiznisBox installation via the installer for a smoother setup.
 
 ## 🌐 Localization
