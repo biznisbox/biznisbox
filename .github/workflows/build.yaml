@@ -89,21 +89,27 @@ jobs:
                   name: ${{ github.ref_name }}
                   draft: true
                   tag: ${{ github.ref_name }}
+                  body: |
+                      # Changelog
+
+                      ## ✨ New Features and Enhancements
+
+                      - New features and enhancements in this release.
+
+                      ## 🐛 Bug Fixes
+
+                      - Fixed bugs and issues in this release.
+
+                      🚀 Found a bug or issue? Report it here: [**Open Issues**](https://github.com/biznisbox/biznisbox/issues)
+
+                      🐳 [Docker Image](https://hub.docker.com/r/biznisbox/biznisbox/tags)
+
+                      📚 [Documentation](https://docs.biznisbox.com)
+
+                      ## Release Information
+                        - **Version**: ${{ github.ref_name }}
+                        - **Build Type**: ${{ env.TYPE_OF_BUILD }}
                   prerelease: false
-                  body: | 
-                        # Changelog
-
-                        ## ✨ New Features and Enhancements
-
-                        - New features and enhancements in this release.
-
-                        ## 🐛 Bug Fixes
-
-                        - Fixed bugs and issues in this release.
-                        
-                        🚀 Found a bug or issue? Report it here: [**Open Issues**](https://github.com/biznisbox/biznisbox/issues)
-
-                        🐳 [Docker Image](https://hub.docker.com/r/biznisbox/biznisbox/tags)
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: Create nightly release
