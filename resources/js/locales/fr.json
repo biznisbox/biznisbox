@@ -419,7 +419,8 @@
         "module": "Module",
         "parent_category": "Catégorie parente",
         "icon": "Icône",
-        "additional_info": "Infos supplémentaires"
+        "additional_info": "Infos supplémentaires",
+        "client_portal": "Portail Client"
     },
     "address_types": {
         "billing": "Facturation",
@@ -555,7 +556,8 @@
         "activities": "Activités",
         "edit_activity": "Modifier l'activité",
         "partner_activities": "Activités des partenaires",
-        "send_email": "Envoyer un e-mail"
+        "send_email": "Envoyer un e-mail",
+        "add_to_client_portal": "Ajouter au portail client"
     },
     "partner_activity_types": {
         "call": "Appel",
@@ -1090,7 +1092,8 @@
             "default_time_format": "Format de l'heure par défaut",
             "default_datetime_format": "Format de date par défaut",
             "show_barcode_on_documents": "Afficher le code-barres sur les documents",
-            "week_start": "Jour de début de la semaine"
+            "week_start": "Jour de début de la semaine",
+            "exchange_rate_provider": "Fournisseur de taux de change"
         },
         "taxes": {
             "title": "Taux de taxe",
@@ -1205,7 +1208,9 @@
             "no_transaction_categories": "Aucune catégorie de transaction trouvée",
             "no_contract_types": "Aucun type de contrat trouvé",
             "delete_category_ask": "Êtes-vous sûr de vouloir supprimer cet élément de collecte de données ?",
-            "delete_category_success": "Élément de collecte de données supprimé avec succès"
+            "delete_category_success": "Élément de collecte de données supprimé avec succès",
+            "product_categories": "Catégories de produits",
+            "no_product_categories": "Aucune catégorie de produit trouvée"
         }
     },
     "month": {
@@ -1569,5 +1574,23 @@
         "finish_installation_description": "L'installation est terminée. Vous pouvez maintenant vous connecter à votre compte.",
         "go_to_login": "Aller à la connexion",
         "installation": "Installation"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Tableau de bord",
+            "invoices": "Factures",
+            "quotes": "Devis",
+            "transactions": "Transactions",
+            "support": "Soutien",
+            "contracts": "Contrats",
+            "partner_details": "Détails du partenaire"
+        },
+        "partner_details": "Détails du partenaire",
+        "dashboard": "Tableau de bord",
+        "number_of_contracts": "Nombre de contrats",
+        "number_of_unpaid_invoices": "Nombre de factures impayées",
+        "number_of_quotes": "Nombre de devis",
+        "number_of_bills": "Nombre de factures",
+        "number_of_support_tickets": "Nombre de tickets de support"
     }
 }
