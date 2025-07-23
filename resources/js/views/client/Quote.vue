@@ -170,13 +170,13 @@
                 </div>
 
                 <div id="quote_calculations" class="grid mt-5">
-                    <div id="quote_notes" class="col-12 md:col-6">
+                    <div id="quote_notes" >
                         <DisplayData :input="$t('form.footer')" custom-value>
                             <span v-if="quote.footer && !loadingData" v-html="formatHtml(quote.footer)"></span>
                         </DisplayData>
                     </div>
 
-                    <div class="col-12 md:col-6">
+                    <div >
                         <table class="w-full">
                             <tr>
                                 <td class="w-6 font-bold mb-1">{{ $t('form.discount') }}</td>

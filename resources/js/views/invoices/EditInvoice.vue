@@ -45,7 +45,6 @@
                     <SelectInput
                         id="payer_input"
                         v-model="invoice.payer_id"
-                        class="col-12 md:col-6"
                         :label="$t('form.payer')"
                         filter
                         show-clear
