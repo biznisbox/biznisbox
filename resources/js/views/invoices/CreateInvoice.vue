@@ -45,7 +45,6 @@
                     <SelectInput
                         id="payer_input"
                         v-model="invoice.payer_id"
-                        class="col-12 md:col-6"
                         :label="$t('form.payer')"
                         filter
                         show-clear
@@ -224,7 +223,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
-                    <div class="col-12">
+                    <div >
                         <TextAreaInput id="notes_input" v-model="invoice.notes" :label="$t('form.notes')" />
                         <TinyMceEditor
                             id="footer_input"

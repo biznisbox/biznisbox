@@ -32,7 +32,6 @@
                             v-model="settings.default_currency"
                             :label="$t('admin.general.default_currency')"
                             :options="currencies"
-                            class="col-12"
                             option-value="code"
                             option-label="name"
                         />

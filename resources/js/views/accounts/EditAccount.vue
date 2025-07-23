@@ -82,7 +82,6 @@
                         <TextAreaInput
                             id="bank_address_input"
                             v-model="account.bank_address"
-                            class="col-12"
                             :label="$t('form.address')"
                         ></TextAreaInput>
                     </div>
@@ -90,7 +89,6 @@
                     <TextAreaInput
                         id="description_input"
                         v-model="account.description"
-                        class="col-12"
                         :label="$t('form.description')"
                     ></TextAreaInput>
                 </form>

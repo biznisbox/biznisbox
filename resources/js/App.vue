@@ -1,5 +1,5 @@
 <template>
-    <div class="min-w-screen min-h-screen dark:text-surface-200 dark:bg-surface-800">
+    <div class="min-w-screen min-h-screen dark:text-surface-200 dark:bg-surface-800 ">
         <Toast />
         <ScrollTop />
         <ConfirmDialog></ConfirmDialog>

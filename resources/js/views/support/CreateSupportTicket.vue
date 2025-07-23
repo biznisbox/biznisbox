@@ -101,7 +101,6 @@
                             <SelectInput
                                 id="status_input"
                                 v-model="v$.supportTicket.status.$model"
-                                class="col-12 md:col-6"
                                 :label="$t('form.status')"
                                 :options="[
                                     { label: $t('status.open'), value: 'open' },
@@ -116,7 +115,6 @@
                             <SelectInput
                                 id="priority_input"
                                 v-model="v$.supportTicket.priority.$model"
-                                class="col-12 md:col-6"
                                 :label="$t('form.priority')"
                                 :options="[
                                     { label: $t('support_priority.none'), value: 'none' },
@@ -130,7 +128,7 @@
                             />
                         </div>
                         <div class="grid">
-                            <TextAreaInput id="notes_input" v-model="supportTicket.notes" class="col-12" :label="$t('form.notes')" />
+                            <TextAreaInput id="notes_input" v-model="supportTicket.notes" :label="$t('form.notes')" />
                         </div>
                     </div>
                 </div>

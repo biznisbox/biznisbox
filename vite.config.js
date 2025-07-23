@@ -1,9 +1,8 @@
 import { defineConfig } from 'vite'
 import laravel from 'laravel-vite-plugin'
 import vue from '@vitejs/plugin-vue'
-import tailwindcss from 'tailwindcss'
 import vueDevTools from 'vite-plugin-vue-devtools'
-
+import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
     plugins: [
         laravel({
@@ -12,12 +11,8 @@ export default defineConfig({
         }),
         vue(),
         vueDevTools(),
+        tailwindcss(),
     ],
-    css: {
-        postcss: {
-            plugins: [tailwindcss],
-        },
-    },
     resolve: {
         alias: {
             '@': '/resources/js',

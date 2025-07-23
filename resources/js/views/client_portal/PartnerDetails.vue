@@ -85,7 +85,7 @@
 
                                 <!-- Addresses table -->
                                 <TabPanel value="addresses">
-                                    <DataTable id="addresses_table" class="col-12" :value="partner.addresses">
+                                    <DataTable id="addresses_table"  :value="partner.addresses">
                                         <template #empty>
                                             <div class="p-4 pl-0 text-center w-full dark:text-gray-400">
                                                 <i class="fa fa-info-circle empty-icon"></i>

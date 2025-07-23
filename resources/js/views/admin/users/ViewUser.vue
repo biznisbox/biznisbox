@@ -178,7 +178,6 @@
                         id="input_password"
                         v-model="password.password"
                         :label="$t('form.password')"
-                        class="col-12"
                         :placeholder="$t('form.password')"
                         :disabled="user.auto_generated_password"
                     />
