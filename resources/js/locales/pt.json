@@ -419,7 +419,8 @@
         "module": "Módulo",
         "parent_category": "Categoria Pai",
         "icon": "Ícone",
-        "additional_info": "Informação Adicional"
+        "additional_info": "Informação Adicional",
+        "client_portal": "Portal do Cliente"
     },
     "address_types": {
         "billing": "Faturamento",
@@ -555,7 +556,8 @@
         "activities": "Atividades",
         "edit_activity": "Editar Atividade",
         "partner_activities": "Atividades de parceiro",
-        "send_email": "Enviar e-mail"
+        "send_email": "Enviar e-mail",
+        "add_to_client_portal": "Adicionar ao portal do cliente"
     },
     "partner_activity_types": {
         "call": "Chamada",
@@ -1090,7 +1092,8 @@
             "default_time_format": "Formato de hora padrão",
             "default_datetime_format": "Formato de data padrão",
             "show_barcode_on_documents": "Mostrar código de barras nos documentos",
-            "week_start": "Dia Inicial da Semana"
+            "week_start": "Dia Inicial da Semana",
+            "exchange_rate_provider": "Provedor Taxa de Câmbio"
         },
         "taxes": {
             "title": "Taxas de imposto",
@@ -1205,7 +1208,9 @@
             "no_transaction_categories": "Nenhuma categoria de transação encontrada",
             "no_contract_types": "Nenhum tipo de contrato foi encontrado",
             "delete_category_ask": "Tem certeza de que deseja excluir este item de coleta de dados?",
-            "delete_category_success": "Item da coleção de dados excluído com sucesso"
+            "delete_category_success": "Item da coleção de dados excluído com sucesso",
+            "product_categories": "Categorias de produtos",
+            "no_product_categories": "Nenhuma categoria de produtos encontrada"
         }
     },
     "month": {
@@ -1569,5 +1574,23 @@
         "finish_installation_description": "A instalação está completa. Agora você pode acessar a sua conta.",
         "go_to_login": "Ir para o login",
         "installation": "Instalação"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Painel",
+            "invoices": "Faturas",
+            "quotes": "Cotações",
+            "transactions": "Transações",
+            "support": "SUPORTE",
+            "contracts": "Contratos",
+            "partner_details": "Detalhes do parceiro"
+        },
+        "partner_details": "Detalhes do parceiro",
+        "dashboard": "Painel",
+        "number_of_contracts": "Número de contratos",
+        "number_of_unpaid_invoices": "Número de faturas a pagar",
+        "number_of_quotes": "Número de Cotações",
+        "number_of_bills": "Número de faturas",
+        "number_of_support_tickets": "Número de tickets de suporte"
     }
 }

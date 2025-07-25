@@ -419,7 +419,8 @@
         "module": "Modulo",
         "parent_category": "Categoria Genitore",
         "icon": "Icona",
-        "additional_info": "Informazioni Aggiuntive"
+        "additional_info": "Informazioni Aggiuntive",
+        "client_portal": "Portale Client"
     },
     "address_types": {
         "billing": "Fatturazione",
@@ -555,7 +556,8 @@
         "activities": "Attività",
         "edit_activity": "Modifica Attività",
         "partner_activities": "Attività Partner",
-        "send_email": "Invia email"
+        "send_email": "Invia email",
+        "add_to_client_portal": "Aggiungi al portale client"
     },
     "partner_activity_types": {
         "call": "Chiama",
@@ -1090,7 +1092,8 @@
             "default_time_format": "Formato Predefinito Ora",
             "default_datetime_format": "Formato Predefinito Datetime",
             "show_barcode_on_documents": "Mostra il codice a barre sui documenti",
-            "week_start": "Giorno Inizio Settimana"
+            "week_start": "Giorno Inizio Settimana",
+            "exchange_rate_provider": "Provider Di Tasso Di Cambio"
         },
         "taxes": {
             "title": "Aliquote Fiscali",
@@ -1205,7 +1208,9 @@
             "no_transaction_categories": "Nessuna categoria di transazione trovata",
             "no_contract_types": "Nessun tipo di contratto trovato",
             "delete_category_ask": "Sei sicuro di voler eliminare questo elemento di raccolta dati?",
-            "delete_category_success": "Voce raccolta dati eliminata con successo"
+            "delete_category_success": "Voce raccolta dati eliminata con successo",
+            "product_categories": "Categorie di prodotti",
+            "no_product_categories": "Nessuna categoria di prodotto trovata"
         }
     },
     "month": {
@@ -1569,5 +1574,23 @@
         "finish_installation_description": "L'installazione è completa. Ora puoi accedere al tuo account.",
         "go_to_login": "Vai al login",
         "installation": "Installazione"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Dashboard",
+            "invoices": "Fatture",
+            "quotes": "Quotazioni",
+            "transactions": "Transazioni",
+            "support": "Supporto",
+            "contracts": "Contratti",
+            "partner_details": "Dettagli Partner"
+        },
+        "partner_details": "Dettagli partner",
+        "dashboard": "Dashboard",
+        "number_of_contracts": "Numero di contratti",
+        "number_of_unpaid_invoices": "Numero di fatture non pagate",
+        "number_of_quotes": "Numero di preventivi",
+        "number_of_bills": "Numero di fatture",
+        "number_of_support_tickets": "Numero di ticket di supporto"
     }
 }

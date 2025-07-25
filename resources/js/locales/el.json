@@ -419,7 +419,8 @@
         "module": "Πρόσθετο",
         "parent_category": "Γονική Κατηγορία",
         "icon": "Εικονίδιο",
-        "additional_info": "Πρόσθετες Πληροφορίες"
+        "additional_info": "Πρόσθετες Πληροφορίες",
+        "client_portal": "Πύλη Πελάτη"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -555,7 +556,8 @@
         "activities": "Δραστηριότητες",
         "edit_activity": "Επεξεργασία Δραστηριότητας",
         "partner_activities": "Δραστηριότητες Συνεργατών",
-        "send_email": "Αποστολή email"
+        "send_email": "Αποστολή email",
+        "add_to_client_portal": "Προσθήκη στην πύλη του πελάτη"
     },
     "partner_activity_types": {
         "call": "Κλήση",
@@ -1090,7 +1092,8 @@
             "default_time_format": "Προεπιλεγμένη Μορφή Ώρας",
             "default_datetime_format": "Προεπιλεγμένη Μορφή Ημερομηνίας",
             "show_barcode_on_documents": "Εμφάνιση barcode στα έγγραφα",
-            "week_start": "Ημέρα Έναρξης Εβδομάδας"
+            "week_start": "Ημέρα Έναρξης Εβδομάδας",
+            "exchange_rate_provider": "Πάροχος Συναλλαγματικών Ισοτιμιών"
         },
         "taxes": {
             "title": "Φορολογικοί Συντελεστές",
@@ -1205,7 +1208,9 @@
             "no_transaction_categories": "Δεν βρέθηκαν κατηγορίες συναλλαγών",
             "no_contract_types": "Δεν βρέθηκαν τύποι συμβάσεων",
             "delete_category_ask": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το στοιχείο συλλογής δεδομένων?",
-            "delete_category_success": "Το στοιχείο συλλογής δεδομένων διαγράφηκε με επιτυχία"
+            "delete_category_success": "Το στοιχείο συλλογής δεδομένων διαγράφηκε με επιτυχία",
+            "product_categories": "Κατηγορίες προϊόντων",
+            "no_product_categories": "Δεν βρέθηκαν κατηγορίες προϊόντων"
         }
     },
     "month": {
@@ -1569,5 +1574,23 @@
         "finish_installation_description": "Η εγκατάσταση έχει ολοκληρωθεί. Μπορείτε τώρα να συνδεθείτε στο λογαριασμό σας.",
         "go_to_login": "Πηγαίνετε να συνδεθείτε",
         "installation": "Εγκατάσταση"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Ταμπλό",
+            "invoices": "Τιμολόγια",
+            "quotes": "Προσφορές",
+            "transactions": "Συναλλαγές",
+            "support": "Υποστήριξη",
+            "contracts": "Συμβάσεις",
+            "partner_details": "Λεπτομέρειες Συνεργάτη"
+        },
+        "partner_details": "Λεπτομέρειες συνεργάτη",
+        "dashboard": "Ταμπλό",
+        "number_of_contracts": "Αριθμός συμβάσεων",
+        "number_of_unpaid_invoices": "Αριθμός μη καταβληθέντων τιμολογίων",
+        "number_of_quotes": "Αριθμός εισαγωγικών",
+        "number_of_bills": "Αριθμός λογαριασμών",
+        "number_of_support_tickets": "Αριθμός εισιτηρίων υποστήριξης"
     }
 }
