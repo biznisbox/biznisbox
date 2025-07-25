@@ -79,18 +79,10 @@
                             <TextInput id="bank_contact_input" v-model="account.bank_contact" :label="$t('form.contact')"></TextInput>
                         </div>
 
-                        <TextAreaInput
-                            id="bank_address_input"
-                            v-model="account.bank_address"
-                            :label="$t('form.address')"
-                        ></TextAreaInput>
+                        <TextAreaInput id="bank_address_input" v-model="account.bank_address" :label="$t('form.address')"></TextAreaInput>
                     </div>
 
-                    <TextAreaInput
-                        id="description_input"
-                        v-model="account.description"
-                        :label="$t('form.description')"
-                    ></TextAreaInput>
+                    <TextAreaInput id="description_input" v-model="account.description" :label="$t('form.description')"></TextAreaInput>
                 </form>
             </div>
             <div id="function_buttons" class="flex justify-end mt-4 gap-2">

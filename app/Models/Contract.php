@@ -245,7 +245,7 @@ class Contract extends Model implements Auditable
         $contract = $this->with(
             'partner:id,name,type,entity_type',
             'category:id,name,color',
-            'signers:contract_id,sign_order,signature,signature_date_time,signature_ip,signature_user_agent,signer_email,signer_name,signer_phone,status'
+            'signers:contract_id,sign_order,signature,signature_date_time,signature_ip,signature_user_agent,signer_email,signer_name,signer_phone,status',
         )
             ->select([
                 'id',
@@ -292,7 +292,7 @@ class Contract extends Model implements Auditable
                 createNotification($signer->user_id, 'ContractForSign', 'NewContractForSign', 'info', 'Sign', $local_url);
             }
             Mail::to($signer->signer_email, $signer->signer_name)->send(
-                new \App\Mail\Client\ContractNotification($contract, $url, $signer)
+                new \App\Mail\Client\ContractNotification($contract, $url, $signer),
             );
         }
         return $contract;
@@ -340,7 +340,7 @@ class Contract extends Model implements Auditable
                 'ContractRejectedBySigner',
                 'info',
                 'view',
-                'contracts/' . $contract->id
+                'contracts/' . $contract->id,
             );
             sendWebhookForEvent('contract:rejected_by_signer', $contract->toArray());
         }
@@ -352,7 +352,7 @@ class Contract extends Model implements Auditable
                 'ContractSignedBySigner',
                 'info',
                 'view',
-                'contracts/' . $contract->id
+                'contracts/' . $contract->id,
             );
             $signers = $contract->signers()->where('status', '!=', 'signed')->get();
 
@@ -364,7 +364,7 @@ class Contract extends Model implements Auditable
                     'ContractSignedByAllSigners',
                     'info',
                     'view',
-                    'contracts/' . $contract->id
+                    'contracts/' . $contract->id,
                 );
                 sendWebhookForEvent('contract:signed', $contract->toArray());
             }

@@ -40,7 +40,7 @@ class ClientPortalNotification extends Mailable
                 'partner_contact_id' => $this->partnerContact ? $this->partnerContact->id : null,
                 'partner_contact_email' => $this->partnerContact ? $this->partnerContact->email : null,
             ],
-            tags: ['ClientPortalNotification']
+            tags: ['ClientPortalNotification'],
         );
     }
 
@@ -56,7 +56,7 @@ class ClientPortalNotification extends Mailable
                 'partner_contact' => $this->partnerContact,
                 'password' => $this->password,
                 'url' => url('/auth/login?redirect=/client-portal'),
-            ]
+            ],
         );
     }
 

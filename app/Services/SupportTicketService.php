@@ -134,11 +134,11 @@ class SupportTicketService
                     '?key=' .
                     generateExternalKey('support', $ticket->id, 'system', null, $ticket->contact_email, 'email') .
                     '&lang=' .
-                    app()->getLocale()
+                    app()->getLocale(),
             );
 
             Mail::to($ticket->contact_email, $ticket->contact_name)->send(
-                new \App\Mail\Client\SupportTicketNotification($ticket, $url, null)
+                new \App\Mail\Client\SupportTicketNotification($ticket, $url, null),
             );
             return true;
         } else {
@@ -151,7 +151,7 @@ class SupportTicketService
                         '?key=' .
                         generateExternalKey('support', $ticket->id, 'system', null, $contact->email, 'email') .
                         '&lang=' .
-                        app()->getLocale()
+                        app()->getLocale(),
                 );
 
                 Mail::to($contact->email, $contact->name)->send(new \App\Mail\Client\SupportTicketNotification($ticket, $url, $contact));

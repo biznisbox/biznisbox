@@ -109,7 +109,7 @@ class Partner extends Model implements Auditable
             'bills',
             'supportTickets',
             'archiveDocuments',
-            'activities'
+            'activities',
         )->find($id);
         if (!$partner) {
             return null;

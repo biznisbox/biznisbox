@@ -94,7 +94,7 @@ class SupportTicket extends Model implements Auditable
             'assignee:id,first_name,last_name,email,department_id,position,user_id',
             'partner',
             'category',
-            'content'
+            'content',
         )->find($id);
         if ($supportTicket) {
             createActivityLog('retrieve', $id, 'App\Models\SupportTicket', 'getSupportTicket');

@@ -49,7 +49,7 @@ class ContractNotification extends Mailable
         return new Envelope(
             subject: __('email.subject_new_contract'),
             tags: ['contract'],
-            metadata: ['contract_id' => $this->contract->id]
+            metadata: ['contract_id' => $this->contract->id],
         );
     }
 
@@ -65,7 +65,7 @@ class ContractNotification extends Mailable
                 'url' => $this->url,
                 'contact' => $this->contact,
                 'settings' => $this->settings,
-            ]
+            ],
         );
     }
 

@@ -58,58 +58,58 @@ class SettingSeeder extends Seeder
         // Set default number formats
         Setting::firstOrCreate(
             ['key' => 'quote_number_format'],
-            ['value' => '{{TEXT:QUO}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+            ['value' => '{{TEXT:QUO}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
         );
         Setting::firstOrCreate(
             ['key' => 'invoice_number_format'],
-            ['value' => '{{TEXT:INV}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+            ['value' => '{{TEXT:INV}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
         );
         Setting::firstOrCreate(
             ['key' => 'payment_number_format'],
-            ['value' => '{{TEXT:PAY}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+            ['value' => '{{TEXT:PAY}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
         );
         Setting::firstOrCreate(
             ['key' => 'transaction_number_format'],
-            ['value' => '{{TEXT:TRA}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+            ['value' => '{{TEXT:TRA}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
         );
         Setting::firstOrCreate(
             ['key' => 'document_number_format'],
-            ['value' => '{{TEXT:DOC}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+            ['value' => '{{TEXT:DOC}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
         );
         Setting::firstOrCreate(
             ['key' => 'bill_number_format'],
-            ['value' => '{{TEXT:BILL}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+            ['value' => '{{TEXT:BILL}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
         );
         Setting::firstOrCreate(
             ['key' => 'product_number_format'],
-            ['value' => '{{TEXT:PRO}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+            ['value' => '{{TEXT:PRO}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
         );
         Setting::firstOrCreate(
             ['key' => 'partner_number_format'],
-            ['value' => '{{TEXT:PAR}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+            ['value' => '{{TEXT:PAR}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
         );
         Setting::firstOrCreate(
             ['key' => 'employee_number_format'],
-            ['value' => '{{TEXT:EMP}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+            ['value' => '{{TEXT:EMP}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
         );
 
         Setting::firstOrCreate(
             ['key' => 'support_ticket_number_format'],
-            ['value' => '{{TEXT:TICKET}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+            ['value' => '{{TEXT:TICKET}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
         );
         Setting::firstOrCreate(
             ['key' => 'archive_number_format'],
-            ['value' => '{{TEXT:DOC}}{{DELIMITER}}{{DATE:Y}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+            ['value' => '{{TEXT:DOC}}{{DELIMITER}}{{DATE:Y}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
         );
 
         Setting::firstOrCreate(
             ['key' => 'project_number_format'],
-            ['value' => '{{TEXT:PROJ}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+            ['value' => '{{TEXT:PROJ}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
         );
 
         Setting::firstOrCreate(
             ['key' => 'contract_number_format'],
-            ['value' => '{{TEXT:CON}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1]
+            ['value' => '{{TEXT:CON}}{{DELIMITER}}{{NUMBER:6}}', 'type' => 'string', 'is_public' => 1],
         );
 
         // Set default payment method
@@ -129,11 +129,11 @@ class SettingSeeder extends Seeder
         // Seed default payment methods
         Category::firstOrCreate(
             ['additional_info' => 'paypal'],
-            ['module' => 'payment_method', 'icon' => 'fab fa-paypal', 'name' => 'PayPal', 'color' => '003087']
+            ['module' => 'payment_method', 'icon' => 'fab fa-paypal', 'name' => 'PayPal', 'color' => '003087'],
         );
         Category::firstOrCreate(
             ['additional_info' => 'stripe'],
-            ['module' => 'payment_method', 'icon' => 'fab fa-stripe', 'name' => 'Stripe', 'color' => '635BFF']
+            ['module' => 'payment_method', 'icon' => 'fab fa-stripe', 'name' => 'Stripe', 'color' => '635BFF'],
         );
     }
 }

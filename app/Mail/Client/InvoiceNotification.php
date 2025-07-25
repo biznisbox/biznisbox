@@ -61,7 +61,7 @@ class InvoiceNotification extends Mailable
                 'url' => $this->url,
                 'contact' => $this->contact,
                 'settings' => $this->settings,
-            ]
+            ],
         );
     }
 

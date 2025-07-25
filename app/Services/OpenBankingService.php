@@ -165,7 +165,7 @@ class OpenBankingService
                             now()
                                 ->subDays($bank['transaction_total_days'] ?? 90)
                                 ->format('Y-m-d'),
-                            now()->format('Y-m-d')
+                            now()->format('Y-m-d'),
                         )['transactions']['booked'];
 
                         foreach ($transactions as $transaction) {
@@ -214,7 +214,7 @@ class OpenBankingService
                 'name' => $transactionDescription ?? null,
                 'description' => $transactionDescription ?? null,
                 'status' => 'completed',
-            ]
+            ],
         );
         incrementLastItemNumber('transaction', settings('transaction_number_format'));
         return $transaction;
@@ -247,7 +247,7 @@ class OpenBankingService
                         ->account($openBanking['account_id'])
                         ->getAccountTransactions(
                             now()->subDays($openBanking['transaction_total_days'])->format('Y-m-d'),
-                            now()->format('Y-m-d')
+                            now()->format('Y-m-d'),
                         )['transactions']['booked'];
                     foreach ($transactions as $transaction) {
                         $this->createTransactionRecord($transaction, $account['id']);

@@ -119,7 +119,7 @@ class QuoteService
                     '?key=' .
                     generateExternalKey('quote', $quote->id, 'system', null, $contact->email, 'email') .
                     '&lang=' .
-                    app()->getLocale()
+                    app()->getLocale(),
             );
 
             Mail::to($contact->email)->send(new \App\Mail\Client\QuoteNotification($quote, $url, $contact));
@@ -138,7 +138,7 @@ class QuoteService
                         '?key=' .
                         generateExternalKey('quote', $quote->id, 'system', null, $contact->email, 'email') .
                         '&lang=' .
-                        app()->getLocale()
+                        app()->getLocale(),
                 );
 
                 Mail::to($contact->email)->send(new \App\Mail\Client\QuoteNotification($quote, $url, $contact));

@@ -79,7 +79,7 @@ class ActivityLog extends Model
         $user_id = null,
         $user_type = 'App\Models\User', // Default user type is 'App\Models\User
         $type = 'internal',
-        $external_key = null
+        $external_key = null,
     ) {
         self::create([
             'auditable_id' => $auditable_id,

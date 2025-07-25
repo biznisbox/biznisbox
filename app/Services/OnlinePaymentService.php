@@ -20,7 +20,7 @@ class OnlinePaymentService
                 'key' => $key,
             ],
             url('/api/online-payment/invoice/stripe?invoice=' . $invoice->id . '&key=' . $key . '&status=success&method=' . $method),
-            url('/api/online-payment/invoice/stripe?invoice=' . $invoice->id . '&key=' . $key . '&status=cancel&method=' . $method)
+            url('/api/online-payment/invoice/stripe?invoice=' . $invoice->id . '&key=' . $key . '&status=cancel&method=' . $method),
         );
 
         $payment = OnlinePayment::create([
@@ -96,7 +96,7 @@ class OnlinePaymentService
                 'InvoicePaymentReceived',
                 'info',
                 'view',
-                'invoices/' . $invoice->id
+                'invoices/' . $invoice->id,
             );
 
             sendWebhookForEvent('online_payment:stripe-received', [
@@ -132,7 +132,7 @@ class OnlinePaymentService
                 'key' => $key,
             ],
             url('/api/online-payment/invoice/paypal?invoice=' . $invoice->id . '&key=' . $key . '&status=success&method=' . $method),
-            url('/api/online-payment/invoice/paypal?invoice=' . $invoice->id . '&key=' . $key . '&status=cancel&method=' . $method)
+            url('/api/online-payment/invoice/paypal?invoice=' . $invoice->id . '&key=' . $key . '&status=cancel&method=' . $method),
         );
 
         $payment = OnlinePayment::create([
@@ -209,7 +209,7 @@ class OnlinePaymentService
                 'InvoicePaymentReceived',
                 'info',
                 'view',
-                'invoices/' . $invoice->id
+                'invoices/' . $invoice->id,
             );
 
             sendWebhookForEvent('online_payment:paypal-received', [

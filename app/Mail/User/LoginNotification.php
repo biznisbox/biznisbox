@@ -44,7 +44,7 @@ class LoginNotification extends Mailable
                 'user' => $this->user,
                 'login' => $this->login,
                 'app' => settings('company_name'),
-            ]
+            ],
         );
     }
 

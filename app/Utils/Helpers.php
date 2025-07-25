@@ -25,7 +25,7 @@ if (!function_exists('api_response')) {
                 'response_time' => convertResponseTime(microtime(true) - LARAVEL_START),
                 'status' => $status_code >= 200 && $status_code < 300 ? 'success' : 'error',
             ],
-            $status_code
+            $status_code,
         );
     }
 }
@@ -226,7 +226,7 @@ if (!function_exists('calculateTotalHelper')) {
         $discount_type = 'percent',
         $currency_rate = null,
         $tax = null,
-        $tax_type = 'percent'
+        $tax_type = 'percent',
     ) {
         $total = 0;
         foreach ($items as $item) {
@@ -262,7 +262,7 @@ if (!function_exists('generateExternalKey')) {
         $creation_method = 'manual',
         $expires_at = null,
         $recipient = null,
-        $recipient_type = null
+        $recipient_type = null,
     ) {
         $external_key = new \App\Models\ExternalKey();
         return $external_key->createExternalKey($module, $module_item_id, $creation_method, $expires_at, $recipient, $recipient_type);
@@ -411,7 +411,7 @@ if (!function_exists('createActivityLog')) {
         $user_id = null,
         $user_type = 'App\Models\User',
         $type = 'internal',
-        $external_key = null
+        $external_key = null,
     ) {
         $activity = new \App\Models\ActivityLog();
         $activity->createLog($event, $auditable_id, $auditable_type, $tags, $user_id, $user_type, $type, $external_key);

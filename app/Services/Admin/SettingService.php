@@ -171,7 +171,7 @@ class SettingService
             function ($key) {
                 return strpos($key, 'MAIL_') !== false;
             },
-            ARRAY_FILTER_USE_KEY
+            ARRAY_FILTER_USE_KEY,
         );
 
         foreach ($env_settings as $key => $value) {

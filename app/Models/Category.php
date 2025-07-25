@@ -68,7 +68,7 @@ class Category extends Model implements Auditable
         $color = null,
         $parent_id = null,
         $icon = null,
-        $additional_info = null
+        $additional_info = null,
     ) {
         $category = $this->create([
             'name' => $name,

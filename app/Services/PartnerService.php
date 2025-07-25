@@ -102,7 +102,7 @@ class PartnerService
 
         // Send email
         $email = Mail::to($partnerContact->email, $partnerContact->name)->send(
-            new SendPartnerMessage($from_email, $from_name, $subject, $message)
+            new SendPartnerMessage($from_email, $from_name, $subject, $message),
         );
 
         if (!$email) {
@@ -168,7 +168,7 @@ class PartnerService
         $partnerContact->save();
         // Send notification email
         $email = Mail::to($partnerContact->email, $partnerContact->name)->send(
-            new ClientPortalNotification($partnerContact->partner, $password, $partnerContact)
+            new ClientPortalNotification($partnerContact->partner, $password, $partnerContact),
         );
         createActivityLog('addPartnerContactToClientPortal', $partnerContact->partner_id, 'App\Models\Partner', 'Partner');
 

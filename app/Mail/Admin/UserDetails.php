@@ -45,7 +45,7 @@ class UserDetails extends Mailable
                 'user' => $this->user,
                 'app' => settings('company_name'),
                 'password' => $this->password,
-            ]
+            ],
         );
     }
 

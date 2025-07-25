@@ -20,7 +20,7 @@ class CheckIfInstalled
                 [
                     'message' => __('responses.app_installed'),
                 ],
-                400
+                400,
             );
         }
         return $next($request);

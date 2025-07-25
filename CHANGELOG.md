@@ -1,3 +1,14 @@
+# 2.10.0
+
+## ✨ New Features and Enhancements
+
+- New icons from FontAwesome 7 have been added to the app, enhancing the visual appeal and usability of the interface.
+
+## 🧑‍💻 Development Updates
+
+- Migrate the TailwindCSS 3 configuration to the latest version (4), ensuring compatibility with the latest features and improvements in TailwindCSS.
+- Improved user interface by updating the TailwindCSS configuration to use the latest version, enhancing the overall design and responsiveness of the app (maybe need some updates in the UI - coming in a future releases).
+
 # 2.9.0
 
 ## ✨ New Features and Enhancements

@@ -34,7 +34,7 @@ class SupportTicketNotification extends Mailable
         return new Envelope(
             subject: __('email.subject_support_ticket'),
             tags: ['support_ticket'],
-            metadata: ['support_ticket_id' => $this->ticket->id]
+            metadata: ['support_ticket_id' => $this->ticket->id],
         );
     }
 
@@ -49,7 +49,7 @@ class SupportTicketNotification extends Mailable
                 'ticket' => $this->ticket,
                 'url' => $this->url,
                 'contact' => $this->contact,
-            ]
+            ],
         );
     }
 

@@ -60,7 +60,7 @@ class ExternalKey extends Model implements Auditable
         $creation_method = 'manual',
         $expires_at = null,
         $recipient_id = null,
-        $recipient_type = null
+        $recipient_type = null,
     ) {
         $external_key = $this->create([
             'module' => $module,

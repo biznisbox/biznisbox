@@ -223,7 +223,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
-                    <div >
+                    <div>
                         <TextAreaInput id="notes_input" v-model="invoice.notes" :label="$t('form.notes')" />
                         <TinyMceEditor
                             id="footer_input"

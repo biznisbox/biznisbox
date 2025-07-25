@@ -157,7 +157,7 @@ class Invoice extends Model implements Auditable
             'payer',
             'paymentMethod',
             'salesPerson:first_name,id,last_name,email',
-            'transactions'
+            'transactions',
         )->find($id);
         if (!$invoice) {
             return null;

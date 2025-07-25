@@ -114,7 +114,7 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/partner/number', [PartnerController::class, 'getPartnerNumber'])->name('getPartnerNumber');
         Route::post('/partner/message', [PartnerController::class, 'sendEmailToPartnerContact'])->name('sendEmailToPartnerContact');
         Route::post('/partner/client-portal/{id}', [PartnerController::class, 'addPartnerContactToClientPortal'])->name(
-            'addPartnerContactToClientPortal'
+            'addPartnerContactToClientPortal',
         );
     });
 
@@ -226,12 +226,12 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/support-tickets/{id}/messages', [SupportTicketController::class, 'createTicketMessage'])->name('createTicketMessage');
         Route::put('/support-tickets/messages/{id}', [SupportTicketController::class, 'updateTicketMessage'])->name('updateTicketMessage');
         Route::delete('/support-tickets/messages/{id}', [SupportTicketController::class, 'deleteTicketMessage'])->name(
-            'deleteTicketMessage'
+            'deleteTicketMessage',
         );
         Route::get('/support-ticket/number', [SupportTicketController::class, 'getTicketNumber'])->name('getTicketNumber');
         Route::get('/support-ticket/share/{id}', [SupportTicketController::class, 'shareTicket'])->name('shareTicket');
         Route::post('/support-ticket/{id}/send', [SupportTicketController::class, 'sendTicketNotificationToContact'])->name(
-            'sendTicketNotificationToContact'
+            'sendTicketNotificationToContact',
         );
     });
 
@@ -273,7 +273,7 @@ Route::middleware('auth:api')->group(function () {
             Route::delete('/users/{id}', [AdminUserController::class, 'deleteUser'])->name('adminDeleteUser');
             Route::put('/users/{id}/reset-password', [AdminUserController::class, 'resetPassword'])->name('adminResetPassword');
             Route::delete('/users/{id}/personal-access-tokens', [AdminUserController::class, 'deleteAdminPersonalAccessToken'])->name(
-                'adminDeletePersonalAccessToken'
+                'adminDeletePersonalAccessToken',
             );
             Route::post('/users/{id}/disable-2fa', [AdminUserController::class, 'disable2fa'])->name('adminDisable2fa');
         });
@@ -321,10 +321,10 @@ Route::middleware('auth:api')->group(function () {
         Route::group(['middleware' => 'can:admin_numbering'], function () {
             Route::get('/settings/numbering', [AdminSettingController::class, 'getNumberingSettings'])->name('adminGetNumberingSettings');
             Route::put('/settings/numbering', [AdminSettingController::class, 'updateNumberingSettings'])->name(
-                'adminUpdateNumberingSettings'
+                'adminUpdateNumberingSettings',
             );
             Route::post('/settings/number/preview', [AdminSettingController::class, 'generatePreviewNumber'])->name(
-                'adminGeneratePreviewNumber'
+                'adminGeneratePreviewNumber',
             );
         });
         Route::post('/settings/company/logo', [AdminSettingController::class, 'setCompanyLogo'])->name('adminSetCompanyLogo');
@@ -349,7 +349,7 @@ Route::middleware('auth:api')->group(function () {
         // Currency
         Route::group(['middleware' => 'can:admin_currencies'], function () {
             Route::get('/currency/live-update', [AdminCurrencyController::class, 'liveUpdateCurrencyRate'])->name(
-                'adminLiveUpdateCurrencyRate'
+                'adminLiveUpdateCurrencyRate',
             );
             Route::get('/currencies', [AdminCurrencyController::class, 'getCurrencies'])->name('adminGetCurrencies');
             Route::get('/currencies/{id}', [AdminCurrencyController::class, 'getCurrency'])->name('adminGetCurrency');
@@ -361,19 +361,19 @@ Route::middleware('auth:api')->group(function () {
         // Webhooks
         Route::group(['middleware' => 'can:admin_webhooks'], function () {
             Route::get('/webhook_subscriptions', [AdminWebhookSubscriptionController::class, 'getWebhookSubscriptions'])->name(
-                'adminGetWebhookSubscriptions'
+                'adminGetWebhookSubscriptions',
             );
             Route::get('/webhook_subscriptions/{id}', [AdminWebhookSubscriptionController::class, 'getWebhookSubscription'])->name(
-                'adminGetWebhookSubscription'
+                'adminGetWebhookSubscription',
             );
             Route::post('/webhook_subscriptions', [AdminWebhookSubscriptionController::class, 'createWebhookSubscription'])->name(
-                'adminCreateWebhookSubscription'
+                'adminCreateWebhookSubscription',
             );
             Route::put('/webhook_subscriptions/{id}', [AdminWebhookSubscriptionController::class, 'updateWebhookSubscription'])->name(
-                'adminUpdateWebhookSubscription'
+                'adminUpdateWebhookSubscription',
             );
             Route::delete('/webhook_subscriptions/{id}', [AdminWebhookSubscriptionController::class, 'deleteWebhookSubscription'])->name(
-                'adminDeleteWebhookSubscription'
+                'adminDeleteWebhookSubscription',
             );
         });
     });
@@ -405,11 +405,11 @@ Route::group(['prefix' => 'client'], function () {
 // Payment routes
 Route::post('/online-payment/invoice/stripe', [ClientInvoiceController::class, 'payInvoiceStripe'])->name('clientPayInvoiceStripe');
 Route::get('/online-payment/invoice/stripe', [ClientInvoiceController::class, 'validateInvoiceStripePayment'])->name(
-    'validateStripePayment'
+    'validateStripePayment',
 );
 Route::post('/online-payment/invoice/paypal', [ClientInvoiceController::class, 'payInvoicePayPal'])->name('clientPayInvoicePayPal');
 Route::get('/online-payment/invoice/paypal', [ClientInvoiceController::class, 'validateInvoicePayPalPayment'])->name(
-    'validatePayPalPayment'
+    'validatePayPalPayment',
 );
 
 // Installation routes

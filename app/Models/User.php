@@ -82,7 +82,7 @@ class User extends Authenticatable implements JWTSubject, Auditable
     protected function AvatarUrl(): Attribute
     {
         return Attribute::make(
-            get: fn(mixed $value, array $attributes) => $attributes['picture'] ? asset('storage/' . $attributes['picture']) : null
+            get: fn(mixed $value, array $attributes) => $attributes['picture'] ? asset('storage/' . $attributes['picture']) : null,
         );
     }
 

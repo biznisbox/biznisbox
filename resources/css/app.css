@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tailwindcss-primeui";
+@import 'tailwindcss';
+@import 'tailwindcss-primeui';
 
 @theme {
     --color-primary-50: #e7f0fb;
@@ -87,8 +87,6 @@
 * {
     font-family: 'Roboto', sans-serif;
 }
-
-
 
 .dark {
     --primary: var(--color-primary-500);

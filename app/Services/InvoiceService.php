@@ -152,7 +152,7 @@ class InvoiceService
                     '?key=' .
                     generateExternalKey('invoice', $invoice->id, 'system', null, $contact->email, 'email') .
                     '&lang=' .
-                    app()->getLocale()
+                    app()->getLocale(),
             );
 
             Mail::to($contact->email)->send(new \App\Mail\Client\InvoiceNotification($invoice, $url, $contact));
@@ -171,7 +171,7 @@ class InvoiceService
                         '?key=' .
                         generateExternalKey('invoice', $invoice->id, 'system', null, $contact->email, 'email') .
                         '&lang=' .
-                        app()->getLocale()
+                        app()->getLocale(),
                 );
 
                 Mail::to($contact->email)->send(new \App\Mail\Client\InvoiceNotification($invoice, $url, $contact));

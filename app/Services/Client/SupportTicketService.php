@@ -59,7 +59,7 @@ class SupportTicketService
                     Str::limit($data['message'], 150),
                     'info',
                     'view',
-                    'support/' . $ticket->id
+                    'support/' . $ticket->id,
                 );
                 return $content;
             }

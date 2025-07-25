@@ -33,7 +33,7 @@ class PersonalAccessTokenCreated extends Mailable
         return new Envelope(
             subject: __('email.subject_personal_access_token_created'),
             tags: ['personal_access_token'],
-            metadata: ['user_id' => $this->user->id]
+            metadata: ['user_id' => $this->user->id],
         );
     }
 
@@ -48,7 +48,7 @@ class PersonalAccessTokenCreated extends Mailable
                 'user' => $this->user,
                 'token' => $this->token,
                 'app' => settings('company_name'),
-            ]
+            ],
         );
     }
 

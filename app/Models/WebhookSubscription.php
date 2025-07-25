@@ -43,7 +43,7 @@ class WebhookSubscription extends Model
     {
         return Attribute::make(
             get: fn(?string $value) => is_string($value) ? array_map('trim', explode(',', $value)) : [],
-            set: fn(string|array|null $value) => is_array($value) ? implode(',', $value) : $value
+            set: fn(string|array|null $value) => is_array($value) ? implode(',', $value) : $value,
         );
     }
 
@@ -51,7 +51,7 @@ class WebhookSubscription extends Model
     {
         return Attribute::make(
             get: fn(?string $value) => is_string($value) ? json_decode($value, true) : [],
-            set: fn(array|string|null $value) => is_array($value) ? json_encode($value) : $value
+            set: fn(array|string|null $value) => is_array($value) ? json_encode($value) : $value,
         );
     }
 
