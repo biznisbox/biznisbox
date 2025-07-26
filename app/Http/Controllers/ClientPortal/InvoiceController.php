@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\ClientPortal\InvoiceService;
 
+/**
+ * @group Client Portal Invoices
+ *
+ * APIs for managing invoices in the client portal
+ */
 class InvoiceController extends Controller
 {
     private $invoiceService;
@@ -15,6 +20,12 @@ class InvoiceController extends Controller
         $this->invoiceService = $invoiceService;
     }
 
+    /**
+     * Get all invoices from current logged in user in the client portal
+     *
+     * @return array $invoice Invoice
+     * @authenticated
+     */
     public function getInvoices()
     {
         $invoices = $this->invoiceService->getInvoices();
@@ -26,6 +37,13 @@ class InvoiceController extends Controller
         return api_response($invoices, __('responses.data_retrieved_successfully'));
     }
 
+    /**
+     * Get invoice by ID
+     *
+     * @param  string $invoiceId Invoice UUID
+     * @return Invoice $invoice Invoice
+     * @authenticated
+     */
     public function getInvoiceById($invoiceId)
     {
         $invoice = $this->invoiceService->getInvoiceById($invoiceId);

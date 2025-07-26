@@ -5,6 +5,11 @@ namespace App\Http\Controllers\ClientPortal;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\ClientPortal\DashboardService;
+/**
+ * @group Client Portal Dashboard
+ *
+ * APIs for get dashboard data in the client portal
+ */
 
 class DashboardController extends Controller
 {
@@ -15,6 +20,12 @@ class DashboardController extends Controller
         $this->dashboardService = $dashboardService;
     }
 
+    /**
+     * Get dashboard data
+     *
+     * @return array $partner Dashboard data
+     * @authenticated
+     */
     public function getDashboardData()
     {
         $partner = $this->dashboardService->getClientPortalDashboardData();

@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\ClientPortal\QuoteService;
 
+/**
+ * @group Client Portal Quotes
+ *
+ * APIs for managing quotes in the client portal
+ */
 class QuoteController extends Controller
 {
     private $quoteService;
@@ -15,6 +20,12 @@ class QuoteController extends Controller
         $this->quoteService = $quoteService;
     }
 
+    /**
+     * Get all quotes from current logged in user in the client portal
+     *
+     * @return Quote[] $quotes Quotes
+     * @authenticated
+     */
     public function getQuotes(Request $request)
     {
         $quotes = $this->quoteService->getQuotes();
@@ -26,6 +37,13 @@ class QuoteController extends Controller
         return api_response($quotes, __('responses.data_retrieved_successfully'));
     }
 
+    /**
+     * Get quote by ID
+     *
+     * @param  string $quoteId Quote UUID
+     * @return Quote $quote Quote
+     * @authenticated
+     */
     public function getQuoteById(Request $request, $quoteId)
     {
         $quote = $this->quoteService->getQuoteById($quoteId);
