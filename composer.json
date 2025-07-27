@@ -52,9 +52,9 @@
         "owen-it/laravel-auditing": "^14.0",
         "php-open-source-saver/jwt-auth": "^2.8",
         "pragmarx/google2fa": "^8.0",
-        "spatie/laravel-permission": "^6.15",
+        "spatie/laravel-permission": "^6.21",
         "spatie/laravel-webhook-server": "^3.8",
-        "stripe/stripe-php": "^16.6",
+        "stripe/stripe-php": "^17.4",
         "knuckleswtf/scribe": "^5.1"
     },
     "require-dev": {
