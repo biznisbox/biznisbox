@@ -419,7 +419,8 @@
         "module": "Modul",
         "parent_category": "Nadrejena kategorija",
         "icon": "Ikona",
-        "additional_info": "Dodatne informacije"
+        "additional_info": "Dodatne informacije",
+        "client_portal": "Client Portal"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -555,7 +556,8 @@
         "activities": "Aktivnosti",
         "edit_activity": "Uredi aktivnost",
         "partner_activities": "Partnerjeve aktivnosti",
-        "send_email": "Pošlji sporočilo"
+        "send_email": "Pošlji sporočilo",
+        "add_to_client_portal": "Add to client portal"
     },
     "partner_activity_types": {
         "call": "Klic",
@@ -1090,7 +1092,8 @@
             "default_time_format": "Privzeti format časa",
             "default_datetime_format": "Privzeti format datuma in časa",
             "show_barcode_on_documents": "Prikaži črtno kodo na dokumentih",
-            "week_start": "Dan začetka tedna"
+            "week_start": "Dan začetka tedna",
+            "exchange_rate_provider": "Ponudnik menjalnega tečaja"
         },
         "taxes": {
             "title": "Davčne stopnje",
@@ -1205,7 +1208,9 @@
             "no_transaction_categories": "Kategorije transakcij niso najdene",
             "no_contract_types": "Ni najdenih tipov pogodb",
             "delete_category_ask": "Ali ste prepričani, da želite izbrisati ta element šifrantov?",
-            "delete_category_success": "Element šifranta je bil uspešno izbrisan"
+            "delete_category_success": "Element šifranta je bil uspešno izbrisan",
+            "product_categories": "Kategorije izdelkov",
+            "no_product_categories": "Kategorije izdelkov niso najdene"
         }
     },
     "month": {
@@ -1569,5 +1574,23 @@
         "finish_installation_description": "Namestitev je končana. Zdaj se lahko prijavite v vaš račun.",
         "go_to_login": "Pojdite na prijavo",
         "installation": "Namestitev"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Dashboard",
+            "invoices": "Invoices",
+            "quotes": "Quotes",
+            "transactions": "Transactions",
+            "support": "Support",
+            "contracts": "Contracts",
+            "partner_details": "Partner Details"
+        },
+        "partner_details": "Partner details",
+        "dashboard": "Dashboard",
+        "number_of_contracts": "Number of contracts",
+        "number_of_unpaid_invoices": "Number of unpaid invoices",
+        "number_of_quotes": "Number of quotes",
+        "number_of_bills": "Number of bills",
+        "number_of_support_tickets": "Number of support tickets"
     }
 }

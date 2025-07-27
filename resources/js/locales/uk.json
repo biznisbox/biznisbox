@@ -419,7 +419,8 @@
         "module": "Модуль",
         "parent_category": "Батьківська категорія",
         "icon": "Іконка",
-        "additional_info": "Додаткова інформація"
+        "additional_info": "Додаткова інформація",
+        "client_portal": "Портал клієнта"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -555,7 +556,8 @@
         "activities": "Події",
         "edit_activity": "Редагувати дію",
         "partner_activities": "Активність партнера",
-        "send_email": "Надіслати ел. листа"
+        "send_email": "Надіслати ел. листа",
+        "add_to_client_portal": "Додати до клієнтського порталу"
     },
     "partner_activity_types": {
         "call": "Дзвінок",
@@ -1090,7 +1092,8 @@
             "default_time_format": "Формат часу за замовчуванням",
             "default_datetime_format": "Формат дати і часу за замовчуванням",
             "show_barcode_on_documents": "Показувати штрих-код на документах",
-            "week_start": "День початку тижня"
+            "week_start": "День початку тижня",
+            "exchange_rate_provider": "Постачальник обмінного курсу"
         },
         "taxes": {
             "title": "Податкові ставки",
@@ -1205,7 +1208,9 @@
             "no_transaction_categories": "Не знайдено категорій операцій",
             "no_contract_types": "Не знайдено жодного типу контрактів",
             "delete_category_ask": "Ви дійсно бажаєте видалити цей елемент збору даних?",
-            "delete_category_success": "Елемент збору даних успішно видалено"
+            "delete_category_success": "Елемент збору даних успішно видалено",
+            "product_categories": "Категорії товарів",
+            "no_product_categories": "Не знайдено категорій товарів"
         }
     },
     "month": {
@@ -1569,5 +1574,23 @@
         "finish_installation_description": "Встановлення завершено. Ви можете увійти в свій обліковий запис.",
         "go_to_login": "Перейти до входу",
         "installation": "Інсталяція"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Приладна дошка",
+            "invoices": "Рахунки",
+            "quotes": "Комерційні пропозиції",
+            "transactions": "Транзакції",
+            "support": "Підтримка",
+            "contracts": "Контракти",
+            "partner_details": "Деталі партнера"
+        },
+        "partner_details": "Деталі партнера",
+        "dashboard": "Приладна дошка",
+        "number_of_contracts": "Кількість договорів",
+        "number_of_unpaid_invoices": "Кількість неоплачених рахунків",
+        "number_of_quotes": "Кількість лапок",
+        "number_of_bills": "Кількість рахунків",
+        "number_of_support_tickets": "Кількість квитків на підтримку"
     }
 }
