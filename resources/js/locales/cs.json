@@ -419,7 +419,8 @@
         "module": "Modul",
         "parent_category": "Nadřazená kategorie",
         "icon": "Ikona",
-        "additional_info": "Další informace"
+        "additional_info": "Další informace",
+        "client_portal": "Portál klienta"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -555,7 +556,8 @@
         "activities": "Aktivity",
         "edit_activity": "Upravit aktivitu",
         "partner_activities": "Partnerské aktivity",
-        "send_email": "Poslat e-mail"
+        "send_email": "Poslat e-mail",
+        "add_to_client_portal": "Přidat na klientský portál"
     },
     "partner_activity_types": {
         "call": "Hovor",
@@ -1090,7 +1092,8 @@
             "default_time_format": "Výchozí formát času",
             "default_datetime_format": "Výchozí formát data a času",
             "show_barcode_on_documents": "Zobrazit čárový kód na dokumentech",
-            "week_start": "Počáteční den týdne"
+            "week_start": "Počáteční den týdne",
+            "exchange_rate_provider": "Poskytovatel směnného kurzu"
         },
         "taxes": {
             "title": "Daňové sazby",
@@ -1205,7 +1208,9 @@
             "no_transaction_categories": "Nebyly nalezeny žádné kategorie transakcí",
             "no_contract_types": "Nebyly nalezeny žádné typy smluv",
             "delete_category_ask": "Jste si jisti, že chcete odstranit tuto položku pro sběr dat?",
-            "delete_category_success": "Položka sběru dat byla úspěšně odstraněna"
+            "delete_category_success": "Položka sběru dat byla úspěšně odstraněna",
+            "product_categories": "Kategorie produktů",
+            "no_product_categories": "Nebyly nalezeny žádné kategorie produktů"
         }
     },
     "month": {
@@ -1569,5 +1574,23 @@
         "finish_installation_description": "Instalace je dokončena. Nyní se můžete přihlásit ke svému účtu.",
         "go_to_login": "Přejít na přihlášení",
         "installation": "Montáž"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Nástěnka",
+            "invoices": "Faktury",
+            "quotes": "Citace",
+            "transactions": "Transakce",
+            "support": "Podpora",
+            "contracts": "Zakázky",
+            "partner_details": "Podrobnosti o partnerovi"
+        },
+        "partner_details": "Podrobnosti o partnerovi",
+        "dashboard": "Nástěnka",
+        "number_of_contracts": "Počet smluv",
+        "number_of_unpaid_invoices": "Počet nezaplacených faktur",
+        "number_of_quotes": "Počet kotací",
+        "number_of_bills": "Počet účtů",
+        "number_of_support_tickets": "Počet podpůrných lístků"
     }
 }
