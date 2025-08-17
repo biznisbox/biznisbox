@@ -115,4 +115,5 @@ return [
     'invalid_payment_id' => 'Invalid payment ID',
     'payment_successful' => 'Payment successful',
     'payment_failed' => 'Payment failed',
+    'invalid_signature' => 'Invalid signature or expired',
 ];
