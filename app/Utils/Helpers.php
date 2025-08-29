@@ -765,3 +765,18 @@ if (!function_exists('generateRandomPassword')) {
         return Str::random($length);
     }
 }
+
+if (!function_exists('dockerHealthResponse')) {
+    /**
+     * Get Docker health response
+     * @return array
+     */
+    function dockerHealthResponse()
+    {
+        return [
+            'status' => 'healthy',
+            'id' => (string) Str::uuid(),
+            'timestamp' => now(),
+        ];
+    }
+}

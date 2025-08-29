@@ -3,26 +3,26 @@ FROM php:8.4-fpm-alpine AS app_build
 RUN apk add --no-cache \
         build-base \
         curl \
-        freetype-dev \
         freetype \
+        freetype-dev \
         git \
-        libxml2 \
-        libzip \
-        libpng \
         libjpeg-turbo \
-        libzip-dev \
-        libpng-dev \
-        libxml2-dev \
         libjpeg-turbo-dev \
+        libpng \
+        libpng-dev \
+        libxml2 \
+        libxml2-dev \
+        libzip \
+        libzip-dev \
         mysql-client \
+        nginx \
         nodejs \
         npm \
-        nginx \
-        oniguruma-dev \ 
+        oniguruma-dev \
         postgresql-dev \
         postgresql-libs \
-        supervisor \
         su-exec \
+        supervisor \
         unzip \
         zip   
 
@@ -64,16 +64,16 @@ FROM php:8.4-fpm-alpine AS production
 
 RUN apk add --no-cache \
         freetype \
-        libzip \
-        libpng \
         libjpeg-turbo \
+        libpng \
         libxml2 \
+        libzip \
         mysql-client \
         nginx \
-        supervisor \
+        oniguruma \
         postgresql-libs \
         su-exec \
-        oniguruma 
+        supervisor 
 
 COPY --from=app_build /usr/local/etc/php/conf.d/ /usr/local/etc/php/conf.d/
 COPY --from=app_build /usr/local/lib/php/extensions/ /usr/local/lib/php/extensions/
@@ -90,11 +90,16 @@ COPY --from=app_build /usr/local/etc/php/conf.d/php.ini /usr/local/etc/php/conf.
 RUN chmod +x /usr/local/bin/entrypoint.sh \
     && mkdir -p /var/run/nginx /var/lib/nginx/tmp \
     && chown -R www-data:www-data /var/lib/nginx /var/run/nginx \
-    && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public /var/www/html/vendor && rm -rf /var/cache/apk/* /tmp/* /usr/local/bin/composer /usr/local/bin/phpunit /root/.composer /root/.npm /root/.cache
+    && chown -R www-data:www-data /var/www/html/storage \
+    && chown -R www-data:www-data /var/www/html/bootstrap/cache /var/www/html/public /var/www/html/vendor \
+    && rm -rf /var/cache/apk/* /tmp/* /usr/local/bin/composer /usr/local/bin/phpunit /root/.composer /root/.npm /root/.cache
 
 VOLUME /var/www/html/storage
 
 EXPOSE 80
+
+HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
+  CMD curl -f http://localhost/health || exit 1
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
