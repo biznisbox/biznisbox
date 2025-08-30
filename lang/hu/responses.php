@@ -127,4 +127,5 @@ return [
     ],
     'vat_number_not_valid' => 'VAT number is not valid',
     'vat_number_validated_successfully' => 'VAT number validated successfully',
+    'archive_document_auto_generated' => 'Archive document auto-generated successfully'
 ];
