@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Format de date par défaut",
             "show_barcode_on_documents": "Afficher le code-barres sur les documents",
             "week_start": "Jour de début de la semaine",
-            "exchange_rate_provider": "Fournisseur de taux de change"
+            "exchange_rate_provider": "Fournisseur de taux de change",
+            "save_document_into_archive": "Enregistrer le document dans les archives",
+            "save_document_into_archive_description": "Si activé, les documents seront enregistrés dans les archives (factures, devis, factures, contrats)."
         },
         "taxes": {
             "title": "Taux de taxe",
