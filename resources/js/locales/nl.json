@@ -130,7 +130,8 @@
         "system": "Systeem",
         "add_signer": "Voeg ondertekenaar toe",
         "click_for_download": "Klik hier om te downloaden",
-        "sign": "Ondertekenen"
+        "sign": "Ondertekenen",
+        "import": "Importeren"
     },
     "audit_log": {
         "audit_log": "Controle logboek",
@@ -1105,7 +1106,9 @@
             "name": "naam",
             "value": "Waarde",
             "description": "Beschrijving",
-            "delete_confirm_tax": "Weet u zeker dat u dit BTW-tarief wilt verwijderen?"
+            "delete_confirm_tax": "Weet u zeker dat u dit BTW-tarief wilt verwijderen?",
+            "import_tax": "BTW-tarieven importeren",
+            "import_tax_description": "U kunt belastingtarieven importeren uit publieke gegevensbronnen. Gegevens zullen worden opgehaald uit de EU-BTW-lijst. Deze kan niet volledig up-to-date of accuraat zijn. Controleer nogmaals de geïmporteerde gegevens."
         },
         "role": {
             "title": "Rollen",
