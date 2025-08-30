@@ -130,7 +130,8 @@
         "system": "Sistema",
         "add_signer": "Añadir firmante",
         "click_for_download": "Haga clic aquí para descargar",
-        "sign": "Signo"
+        "sign": "Signo",
+        "import": "Importar"
     },
     "audit_log": {
         "audit_log": "Auditoría",
@@ -1105,7 +1106,9 @@
             "name": "Nombre",
             "value": "Valor",
             "description": "Descripción",
-            "delete_confirm_tax": "¿Está seguro que desea eliminar esta tasa de impuesto?"
+            "delete_confirm_tax": "¿Está seguro que desea eliminar esta tasa de impuesto?",
+            "import_tax": "Importar tasas de impuestos",
+            "import_tax_description": "Puede importar impuestos de los recursos de datos públicos. Los datos se obtendrán de la lista de IVA de la UE. No puede estar totalmente actualizado o preciso. Por favor, compruebe los datos importados."
         },
         "role": {
             "title": "Roles",
