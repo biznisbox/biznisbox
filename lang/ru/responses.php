@@ -125,4 +125,6 @@ return [
         'super_reduced' => 'Супер сниженная скорость',
         'zero' => 'Ноль',
     ],
+    'vat_number_not_valid' => 'Номер НДС не действителен',
+    'vat_number_validated_successfully' => 'Номер НДС успешно подтвержден',
 ];
