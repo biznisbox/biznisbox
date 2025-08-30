@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Формат дати і часу за замовчуванням",
             "show_barcode_on_documents": "Показувати штрих-код на документах",
             "week_start": "День початку тижня",
-            "exchange_rate_provider": "Постачальник обмінного курсу"
+            "exchange_rate_provider": "Постачальник обмінного курсу",
+            "save_document_into_archive": "Зберегти документ у архів",
+            "save_document_into_archive_description": "Якщо увімкнено, документи будуть збережені в архів (рахунки-фактури, котирування, рахунки, контракти)."
         },
         "taxes": {
             "title": "Податкові ставки",
