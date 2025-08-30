@@ -116,4 +116,13 @@ return [
     'payment_successful' => 'Vellykket betaling',
     'payment_failed' => 'Betaling mislyktes',
     'invalid_signature' => 'Ugyldig signatur eller utløpt',
+    'tax_rates' => [
+        'reduced' => 'Redusert sats',
+        'reduced1' => 'Redusert sats 1',
+        'reduced2' => 'Redusert sats 2',
+        'reduced3' => 'Redusert sats 3',
+        'standard' => 'Standard sats',
+        'super_reduced' => 'Oversatt redusert rate',
+        'zero' => 'Null rate',
+    ],
 ];
