@@ -130,7 +130,8 @@
         "system": "System",
         "add_signer": "Unterzeichner hinzufügen",
         "click_for_download": "Zum Herunterladen hier klicken",
-        "sign": "Schild"
+        "sign": "Schild",
+        "import": "Importieren"
     },
     "audit_log": {
         "audit_log": "Audit-Log",
@@ -1105,7 +1106,9 @@
             "name": "Name",
             "value": "Wert",
             "description": "Beschreibung",
-            "delete_confirm_tax": "Sind Sie sicher, dass Sie diesen Steuersatz löschen möchten?"
+            "delete_confirm_tax": "Sind Sie sicher, dass Sie diesen Steuersatz löschen möchten?",
+            "import_tax": "Steuersätze importieren",
+            "import_tax_description": "Sie können Steuersätze aus öffentlichen Datenressourcen importieren. Daten werden von der EU-MwSt-Liste abgerufen. Es kann nicht vollständig aktuell oder genau sein. Bitte überprüfen Sie die importierten Daten."
         },
         "role": {
             "title": "Rollen",
