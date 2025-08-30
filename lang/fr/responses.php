@@ -125,4 +125,6 @@ return [
         'super_reduced' => 'Taux Super réduit',
         'zero' => 'Taux zéro',
     ],
+    'vat_number_not_valid' => 'Le numéro de TVA n\'est pas valide',
+    'vat_number_validated_successfully' => 'Numéro de TVA validé avec succès',
 ];
