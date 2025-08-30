@@ -116,4 +116,13 @@ return [
     'payment_successful' => 'Betalning slutförd',
     'payment_failed' => 'Betalningen misslyckades',
     'invalid_signature' => 'Ogiltig signatur eller förfallen',
+    'tax_rates' => [
+        'reduced' => 'Minskad hastighet',
+        'reduced1' => 'Minskad skattesats 1',
+        'reduced2' => 'Minskad hastighet 2',
+        'reduced3' => 'Minskad hastighet 3',
+        'standard' => 'Standard taxa',
+        'super_reduced' => 'Super reducerad skattesats',
+        'zero' => 'Noll taxa',
+    ],
 ];
