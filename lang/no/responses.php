@@ -125,4 +125,6 @@ return [
         'super_reduced' => 'Oversatt redusert rate',
         'zero' => 'Null rate',
     ],
+    'vat_number_not_valid' => 'MVA-nummeret er ikke gyldig',
+    'vat_number_validated_successfully' => 'MVA-nummeret er validert',
 ];
