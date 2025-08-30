@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Standardformat für Datumszeit",
             "show_barcode_on_documents": "Barcode auf Dokumenten anzeigen",
             "week_start": "Wochentag",
-            "exchange_rate_provider": "Wechselkurs-Anbieter"
+            "exchange_rate_provider": "Wechselkurs-Anbieter",
+            "save_document_into_archive": "Dokument im Archiv speichern",
+            "save_document_into_archive_description": "Wenn aktiviert, werden die Dokumente im Archiv gespeichert (Rechnungen, Angebote, Rechnungen, Verträge)."
         },
         "taxes": {
             "title": "Steuersätze",
