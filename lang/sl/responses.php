@@ -116,4 +116,13 @@ return [
     'payment_successful' => 'Plačilo uspešno',
     'payment_failed' => 'Plačila ni bilo mogoče opraviti',
     'invalid_signature' => 'Podpis je neveljaven ali je potekel',
+    'tax_rates' => [
+        'reduced' => 'Reduced Rate',
+        'reduced1' => 'Reduced Rate 1',
+        'reduced2' => 'Reduced Rate 2',
+        'reduced3' => 'Reduced Rate 3',
+        'standard' => 'Standard Rate',
+        'super_reduced' => 'Super Reduced Rate',
+        'zero' => 'Zero Rate',
+    ],
 ];
