@@ -130,7 +130,8 @@
         "system": "Järjestelmä",
         "add_signer": "Lisää Allekirjoittaja",
         "click_for_download": "Lataa napsauttamalla tästä",
-        "sign": "Allekirjoita"
+        "sign": "Allekirjoita",
+        "import": "Tuo"
     },
     "audit_log": {
         "audit_log": "Tarkastusloki",
@@ -1105,7 +1106,9 @@
             "name": "Nimi",
             "value": "Arvo",
             "description": "Kuvaus",
-            "delete_confirm_tax": "Oletko varma, että haluat poistaa tämän verokannan?"
+            "delete_confirm_tax": "Oletko varma, että haluat poistaa tämän verokannan?",
+            "import_tax": "Tuo Verokannat",
+            "import_tax_description": "Voit tuoda verokantoja julkisten tietojen resursseista. Tiedot haetaan EU:n alv-luettelosta. Se ei voi olla täysin ajan tasalla tai tarkka. Tarkista tuodut tiedot."
         },
         "role": {
             "title": "Roolit",
