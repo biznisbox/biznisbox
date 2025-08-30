@@ -130,7 +130,8 @@
         "system": "System",
         "add_signer": "Dodaj podpisującego",
         "click_for_download": "Kliknij tutaj, aby pobrać",
-        "sign": "Podpis"
+        "sign": "Podpis",
+        "import": "Importuj"
     },
     "audit_log": {
         "audit_log": "Dziennik audytu",
@@ -1105,7 +1106,9 @@
             "name": "Nazwisko",
             "value": "Wartość",
             "description": "Opis",
-            "delete_confirm_tax": "Czy na pewno chcesz usunąć tę stawkę podatku?"
+            "delete_confirm_tax": "Czy na pewno chcesz usunąć tę stawkę podatku?",
+            "import_tax": "Importuj stawki podatku",
+            "import_tax_description": "Możesz zaimportować stawki podatkowe z publicznych zasobów danych. Dane zostaną pobrane z unijnej listy VAT. Nie może być w pełni aktualny lub dokładny. Sprawdź ponownie zaimportowane dane."
         },
         "role": {
             "title": "Role",
