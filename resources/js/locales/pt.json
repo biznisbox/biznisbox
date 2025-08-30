@@ -130,7 +130,8 @@
         "system": "SISTEMA",
         "add_signer": "Adicionar Assinante",
         "click_for_download": "Clique aqui para baixar",
-        "sign": "Assinar"
+        "sign": "Assinar",
+        "import": "Importação"
     },
     "audit_log": {
         "audit_log": "Registro de auditoria",
@@ -1105,7 +1106,9 @@
             "name": "Nome:",
             "value": "Valor",
             "description": "Descrição:",
-            "delete_confirm_tax": "Tem certeza que deseja excluir esta taxa de imposto?"
+            "delete_confirm_tax": "Tem certeza que deseja excluir esta taxa de imposto?",
+            "import_tax": "Importar Taxas de Imposto",
+            "import_tax_description": "Pode-se importar taxas de imposto a partir de recursos de dados públicos. Os dados serão obtidos da lista de IVA da UE. Não pode estar totalmente atualizado ou preciso. Por favor, verifique novamente os dados importados."
         },
         "role": {
             "title": "Papéis",
