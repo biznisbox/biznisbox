@@ -558,7 +558,8 @@
         "edit_activity": "Activiteit bewerken",
         "partner_activities": "Partner activiteiten",
         "send_email": "E-mail verzenden",
-        "add_to_client_portal": "Toevoegen aan klantenportaal"
+        "add_to_client_portal": "Toevoegen aan klantenportaal",
+        "vat_number_required": "BTW-nummer is vereist"
     },
     "partner_activity_types": {
         "call": "Oproepen",
