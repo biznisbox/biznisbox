@@ -125,4 +125,6 @@ return [
         'super_reduced' => 'Super snížená sazba',
         'zero' => 'Nulový kurz',
     ],
+    'vat_number_not_valid' => 'DIČ není platné',
+    'vat_number_validated_successfully' => 'DIČ bylo úspěšně potvrzeno',
 ];
