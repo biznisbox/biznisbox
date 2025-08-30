@@ -127,4 +127,5 @@ return [
     ],
     'vat_number_not_valid' => 'Momsregistreringsnummer är inte giltigt',
     'vat_number_validated_successfully' => 'Momsregistreringsnumret har validerats',
+    'archive_document_auto_generated' => 'Arkiveringsdokumentet har genererats automatiskt'
 ];
