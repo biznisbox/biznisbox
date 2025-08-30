@@ -127,4 +127,5 @@ return [
     ],
     'vat_number_not_valid' => 'Το ΑΦΜ δεν είναι έγκυρο',
     'vat_number_validated_successfully' => 'Ο αριθμός ΑΦΜ επικυρώθηκε επιτυχώς',
+    'archive_document_auto_generated' => 'Αυτόματη δημιουργία αρχείου εγγράφου με επιτυχία'
 ];
