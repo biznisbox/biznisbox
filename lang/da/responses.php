@@ -125,4 +125,6 @@ return [
         'super_reduced' => 'Super Reduceret Rate',
         'zero' => 'Nul Sats',
     ],
+    'vat_number_not_valid' => 'CVR-nummer er ugyldigt',
+    'vat_number_validated_successfully' => 'CVR-nummer valideret med succes',
 ];
