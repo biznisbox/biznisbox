@@ -558,7 +558,8 @@
         "edit_activity": "Modifica Attività",
         "partner_activities": "Attività Partner",
         "send_email": "Invia email",
-        "add_to_client_portal": "Aggiungi al portale client"
+        "add_to_client_portal": "Aggiungi al portale client",
+        "vat_number_required": "Il numero di partita IVA è obbligatorio"
     },
     "partner_activity_types": {
         "call": "Chiama",
