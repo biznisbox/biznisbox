@@ -109,3 +109,5 @@ if (isset($argv[1])) {
 else {
     echo get_version();
 }
+
+// Usage: php version update-minor
