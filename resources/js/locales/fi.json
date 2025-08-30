@@ -558,7 +558,8 @@
         "edit_activity": "Muokkaa Toimintaa",
         "partner_activities": "Yhteistyökumppaneiden Toiminta",
         "send_email": "Lähetä sähköposti",
-        "add_to_client_portal": "Lisää asiakasportaaliin"
+        "add_to_client_portal": "Lisää asiakasportaaliin",
+        "vat_number_required": "ALV-numero on pakollinen"
     },
     "partner_activity_types": {
         "call": "Soita",
