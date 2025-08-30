@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Oletus Päivämäärä Muoto",
             "show_barcode_on_documents": "Näytä viivakoodi asiakirjoissa",
             "week_start": "Viikon Aloituspäivä",
-            "exchange_rate_provider": "Valuuttakurssin Tarjoaja"
+            "exchange_rate_provider": "Valuuttakurssin Tarjoaja",
+            "save_document_into_archive": "Tallenna asiakirja arkistoon",
+            "save_document_into_archive_description": "Jos käytössä, asiakirjat tallennetaan arkistoon (laskut, lainaukset, laskut, sopimukset)."
         },
         "taxes": {
             "title": "Verot",
