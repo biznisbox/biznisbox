@@ -125,4 +125,6 @@ return [
         'super_reduced' => 'Супер зменшення',
         'zero' => 'Нульова ставка',
     ],
+    'vat_number_not_valid' => 'Неприпустимий номер платника ПДВ',
+    'vat_number_validated_successfully' => 'Номер платника ПДВ успішно перевірено',
 ];
