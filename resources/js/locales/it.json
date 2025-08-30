@@ -130,7 +130,8 @@
         "system": "Sistema",
         "add_signer": "Aggiungi Firmatario",
         "click_for_download": "Clicca qui per scaricare",
-        "sign": "Firma"
+        "sign": "Firma",
+        "import": "Importa"
     },
     "audit_log": {
         "audit_log": "Registro Di Audit",
@@ -1105,7 +1106,9 @@
             "name": "Nome",
             "value": "Valore",
             "description": "Descrizione",
-            "delete_confirm_tax": "Sei sicuro di voler eliminare questa aliquota fiscale?"
+            "delete_confirm_tax": "Sei sicuro di voler eliminare questa aliquota fiscale?",
+            "import_tax": "Importa Aliquote Fiscali",
+            "import_tax_description": "È possibile importare aliquote fiscali da risorse di dati pubblici. I dati saranno recuperati dalla lista IVA UE. Non può essere completamente aggiornato o accurato. Si prega di ricontrollare i dati importati."
         },
         "role": {
             "title": "Ruoli",
