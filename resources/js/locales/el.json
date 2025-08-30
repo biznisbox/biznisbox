@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Προεπιλεγμένη Μορφή Ημερομηνίας",
             "show_barcode_on_documents": "Εμφάνιση barcode στα έγγραφα",
             "week_start": "Ημέρα Έναρξης Εβδομάδας",
-            "exchange_rate_provider": "Πάροχος Συναλλαγματικών Ισοτιμιών"
+            "exchange_rate_provider": "Πάροχος Συναλλαγματικών Ισοτιμιών",
+            "save_document_into_archive": "Αποθήκευση εγγράφου στην αρχειοθήκη",
+            "save_document_into_archive_description": "Αν ενεργοποιηθεί, τα έγγραφα θα αποθηκεύονται στο αρχείο (τιμολόγια, εισαγωγικά, τιμολόγια, συμβόλαια)."
         },
         "taxes": {
             "title": "Φορολογικοί Συντελεστές",
