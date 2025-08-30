@@ -3,6 +3,7 @@
         <PageHeader :title="$t('admin.taxes.title')">
             <template #actions>
                 <Button :label="$t('admin.taxes.new_tax')" icon="fa fa-plus" @click="openNewTaxDialog" />
+                <Button :label="$t('admin.taxes.import_tax')" icon="fa fa-upload" @click="openImportTaxDialog" />
             </template>
         </PageHeader>
 
@@ -35,6 +36,26 @@
                 <Column field="rate" :header="$t('form.rate')" />
             </DataTable>
         </div>
+
+        <!--Import tax rates modal -->
+        <Dialog v-model:visible="showImportTaxDialog" :header="$t('admin.taxes.import_tax')" modal>
+            <p class="mb-4 block text-gray-600 dark:text-gray-400">
+                {{ $t('admin.taxes.import_tax_description') }}
+            </p>
+            <LoadingScreen :blocked="loadingData">
+                <SelectInput v-model="importCountryCodeValue" :label="$t('form.country')" :options="countryOptions" />
+            </LoadingScreen>
+
+            <template #footer>
+                <div id="function_buttons" class="flex flex-wrap gap-2">
+                    <div class="flex-grow"></div>
+                    <div class="flex gap-2 flex-wrap justify-end">
+                        <Button :label="$t('basic.cancel')" icon="fa fa-times" severity="secondary" @click="showImportTaxDialog = false" />
+                        <Button :label="$t('basic.import')" severity="success" icon="fa fa-upload" @click="importTaxRates" />
+                    </div>
+                </div>
+            </template>
+        </Dialog>
 
         <!-- Edit new tax modal -->
         <Dialog
@@ -100,6 +121,38 @@ export default {
             },
             showNewEditTaxDialog: false,
             dialogMethod: 'create',
+            importCountryCodeValue: null,
+            showImportTaxDialog: false,
+            countryOptions: [
+                { label: 'Slovenia (SI)', value: 'SI' },
+                { label: 'Spain (ES)', value: 'ES' },
+                { label: 'France (FR)', value: 'FR' },
+                { label: 'Germany (DE)', value: 'DE' },
+                { label: 'Italy (IT)', value: 'IT' },
+                { label: 'Austria (AT)', value: 'AT' },
+                { label: 'Belgium (BE)', value: 'BE' },
+                { label: 'Bulgaria (BG)', value: 'BG' },
+                { label: 'Croatia (HR)', value: 'HR' },
+                { label: 'Cyprus (CY)', value: 'CY' },
+                { label: 'Czechia (CZ)', value: 'CZ' },
+                { label: 'Denmark (DK)', value: 'DK' },
+                { label: 'Estonia (EE)', value: 'EE' },
+                { label: 'Finland (FI)', value: 'FI' },
+                { label: 'Greece (GR)', value: 'GR' },
+                { label: 'Hungary (HU)', value: 'HU' },
+                { label: 'Ireland (IE)', value: 'IE' },
+                { label: 'Latvia (LV)', value: 'LV' },
+                { label: 'Lithuania (LT)', value: 'LT' },
+                { label: 'Luxembourg (LU)', value: 'LU' },
+                { label: 'Malta (MT)', value: 'MT' },
+                { label: 'Netherlands (NL)', value: 'NL' },
+                { label: 'Poland (PL)', value: 'PL' },
+                { label: 'Portugal (PT)', value: 'PT' },
+                { label: 'Romania (RO)', value: 'RO' },
+                { label: 'Slovakia (SK)', value: 'SK' },
+                { label: 'Sweden (SE)', value: 'SE' },
+                { label: 'United Kingdom (GB)', value: 'GB' },
+            ],
         }
     },
 
@@ -119,6 +172,19 @@ export default {
             this.dialogMethod = 'create'
             this.resetTaxForm()
             this.showNewEditTaxDialog = true
+        },
+
+        openImportTaxDialog() {
+            this.importCountryCodeValue = null
+            this.showImportTaxDialog = true
+        },
+
+        importTaxRates() {
+            this.makeHttpRequest('POST', `/api/admin/taxes/import/${this.importCountryCodeValue}`).then((response) => {
+                this.showImportTaxDialog = false
+                this.showToast(response.data.message)
+                this.getTaxes()
+            })
         },
 
         getTaxes() {

@@ -130,7 +130,8 @@
         "system": "System",
         "add_signer": "Add Signer",
         "click_for_download": "Click here to download",
-        "sign": "Sign"
+        "sign": "Sign",
+        "import": "Import"
     },
     "audit_log": {
         "audit_log": "Audit Log",
@@ -1105,7 +1106,9 @@
             "name": "Name",
             "value": "Value",
             "description": "Description",
-            "delete_confirm_tax": "Are you sure you want to delete this tax rate?"
+            "delete_confirm_tax": "Are you sure you want to delete this tax rate?",
+            "import_tax": "Import Tax Rates",
+            "import_tax_description": "You can import tax rates from public data resources. Data will be fetched from the EU VAT list. It can be not fully up-to-date or accurate. Please double-check the imported data."
         },
         "role": {
             "title": "Roles",

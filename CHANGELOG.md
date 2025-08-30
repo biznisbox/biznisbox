@@ -1,3 +1,12 @@
+# 2.11.0
+
+## ✨ New Features and Enhancements
+
+- Introduced a new feature for importing VAT rates from the EU VAT Rates API.
+
+## 🐛 Bug Fixes
+
+
 # 2.10.0
 
 ## ✨ New Features and Enhancements

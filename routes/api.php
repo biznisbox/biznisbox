@@ -305,6 +305,7 @@ Route::middleware('auth:api')->group(function () {
             Route::post('/taxes', [AdminTaxController::class, 'createTax'])->name('adminCreateTax');
             Route::put('/taxes/{id}', [AdminTaxController::class, 'updateTax'])->name('adminUpdateTax');
             Route::delete('/taxes/{id}', [AdminTaxController::class, 'deleteTax'])->name('adminDeleteTax');
+            Route::post('/taxes/import/{countryCode}', [AdminTaxController::class, 'importTaxRates'])->name('adminImportTaxRates');
         });
 
         // Settings

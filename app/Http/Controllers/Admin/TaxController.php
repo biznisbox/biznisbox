@@ -97,4 +97,19 @@ class TaxController extends Controller
         }
         return api_response($tax, __('responses.item_deleted_successfully'), 200);
     }
+
+    /**
+     * Import tax rates
+     *
+     * @param string $countryCode
+     * @return void
+     */
+    public function importTaxRates($countryCode)
+    {
+        $result = $this->taxService->importTaxRates($countryCode);
+        if (!$result) {
+            return api_response($result, __('responses.item_not_created'), 400);
+        }
+        return api_response($result, __('responses.item_created_successfully'), 200);
+    }
 }

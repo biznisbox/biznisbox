@@ -3,6 +3,7 @@
 namespace App\Services\Admin;
 
 use App\Models\Tax;
+use App\Integrations\EuVatRates;
 
 class TaxService
 {
@@ -41,5 +42,12 @@ class TaxService
     {
         $tax = $this->taxModel->deleteTax($id);
         return $tax;
+    }
+
+    public function importTaxRates($countryCode)
+    {
+        $euVatRates = new EuVatRates();
+        $euVatRates = $euVatRates->insertTaxesIntoDatabase($countryCode);
+        return $euVatRates;
     }
 }
