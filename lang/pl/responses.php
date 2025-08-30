@@ -125,4 +125,6 @@ return [
         'super_reduced' => 'Super Zniżka',
         'zero' => 'Stawka zerowa',
     ],
+    'vat_number_not_valid' => 'Numer VAT jest nieprawidłowy',
+    'vat_number_validated_successfully' => 'Numer VAT został pomyślnie zweryfikowany',
 ];
