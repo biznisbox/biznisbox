@@ -116,4 +116,13 @@ return [
     'payment_successful' => 'Zahlung erfolgreich',
     'payment_failed' => 'Zahlung fehlgeschlagen',
     'invalid_signature' => 'Ungültige Signatur oder abgelaufen',
+    'tax_rates' => [
+        'reduced' => 'Reduzierte Rate',
+        'reduced1' => 'Reduzierte Rate 1',
+        'reduced2' => 'Reduzierte Rate 2',
+        'reduced3' => 'Reduzierte Rate 3',
+        'standard' => 'Standardkurs',
+        'super_reduced' => 'Sehr reduzierte Rate',
+        'zero' => 'Null-Rate',
+    ],
 ];
