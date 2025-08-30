@@ -116,4 +116,13 @@ return [
     'payment_successful' => 'Pagamento bem-sucedido',
     'payment_failed' => 'Pagamento falhou',
     'invalid_signature' => 'Assinatura inválida ou expirada',
+    'tax_rates' => [
+        'reduced' => 'Taxa reduzida',
+        'reduced1' => 'Taxa Reduzida 1',
+        'reduced2' => 'Taxa Reduzida 2',
+        'reduced3' => 'Taxa Reduzida 3',
+        'standard' => 'Tarifa padrão',
+        'super_reduced' => 'Taxa Reduzida Super',
+        'zero' => 'Taxa zero',
+    ],
 ];
