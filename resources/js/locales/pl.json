@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Domyślny format daty",
             "show_barcode_on_documents": "Pokaż kod kreskowy na dokumentach",
             "week_start": "Dzień początkowy tygodnia",
-            "exchange_rate_provider": "Dostawca kursu wymiany walut"
+            "exchange_rate_provider": "Dostawca kursu wymiany walut",
+            "save_document_into_archive": "Zapisz dokument w Archiwum",
+            "save_document_into_archive_description": "Jeśli włączone, dokumenty zostaną zapisane w archiwum (faktury, oferty, rachunki, kontrakty)."
         },
         "taxes": {
             "title": "Stawki podatku",
