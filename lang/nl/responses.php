@@ -125,4 +125,6 @@ return [
         'super_reduced' => 'Super Verminderd Tarief',
         'zero' => 'Geen tarief',
     ],
+    'vat_number_not_valid' => 'BTW-nummer is niet geldig',
+    'vat_number_validated_successfully' => 'BTW-nummer is succesvol gevalideerd',
 ];
