@@ -130,7 +130,8 @@
         "system": "Systém",
         "add_signer": "Přidat podpisce",
         "click_for_download": "Klikněte zde pro stažení",
-        "sign": "Značka"
+        "sign": "Značka",
+        "import": "Importovat"
     },
     "audit_log": {
         "audit_log": "Protokol auditu",
@@ -1105,7 +1106,9 @@
             "name": "Název",
             "value": "Hodnota",
             "description": "L 343, 22.12.2009, s. 1).",
-            "delete_confirm_tax": "Jste si jisti, že chcete odstranit tuto sazbu daně?"
+            "delete_confirm_tax": "Jste si jisti, že chcete odstranit tuto sazbu daně?",
+            "import_tax": "Importovat daňové sazby",
+            "import_tax_description": "Můžete importovat daňové sazby z veřejných datových zdrojů. Data budou načtena ze seznamu DPH EU. Nemůže být plně aktuální nebo přesné. Zkontrolujte prosím importovaná data."
         },
         "role": {
             "title": "Role",
