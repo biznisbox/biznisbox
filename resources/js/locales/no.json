@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Standard datoformat",
             "show_barcode_on_documents": "Vis strekkode på dokumenter",
             "week_start": "Ukens startdag",
-            "exchange_rate_provider": "Valutakurs leverandør"
+            "exchange_rate_provider": "Valutakurs leverandør",
+            "save_document_into_archive": "Lagre dokument til arkiv",
+            "save_document_into_archive_description": "Dersom aktivert vil dokumenter bli lagret i arkivet (fakturaer, tilbud, regninger, kontrakter)."
         },
         "taxes": {
             "title": "Mva satser",
