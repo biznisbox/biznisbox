@@ -558,7 +558,8 @@
         "edit_activity": "Modifier l'activité",
         "partner_activities": "Activités des partenaires",
         "send_email": "Envoyer un e-mail",
-        "add_to_client_portal": "Ajouter au portail client"
+        "add_to_client_portal": "Ajouter au portail client",
+        "vat_number_required": "Le numéro de TVA est requis"
     },
     "partner_activity_types": {
         "call": "Appel",
