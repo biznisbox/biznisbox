@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Privzeti format datuma in časa",
             "show_barcode_on_documents": "Prikaži črtno kodo na dokumentih",
             "week_start": "Dan začetka tedna",
-            "exchange_rate_provider": "Ponudnik menjalnega tečaja"
+            "exchange_rate_provider": "Ponudnik menjalnega tečaja",
+            "save_document_into_archive": "Save Document into Archive",
+            "save_document_into_archive_description": "If enabled, documents will be saved into the archive (invoices, quotes, bills, contracts)."
         },
         "taxes": {
             "title": "Davčne stopnje",
