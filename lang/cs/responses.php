@@ -116,4 +116,13 @@ return [
     'payment_successful' => 'Platba úspěšná',
     'payment_failed' => 'Platba se nezdařila',
     'invalid_signature' => 'Neplatný podpis nebo vypršela platnost',
+    'tax_rates' => [
+        'reduced' => 'Snížená sazba',
+        'reduced1' => 'Snížená sazba 1',
+        'reduced2' => 'Snížená sazba 2',
+        'reduced3' => 'Snížená sazba 3',
+        'standard' => 'Standardní sazba',
+        'super_reduced' => 'Super snížená sazba',
+        'zero' => 'Nulový kurz',
+    ],
 ];
