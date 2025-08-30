@@ -1,7 +1,7 @@
 {
     "auth": {
         "login": "Prijava",
-        "email": "E-pošta",
+        "email": "E-poštni naslov",
         "password": "Geslo",
         "password_confirmation": "Potrditev gesla",
         "remember_me": "Zapomni si me",
@@ -131,7 +131,7 @@
         "add_signer": "Dodaj podpisnika",
         "click_for_download": "Klikni za prenos",
         "sign": "Podpiši",
-        "import": "Import"
+        "import": "Uvozi"
     },
     "audit_log": {
         "audit_log": "Revizijski dnevnik",
@@ -421,7 +421,7 @@
         "parent_category": "Nadrejena kategorija",
         "icon": "Ikona",
         "additional_info": "Dodatne informacije",
-        "client_portal": "Client Portal"
+        "client_portal": "Portal strank"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -558,7 +558,8 @@
         "edit_activity": "Uredi aktivnost",
         "partner_activities": "Partnerjeve aktivnosti",
         "send_email": "Pošlji sporočilo",
-        "add_to_client_portal": "Add to client portal"
+        "add_to_client_portal": "Dodaj v portal strank",
+        "vat_number_required": "VAT number is required"
     },
     "partner_activity_types": {
         "call": "Klic",
@@ -1107,8 +1108,8 @@
             "value": "Vrednost",
             "description": "Opis",
             "delete_confirm_tax": "Ali ste prepričani, da želite izbrisati davčno stopnjo?",
-            "import_tax": "Import Tax Rates",
-            "import_tax_description": "You can import tax rates from public data resources. Data will be fetched from the EU VAT list. It can be not fully up-to-date or accurate. Please double-check the imported data."
+            "import_tax": "Uvozi davčne stopnje",
+            "import_tax_description": "Davčne stopnje lahko uvozite iz javnih podatkovnih virov. Podatki bodo pridobljeni s seznama DDV EU. Morda niso povsem posodobljeni ali točni. Prosimo, dvakrat preverite uvožene podatke."
         },
         "role": {
             "title": "Vloge",
@@ -1580,20 +1581,20 @@
     },
     "client_portal": {
         "menu": {
-            "dashboard": "Dashboard",
-            "invoices": "Invoices",
-            "quotes": "Quotes",
-            "transactions": "Transactions",
-            "support": "Support",
-            "contracts": "Contracts",
-            "partner_details": "Partner Details"
+            "dashboard": "Nadzorna plošča",
+            "invoices": "Izdani računi",
+            "quotes": "Ponudbe",
+            "transactions": "Transakcije",
+            "support": "Podpora",
+            "contracts": "Pogodbe",
+            "partner_details": "Podrobnosti partnerja"
         },
-        "partner_details": "Partner details",
-        "dashboard": "Dashboard",
-        "number_of_contracts": "Number of contracts",
-        "number_of_unpaid_invoices": "Number of unpaid invoices",
-        "number_of_quotes": "Number of quotes",
-        "number_of_bills": "Number of bills",
-        "number_of_support_tickets": "Number of support tickets"
+        "partner_details": "Podrobnosti partnerja",
+        "dashboard": "Nadzorna plošča",
+        "number_of_contracts": "Število pogodb",
+        "number_of_unpaid_invoices": "Število neplačanih računov",
+        "number_of_quotes": "Število ponudb",
+        "number_of_bills": "Število prejetih računov",
+        "number_of_support_tickets": "Število podpornih zahtevkov"
     }
 }
