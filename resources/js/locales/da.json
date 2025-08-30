@@ -558,7 +558,8 @@
         "edit_activity": "Rediger Aktivitet",
         "partner_activities": "Partner Aktiviteter",
         "send_email": "Send e-mail",
-        "add_to_client_portal": "Føj til klientportal"
+        "add_to_client_portal": "Føj til klientportal",
+        "vat_number_required": "CVR-nummer er påkrævet"
     },
     "partner_activity_types": {
         "call": "Opkald",
