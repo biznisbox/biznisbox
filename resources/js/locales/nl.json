@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Standaard Datumtijd Formaat",
             "show_barcode_on_documents": "Toon streepjescode op documenten",
             "week_start": "Begindag week",
-            "exchange_rate_provider": "Wisselkoers Provider"
+            "exchange_rate_provider": "Wisselkoers Provider",
+            "save_document_into_archive": "Document opslaan in archief",
+            "save_document_into_archive_description": "Indien ingeschakeld, documenten zullen worden opgeslagen in het archief (facturen, offertes, contracten en contracten)."
         },
         "taxes": {
             "title": "BTW tarieven",
