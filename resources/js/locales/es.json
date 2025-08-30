@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Formato de fecha por defecto",
             "show_barcode_on_documents": "Mostrar código de barras en documentos",
             "week_start": "Día de inicio de semana",
-            "exchange_rate_provider": "Proveedor de tipo de cambio"
+            "exchange_rate_provider": "Proveedor de tipo de cambio",
+            "save_document_into_archive": "Guardar documento en archivo",
+            "save_document_into_archive_description": "Si está habilitado, los documentos se guardarán en el archivo (facturas, cotizaciones, facturas, contratos)."
         },
         "taxes": {
             "title": "Impuestos",
