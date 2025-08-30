@@ -558,7 +558,8 @@
         "edit_activity": "Upravit aktivitu",
         "partner_activities": "Partnerské aktivity",
         "send_email": "Poslat e-mail",
-        "add_to_client_portal": "Přidat na klientský portál"
+        "add_to_client_portal": "Přidat na klientský portál",
+        "vat_number_required": "DIČ je povinné"
     },
     "partner_activity_types": {
         "call": "Hovor",
