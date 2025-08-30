@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Standard Datotidsformat",
             "show_barcode_on_documents": "Vis stregkode på dokumenter",
             "week_start": "Uge Startdag",
-            "exchange_rate_provider": "Udbyder Af Valutakurs"
+            "exchange_rate_provider": "Udbyder Af Valutakurs",
+            "save_document_into_archive": "Gem dokument i arkiv",
+            "save_document_into_archive_description": "Hvis aktiveret, vil dokumenter blive gemt i arkivet (fakturaer, citater, regninger, kontrakter)."
         },
         "taxes": {
             "title": "Moms Priser",
