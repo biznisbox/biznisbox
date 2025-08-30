@@ -558,7 +558,8 @@
         "edit_activity": "Επεξεργασία Δραστηριότητας",
         "partner_activities": "Δραστηριότητες Συνεργατών",
         "send_email": "Αποστολή email",
-        "add_to_client_portal": "Προσθήκη στην πύλη του πελάτη"
+        "add_to_client_portal": "Προσθήκη στην πύλη του πελάτη",
+        "vat_number_required": "Απαιτείται αριθμός ΑΦΜ"
     },
     "partner_activity_types": {
         "call": "Κλήση",
