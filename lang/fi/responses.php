@@ -116,4 +116,13 @@ return [
     'payment_successful' => 'Maksu onnistui',
     'payment_failed' => 'Maksu epäonnistui',
     'invalid_signature' => 'Virheellinen allekirjoitus tai vanhentunut',
+    'tax_rates' => [
+        'reduced' => 'Alennettu Hinta',
+        'reduced1' => 'Alennettu Määrä 1',
+        'reduced2' => 'Alennettu Määrä 2',
+        'reduced3' => 'Alennettu Määrä 3',
+        'standard' => 'Normaali Hinta',
+        'super_reduced' => 'Super Alennettu Hinta',
+        'zero' => 'Nolla Hinta',
+    ],
 ];
