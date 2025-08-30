@@ -12,6 +12,8 @@ class OpenBanking extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\OpenBanking';
+
     protected $table = 'open_banking';
     protected $fillable = [
         'bank_id',

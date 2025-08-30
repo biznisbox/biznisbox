@@ -7,55 +7,194 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Transaction;
 use App\Models\PartnerContact;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Product;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class InvoiceService
 {
     private $invoiceModel;
+    private $productModel;
     public function __construct()
     {
         $this->invoiceModel = new Invoice();
+        $this->productModel = new Product();
     }
 
+    /**
+     * Get all invoices
+     * @return array|null
+     */
     public function getInvoices()
     {
-        $invoices = $this->invoiceModel->getInvoices();
+        $invoices = $this->invoiceModel->with('items')->get();
+        if (!$invoices) {
+            return null;
+        }
+        createActivityLog('retrieve', null, Invoice::$modelName, 'Invoice');
         return $invoices;
     }
 
+    /**
+     * Get invoice by id
+     * @param string $id
+     * @return object invoice
+     */
     public function getInvoice($id)
     {
-        $invoice = $this->invoiceModel->getInvoice($id);
+        $invoice = $this->invoiceModel
+            ->with('items', 'customer', 'payer', 'paymentMethod', 'salesPerson:first_name,id,last_name,email', 'transactions')
+            ->find($id);
+        if (!$invoice) {
+            return null;
+        }
+        createActivityLog('retrieve', $id, Invoice::$modelName, 'Invoice');
         return $invoice;
     }
 
     public function createInvoice($data)
     {
-        $invoice = $this->invoiceModel->createInvoice($data);
-        return $invoice;
+        $data = setPayerData($data, $data['payer_id'], $data['payer_address_id']);
+        $data = setCustomerData($data, $data['customer_id'], $data['customer_address_id']);
+        $data['default_currency'] = settings('default_currency');
+        $data['number'] = $this->getInvoiceNumber();
+
+        if ($data['currency'] == $data['default_currency']) {
+            $data['currency_rate'] = 1;
+        } else {
+            $data['currency_rate'] = getCurrencyRate($data['currency'], $data['default_currency']);
+        }
+
+        if ($data['total'] == 'NaN') {
+            $data['total'] = 0;
+        }
+
+        $invoice = $this->invoiceModel->create($data);
+        if ($invoice) {
+            if (isset($data['items'])) {
+                foreach ($data['items'] as $item) {
+                    $this->invoiceModel->decrementStock($item['product_id'], $item['quantity']);
+                    $item['total'] = calculateItemTotalHelper($item);
+                    $invoice->items()->create($item);
+                }
+            }
+            $items = $invoice->items()->get();
+
+            $total = calculateTotalHelper($items, $data['discount'], $data['discount_type'], $data['currency_rate']);
+            $invoice->total = $total;
+            if ($total == 0) {
+                // if total is 0, invoice is paid
+                $invoice->status = 'paid';
+            }
+            $invoice->save();
+            sendWebhookForEvent('invoice:created', $invoice->toArray());
+            incrementLastItemNumber('invoice', settings('invoice_number_format'));
+            saveFilePdfToArchive(
+                $this->getInvoicePdf($invoice->id, 'attach'),
+                $invoice->number . '.pdf',
+                Invoice::$modelName,
+                $invoice->id,
+                $invoice->partner_id,
+            );
+            return $invoice;
+        }
     }
 
     public function updateInvoice($id, $data)
     {
-        $invoice = $this->invoiceModel->updateInvoice($id, $data);
-        return $invoice;
+        $data = setPayerData($data, $data['payer_id'], $data['payer_address_id']);
+        $data = setCustomerData($data, $data['customer_id'], $data['customer_address_id']);
+        $invoice = $this->invoiceModel->find($id);
+        if ($invoice->status == 'paid') {
+            return false;
+        }
+        if ($data['currency'] == $data['default_currency']) {
+            $data['currency_rate'] = 1;
+        } else {
+            $data['currency_rate'] = getCurrencyRate($data['currency'], $data['default_currency']);
+        }
+
+        if ($data['total'] == 'NaN') {
+            $data['total'] = 0;
+        }
+
+        $invoice = $invoice->update($data);
+        if ($invoice) {
+            $invoice = $this->invoiceModel->find($id);
+            if (isset($data['items'])) {
+                $items = $invoice->items()->each(function ($item) {
+                    // Increment stock of all items (before update) to avoid negative stock
+                    $this->incrementStock($item->product_id, $item->quantity);
+                    $item->delete();
+                });
+
+                foreach ($data['items'] as $item) {
+                    $this->decrementStock($item['product_id'], $item['quantity']);
+                    $item['discount_type'] = $data['discount_type'] ?? 'percent';
+                    $item['total'] = calculateItemTotalHelper($item);
+                    $invoice->items()->create($item);
+                }
+            }
+
+            $items = $invoice->items()->get();
+            $total = calculateTotalHelper($items, $data['discount'], $data['discount_type'], $data['currency_rate']);
+            $invoice->total = $total;
+            $invoice->save();
+            sendWebhookForEvent('invoice:updated', $invoice->toArray());
+            saveFilePdfToArchive(
+                $this->getInvoicePdf($invoice->id, 'attach'),
+                $invoice->number . '.pdf',
+                Invoice::$modelName,
+                $invoice->id,
+                $invoice->partner_id,
+            );
+            return $invoice;
+        }
     }
 
     public function deleteInvoice($id)
     {
-        $invoice = $this->invoiceModel->deleteInvoice($id);
-        return $invoice;
+        try {
+            DB::beginTransaction();
+            $invoice = $this->invoiceModel->find($id);
+            if ($invoice) {
+                if ($invoice->status == 'paid') {
+                    return false;
+                }
+                $this->invoiceModel
+                    ->items()
+                    ->where('invoice_id', $id)
+                    ->each(function ($item) {
+                        $this->incrementStock($item->product_id, $item->quantity);
+                        $item->delete();
+                    });
+                $invoice->delete();
+                DB::commit();
+                sendWebhookForEvent('invoice:deleted', $invoice->toArray());
+                return true;
+            }
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            DB::rollBack();
+            return false;
+        }
     }
 
     public function getInvoiceNumber()
     {
-        $invoice = $this->invoiceModel->getInvoiceNumber();
-        return $invoice;
+        return $this->invoiceModel->getInvoiceNumber();
     }
 
     public function shareInvoice($id)
     {
-        $invoice = $this->invoiceModel->shareInvoice($id);
-        return $invoice;
+        if ($this->invoiceModel->find($id)) {
+            $key = generateExternalKey('invoice', $id);
+            $url = url('/client/invoice/' . $id . '?key=' . $key . '&lang=' . app()->getLocale());
+            createActivityLog('share', $id, Invoice::$modelName, 'Invoice');
+            sendWebhookForEvent('invoice:shared', ['invoice_id' => $id, 'url' => $url]);
+            return $url;
+        }
+        return null;
     }
 
     public function getInvoicePdf($id, $type = 'stream')
@@ -80,10 +219,10 @@ class InvoiceService
             return $pdf->output();
         }
         if ($type == 'download') {
-            createActivityLog('DownloadInvoice', $invoice->id, 'App\Models\Invoice', 'Invoice');
+            createActivityLog('DownloadInvoice', $invoice->id, Invoice::$modelName, 'Invoice');
             return $pdf->download('Invoice ' . $invoice->number . '.pdf');
         } else {
-            createActivityLog('ViewInvoice', $invoice->id, 'App\Models\Invoice', 'Invoice');
+            createActivityLog('ViewInvoice', $invoice->id, Invoice::$modelName, 'Invoice');
             return $pdf->stream('Invoice ' . $invoice->number . '.pdf');
         }
     }
@@ -129,7 +268,7 @@ class InvoiceService
             }
             $invoice->save();
             incrementLastItemNumber('transaction', settings('transaction_number_format'));
-            createActivityLog('addInvoicePayment', $invoice_id, 'App\Models\Invoice', 'Invoice');
+            createActivityLog('addInvoicePayment', $invoice_id, Invoice::$modelName, 'Invoice');
             sendWebhookForEvent('invoice:payment_received', $transaction->toArray());
             return $transaction;
         }
@@ -137,8 +276,7 @@ class InvoiceService
 
     public function getInvoicePayments($invoice_id)
     {
-        $transactions = Transaction::where('invoice_id', $invoice_id)->get();
-        return $transactions;
+        return Transaction::where('invoice_id', $invoice_id)->get();
     }
 
     public function sendInvoiceNotification($invoice_id, $contact = null)
@@ -182,7 +320,43 @@ class InvoiceService
             $invoice->status = 'sent';
             $invoice->save();
         }
-        createActivityLog('sendInvoiceNotification', $invoice_id, 'App\Models\Invoice', 'Invoice');
+        createActivityLog('sendInvoiceNotification', $invoice_id, Invoice::$modelName, 'Invoice');
         return true;
+    }
+
+    /**
+     * Decrement stock of product when invoice is created or updated
+     * @param uuid $product_id product id
+     * @param integer $quantity quantity
+     * @return void
+     */
+    public function decrementStock($product_id, $quantity = 0)
+    {
+        if ($product_id == null) {
+            return;
+        }
+        $product = $this->productModel->find($product_id);
+        if ($product->stock >= $quantity && $product->stock > 0 && $product->type == 'product') {
+            $product->stock -= $quantity;
+            $product->save();
+        }
+    }
+
+    /**
+     * Increment stock of product when invoice is deleted or updated
+     * @param [uuid] $product_id product id
+     * @param integer $quantity quantity
+     * @return void
+     */
+    public function incrementStock($product_id, $quantity = 0)
+    {
+        if ($product_id == null) {
+            return;
+        }
+        $product = $this->productModel->find($product_id);
+        if ($product->stock >= $quantity && $product->stock > 0 && $product->type == 'product') {
+            $product->stock += $quantity;
+            $product->save();
+        }
     }
 }

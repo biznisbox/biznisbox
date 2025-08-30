@@ -12,6 +12,8 @@ class Role extends SpatieRole implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Role';
+
     protected $fillable = ['id', 'name', 'guard_name', 'system', 'display_name', 'description'];
 
     protected $hidden = ['pivot'];

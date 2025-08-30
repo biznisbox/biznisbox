@@ -21,6 +21,8 @@ class User extends Authenticatable implements JWTSubject, Auditable
     use HasFactory, Notifiable, SoftDeletes, HasUuids, HasRoles;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\User';
+
     /**
      * The attributes that are mass assignable.
      * @var array<string>
@@ -131,7 +133,7 @@ class User extends Authenticatable implements JWTSubject, Auditable
     public function getPublicUsers()
     {
         $users = $this->where('active', true)->get(['id', 'first_name', 'last_name', 'email', 'picture', 'language', 'timezone']);
-        createActivityLog('retrievePublic', null, 'App\Models\User', 'User');
+        createActivityLog('retrievePublic', null, User::$modelName, 'User');
         return $users;
     }
 
@@ -206,7 +208,7 @@ class User extends Authenticatable implements JWTSubject, Auditable
         if ($user) {
             // Check if role has changed
             if ($data['role'] != $user->role) {
-                createActivityLog('roleChange', $user->id, 'App\Models\User', 'User');
+                createActivityLog('roleChange', $user->id, User::$modelName, 'User');
             }
             $user->syncRoles($data['role']);
             $user->update([

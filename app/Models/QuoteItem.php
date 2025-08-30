@@ -12,6 +12,8 @@ class QuoteItem extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\QuoteItem';
+
     protected $table = 'quote_items';
 
     protected $fillable = [

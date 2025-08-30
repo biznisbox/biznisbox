@@ -12,6 +12,8 @@ class Category extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Category';
+
     protected $table = 'categories';
 
     protected $fillable = ['name', 'description', 'color', 'module', 'parent_id', 'icon', 'additional_info'];
@@ -134,7 +136,7 @@ class Category extends Model implements Auditable
             $categories = $this->with('children')->where('module', $module)->whereNull('parent_id')->get();
         }
 
-        createActivityLog('retrieve', null, 'App\Models\Category', 'Category');
+        createActivityLog('retrieve', null, Category::$modelName, 'Category');
         return $categories;
     }
 
@@ -147,7 +149,7 @@ class Category extends Model implements Auditable
     {
         $category = $this->where('id', $id)->first();
         if ($category) {
-            createActivityLog('retrieve', $id, 'App\Models\Category', 'Category');
+            createActivityLog('retrieve', $id, Category::$modelName, 'Category');
             return $category;
         }
         return false;

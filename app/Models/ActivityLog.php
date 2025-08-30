@@ -9,6 +9,8 @@ class ActivityLog extends Model
 {
     use HasFactory;
 
+    public static $modelName = 'App\Models\ActivityLog';
+
     protected $table = 'activity_log';
 
     protected $fillable = [
@@ -77,7 +79,7 @@ class ActivityLog extends Model
         $auditable_type = null,
         $tags = null,
         $user_id = null,
-        $user_type = 'App\Models\User', // Default user type is 'App\Models\User
+        $user_type = 'App\Models\User', // Default user type is 'App\Models\User'
         $type = 'internal',
         $external_key = null,
     ) {

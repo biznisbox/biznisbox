@@ -13,6 +13,8 @@ class PartnerActivity extends Model implements Auditable
     use HasFactory, SoftDeletes, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\PartnerActivity';
+
     protected $fillable = [
         'partner_id',
         'partner_contact_id',

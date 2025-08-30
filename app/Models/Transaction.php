@@ -13,6 +13,8 @@ class Transaction extends Model implements Auditable
     use HasFactory, HasUuids, SoftDeletes;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Transaction';
+
     protected $fillable = [
         'invoice_id',
         'bill_id',
@@ -95,7 +97,7 @@ class Transaction extends Model implements Auditable
     {
         $transactions = $this->with('account')->orderBy('date', 'desc')->get();
         if ($transactions) {
-            createActivityLog('retrieve', null, 'App\Models\Transaction', 'Transaction');
+            createActivityLog('retrieve', null, Transaction::$modelName, 'Transaction');
             return $transactions;
         }
         return false;
@@ -113,7 +115,7 @@ class Transaction extends Model implements Auditable
             'payment:number,id,payment_method,amount,currency',
         ])->find($id);
         if ($transaction) {
-            createActivityLog('retrieve', $id, 'App\Models\Transaction', 'Transaction');
+            createActivityLog('retrieve', $id, Transaction::$modelName, 'Transaction');
             return $transaction;
         }
         return false;
@@ -171,7 +173,7 @@ class Transaction extends Model implements Auditable
     {
         $transactions = $this->where('account_id', $account_id)->get();
         if ($transactions) {
-            createActivityLog('retrieve', null, 'App\Models\Transaction', 'Transaction');
+            createActivityLog('retrieve', null, Transaction::$modelName, 'Transaction');
             return $transactions;
         }
         return false;

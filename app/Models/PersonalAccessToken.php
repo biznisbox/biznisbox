@@ -11,6 +11,8 @@ class PersonalAccessToken extends Model implements Auditable
     use HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\PersonalAccessToken';
+
     protected $table = 'personal_access_tokens';
 
     protected $fillable = ['user_id', 'name', 'token', 'type', 'active', 'last_used_at', 'valid_until'];

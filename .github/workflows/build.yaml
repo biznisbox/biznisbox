@@ -71,6 +71,9 @@ jobs:
         runs-on: ubuntu-latest
         needs: build
         steps:
+            - name: Get current date
+              id: date
+              run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M:%S')"
             - name: Download artifacts
               uses: actions/download-artifact@v4
               with:
@@ -92,7 +95,7 @@ jobs:
                   body: |
                       # Changelog
 
-                      ## ✨ New Features and Enhancements
+                      ## ✨ New Features & Enhancements
 
                       - New features and enhancements in this release.
 
@@ -109,6 +112,7 @@ jobs:
                       ## Release Information
                         - **Version**: ${{ github.ref_name }}
                         - **Build Type**: ${{ env.TYPE_OF_BUILD }}
+                        - **Build Time**: ${{ steps.date.outputs.date }}
                   prerelease: false
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -118,13 +122,14 @@ jobs:
               with:
                   tag: dev
                   allowUpdates: true
-                  name: BiznisBox Dev Build
+                  name: BiznisBox Nightly Build
                   artifacts: ${{ github.workspace }}/biznisbox.zip
                   draft: true
                   body: |
                       This is a nightly build of BiznisBox.
-                      It includes the latest changes from the main branch.
+                      It includes the latest changes from the main branch. Unstable features may be present.
                       Run ID: ${{ github.run_id }}
+                      Build Time: ${{ steps.date.outputs.date }}
             - name: Create dev release
               if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && !startsWith(github.ref, 'refs/tags/'))
               uses: ncipollo/release-action@v1
@@ -136,5 +141,6 @@ jobs:
                   draft: true
                   body: |
                       This is a development build of BiznisBox.
-                      It includes the latest changes from the main branch.
+                      It includes the latest changes from the main branch. Unstable features may be present.
                       Run ID: ${{ github.run_id }}
+                      Build Time: ${{ steps.date.outputs.date }}

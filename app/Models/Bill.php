@@ -13,6 +13,8 @@ class Bill extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Bill';
+
     protected $table = 'bills';
 
     protected $fillable = [
@@ -92,14 +94,14 @@ class Bill extends Model implements Auditable
     public function getBills()
     {
         $bill = $this->with(['items'])->get();
-        createActivityLog('retrieve', null, 'App\Models\Bill', 'Bill');
+        createActivityLog('retrieve', null, Bill::$modelName, 'Bill');
         return $bill;
     }
 
     public function getBill($id)
     {
         $bill = $this->with(['items', 'paymentMethod'])->find($id);
-        createActivityLog('retrieve', $id, 'App\Models\Bill', 'Bill');
+        createActivityLog('retrieve', $id, Bill::$modelName, 'Bill');
         return $bill;
     }
 
@@ -176,8 +178,7 @@ class Bill extends Model implements Auditable
 
     public static function getBillNumber()
     {
-        $number = generateNextNumber(settings('bill_number_format'), 'bill');
-        return $number;
+        return generateNextNumber(settings('bill_number_format'), 'bill');
     }
 
     /**

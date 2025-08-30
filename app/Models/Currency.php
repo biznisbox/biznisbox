@@ -11,6 +11,8 @@ class Currency extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Currency';
+
     protected $table = 'currencies';
 
     protected $fillable = [

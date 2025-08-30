@@ -27,7 +27,7 @@ class OpenBankingService
 
     public function listAvailableCountries()
     {
-        $countries = [
+        return [
             ['name' => 'Austria', 'code' => 'AT'],
             ['name' => 'Belgium', 'code' => 'BE'],
             ['name' => 'Bulgaria', 'code' => 'BG'],
@@ -57,7 +57,6 @@ class OpenBankingService
             ['name' => 'Sweden', 'code' => 'SE'],
             ['name' => 'United Kingdom', 'code' => 'GB'],
         ];
-        return $countries;
     }
 
     public function listAvailableBanksByCountry(string $countryCode)

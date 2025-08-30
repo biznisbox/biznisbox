@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Default Datetime Format",
             "show_barcode_on_documents": "Show barcode on documents",
             "week_start": "Week Start Day",
-            "exchange_rate_provider": "Exchange Rate Provider"
+            "exchange_rate_provider": "Exchange Rate Provider",
+            "save_document_into_archive": "Save Document into Archive",
+            "save_document_into_archive_description": "If enabled, documents will be saved into the archive (invoices, quotes, bills, contracts)."
         },
         "taxes": {
             "title": "Tax Rates",

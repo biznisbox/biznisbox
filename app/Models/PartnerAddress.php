@@ -12,6 +12,8 @@ class PartnerAddress extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\PartnerAddress';
+
     protected $table = 'partner_addresses';
 
     protected $fillable = ['partner_id', 'is_primary', 'type', 'address', 'city', 'zip_code', 'country', 'notes'];

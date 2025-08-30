@@ -13,6 +13,8 @@ class ExternalKey extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\ExternalKey';
+
     protected $fillable = [
         'module',
         'module_item_id',
@@ -122,7 +124,7 @@ class ExternalKey extends Model implements Auditable
     public function getExternalKey($key, $module)
     {
         $external_key = $this->where('key', $key)->where('module', $module)->first();
-        createActivityLog('retrieve', $external_key->id, 'App\Models\ExternalKey', 'ExternalKey');
+        createActivityLog('retrieve', $external_key->id, ExternalKey::$modelName, 'ExternalKey');
 
         if ($external_key) {
             return $external_key;

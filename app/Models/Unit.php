@@ -12,6 +12,8 @@ class Unit extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Unit';
+
     protected $fillable = ['name', 'symbol', 'active', 'description'];
 
     protected function casts(): array

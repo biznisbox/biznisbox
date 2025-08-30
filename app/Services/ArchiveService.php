@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Archive;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 class ArchiveService
 {
@@ -201,5 +202,56 @@ class ArchiveService
             return $document;
         }
         return false;
+    }
+
+    public function saveFileToArchive($file_output, $file_name, $module, $module_item_id, $partner_id = null)
+    {
+        try {
+            $archive_path = storage_path('app/archive');
+            if (!file_exists($archive_path)) {
+                mkdir($archive_path, 0755, true);
+            }
+
+            // Check if file connected to module and module id exist and delete it
+            $existingDocument = $this->archiveModel
+                ->where('connected_document_type', $module)
+                ->where('connected_document_id', $module_item_id)
+                ->first();
+
+            if ($existingDocument) {
+                Storage::delete('archive/' . $existingDocument->file_path);
+                $existingDocument->forceDelete();
+            }
+
+            $diskFileName = Str::uuid() . '.pdf';
+            Storage::put('archive/' . $diskFileName, $file_output);
+
+            $document = $this->archiveModel->create([
+                'number' => Archive::getArchiveNumber(),
+                'name' => $file_name,
+                'file_name' => $file_name,
+                'file_size' => Storage::size('archive/' . $diskFileName),
+                'file_mime' => 'application/pdf',
+                'file_path' => $diskFileName,
+                'file_hash_sha256' => hash_file('sha256', storage_path('app/archive/' . $diskFileName)),
+                'file_hash_md5' => hash_file('md5', storage_path('app/archive/' . $diskFileName)),
+                'file_extension' => 'pdf',
+                'status' => 'active',
+                'type' => 'document',
+                'description' => __('responses.archive_document_auto_generated'),
+                'connected_document_id' => $module_item_id,
+                'connected_document_type' => $module,
+                'user_id' => auth()->user() ? auth()->user()->id : null,
+                'visibility' => 'private',
+                'protection_level' => 'internal',
+                'partner_id' => $partner_id,
+            ]);
+            if ($document) {
+                return true;
+            }
+        } catch (\Exception $e) {
+            Log::error('Error saving file to archive: ' . $e->getMessage());
+            return false;
+        }
     }
 }

@@ -13,6 +13,8 @@ class Employee extends Model implements Auditable
     use HasFactory, SoftDeletes, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Employee';
+
     protected $fillable = [
         'department_id',
         'user_id',
@@ -100,21 +102,20 @@ class Employee extends Model implements Auditable
     public function getEmployee($id)
     {
         $employee = $this->with('user')->where('id', $id)->first();
-        createActivityLog('retrieve', $id, 'App\Models\Employee', 'Employee');
+        createActivityLog('retrieve', $id, Employee::$modelName, 'Employee');
         return $employee;
     }
 
     public function getEmployees()
     {
         $employees = $this->get();
-        createActivityLog('retrieve', null, 'App\Models\Employee', 'Employee');
+        createActivityLog('retrieve', null, Employee::$modelName, 'Employee');
         return $employees;
     }
 
     public static function getEmployeeNumber()
     {
-        $number = generateNextNumber(settings('employee_number_format'), 'employee');
-        return $number;
+        return generateNextNumber(settings('employee_number_format'), 'employee');
     }
 
     public function getPublicEmployees()
@@ -123,7 +124,7 @@ class Employee extends Model implements Auditable
         foreach ($employees as $employee) {
             $employee->label = $employee->first_name . ' ' . $employee->last_name . ' (' . $employee->email . ')';
         }
-        createActivityLog('retrievePublic', null, 'App\Models\Employee', 'Employee');
+        createActivityLog('retrievePublic', null, Employee::$modelName, 'Employee');
         return $employees;
     }
 }

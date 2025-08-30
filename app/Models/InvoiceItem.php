@@ -12,6 +12,8 @@ class InvoiceItem extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\InvoiceItem';
+
     protected $table = 'invoice_items';
 
     protected $fillable = [

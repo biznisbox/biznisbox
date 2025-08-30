@@ -12,6 +12,8 @@ class BillItem extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\BillItem';
+
     protected $table = 'bill_items';
     protected $fillable = [
         'bill_id',

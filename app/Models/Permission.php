@@ -12,6 +12,8 @@ class Permission extends SpatiePermission implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Permission';
+
     protected $fillable = ['id', 'name', 'guard_name', 'display_name', 'description'];
 
     public function getDisplayNameAttribute($value)

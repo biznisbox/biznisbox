@@ -13,6 +13,8 @@ class Account extends Model implements Auditable
     use HasFactory, HasUuids, SoftDeletes;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Account';
+
     protected $fillable = [
         'name',
         'type',
@@ -113,7 +115,7 @@ class Account extends Model implements Auditable
         $account = self::where('id', $id)->first();
         $account->transactions;
         if ($account) {
-            createActivityLog('retrieve', $id, 'App\Models\Account', 'Account');
+            createActivityLog('retrieve', $id, Account::$modelName, 'Account');
             return $account;
         }
         return false;
@@ -123,7 +125,7 @@ class Account extends Model implements Auditable
     {
         $accounts = $this->orderBy('name', 'asc')->get();
         if ($accounts) {
-            createActivityLog('retrieve', null, 'App\Models\Account', 'Account');
+            createActivityLog('retrieve', null, Account::$modelName, 'Account');
             return $accounts;
         }
         return false;

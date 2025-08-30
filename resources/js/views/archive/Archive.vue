@@ -395,6 +395,7 @@
 
                         <div class="mt-2">
                             <SelectInput
+                                v-if="document.connected_document_type === 'App\\Models\\Archive'"
                                 id="connected_document_id"
                                 v-model="document.connected_document_id"
                                 :options="selectDocumentArray"

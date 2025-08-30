@@ -1,16 +1,26 @@
 # 2.11.0
 
-## ✨ New Features and Enhancements
+## ✨ New Features & Enhancements
 
-- Introduced a new feature for importing VAT rates from the EU VAT Rates API.
-- Added a new feature for validating VAT numbers using the EU VAT Number Validation API.
-- Add Docker Health Checks for improved container management.
+- Introduced support for importing VAT rates from the EU VAT Rates API.
+
+- Added validation of VAT numbers via the EU VAT Number Validation API.
+
+- Implemented Docker Health Checks for improved container monitoring and management.
+
+- Added an option for automatic document archiving (invoices, contracts). When a document is created or updated, a copy is automatically saved to the archive.
 
 ## 🐛 Bug Fixes
 
+- Fixed issue with TinyMCE editor integration (license key set to GPL).
+
+## 🧑‍💻 Development Updates
+
+- Added a `modelName` property to all models for consistent referencing.
+
 # 2.10.0
 
-## ✨ New Features and Enhancements
+## ✨ New Features & Enhancements
 
 - New icons from FontAwesome 7 have been added to the app, enhancing the visual appeal and usability of the interface.
 
@@ -21,7 +31,7 @@
 
 # 2.9.0
 
-## ✨ New Features and Enhancements
+## ✨ New Features & Enhancements
 
 - Updated the design of the Partner Details page, specifically the contract grid section under Contact Email.
 - Redesigned the "Add Document to Archive" form for improved usability and layout.
@@ -35,15 +45,15 @@
 
 # 2.8.0
 
-## ✨ New Features and Enhancements
+## ✨ New Features & Enhancements
 
 - Added a new feature to add partner contact access to the client portal.
 - Introduced a new feature client portal for partners, allowing them to see their quotes and invoices.
-- Add \* as trusted proxy for all requests in the app (see `bootstrap/app.php`)
+- Added * as trusted proxy for all requests in the app (see `bootstrap/app.php`)
 
 # 2.7.0
 
-## ✨ New Features and Enhancements
+## ✨ New Features & Enhancements
 
 - Introduced a new option for getting exchange rates from the currency API (https://github.com/fawazahmed0/exchange-api).
 - Updates on the Docker build process to ensure compatibility with the latest changes.
@@ -60,13 +70,13 @@
 
 # 2.6.0
 
-## ✨ New Features and Enhancements
+## ✨ New Features & Enhancements
 
 - Refined Docker build process; install.lock is now stored in the storage folder for improved structure.
 
 # 2.5.0
 
-## ✨ New Features and Enhancements
+## ✨ New Features & Enhancements
 
 - Added support for Docker image building and deployment.
 
@@ -76,7 +86,7 @@
 
 # 2.4.0
 
-## ✨ New Features and Enhancements
+## ✨ New Features & Enhancements
 
 - Added a new feature for sending support ticket notifications to users.
 - Added a new feature for selecting a product category when creating/updating a product.
@@ -91,7 +101,7 @@
 
 **Important**: This release is not backwards-compatible with previous versions (v2.x.x) due to significant changes, including database migrations and structure updates.
 
-## ✨ New Features and Enhancements
+## ✨ New Features & Enhancements
 
 - Updated API documentation to include new endpoints and features.
 - Added confirmation prompts for deleting taxes, units, and webhooks.
@@ -117,7 +127,7 @@
 
 # 2.2.0
 
-## ✨ New Features and Enhancements
+## ✨ New Features & Enhancements
 
 - Added a new feature for sending email to partner contact.
 - Added feature to view and manage user personal access tokens by admin.
@@ -139,14 +149,14 @@
 ## 🐛 Bug Fixes
 
 - Fixed an issue with WorldSeeder by locking the package version
-- Fixed colour format for the company colour in settings
+- Fixed color format for the company color in settings
 - Fixed an issue where the sendmail path was not displayed in settings
 - Fixed the unit updating issue in settings
-- Fixed text colour of changelog on the status page
+- Fixed text color of changelog on the status page
 
 # v2.1.0
 
-## ✨ New Features and Enhancements
+## ✨ New Features & Enhancements
 
 - Added functions for generating personal access tokens for authentication (mobile apps, etc.).
 
@@ -169,12 +179,12 @@
 
 This marks the official release of the new BiznisBox.
 
-## ✨ New Features and Enhancements
+## ✨ New Features & Enhancements
 
 - Added an option to reject contracts.
 - Implemented email notifications for first-time logins from a new browser.
 - Introduced a console command for creating users.
-- Added new configuration settings for enhanced customisation.
+- Added new configuration settings for enhanced customization.
 
 ## 🐛 Bug Fixes
 
@@ -212,7 +222,7 @@ This marks the official release of the new BiznisBox.
 
 ## 💄 UI/UX Improvements
 
-- Updated the colour scheme for a more modern and cohesive look.
+- Updated the color scheme for a more modern and cohesive look.
 - Refined the design of input validation feedback.
 - Added dark mode support to the rich text editor for improved user experience in low-light environments.
 - Replaced the old app logo with a new, updated design.
@@ -228,7 +238,7 @@ This marks the official release of the new BiznisBox.
 
 # v2.0.0-beta.4
 
-## ✨ New Features and Improvements
+## ✨ New Features & Improvements
 
 - Add a function for sharing contacts with other users (via magic link).
 - Add a function for internal tickets in the support module.
@@ -246,7 +256,7 @@ This marks the official release of the new BiznisBox.
 
 # v2.0.0-beta.3
 
-## ✨ New Features and Improvements
+## ✨ New Features & Enhancements
 
 - Enhanced user experience during BiznisBox installation, with improved setup guidance and clearer prompts.
 
@@ -264,7 +274,7 @@ This marks the official release of the new BiznisBox.
 
 # v2.0.0-beta.2
 
-## ✨ New Features and Improvements
+## ✨ New Features & Enhancements
 
 - Added a notification popup to check and manage notifications more efficiently.
 - Introduced a new "Contracts" module, enabling seamless management of contracts with clients and partners.
@@ -283,7 +293,7 @@ This marks the official release of the new BiznisBox.
 
 **Important**: This release is not backwards-compatible with previous versions (v1.x.x) due to significant changes, including database migrations and structure updates.
 
-## ✨ New Features and Improvements
+## ✨ New Features & Enhancements
 
 - **App Install UI**: Introduced a new user interface for app installations.
 - **Audit Log View**: Added audit log visibility across all application sections.

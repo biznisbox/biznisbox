@@ -13,6 +13,8 @@ class OnlinePayment extends Model implements Auditable
     use HasFactory, HasUuids, SoftDeletes;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\OnlinePayment';
+
     protected $fillable = [
         'number',
         'payment_method',
@@ -49,7 +51,6 @@ class OnlinePayment extends Model implements Auditable
      */
     public static function getPaymentNumber()
     {
-        $number = generateNextNumber(settings('payment_number_format'), 'payment');
-        return $number;
+        return generateNextNumber(settings('payment_number_format'), 'payment');
     }
 }

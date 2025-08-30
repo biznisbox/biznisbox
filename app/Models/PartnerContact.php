@@ -12,6 +12,8 @@ class PartnerContact extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\PartnerContact';
+
     protected $table = 'partner_contacts';
 
     protected $fillable = [

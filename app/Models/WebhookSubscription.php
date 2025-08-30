@@ -12,6 +12,8 @@ class WebhookSubscription extends Model
 {
     use HasFactory, HasUuids;
 
+    public static $modelName = 'App\Models\WebhookSubscription';
+
     protected $fillable = [
         'name',
         'url',

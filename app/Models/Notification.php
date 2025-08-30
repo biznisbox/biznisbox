@@ -10,6 +10,8 @@ class Notification extends Model
 {
     use HasFactory, HasUuids;
 
+    public static $modelName = 'App\Models\Notification';
+
     protected $fillable = ['user_id', 'title', 'content', 'type', 'is_read', 'action_text', 'action_url'];
 
     protected $casts = [

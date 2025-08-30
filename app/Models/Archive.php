@@ -14,6 +14,8 @@ class Archive extends Model implements Auditable
     use HasFactory, HasUuids, SoftDeletes;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Archive';
+
     protected $table = 'archive';
 
     protected $fillable = [
@@ -94,7 +96,7 @@ class Archive extends Model implements Auditable
     public function getDocument($id)
     {
         $document = $this->with('connectedDocument', 'partner', 'storageLocation', 'documentType')->find($id);
-        createActivityLog('retrieve', $id, 'App\Models\Archive', 'Archive');
+        createActivityLog('retrieve', $id, Archive::$modelName, 'Archive');
         return $document;
     }
 
@@ -102,21 +104,21 @@ class Archive extends Model implements Auditable
     {
         // Get trashed documents
         if ($folderId == 'trash') {
-            createActivityLog('retrieve', null, 'App\Models\Archive', 'Archive');
+            createActivityLog('retrieve', null, Archive::$modelName, 'Archive');
             return $this->getTrashedDocuments();
         }
         // Get all documents
         if ($folderId == 'all') {
-            createActivityLog('retrieve', null, 'App\Models\Archive', 'Archive');
+            createActivityLog('retrieve', null, Archive::$modelName, 'Archive');
             return $this->with('connectedDocument', 'partner', 'storageLocation', 'documentType')->get();
         }
         // Get documents without folder
         if ($folderId == 'null' || $folderId == null) {
-            createActivityLog('retrieve', null, 'App\Models\Archive', 'Archive');
+            createActivityLog('retrieve', null, Archive::$modelName, 'Archive');
             return $this->with('connectedDocument', 'partner', 'storageLocation', 'documentType')->whereNull('folder_id')->get();
         }
         // Get documents by folder id
-        createActivityLog('retrieve', null, 'App\Models\Archive', 'Archive');
+        createActivityLog('retrieve', null, Archive::$modelName, 'Archive');
         return $this->with('connectedDocument', 'partner', 'storageLocation', 'documentType')->where('folder_id', $folderId)->get();
     }
 
@@ -147,8 +149,7 @@ class Archive extends Model implements Auditable
 
     public static function getArchiveNumber()
     {
-        $number = generateNextNumber(settings('archive_number_format'), 'archive');
-        return $number;
+        return generateNextNumber(settings('archive_number_format'), 'archive');
     }
 
     /**

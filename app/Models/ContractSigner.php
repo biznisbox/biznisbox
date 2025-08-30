@@ -12,6 +12,8 @@ class ContractSigner extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\ContractSigner';
+
     protected $fillable = [
         'contract_id',
         'user_id',

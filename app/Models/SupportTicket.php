@@ -13,6 +13,8 @@ class SupportTicket extends Model implements Auditable
     use HasFactory, SoftDeletes, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\SupportTicket';
+
     protected $fillable = [
         'assignee_id',
         'partner_id',
@@ -82,7 +84,7 @@ class SupportTicket extends Model implements Auditable
     {
         $supportTickets = self::with('assignee:id,first_name,last_name,email', 'partner', 'category', 'content')->get();
         if ($supportTickets) {
-            createActivityLog('retrieve', null, 'App\Models\SupportTicket', 'getSupportTickets');
+            createActivityLog('retrieve', null, SupportTicket::$modelName, 'getSupportTickets');
             return $supportTickets;
         }
         return false;
@@ -97,7 +99,7 @@ class SupportTicket extends Model implements Auditable
             'content',
         )->find($id);
         if ($supportTicket) {
-            createActivityLog('retrieve', $id, 'App\Models\SupportTicket', 'getSupportTicket');
+            createActivityLog('retrieve', $id, SupportTicket::$modelName, 'getSupportTicket');
             return $supportTicket;
         }
         return false;
@@ -196,7 +198,7 @@ class SupportTicket extends Model implements Auditable
         $ticket = $this->find($id);
         $key = generateExternalKey('support', $ticket->id);
         $url = url('/client/support/' . $id . '?key=' . $key . '&lang=' . app()->getLocale());
-        createActivityLog('share', $ticket->id, 'App\Models\SupportTicket', 'shareTicket');
+        createActivityLog('share', $ticket->id, SupportTicket::$modelName, 'shareTicket');
         sendWebhookForEvent('support_ticket:shared', ['id' => $ticket->id, 'url' => $url]);
         return $url;
     }

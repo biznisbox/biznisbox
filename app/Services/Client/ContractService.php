@@ -20,12 +20,12 @@ class ContractService
             $contract = $contract->getClientContract($key_data->module_item_id);
             $contract->must_sign = $contract->checkIfSignerIsSignContract($contract->id, $key_data->id);
 
-            createActivityLog('retrievePublic', $contract->id, 'App\Models\Contract', 'Contract', null, null, 'external_key', $key);
+            createActivityLog('retrievePublic', $contract->id, Contract::$modelName, 'Contract', null, null, 'external_key', $key);
 
             if (!$contract) {
                 return false;
             }
-            createActivityLog('retrieve', $contract->id, 'App\Models\Contract', 'Contract', null, null, 'external_key', $key);
+            createActivityLog('retrieve', $contract->id, Contract::$modelName, 'Contract', null, null, 'external_key', $key);
             return $contract;
         } else {
             return false;
@@ -43,7 +43,7 @@ class ContractService
             $key_data = $key_data->getExternalKey($key, 'contract');
             $contract = new Contract();
             $contract = $contract->signContract($key_data->module_item_id, $key_data->id, $data);
-            createActivityLog('sign', $contract->id, 'App\Models\Contract', 'Contract', null, null, 'external_key', $key);
+            createActivityLog('sign', $contract->id, Contract::$modelName, 'Contract', null, null, 'external_key', $key);
 
             if (!$contract) {
                 return false;

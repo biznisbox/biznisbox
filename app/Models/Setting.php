@@ -12,6 +12,8 @@ class Setting extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Setting';
+
     protected $table = 'settings';
 
     protected $fillable = ['key', 'value', 'type', 'is_public'];
@@ -51,7 +53,7 @@ class Setting extends Model implements Auditable
         $settings = self::all()->mapWithKeys(function ($item) {
             return [$item->key => $item->value];
         });
-        createActivityLog('retrieve', null, 'App\Models\Setting', 'Setting');
+        createActivityLog('retrieve', null, Setting::$modelName, 'Setting');
         return $settings;
     }
 
@@ -63,7 +65,7 @@ class Setting extends Model implements Auditable
             ->mapWithKeys(function ($item) {
                 return [$item->key => $item->value];
             });
-        createActivityLog('retrieve', null, 'App\Models\Setting', 'Setting', null, null, 'public', 'public'); # there are errors in logs
+        createActivityLog('retrieve', null, Setting::$modelName, 'Setting', null, null, 'public', 'public'); # there are errors in logs
         return $settings;
     }
 

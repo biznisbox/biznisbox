@@ -15,6 +15,8 @@ class Partner extends Model implements Auditable
     use HasFactory, HasUuids, SoftDeletes;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Partner';
+
     protected $table = 'partners';
 
     protected $fillable = [
@@ -94,7 +96,7 @@ class Partner extends Model implements Auditable
         } else {
             $partners = $this->with('addresses', 'contacts')->get();
         }
-        createActivityLog('retrieve', null, 'App\Models\Partner', 'Partner');
+        createActivityLog('retrieve', null, Partner::$modelName, 'Partner');
         return $partners;
     }
 
@@ -114,7 +116,7 @@ class Partner extends Model implements Auditable
         if (!$partner) {
             return null;
         }
-        createActivityLog('retrieve', $id, 'App\Models\Partner', 'Partner');
+        createActivityLog('retrieve', $id, Partner::$modelName, 'Partner');
         return $partner;
     }
 
@@ -221,8 +223,7 @@ class Partner extends Model implements Auditable
 
     public static function getPartnerNumber()
     {
-        $number = generateNextNumber(settings('partner_number_format'), 'partner');
-        return $number;
+        return generateNextNumber(settings('partner_number_format'), 'partner');
     }
 
     /**

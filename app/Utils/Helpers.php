@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Str;
 use App\Events\WebhookEvent;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 
 if (!function_exists('api_response')) {
@@ -777,5 +778,27 @@ if (!function_exists('dockerHealthResponse')) {
             'id' => (string) Str::uuid(),
             'timestamp' => now(),
         ];
+    }
+}
+
+if (!function_exists('saveFilePdfToArchive')) {
+    /**
+     * Save PDF file output to archive
+     * @param string $file_path - file path
+     * @return bool
+     */
+    function saveFilePdfToArchive($fileOutput, $fileName, $module, $moduleItemId)
+    {
+        if (!settings('save_document_into_archive')) {
+            return false;
+        }
+        try {
+            $archive = new \App\Services\ArchiveService();
+            $archive->saveFileToArchive($fileOutput, $fileName, $module, $moduleItemId);
+            return true;
+        } catch (\Exception $e) {
+            Log::error('Error saving file to archive: ' . $e->getMessage());
+            return false;
+        }
     }
 }

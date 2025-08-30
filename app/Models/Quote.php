@@ -14,6 +14,8 @@ class Quote extends Model implements Auditable
     use HasFactory, SoftDeletes, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Quote';
+
     protected $table = 'quotes';
     protected $fillable = [
         'customer_id',
@@ -114,7 +116,7 @@ class Quote extends Model implements Auditable
     public function getQuotes()
     {
         $quotes = $this->with('items')->get();
-        createActivityLog('retrieve', null, 'App\Models\Quote', 'Quote');
+        createActivityLog('retrieve', null, Quote::$modelName, 'Quote');
         return $quotes;
     }
 
@@ -182,7 +184,7 @@ class Quote extends Model implements Auditable
     public function getQuote($id)
     {
         $quote = $this->with('items', 'paymentMethod')->find($id);
-        createActivityLog('retrieve', $id, 'App\Models\Quote', 'Quote');
+        createActivityLog('retrieve', $id, Quote::$modelName, 'Quote');
         return $quote;
     }
 
@@ -209,7 +211,7 @@ class Quote extends Model implements Auditable
             $invoice->items()->create($item->toArray());
         }
         incrementLastItemNumber('invoice', settings('invoice_number_format'));
-        createActivityLog('convert_to_invoice', $id, 'App\Models\Quote', 'Quote');
+        createActivityLog('convert_to_invoice', $id, Quote::$modelName, 'Quote');
         sendWebhookForEvent('quote:converted', $invoice->toArray());
         return $invoice->id;
     }
@@ -220,7 +222,7 @@ class Quote extends Model implements Auditable
         unset($quote->notes);
 
         if ($log) {
-            createActivityLog('retrieve', $id, 'App\Models\Quote', 'Quote');
+            createActivityLog('retrieve', $id, Quote::$modelName, 'Quote');
         }
 
         if ($update_viewed) {
@@ -247,7 +249,7 @@ class Quote extends Model implements Auditable
         if ($this->find($quote_id)) {
             $key = generateExternalKey('quote', $quote_id);
             $url = url('/client/quote/' . $quote_id . '?key=' . $key . '&lang=' . app()->getLocale());
-            createActivityLog('ShareQuote', $quote_id, 'App\Models\Quote', 'Quote');
+            createActivityLog('ShareQuote', $quote_id, Quote::$modelName, 'Quote');
             sendWebhookForEvent('quote:shared', ['quote_id' => $quote_id, 'url' => $url]);
             return $url;
         }
@@ -266,7 +268,7 @@ class Quote extends Model implements Auditable
         $quote = $this->find($id);
         $quote->status = $status; // accepted or rejected
         $quote->save();
-        createActivityLog('AcceptRejectQuoteByClient', $id, 'App\Models\Quote', 'Quote', null, null, 'external', $key);
+        createActivityLog('AcceptRejectQuoteByClient', $id, Quote::$modelName, 'Quote', null, null, 'external', $key);
         sendWebhookForEvent('quote:accepted_rejected', ['quote_id' => $id, 'status' => $status, 'key' => $key]);
         return $quote;
     }

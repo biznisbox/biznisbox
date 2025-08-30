@@ -19,6 +19,8 @@ class Session extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Session';
+
     protected $table = 'sessions';
 
     protected $fillable = [

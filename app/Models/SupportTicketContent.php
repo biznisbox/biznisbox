@@ -13,6 +13,8 @@ class SupportTicketContent extends Model implements Auditable
     use HasFactory, SoftDeletes, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\SupportTicketContent';
+
     protected $table = 'support_ticket_content';
 
     protected $fillable = [

@@ -12,6 +12,8 @@ class Department extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Department';
+
     protected $fillable = [
         'name',
         'parent_id',
@@ -54,14 +56,14 @@ class Department extends Model implements Auditable
     public function getDepartmentsWithEmployees()
     {
         $departments = $this->with('employees')->get();
-        createActivityLog('retrieve', null, 'App\Models\Department', 'Department');
+        createActivityLog('retrieve', null, Department::$modelName, 'Department');
         return $departments;
     }
 
     public function getPublicDepartments()
     {
         $departments = $this->select(['id', 'name', 'description', 'type'])->get();
-        createActivityLog('retrievePublic', null, 'App\Models\Department', 'Department');
+        createActivityLog('retrievePublic', null, Department::$modelName, 'Department');
         return $departments;
     }
 }

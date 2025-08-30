@@ -5,9 +5,10 @@
             :id="id"
             ref="editor"
             v-model="contentValue"
-            :init="init"
             model-events="change keydown blur focus paste"
             :disabled="disabled"
+            :init="init"
+            license-key="gpl"
         />
         <div v-if="validate?.$dirty && validate?.$invalid" class="flex flex-col">
             <div v-for="error in validate?.$errors || []" :key="error?.$propertyPath" class="dark:text-red-400 text-red-500 text-sm">
@@ -91,7 +92,6 @@ export default {
                 plugins: 'lists link image table wordcount advlist autolink anchor charmap insertdatetime',
                 toolbar: this.toolbar,
                 menubar: false,
-                license_key: 'gpl',
                 statusbar: false,
                 paste_data_images: true,
                 images_upload_handler: function (blobInfo, success, failure) {

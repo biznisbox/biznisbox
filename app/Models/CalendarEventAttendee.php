@@ -12,6 +12,8 @@ class CalendarEventAttendee extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\CalendarEventAttendee';
+
     protected $table = 'calendar_event_attendees';
 
     protected $fillable = ['event_id', 'user_id', 'email', 'name', 'status', 'role', 'participation_status', 'rsvp_response', 'comment'];

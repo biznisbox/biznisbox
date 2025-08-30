@@ -13,6 +13,8 @@ class Product extends Model implements Auditable
     use HasFactory, HasUuids, SoftDeletes;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Product';
+
     protected $table = 'products';
 
     protected $fillable = [
@@ -104,7 +106,7 @@ class Product extends Model implements Auditable
     public function getProducts()
     {
         $products = $this->with(['category'])->get();
-        createActivityLog('retrieve', null, 'App\Models\Product', 'Product');
+        createActivityLog('retrieve', null, Product::$modelName, 'Product');
         return $products;
     }
 
@@ -119,7 +121,7 @@ class Product extends Model implements Auditable
         if (!$product) {
             return false;
         }
-        createActivityLog('retrieve', $id, 'App\Models\Product', 'Product');
+        createActivityLog('retrieve', $id, Product::$modelName, 'Product');
         return $product;
     }
 
@@ -182,7 +184,7 @@ class Product extends Model implements Auditable
     public function getProductByBarcode($barcode)
     {
         $product = $this->where('barcode', $barcode)->first();
-        createActivityLog('retrieveBarcode', $product->id, 'App\Models\Product', 'Product');
+        createActivityLog('retrieveBarcode', $product->id, Product::$modelName, 'Product');
         return $product;
     }
 
@@ -192,8 +194,7 @@ class Product extends Model implements Auditable
      */
     public static function getProductNumber()
     {
-        $number = generateNextNumber(settings('product_number_format'), 'product');
-        return $number;
+        return generateNextNumber(settings('product_number_format'), 'product');
     }
 
     /**
@@ -218,7 +219,7 @@ class Product extends Model implements Auditable
             'barcode',
             'tax',
         ]);
-        createActivityLog('retrievePublic', null, 'App\Models\Product', 'Product');
+        createActivityLog('retrievePublic', null, Product::$modelName, 'Product');
         return $products;
     }
 
@@ -230,7 +231,7 @@ class Product extends Model implements Auditable
     public function getProductsByCategory($id)
     {
         $products = $this->where('category_id', $id)->get();
-        createActivityLog('retrieveByCategory', null, 'App\Models\Product', 'Product');
+        createActivityLog('retrieveByCategory', null, Product::$modelName, 'Product');
         return $products;
     }
 }

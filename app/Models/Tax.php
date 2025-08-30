@@ -12,6 +12,8 @@ class Tax extends Model implements Auditable
     use HasFactory, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\Tax';
+
     protected $fillable = ['name', 'rate', 'active', 'description', 'type'];
 
     protected function casts(): array
@@ -43,14 +45,14 @@ class Tax extends Model implements Auditable
     public function getTaxes()
     {
         $taxes = $this->all()->where('active', true);
-        createActivityLog('retrieve', null, 'App\Models\Tax', 'Tax');
+        createActivityLog('retrieve', null, Tax::$modelName, 'Tax');
         return $taxes;
     }
 
     public function getTax($id)
     {
         $tax = $this->find($id);
-        createActivityLog('retrieve', $id, 'App\Models\Tax', 'Tax');
+        createActivityLog('retrieve', $id, Tax::$modelName, 'Tax');
         return $tax;
     }
 

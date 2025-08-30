@@ -13,6 +13,8 @@ class CalendarEvent extends Model implements Auditable
     use HasFactory, SoftDeletes, HasUuids;
     use \OwenIt\Auditing\Auditable;
 
+    public static $modelName = 'App\Models\CalendarEvent';
+
     protected $table = 'calendar_events';
 
     protected $fillable = [
@@ -93,7 +95,7 @@ class CalendarEvent extends Model implements Auditable
         foreach ($events as $event) {
             $all_events[] = self::eventFormat($event);
         }
-        createActivityLog('retrieve', null, 'App\Models\CalendarEvent', 'CalendarEvent');
+        createActivityLog('retrieve', null, CalendarEvent::$modelName, 'CalendarEvent');
         return $all_events;
     }
 
@@ -160,7 +162,7 @@ class CalendarEvent extends Model implements Auditable
             ->where('id', $id)
             ->with('attendees')
             ->firstOrFail();
-        createActivityLog('retrieve', $event->id, 'App\Models\CalendarEvent', 'CalendarEvent');
+        createActivityLog('retrieve', $event->id, CalendarEvent::$modelName, 'CalendarEvent');
         return $event;
     }
 

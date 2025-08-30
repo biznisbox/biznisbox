@@ -37,6 +37,7 @@ class SettingSeeder extends Seeder
         Setting::firstOrCreate(['key' => 'datetime_format'], ['value' => 'DD.MM.YYYY HH:mm', 'type' => 'string', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'week_start'], ['value' => 1, 'type' => 'integer', 'is_public' => 1]);
         Setting::firstOrCreate(['key' => 'show_barcode_on_documents'], ['value' => true, 'type' => 'boolean', 'is_public' => 1]);
+        Setting::firstOrCreate(['key' => 'save_document_into_archive'], ['value' => false, 'type' => 'boolean', 'is_public' => 1]);
 
         // Stripe settings
         Setting::firstOrCreate(['key' => 'stripe_available'], ['value' => false, 'type' => 'boolean', 'is_public' => 1]);
