@@ -125,4 +125,6 @@ return [
         'super_reduced' => 'Sehr reduzierte Rate',
         'zero' => 'Null-Rate',
     ],
+    'vat_number_not_valid' => 'USt-IdNr. ist ungültig',
+    'vat_number_validated_successfully' => 'USt-IdNr. erfolgreich bestätigt',
 ];
