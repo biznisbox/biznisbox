@@ -558,7 +558,8 @@
         "edit_activity": "Aktivität bearbeiten",
         "partner_activities": "Partneraktivitäten",
         "send_email": "E-Mail senden",
-        "add_to_client_portal": "Zum Kundenportal hinzufügen"
+        "add_to_client_portal": "Zum Kundenportal hinzufügen",
+        "vat_number_required": "USt-IdNr. ist erforderlich"
     },
     "partner_activity_types": {
         "call": "Anruf",
