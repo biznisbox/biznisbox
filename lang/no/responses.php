@@ -127,4 +127,5 @@ return [
     ],
     'vat_number_not_valid' => 'MVA-nummeret er ikke gyldig',
     'vat_number_validated_successfully' => 'MVA-nummeret er validert',
+    'archive_document_auto_generated' => 'Arkivet dokument ble vellykket generert'
 ];
