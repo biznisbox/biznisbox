@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Förvalt datumformat",
             "show_barcode_on_documents": "Visa streckkod på dokument",
             "week_start": "Startdag för veckan",
-            "exchange_rate_provider": "Växelkurs-leverantör"
+            "exchange_rate_provider": "Växelkurs-leverantör",
+            "save_document_into_archive": "Spara dokument till arkiv",
+            "save_document_into_archive_description": "Om aktiverad, sparas dokument i arkivet (fakturor, offerter, räkningar, kontrakt)."
         },
         "taxes": {
             "title": "Skattesatser",
