@@ -558,7 +558,8 @@
         "edit_activity": "Edit Activity",
         "partner_activities": "Partner Activities",
         "send_email": "Send email",
-        "add_to_client_portal": "Add to client portal"
+        "add_to_client_portal": "Add to client portal",
+        "vat_number_required": "VAT number is required"
     },
     "partner_activity_types": {
         "call": "Call",
