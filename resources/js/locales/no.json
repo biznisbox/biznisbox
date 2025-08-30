@@ -130,7 +130,8 @@
         "system": "Systemadministrasjon",
         "add_signer": "Legg til signner",
         "click_for_download": "Klikk her for å laste ned",
-        "sign": "Signer"
+        "sign": "Signer",
+        "import": "Importer"
     },
     "audit_log": {
         "audit_log": "Revisjon logg",
@@ -1105,7 +1106,9 @@
             "name": "Navn",
             "value": "Verdi",
             "description": "Beskrivelse",
-            "delete_confirm_tax": "Er du sikker på at du vil slette denne skattesatsen?"
+            "delete_confirm_tax": "Er du sikker på at du vil slette denne skattesatsen?",
+            "import_tax": "Importere skattesatser",
+            "import_tax_description": "Du kan importere skattesatser fra offentlige ressurser. Data vil bli hentet fra EUs mva-liste. Den kan ikke være fullstendig oppdatert eller nøyaktig. Vennligst dobbeltsjekk de importerte dataene."
         },
         "role": {
             "title": "Roller",
