@@ -116,4 +116,13 @@ return [
     'payment_successful' => 'Płatność zakończona powodzeniem',
     'payment_failed' => 'Płatność nie powiodła się',
     'invalid_signature' => 'Nieprawidłowy podpis lub wygasł',
+    'tax_rates' => [
+        'reduced' => 'Stawka obniżona',
+        'reduced1' => 'Stawka obniżona 1',
+        'reduced2' => 'Stawka obniżona 2',
+        'reduced3' => 'Zmniejszona stawka 3',
+        'standard' => 'Stawka standardowa',
+        'super_reduced' => 'Super Zniżka',
+        'zero' => 'Stawka zerowa',
+    ],
 ];
