@@ -558,7 +558,8 @@
         "edit_activity": "Изменить активность",
         "partner_activities": "Партнерская деятельность",
         "send_email": "Отправить email",
-        "add_to_client_portal": "Добавить в клиентский портал"
+        "add_to_client_portal": "Добавить в клиентский портал",
+        "vat_number_required": "Требуется указать номер НДС"
     },
     "partner_activity_types": {
         "call": "Звонок",
