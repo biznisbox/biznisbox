@@ -130,7 +130,8 @@
         "system": "System",
         "add_signer": "Add Signer",
         "click_for_download": "Click here to download",
-        "sign": "Sign"
+        "sign": "Sign",
+        "import": "Import"
     },
     "audit_log": {
         "audit_log": "Eseménynapló",
@@ -1105,7 +1106,9 @@
             "name": "Név",
             "value": "Érték",
             "description": "Leírás",
-            "delete_confirm_tax": "Biztosan törölni szeretné ezt az adókulcsot?"
+            "delete_confirm_tax": "Biztosan törölni szeretné ezt az adókulcsot?",
+            "import_tax": "Import Tax Rates",
+            "import_tax_description": "You can import tax rates from public data resources. Data will be fetched from the EU VAT list. It can be not fully up-to-date or accurate. Please double-check the imported data."
         },
         "role": {
             "title": "Szerepek",
