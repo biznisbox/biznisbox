@@ -558,7 +558,8 @@
         "edit_activity": "Rediger aktivitet",
         "partner_activities": "Øvrige aktiviteter",
         "send_email": "Send e-post",
-        "add_to_client_portal": "Legg til i klientportalen"
+        "add_to_client_portal": "Legg til i klientportalen",
+        "vat_number_required": "MVA-nummer er påkrevd"
     },
     "partner_activity_types": {
         "call": "Ring",
