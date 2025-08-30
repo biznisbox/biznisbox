@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Formato de data padrão",
             "show_barcode_on_documents": "Mostrar código de barras nos documentos",
             "week_start": "Dia Inicial da Semana",
-            "exchange_rate_provider": "Provedor Taxa de Câmbio"
+            "exchange_rate_provider": "Provedor Taxa de Câmbio",
+            "save_document_into_archive": "Salvar documento no arquivo",
+            "save_document_into_archive_description": "Se ativado, os documentos serão salvos no arquivo (faturas, citações, faturas, contratos)."
         },
         "taxes": {
             "title": "Taxas de imposto",
