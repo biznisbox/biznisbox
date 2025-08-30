@@ -558,7 +558,8 @@
         "edit_activity": "Editar Atividade",
         "partner_activities": "Atividades de parceiro",
         "send_email": "Enviar e-mail",
-        "add_to_client_portal": "Adicionar ao portal do cliente"
+        "add_to_client_portal": "Adicionar ao portal do cliente",
+        "vat_number_required": "O número VAT é obrigatório"
     },
     "partner_activity_types": {
         "call": "Chamada",
