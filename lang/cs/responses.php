@@ -127,4 +127,5 @@ return [
     ],
     'vat_number_not_valid' => 'DIČ není platné',
     'vat_number_validated_successfully' => 'DIČ bylo úspěšně potvrzeno',
+    'archive_document_auto_generated' => 'Archivovat dokument automaticky vygenerován'
 ];
