@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Formato Predefinito Datetime",
             "show_barcode_on_documents": "Mostra il codice a barre sui documenti",
             "week_start": "Giorno Inizio Settimana",
-            "exchange_rate_provider": "Provider Di Tasso Di Cambio"
+            "exchange_rate_provider": "Provider Di Tasso Di Cambio",
+            "save_document_into_archive": "Salva il documento nell'archivio",
+            "save_document_into_archive_description": "Se abilitata, i documenti verranno salvati nell'archivio (fatture, preventivi, fatture, contratti)."
         },
         "taxes": {
             "title": "Aliquote Fiscali",
