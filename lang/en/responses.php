@@ -125,4 +125,6 @@ return [
         'super_reduced' => 'Super Reduced Rate',
         'zero' => 'Zero Rate',
     ],
+    'vat_number_not_valid' => 'VAT number is not valid',
+    'vat_number_validated_successfully' => 'VAT number validated successfully',
 ];
