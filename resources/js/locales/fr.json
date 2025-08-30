@@ -130,7 +130,8 @@
         "system": "Système",
         "add_signer": "Ajouter un signataire",
         "click_for_download": "Cliquez ici pour télécharger",
-        "sign": "Signer"
+        "sign": "Signer",
+        "import": "Importation"
     },
     "audit_log": {
         "audit_log": "Journal d'audit",
@@ -1105,7 +1106,9 @@
             "name": "Nom",
             "value": "Valeur",
             "description": "Libellé",
-            "delete_confirm_tax": "Êtes-vous sûr de vouloir supprimer ce taux de taxe ?"
+            "delete_confirm_tax": "Êtes-vous sûr de vouloir supprimer ce taux de taxe ?",
+            "import_tax": "Importation des taux de taxe",
+            "import_tax_description": "Vous pouvez importer des taux de taxe à partir des ressources de données publiques. Les données seront récupérées de la liste de TVA européenne. Il ne peut pas être entièrement à jour ou exact. Veuillez vérifier les données importées."
         },
         "role": {
             "title": "Rôles",
