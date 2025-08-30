@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Формат по умолчанию",
             "show_barcode_on_documents": "Показывать штрих-код на документах",
             "week_start": "День начала недели",
-            "exchange_rate_provider": "Поставщик обменного курса"
+            "exchange_rate_provider": "Поставщик обменного курса",
+            "save_document_into_archive": "Сохранить документ в архив",
+            "save_document_into_archive_description": "Если включено, документы будут сохранены в архиве (счета, кавычки, счета, контракты)."
         },
         "taxes": {
             "title": "Налоговые ставки",
