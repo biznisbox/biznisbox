@@ -130,7 +130,8 @@
         "system": "Sistem",
         "add_signer": "Dodaj podpisnika",
         "click_for_download": "Klikni za prenos",
-        "sign": "Podpiši"
+        "sign": "Podpiši",
+        "import": "Import"
     },
     "audit_log": {
         "audit_log": "Revizijski dnevnik",
@@ -1105,7 +1106,9 @@
             "name": "Naziv",
             "value": "Vrednost",
             "description": "Opis",
-            "delete_confirm_tax": "Ali ste prepričani, da želite izbrisati davčno stopnjo?"
+            "delete_confirm_tax": "Ali ste prepričani, da želite izbrisati davčno stopnjo?",
+            "import_tax": "Import Tax Rates",
+            "import_tax_description": "You can import tax rates from public data resources. Data will be fetched from the EU VAT list. It can be not fully up-to-date or accurate. Please double-check the imported data."
         },
         "role": {
             "title": "Vloge",
