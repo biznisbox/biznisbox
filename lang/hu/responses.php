@@ -116,4 +116,13 @@ return [
     'payment_successful' => 'Payment successful',
     'payment_failed' => 'Payment failed',
     'invalid_signature' => 'Invalid signature or expired',
+    'tax_rates' => [
+        'reduced' => 'Reduced Rate',
+        'reduced1' => 'Reduced Rate 1',
+        'reduced2' => 'Reduced Rate 2',
+        'reduced3' => 'Reduced Rate 3',
+        'standard' => 'Standard Rate',
+        'super_reduced' => 'Super Reduced Rate',
+        'zero' => 'Zero Rate',
+    ],
 ];
