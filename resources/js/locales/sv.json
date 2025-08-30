@@ -130,7 +130,8 @@
         "system": "System",
         "add_signer": "Lägg till signer",
         "click_for_download": "Klicka här för att ladda ner",
-        "sign": "Signera"
+        "sign": "Signera",
+        "import": "Importera"
     },
     "audit_log": {
         "audit_log": "Revisionslogg",
@@ -1105,7 +1106,9 @@
             "name": "Namn",
             "value": "Värde",
             "description": "Beskrivning",
-            "delete_confirm_tax": "Är du säker på att du vill ta bort denna momssats?"
+            "delete_confirm_tax": "Är du säker på att du vill ta bort denna momssats?",
+            "import_tax": "Importera skattesatser",
+            "import_tax_description": "Du kan importera skattesatser från offentliga dataresurser. Uppgifterna hämtas från EU:s momslista. Det kan inte vara helt uppdaterat eller korrekt. Vänligen dubbelkolla importerade data."
         },
         "role": {
             "title": "Roller",
