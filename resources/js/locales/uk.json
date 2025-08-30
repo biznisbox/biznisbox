@@ -558,7 +558,8 @@
         "edit_activity": "Редагувати дію",
         "partner_activities": "Активність партнера",
         "send_email": "Надіслати ел. листа",
-        "add_to_client_portal": "Додати до клієнтського порталу"
+        "add_to_client_portal": "Додати до клієнтського порталу",
+        "vat_number_required": "Необхідно вказати номер платника ПДВ"
     },
     "partner_activity_types": {
         "call": "Дзвінок",
