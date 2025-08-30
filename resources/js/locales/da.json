@@ -130,7 +130,8 @@
         "system": "System",
         "add_signer": "Tilføj underskriver",
         "click_for_download": "Klik her for at downloade",
-        "sign": "Underskriv"
+        "sign": "Underskriv",
+        "import": "Importér"
     },
     "audit_log": {
         "audit_log": "Revisionslog",
@@ -1105,7 +1106,9 @@
             "name": "Navn",
             "value": "Værdi",
             "description": "Varebeskrivelse",
-            "delete_confirm_tax": "Er du sikker på, at du vil slette denne momssats?"
+            "delete_confirm_tax": "Er du sikker på, at du vil slette denne momssats?",
+            "import_tax": "Importér Momssatser",
+            "import_tax_description": "Du kan importere momssatser fra offentlige dataressourcer. Data hentes fra EU's momsliste. Det kan ikke være fuldt opdateret eller nøjagtigt. Dobbelttjek venligst de importerede data."
         },
         "role": {
             "title": "Roller",
