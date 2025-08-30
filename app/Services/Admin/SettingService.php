@@ -7,7 +7,6 @@ use App\Helpers\SerialNumberFormatter;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Mail\Admin\TestEmail;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class SettingService

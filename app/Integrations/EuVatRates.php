@@ -3,7 +3,6 @@
 namespace App\Integrations;
 
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Str;
 use App\Models\Tax;
 
 class EuVatRates

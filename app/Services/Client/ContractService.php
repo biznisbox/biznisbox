@@ -4,7 +4,6 @@ namespace App\Services\Client;
 
 use App\Models\Contract;
 use App\Models\ExternalKey;
-use GuzzleHttp\Psr7\Request;
 
 class ContractService
 {

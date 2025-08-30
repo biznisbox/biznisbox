@@ -3,9 +3,10 @@
 ## ✨ New Features and Enhancements
 
 - Introduced a new feature for importing VAT rates from the EU VAT Rates API.
+- Added a new feature for validating VAT numbers using the EU VAT Number Validation API.
+- Add Docker Health Checks for improved container management.
 
 ## 🐛 Bug Fixes
-
 
 # 2.10.0
 

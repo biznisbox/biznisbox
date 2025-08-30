@@ -8,16 +8,18 @@ use App\Models\PartnerContact;
 use App\Mail\Client\SendPartnerMessage;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Hash;
 use App\Mail\Client\ClientPortalNotification;
-use Illuminate\Support\Facades\URL;
+use App\Integrations\VatIdValidate;
 
 class PartnerService
 {
     private $partnerModel;
+    private $vatIdValidator;
+
     public function __construct()
     {
         $this->partnerModel = new Partner();
+        $this->vatIdValidator = new VatIdValidate();
     }
 
     public function getPartners($type = null)
@@ -144,6 +146,7 @@ class PartnerService
         if ($partnerContact->client_portal) {
             return false;
         }
+        // Create user
         $password = generateRandomPassword(12);
         $user = new User();
         $user = $user->createUser([
@@ -156,6 +159,7 @@ class PartnerService
             'timezone' => 'UTC',
             'role' => 'client',
         ]);
+
         if (!$user) {
             return false;
         }
@@ -166,12 +170,19 @@ class PartnerService
         $partnerContact->client_portal = true;
         $partnerContact->user_id = $user->id;
         $partnerContact->save();
+
         // Send notification email
         $email = Mail::to($partnerContact->email, $partnerContact->name)->send(
             new ClientPortalNotification($partnerContact->partner, $password, $partnerContact),
         );
+
         createActivityLog('addPartnerContactToClientPortal', $partnerContact->partner_id, 'App\Models\Partner', 'Partner');
 
         return true;
+    }
+
+    public function validatePartnerVatID($vatNumber)
+    {
+        return $this->vatIdValidator->validateVatNumber($vatNumber);
     }
 }

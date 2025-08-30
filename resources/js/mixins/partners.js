@@ -69,6 +69,7 @@ export default {
                 subject: '',
                 content: '',
             },
+            vatValidationError: null,
         }
     },
 
@@ -209,6 +210,35 @@ export default {
                 this.showToast(response.data.message)
                 this.getPartner(this.partner.id)
             })
+        },
+
+        /**
+         * Validate VAT ID
+         */
+        validateVatId() {
+            const vat_number = this.partner.vat_number
+            this.vatValidationError = null
+
+            if (!vat_number) {
+                this.vatValidationError = this.$t('partner.vat_number_required')
+                return
+            }
+
+            this.makeHttpRequest('POST', '/api/partner/validate-vat', {
+                vat_number: vat_number,
+            })
+                .then((response) => {
+                    console.log(response)
+                    this.partner.name = response.data.data.name
+                    this.partner.addresses.push({
+                        type: 'billing',
+                        address: response.data.data.address,
+                        country: response.data.data.country_code,
+                    })
+                })
+                .catch((error) => {
+                    this.vatValidationError = error.response.data.message
+                })
         },
     },
 }

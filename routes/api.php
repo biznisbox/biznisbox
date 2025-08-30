@@ -116,6 +116,7 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/partner/client-portal/{id}', [PartnerController::class, 'addPartnerContactToClientPortal'])->name(
             'addPartnerContactToClientPortal',
         );
+        Route::post('/partner/validate-vat', [PartnerController::class, 'validatePartnerVatID'])->name('validatePartnerVatID');
     });
 
     // Partner Limited is for the other users who can't access all the partners -> used in the other parts of the app

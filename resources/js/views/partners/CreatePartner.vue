@@ -78,7 +78,27 @@
                         />
                     </div>
                     <div class="grid lg:grid-cols-2 grid-cols-1 gap-2">
-                        <TextInput id="vat_number_input" v-model="partner.vat_number" :label="$t('form.vat_number')" />
+                        <div class="grid grid-cols-1 gap-2">
+                            <div class="flex items-end gap-2 content-center">
+                                <TextInput
+                                    id="vat_number_input"
+                                    v-model="partner.vat_number"
+                                    :label="$t('form.vat_number')"
+                                    class="flex-1"
+                                />
+                                <Button
+                                    v-if="partner.entity_type == 'company'"
+                                    label="Validate VAT"
+                                    @click="validateVatId"
+                                    class="whitespace-nowrap mb-2"
+                                />
+                            </div>
+                            <div v-if="vatValidationError" class="text-red-500 text-sm">
+                                {{ vatValidationError }}
+                            </div>
+                        </div>
+
+                        <!-- Industry select -->
                         <SelectInput
                             id="select_partner_industry"
                             v-model="partner.industry"

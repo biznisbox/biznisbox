@@ -201,4 +201,19 @@ class PartnerController extends Controller
         }
         return api_response($partnerContact, __('responses.item_created_successfully'));
     }
+
+    /**
+     * Validate partner VAT ID
+     *
+     * @param  object  $request data from the form
+     */
+    public function validatePartnerVatID(Request $request)
+    {
+        $vatNumber = $request->input('vat_number');
+        $validationResult = $this->partnerService->validatePartnerVatID($vatNumber);
+        if (!$validationResult || $validationResult['valid'] === false) {
+            return api_response(null, __('responses.vat_number_not_valid'), 400);
+        }
+        return api_response($validationResult, __('responses.vat_number_validated_successfully'));
+    }
 }
