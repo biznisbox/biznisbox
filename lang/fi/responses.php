@@ -125,4 +125,6 @@ return [
         'super_reduced' => 'Super Alennettu Hinta',
         'zero' => 'Nolla Hinta',
     ],
+    'vat_number_not_valid' => 'ALV-numero ei kelpaa',
+    'vat_number_validated_successfully' => 'ALV-numero vahvistettu onnistuneesti',
 ];
