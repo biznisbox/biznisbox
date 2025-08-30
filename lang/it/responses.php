@@ -125,4 +125,6 @@ return [
         'super_reduced' => 'Tariffa Super Ridotta',
         'zero' => 'Zero Rate',
     ],
+    'vat_number_not_valid' => 'Il numero IVA non è valido',
+    'vat_number_validated_successfully' => 'Partita IVA convalidata con successo',
 ];
