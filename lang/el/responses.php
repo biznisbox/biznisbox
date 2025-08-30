@@ -125,4 +125,6 @@ return [
         'super_reduced' => 'Σούπερ Μειωμένος Ρυθμός',
         'zero' => 'Μηδενικό Ποσοστό',
     ],
+    'vat_number_not_valid' => 'Το ΑΦΜ δεν είναι έγκυρο',
+    'vat_number_validated_successfully' => 'Ο αριθμός ΑΦΜ επικυρώθηκε επιτυχώς',
 ];
