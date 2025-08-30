@@ -1095,7 +1095,9 @@
             "default_datetime_format": "Výchozí formát data a času",
             "show_barcode_on_documents": "Zobrazit čárový kód na dokumentech",
             "week_start": "Počáteční den týdne",
-            "exchange_rate_provider": "Poskytovatel směnného kurzu"
+            "exchange_rate_provider": "Poskytovatel směnného kurzu",
+            "save_document_into_archive": "Uložit dokument do archivu",
+            "save_document_into_archive_description": "Pokud je povoleno, dokumenty budou uloženy do archivu (faktury, cenové nabídky, účty, smlouvy)."
         },
         "taxes": {
             "title": "Daňové sazby",
