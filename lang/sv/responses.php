@@ -125,4 +125,6 @@ return [
         'super_reduced' => 'Super reducerad skattesats',
         'zero' => 'Noll taxa',
     ],
+    'vat_number_not_valid' => 'Momsregistreringsnummer är inte giltigt',
+    'vat_number_validated_successfully' => 'Momsregistreringsnumret har validerats',
 ];
