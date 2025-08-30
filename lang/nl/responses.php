@@ -116,4 +116,13 @@ return [
     'payment_successful' => 'Betaling succesvol',
     'payment_failed' => 'Betaling mislukt',
     'invalid_signature' => 'Ongeldige handtekening of verlopen',
+    'tax_rates' => [
+        'reduced' => 'Verminderde tarief',
+        'reduced1' => 'Verminderd tarief 1',
+        'reduced2' => 'Verminderd tarief 2',
+        'reduced3' => 'Verminderd tarief 3',
+        'standard' => 'Standaard tarief',
+        'super_reduced' => 'Super Verminderd Tarief',
+        'zero' => 'Geen tarief',
+    ],
 ];
