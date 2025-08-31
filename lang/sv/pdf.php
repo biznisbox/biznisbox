@@ -82,4 +82,5 @@ return [
         'waiting_signature' => 'Väntande signatur',
     ],
     'no_payment_method' => 'Ingen betalningsmetod',
+    'tax_amount' => 'Skatt belopp',
 ];
