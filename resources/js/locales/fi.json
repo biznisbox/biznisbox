@@ -421,7 +421,8 @@
         "parent_category": "Ylätason Kategoria",
         "icon": "Kuvake",
         "additional_info": "Lisätiedot",
-        "client_portal": "Asiakkaan Portaali"
+        "client_portal": "Asiakkaan Portaali",
+        "type_of_contract_sign": "Allekirjoituksen tyyppi"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -524,6 +525,11 @@
     "tax_types": {
         "percent": "Prosenttiosuus",
         "fixed": "Kiinteä"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektroninen",
+        "digital_signature": "Digitaalinen Allekirjoitus",
+        "paper": "Paperi"
     },
     "login_history": {
         "login_history": "Kirjautumishistoria",
