@@ -82,4 +82,5 @@ return [
         'waiting_signature' => 'Afventer signatur',
     ],
     'no_payment_method' => 'Ingen Betalingsmetode',
+    'tax_amount' => 'Moms Beløb',
 ];
