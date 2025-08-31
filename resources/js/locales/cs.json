@@ -421,7 +421,8 @@
         "parent_category": "Nadřazená kategorie",
         "icon": "Ikona",
         "additional_info": "Další informace",
-        "client_portal": "Portál klienta"
+        "client_portal": "Portál klienta",
+        "type_of_contract_sign": "Typ smluvní značky"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -524,6 +525,11 @@
     "tax_types": {
         "percent": "Procento",
         "fixed": "Fixní"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektronické",
+        "digital_signature": "Digitální podpis",
+        "paper": "Papír"
     },
     "login_history": {
         "login_history": "Historie přihlášení",
