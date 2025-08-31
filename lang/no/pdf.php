@@ -82,4 +82,5 @@ return [
         'waiting_signature' => 'Venter signatur',
     ],
     'no_payment_method' => 'Ingen betalingsmåte',
+    'tax_amount' => 'Mva beløp',
 ];
