@@ -421,7 +421,8 @@
         "parent_category": "Catégorie parente",
         "icon": "Icône",
         "additional_info": "Infos supplémentaires",
-        "client_portal": "Portail Client"
+        "client_portal": "Portail Client",
+        "type_of_contract_sign": "Type de signe de contrat"
     },
     "address_types": {
         "billing": "Facturation",
@@ -524,6 +525,11 @@
     "tax_types": {
         "percent": "Pourcentage",
         "fixed": "Fixe"
+    },
+    "contract_sign_types": {
+        "electronic": "Électronique",
+        "digital_signature": "Signature numérique",
+        "paper": "Papier"
     },
     "login_history": {
         "login_history": "Historique de connexion",
