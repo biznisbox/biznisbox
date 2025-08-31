@@ -82,4 +82,5 @@ return [
         'waiting_signature' => 'Waiting Signature',
     ],
     'no_payment_method' => 'No Payment Method',
+    'tax_amount' => 'Tax Amount',
 ];
