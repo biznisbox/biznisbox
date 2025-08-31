@@ -421,7 +421,8 @@
         "parent_category": "Nadrejena kategorija",
         "icon": "Ikona",
         "additional_info": "Dodatne informacije",
-        "client_portal": "Portal strank"
+        "client_portal": "Portal strank",
+        "type_of_contract_sign": "Type of Contract Sign"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -524,6 +525,11 @@
     "tax_types": {
         "percent": "Procent",
         "fixed": "Fiksen"
+    },
+    "contract_sign_types": {
+        "electronic": "Electronic",
+        "digital_signature": "Digital Signature",
+        "paper": "Paper"
     },
     "login_history": {
         "login_history": "Zgodovina prijav",
