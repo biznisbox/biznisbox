@@ -127,5 +127,5 @@ return [
     ],
     'vat_number_not_valid' => 'ALV-numero ei kelpaa',
     'vat_number_validated_successfully' => 'ALV-numero vahvistettu onnistuneesti',
-    'archive_document_auto_generated' => 'Arkistoasiakirjan automaattinen luonti onnistui'
+    'archive_document_auto_generated' => 'Arkistoasiakirjan automaattinen luonti onnistui',
 ];
