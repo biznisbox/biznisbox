@@ -82,4 +82,5 @@ return [
         'waiting_signature' => 'Oczekiwanie na podpis',
     ],
     'no_payment_method' => 'Brak metody płatności',
+    'tax_amount' => 'Kwota podatku',
 ];
