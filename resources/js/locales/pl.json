@@ -421,7 +421,8 @@
         "parent_category": "Kategoria nadrzędna",
         "icon": "Ikona",
         "additional_info": "Dodatkowe informacje",
-        "client_portal": "Portal klienta"
+        "client_portal": "Portal klienta",
+        "type_of_contract_sign": "Rodzaj podpisu umowy"
     },
     "address_types": {
         "billing": "Płatność",
@@ -524,6 +525,11 @@
     "tax_types": {
         "percent": "Procent",
         "fixed": "Naprawione"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektroniczne",
+        "digital_signature": "Podpis cyfrowy",
+        "paper": "Papier"
     },
     "login_history": {
         "login_history": "Historia logowania",
