@@ -421,7 +421,8 @@
         "parent_category": "Bovenliggende categorie",
         "icon": "Pictogram",
         "additional_info": "Extra informatie",
-        "client_portal": "Client Portaal"
+        "client_portal": "Client Portaal",
+        "type_of_contract_sign": "Soort Contract Teken"
     },
     "address_types": {
         "billing": "Facturering",
@@ -524,6 +525,11 @@
     "tax_types": {
         "percent": "Percentage",
         "fixed": "Opgelost"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektronisch",
+        "digital_signature": "Digitale handtekening",
+        "paper": "Papieren"
     },
     "login_history": {
         "login_history": "Login geschiedenis",
