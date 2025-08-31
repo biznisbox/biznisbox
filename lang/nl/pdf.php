@@ -82,4 +82,5 @@ return [
         'waiting_signature' => 'Wachten op handtekening',
     ],
     'no_payment_method' => 'Geen betaalmethode',
+    'tax_amount' => 'BTW bedrag',
 ];
