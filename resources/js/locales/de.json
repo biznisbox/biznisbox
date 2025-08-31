@@ -421,7 +421,8 @@
         "parent_category": "Übergeordnete Kategorie",
         "icon": "Symbol",
         "additional_info": "Zusätzliche Info",
-        "client_portal": "Kundenportal"
+        "client_portal": "Kundenportal",
+        "type_of_contract_sign": "Art des Vertragsschildes"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -524,6 +525,11 @@
     "tax_types": {
         "percent": "Prozentsatz",
         "fixed": "Feste"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektronisch",
+        "digital_signature": "Digitale Signatur",
+        "paper": "Papier"
     },
     "login_history": {
         "login_history": "Anmeldeverlauf",
