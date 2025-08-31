@@ -421,7 +421,8 @@
         "parent_category": "Overordnet Kategori",
         "icon": "Ikon",
         "additional_info": "Yderligere Info",
-        "client_portal": "Klient Portal"
+        "client_portal": "Klient Portal",
+        "type_of_contract_sign": "Type af kontrakttegn"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -524,6 +525,11 @@
     "tax_types": {
         "percent": "Procentdel",
         "fixed": "Fast"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektronisk",
+        "digital_signature": "Digital Signatur",
+        "paper": "Papir"
     },
     "login_history": {
         "login_history": "Log Ind Historik",
