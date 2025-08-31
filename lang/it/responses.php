@@ -127,5 +127,5 @@ return [
     ],
     'vat_number_not_valid' => 'Il numero IVA non è valido',
     'vat_number_validated_successfully' => 'Partita IVA convalidata con successo',
-    'archive_document_auto_generated' => 'Archivio documento generato automaticamente'
+    'archive_document_auto_generated' => 'Archivio documento generato automaticamente',
 ];
