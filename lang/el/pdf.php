@@ -82,4 +82,5 @@ return [
         'waiting_signature' => 'Υπογραφή Σε Αναμονή',
     ],
     'no_payment_method' => 'Καμία Μέθοδος Πληρωμής',
+    'tax_amount' => 'Ποσό Φόρου',
 ];
