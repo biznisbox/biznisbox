@@ -421,7 +421,8 @@
         "parent_category": "Parent Category",
         "icon": "Icon",
         "additional_info": "Additional Info",
-        "client_portal": "Client Portal"
+        "client_portal": "Client Portal",
+        "type_of_contract_sign": "Type of Contract Sign"
     },
     "address_types": {
         "billing": "Billing",
@@ -524,6 +525,11 @@
     "tax_types": {
         "percent": "Százalék",
         "fixed": "Rögzített"
+    },
+    "contract_sign_types": {
+        "electronic": "Electronic",
+        "digital_signature": "Digital Signature",
+        "paper": "Paper"
     },
     "login_history": {
         "login_history": "Login History",
