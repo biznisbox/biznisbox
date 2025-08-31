@@ -421,7 +421,8 @@
         "parent_category": "Γονική Κατηγορία",
         "icon": "Εικονίδιο",
         "additional_info": "Πρόσθετες Πληροφορίες",
-        "client_portal": "Πύλη Πελάτη"
+        "client_portal": "Πύλη Πελάτη",
+        "type_of_contract_sign": "Τύπος σημάδι σύμβασης"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -524,6 +525,11 @@
     "tax_types": {
         "percent": "Ποσοστό",
         "fixed": "Σταθερό"
+    },
+    "contract_sign_types": {
+        "electronic": "Ηλεκτρονικό",
+        "digital_signature": "Ψηφιακή Υπογραφή",
+        "paper": "Χαρτί"
     },
     "login_history": {
         "login_history": "Ιστορικό Σύνδεσης",
