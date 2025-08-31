@@ -276,9 +276,9 @@ class Quote extends Model implements Auditable
     /**
      * Update status of quote cron
      */
-    public function updateQuoteStatusCron()
+    public static function updateQuoteStatusCron()
     {
-        $quotes = $this->whereNotIn('status', ['accepted', 'rejected', 'converted'])->get();
+        $quotes = self::whereNotIn('status', ['accepted', 'rejected', 'converted'])->get();
         foreach ($quotes as $quote) {
             if ($quote->valid_until < now()) {
                 $quote->status = 'expired';

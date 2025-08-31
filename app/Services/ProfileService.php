@@ -190,8 +190,7 @@ class ProfileService
      */
     public function getCurrentUserNotifications()
     {
-        $notification = new Notification();
-        return $notification->getUserNotifications(auth()->id());
+        return Notification::getUserNotifications(auth()->id());
     }
 
     /**

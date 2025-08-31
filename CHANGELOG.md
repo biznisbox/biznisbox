@@ -1,3 +1,19 @@
+# 2.12.0
+
+## ✨ New Features & Enhancements
+
+- Add support for calculating and displaying the total of tax amounts for invoices.
+- Convert text-based email setting for encryption to a dropdown selection.
+- Add support for type of contract signing (e.g., electronic signature, digital signature, paper signature).
+
+## 🐛 Bug Fixes
+
+- Fixed issue with rejected contracts not displaying the correct status.
+
+## 🧑‍💻 Development Updates
+
+- Refactored some code for better readability and maintainability.
+
 # 2.11.0
 
 ## ✨ New Features & Enhancements
@@ -49,7 +65,7 @@
 
 - Added a new feature to add partner contact access to the client portal.
 - Introduced a new feature client portal for partners, allowing them to see their quotes and invoices.
-- Added * as trusted proxy for all requests in the app (see `bootstrap/app.php`)
+- Added \* as trusted proxy for all requests in the app (see `bootstrap/app.php`)
 
 # 2.7.0
 

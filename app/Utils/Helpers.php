@@ -721,14 +721,15 @@ if (!function_exists('isAppInstalled')) {
      */
     function isAppInstalled()
     {
+        $installFilePath = base_path('/storage/install.lock');
         try {
-            if (file_exists(base_path('/storage/install.lock'))) {
+            if (file_exists($installFilePath)) {
                 return true;
             }
 
             if (settings('app_installed') == true) {
-                if (!file_exists(base_path('/storage/install.lock'))) {
-                    file_put_contents(base_path('/storage/install.lock'), 'installed');
+                if (!file_exists($installFilePath)) {
+                    file_put_contents($installFilePath, 'installed');
                 }
                 return true;
             }
@@ -787,14 +788,14 @@ if (!function_exists('saveFilePdfToArchive')) {
      * @param string $file_path - file path
      * @return bool
      */
-    function saveFilePdfToArchive($fileOutput, $fileName, $module, $moduleItemId)
+    function saveFilePdfToArchive($fileOutput, $fileName, $module, $moduleItemId, $partner_id)
     {
         if (!settings('save_document_into_archive')) {
             return false;
         }
         try {
             $archive = new \App\Services\ArchiveService();
-            $archive->saveFileToArchive($fileOutput, $fileName, $module, $moduleItemId);
+            $archive->saveFileToArchive($fileOutput, $fileName, $module, $moduleItemId, $partner_id);
             return true;
         } catch (\Exception $e) {
             Log::error('Error saving file to archive: ' . $e->getMessage());

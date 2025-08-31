@@ -23,7 +23,7 @@ class ContractSeeder extends Seeder
                 'number' => Contract::getContractNumber(),
                 'description' => fake()->text(200),
                 'status' => fake()->randomElement(['draft', 'waiting_signers', 'rejected', 'signed']),
-                'type' => fake()->randomElement(['contract', 'agreement', 'NDA', 'SLA']),
+                'type' => fake()->randomElement(['electronic', 'digital_signature', 'paper']),
                 'content' => $content,
                 'start_date' => fake()->dateTime(),
                 'end_date' => fake()->dateTime(),

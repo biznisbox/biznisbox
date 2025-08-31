@@ -153,6 +153,20 @@
                             <br />
                         @endif
 
+                        @if ($invoice->tax_calculation && count($invoice->tax_calculation) > 0)
+                            <span>
+                                <strong>{{ __('pdf.tax_amount') }}</strong>
+                                @foreach ($invoice->tax_calculation as $tax)
+                                <span>
+                                <p>{{ $tax['name'] }}:</p>
+                                    {{ formatMoney($tax['amount'], $invoice->currency) }}
+                                </span>
+                                @endforeach
+                            </span>
+                            <hr />
+                            <br />
+                        @endif
+
                         <span>
                             <strong>{{ __('pdf.total_amount') }}</strong>
                             {{ formatMoney($invoice->total, $invoice->currency) }}

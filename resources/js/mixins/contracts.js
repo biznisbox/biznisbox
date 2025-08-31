@@ -9,7 +9,7 @@ export default {
                 partner_id: null,
                 category_id: null,
                 number: '',
-                type: '',
+                type: 'electronic',
                 title: '',
                 description: '',
                 status: 'draft',

@@ -51,12 +51,18 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        <TextInput
+                        <SelectInput
                             v-if="mail_settings.mail_mailer === 'smtp'"
                             id="mail_encryption"
                             v-model="mail_settings.mail_encryption"
                             :label="$t('admin.mail.mail_encryption')"
                             :disabled="mail_settings.mail_mailer !== 'smtp'"
+                            :options="[
+                                { value: 'tls', label: 'TLS' },
+                                { value: 'starttls', label: 'STARTTLS' },
+                                { value: 'plain', label: 'PLAIN' },
+                                { value: 'ssl', label: 'SSL' },
+                            ]"
                         />
                         <TextInput
                             id="mail_from_address"

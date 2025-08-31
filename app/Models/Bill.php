@@ -184,9 +184,9 @@ class Bill extends Model implements Auditable
     /**
      * Update bill status cron job
      */
-    public function updateBillStatusCron()
+    public static function updateBillStatusCron()
     {
-        $bills = $this->where('status', '!=', 'paid')->get();
+        $bills = self::where('status', '!=', 'paid')->get();
         foreach ($bills as $bill) {
             if ($bill->due_date < now()) {
                 $bill->status = 'overdue';

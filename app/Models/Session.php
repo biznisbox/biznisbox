@@ -198,9 +198,9 @@ class Session extends Model implements Auditable
      * Update session status cron
      * @return void
      */
-    public function updateSessionStatusCron()
+    public static function updateSessionStatusCron()
     {
-        $sessions = $this->where('expires_at', '<', now())->get();
+        $sessions = self::where('expires_at', '<', now())->get();
         foreach ($sessions as $session) {
             $session->is_active = false;
             $session->expires_at = null;

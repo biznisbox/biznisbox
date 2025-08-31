@@ -55,7 +55,7 @@ class Invoice extends Model implements Auditable
 
     protected $hidden = ['deleted_at', 'updated_at', 'created_at'];
 
-    protected $appends = ['preview', 'download', 'sum_of_payments', 'overpaid_amount'];
+    protected $appends = ['preview', 'download', 'sum_of_payments', 'overpaid_amount', 'tax_calculation'];
 
     protected function casts(): array
     {
@@ -159,13 +159,41 @@ class Invoice extends Model implements Auditable
      * Update invoice status cron
      * @return void
      */
-    public function updateInvoiceStatusCron()
+    public static function updateInvoiceStatusCron()
     {
-        $invoices = $this->where('status', '!=', 'paid')->get();
+        $invoices = self::where('status', '!=', 'paid')->get();
         foreach ($invoices as $invoice) {
             if ($invoice->due_date < now()) {
                 $invoice->update(['status' => 'overdue']);
             }
         }
+    }
+
+    public function getTaxCalculationAttribute()
+    {
+        $items = $this->items()->get();
+        $taxes = [];
+
+        foreach ($items as $item) {
+            $taxRate = $item->tax ?? $this->tax;
+
+            $taxMetadata = Tax::where('rate', $taxRate)->first();
+
+            $taxAmount = $item->total * ($taxRate / 100);
+
+            if (!isset($taxes[$taxRate])) {
+                $taxes[$taxRate] = [
+                    'amount' => 0,
+                    'name' => $taxMetadata->name ?? $taxRate,
+                    'id' => $taxMetadata->id ?? null,
+                    'rate' => $taxRate,
+                ];
+            }
+
+            // Accumulate tax
+            $taxes[$taxRate]['amount'] += $taxAmount;
+        }
+
+        return $taxes;
     }
 }

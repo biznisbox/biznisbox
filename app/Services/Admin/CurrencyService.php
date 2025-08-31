@@ -74,8 +74,7 @@ class CurrencyService
 
     public function createCurrency($data)
     {
-        $currency = $this->currencyModel->create($data);
-        return $currency;
+        return $this->currencyModel->create($data);
     }
 
     public function updateCurrency($id, $data)

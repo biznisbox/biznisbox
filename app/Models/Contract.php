@@ -203,7 +203,7 @@ class Contract extends Model implements Auditable
 
     public function checkIfSignerIsSignContract($contract_id, $external_key)
     {
-        self::disableAuditing();
+        Contract::disableAuditing();
         $contract = $this->where('id', $contract_id)->first();
         $signer = $contract
             ->signers()
@@ -211,9 +211,9 @@ class Contract extends Model implements Auditable
                 'signer_external_key_id' => $external_key,
                 'contract_id' => $contract_id,
             ])
-            ->where('status', '!=', 'signed')
+            ->whereNotIn('status', ['signed', 'rejected'])
             ->first();
-        self::enableAuditing();
+        Contract::enableAuditing();
         if ($signer) {
             return true;
         }
@@ -224,9 +224,9 @@ class Contract extends Model implements Auditable
      * Update contract status cron
      * @return void
      */
-    public function updateContractStatusCron()
+    public static function updateContractStatusCron()
     {
-        $contracts = $this->where('status', '!=', 'signed')->get();
+        $contracts = self::where('status', '!=', 'signed')->get();
         foreach ($contracts as $contract) {
             if ($contract->date_for_signature < now()) {
                 $contract->update(['status' => 'expired']);

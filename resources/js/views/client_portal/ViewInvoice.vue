@@ -153,6 +153,16 @@
                             {{ `1 ${$settings.default_currency} = ${invoice.currency_rate} ${invoice.currency}` }}
                         </DisplayData>
 
+                        <div id="invoice_tax_info">
+                            <DisplayData :input="$t('form.tax')" custom-value>
+                                <div v-for="tax in invoice.tax_calculation" :key="tax.id">
+                                    <DisplayData :input="tax.name" custom-value displayInline>
+                                        {{ formatMoney(tax.amount, invoice.currency) }}
+                                    </DisplayData>
+                                </div>
+                            </DisplayData>
+                        </div>
+
                         <DisplayData :input="$t('form.total')" custom-value displayInline>
                             {{ formatMoney(invoice.total, invoice.currency) }}
                         </DisplayData>

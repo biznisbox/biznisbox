@@ -248,7 +248,7 @@ class ContractService
     {
         $contract = $this->contractModel->where('id', $contract_id)->first();
 
-        if (!$contract) {
+        if (!$contract || $contract->type == 'paper') {
             return null;
         }
 

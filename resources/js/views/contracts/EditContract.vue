@@ -26,7 +26,7 @@
                         <TextInput v-model="v$.contract.title.$model" :label="$t('form.title')" :validate="v$.contract.title" />
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <SelectInput
                             v-model="contract.partner_id"
                             :label="$t('form.partner')"
@@ -44,6 +44,15 @@
                             option-value="id"
                             option-label="name"
                             showClear
+                        />
+                        <SelectInput
+                            v-model="contract.type"
+                            :label="$t('form.type_of_contract_sign')"
+                            :options="[
+                                { value: 'electronic', label: $t('contract_sign_types.electronic') },
+                                { value: 'digital_signature', label: $t('contract_sign_types.digital_signature') },
+                                { value: 'paper', label: $t('contract_sign_types.paper') },
+                            ]"
                         />
                     </div>
 

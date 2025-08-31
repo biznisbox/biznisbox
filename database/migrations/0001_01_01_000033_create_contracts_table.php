@@ -23,7 +23,7 @@ return new class extends Migration {
                 ->cascadeOnUpdate();
             $table->foreignUuid('category_id')->nullable()->references('id')->on('categories')->nullOnDelete()->cascadeOnUpdate();
             $table->string('number')->nullable();
-            $table->string('type')->nullable(); // contract, agreement, NDA, SLA, etc.
+            $table->string('type')->nullable(); // electronic, digital signature, paper
             $table->string('title');
             $table->string('description')->nullable();
             $table->string('status')->nullable(); // draft, in review, signed, rejected, waiting for signature, expired

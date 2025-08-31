@@ -47,8 +47,8 @@ class Notification extends Model
         ]);
     }
 
-    public function getUserNotifications($user_id)
+    public static function getUserNotifications($user_id)
     {
-        return $this->where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
+        return self::where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
     }
 }
