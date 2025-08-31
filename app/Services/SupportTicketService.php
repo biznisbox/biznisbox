@@ -158,7 +158,7 @@ class SupportTicketService
             }
         }
 
-        createActivityLog('sendSupportTicketNotification', $ticket->id, 'App\Models\SupportTicket', 'SupportTicket');
+        createActivityLog('sendSupportTicketNotification', $ticket->id, SupportTicket::$modelName, 'SupportTicket');
         return true;
     }
 }

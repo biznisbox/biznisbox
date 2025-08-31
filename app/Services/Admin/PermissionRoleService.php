@@ -17,7 +17,7 @@ class PermissionRoleService
     public function getRoles()
     {
         $roles = Role::with('permissions')->get();
-        createActivityLog('retrieve', null, 'App\Models\Role', 'Role');
+        createActivityLog('retrieve', null, Role::$modelName, 'Role');
         return $roles;
     }
 
@@ -36,7 +36,7 @@ class PermissionRoleService
             ->get();
 
         $role->permissions = formatPermissions($all_role_permissions);
-        createActivityLog('retrieve', $id, 'App\Models\Role', 'Role');
+        createActivityLog('retrieve', $id, Role::$modelName, 'Role');
         return $role;
     }
 

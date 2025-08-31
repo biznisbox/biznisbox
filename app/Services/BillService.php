@@ -71,10 +71,10 @@ class BillService
             return $pdf->output();
         }
         if ($type == 'download') {
-            createActivityLog('DownloadBillPdf', $bill->id, 'App\Models\Bill', 'Bill');
+            createActivityLog('DownloadBillPdf', $bill->id, Bill::$modelName, 'Bill');
             return $pdf->download('Bill ' . $bill->number . '.pdf');
         } else {
-            createActivityLog('ViewBillPdf', $bill->id, 'App\Models\Bill', 'Bill');
+            createActivityLog('ViewBillPdf', $bill->id, Bill::$modelName, 'Bill');
             return $pdf->stream('Bill ' . $bill->number . '.pdf');
         }
     }

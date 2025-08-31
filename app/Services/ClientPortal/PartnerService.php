@@ -15,7 +15,7 @@ class PartnerService
             ->first()
             ?->makeHidden(['notes', 'contacts.notes', 'addresses.notes']); // remove notes
 
-        createActivityLog('retrieve', $partnerId, 'App\Models\Partner', 'Partner', auth()->id(), 'App\Models\User', 'client_portal');
+        createActivityLog('retrieve', $partnerId, Partner::$modelName, 'Partner', auth()->id(), 'App\Models\User', 'client_portal');
 
         return $partnerData;
     }

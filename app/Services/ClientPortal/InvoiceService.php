@@ -14,7 +14,7 @@ class InvoiceService
             ->orWhere('customer_id', $partner_id)
             ->get()
             ?->makeHidden(['notes']);
-        createActivityLog('retrieve', null, 'App\Models\Invoice', 'Invoice', auth()->id(), 'App\Models\User', 'client_portal');
+        createActivityLog('retrieve', null, Invoice::$modelName, 'Invoice', auth()->id(), 'App\Models\User', 'client_portal');
 
         return $invoices;
     }
@@ -36,7 +36,7 @@ class InvoiceService
             $invoice->notes = null;
         }
 
-        createActivityLog('retrieve', $invoiceId, 'App\Models\Invoice', 'Invoice', auth()->id(), 'App\Models\User', 'client_portal');
+        createActivityLog('retrieve', $invoiceId, Invoice::$modelName, 'Invoice', auth()->id(), 'App\Models\User', 'client_portal');
 
         return $invoice;
     }

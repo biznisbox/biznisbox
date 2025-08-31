@@ -25,6 +25,8 @@ class StatusService
         $parsedown->setSafeMode(true);
         $changelog = $parsedown->text($repoRelease['body']);
 
+        createActivityLog('retrieve', null, 'App\Services\Admin\StatusService', 'getVersion');
+
         return [
             'current_version' => $composer['version'],
             'latest_version' => $latestVersion,
@@ -32,5 +34,6 @@ class StatusService
             'changelog' => $changelog,
             'is_up_to_date' => version_compare($composer['version'], $latestVersion) >= 0,
         ];
+
     }
 }

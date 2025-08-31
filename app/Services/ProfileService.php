@@ -160,7 +160,7 @@ class ProfileService
             }
             $file = $request->file('picture');
             $filename = $file->hashName();
-            $file->storeAs('public', $filename);
+            Storage::disk('public')->put($filename, file_get_contents($file));
             $user->picture = $filename;
             $user->save();
         }

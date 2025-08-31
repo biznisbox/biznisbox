@@ -15,7 +15,7 @@ class DepartmentService
     public function getDepartments()
     {
         $departments = $this->department->get();
-        createActivityLog('retrieve', null, 'App\Models\Department', 'Department');
+        createActivityLog('retrieve', null, Department::$modelName, 'Department');
         return $departments;
     }
 
@@ -25,7 +25,7 @@ class DepartmentService
         if (!$department) {
             return false;
         }
-        createActivityLog('retrieve', $id, 'App\Models\Department', 'Department');
+        createActivityLog('retrieve', $id, Department::$modelName, 'Department');
         return $department;
     }
 

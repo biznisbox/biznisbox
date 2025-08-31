@@ -93,10 +93,10 @@ class QuoteService
             return $pdf->output();
         }
         if ($type == 'download') {
-            createActivityLog('DownloadQuote', $quote->id, 'App\Models\Quote', 'Invoice');
+            createActivityLog('DownloadQuote', $quote->id, Quote::$modelName, 'Quote');
             return $pdf->download('Quote ' . $quote->number . '.pdf');
         } else {
-            createActivityLog('ViewQuote', $quote->id, 'App\Models\Quote', 'Invoice');
+            createActivityLog('ViewQuote', $quote->id, Quote::$modelName, 'Quote');
             return $pdf->stream('Quote ' . $quote->number . '.pdf');
         }
     }
@@ -148,7 +148,7 @@ class QuoteService
             $quote->status = 'sent';
             $quote->save();
         }
-        createActivityLog('sendQuoteNotification', $quote->id, 'App\Models\Quote', 'Quote');
+        createActivityLog('sendQuoteNotification', $quote->id, Quote::$modelName, 'Quote');
         return true;
     }
 }

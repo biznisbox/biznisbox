@@ -9,7 +9,7 @@ class UnitService
     public function getUnits()
     {
         $units = Unit::all()->where('active', true);
-        createActivityLog('retrieve', null, 'App\Models\Unit', 'getUnits');
+        createActivityLog('retrieve', null, Unit::$modelName, 'getUnits');
         return $units;
     }
 
@@ -19,7 +19,7 @@ class UnitService
         if (!$unit) {
             return null;
         }
-        createActivityLog('retrieve', $unit->id, 'App\Models\Unit', 'getUnitByName');
+        createActivityLog('retrieve', $unit->id, Unit::$modelName, 'getUnitByName');
         return Unit::where('name', $name)->first();
     }
 
@@ -29,7 +29,7 @@ class UnitService
         if (!$unit) {
             return null;
         }
-        createActivityLog('retrieve', $unit->id, 'App\Models\Unit', 'getUnit');
+        createActivityLog('retrieve', $unit->id, Unit::$modelName, 'getUnit');
         return $unit;
     }
 

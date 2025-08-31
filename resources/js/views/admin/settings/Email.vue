@@ -62,6 +62,7 @@
                                 { value: 'starttls', label: 'STARTTLS' },
                                 { value: 'plain', label: 'PLAIN' },
                                 { value: 'ssl', label: 'SSL' },
+                                { value: null, label: 'None' },
                             ]"
                         />
                         <TextInput

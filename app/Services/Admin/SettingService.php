@@ -5,7 +5,6 @@ namespace App\Services\Admin;
 use App\Models\Setting;
 use App\Helpers\SerialNumberFormatter;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use App\Mail\Admin\TestEmail;
 use Illuminate\Support\Facades\Mail;
 
@@ -26,7 +25,7 @@ class SettingService
         foreach ($settings as $setting) {
             $data[$setting->key] = $setting->value;
         }
-        createActivityLog('retrieve', null, 'App\Models\Setting', 'getCompanySettings');
+        createActivityLog('retrieve', null, Setting::$modelName, 'getCompanySettings');
         return $data;
     }
 
@@ -39,7 +38,7 @@ class SettingService
     public function updateCompanySettings($data)
     {
         settings($data, 'set');
-        createActivityLog('update', null, 'App\Models\Setting', 'Setting');
+        createActivityLog('update', null, Setting::$modelName, 'updateCompanySettings');
         return true;
     }
 
@@ -48,15 +47,13 @@ class SettingService
         if ($request->hasFile('company_logo')) {
             $company_logo = settings('company_logo');
             if ($company_logo) {
-                $path = storage_path('public/' . $company_logo);
-                Storage::delete($path);
+                Storage::disk('public')->delete($company_logo);
             }
             $file = $request->file('company_logo');
             $filename = $file->hashName();
-            $file->storeAs('public', $filename);
+            Storage::disk('public')->put($filename, file_get_contents($file));
             settings(['company_logo' => $filename], 'set');
-
-            createActivityLog('update', null, 'App\Models\Setting', 'setCompanyLogo');
+            createActivityLog('update', null, Setting::$modelName, 'setCompanyLogo');
 
             return true;
         }
@@ -66,12 +63,11 @@ class SettingService
     {
         $company_logo = settings('company_logo');
         if ($company_logo) {
-            $path = storage_path('public/' . $company_logo);
-            Storage::delete($path);
+            Storage::disk('public')->delete($company_logo);
         }
         settings(['company_logo' => null], 'set');
 
-        createActivityLog('update', null, 'App\Models\Setting', 'removeCompanyLogo');
+        createActivityLog('update', null, Setting::$modelName, 'removeCompanyLogo');
 
         return true;
     }
@@ -91,7 +87,7 @@ class SettingService
         foreach ($settings as $setting) {
             $data[$setting->key] = $setting->value;
         }
-        createActivityLog('retrieve', null, 'App\Models\Setting', 'getSettings');
+        createActivityLog('retrieve', null, Setting::$modelName, 'getSettings');
         return $data;
     }
 
@@ -103,7 +99,7 @@ class SettingService
     public function updateSettings($data)
     {
         settings($data, 'set');
-        createActivityLog('update', null, 'App\Models\Setting', 'updateSettings');
+        createActivityLog('update', null, Setting::$modelName, 'updateSettings');
         return true;
     }
 
@@ -123,7 +119,7 @@ class SettingService
         foreach ($settings as $setting) {
             $data[$setting->key] = SerialNumberFormatter::convertNumberFormatToArray($setting->value);
         }
-        createActivityLog('retrieve', null, 'App\Models\Setting', 'getNumberingSettings');
+        createActivityLog('retrieve', null, Setting::$modelName, 'getNumberingSettings');
         return $data;
     }
 
@@ -138,7 +134,7 @@ class SettingService
             $value = SerialNumberFormatter::convertNumberFormatToString($value);
             settings([$key => $value], 'set');
         }
-        createActivityLog('update', null, 'App\Models\Setting', 'updateNumberingSettings');
+        createActivityLog('update', null, Setting::$modelName, 'updateNumberingSettings');
         return true;
     }
 
@@ -148,8 +144,7 @@ class SettingService
             return '...';
         }
         $numberFormatter = new SerialNumberFormatter();
-        $number = $numberFormatter->generatePreview($format, $module);
-        return $number;
+        return $numberFormatter->generatePreview($format, $module);
     }
 
     /*=============================================
@@ -162,20 +157,12 @@ class SettingService
      */
     public function getEmailSettings()
     {
-        $env_settings = readFromEnvFile();
+        $settings = Setting::where('key', 'like', 'mail_%')->get();
         $data = [];
-
-        $env_settings = array_filter(
-            $env_settings,
-            function ($key) {
-                return strpos($key, 'MAIL_') !== false;
-            },
-            ARRAY_FILTER_USE_KEY,
-        );
-
-        foreach ($env_settings as $key => $value) {
-            $data[Str::lower($key)] = $value == 'null' ? null : $value;
+        foreach ($settings as $setting) {
+            $data[$setting->key] = $setting->value;
         }
+        createActivityLog('retrieve', null, Setting::$modelName, 'getEmailSettings');
         return $data;
     }
 
@@ -186,12 +173,9 @@ class SettingService
      */
     public function updateEmailSettings($data)
     {
-        $email_write = writeInEnvFile($data);
-        if ($email_write) {
-            createActivityLog('update', null, 'App\Models\Setting', 'updateEmailSettings');
-            return true;
-        }
-        return false;
+        settings($data, 'set');
+        createActivityLog('update', null, Setting::$modelName, 'updateEmailSettings');
+        return true;
     }
 
     public function sentTestEmail($emails)

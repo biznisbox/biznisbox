@@ -2,6 +2,7 @@
 
 namespace App\Services\Admin;
 
+use App\Models\PersonalAccessToken;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Utils\JwtBlackList;
@@ -18,14 +19,14 @@ class UserService
     public function getUsers()
     {
         $users = $this->userModel->getUsers();
-        createActivityLog('retrieve', null, 'App\Models\User', 'getUsers');
+        createActivityLog('retrieve', null, User::$modelName, 'getUsers');
         return $users;
     }
 
     public function getUser($id)
     {
         $user = $this->userModel->getUser($id);
-        createActivityLog('retrieve', $id, 'App\Models\User', 'getUser');
+        createActivityLog('retrieve', $id, User::$modelName, 'getUser');
         if (!$user) {
             return null;
         }
@@ -53,7 +54,7 @@ class UserService
     public function resetPassword($id, $data)
     {
         $user = $this->userModel->resetPassword($id, $data);
-        createActivityLog('resetPassword', $id, 'App\Models\User', 'User');
+        createActivityLog('resetPassword', $id, User::$modelName, 'User');
         return $user;
     }
 
@@ -64,13 +65,13 @@ class UserService
             $user->update(['two_factor_auth' => 0]);
             DB::table('2fa')->where('user_id', $id)->delete();
         }
-        createActivityLog('disable2fa', $id, 'App\Models\User', 'User');
+        createActivityLog('disable2fa', $id, User::$modelName, 'User');
         return $user;
     }
 
     public function deleteAdminPersonalAccessToken($id)
     {
-        $personalAccessToken = new \App\Models\PersonalAccessToken();
+        $personalAccessToken = new PersonalAccessToken();
 
         $personalAccessToken = $personalAccessToken->where('id', $id)->first();
         if (!$personalAccessToken) {
@@ -88,7 +89,7 @@ class UserService
 
         $personalAccessToken = $personalAccessToken->delete($id);
 
-        createActivityLog('deleteAdminPersonalAccessToken', $id, 'App\Models\PersonalAccessToken', 'PersonalAccessToken');
+        createActivityLog('deleteAdminPersonalAccessToken', $id, PersonalAccessToken::$modelName, 'PersonalAccessToken');
         return $personalAccessToken;
     }
 }

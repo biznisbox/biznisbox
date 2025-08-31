@@ -53,8 +53,22 @@ class SettingSeeder extends Seeder
         Setting::firstOrCreate(['key' => 'paypal_client_id'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
         Setting::firstOrCreate(['key' => 'paypal_secret'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
         Setting::firstOrCreate(['key' => 'paypal_available'], ['value' => false, 'type' => 'boolean', 'is_public' => 1]);
-        Setting::firstOrCreate(['key' => 'paypal_test_mode'], ['value' => true, 'type' => 'boolean', 'is_public' => 1]);
+        Setting::firstOrCreate(['key' => 'paypal_test_mode'], ['value' => true, 'type' => 'boolean', 'is_public' => 0]);
         Setting::firstOrCreate(['key' => 'paypal_account_id'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
+
+        // Mail settings
+        Setting::firstOrCreate(['key' => 'mail_mailer'], ['value' => 'smtp', 'type' => 'string', 'is_public' => 0]);
+        Setting::firstOrCreate(['key' => 'mail_host'], ['value' => 'localhost', 'type' => 'string', 'is_public' => 0]);
+        Setting::firstOrCreate(['key' => 'mail_port'], ['value' => 2525, 'type' => 'integer', 'is_public' => 0]);
+        Setting::firstOrCreate(['key' => 'mail_username'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
+        Setting::firstOrCreate(['key' => 'mail_password'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
+        Setting::firstOrCreate(['key' => 'mail_encryption'], ['value' => 'tls', 'type' => 'string', 'is_public' => 0]);
+        Setting::firstOrCreate(['key' => 'mail_from_address'], ['value' => 'noreply@example.com', 'type' => 'string', 'is_public' => 0]);
+        Setting::firstOrCreate(['key' => 'mail_from_name'], ['value' => 'BiznisBox', 'type' => 'string', 'is_public' => 0]);
+        Setting::firstOrCreate(
+            ['key' => 'mail_sendmail_path'],
+            ['value' => '/usr/sbin/sendmail -bs', 'type' => 'string', 'is_public' => 0],
+        );
 
         // Set default number formats
         Setting::firstOrCreate(
@@ -136,5 +150,26 @@ class SettingSeeder extends Seeder
             ['additional_info' => 'stripe'],
             ['module' => 'payment_method', 'icon' => 'fab fa-stripe', 'name' => 'Stripe', 'color' => '635BFF'],
         );
+
+        $this->updateEmailSettings();
+    }
+
+    private function updateEmailSettings(): void
+    {
+        $mailSettings = [
+            'MAIL_MAILER' => env('MAIL_MAILER'),
+            'MAIL_HOST' => env('MAIL_HOST'),
+            'MAIL_PORT' => env('MAIL_PORT'),
+            'MAIL_USERNAME' => env('MAIL_USERNAME'),
+            'MAIL_PASSWORD' => env('MAIL_PASSWORD'),
+            'MAIL_ENCRYPTION' => env('MAIL_ENCRYPTION'),
+            'MAIL_FROM_ADDRESS' => env('MAIL_FROM_ADDRESS'),
+            'MAIL_FROM_NAME' => env('MAIL_FROM_NAME'),
+            'MAIL_SENDMAIL_PATH' => env('MAIL_SENDMAIL_PATH'),
+        ];
+
+        foreach ($mailSettings as $key => $value) {
+            Setting::updateOrCreate(['key' => $key], ['value' => $value, 'type' => 'string', 'is_public' => 1]);
+        }
     }
 }

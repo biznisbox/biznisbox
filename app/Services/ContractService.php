@@ -203,10 +203,10 @@ class ContractService
             return $pdf->output();
         }
         if ($type == 'download') {
-            createActivityLog('downloadContract', $contract->id, 'App\Models\Contract', 'Contract');
+            createActivityLog('downloadContract', $contract->id, Contract::$modelName, 'Contract');
             return $pdf->download('Contract ' . $contract->number . '.pdf');
         } else {
-            createActivityLog('viewContract', $contract->id, 'App\Models\Contract', 'Contract');
+            createActivityLog('viewContract', $contract->id, Contract::$modelName, 'Contract');
             return $pdf->stream('Contract ' . $contract->number . '.pdf');
         }
     }

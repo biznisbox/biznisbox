@@ -11,7 +11,7 @@ class QuoteService
         $partner_id = getPartnerIdFromUserId(auth()->id());
 
         $quotes = Quote::where('payer_id', $partner_id)->orWhere('customer_id', $partner_id)->get();
-        createActivityLog('retrieve', null, 'App\Models\Quote', 'Quote', auth()->id(), 'App\Models\User', 'client_portal');
+        createActivityLog('retrieve', null, Quote::$modelName, 'Quote', auth()->id(), 'App\Models\User', 'client_portal');
         return $quotes;
     }
 
@@ -27,7 +27,7 @@ class QuoteService
             ->first()
             ?->makeHidden(['notes']);
 
-        createActivityLog('retrieve', $quoteId, 'App\Models\Quote', 'Quote', auth()->id(), 'App\Models\User', 'client_portal');
+        createActivityLog('retrieve', $quoteId, Quote::$modelName, 'Quote', auth()->id(), 'App\Models\User', 'client_portal');
         return $quote;
     }
 }

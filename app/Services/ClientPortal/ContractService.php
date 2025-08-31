@@ -20,7 +20,7 @@ class ContractService
             ->where('partner_id', $partner_id)
             ->get()
             ?->makeHidden(['notes']);
-        createActivityLog('retrieve', null, 'App\Models\Contract', 'Contract', auth()->id(), 'App\Models\User', 'client_portal');
+        createActivityLog('retrieve', null, Contract::$modelName, 'Contract', auth()->id(), 'App\Models\User', 'client_portal');
         return $contracts;
     }
 
@@ -34,7 +34,7 @@ class ContractService
             ->first()
             ?->makeHidden(['notes']);
 
-        createActivityLog('retrieve', $id, 'App\Models\Contract', 'Contract', auth()->id(), 'App\Models\User', 'client_portal');
+        createActivityLog('retrieve', $id, Contract::$modelName, 'Contract', auth()->id(), 'App\Models\User', 'client_portal');
         return $contract;
     }
 }
