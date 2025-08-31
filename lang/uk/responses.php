@@ -127,5 +127,5 @@ return [
     ],
     'vat_number_not_valid' => 'Неприпустимий номер платника ПДВ',
     'vat_number_validated_successfully' => 'Номер платника ПДВ успішно перевірено',
-    'archive_document_auto_generated' => 'Архівувати документ успішно створено'
+    'archive_document_auto_generated' => 'Архівувати документ успішно створено',
 ];
