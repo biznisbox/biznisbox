@@ -82,4 +82,5 @@ return [
         'waiting_signature' => 'Čekající podpis',
     ],
     'no_payment_method' => 'Bez způsobu platby',
+    'tax_amount' => 'Částka daně',
 ];
