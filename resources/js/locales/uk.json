@@ -421,7 +421,8 @@
         "parent_category": "Батьківська категорія",
         "icon": "Іконка",
         "additional_info": "Додаткова інформація",
-        "client_portal": "Портал клієнта"
+        "client_portal": "Портал клієнта",
+        "type_of_contract_sign": "Тип знака договору"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -524,6 +525,11 @@
     "tax_types": {
         "percent": "Процент",
         "fixed": "Виправлена"
+    },
+    "contract_sign_types": {
+        "electronic": "Електронний",
+        "digital_signature": "Цифрова підпис",
+        "paper": "Папір"
     },
     "login_history": {
         "login_history": "Історія входів в систему",
