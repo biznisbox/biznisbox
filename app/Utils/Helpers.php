@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Str;
 use App\Events\WebhookEvent;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 if (!function_exists('api_response')) {
     /**
@@ -800,6 +802,47 @@ if (!function_exists('saveFilePdfToArchive')) {
         } catch (\Exception $e) {
             Log::error('Error saving file to archive: ' . $e->getMessage());
             return false;
+        }
+    }
+}
+
+if (!function_exists('setEmailConfig')) {
+    /**
+     * Set email configuration
+     * @param array $config - email configuration
+     * @return void
+     */
+    function setEmailConfig()
+    {
+        if (Schema::hasTable('settings')) {
+            $mail = DB::table('settings')->where('key', 'like', 'mail_%')->get()->pluck('value', 'key');
+            if ($mail && $mail->count() > 0) {
+                $config = [
+                    'default' => $mail->get('mail_mailer') ?? 'log',
+                    'mailers' => [
+                        'smtp' => [
+                            'transport' => 'smtp',
+                            'host' => $mail->get('mail_host'),
+                            'port' => $mail->get('mail_port'),
+                            'encryption' => $mail->get('mail_encryption'),
+                            'username' => $mail->get('mail_username'),
+                            'password' => $mail->get('mail_password'),
+                        ],
+                        'sendmail' => [
+                            'transport' => 'sendmail',
+                            'path' => $mail->get('mail_sendmail_path'),
+                        ],
+                        'log' => [
+                            'transport' => 'log',
+                            'channel' => 'mail',
+                        ],
+                    ],
+                    'from' => ['address' => $mail->get('mail_from_address'), 'name' => $mail->get('mail_from_name')],
+                ];
+                Config::set([
+                    'mail' => $config,
+                ]);
+            }
         }
     }
 }

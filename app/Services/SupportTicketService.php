@@ -137,6 +137,7 @@ class SupportTicketService
                     app()->getLocale(),
             );
 
+            setEmailConfig();
             Mail::to($ticket->contact_email, $ticket->contact_name)->send(
                 new \App\Mail\Client\SupportTicketNotification($ticket, $url, null),
             );
@@ -154,6 +155,7 @@ class SupportTicketService
                         app()->getLocale(),
                 );
 
+                setEmailConfig();
                 Mail::to($contact->email, $contact->name)->send(new \App\Mail\Client\SupportTicketNotification($ticket, $url, $contact));
             }
         }

@@ -267,6 +267,7 @@ class ContractService
                 // notification for internal users
                 createNotification($signer->user_id, 'ContractForSign', 'NewContractForSign', 'info', 'Sign', $local_url);
             }
+            setEmailConfig();
             Mail::to($signer->signer_email, $signer->signer_name)->send(
                 new \App\Mail\Client\ContractNotification($contract, $url, $signer),
             );

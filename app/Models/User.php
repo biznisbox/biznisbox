@@ -313,6 +313,7 @@ class User extends Authenticatable implements JWTSubject, Auditable
 
     public function sendUserDetailsEmail($recipient, $user_id, $password = null)
     {
+        setEmailConfig();
         $user = $this->find($user_id);
         if ($user) {
             foreach ($recipient as $email) {

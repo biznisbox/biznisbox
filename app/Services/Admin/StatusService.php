@@ -34,6 +34,5 @@ class StatusService
             'changelog' => $changelog,
             'is_up_to_date' => version_compare($composer['version'], $latestVersion) >= 0,
         ];
-
     }
 }

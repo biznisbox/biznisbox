@@ -210,6 +210,7 @@ class Session extends Model implements Auditable
 
     public static function sendLoginNotification($user, $login)
     {
+        setEmailConfig();
         Mail::to($user->email, $user->first_name . ' ' . $user->last_name)->send(new LoginNotification($user, $login));
     }
 }

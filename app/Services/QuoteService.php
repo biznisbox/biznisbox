@@ -122,6 +122,8 @@ class QuoteService
                     app()->getLocale(),
             );
 
+            setEmailConfig();
+
             Mail::to($contact->email)->send(new \App\Mail\Client\QuoteNotification($quote, $url, $contact));
             return true;
         } else {
@@ -140,6 +142,8 @@ class QuoteService
                         '&lang=' .
                         app()->getLocale(),
                 );
+
+                setEmailConfig();
 
                 Mail::to($contact->email)->send(new \App\Mail\Client\QuoteNotification($quote, $url, $contact));
             }

@@ -293,6 +293,8 @@ class InvoiceService
                     app()->getLocale(),
             );
 
+            setEmailConfig();
+
             Mail::to($contact->email)->send(new \App\Mail\Client\InvoiceNotification($invoice, $url, $contact));
             return true;
         } else {
@@ -311,6 +313,8 @@ class InvoiceService
                         '&lang=' .
                         app()->getLocale(),
                 );
+
+                setEmailConfig();
 
                 Mail::to($contact->email)->send(new \App\Mail\Client\InvoiceNotification($invoice, $url, $contact));
             }

@@ -103,6 +103,7 @@ class PartnerService
         $from_name = $user->first_name . ' ' . $user->last_name;
 
         // Send email
+        setEmailConfig();
         $email = Mail::to($partnerContact->email, $partnerContact->name)->send(
             new SendPartnerMessage($from_email, $from_name, $subject, $message),
         );
@@ -171,6 +172,7 @@ class PartnerService
         $partnerContact->user_id = $user->id;
         $partnerContact->save();
 
+        setEmailConfig();
         // Send notification email
         $email = Mail::to($partnerContact->email, $partnerContact->name)->send(
             new ClientPortalNotification($partnerContact->partner, $password, $partnerContact),
