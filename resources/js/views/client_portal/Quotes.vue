@@ -58,8 +58,6 @@
 </template>
 
 <script>
-import quotes from '@/mixins/quotes'
-
 export default {
     name: 'ClientPortalQuotesPage',
     data() {

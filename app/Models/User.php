@@ -318,7 +318,7 @@ class User extends Authenticatable implements JWTSubject, Auditable
         if ($user) {
             foreach ($recipient as $email) {
                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    Mail::to($email)->send(new UserDetails($user, $password));
+                    Mail::to($email)->queue(new UserDetails($user, $password));
                 }
             }
             return true;

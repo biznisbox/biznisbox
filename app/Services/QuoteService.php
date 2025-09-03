@@ -6,6 +6,7 @@ use App\Models\Quote;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Mail;
 use App\Models\PartnerContact;
+use App\Mail\Client\QuoteNotification;
 
 class QuoteService
 {
@@ -124,7 +125,7 @@ class QuoteService
 
             setEmailConfig();
 
-            Mail::to($contact->email)->send(new \App\Mail\Client\QuoteNotification($quote, $url, $contact));
+            Mail::to($contact->email, $contact->name)->queue(new QuoteNotification($quote, $url, $contact));
             return true;
         } else {
             $contacts = PartnerContact::where('partner_id', $quote->customer_id)
@@ -145,7 +146,7 @@ class QuoteService
 
                 setEmailConfig();
 
-                Mail::to($contact->email)->send(new \App\Mail\Client\QuoteNotification($quote, $url, $contact));
+                Mail::to($contact->email, $contact->name)->queue(new QuoteNotification($quote, $url, $contact));
             }
         }
         if ($quote->status != 'accepted' && $quote->status != 'converted' && $quote->status != 'sent' && $quote->status != 'rejected') {

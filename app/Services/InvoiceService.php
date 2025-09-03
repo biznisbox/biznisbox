@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use App\Mail\Client\InvoiceNotification;
 
 class InvoiceService
 {
@@ -295,7 +296,7 @@ class InvoiceService
 
             setEmailConfig();
 
-            Mail::to($contact->email)->send(new \App\Mail\Client\InvoiceNotification($invoice, $url, $contact));
+            Mail::to($contact->email, $contact->name)->queue(new InvoiceNotification($invoice, $url, $contact));
             return true;
         } else {
             $contacts = PartnerContact::where('partner_id', $invoice->customer_id)
@@ -316,7 +317,7 @@ class InvoiceService
 
                 setEmailConfig();
 
-                Mail::to($contact->email)->send(new \App\Mail\Client\InvoiceNotification($invoice, $url, $contact));
+                Mail::to($contact->email, $contact->name)->queue(new InvoiceNotification($invoice, $url, $contact));
             }
         }
 

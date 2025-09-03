@@ -183,7 +183,7 @@ class SettingService
         setEmailConfig();
         foreach ($emails as $email) {
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                Mail::to($email)->send(new TestEmail());
+                Mail::to($email)->queue(new TestEmail());
             }
         }
         return true;

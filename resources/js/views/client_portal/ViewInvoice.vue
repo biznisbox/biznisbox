@@ -1,8 +1,8 @@
 <template>
     <DefaultLayout menu_type="client">
-        <PageHeader :title="invoice.number" />
-
         <LoadingScreen :blocked="loadingData">
+            <PageHeader :title="invoice.number" />
+
             <div class="card">
                 <div id="payer_customer_data" class="grid grid-cols-1 lg:grid-cols-2">
                     <div v-if="!loadingData" id="customer_data">

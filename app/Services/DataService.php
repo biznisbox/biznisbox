@@ -298,7 +298,7 @@ class DataService
         $personalAccessToken = $personalAccessToken->create($data);
 
         setEmailConfig();
-        Mail::to($user->email, $user->first_name . ' ' . $user->last_name)->send(
+        Mail::to($user->email, $user->first_name . ' ' . $user->last_name)->queue(
             new PersonalAccessTokenCreated($user, $personalAccessToken),
         );
         return $token;

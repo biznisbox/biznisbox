@@ -1,18 +1,18 @@
 <template>
     <DefaultLayout menu_type="client">
-        <PageHeader :title="contract.title">
-            <template #actions>
-                <Button
-                    id="download_button"
-                    :label="$t('basic.download')"
-                    icon="fa fa-download"
-                    severity="secondary"
-                    @click="downloadContractPdf"
-                />
-            </template>
-        </PageHeader>
-
         <LoadingScreen :loading="loadingData">
+            <PageHeader :title="contract.title">
+                <template #actions>
+                    <Button
+                        id="download_button"
+                        :label="$t('basic.download')"
+                        icon="fa fa-download"
+                        severity="secondary"
+                        @click="downloadContractPdf"
+                    />
+                </template>
+            </PageHeader>
+
             <div class="card">
                 <div class="grid md:grid-cols-3 grid-cols-1 gap-2">
                     <DisplayData :input="$t('form.number')" :value="contract.number" />

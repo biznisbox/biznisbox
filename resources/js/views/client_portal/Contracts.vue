@@ -11,7 +11,6 @@
                 :rows="10"
                 :rowsPerPageOptions="[5, 10, 20, 50, 100]"
                 filter-display="menu"
-                v-model:filters="filters"
                 @row-dblclick="viewContractNavigation"
             >
                 <template #empty>

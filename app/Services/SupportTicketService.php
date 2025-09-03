@@ -138,9 +138,7 @@ class SupportTicketService
             );
 
             setEmailConfig();
-            Mail::to($ticket->contact_email, $ticket->contact_name)->send(
-                new \App\Mail\Client\SupportTicketNotification($ticket, $url, null),
-            );
+            Mail::to($ticket->contact_email, $ticket->contact_name)->queue(new SupportTicketNotification($ticket, $url, null));
             return true;
         } else {
             $contacts = PartnerContact::where('id', $ticket->contact_id)->whereNotNull('email')->get();
@@ -156,7 +154,7 @@ class SupportTicketService
                 );
 
                 setEmailConfig();
-                Mail::to($contact->email, $contact->name)->send(new \App\Mail\Client\SupportTicketNotification($ticket, $url, $contact));
+                Mail::to($contact->email, $contact->name)->queue(new SupportTicketNotification($ticket, $url, $contact));
             }
         }
 

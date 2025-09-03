@@ -6,6 +6,7 @@ use App\Models\Contract;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\ExternalKey;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\Client\ContractNotification;
 
 class ContractService
 {
@@ -235,7 +236,7 @@ class ContractService
 
         if ($data) {
             if ($data['type'] == 'email') {
-                Mail::to($data['email'])->send(new \App\Mail\Client\ContractNotification($contract, $url, null));
+                Mail::to($data['email'])->queue(new \App\Mail\Client\ContractNotification($contract, $url, null));
             }
         }
 
@@ -268,9 +269,7 @@ class ContractService
                 createNotification($signer->user_id, 'ContractForSign', 'NewContractForSign', 'info', 'Sign', $local_url);
             }
             setEmailConfig();
-            Mail::to($signer->signer_email, $signer->signer_name)->send(
-                new \App\Mail\Client\ContractNotification($contract, $url, $signer),
-            );
+            Mail::to($signer->signer_email, $signer->signer_name)->queue(new ContractNotification($contract, $url, $signer));
         }
         return $contract;
     }
