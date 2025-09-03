@@ -128,4 +128,5 @@ return [
     'vat_number_not_valid' => 'Номер НДС не действителен',
     'vat_number_validated_successfully' => 'Номер НДС успешно подтвержден',
     'archive_document_auto_generated' => 'Архивировать документ автоматически сгенерирован',
+    'already_accepted_rejected' => 'Цитата уже была принята или отклонена',
 ];
