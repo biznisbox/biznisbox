@@ -128,4 +128,5 @@ return [
     'vat_number_not_valid' => 'Numer VAT jest nieprawidłowy',
     'vat_number_validated_successfully' => 'Numer VAT został pomyślnie zweryfikowany',
     'archive_document_auto_generated' => 'Automatycznie wygenerowano archiwizację dokumentu',
+    'already_accepted_rejected' => 'Oferta została już zaakceptowana lub odrzucona',
 ];
