@@ -128,4 +128,5 @@ return [
     'vat_number_not_valid' => 'BTW-nummer is niet geldig',
     'vat_number_validated_successfully' => 'BTW-nummer is succesvol gevalideerd',
     'archive_document_auto_generated' => 'Archief automatisch gegenereerd met succes',
+    'already_accepted_rejected' => 'Prijsopgave is al geaccepteerd of afgewezen',
 ];
