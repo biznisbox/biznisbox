@@ -128,4 +128,5 @@ return [
     'vat_number_not_valid' => '增值税号码无效',
     'vat_number_validated_successfully' => '增值税号码验证成功',
     'archive_document_auto_generated' => '存档文档已成功生成',
+    'already_accepted_rejected' => '报价已被接受或拒绝',
 ];
