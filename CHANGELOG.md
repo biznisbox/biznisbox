@@ -3,13 +3,13 @@
 ## ✨ New Features & Enhancements
 
 - Change email sending to use queued jobs for improved performance.
-- Change saving mail settings to use the database instead of .env file.
-- Add accept-reject feature for quotes in client portal.
+- Change saving mail settings to use the database instead of the .env file.
+- Add accept-reject feature for quotes in the client portal.
 - Improve dashboard elements with new UI components.
 
 ## 🐛 Bug Fixes
 
-- Fixed issue with docker container accepting bigger files for uploads.
+- Fixed issue with Docker container accepting bigger files for uploads.
 
 ## 🧑‍💻 Development Updates
 
@@ -20,8 +20,8 @@
 ## ✨ New Features & Enhancements
 
 - Add support for calculating and displaying the total of tax amounts for invoices.
-- Convert text-based email setting for encryption to a dropdown selection.
-- Add support for type of contract signing (e.g., electronic signature, digital signature, paper signature).
+- Convert text-based email settings for encryption to a dropdown selection.
+- Add support for the type of contract signing (e.g., electronic signature, digital signature, paper signature).
 
 ## 🐛 Bug Fixes
 
@@ -60,7 +60,7 @@
 ## 🧑‍💻 Development Updates
 
 - Migrate the TailwindCSS 3 configuration to the latest version (4), ensuring compatibility with the latest features and improvements in TailwindCSS.
-- Improved user interface by updating the TailwindCSS configuration to use the latest version, enhancing the overall design and responsiveness of the app (maybe need some updates in the UI - coming in a future releases).
+- Improved user interface by updating the TailwindCSS configuration to use the latest version, enhancing the overall design and responsiveness of the app (maybe need some updates in the UI - coming in future releases).
 
 # 2.9.0
 
@@ -145,7 +145,7 @@
 
 ## 🐛 Bug Fixes
 
-- Fixed generation of user profile images when using the command.
+- Fixed the generation of user profile images when using the command.
 - Fixed bill deletion response.
 - Fixed notification display options in the bill module.
 - Fixed translation issues in payment responses.
@@ -162,16 +162,16 @@
 
 ## ✨ New Features & Enhancements
 
-- Added a new feature for sending email to partner contact.
-- Added feature to view and manage user personal access tokens by admin.
+- Added a new feature for sending an email to a partner contact.
+- Added a feature to view and manage user personal access tokens by admin.
 
 ## 🧪 Experiment (may be deleted in feature)
 
-- Added feature for get real IP address of user (not proxy).
+- Added a feature to get the real IP address of the user (not proxy).
 
 ## 🐛 Bug Fixes
 
-- Fixed security issue with showing token value in the API response.
+- Fixed a security issue with showing the token value in the API response.
 
 ## 🌐 Localization
 
@@ -182,10 +182,10 @@
 ## 🐛 Bug Fixes
 
 - Fixed an issue with WorldSeeder by locking the package version
-- Fixed color format for the company color in settings
+- Fixed colour format for the company colour in settings
 - Fixed an issue where the sendmail path was not displayed in settings
 - Fixed the unit updating issue in settings
-- Fixed text color of changelog on the status page
+- Fixed text colour of changelog on the status page
 
 # v2.1.0
 
@@ -217,7 +217,7 @@ This marks the official release of the new BiznisBox.
 - Added an option to reject contracts.
 - Implemented email notifications for first-time logins from a new browser.
 - Introduced a console command for creating users.
-- Added new configuration settings for enhanced customization.
+- Added new configuration settings for enhanced customisation.
 
 ## 🐛 Bug Fixes
 
@@ -255,7 +255,7 @@ This marks the official release of the new BiznisBox.
 
 ## 💄 UI/UX Improvements
 
-- Updated the color scheme for a more modern and cohesive look.
+- Updated the colour scheme for a more modern and cohesive look.
 - Refined the design of input validation feedback.
 - Added dark mode support to the rich text editor for improved user experience in low-light environments.
 - Replaced the old app logo with a new, updated design.
@@ -348,6 +348,6 @@ This marks the official release of the new BiznisBox.
 
 ## 🌐 Localization
 
-- **New Translations**: Added translations for Spanish, French, Portuguese, Italian, Russian, Chinese, Dutch, Norwegian, Danish, Swedish, and Finnish. (Crowdin has been utilized for automatic translation.)
+- **New Translations**: Added translations for Spanish, French, Portuguese, Italian, Russian, Chinese, Dutch, Norwegian, Danish, Swedish, and Finnish. (Crowdin has been utilised for automatic translation.)
 
 **Note**: This release includes numerous additional changes not listed here.
