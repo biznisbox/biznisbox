@@ -128,4 +128,5 @@ return [
     'vat_number_not_valid' => 'O número VAT não é válido',
     'vat_number_validated_successfully' => 'Número VAT validado com sucesso',
     'archive_document_auto_generated' => 'Arquivar documento gerado automaticamente com sucesso',
+    'already_accepted_rejected' => 'O orçamento já foi aceito ou rejeitado',
 ];
