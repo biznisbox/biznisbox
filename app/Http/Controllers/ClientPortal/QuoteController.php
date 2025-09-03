@@ -54,4 +54,24 @@ class QuoteController extends Controller
 
         return api_response($quote, __('responses.data_retrieved_successfully'));
     }
+
+    /**
+     * Accept or reject a quote
+     *
+     * @param  string $quoteId Quote UUID
+     * @param  string $action  Action to perform (accept/reject)
+     * @return Quote $quote Quote
+     * @authenticated
+     */
+    public function acceptRejectQuote(Request $request, $quoteId)
+    {
+        $action = $request->input('action');
+        $quote = $this->quoteService->acceptRejectQuote($quoteId, $action);
+
+        if (!$quote) {
+            return api_response(null, __('responses.item_not_found'), 404);
+        }
+
+        return api_response($quote, __('responses.data_retrieved_successfully'));
+    }
 }

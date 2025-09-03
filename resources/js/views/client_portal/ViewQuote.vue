@@ -1,6 +1,41 @@
 <template>
     <DefaultLayout menu_type="client">
-        <PageHeader :title="quote.number" />
+        <PageHeader :title="quote.number">
+            <template #actions>
+                <Button
+                    id="download_button"
+                    :label="$t('basic.download')"
+                    icon="fa fa-download"
+                    severity="secondary"
+                    @click="downloadQuote"
+                />
+
+                <div
+                    v-if="
+                        quote.status !== 'accepted' &&
+                        quote.status !== 'rejected' &&
+                        quote.status !== 'expired' &&
+                        quote.status !== 'cancelled'
+                    "
+                >
+                    <Button
+                        id="accept_button"
+                        :label="$t('basic.accept')"
+                        icon="fa fa-check"
+                        severity="success"
+                        @click="acceptRejectQuote('accept')"
+                    />
+
+                    <Button
+                        id="reject_button"
+                        :label="$t('basic.reject')"
+                        icon="fa fa-times"
+                        severity="danger"
+                        @click="acceptRejectQuote('reject')"
+                    />
+                </div>
+            </template>
+        </PageHeader>
         <LoadingScreen :blocked="loadingData">
             <div class="card">
                 <div id="payer_customer_data" class="grid mt-5 lg:grid-cols-2 grid-cols-1">
@@ -210,6 +245,16 @@ export default {
         getQuoteById(id) {
             this.makeHttpRequest('GET', '/api/client-portal/quotes/' + id).then((response) => {
                 this.quote = response.data.data
+            })
+        },
+
+        downloadQuote() {
+            window.open(this.quote.download, '_blank')
+        },
+
+        acceptRejectQuote(action) {
+            this.makeHttpRequest('POST', '/api/client-portal/quotes/' + this.quote.id + '/accept-reject', { action }).then((response) => {
+                this.getQuoteById(this.quote.id)
             })
         },
     },

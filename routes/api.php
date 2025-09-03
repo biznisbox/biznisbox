@@ -386,6 +386,9 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/invoices', [ClientPortalInvoiceController::class, 'getInvoices'])->name('getClientPortalInvoices');
         Route::get('/invoices/{id}', [ClientPortalInvoiceController::class, 'getInvoiceById'])->name('getClientPortalInvoice');
         Route::get('/quotes', [ClientPortalQuoteController::class, 'getQuotes'])->name('getClientPortalQuotes');
+        Route::post('/quotes/{id}/accept-reject', [ClientPortalQuoteController::class, 'acceptRejectQuote'])->name(
+            'clientPortalAcceptRejectQuote',
+        );
         Route::get('/quotes/{id}', [ClientPortalQuoteController::class, 'getQuoteById'])->name('getClientPortalQuote');
         Route::get('/partner-details', [ClientPortalPartnerController::class, 'getPartnerDetails'])->name('getClientPortalPartnerDetails');
         Route::get('/contracts', [ClientPortalContractController::class, 'getContracts'])->name('getClientPortalContracts');

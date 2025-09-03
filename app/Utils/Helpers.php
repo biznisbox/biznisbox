@@ -19,6 +19,11 @@ if (!function_exists('api_response')) {
      */
     function api_response($data = null, $message = '', $status_code = 200)
     {
+        if (!is_object($data) && !empty($data['error'])) {
+            $message = $data['error'];
+            $status_code = 400;
+        }
+
         return response()->json(
             [
                 'data' => $data,
