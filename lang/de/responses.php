@@ -128,4 +128,5 @@ return [
     'vat_number_not_valid' => 'USt-IdNr. ist ungültig',
     'vat_number_validated_successfully' => 'USt-IdNr. erfolgreich bestätigt',
     'archive_document_auto_generated' => 'Automatisch generiertes Dokument archivieren',
+    'already_accepted_rejected' => 'Angebot wurde bereits angenommen oder abgelehnt',
 ];
