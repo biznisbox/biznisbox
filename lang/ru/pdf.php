@@ -82,4 +82,5 @@ return [
         'waiting_signature' => 'Ожидание подписи',
     ],
     'no_payment_method' => 'Нет метода оплаты',
+    'tax_amount' => 'Сумма налога',
 ];

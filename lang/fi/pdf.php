@@ -82,4 +82,5 @@ return [
         'waiting_signature' => 'Odotetaan Allekirjoitusta',
     ],
     'no_payment_method' => 'Ei Maksutapaa',
+    'tax_amount' => 'Veron Määrä',
 ];

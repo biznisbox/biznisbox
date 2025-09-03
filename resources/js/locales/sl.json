@@ -1,7 +1,7 @@
 {
     "auth": {
         "login": "Prijava",
-        "email": "E-pošta",
+        "email": "E-poštni naslov",
         "password": "Geslo",
         "password_confirmation": "Potrditev gesla",
         "remember_me": "Zapomni si me",
@@ -130,7 +130,8 @@
         "system": "Sistem",
         "add_signer": "Dodaj podpisnika",
         "click_for_download": "Klikni za prenos",
-        "sign": "Podpiši"
+        "sign": "Podpiši",
+        "import": "Uvozi"
     },
     "audit_log": {
         "audit_log": "Revizijski dnevnik",
@@ -419,7 +420,9 @@
         "module": "Modul",
         "parent_category": "Nadrejena kategorija",
         "icon": "Ikona",
-        "additional_info": "Dodatne informacije"
+        "additional_info": "Dodatne informacije",
+        "client_portal": "Portal strank",
+        "type_of_contract_sign": "Type of Contract Sign"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -523,6 +526,11 @@
         "percent": "Procent",
         "fixed": "Fiksen"
     },
+    "contract_sign_types": {
+        "electronic": "Electronic",
+        "digital_signature": "Digital Signature",
+        "paper": "Paper"
+    },
     "login_history": {
         "login_history": "Zgodovina prijav",
         "login_time": "Čas prijave",
@@ -555,7 +563,9 @@
         "activities": "Aktivnosti",
         "edit_activity": "Uredi aktivnost",
         "partner_activities": "Partnerjeve aktivnosti",
-        "send_email": "Pošlji sporočilo"
+        "send_email": "Pošlji sporočilo",
+        "add_to_client_portal": "Dodaj v portal strank",
+        "vat_number_required": "VAT number is required"
     },
     "partner_activity_types": {
         "call": "Klic",
@@ -1090,7 +1100,10 @@
             "default_time_format": "Privzeti format časa",
             "default_datetime_format": "Privzeti format datuma in časa",
             "show_barcode_on_documents": "Prikaži črtno kodo na dokumentih",
-            "week_start": "Dan začetka tedna"
+            "week_start": "Dan začetka tedna",
+            "exchange_rate_provider": "Ponudnik menjalnega tečaja",
+            "save_document_into_archive": "Save Document into Archive",
+            "save_document_into_archive_description": "If enabled, documents will be saved into the archive (invoices, quotes, bills, contracts)."
         },
         "taxes": {
             "title": "Davčne stopnje",
@@ -1102,7 +1115,9 @@
             "name": "Naziv",
             "value": "Vrednost",
             "description": "Opis",
-            "delete_confirm_tax": "Ali ste prepričani, da želite izbrisati davčno stopnjo?"
+            "delete_confirm_tax": "Ali ste prepričani, da želite izbrisati davčno stopnjo?",
+            "import_tax": "Uvozi davčne stopnje",
+            "import_tax_description": "Davčne stopnje lahko uvozite iz javnih podatkovnih virov. Podatki bodo pridobljeni s seznama DDV EU. Morda niso povsem posodobljeni ali točni. Prosimo, dvakrat preverite uvožene podatke."
         },
         "role": {
             "title": "Vloge",
@@ -1205,7 +1220,9 @@
             "no_transaction_categories": "Kategorije transakcij niso najdene",
             "no_contract_types": "Ni najdenih tipov pogodb",
             "delete_category_ask": "Ali ste prepričani, da želite izbrisati ta element šifrantov?",
-            "delete_category_success": "Element šifranta je bil uspešno izbrisan"
+            "delete_category_success": "Element šifranta je bil uspešno izbrisan",
+            "product_categories": "Kategorije izdelkov",
+            "no_product_categories": "Kategorije izdelkov niso najdene"
         }
     },
     "month": {
@@ -1569,5 +1586,23 @@
         "finish_installation_description": "Namestitev je končana. Zdaj se lahko prijavite v vaš račun.",
         "go_to_login": "Pojdite na prijavo",
         "installation": "Namestitev"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Nadzorna plošča",
+            "invoices": "Izdani računi",
+            "quotes": "Ponudbe",
+            "transactions": "Transakcije",
+            "support": "Podpora",
+            "contracts": "Pogodbe",
+            "partner_details": "Podrobnosti partnerja"
+        },
+        "partner_details": "Podrobnosti partnerja",
+        "dashboard": "Nadzorna plošča",
+        "number_of_contracts": "Število pogodb",
+        "number_of_unpaid_invoices": "Število neplačanih računov",
+        "number_of_quotes": "Število ponudb",
+        "number_of_bills": "Število prejetih računov",
+        "number_of_support_tickets": "Število podpornih zahtevkov"
     }
 }

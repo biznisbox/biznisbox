@@ -82,4 +82,5 @@ return [
         'waiting_signature' => 'Firma In Attesa',
     ],
     'no_payment_method' => 'Nessun Metodo Di Pagamento',
+    'tax_amount' => 'Importo Fiscale',
 ];
