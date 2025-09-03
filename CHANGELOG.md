@@ -1,3 +1,20 @@
+# 2.13.0
+
+## ✨ New Features & Enhancements
+
+- Change email sending to use queued jobs for improved performance.
+- Change saving mail settings to use the database instead of .env file.
+- Add accept-reject feature for quotes in client portal.
+- Improve dashboard elements with new UI components.
+
+## 🐛 Bug Fixes
+
+- Fixed issue with docker container accepting bigger files for uploads.
+
+## 🧑‍💻 Development Updates
+
+- Improved code quality and maintainability by refactoring code structure.
+
 # 2.12.0
 
 ## ✨ New Features & Enhancements
