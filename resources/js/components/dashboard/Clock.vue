@@ -1,10 +1,5 @@
 <template>
-    <div class="card p-4">
-        <span class="my-2 block">
-            {{ $t('dashboard.current_time') }}
-        </span>
-        <span> <i class="fas fa-clock"></i> {{ currentTime }} </span>
-    </div>
+    <DashboardCardWithIcon :iconClass="'fas fa-clock'" :dashboardTitle="$t('dashboard.current_time')" :dashboardData="currentTime" />
 </template>
 <script>
 export default {

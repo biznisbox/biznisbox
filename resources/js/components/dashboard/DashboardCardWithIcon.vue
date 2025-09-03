@@ -22,7 +22,7 @@ export default {
     name: 'DashboardCardWithIcon',
     props: {
         dashboardData: {
-            type: Number,
+            type: [Number, String],
             required: true,
         },
         dashboardTitle: {

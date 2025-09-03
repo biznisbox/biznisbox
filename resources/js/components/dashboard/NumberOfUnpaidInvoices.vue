@@ -1,10 +1,10 @@
 <template>
-    <div class="card p-4" v-if="hasPermission('invoices')">
-        <span class="my-2 block">
-            {{ $t('dashboard.number_of_unpaid_invoices') }}
-        </span>
-        <span> <i class="fas fa-file-invoice"></i> {{ totalUnpaidInvoices }} </span>
-    </div>
+    <DashboardCardWithIcon
+        v-if="hasPermission('invoices')"
+        :iconClass="'fas fa-file-invoice'"
+        :dashboardTitle="$t('dashboard.number_of_unpaid_invoices')"
+        :dashboardData="totalUnpaidInvoices"
+    />
 </template>
 <script>
 export default {

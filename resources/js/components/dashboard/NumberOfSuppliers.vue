@@ -1,10 +1,10 @@
 <template>
-    <div class="card p-4">
-        <span class="my-2 block">
-            {{ $t('dashboard.number_of_suppliers') }}
-        </span>
-        <span> <i class="fas fa-building"></i> {{ totalSuppliers }} </span>
-    </div>
+    <DashboardCardWithIcon
+        v-if="hasPermission('partners')"
+        :iconClass="'fas fa-building'"
+        :dashboardTitle="$t('dashboard.number_of_suppliers')"
+        :dashboardData="totalSuppliers"
+    />
 </template>
 <script>
 export default {
