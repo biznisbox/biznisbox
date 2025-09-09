@@ -4,6 +4,7 @@ namespace App\Services\ClientPortal;
 
 use App\Models\Partner;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class DashboardService
 {
@@ -30,6 +31,8 @@ class DashboardService
         $numberOfBills = DB::table('bills')->where('supplier_id', $partner_id)->count();
 
         $numberOfQuotes = DB::table('quotes')->where('payer_id', $partner_id)->orWhere('customer_id', $partner_id)->count();
+
+        createActivityLog('retrieve', null, null, 'DashboardData', auth()->id(), User::$modelName, 'client_portal');
 
         return [
             'unpaid_invoices' => $unpaidInvoices,

@@ -19,7 +19,9 @@ class CheckIfInstalled
             return api_response(
                 [
                     'message' => __('responses.app_installed'),
+                    'status' => 'error',
                 ],
+                 __('responses.app_installed'),
                 400,
             );
         }

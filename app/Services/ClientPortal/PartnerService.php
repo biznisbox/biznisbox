@@ -3,6 +3,7 @@
 namespace App\Services\ClientPortal;
 
 use App\Models\Partner;
+use App\Models\User;
 
 class PartnerService
 {
@@ -15,7 +16,7 @@ class PartnerService
             ->first()
             ?->makeHidden(['notes', 'contacts.notes', 'addresses.notes']); // remove notes
 
-        createActivityLog('retrieve', $partnerId, Partner::$modelName, 'Partner', auth()->id(), 'App\Models\User', 'client_portal');
+        createActivityLog('retrieve', $partnerId, Partner::$modelName, 'Partner', auth()->id(), User::$modelName, 'client_portal');
 
         return $partnerData;
     }
