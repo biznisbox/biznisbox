@@ -173,6 +173,7 @@
         "internal": "İç",
         "external": "Dış",
         "external_key": "Harici anahtar",
+        "client_portal": "Client portal",
         "system": "Sistem"
     },
     "user_nav_menu": {
