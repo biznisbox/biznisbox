@@ -173,6 +173,7 @@
         "internal": "Intern",
         "external": "Ekstern",
         "external_key": "Ekstern nøkkel",
+        "client_portal": "Klient portal",
         "system": "Systemadministrasjon"
     },
     "user_nav_menu": {
