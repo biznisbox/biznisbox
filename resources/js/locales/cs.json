@@ -173,6 +173,7 @@
         "internal": "Interní",
         "external": "Externí",
         "external_key": "Externí klíč",
+        "client_portal": "Portál klienta",
         "system": "Systém"
     },
     "user_nav_menu": {
