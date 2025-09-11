@@ -173,6 +173,7 @@
         "internal": "Internal",
         "external": "External",
         "external_key": "Külső kulcs",
+        "client_portal": "Client portal",
         "system": "System"
     },
     "user_nav_menu": {
