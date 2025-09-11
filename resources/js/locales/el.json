@@ -173,6 +173,7 @@
         "internal": "Εσωτερική",
         "external": "Εξωτερικό",
         "external_key": "Εξωτερικό κλειδί",
+        "client_portal": "Πύλη πελάτη",
         "system": "Σύστημα"
     },
     "user_nav_menu": {
