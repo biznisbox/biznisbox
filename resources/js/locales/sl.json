@@ -173,6 +173,7 @@
         "internal": "Notranji",
         "external": "Zunanji",
         "external_key": "Zunanji ključ",
+        "client_portal": "Client portal",
         "system": "Sistem"
     },
     "user_nav_menu": {
