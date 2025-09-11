@@ -173,6 +173,7 @@
         "internal": "interno",
         "external": "externo",
         "external_key": "Chave externa",
+        "client_portal": "Portal do Cliente",
         "system": "SISTEMA"
     },
     "user_nav_menu": {
