@@ -173,6 +173,7 @@
         "internal": "Intern",
         "external": "Extern",
         "external_key": "Externe sleutel",
+        "client_portal": "Portaal klant",
         "system": "Systeem"
     },
     "user_nav_menu": {
