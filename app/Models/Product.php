@@ -201,9 +201,9 @@ class Product extends Model implements Auditable
      * Function for get public products
      * @return void Return public products
      */
-    public function getPublicProducts()
+    public static function getPublicProducts()
     {
-        $products = $this->where('active', true)->get([
+        $products = self::where('active', true)->get([
             'id',
             'number',
             'name',

@@ -295,8 +295,7 @@ class InvoiceService
             );
 
             setEmailConfig();
-
-            Mail::to($contact->email, $contact->name)->queue(new InvoiceNotification($invoice, $url, $contact));
+            Mail::to($contact->email, $contact->name)->send(new InvoiceNotification($invoice, $url, $contact));
             return true;
         } else {
             $contacts = PartnerContact::where('partner_id', $invoice->customer_id)
@@ -317,7 +316,7 @@ class InvoiceService
 
                 setEmailConfig();
 
-                Mail::to($contact->email, $contact->name)->queue(new InvoiceNotification($invoice, $url, $contact));
+                Mail::to($contact->email, $contact->name)->send(new InvoiceNotification($invoice, $url, $contact));
             }
         }
 

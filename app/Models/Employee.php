@@ -118,9 +118,9 @@ class Employee extends Model implements Auditable
         return generateNextNumber(settings('employee_number_format'), 'employee');
     }
 
-    public function getPublicEmployees()
+    public static function getPublicEmployees()
     {
-        $employees = $this->select('id', 'first_name', 'last_name', 'email', 'phone_number')->get();
+        $employees = self::select('id', 'first_name', 'last_name', 'email', 'phone_number')->get();
         foreach ($employees as $employee) {
             $employee->label = $employee->first_name . ' ' . $employee->last_name . ' (' . $employee->email . ')';
         }

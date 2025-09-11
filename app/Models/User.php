@@ -130,9 +130,9 @@ class User extends Authenticatable implements JWTSubject, Auditable
     /**
      * Get public users.
      */
-    public function getPublicUsers()
+    public static function getPublicUsers()
     {
-        $users = $this->where('active', true)->get(['id', 'first_name', 'last_name', 'email', 'picture', 'language', 'timezone']);
+        $users = self::where('active', true)->get(['id', 'first_name', 'last_name', 'email', 'picture', 'language', 'timezone']);
         createActivityLog('retrievePublic', null, User::$modelName, 'User');
         return $users;
     }
@@ -318,7 +318,7 @@ class User extends Authenticatable implements JWTSubject, Auditable
         if ($user) {
             foreach ($recipient as $email) {
                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    Mail::to($email)->queue(new UserDetails($user, $password));
+                    Mail::to($email)->send(new UserDetails($user, $password));
                 }
             }
             return true;

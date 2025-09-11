@@ -60,9 +60,9 @@ class Department extends Model implements Auditable
         return $departments;
     }
 
-    public function getPublicDepartments()
+    public static function getPublicDepartments()
     {
-        $departments = $this->select(['id', 'name', 'description', 'type'])->get();
+        $departments = self::select(['id', 'name', 'description', 'type'])->get();
         createActivityLog('retrievePublic', null, Department::$modelName, 'Department');
         return $departments;
     }

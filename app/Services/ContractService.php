@@ -236,7 +236,7 @@ class ContractService
 
         if ($data) {
             if ($data['type'] == 'email') {
-                Mail::to($data['email'])->queue(new \App\Mail\Client\ContractNotification($contract, $url, null));
+                Mail::to($data['email'])->send(new ContractNotification($contract, $url, null));
             }
         }
 
@@ -269,7 +269,7 @@ class ContractService
                 createNotification($signer->user_id, 'ContractForSign', 'NewContractForSign', 'info', 'Sign', $local_url);
             }
             setEmailConfig();
-            Mail::to($signer->signer_email, $signer->signer_name)->queue(new ContractNotification($contract, $url, $signer));
+            Mail::to($signer->signer_email, $signer->signer_name)->send(new ContractNotification($contract, $url, $signer));
         }
         return $contract;
     }

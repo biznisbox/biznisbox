@@ -7,6 +7,7 @@ use App\Models\ActivityLog;
 use App\Models\Tax;
 use App\Models\Unit;
 use App\Models\Category;
+use App\Models\Currency;
 use App\Utils\JwtBlackList;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -26,36 +27,27 @@ class DataService
 
     public function getPublicEmployees()
     {
-        $employees = new \App\Models\Employee();
-        $employees = $employees->getPublicEmployees();
-        return $employees;
+        return \App\Models\Employee::getPublicEmployees();
     }
 
     public function getPublicUsers()
     {
-        $users = new \App\Models\User();
-        $users = $users->getPublicUsers();
-        return $users;
+        return \App\Models\User::getPublicUsers();
     }
 
     public function getDepartments()
     {
-        $departments = new \App\Models\Department();
-        $departments = $departments->getPublicDepartments();
-        return $departments;
+        return \App\Models\Department::getPublicDepartments();
     }
 
     public function getProducts()
     {
-        $products = new \App\Models\Product();
-        $products = $products->getPublicProducts();
-        return $products;
+        return \App\Models\Product::getPublicProducts();
     }
 
     public function getAvailableLocales()
     {
-        $locales = config('app.available_locales');
-        return $locales;
+        return config('app.available_locales');
     }
 
     public function getLogs($item_id, $item_type)
@@ -72,13 +64,13 @@ class DataService
             ->orderBy('id', 'desc')
             ->get();
 
+        createActivityLog('retrieveLogs', $item_id, 'App\Models\\' . $item_type, $item_type);
         return $logs;
     }
 
     public function getCurrencies()
     {
-        $currencies = new \App\Models\Currency();
-        $currencies = $currencies
+        $currencies = \App\Models\Currency::query()
             ->where('status', 'active')
             ->get([
                 'id',
@@ -92,6 +84,7 @@ class DataService
                 'number_of_decimal',
                 'placement',
             ]);
+        createActivityLog('retrieve', null, Currency::$modelName, 'Currency');
         return $currencies;
     }
 
@@ -144,6 +137,7 @@ class DataService
     /****************************************
      * Dashboard related functions
      ****************************************/
+
     public function getDashboardLayout($type = 'user')
     {
         $dashboard_layout = DB::table('dashboard')
@@ -246,8 +240,7 @@ class DataService
     public function getPersonalAccessTokens()
     {
         $personalAccessToken = new \App\Models\PersonalAccessToken();
-        $userId = auth()->id();
-        $personalAccessToken = $personalAccessToken->getPersonalAccessTokens($userId);
+        $personalAccessToken = $personalAccessToken->getPersonalAccessTokens(auth()->id());
         return $personalAccessToken;
     }
 
@@ -298,7 +291,7 @@ class DataService
         $personalAccessToken = $personalAccessToken->create($data);
 
         setEmailConfig();
-        Mail::to($user->email, $user->first_name . ' ' . $user->last_name)->queue(
+        Mail::to($user->email, $user->first_name . ' ' . $user->last_name)->send(
             new PersonalAccessTokenCreated($user, $personalAccessToken),
         );
         return $token;

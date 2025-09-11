@@ -125,7 +125,7 @@ class QuoteService
 
             setEmailConfig();
 
-            Mail::to($contact->email, $contact->name)->queue(new QuoteNotification($quote, $url, $contact));
+            Mail::to($contact->email, $contact->name)->send(new QuoteNotification($quote, $url, $contact));
             return true;
         } else {
             $contacts = PartnerContact::where('partner_id', $quote->customer_id)
@@ -146,7 +146,7 @@ class QuoteService
 
                 setEmailConfig();
 
-                Mail::to($contact->email, $contact->name)->queue(new QuoteNotification($quote, $url, $contact));
+                Mail::to($contact->email, $contact->name)->send(new QuoteNotification($quote, $url, $contact));
             }
         }
         if ($quote->status != 'accepted' && $quote->status != 'converted' && $quote->status != 'sent' && $quote->status != 'rejected') {

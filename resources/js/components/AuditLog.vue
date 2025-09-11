@@ -49,6 +49,7 @@
                 <Tag v-if="data.type === 'internal'" :value="$t('audit_log_type.internal')" severity="info" />
                 <Tag v-else-if="data.type === 'external'" :value="$t('audit_log_type.external')" severity="warning" />
                 <Tag v-else-if="data.type === 'system'" :value="$t('audit_log_type.system')" severity="success" />
+                <Tag v-else-if="data.type === 'client_portal'" :value="$t('audit_log_type.client_portal')" severity="warning" />
                 <Tag v-else-if="data.type === 'external_key'" :value="$t('audit_log_type.external_key')" severity="danger" />
                 <Tag v-else :value="data.type" />
             </template>

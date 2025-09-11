@@ -25,7 +25,15 @@ class SupportTicketService
             ->where('partner_id', $partner_id)
             ->first();
 
-        createActivityLog('retrieve', $ticketId, SupportTicket::$modelName, 'Support Ticket', auth()->id(), User::$modelName, 'client_portal');
+        createActivityLog(
+            'retrieve',
+            $ticketId,
+            SupportTicket::$modelName,
+            'Support Ticket',
+            auth()->id(),
+            User::$modelName,
+            'client_portal',
+        );
         return $ticket;
     }
 }

@@ -21,7 +21,7 @@ class CheckIfInstalled
                     'message' => __('responses.app_installed'),
                     'status' => 'error',
                 ],
-                 __('responses.app_installed'),
+                __('responses.app_installed'),
                 400,
             );
         }

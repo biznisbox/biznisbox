@@ -41,7 +41,12 @@
 
                 <Column field="status" :header="$t('form.status')">
                     <template #body="{ data }">
-                        <Tag :value="$t(`status.${data.status}`)" />
+                        <Tag v-if="data.status === 'pending'" :value="$t('status.pending')" severity="info" />
+                        <Tag v-else-if="data.status === 'paid'" :value="$t('status.paid')" severity="success" />
+                        <Tag v-else-if="data.status === 'failed'" :value="$t('status.failed')" severity="danger" />
+                        <Tag v-else-if="data.status === 'canceled'" :value="$t('status.canceled')" severity="info" />
+                        <Tag v-else-if="data.status === 'refunded'" :value="$t('status.refunded')" severity="secondary" />
+                        <Tag v-else :value="$t(`status.${data.status}`)" />
                     </template>
                 </Column>
 
