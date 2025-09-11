@@ -173,6 +173,7 @@
         "internal": "Intern",
         "external": "Extern",
         "external_key": "Extern nyckel",
+        "client_portal": "Kundportal",
         "system": "System"
     },
     "user_nav_menu": {
