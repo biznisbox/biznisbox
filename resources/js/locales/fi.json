@@ -173,6 +173,7 @@
         "internal": "Sisäinen",
         "external": "Ulkoinen",
         "external_key": "Ulkoinen avain",
+        "client_portal": "Asiakkaan portaali",
         "system": "Järjestelmä"
     },
     "user_nav_menu": {
