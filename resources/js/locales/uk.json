@@ -173,6 +173,7 @@
         "internal": "Внутрішній",
         "external": "Зовнішній",
         "external_key": "Зовнішній ключ",
+        "client_portal": "Портал клієнта",
         "system": "Система"
     },
     "user_nav_menu": {
