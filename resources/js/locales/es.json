@@ -497,6 +497,7 @@
         "credit_card": "Tarjeta de pago",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Base de monedas",
         "other": "Otro"
     },
     "support_priority": {
@@ -664,7 +665,8 @@
         "no_sales_person": "No hay vendedores",
         "no_payment_method": "Sin método de pago",
         "click_for_pay_with_paypal": "Haga clic aquí para pagar con PayPal",
-        "click_for_pay": "Haga clic aquí para pagar"
+        "click_for_pay": "Haga clic aquí para pagar",
+        "click_for_pay_with_coinbase": "Haga clic aquí para pagar con criptografía"
     },
     "quote": {
         "quote": "Cotización | Citas",
@@ -1030,7 +1032,12 @@
             "open_banking_client_id": "Abrir ID de Cliente de Banca",
             "open_banking_secret": "Open Banking secret",
             "open_banking_help": "Usted puede encontrar su ID de cliente y secreto en su cuenta de Nordigen.",
-            "online_payments": "Pagos en línea"
+            "online_payments": "Pagos en línea",
+            "coinbase": "Base de monedas",
+            "coinbase_available": "Base de monedas disponible",
+            "coinbase_api_key": "Clave API Coinbase",
+            "coinbase_api_key_help": "Puede encontrar su clave API en su cuenta de comercio de Coinbase.",
+            "coinbase_account_id": "ID de cuenta interna de Coinbase"
         },
         "status": {
             "title": "Página de estado",
