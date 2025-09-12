@@ -129,4 +129,5 @@ return [
     'vat_number_validated_successfully' => 'USt-IdNr. erfolgreich bestätigt',
     'archive_document_auto_generated' => 'Automatisch generiertes Dokument archivieren',
     'already_accepted_rejected' => 'Angebot wurde bereits angenommen oder abgelehnt',
+    'payment_gateway_not_supported' => 'Zahlungs-Gateway nicht unterstützt',
 ];
