@@ -382,17 +382,26 @@ Route::middleware('auth:api')->group(function () {
 
     // Client Portal
     Route::group(['prefix' => 'client-portal'], function () {
+        // Dashboard
         Route::get('/dashboard', [ClientPortalDashboardController::class, 'getDashboardData'])->name('getClientPortalDashboardData');
+        // Invoices
         Route::get('/invoices', [ClientPortalInvoiceController::class, 'getInvoices'])->name('getClientPortalInvoices');
         Route::get('/invoices/{id}', [ClientPortalInvoiceController::class, 'getInvoiceById'])->name('getClientPortalInvoice');
+        // Quotes
         Route::get('/quotes', [ClientPortalQuoteController::class, 'getQuotes'])->name('getClientPortalQuotes');
         Route::post('/quotes/{id}/accept-reject', [ClientPortalQuoteController::class, 'acceptRejectQuote'])->name(
             'clientPortalAcceptRejectQuote',
         );
         Route::get('/quotes/{id}', [ClientPortalQuoteController::class, 'getQuoteById'])->name('getClientPortalQuote');
+        // Partner details
         Route::get('/partner-details', [ClientPortalPartnerController::class, 'getPartnerDetails'])->name('getClientPortalPartnerDetails');
+        // Contracts
         Route::get('/contracts', [ClientPortalContractController::class, 'getContracts'])->name('getClientPortalContracts');
         Route::get('/contracts/{id}', [ClientPortalContractController::class, 'getContract'])->name('getClientPortalContract');
+        // Online Payments
+        Route::post('/online-payment/invoice/{paymentGateway}', [ClientPortalInvoiceController::class, 'payInvoiceByGateway'])->name(
+            'clientPortalPayInvoiceByGateway',
+        );
     });
 });
 
@@ -407,15 +416,20 @@ Route::group(['prefix' => 'client'], function () {
     Route::post('/contract/sign', [ClientContractController::class, 'signContract'])->name('clientSignContract');
 });
 
-// Payment routes
-Route::post('/online-payment/invoice/stripe', [ClientInvoiceController::class, 'payInvoiceStripe'])->name('clientPayInvoiceStripe');
-Route::get('/online-payment/invoice/stripe', [ClientInvoiceController::class, 'validateInvoiceStripePayment'])->name(
-    'validateStripePayment',
+// Payment routes (need to be outside the auth:api middleware)
+Route::get('/online-payment/invoice/{paymentGateway}', [ClientInvoiceController::class, 'validateInvoicePaymentByGateway'])->name(
+    'validateInvoicePaymentByGateway',
 );
-Route::post('/online-payment/invoice/paypal', [ClientInvoiceController::class, 'payInvoicePayPal'])->name('clientPayInvoicePayPal');
-Route::get('/online-payment/invoice/paypal', [ClientInvoiceController::class, 'validateInvoicePayPalPayment'])->name(
-    'validatePayPalPayment',
+
+Route::post('/online-payment/invoice/{paymentGateway}', [ClientInvoiceController::class, 'payInvoiceByGateway'])->name(
+    'clientPayInvoiceByGateway',
 );
+
+// Client Portal Payment routes (need to be outside the auth:api middleware)
+Route::get('/client-portal/online-payment/invoice/{paymentGateway}', [
+    ClientPortalInvoiceController::class,
+    'validateInvoicePaymentByGateway',
+])->name('clientPortalValidateInvoicePaymentByGateway');
 
 // Installation routes
 Route::get('/install/check-app-installed', [InstallerController::class, 'checkAppInstalled'])->name('checkAppInstalled');

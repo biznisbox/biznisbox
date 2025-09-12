@@ -121,9 +121,9 @@ class ExternalKey extends Model implements Auditable
      * @param string $module
      * @return object|bool
      */
-    public function getExternalKey($key, $module)
+    public static function getExternalKey($key, $module)
     {
-        $external_key = $this->where('key', $key)->where('module', $module)->first();
+        $external_key = self::where('key', $key)->where('module', $module)->first();
         createActivityLog('retrieve', $external_key->id, ExternalKey::$modelName, 'ExternalKey');
 
         if ($external_key) {

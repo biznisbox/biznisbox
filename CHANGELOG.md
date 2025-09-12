@@ -1,3 +1,18 @@
+# 2.14.0
+
+## ✨ New Features & Enhancements
+
+- Added a new feature for paying invoices via client portal using Stripe and PayPal.
+
+## 🐛 Bug Fixes
+
+- Fixed an issue with sending emails when using the queue system (mails are send on the moment, not in the background).
+
+## 🧑‍💻 Development Updates
+
+- Improved code quality and maintainability by refactoring code structure.
+- Refactored the payment gateway integrations for better reliability and options for future enhancements.
+
 # 2.13.0
 
 ## ✨ New Features & Enhancements

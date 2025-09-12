@@ -28,7 +28,7 @@
                                 v-tooltip:top="$t('invoice.click_for_pay')"
                                 class="mr-2 no-print"
                                 icon="fa fa-credit-card"
-                                @click="payWithCard"
+                                @click="payInvoiceWithGateway('stripe')"
                             />
                             <Button
                                 v-if="$settings.paypal_available && invoice.status != 'paid' && invoice.status != 'overpaid'"
@@ -36,7 +36,7 @@
                                 v-tooltip:top="$t('invoice.click_for_pay_with_paypal')"
                                 class="mr-2 no-print"
                                 icon="fab fa-paypal"
-                                @click="payWithPaypal"
+                                @click="payInvoiceWithGateway('paypal')"
                             />
 
                             <Button
@@ -338,22 +338,18 @@ export default {
             window.open(this.invoice.download, '_blank')
         },
 
-        payWithCard() {
-            this.makeHttpRequest('POST', '/api/online-payment/invoice/stripe', { key: this.$route.query.key }, null, null, false).then(
-                (response) => {
-                    this.$cookies.set('payment_id', response.data.data.payment_id, '1h')
-                    window.open(response.data.data.redirect_url, '_blank')
-                }
-            )
-        },
-
-        payWithPaypal() {
-            this.makeHttpRequest('POST', '/api/online-payment/invoice/paypal', { key: this.$route.query.key }, null, null, false).then(
-                (response) => {
-                    this.$cookies.set('payment_id', response.data.data.payment_id, '1h')
-                    window.open(response.data.data.redirect_url, '_blank')
-                }
-            )
+        payInvoiceWithGateway(paymentGateway) {
+            this.makeHttpRequest(
+                'POST',
+                `/api/client/online-payment/invoice/${paymentGateway}`,
+                { key: this.$route.query.key },
+                null,
+                null,
+                false
+            ).then((response) => {
+                this.$cookies.set('payment_id', response.data.data.payment_id, '1h')
+                window.open(response.data.data.redirect_url, '_blank')
+            })
         },
     },
 }

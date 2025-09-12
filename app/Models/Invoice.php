@@ -145,9 +145,9 @@ class Invoice extends Model implements Auditable
      * @param boolean $log - log activity
      * @return JSON invoice
      */
-    public function getClientInvoice($id, $log = false)
+    public static function getClientInvoice($id, $log = false)
     {
-        $invoice = $this->with('items', 'transactions', 'paymentMethod', 'salesPerson:id,first_name,last_name,email')->find($id);
+        $invoice = self::with('items', 'transactions', 'paymentMethod', 'salesPerson:id,first_name,last_name,email')->find($id);
         unset($invoice->notes);
         if ($log === true) {
             createActivityLog('retrieve', $id, Invoice::$modelName, 'Invoice');

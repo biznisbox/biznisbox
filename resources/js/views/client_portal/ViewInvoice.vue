@@ -1,8 +1,43 @@
 <template>
     <DefaultLayout menu_type="client">
         <LoadingScreen :blocked="loadingData">
-            <PageHeader :title="invoice.number" />
+            <PageHeader :title="invoice.number">
+                <template #actions>
+                    <Button
+                        v-if="$settings.stripe_available && invoice.status != 'paid' && invoice.status != 'overpaid'"
+                        id="stripe_button"
+                        v-tooltip:top="$t('invoice.click_for_pay')"
+                        class="mr-2 no-print"
+                        icon="fa fa-credit-card"
+                        @click="payInvoiceWithGateway('stripe')"
+                    />
+                    <Button
+                        v-if="$settings.paypal_available && invoice.status != 'paid' && invoice.status != 'overpaid'"
+                        id="paypal_button"
+                        v-tooltip:top="$t('invoice.click_for_pay_with_paypal')"
+                        class="mr-2 no-print"
+                        icon="fab fa-paypal"
+                        @click="payInvoiceWithGateway('paypal')"
+                    />
+                    <Button
+                        v-if="invoice.download"
+                        :label="$t('basic.download')"
+                        icon="fa fa-download"
+                        class="no-print"
+                        @click="downloadFile(invoice.download)"
+                    />
+                </template>
+            </PageHeader>
 
+            <div class="pb-3">
+                <Message v-if="$route.query.status == 'success' && invoice.status == 'paid'" severity="success" closable>
+                    {{ $t('invoice.payment_success') }}
+                </Message>
+
+                <Message v-if="$route.query.status == 'error' && invoice.status != 'paid'" severity="error" closable>
+                    {{ $t('invoice.payment_error') }}
+                </Message>
+            </div>
             <div class="card">
                 <div id="payer_customer_data" class="grid grid-cols-1 lg:grid-cols-2">
                     <div v-if="!loadingData" id="customer_data">
@@ -244,6 +279,23 @@ export default {
             this.makeHttpRequest('GET', `/api/client-portal/invoices/${id}`).then((response) => {
                 this.invoice = response.data.data
             })
+        },
+
+        payInvoiceWithGateway(paymentGateway) {
+            this.makeHttpRequest(
+                'POST',
+                `/api/client-portal/online-payment/invoice/${paymentGateway}`,
+                { invoiceId: this.invoice.id },
+                null,
+                null
+            ).then((response) => {
+                this.$cookies.set('payment_id', response.data.data.payment_id, '1h')
+                window.open(response.data.data.redirect_url, '_blank')
+            })
+        },
+
+        downloadFile(url) {
+            window.open(url, '_blank', 'noopener,noreferrer')
         },
     },
 

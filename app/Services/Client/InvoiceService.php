@@ -5,6 +5,7 @@ namespace App\Services\Client;
 use App\Models\Invoice;
 use App\Models\ExternalKey;
 use App\Services\OnlinePaymentService;
+use App\Models\OnlinePayment;
 
 class InvoiceService
 {
@@ -15,94 +16,64 @@ class InvoiceService
         }
 
         if (validateExternalKey($key, 'invoice')) {
-            $key_data = new ExternalKey();
-            $key_data = $key_data->getExternalKey($key, 'invoice');
-            $invoice = new Invoice();
-            $invoice = $invoice->getClientInvoice($key_data->module_item_id);
-
-            if (!$invoice) {
-                return false;
-            }
-            createActivityLog('retrieve', $invoice->id, 'App\Models\Invoice', 'Invoice', null, null, 'external_key', $key);
+            $key_data = ExternalKey::getExternalKey($key, 'invoice');
+            $invoice = Invoice::getClientInvoice($key_data->module_item_id);
+            createActivityLog('retrieve', $invoice->id, Invoice::$modelName, 'Invoice', null, null, 'external_key', $key);
             return $invoice;
-        } else {
-            return false;
         }
+        return null;
     }
 
-    public function payInvoiceStripe($key)
+    public function payInvoiceByGateway($key, $paymentGateway)
     {
         if (!$key) {
             return [
-                'error' => true,
-                'message' => __('Invalid key'),
+                'error' => __('responses.invalid_key'),
             ];
         }
 
         if (validateExternalKey($key, 'invoice')) {
-            $key_data = new ExternalKey();
-            $key_data = $key_data->getExternalKey($key, 'invoice');
-            $invoice = new Invoice();
-            $invoice = $invoice->getClientInvoice($key_data->module_item_id);
+            $key_data = ExternalKey::getExternalKey($key, 'invoice');
+            $invoice = Invoice::getClientInvoice($key_data->module_item_id);
+
             if (!$invoice || $invoice->status == 'paid') {
                 return [
-                    'error' => true,
-                    'message' => __('Invoice not found or already paid'),
+                    'error' => __('responses.invoice_not_found_or_already_paid'),
                 ];
             }
-            $payment = (new OnlinePaymentService())->payInvoiceWithStripe($invoice, $key);
-            createActivityLog('online_payment_stripe', $invoice->id, 'App\Models\Invoice', 'Invoice', null, null, 'external_key', $key);
+            $payment = (new OnlinePaymentService())->payInvoiceWithGateway($invoice, $paymentGateway, $key);
+            createActivityLog(
+                'onlinePayment_' . strtolower($paymentGateway),
+                $invoice->id,
+                Invoice::$modelName,
+                'Invoice',
+                null,
+                null,
+                'external_key',
+                $key,
+            );
             return $payment;
         }
     }
 
-    public function validateInvoiceStripePayment($payment_id)
+    public function validateInvoicePaymentByGateway($payment_id, $paymentGateway, $payer_id = null)
     {
         if (!$payment_id) {
             return [
-                'error' => true,
-                'message' => __('responses.invalid_payment_id'),
+                'error' => __('responses.invalid_payment_id'),
             ];
         }
-        $payment = (new OnlinePaymentService())->validateInvoiceStripePayment($payment_id);
-        return $payment;
-    }
-
-    public function payInvoicePayPal($key)
-    {
-        if (!$key) {
-            return [
-                'error' => true,
-                'message' => __('responses.invalid_key'),
-            ];
-        }
-
-        if (validateExternalKey($key, 'invoice')) {
-            $key_data = new ExternalKey();
-            $key_data = $key_data->getExternalKey($key, 'invoice');
-            $invoice = new Invoice();
-            $invoice = $invoice->getClientInvoice($key_data->module_item_id);
-            if (!$invoice || $invoice->status == 'paid') {
-                return [
-                    'error' => true,
-                    'message' => __('responses.invoice_not_found_or_already_paid'),
-                ];
-            }
-            $payment = (new OnlinePaymentService())->payInvoiceWithPayPal($invoice, $key);
-            createActivityLog('online_payment_paypal', $invoice->id, 'App\Models\Invoice', 'Invoice', null, null, 'external_key', $key);
-            return $payment;
-        }
-    }
-
-    public function validateInvoicePayPalPayment($paymentId, $payerId)
-    {
-        if (!$paymentId || !$payerId) {
-            return [
-                'error' => true,
-                'message' => __('responses.invalid_payment_id'),
-            ];
-        }
-        $payment = (new OnlinePaymentService())->validateInvoicePayPalPayment($paymentId, $payerId);
+        $payment = (new OnlinePaymentService())->validateInvoicePaymentByGateway($paymentGateway, $payment_id, $payer_id);
+        createActivityLog(
+            'validate_' . strtolower($paymentGateway) . '_payment',
+            $payment['data']->id ?? null,
+            OnlinePayment::$modelName,
+            'OnlinePayment',
+            null,
+            null,
+            'payment_id',
+            $payment_id,
+        );
         return $payment;
     }
 }

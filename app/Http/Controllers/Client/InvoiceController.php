@@ -20,7 +20,6 @@ class InvoiceController extends Controller
     public function __construct(InvoiceService $invoiceService)
     {
         $this->invoiceService = $invoiceService;
-        $this->redirectTo = $this->redirectTo;
     }
 
     /**
@@ -39,33 +38,27 @@ class InvoiceController extends Controller
         return api_response($invoice, __('responses.data_retrieved_successfully'), 200);
     }
 
-    /**
-     * Pay invoice with stripe
-     *
-     * @param  object  $request data from the form (key)
-     * @return array $payment Payment
-     */
-    public function payInvoiceStripe(Request $request)
+    public function payInvoiceByGateway(Request $request, $paymentGateway)
     {
         $key = $request->key;
-        $payment = $this->invoiceService->payInvoiceStripe($key);
-
-        if (isset($payment['error'])) {
-            return api_response(null, $payment['message'], 400);
+        if (!$key) {
+            return api_response(null, __('responses.invalid_key'), 400);
         }
+
+        $payment = $this->invoiceService->payInvoiceByGateway($key, $paymentGateway);
         return api_response($payment);
     }
 
-    /**
-     * Validate invoice stripe payment
-     *
-     * @param  object  $request data from the form (invoice, key, method)
-     * @return array $payment Payment
-     */
-    public function validateInvoiceStripePayment(Request $request)
+    public function validateInvoicePaymentByGateway(Request $request, $paymentGateway)
     {
-        $session_id = $request->cookie('payment_id');
-        $payment = $this->invoiceService->validateInvoiceStripePayment($session_id);
+        $payment_id = $request->paymentId ?? $request->cookie('payment_id'); // for Stripe
+        $payer_id = $request->PayerID; // for PayPal
+
+        if (!$payment_id) {
+            return api_response(null, __('responses.invalid_payment_id'), 400);
+        }
+
+        $payment = $this->invoiceService->validateInvoicePaymentByGateway($payment_id, $paymentGateway, $payer_id);
 
         if ($request->method == 'web' && !isset($payment['error'])) {
             return redirect($this->redirectTo . $request->invoice . '?key=' . $request->key . '&status=success');
@@ -74,47 +67,6 @@ class InvoiceController extends Controller
         if (isset($payment['error']) && $request->method == 'web') {
             return redirect($this->redirectTo . $request->invoice . '?key=' . $request->key . '&status=error');
         }
-        return api_response($payment);
-    }
-
-    /**
-     * Pay invoice with paypal
-     *
-     * @param  object  $request data from the form (key)
-     * @return array $payment Payment
-     */
-    public function payInvoicePayPal(Request $request)
-    {
-        $key = $request->key;
-        $payment = $this->invoiceService->payInvoicePayPal($key);
-
-        if (isset($payment['error'])) {
-            return api_response(null, $payment['message'], 400);
-        }
-        return api_response($payment);
-    }
-
-    /**
-     * Validate invoice paypal payment
-     *
-     * @param  object  $request data from the form (invoice, key, method)
-     * @return array $payment Payment
-     */
-    public function validateInvoicePayPalPayment(Request $request)
-    {
-        $payment_id = $request->paymentId;
-        $payer_id = $request->PayerID;
-
-        $payment = $this->invoiceService->validateInvoicePayPalPayment($payment_id, $payer_id);
-
-        if ($request->method == 'web' && !isset($payment['error'])) {
-            return redirect($this->redirectTo . $request->invoice . '?key=' . $request->key . '&status=success');
-        }
-
-        if (isset($payment['error']) && $request->method == 'web') {
-            return redirect($this->redirectTo . $request->invoice . '?key=' . $request->key . '&status=error');
-        }
-
         return api_response($payment);
     }
 }
