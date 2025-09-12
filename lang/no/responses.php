@@ -129,4 +129,5 @@ return [
     'vat_number_validated_successfully' => 'MVA-nummeret er validert',
     'archive_document_auto_generated' => 'Arkivet dokument ble vellykket generert',
     'already_accepted_rejected' => 'Tilbudet er allerede akseptert eller avvist',
+    'payment_gateway_not_supported' => 'Betaling gateway støttes ikke',
 ];
