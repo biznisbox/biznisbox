@@ -497,6 +497,7 @@
         "credit_card": "Maksukortti",
         "paypal": "Paypal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Muu"
     },
     "support_priority": {
@@ -664,7 +665,8 @@
         "no_sales_person": "Ei myyntihenkilöä",
         "no_payment_method": "Ei maksutapaa",
         "click_for_pay_with_paypal": "Maksa PayPalilla napsauttamalla tästä",
-        "click_for_pay": "Maksa klikkaamalla tästä"
+        "click_for_pay": "Maksa klikkaamalla tästä",
+        "click_for_pay_with_coinbase": "Klikkaa tästä maksaaksesi salauksella"
     },
     "quote": {
         "quote": "Tarjous - Lainaukset",
@@ -1030,7 +1032,12 @@
             "open_banking_client_id": "Open Banking Client ID",
             "open_banking_secret": "Avaa Pankkisalaisuus",
             "open_banking_help": "Löydät asiakkaasi tunnuksen ja salaisen Nordigen-tililtäsi.",
-            "online_payments": "Online-maksut"
+            "online_payments": "Online-maksut",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Coinbase saatavilla",
+            "coinbase_api_key": "Coinbase API-avain",
+            "coinbase_api_key_help": "Voit löytää oman API avain teidän Coinbase kaupan tili.",
+            "coinbase_account_id": "Coinbase sisäinen tili ID"
         },
         "status": {
             "title": "Tila Sivu",
