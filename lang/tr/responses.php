@@ -129,4 +129,5 @@ return [
     'vat_number_validated_successfully' => 'VAT number validated successfully',
     'archive_document_auto_generated' => 'Archive document auto-generated successfully',
     'already_accepted_rejected' => 'Quote has already been accepted or rejected',
+    'payment_gateway_not_supported' => 'Payment gateway not supported',
 ];
