@@ -27,7 +27,7 @@ class InstallerController extends Controller
     public function checkRequirements()
     {
         $requirements = $this->installService->checkRequirements();
-        return api_response($requirements);
+        return apiResponse($requirements);
     }
 
     /**
@@ -40,7 +40,7 @@ class InstallerController extends Controller
     {
         $data = $request->all();
         $check = $this->installService->checkDbConnection($data);
-        return api_response($check);
+        return apiResponse($check);
     }
 
     /**
@@ -53,7 +53,7 @@ class InstallerController extends Controller
     {
         $data = $request->all();
         $updated = $this->installService->updateEnvFileWithDbInfo($data);
-        return api_response($updated);
+        return apiResponse($updated);
     }
 
     /**
@@ -64,7 +64,7 @@ class InstallerController extends Controller
     public function migrateAndSeed()
     {
         $migration = $this->installService->migrateAndSeed();
-        return api_response($migration);
+        return apiResponse($migration);
     }
 
     /**
@@ -77,7 +77,7 @@ class InstallerController extends Controller
     {
         $data = $request->all();
         $settings = $this->installService->setSettingsInDb($data);
-        return api_response($settings);
+        return apiResponse($settings);
     }
 
     /**
@@ -90,7 +90,7 @@ class InstallerController extends Controller
     {
         $data = $request->all();
         $user = $this->installService->createAdminUser($data);
-        return api_response($user);
+        return apiResponse($user);
     }
 
     /**
@@ -101,7 +101,7 @@ class InstallerController extends Controller
     public function checkAppInstalled()
     {
         $installed = $this->installService->checkIfAppInstalled();
-        return api_response($installed);
+        return apiResponse($installed);
     }
 
     /**
@@ -112,6 +112,6 @@ class InstallerController extends Controller
     public function getDbInfoFromEnv()
     {
         $dbInfo = $this->installService->getDbSettingsFromEnv();
-        return api_response($dbInfo);
+        return apiResponse($dbInfo);
     }
 }

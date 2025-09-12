@@ -32,12 +32,12 @@ class CalendarController extends Controller
         $end = $request->end;
         $events = $this->calendarService->getEvents(null, $start, $end);
         if ($events == []) {
-            return api_response([], __('responses.data_retrieved_successfully'), 200);
+            return apiResponse([], __('responses.data_retrieved_successfully'), 200);
         }
         if (!$events) {
-            return api_response(null, __('responses.item_not_found'), 404);
+            return apiResponse(null, __('responses.item_not_found'), 404);
         }
-        return api_response($events, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($events, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -50,9 +50,9 @@ class CalendarController extends Controller
     {
         $event = $this->calendarService->getEvent($id);
         if (!$event) {
-            return api_response(null, __('responses.item_not_found_with_id'), 404);
+            return apiResponse(null, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($event, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($event, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -66,9 +66,9 @@ class CalendarController extends Controller
         $data = $request->all();
         $event = $this->calendarService->createEvent($data);
         if (!$event) {
-            return api_response(null, __('responses.item_not_created'), 400);
+            return apiResponse(null, __('responses.item_not_created'), 400);
         }
-        return api_response($event, __('responses.item_created_successfully'), 200);
+        return apiResponse($event, __('responses.item_created_successfully'), 200);
     }
 
     /**
@@ -83,9 +83,9 @@ class CalendarController extends Controller
         $data = $request->all();
         $event = $this->calendarService->updateEvent($id, $data);
         if (!$event) {
-            return api_response(null, __('responses.item_not_updated'), 400);
+            return apiResponse(null, __('responses.item_not_updated'), 400);
         }
-        return api_response($event, __('responses.item_updated_successfully'), 200);
+        return apiResponse($event, __('responses.item_updated_successfully'), 200);
     }
 
     /**
@@ -98,8 +98,8 @@ class CalendarController extends Controller
     {
         $event = $this->calendarService->deleteEvent($id);
         if (!$event) {
-            return api_response(null, __('responses.item_not_deleted'), 400);
+            return apiResponse(null, __('responses.item_not_deleted'), 400);
         }
-        return api_response($event, __('responses.item_deleted_successfully'), 200);
+        return apiResponse($event, __('responses.item_deleted_successfully'), 200);
     }
 }

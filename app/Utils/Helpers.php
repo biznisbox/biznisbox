@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-if (!function_exists('api_response')) {
+if (!function_exists('apiResponse')) {
     /**
      * Function generate API response (JSON) with data, message and status code
      * @param array|string|object $data - data
@@ -17,7 +17,7 @@ if (!function_exists('api_response')) {
      * @param integer $status_code - status code
      * @return object $response
      */
-    function api_response($data = null, $message = '', $status_code = 200)
+    function apiResponse($data = null, $message = '', $status_code = 200)
     {
         if (!is_object($data) && !empty($data['error'])) {
             $message = $data['error'];

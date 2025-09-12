@@ -97,9 +97,9 @@ class Contract extends Model implements Auditable
         return generateNextNumber(settings('contract_number_format'), 'contract');
     }
 
-    public function getClientContract($id, $log = false)
+    public static function getClientContract($id, $log = false)
     {
-        $contract = $this->with(
+        $contract = self::with(
             'partner:id,name,type,entity_type',
             'category:id,name,color',
             'signers:contract_id,sign_order,signature,signature_date_time,signature_ip,signature_user_agent,signer_email,signer_name,signer_phone,status',

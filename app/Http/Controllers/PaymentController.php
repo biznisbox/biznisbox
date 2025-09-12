@@ -28,7 +28,7 @@ class PaymentController extends Controller
     public function getPayments()
     {
         $payments = $this->paymentService->getPayments();
-        return api_response($payments, __('responses.data_retrieved_successfully'));
+        return apiResponse($payments, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -37,9 +37,9 @@ class PaymentController extends Controller
      * @param  string  $id id of the payment
      * @return array $payment payment
      */
-    public function getPayment(Request $request, $id)
+    public function getPayment( $id)
     {
         $payment = $this->paymentService->getPayment($id);
-        return api_response($payment, __('responses.data_retrieved_successfully'));
+        return apiResponse($payment, __('responses.data_retrieved_successfully'));
     }
 }

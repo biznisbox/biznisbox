@@ -27,7 +27,7 @@ class ArchiveService
         } else {
             $documents = $this->archiveModel->getDocumentsByFolder();
         }
-        createActivityLog('retrieve', null, 'App\Models\Archive', 'Archive');
+        createActivityLog('retrieve', null, Archive::$modelName, 'Archive');
         return $documents;
     }
 
@@ -150,7 +150,7 @@ class ArchiveService
         $document = $this->archiveModel->find($id);
         if ($document) {
             $file = Storage::get('archive/' . $document->file_path);
-            createActivityLog('download', $id, 'App\Models\Archive', 'Archive');
+            createActivityLog('download', $id, Archive::$modelName, 'Archive');
             return response($file, 200, [
                 'Content-Type' => $document->file_mime,
                 'Content-Disposition' => 'attachment; filename="' . $document->file_name . '"',
@@ -167,7 +167,7 @@ class ArchiveService
         $document = $this->archiveModel->find($id);
         if ($document) {
             $file = Storage::get('archive/' . $document->file_path);
-            createActivityLog('preview', $id, 'App\Models\Archive', 'Archive');
+            createActivityLog('preview', $id, Archive::$modelName, 'Archive');
             return response($file, 200, [
                 'Content-Type' => $document->file_mime,
                 'Content-Disposition' => 'inline; filename="' . $document->file_name . '"',

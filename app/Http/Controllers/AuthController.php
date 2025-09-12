@@ -34,9 +34,9 @@ class AuthController extends Controller
 
         $login = $this->authService->Login($data);
         if (!$login) {
-            return api_response(null, __('responses.invalid_credentials'), 401);
+            return apiResponse(null, __('responses.invalid_credentials'), 401);
         }
-        return api_response($login, $login['message'] ?? __('responses.login_successful'));
+        return apiResponse($login, $login['message'] ?? __('responses.login_successful'));
     }
 
     /**
@@ -48,7 +48,7 @@ class AuthController extends Controller
     public function userLogout()
     {
         $this->authService->Logout();
-        return api_response(null, __('responses.logout_successful'));
+        return apiResponse(null, __('responses.logout_successful'));
     }
 
     /**
@@ -60,7 +60,7 @@ class AuthController extends Controller
     public function tokenRefresh()
     {
         $token = $this->authService->Refresh();
-        return api_response($token, __('responses.token_refreshed'));
+        return apiResponse($token, __('responses.token_refreshed'));
     }
 
     /**
@@ -73,8 +73,8 @@ class AuthController extends Controller
     {
         $user = $this->authService->Me();
         if (!$user) {
-            return api_response(null, __('responses.unauthenticated'), 401);
+            return apiResponse(null, __('responses.unauthenticated'), 401);
         }
-        return api_response($user, __('responses.data_retrieved_successfully'));
+        return apiResponse($user, __('responses.data_retrieved_successfully'));
     }
 }

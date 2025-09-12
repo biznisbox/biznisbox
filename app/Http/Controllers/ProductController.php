@@ -28,9 +28,9 @@ class ProductController extends Controller
     {
         $product = $this->productService->createProduct($request->all());
         if (!$product) {
-            return api_response(null, __('responses.item_not_created'), 400);
+            return apiResponse(null, __('responses.item_not_created'), 400);
         }
-        return api_response($product, __('responses.item_created_successfully'));
+        return apiResponse($product, __('responses.item_created_successfully'));
     }
 
     /**
@@ -44,9 +44,9 @@ class ProductController extends Controller
     {
         $product = $this->productService->updateProduct($id, $request->all());
         if (!$product) {
-            return api_response(null, __('responses.item_not_updated'), 400);
+            return apiResponse(null, __('responses.item_not_updated'), 400);
         }
-        return api_response($product, __('responses.item_updated_successfully'));
+        return apiResponse($product, __('responses.item_updated_successfully'));
     }
 
     /**
@@ -59,9 +59,9 @@ class ProductController extends Controller
     {
         $product = $this->productService->deleteProduct($id);
         if (!$product) {
-            return api_response(null, __('responses.item_not_deleted'), 400);
+            return apiResponse(null, __('responses.item_not_deleted'), 400);
         }
-        return api_response($product, __('responses.item_deleted_successfully'));
+        return apiResponse($product, __('responses.item_deleted_successfully'));
     }
 
     /**
@@ -73,9 +73,9 @@ class ProductController extends Controller
     {
         $products = $this->productService->getProducts();
         if (!$products) {
-            return api_response(null, __('responses.item_not_found'), 400);
+            return apiResponse(null, __('responses.item_not_found'), 400);
         }
-        return api_response($products, __('responses.data_retrieved_successfully'));
+        return apiResponse($products, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -88,9 +88,9 @@ class ProductController extends Controller
     {
         $product = $this->productService->getProduct($id);
         if (!$product) {
-            return api_response(null, __('responses.item_not_found_with_id'), 404);
+            return apiResponse(null, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($product, __('responses.data_retrieved_successfully'));
+        return apiResponse($product, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -103,9 +103,9 @@ class ProductController extends Controller
     {
         $products = $this->productService->getProductsByCategory($id);
         if (!$products) {
-            return api_response(null, __('responses.item_not_found'), 400);
+            return apiResponse(null, __('responses.item_not_found'), 400);
         }
-        return api_response($products, __('responses.data_retrieved_successfully'));
+        return apiResponse($products, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -118,9 +118,9 @@ class ProductController extends Controller
     {
         $product = $this->productService->getProductByBarcode($barcode);
         if (!$product) {
-            return api_response(null, __('responses.item_not_found_with_id'), 404);
+            return apiResponse(null, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($product, __('responses.data_retrieved_successfully'));
+        return apiResponse($product, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -131,6 +131,6 @@ class ProductController extends Controller
     public function getProductNumber()
     {
         $number = $this->productService->getProductNumber();
-        return api_response($number, __('responses.data_retrieved_successfully'));
+        return apiResponse($number, __('responses.data_retrieved_successfully'));
     }
 }

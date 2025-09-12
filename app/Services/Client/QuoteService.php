@@ -14,15 +14,16 @@ class QuoteService
         }
 
         if (validateExternalKey($key, 'quote')) {
-            $key_data = new ExternalKey();
-            $key_data = $key_data->getExternalKey($key, 'quote');
+            $key_data = ExternalKey::getExternalKey($key, 'quote');
             $quote = new Quote();
             $quote = $quote->getClientQuote($key_data->module_item_id);
 
             if (!$quote) {
-                return false;
+                return [
+                    'error' => __('responses.item_not_found'),
+                ];
             }
-            createActivityLog('retrieve', $quote->id, 'App\Models\Quote', 'Quote', null, null, 'external_key', $key);
+            createActivityLog('retrieve', $quote->id, Quote::$modelName, 'Quote', null, null, 'external_key', $key);
             return $quote;
         } else {
             return false;
@@ -36,8 +37,7 @@ class QuoteService
         }
 
         if (validateExternalKey($key, 'quote')) {
-            $key_data = new ExternalKey();
-            $key_data = $key_data->getExternalKey($key, 'quote');
+            $key_data = ExternalKey::getExternalKey($key, 'quote');
             $quote = new Quote();
             $quote = $quote->find($key_data->module_item_id);
             if (!$quote) {
@@ -46,8 +46,7 @@ class QuoteService
 
             if ($quote->valid_until < now()) {
                 return [
-                    'error' => true,
-                    'message' => __('responses.quote_expired'),
+                    'error' => __('responses.quote_expired'),
                 ];
             }
             $quote->status = $status;

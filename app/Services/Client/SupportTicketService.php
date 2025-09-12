@@ -16,10 +16,8 @@ class SupportTicketService
         }
 
         if (validateExternalKey($key, 'support')) {
-            $key_data = new ExternalKey();
-            $key_data = $key_data->getExternalKey($key, 'support');
-            $ticket = new SupportTicket();
-            $ticket = $ticket->getClientTicket($key_data->module_item_id);
+            $key_data = ExternalKey::getExternalKey($key, 'support');
+            $ticket = SupportTicket::getClientTicket($key_data->module_item_id);
 
             if (!$ticket) {
                 return false;
@@ -37,10 +35,8 @@ class SupportTicketService
         }
 
         if (validateExternalKey($key, 'support')) {
-            $key_data = new ExternalKey();
-            $key_data = $key_data->getExternalKey($key, 'support');
-            $ticket = new SupportTicket();
-            $ticket = $ticket->find($key_data->module_item_id);
+            $key_data = ExternalKey::getExternalKey($key, 'support');
+            $ticket = SupportTicket::find($key_data->module_item_id);
             if (!$ticket) {
                 return false;
             }

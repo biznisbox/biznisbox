@@ -30,9 +30,9 @@ class DepartmentController extends Controller
     {
         $departments = $this->departmentService->getDepartments();
         if (!$departments) {
-            return api_response($departments, __('responses.item_not_found'), 404);
+            return apiResponse($departments, __('responses.item_not_found'), 404);
         }
-        return api_response($departments, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($departments, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -45,9 +45,9 @@ class DepartmentController extends Controller
     {
         $department = $this->departmentService->getDepartment($id);
         if (!$department) {
-            return api_response($department, __('responses.item_not_found_with_id'), 404);
+            return apiResponse($department, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($department, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($department, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -61,9 +61,9 @@ class DepartmentController extends Controller
         $data = $request->all();
         $department = $this->departmentService->createDepartment($data);
         if (!$department) {
-            return api_response($department, __('responses.item_not_created'), 400);
+            return apiResponse($department, __('responses.item_not_created'), 400);
         }
-        return api_response($department, __('responses.item_created_successfully'), 200);
+        return apiResponse($department, __('responses.item_created_successfully'), 200);
     }
 
     /**
@@ -78,9 +78,9 @@ class DepartmentController extends Controller
         $data = $request->all();
         $department = $this->departmentService->updateDepartment($id, $data);
         if (!$department) {
-            return api_response($department, __('responses.item_not_found'), 404);
+            return apiResponse($department, __('responses.item_not_found'), 404);
         }
-        return api_response($department, __('responses.item_updated_successfully'), 200);
+        return apiResponse($department, __('responses.item_updated_successfully'), 200);
     }
 
     /**
@@ -93,8 +93,8 @@ class DepartmentController extends Controller
     {
         $department = $this->departmentService->deleteDepartment($id);
         if (!$department) {
-            return api_response($department, __('responses.item_not_found'), 404);
+            return apiResponse($department, __('responses.item_not_found'), 404);
         }
-        return api_response($department, __('responses.item_deleted_successfully'), 200);
+        return apiResponse($department, __('responses.item_deleted_successfully'), 200);
     }
 }

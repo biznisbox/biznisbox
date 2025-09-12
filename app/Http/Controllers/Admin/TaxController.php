@@ -30,9 +30,9 @@ class TaxController extends Controller
     {
         $taxes = $this->taxService->getTaxes();
         if (!$taxes) {
-            return api_response($taxes, __('responses.item_not_found'), 404);
+            return apiResponse($taxes, __('responses.item_not_found'), 404);
         }
-        return api_response($taxes, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($taxes, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -45,9 +45,9 @@ class TaxController extends Controller
     {
         $tax = $this->taxService->getTax($id);
         if (!$tax) {
-            return api_response($tax, __('responses.item_not_found_with_id'), 404);
+            return apiResponse($tax, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($tax, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($tax, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -61,9 +61,9 @@ class TaxController extends Controller
         $data = $request->all();
         $tax = $this->taxService->createTax($data);
         if (!$tax) {
-            return api_response($tax, __('responses.item_not_created'), 400);
+            return apiResponse($tax, __('responses.item_not_created'), 400);
         }
-        return api_response($tax, __('responses.item_created_successfully'), 200);
+        return apiResponse($tax, __('responses.item_created_successfully'), 200);
     }
 
     /**
@@ -78,9 +78,9 @@ class TaxController extends Controller
         $data = $request->all();
         $tax = $this->taxService->updateTax($data, $id);
         if (!$tax) {
-            return api_response($tax, __('responses.item_not_updated'), 400);
+            return apiResponse($tax, __('responses.item_not_updated'), 400);
         }
-        return api_response($tax, __('responses.item_updated_successfully'), 200);
+        return apiResponse($tax, __('responses.item_updated_successfully'), 200);
     }
 
     /**
@@ -93,9 +93,9 @@ class TaxController extends Controller
     {
         $tax = $this->taxService->deleteTax($id);
         if (!$tax) {
-            return api_response($tax, __('responses.item_not_deleted'), 400);
+            return apiResponse($tax, __('responses.item_not_deleted'), 400);
         }
-        return api_response($tax, __('responses.item_deleted_successfully'), 200);
+        return apiResponse($tax, __('responses.item_deleted_successfully'), 200);
     }
 
     /**
@@ -108,8 +108,8 @@ class TaxController extends Controller
     {
         $result = $this->taxService->importTaxRates($countryCode);
         if (!$result) {
-            return api_response($result, __('responses.item_not_created'), 400);
+            return apiResponse($result, __('responses.item_not_created'), 400);
         }
-        return api_response($result, __('responses.item_created_successfully'), 200);
+        return apiResponse($result, __('responses.item_created_successfully'), 200);
     }
 }

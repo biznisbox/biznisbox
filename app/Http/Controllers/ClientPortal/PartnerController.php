@@ -31,9 +31,9 @@ class PartnerController extends Controller
         $partner = $this->partnerService->getPartner();
 
         if (!$partner) {
-            return api_response(null, __('responses.item_not_found'), 404);
+            return apiResponse(null, __('responses.item_not_found'), 404);
         }
 
-        return api_response($partner, __('responses.data_retrieved_successfully'));
+        return apiResponse($partner, __('responses.data_retrieved_successfully'));
     }
 }

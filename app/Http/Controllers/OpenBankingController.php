@@ -28,7 +28,7 @@ class OpenBankingController extends Controller
     public function listAvailableCountries()
     {
         $countries = $this->openBankingService->listAvailableCountries();
-        return api_response($countries, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($countries, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -42,9 +42,9 @@ class OpenBankingController extends Controller
         $country = $request->input('country');
         $banks = $this->openBankingService->listAvailableBanksByCountry($country);
         if (!$banks) {
-            return api_response($banks, __('responses.item_not_found'), 404);
+            return apiResponse($banks, __('responses.item_not_found'), 404);
         }
-        return api_response($banks, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($banks, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -59,9 +59,9 @@ class OpenBankingController extends Controller
         $institutionId = $request->input('institution_id');
         $session = $this->openBankingService->initSession($redirectUrl, $institutionId);
         if (!$session) {
-            return api_response($session, __('responses.error_occurred'), 500);
+            return apiResponse($session, __('responses.error_occurred'), 500);
         }
-        return api_response($session, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($session, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -75,8 +75,8 @@ class OpenBankingController extends Controller
         $requisitionId = $request->input('requisition_id');
         $account = $this->openBankingService->createOpenBankingAccount($requisitionId);
         if (!$account) {
-            return api_response($account, __('responses.error_occurred'), 500);
+            return apiResponse($account, __('responses.error_occurred'), 500);
         }
-        return api_response($account, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($account, __('responses.data_retrieved_successfully'));
     }
 }

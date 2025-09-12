@@ -29,9 +29,9 @@ class InvoiceController extends Controller
     {
         $invoices = $this->invoiceService->getInvoices();
         if (!$invoices) {
-            return api_response(null, __('responses.item_not_found'), 400);
+            return apiResponse(null, __('responses.item_not_found'), 400);
         }
-        return api_response($invoices, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($invoices, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -44,9 +44,9 @@ class InvoiceController extends Controller
     {
         $invoice = $this->invoiceService->getInvoice($id);
         if (!$invoice) {
-            return api_response(null, __('responses.item_not_found_with_id'), 404);
+            return apiResponse(null, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($invoice, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($invoice, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -59,9 +59,9 @@ class InvoiceController extends Controller
     {
         $invoice = $this->invoiceService->createInvoice($request->all());
         if (!$invoice) {
-            return api_response(null, __('responses.item_not_created'), 400);
+            return apiResponse(null, __('responses.item_not_created'), 400);
         }
-        return api_response($invoice, __('responses.item_created_successfully'), 200);
+        return apiResponse($invoice, __('responses.item_created_successfully'));
     }
 
     /**
@@ -75,9 +75,9 @@ class InvoiceController extends Controller
     {
         $invoice = $this->invoiceService->updateInvoice($id, $request->all());
         if (!$invoice) {
-            return api_response(null, __('responses.item_not_updated'), 400);
+            return apiResponse(null, __('responses.item_not_updated'), 400);
         }
-        return api_response($invoice, __('responses.item_updated_successfully'), 200);
+        return apiResponse($invoice, __('responses.item_updated_successfully'));
     }
 
     /**
@@ -90,9 +90,9 @@ class InvoiceController extends Controller
     {
         $invoice = $this->invoiceService->deleteInvoice($id);
         if (!$invoice) {
-            return api_response(null, __('responses.item_not_deleted'), 400);
+            return apiResponse(null, __('responses.item_not_deleted'), 400);
         }
-        return api_response($invoice, __('responses.item_deleted_successfully'), 200);
+        return apiResponse($invoice, __('responses.item_deleted_successfully'), 200);
     }
 
     /**
@@ -104,9 +104,9 @@ class InvoiceController extends Controller
     {
         $invoice = $this->invoiceService->getInvoiceNumber();
         if (!$invoice) {
-            return api_response(null, __('responses.item_not_found'), 400);
+            return apiResponse(null, __('responses.item_not_found'), 400);
         }
-        return api_response($invoice, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($invoice, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -119,9 +119,9 @@ class InvoiceController extends Controller
     {
         $invoice = $this->invoiceService->shareInvoice($id);
         if (!$invoice) {
-            return api_response(null, __('responses.item_not_shared'), 400);
+            return apiResponse(null, __('responses.item_not_shared'), 400);
         }
-        return api_response($invoice, __('responses.item_shared_successfully'), 200);
+        return apiResponse($invoice, __('responses.item_shared_successfully'), 200);
     }
 
     /**
@@ -134,11 +134,10 @@ class InvoiceController extends Controller
     public function getInvoicePdf(Request $request, $id)
     {
         if (!$request->hasValidSignatureWhileIgnoring(['lang'])) {
-            return api_response(null, __('responses.invalid_signature'), 400);
+            return apiResponse(null, __('responses.invalid_signature'), 400);
         }
         $type = $request->input('type', 'stream');
-        $pdf = $this->invoiceService->getInvoicePdf($id, $type);
-        return $pdf;
+        return $this->invoiceService->getInvoicePdf($id, $type);
     }
 
     /**
@@ -152,9 +151,9 @@ class InvoiceController extends Controller
     {
         $invoice = $this->invoiceService->addInvoicePayment($id, $request->all());
         if (!$invoice) {
-            return api_response(null, __('responses.payment_not_added'), 400);
+            return apiResponse(null, __('responses.payment_not_added'), 400);
         }
-        return api_response($invoice, __('responses.payment_added_successfully'), 200);
+        return apiResponse($invoice, __('responses.payment_added_successfully'), 200);
     }
 
     /**
@@ -172,8 +171,8 @@ class InvoiceController extends Controller
         }
         $invoice = $this->invoiceService->sendInvoiceNotification($id, $contact);
         if (!$invoice) {
-            return api_response(null, __('responses.notification_not_sent'), 400);
+            return apiResponse(null, __('responses.notification_not_sent'), 400);
         }
-        return api_response($invoice, __('responses.notification_sent_successfully'), 200);
+        return apiResponse($invoice, __('responses.notification_sent_successfully'), 200);
     }
 }

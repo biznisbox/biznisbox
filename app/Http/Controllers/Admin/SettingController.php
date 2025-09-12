@@ -30,9 +30,9 @@ class SettingController extends Controller
     {
         $settings = $this->settingService->getCompanySettings();
         if (!$settings) {
-            return api_response($settings, __('responses.item_not_found'), 404);
+            return apiResponse($settings, __('responses.item_not_found'), 404);
         }
-        return api_response($settings, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($settings, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -45,9 +45,9 @@ class SettingController extends Controller
     {
         $settings = $this->settingService->updateCompanySettings($request->all());
         if (!$settings) {
-            return api_response($settings, __('responses.item_not_updated'), 400);
+            return apiResponse($settings, __('responses.item_not_updated'), 400);
         }
-        return api_response($settings, __('responses.item_updated_successfully'), 200);
+        return apiResponse($settings, __('responses.item_updated_successfully'), 200);
     }
 
     /**
@@ -60,9 +60,9 @@ class SettingController extends Controller
     {
         $settings = $this->settingService->setCompanyLogo($request);
         if (!$settings) {
-            return api_response($settings, __('responses.item_not_updated'), 400);
+            return apiResponse($settings, __('responses.item_not_updated'), 400);
         }
-        return api_response($settings, __('responses.item_updated_successfully'), 200);
+        return apiResponse($settings, __('responses.item_updated_successfully'), 200);
     }
 
     /**
@@ -74,9 +74,9 @@ class SettingController extends Controller
     {
         $settings = $this->settingService->removeCompanyLogo();
         if (!$settings) {
-            return api_response($settings, __('responses.item_not_deleted'), 400);
+            return apiResponse($settings, __('responses.item_not_deleted'), 400);
         }
-        return api_response($settings, __('responses.item_deleted_successfully'), 200);
+        return apiResponse($settings, __('responses.item_deleted_successfully'), 200);
     }
 
     /**
@@ -88,9 +88,9 @@ class SettingController extends Controller
     {
         $settings = $this->settingService->getSettings();
         if (!$settings) {
-            return api_response($settings, __('responses.item_not_found'), 404);
+            return apiResponse($settings, __('responses.item_not_found'), 404);
         }
-        return api_response($settings, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($settings, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -103,9 +103,9 @@ class SettingController extends Controller
     {
         $settings = $this->settingService->updateSettings($request->all());
         if (!$settings) {
-            return api_response($settings, __('responses.item_not_updated'), 400);
+            return apiResponse($settings, __('responses.item_not_updated'), 400);
         }
-        return api_response($settings, __('responses.item_updated_successfully'), 200);
+        return apiResponse($settings, __('responses.item_updated_successfully'), 200);
     }
 
     /**
@@ -117,9 +117,9 @@ class SettingController extends Controller
     {
         $settings = $this->settingService->getNumberingSettings();
         if (!$settings) {
-            return api_response($settings, __('responses.item_not_found'), 404);
+            return apiResponse($settings, __('responses.item_not_found'), 404);
         }
-        return api_response($settings, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($settings, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -132,9 +132,9 @@ class SettingController extends Controller
     {
         $settings = $this->settingService->updateNumberingSettings($request->all());
         if (!$settings) {
-            return api_response($settings, __('responses.item_not_updated'), 400);
+            return apiResponse($settings, __('responses.item_not_updated'), 400);
         }
-        return api_response($settings, __('responses.item_updated_successfully'), 200);
+        return apiResponse($settings, __('responses.item_updated_successfully'), 200);
     }
 
     /**
@@ -149,9 +149,9 @@ class SettingController extends Controller
         $module = $request->module;
         $number = $this->settingService->generatePreviewNumber($format, $module);
         if (!$number) {
-            return api_response($number, __('responses.item_not_found'), 404);
+            return apiResponse($number, __('responses.item_not_found'), 404);
         }
-        return api_response($number, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($number, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -163,9 +163,9 @@ class SettingController extends Controller
     {
         $settings = $this->settingService->getEmailSettings();
         if (!$settings) {
-            return api_response($settings, __('responses.item_not_found'), 404);
+            return apiResponse($settings, __('responses.item_not_found'), 404);
         }
-        return api_response($settings, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($settings, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -178,9 +178,9 @@ class SettingController extends Controller
     {
         $settings = $this->settingService->updateEmailSettings($request->all());
         if (!$settings) {
-            return api_response($settings, __('responses.item_not_updated'), 400);
+            return apiResponse($settings, __('responses.item_not_updated'), 400);
         }
-        return api_response($settings, __('responses.item_updated_successfully'), 200);
+        return apiResponse($settings, __('responses.item_updated_successfully'), 200);
     }
 
     /**
@@ -194,8 +194,8 @@ class SettingController extends Controller
         $emails = $request->emails;
         $settings = $this->settingService->sentTestEmail($emails);
         if (!$settings) {
-            return api_response($settings, __('responses.email_not_sent'), 400);
+            return apiResponse($settings, __('responses.email_not_sent'), 400);
         }
-        return api_response($settings, __('responses.email_sent'), 200);
+        return apiResponse($settings, __('responses.email_sent'), 200);
     }
 }

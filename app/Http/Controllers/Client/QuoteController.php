@@ -30,9 +30,9 @@ class QuoteController extends Controller
         $quote = $this->quoteService->getQuote($key);
 
         if (!$quote) {
-            return api_response(null, __('responses.item_not_found'), 404);
+            return apiResponse(null, __('responses.item_not_found'), 404);
         }
-        return api_response($quote);
+        return apiResponse($quote);
     }
 
     /**
@@ -48,8 +48,8 @@ class QuoteController extends Controller
         $quote = $this->quoteService->acceptRejectQuote($key, $status);
 
         if (!$quote) {
-            return api_response(null, __('responses.item_not_updated'), 400);
+            return apiResponse(null, __('responses.item_not_updated'), 400);
         }
-        return api_response($quote);
+        return apiResponse($quote);
     }
 }

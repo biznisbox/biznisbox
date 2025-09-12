@@ -28,6 +28,6 @@ class StatusController extends Controller
     public function getVersion()
     {
         $version = $this->statusService->getVersion();
-        return api_response($version);
+        return apiResponse($version);
     }
 }

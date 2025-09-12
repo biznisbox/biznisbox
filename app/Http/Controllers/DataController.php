@@ -73,7 +73,7 @@ class DataController extends Controller
     {
         $type = $request->input('type');
         $data = $this->returnData($type);
-        return api_response($data, __('responses.data_retrieved_successfully'));
+        return apiResponse($data, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -87,7 +87,7 @@ class DataController extends Controller
         $dashboardService = new \App\Services\DashboardDataService();
         $type = $request->input('type');
         $data = $dashboardService->returnData($type);
-        return api_response($data, __('responses.data_retrieved_successfully'));
+        return apiResponse($data, __('responses.data_retrieved_successfully'));
     }
 
     /***********************************
@@ -107,7 +107,7 @@ class DataController extends Controller
         $item_id = $request->input('item_id');
         $item_type = $request->input('item_type');
         $data = $this->dataService->getLogs($item_id, $item_type);
-        return api_response($data, __('responses.data_retrieved_successfully'));
+        return apiResponse($data, __('responses.data_retrieved_successfully'));
     }
 
     /***********************************
@@ -125,7 +125,7 @@ class DataController extends Controller
         $module = $request->input('module');
         $list = $request->input('list', false);
         $data = $this->dataService->getCategories($module, $list);
-        return api_response($data, __('responses.data_retrieved_successfully'));
+        return apiResponse($data, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -139,9 +139,9 @@ class DataController extends Controller
         $data = $request->all();
         $category = $this->dataService->createCategory($data);
         if (!$category) {
-            return api_response($category, __('responses.item_not_created'), 400);
+            return apiResponse($category, __('responses.item_not_created'), 400);
         }
-        return api_response($category, __('responses.item_created_successfully'));
+        return apiResponse($category, __('responses.item_created_successfully'));
     }
 
     /**
@@ -156,9 +156,9 @@ class DataController extends Controller
         $data = $request->all();
         $category = $this->dataService->updateCategory($id, $data);
         if (!$category) {
-            return api_response($category, __('responses.item_not_updated'), 400);
+            return apiResponse($category, __('responses.item_not_updated'), 400);
         }
-        return api_response($category, __('responses.item_updated_successfully'));
+        return apiResponse($category, __('responses.item_updated_successfully'));
     }
 
     /**
@@ -171,9 +171,9 @@ class DataController extends Controller
     {
         $category = $this->dataService->deleteCategory($id);
         if (!$category) {
-            return api_response($category, __('responses.item_not_deleted'), 400);
+            return apiResponse($category, __('responses.item_not_deleted'), 400);
         }
-        return api_response($category, __('responses.item_deleted_successfully'));
+        return apiResponse($category, __('responses.item_deleted_successfully'));
     }
 
     /**
@@ -186,9 +186,9 @@ class DataController extends Controller
     {
         $category = $this->dataService->getCategory($id);
         if (!$category) {
-            return api_response($category, __('responses.item_not_found_with_id'), 404);
+            return apiResponse($category, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($category, __('responses.data_retrieved_successfully'));
+        return apiResponse($category, __('responses.data_retrieved_successfully'));
     }
 
     /***********************************
@@ -205,7 +205,7 @@ class DataController extends Controller
     {
         $type = $request->input('type') ?? 'user';
         $layout = $this->dataService->getDashboardLayout($type);
-        return api_response($layout, __('responses.data_retrieved_successfully'));
+        return apiResponse($layout, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -221,7 +221,7 @@ class DataController extends Controller
 
         $this->dataService->updateDashboardLayout($layout, $type);
 
-        return api_response(null, __('responses.item_updated_successfully'));
+        return apiResponse(null, __('responses.item_updated_successfully'));
     }
 
     /***********************************
@@ -239,9 +239,9 @@ class DataController extends Controller
         $data = $request->all();
         $webhookSubscription = $this->dataService->createWebhookSubscription($data);
         if (!$webhookSubscription) {
-            return api_response($webhookSubscription, __('responses.item_not_created'), 400);
+            return apiResponse($webhookSubscription, __('responses.item_not_created'), 400);
         }
-        return api_response($webhookSubscription, __('responses.item_created_successfully'));
+        return apiResponse($webhookSubscription, __('responses.item_created_successfully'));
     }
 
     /**
@@ -254,9 +254,9 @@ class DataController extends Controller
     {
         $webhookSubscription = $this->dataService->deleteWebhookSubscription($id);
         if (!$webhookSubscription) {
-            return api_response($webhookSubscription, __('responses.item_not_deleted'), 400);
+            return apiResponse($webhookSubscription, __('responses.item_not_deleted'), 400);
         }
-        return api_response($webhookSubscription, __('responses.item_deleted_successfully'));
+        return apiResponse($webhookSubscription, __('responses.item_deleted_successfully'));
     }
 
     /****************************************
@@ -269,7 +269,7 @@ class DataController extends Controller
     public function getPersonalAccessTokens()
     {
         $personalAccessTokens = $this->dataService->getPersonalAccessTokens();
-        return api_response($personalAccessTokens, __('responses.data_retrieved_successfully'));
+        return apiResponse($personalAccessTokens, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -279,9 +279,9 @@ class DataController extends Controller
     {
         $personalAccessToken = $this->dataService->getPersonalAccessToken($id);
         if (!$personalAccessToken) {
-            return api_response($personalAccessToken, __('responses.item_not_found_with_id'), 404);
+            return apiResponse($personalAccessToken, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($personalAccessToken, __('responses.data_retrieved_successfully'));
+        return apiResponse($personalAccessToken, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -292,9 +292,9 @@ class DataController extends Controller
         $data = $request->all();
         $token = $this->dataService->createPersonalAccessToken($data);
         if (!$token) {
-            return api_response($token, __('responses.item_not_created'), 400);
+            return apiResponse($token, __('responses.item_not_created'), 400);
         }
-        return api_response($token, __('responses.item_created_successfully'));
+        return apiResponse($token, __('responses.item_created_successfully'));
     }
 
     /**
@@ -304,8 +304,8 @@ class DataController extends Controller
     {
         $personalAccessToken = $this->dataService->deletePersonalAccessToken($id);
         if (!$personalAccessToken) {
-            return api_response($personalAccessToken, __('responses.item_not_deleted'), 400);
+            return apiResponse($personalAccessToken, __('responses.item_not_deleted'), 400);
         }
-        return api_response($personalAccessToken, __('responses.item_deleted_successfully'));
+        return apiResponse($personalAccessToken, __('responses.item_deleted_successfully'));
     }
 }

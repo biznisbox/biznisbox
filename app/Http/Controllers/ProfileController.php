@@ -31,7 +31,7 @@ class ProfileController extends Controller
             'theme' => 'required|string|in:light,dark',
         ]);
         $this->profileService->changeTheme($theme['theme'] ?? 'light');
-        return api_response(null, __('responses.theme_changed_successfully'));
+        return apiResponse(null, __('responses.theme_changed_successfully'));
     }
 
     /**
@@ -43,7 +43,7 @@ class ProfileController extends Controller
     {
         $profile = $this->profileService->getProfile();
 
-        return api_response($profile, __('responses.data_retrieved_successfully'));
+        return apiResponse($profile, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -63,7 +63,7 @@ class ProfileController extends Controller
 
         $this->profileService->updateProfile($data);
 
-        return api_response(null, __('responses.profile_updated_successfully'));
+        return apiResponse(null, __('responses.profile_updated_successfully'));
     }
 
     /**
@@ -83,10 +83,10 @@ class ProfileController extends Controller
         $passwordChange = $this->profileService->updatePassword($data);
 
         if (!$passwordChange) {
-            return api_response(null, __('responses.invalid_current_password'), 400);
+            return apiResponse(null, __('responses.invalid_current_password'), 400);
         }
 
-        return api_response(null, __('responses.password_updated_successfully'));
+        return apiResponse(null, __('responses.password_updated_successfully'));
     }
 
     /**
@@ -98,7 +98,7 @@ class ProfileController extends Controller
     {
         $url = $this->profileService->set2FactorAuth($request->all());
 
-        return api_response($url, __('responses.two_factor_auth_enabled'));
+        return apiResponse($url, __('responses.two_factor_auth_enabled'));
     }
 
     /**
@@ -117,10 +117,10 @@ class ProfileController extends Controller
         $enabled = $this->profileService->enable2FactorAuth($data);
 
         if (!$enabled) {
-            return api_response(null, __('responses.invalid_2fa_code'), 400);
+            return apiResponse(null, __('responses.invalid_2fa_code'), 400);
         }
 
-        return api_response(null, __('responses.two_factor_auth_enabled'));
+        return apiResponse(null, __('responses.two_factor_auth_enabled'));
     }
 
     /**
@@ -132,7 +132,7 @@ class ProfileController extends Controller
     {
         $this->profileService->disable2FactorAuth();
 
-        return api_response(null, __('responses.two_factor_auth_disabled'));
+        return apiResponse(null, __('responses.two_factor_auth_disabled'));
     }
 
     /**
@@ -148,7 +148,7 @@ class ProfileController extends Controller
 
         $this->profileService->setProfilePicture($request);
 
-        return api_response(null, __('responses.profile_updated_successfully'));
+        return apiResponse(null, __('responses.profile_updated_successfully'));
     }
 
     /**
@@ -160,7 +160,7 @@ class ProfileController extends Controller
     {
         $this->profileService->deleteProfilePicture();
 
-        return api_response(null, __('responses.profile_updated_successfully'));
+        return apiResponse(null, __('responses.profile_updated_successfully'));
     }
 
     /**
@@ -171,7 +171,7 @@ class ProfileController extends Controller
     public function getCurrentUserNotifications()
     {
         $notifications = $this->profileService->getCurrentUserNotifications();
-        return api_response($notifications, __('responses.data_retrieved_successfully'));
+        return apiResponse($notifications, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -184,7 +184,7 @@ class ProfileController extends Controller
     {
         $this->profileService->markNotificationAsRead($id);
 
-        return api_response(null, __('responses.notification_marked_as_read'));
+        return apiResponse(null, __('responses.notification_marked_as_read'));
     }
 
     /**
@@ -196,6 +196,6 @@ class ProfileController extends Controller
     {
         $this->profileService->deleteNotification($id);
 
-        return api_response(null, __('responses.data_deleted_successfully'));
+        return apiResponse(null, __('responses.data_deleted_successfully'));
     }
 }

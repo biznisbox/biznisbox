@@ -32,9 +32,9 @@ class UnitController extends Controller
         $units = $this->unitService->getUnits();
 
         if (!$units) {
-            return api_response($units, __('responses.item_not_found'), 404);
+            return apiResponse($units, __('responses.item_not_found'), 404);
         }
-        return api_response($units, __('responses.data_retrieved_successfully'));
+        return apiResponse($units, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -48,9 +48,9 @@ class UnitController extends Controller
         $unit = $this->unitService->getUnit($id);
 
         if (!$unit) {
-            return api_response($unit, __('responses.item_not_found_with_id'), 404);
+            return apiResponse($unit, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($unit, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($unit, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -64,9 +64,9 @@ class UnitController extends Controller
         $unit = $this->unitService->getUnitByName($name);
 
         if (!$unit) {
-            return api_response($unit, __('responses.item_not_found'), 404);
+            return apiResponse($unit, __('responses.item_not_found'), 404);
         }
-        return api_response($unit, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($unit, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -81,9 +81,9 @@ class UnitController extends Controller
         $unit = $this->unitService->createUnit($data);
 
         if (!$unit) {
-            return api_response($unit, __('responses.item_not_created'), 400);
+            return apiResponse($unit, __('responses.item_not_created'), 400);
         }
-        return api_response($unit, __('responses.item_created_successfully'), 200);
+        return apiResponse($unit, __('responses.item_created_successfully'));
     }
 
     /**
@@ -99,9 +99,9 @@ class UnitController extends Controller
         $unit = $this->unitService->updateUnit($id, $data);
 
         if (!$unit) {
-            return api_response($unit, __('responses.item_not_updated'), 400);
+            return apiResponse($unit, __('responses.item_not_updated'), 400);
         }
-        return api_response($unit, __('responses.item_updated_successfully'), 200);
+        return apiResponse($unit, __('responses.item_updated_successfully'));
     }
 
     /**
@@ -113,13 +113,13 @@ class UnitController extends Controller
     public function deleteUnit($id)
     {
         if (!$id) {
-            return api_response(null, __('responses.item_not_found_with_id'), 404);
+            return apiResponse(null, __('responses.item_not_found_with_id'), 404);
         }
         $unit = $this->unitService->deleteUnit($id);
 
         if (!$unit) {
-            return api_response($unit, __('responses.item_not_deleted'), 400);
+            return apiResponse($unit, __('responses.item_not_deleted'), 400);
         }
-        return api_response($unit, __('responses.item_deleted_successfully'), 200);
+        return apiResponse($unit, __('responses.item_deleted_successfully'));
     }
 }

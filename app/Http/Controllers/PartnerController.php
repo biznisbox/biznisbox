@@ -28,9 +28,9 @@ class PartnerController extends Controller
     {
         $partner = $this->partnerService->createPartner($request->all());
         if (!$partner) {
-            return api_response(null, __('responses.item_not_created'), 400);
+            return apiResponse(null, __('responses.item_not_created'), 400);
         }
-        return api_response($partner, __('responses.item_created_successfully'));
+        return apiResponse($partner, __('responses.item_created_successfully'));
     }
 
     /**
@@ -44,9 +44,9 @@ class PartnerController extends Controller
     {
         $partner = $this->partnerService->updatePartner($id, $request->all());
         if (!$partner) {
-            return api_response(null, __('responses.item_not_updated'), 400);
+            return apiResponse(null, __('responses.item_not_updated'), 400);
         }
-        return api_response($partner, __('responses.item_updated_successfully'));
+        return apiResponse($partner, __('responses.item_updated_successfully'));
     }
 
     /**
@@ -59,9 +59,9 @@ class PartnerController extends Controller
     {
         $partner = $this->partnerService->deletePartner($id);
         if (!$partner) {
-            return api_response(null, __('responses.item_not_deleted'), 400);
+            return apiResponse(null, __('responses.item_not_deleted'), 400);
         }
-        return api_response($partner, __('responses.item_deleted_successfully'));
+        return apiResponse($partner, __('responses.item_deleted_successfully'));
     }
 
     /**
@@ -73,9 +73,9 @@ class PartnerController extends Controller
     {
         $partners = $this->partnerService->getPartners();
         if (!$partners) {
-            return api_response(null, __('responses.item_not_found'), 400);
+            return apiResponse(null, __('responses.item_not_found'), 400);
         }
-        return api_response($partners, __('responses.data_retrieved_successfully'));
+        return apiResponse($partners, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -88,9 +88,9 @@ class PartnerController extends Controller
     {
         $partner = $this->partnerService->getPartner($id);
         if (!$partner) {
-            return api_response(null, __('responses.item_not_found_with_id'), 404);
+            return apiResponse(null, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($partner, __('responses.data_retrieved_successfully'));
+        return apiResponse($partner, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -102,9 +102,9 @@ class PartnerController extends Controller
     {
         $partner = $this->partnerService->getPartnerNumber();
         if (!$partner) {
-            return api_response(null, __('responses.item_not_found'), 400);
+            return apiResponse(null, __('responses.item_not_found'), 400);
         }
-        return api_response($partner, __('responses.data_retrieved_successfully'));
+        return apiResponse($partner, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -118,12 +118,12 @@ class PartnerController extends Controller
         $type = $request->input('type');
         $partners = $this->partnerService->getPartnersLimitedData($type);
         if ($partners == []) {
-            return api_response([], __('responses.data_retrieved_successfully'));
+            return apiResponse([], __('responses.data_retrieved_successfully'));
         }
         if (!$partners) {
-            return api_response(null, __('responses.item_not_found'), 400);
+            return apiResponse(null, __('responses.item_not_found'), 400);
         }
-        return api_response($partners, __('responses.data_retrieved_successfully'));
+        return apiResponse($partners, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -135,9 +135,9 @@ class PartnerController extends Controller
     {
         $partnerActivity = $this->partnerService->createPartnerActivity($request->all());
         if (!$partnerActivity) {
-            return api_response(null, __('responses.item_not_created'), 400);
+            return apiResponse(null, __('responses.item_not_created'), 400);
         }
-        return api_response($partnerActivity, __('responses.item_created_successfully'));
+        return apiResponse($partnerActivity, __('responses.item_created_successfully'));
     }
 
     /**
@@ -151,9 +151,9 @@ class PartnerController extends Controller
     {
         $partnerActivity = $this->partnerService->updatePartnerActivity($id, $request->all());
         if (!$partnerActivity) {
-            return api_response(null, __('responses.item_not_updated'), 400);
+            return apiResponse(null, __('responses.item_not_updated'), 400);
         }
-        return api_response($partnerActivity, __('responses.item_updated_successfully'));
+        return apiResponse($partnerActivity, __('responses.item_updated_successfully'));
     }
 
     /**
@@ -166,9 +166,9 @@ class PartnerController extends Controller
     {
         $partnerActivity = $this->partnerService->deletePartnerActivity($id);
         if (!$partnerActivity) {
-            return api_response(null, __('responses.item_not_deleted'), 400);
+            return apiResponse(null, __('responses.item_not_deleted'), 400);
         }
-        return api_response($partnerActivity, __('responses.item_deleted_successfully'));
+        return apiResponse($partnerActivity, __('responses.item_deleted_successfully'));
     }
 
     /**
@@ -183,9 +183,9 @@ class PartnerController extends Controller
         $message = $request->input('content');
         $partnerContact = $this->partnerService->sendEmailToPartnerContact($partnerContactId, $subject, $message);
         if (!$partnerContact) {
-            return api_response(null, __('responses.item_not_sent'), 400);
+            return apiResponse(null, __('responses.item_not_sent'), 400);
         }
-        return api_response($partnerContact, __('responses.item_sent_successfully'));
+        return apiResponse($partnerContact, __('responses.item_sent_successfully'));
     }
 
     /**
@@ -197,9 +197,9 @@ class PartnerController extends Controller
     {
         $partnerContact = $this->partnerService->addPartnerContactToClientPortal($id);
         if (!$partnerContact) {
-            return api_response(null, __('responses.item_not_created'), 400);
+            return apiResponse(null, __('responses.item_not_created'), 400);
         }
-        return api_response($partnerContact, __('responses.item_created_successfully'));
+        return apiResponse($partnerContact, __('responses.item_created_successfully'));
     }
 
     /**
@@ -212,8 +212,8 @@ class PartnerController extends Controller
         $vatNumber = $request->input('vat_number');
         $validationResult = $this->partnerService->validatePartnerVatID($vatNumber);
         if (!$validationResult || $validationResult['valid'] === false) {
-            return api_response(null, __('responses.vat_number_not_valid'), 400);
+            return apiResponse(null, __('responses.vat_number_not_valid'), 400);
         }
-        return api_response($validationResult, __('responses.vat_number_validated_successfully'));
+        return apiResponse($validationResult, __('responses.vat_number_validated_successfully'));
     }
 }

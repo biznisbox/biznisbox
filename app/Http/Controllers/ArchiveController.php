@@ -30,9 +30,9 @@ class ArchiveController extends Controller
         $folderId = $request->folder_id;
         $documents = $this->archiveService->getDocuments($folderId);
         if (!$documents) {
-            return api_response($documents, __('responses.item_not_found'), 404);
+            return apiResponse($documents, __('responses.item_not_found'), 404);
         }
-        return api_response($documents, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($documents, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -45,9 +45,9 @@ class ArchiveController extends Controller
     {
         $document = $this->archiveService->getDocument($id);
         if (!$document) {
-            return api_response($document, __('responses.item_not_found_with_id'), 404);
+            return apiResponse($document, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($document, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($document, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -60,9 +60,9 @@ class ArchiveController extends Controller
     {
         $document = $this->archiveService->createDocument($request);
         if (!$document) {
-            return api_response($document, __('responses.item_not_created'), 400);
+            return apiResponse($document, __('responses.item_not_created'), 400);
         }
-        return api_response($document, __('responses.item_created_successfully'), 200);
+        return apiResponse($document, __('responses.item_created_successfully'), 200);
     }
 
     /**
@@ -76,9 +76,9 @@ class ArchiveController extends Controller
     {
         $document = $this->archiveService->updateDocument($request, $id);
         if (!$document) {
-            return api_response($document, __('responses.item_not_updated'), 400);
+            return apiResponse($document, __('responses.item_not_updated'), 400);
         }
-        return api_response($document, __('responses.item_updated_successfully'), 200);
+        return apiResponse($document, __('responses.item_updated_successfully'), 200);
     }
 
     /**
@@ -91,9 +91,9 @@ class ArchiveController extends Controller
     {
         $document = $this->archiveService->deleteDocument($id);
         if (!$document) {
-            return api_response($document, __('responses.item_not_deleted'), 400);
+            return apiResponse($document, __('responses.item_not_deleted'), 400);
         }
-        return api_response($document, __('responses.item_deleted_successfully'), 200);
+        return apiResponse($document, __('responses.item_deleted_successfully'), 200);
     }
 
     /**
@@ -106,9 +106,9 @@ class ArchiveController extends Controller
     {
         $document = $this->archiveService->restoreDocument($id);
         if (!$document) {
-            return api_response($document, __('responses.item_not_restored'), 400);
+            return apiResponse($document, __('responses.item_not_restored'), 400);
         }
-        return api_response($document, __('responses.item_restored_successfully'), 200);
+        return apiResponse($document, __('responses.item_restored_successfully'));
     }
 
     /**
@@ -121,9 +121,9 @@ class ArchiveController extends Controller
     {
         $document = $this->archiveService->deleteDocumentPermanently($id);
         if (!$document) {
-            return api_response($document, __('responses.item_not_deleted'), 400);
+            return apiResponse($document, __('responses.item_not_deleted'), 400);
         }
-        return api_response($document, __('responses.item_deleted_successfully'), 200);
+        return apiResponse($document, __('responses.item_deleted_successfully'));
     }
 
     /**
@@ -135,11 +135,11 @@ class ArchiveController extends Controller
     public function downloadDocument($id)
     {
         if (!request()->hasValidSignatureWhileIgnoring(['lang'])) {
-            return api_response(null, __('responses.invalid_signature'), 400);
+            return apiResponse(null, __('responses.invalid_signature'), 400);
         }
         $document = $this->archiveService->downloadDocument($id);
         if (!$document) {
-            return api_response($document, __('responses.item_not_downloaded'), 400);
+            return apiResponse($document, __('responses.item_not_downloaded'), 400);
         }
         return $document;
     }
@@ -153,11 +153,11 @@ class ArchiveController extends Controller
     public function previewDocument($id)
     {
         if (!request()->hasValidSignatureWhileIgnoring(['lang'])) {
-            return api_response(null, __('responses.invalid_signature'), 400);
+            return apiResponse(null, __('responses.invalid_signature'), 400);
         }
         $document = $this->archiveService->previewDocument($id);
         if (!$document) {
-            return api_response($document, __('responses.item_not_previewed'), 400);
+            return apiResponse($document, __('responses.item_not_previewed'), 400);
         }
         return $document;
     }
@@ -173,8 +173,8 @@ class ArchiveController extends Controller
     {
         $document = $this->archiveService->moveDocument($request, $id);
         if (!$document) {
-            return api_response($document, __('responses.item_not_moved'), 400);
+            return apiResponse($document, __('responses.item_not_moved'), 400);
         }
-        return api_response($document, __('responses.item_moved_successfully'), 200);
+        return apiResponse($document, __('responses.item_moved_successfully'), 200);
     }
 }

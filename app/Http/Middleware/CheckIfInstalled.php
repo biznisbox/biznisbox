@@ -16,7 +16,7 @@ class CheckIfInstalled
     public function handle(Request $request, Closure $next): Response
     {
         if (isAppInstalled()) {
-            return api_response(
+            return apiResponse(
                 [
                     'message' => __('responses.app_installed'),
                     'status' => 'error',

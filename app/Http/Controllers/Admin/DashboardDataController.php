@@ -30,6 +30,6 @@ class DashboardDataController extends Controller
     {
         $type = $request->input('type');
         $data = $this->dashboardDataService->returnData($type);
-        return api_response($data, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($data, __('responses.data_retrieved_successfully'), 200);
     }
 }

@@ -28,7 +28,7 @@ class ContractController extends Controller
     public function getContracts()
     {
         $contracts = $this->contractService->getContracts();
-        return api_response($contracts, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($contracts, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -40,7 +40,7 @@ class ContractController extends Controller
     public function getContract($id)
     {
         $contract = $this->contractService->getContract($id);
-        return api_response($contract, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($contract, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -53,7 +53,7 @@ class ContractController extends Controller
     {
         $data = $request->all();
         $contract = $this->contractService->createContract($data);
-        return api_response($contract, __('responses.item_created_successfully'), 200);
+        return apiResponse($contract, __('responses.item_created_successfully'), 200);
     }
 
     /**
@@ -67,7 +67,7 @@ class ContractController extends Controller
     {
         $data = $request->all();
         $contract = $this->contractService->updateContract($id, $data);
-        return api_response($contract, __('responses.item_updated_successfully'), 200);
+        return apiResponse($contract, __('responses.item_updated_successfully'), 200);
     }
 
     /**
@@ -79,7 +79,7 @@ class ContractController extends Controller
     public function deleteContract($id)
     {
         $contract = $this->contractService->deleteContract($id);
-        return api_response($contract, __('responses.item_deleted_successfully'), 200);
+        return apiResponse($contract, __('responses.item_deleted_successfully'), 200);
     }
 
     /**
@@ -90,7 +90,7 @@ class ContractController extends Controller
     public function getContractNumber()
     {
         $contract = $this->contractService->getContractNumber();
-        return api_response($contract, __('responses.item_retrieved_successfully'), 200);
+        return apiResponse($contract, __('responses.item_retrieved_successfully'), 200);
     }
 
     /**
@@ -103,11 +103,11 @@ class ContractController extends Controller
     public function getContractPdf(Request $request, $id)
     {
         if (!$request->hasValidSignatureWhileIgnoring(['lang'])) {
-            return api_response(null, __('responses.invalid_signature'), 400);
+            return apiResponse(null, __('responses.invalid_signature'), 400);
         }
         $type = $request->input('type', 'stream');
-        $pdf = $this->contractService->getContractPdf($id, $type);
-        return $pdf;
+        return $this->contractService->getContractPdf($id, $type);
+
     }
 
     /**
@@ -121,6 +121,6 @@ class ContractController extends Controller
     {
         $data = $request->all();
         $contract = $this->contractService->shareContract($id, $data);
-        return api_response($contract, __('responses.item_shared_successfully'), 200);
+        return apiResponse($contract, __('responses.item_shared_successfully'), 200);
     }
 }

@@ -32,10 +32,10 @@ class InvoiceController extends Controller
         $invoices = $this->invoiceService->getInvoices();
 
         if (!$invoices) {
-            return api_response(null, __('responses.item_not_found'), 404);
+            return apiResponse(null, __('responses.item_not_found'), 404);
         }
 
-        return api_response($invoices, __('responses.data_retrieved_successfully'));
+        return apiResponse($invoices, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -50,10 +50,10 @@ class InvoiceController extends Controller
         $invoice = $this->invoiceService->getInvoiceById($invoiceId);
 
         if (!$invoice) {
-            return api_response(null, __('responses.item_not_found'), 404);
+            return apiResponse(null, __('responses.item_not_found'), 404);
         }
 
-        return api_response($invoice, __('responses.data_retrieved_successfully'));
+        return apiResponse($invoice, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -68,11 +68,11 @@ class InvoiceController extends Controller
     {
         $invoiceId = $request->invoiceId;
         if (!$invoiceId) {
-            return api_response(null, __('responses.invalid_invoice_id'), 400);
+            return apiResponse(null, __('responses.invalid_invoice_id'), 400);
         }
 
         $payment = $this->invoiceService->payInvoiceByGateway($invoiceId, $paymentGateway);
-        return api_response($payment);
+        return apiResponse($payment);
     }
 
     /**
@@ -80,8 +80,7 @@ class InvoiceController extends Controller
      *
      * @param  string $paymentGateway Payment Gateway (stripe, paypal, etc.)
      * @param  string $invoiceId Invoice UUID
-     * @return array $payment Payment
-     * @authenticated
+     * @return void redirect to invoice page or return JSON
      */
     public function validateInvoicePaymentByGateway(Request $request, $paymentGateway)
     {
@@ -89,7 +88,7 @@ class InvoiceController extends Controller
         $payer_id = $request->PayerID; // for PayPal
 
         if (!$payment_id) {
-            return api_response(null, __('responses.invalid_payment_id'), 400);
+            return apiResponse(null, __('responses.invalid_payment_id'), 400);
         }
 
         $payment = $this->invoiceService->validateInvoicePaymentByGateway($payment_id, $paymentGateway, $payer_id);
@@ -101,6 +100,6 @@ class InvoiceController extends Controller
         if (isset($payment['error']) && $request->method == 'web') {
             return redirect($this->redirectTo . $request->invoice . '?status=error');
         }
-        return api_response($payment);
+        return apiResponse($payment);
     }
 }

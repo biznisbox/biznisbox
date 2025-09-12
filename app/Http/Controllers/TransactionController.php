@@ -30,9 +30,9 @@ class TransactionController extends Controller
     {
         $transactions = $this->transactionService->getTransactions();
         if (!$transactions) {
-            return api_response($transactions, __('responses.item_not_found'), 400);
+            return apiResponse($transactions, __('responses.item_not_found'), 400);
         }
-        return api_response($transactions, __('responses.data_retrieved_successfully'));
+        return apiResponse($transactions, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -45,9 +45,9 @@ class TransactionController extends Controller
     {
         $transaction = $this->transactionService->getTransaction($id);
         if (!$transaction) {
-            return api_response($transaction, __('responses.item_not_found_with_id'), 404);
+            return apiResponse($transaction, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($transaction, __('responses.data_retrieved_successfully'));
+        return apiResponse($transaction, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -61,9 +61,9 @@ class TransactionController extends Controller
         $data = $request->all();
         $transaction = $this->transactionService->createTransaction($data);
         if (!$transaction) {
-            return api_response($transaction, __('responses.item_not_created'), 400);
+            return apiResponse($transaction, __('responses.item_not_created'), 400);
         }
-        return api_response($transaction, __('responses.item_created_successfully'));
+        return apiResponse($transaction, __('responses.item_created_successfully'));
     }
 
     /**
@@ -78,9 +78,9 @@ class TransactionController extends Controller
         $data = $request->all();
         $transaction = $this->transactionService->updateTransaction($id, $data);
         if (!$transaction) {
-            return api_response($transaction, __('responses.item_not_updated'), 400);
+            return apiResponse($transaction, __('responses.item_not_updated'), 400);
         }
-        return api_response($transaction, __('responses.item_updated_successfully'));
+        return apiResponse($transaction, __('responses.item_updated_successfully'));
     }
 
     /**
@@ -93,9 +93,9 @@ class TransactionController extends Controller
     {
         $transaction = $this->transactionService->deleteTransaction($id);
         if (!$transaction) {
-            return api_response($transaction, __('responses.item_not_deleted'), 400);
+            return apiResponse($transaction, __('responses.item_not_deleted'), 400);
         }
-        return api_response($transaction, __('responses.item_deleted_successfully'));
+        return apiResponse($transaction, __('responses.item_deleted_successfully'));
     }
 
     /**
@@ -107,8 +107,8 @@ class TransactionController extends Controller
     {
         $number = $this->transactionService->getTransactionNumber();
         if (!$number) {
-            return api_response($number, __('responses.item_not_found'), 400);
+            return apiResponse($number, __('responses.item_not_found'), 400);
         }
-        return api_response($number, __('responses.data_retrieved_successfully'));
+        return apiResponse($number, __('responses.data_retrieved_successfully'));
     }
 }

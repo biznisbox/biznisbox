@@ -31,9 +31,9 @@ class SupportTicketController extends Controller
         $key = $request->get('key');
         $ticket = $this->supportTicketService->getTicket($key);
         if ($ticket) {
-            return api_response($ticket, __('responses.data_retrieved_successfully'));
+            return apiResponse($ticket, __('responses.data_retrieved_successfully'));
         }
-        return api_response(null, __('responses.item_not_found'), 404);
+        return apiResponse(null, __('responses.item_not_found'), 404);
     }
 
     /**
@@ -48,8 +48,8 @@ class SupportTicketController extends Controller
         $key = $request->get('key');
         $content = $this->supportTicketService->replayOnTicket($key, $data);
         if ($content) {
-            return api_response($content, __('responses.item_updated_successfully'));
+            return apiResponse($content, __('responses.item_updated_successfully'));
         }
-        return api_response(null, __('responses.item_not_updated'), 400);
+        return apiResponse(null, __('responses.item_not_updated'), 400);
     }
 }

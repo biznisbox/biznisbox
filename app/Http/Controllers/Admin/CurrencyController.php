@@ -30,9 +30,9 @@ class CurrencyController extends Controller
     {
         $currencies = $this->currencyService->getCurrencies();
         if (!$currencies) {
-            return api_response($currencies, __('responses.item_not_found'), 404);
+            return apiResponse($currencies, __('responses.item_not_found'), 404);
         }
-        return api_response($currencies, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($currencies, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -45,9 +45,9 @@ class CurrencyController extends Controller
     {
         $currency = $this->currencyService->getCurrency($id);
         if (!$currency) {
-            return api_response($currency, __('responses.item_not_found_with_id'), 404);
+            return apiResponse($currency, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($currency, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($currency, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -59,9 +59,9 @@ class CurrencyController extends Controller
     {
         $currency = $this->currencyService->liveUpdateCurrencyRate();
         if (!$currency) {
-            return api_response($currency, __('responses.currency_rate_not_updated'), 404);
+            return apiResponse($currency, __('responses.currency_rate_not_updated'), 404);
         }
-        return api_response($currency, __('responses.data_updated_successfully'), 200);
+        return apiResponse($currency, __('responses.data_updated_successfully'), 200);
     }
 
     /**
@@ -75,9 +75,9 @@ class CurrencyController extends Controller
         $data = $request->all();
         $currency = $this->currencyService->createCurrency($data);
         if (!$currency) {
-            return api_response($currency, __('responses.item_not_found'), 404);
+            return apiResponse($currency, __('responses.item_not_found'), 404);
         }
-        return api_response($currency, __('responses.item_created_successfully'), 200);
+        return apiResponse($currency, __('responses.item_created_successfully'), 200);
     }
 
     /**
@@ -92,9 +92,9 @@ class CurrencyController extends Controller
         $data = $request->all();
         $currency = $this->currencyService->updateCurrency($id, $data);
         if (!$currency) {
-            return api_response($currency, __('responses.item_not_found'), 404);
+            return apiResponse($currency, __('responses.item_not_found'), 404);
         }
-        return api_response($currency, __('responses.item_updated_successfully'), 200);
+        return apiResponse($currency, __('responses.item_updated_successfully'), 200);
     }
 
     /**
@@ -107,8 +107,8 @@ class CurrencyController extends Controller
     {
         $currency = $this->currencyService->deleteCurrency($id);
         if (!$currency) {
-            return api_response($currency, __('responses.item_not_found'), 404);
+            return apiResponse($currency, __('responses.item_not_found'), 404);
         }
-        return api_response($currency, __('responses.item_deleted_successfully'), 200);
+        return apiResponse($currency, __('responses.item_deleted_successfully'), 200);
     }
 }

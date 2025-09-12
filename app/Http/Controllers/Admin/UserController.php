@@ -31,9 +31,9 @@ class UserController extends Controller
     {
         $users = $this->userService->getUsers();
         if (!$users) {
-            return api_response($users, __('responses.item_not_found'), 404);
+            return apiResponse($users, __('responses.item_not_found'), 404);
         }
-        return api_response($users, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($users, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -46,9 +46,9 @@ class UserController extends Controller
     {
         $user = $this->userService->getUser($id);
         if (!$user) {
-            return api_response($user, __('responses.item_not_found_with_id'), 404);
+            return apiResponse($user, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($user, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($user, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -62,9 +62,9 @@ class UserController extends Controller
         $data = $request->all();
         $user = $this->userService->createUser($data);
         if (!$user) {
-            return api_response($user, __('responses.item_not_created'), 400);
+            return apiResponse($user, __('responses.item_not_created'), 400);
         }
-        return api_response($user, __('responses.item_created_successfully'), 200);
+        return apiResponse($user, __('responses.item_created_successfully'), 200);
     }
 
     /**
@@ -79,9 +79,9 @@ class UserController extends Controller
         $data = $request->all();
         $user = $this->userService->updateUser($id, $data);
         if (!$user) {
-            return api_response($user, __('responses.item_not_updated'), 400);
+            return apiResponse($user, __('responses.item_not_updated'), 400);
         }
-        return api_response($user, __('responses.item_updated_successfully'), 200);
+        return apiResponse($user, __('responses.item_updated_successfully'), 200);
     }
 
     /**
@@ -94,9 +94,9 @@ class UserController extends Controller
     {
         $user = $this->userService->deleteUser($id);
         if (!$user) {
-            return api_response($user, __('responses.item_not_deleted'), 400);
+            return apiResponse($user, __('responses.item_not_deleted'), 400);
         }
-        return api_response($user, __('responses.item_deleted_successfully'), 200);
+        return apiResponse($user, __('responses.item_deleted_successfully'), 200);
     }
 
     /**
@@ -111,9 +111,9 @@ class UserController extends Controller
         $data = $request->all();
         $user = $this->userService->resetPassword($id, $data);
         if (!$user) {
-            return api_response($user, __('responses.password_reset_failed'), 400);
+            return apiResponse($user, __('responses.password_reset_failed'), 400);
         }
-        return api_response($user, __('responses.password_reset_successfully'), 200);
+        return apiResponse($user, __('responses.password_reset_successfully'), 200);
     }
 
     /**
@@ -126,9 +126,9 @@ class UserController extends Controller
     {
         $user = $this->userService->disable2fa($id);
         if (!$user) {
-            return api_response($user, __('responses.two_factor_auth_disabled_error'), 400);
+            return apiResponse($user, __('responses.two_factor_auth_disabled_error'), 400);
         }
-        return api_response($user, __('responses.two_factor_auth_disabled'), 200);
+        return apiResponse($user, __('responses.two_factor_auth_disabled'), 200);
     }
 
     /**
@@ -140,8 +140,8 @@ class UserController extends Controller
     {
         $personalAccessToken = $this->userService->deleteAdminPersonalAccessToken($id);
         if (!$personalAccessToken) {
-            return api_response($personalAccessToken, __('responses.item_not_deleted'), 400);
+            return apiResponse($personalAccessToken, __('responses.item_not_deleted'), 400);
         }
-        return api_response($personalAccessToken, __('responses.item_deleted_successfully'), 200);
+        return apiResponse($personalAccessToken, __('responses.item_deleted_successfully'), 200);
     }
 }

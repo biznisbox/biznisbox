@@ -28,7 +28,7 @@ class WebhookSubscriptionController extends Controller
     public function getWebhookSubscriptions()
     {
         $webhookSubscriptions = $this->webhookSubscriptionService->getWebhookSubscriptions();
-        return api_response($webhookSubscriptions, __('responses.data_retrieved_successfully'));
+        return apiResponse($webhookSubscriptions, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -41,9 +41,9 @@ class WebhookSubscriptionController extends Controller
     {
         $webhookSubscription = $this->webhookSubscriptionService->getWebhookSubscription($id);
         if (!$webhookSubscription) {
-            return api_response(null, __('responses.data_not_found'), 404);
+            return apiResponse(null, __('responses.data_not_found'), 404);
         }
-        return api_response($webhookSubscription, __('responses.data_retrieved_successfully'));
+        return apiResponse($webhookSubscription, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -56,7 +56,7 @@ class WebhookSubscriptionController extends Controller
     {
         $data = $request->all();
         $webhookSubscription = $this->webhookSubscriptionService->createWebhookSubscription($data);
-        return api_response($webhookSubscription, __('responses.item_created_successfully'), 201);
+        return apiResponse($webhookSubscription, __('responses.item_created_successfully'), 201);
     }
 
     /**
@@ -71,9 +71,9 @@ class WebhookSubscriptionController extends Controller
         $data = $request->all();
         $webhookSubscription = $this->webhookSubscriptionService->updateWebhookSubscription($id, $data);
         if (!$webhookSubscription) {
-            return api_response(null, __('responses.data_not_found'), 404);
+            return apiResponse(null, __('responses.data_not_found'), 404);
         }
-        return api_response($webhookSubscription, __('responses.item_updated_successfully'));
+        return apiResponse($webhookSubscription, __('responses.item_updated_successfully'));
     }
 
     /**
@@ -86,8 +86,8 @@ class WebhookSubscriptionController extends Controller
     {
         $webhookSubscription = $this->webhookSubscriptionService->deleteWebhookSubscription($id);
         if (!$webhookSubscription) {
-            return api_response(null, __('responses.data_not_found'), 404);
+            return apiResponse(null, __('responses.data_not_found'), 404);
         }
-        return api_response($webhookSubscription, __('responses.item_deleted_successfully'));
+        return apiResponse($webhookSubscription, __('responses.item_deleted_successfully'));
     }
 }

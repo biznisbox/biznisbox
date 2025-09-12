@@ -31,10 +31,10 @@ class QuoteController extends Controller
         $quotes = $this->quoteService->getQuotes();
 
         if (!$quotes) {
-            return api_response(null, __('responses.item_not_found'), 404);
+            return apiResponse(null, __('responses.item_not_found'), 404);
         }
 
-        return api_response($quotes, __('responses.data_retrieved_successfully'));
+        return apiResponse($quotes, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -49,10 +49,10 @@ class QuoteController extends Controller
         $quote = $this->quoteService->getQuoteById($quoteId);
 
         if (!$quote) {
-            return api_response(null, __('responses.item_not_found'), 404);
+            return apiResponse(null, __('responses.item_not_found'), 404);
         }
 
-        return api_response($quote, __('responses.data_retrieved_successfully'));
+        return apiResponse($quote, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -69,9 +69,9 @@ class QuoteController extends Controller
         $quote = $this->quoteService->acceptRejectQuote($quoteId, $action);
 
         if (!$quote) {
-            return api_response(null, __('responses.item_not_found'), 404);
+            return apiResponse(null, __('responses.item_not_found'), 404);
         }
 
-        return api_response($quote, __('responses.data_retrieved_successfully'));
+        return apiResponse($quote, __('responses.data_retrieved_successfully'));
     }
 }

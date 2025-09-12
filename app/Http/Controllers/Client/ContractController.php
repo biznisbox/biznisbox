@@ -31,9 +31,9 @@ class ContractController extends Controller
         $contract = $this->contractService->getContract($key);
 
         if (!$contract) {
-            return api_response(null, __('responses.item_not_found'), 404);
+            return apiResponse(null, __('responses.item_not_found'), 404);
         }
-        return api_response($contract, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($contract, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -49,8 +49,8 @@ class ContractController extends Controller
         $contract = $this->contractService->signContract($key, $data);
 
         if (!$contract) {
-            return api_response(null, __('responses.item_not_found'), 404);
+            return apiResponse(null, __('responses.item_not_found'), 404);
         }
-        return api_response($contract, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($contract, __('responses.data_retrieved_successfully'), 200);
     }
 }

@@ -30,9 +30,9 @@ class PermissionRoleController extends Controller
     {
         $roles = $this->permissionRoleService->getRoles();
         if (!$roles) {
-            return api_response($roles, __('responses.item_not_found'), 404);
+            return apiResponse($roles, __('responses.item_not_found'), 404);
         }
-        return api_response($roles, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($roles, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -46,9 +46,9 @@ class PermissionRoleController extends Controller
     {
         $role = $this->permissionRoleService->getRole($id);
         if (!$role) {
-            return api_response($role, __('responses.item_not_found_with_id'), 404);
+            return apiResponse($role, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($role, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($role, __('responses.data_retrieved_successfully'), 200);
     }
 
     /**
@@ -63,9 +63,9 @@ class PermissionRoleController extends Controller
         $data = $request->all();
         $role = $this->permissionRoleService->createRole($data);
         if (!$role) {
-            return api_response($role, __('responses.item_not_created'), 400);
+            return apiResponse($role, __('responses.item_not_created'), 400);
         }
-        return api_response($role, __('responses.item_created_successfully'), 200);
+        return apiResponse($role, __('responses.item_created_successfully'), 200);
     }
 
     /**
@@ -80,9 +80,9 @@ class PermissionRoleController extends Controller
         $data = $request->all();
         $role = $this->permissionRoleService->updateRole($data, $id);
         if (!$role) {
-            return api_response($role, __('responses.item_not_found'), 404);
+            return apiResponse($role, __('responses.item_not_found'), 404);
         }
-        return api_response($role, __('responses.item_updated_successfully'), 200);
+        return apiResponse($role, __('responses.item_updated_successfully'), 200);
     }
 
     /**
@@ -95,9 +95,9 @@ class PermissionRoleController extends Controller
     {
         $role = $this->permissionRoleService->deleteRole($id);
         if (!$role) {
-            return api_response($role, __('responses.item_not_found'), 404);
+            return apiResponse($role, __('responses.item_not_found'), 404);
         }
-        return api_response($role, __('responses.item_deleted_successfully'), 200);
+        return apiResponse($role, __('responses.item_deleted_successfully'), 200);
     }
 
     /**
@@ -109,8 +109,8 @@ class PermissionRoleController extends Controller
     {
         $permissions = $this->permissionRoleService->getPermissions();
         if (!$permissions) {
-            return api_response($permissions, __('responses.item_not_found'), 404);
+            return apiResponse($permissions, __('responses.item_not_found'), 404);
         }
-        return api_response($permissions, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($permissions, __('responses.data_retrieved_successfully'), 200);
     }
 }

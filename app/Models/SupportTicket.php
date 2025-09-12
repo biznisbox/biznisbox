@@ -203,7 +203,7 @@ class SupportTicket extends Model implements Auditable
         return $url;
     }
 
-    public function getClientTicket($id)
+    public static function getClientTicket($id)
     {
         $ticket = self::with('partner', 'category', 'content', 'department:name,email,phone_number,type,id')->find($id);
         if ($ticket) {

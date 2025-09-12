@@ -29,9 +29,9 @@ class AccountController extends Controller
     {
         $accounts = $this->accountService->getAccounts();
         if (!$accounts) {
-            return api_response(null, __('responses.item_not_found'), 404);
+            return apiResponse(null, __('responses.item_not_found'), 404);
         }
-        return api_response($accounts, __('responses.data_retrieved_successfully'));
+        return apiResponse($accounts, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -46,9 +46,9 @@ class AccountController extends Controller
     {
         $account = $this->accountService->getAccount($id);
         if (!$account) {
-            return api_response(null, __('responses.item_not_found_with_id'), 404);
+            return apiResponse(null, __('responses.item_not_found_with_id'), 404);
         }
-        return api_response($account, __('responses.data_retrieved_successfully'));
+        return apiResponse($account, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -63,9 +63,9 @@ class AccountController extends Controller
         $data = $request->all();
         $account = $this->accountService->createAccount($data);
         if (!$account) {
-            return api_response(null, __('responses.item_not_created'), 400);
+            return apiResponse(null, __('responses.item_not_created'), 400);
         }
-        return api_response($account, __('responses.item_created_successfully'));
+        return apiResponse($account, __('responses.item_created_successfully'));
     }
 
     /**
@@ -81,9 +81,9 @@ class AccountController extends Controller
         $data = $request->all();
         $account = $this->accountService->updateAccount($id, $data);
         if (!$account) {
-            return api_response(null, __('responses.item_not_updated'), 400);
+            return apiResponse(null, __('responses.item_not_updated'), 400);
         }
-        return api_response($account, __('responses.item_updated_successfully'));
+        return apiResponse($account, __('responses.item_updated_successfully'));
     }
 
     /**
@@ -98,8 +98,8 @@ class AccountController extends Controller
     {
         $account = $this->accountService->deleteAccount($id);
         if (!$account) {
-            return api_response(null, __('responses.item_not_deleted'), 400);
+            return apiResponse(null, __('responses.item_not_deleted'), 400);
         }
-        return api_response($account, __('responses.item_deleted_successfully'));
+        return apiResponse($account, __('responses.item_deleted_successfully'));
     }
 }
