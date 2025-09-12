@@ -129,4 +129,5 @@ return [
     'vat_number_validated_successfully' => 'Номер платника ПДВ успішно перевірено',
     'archive_document_auto_generated' => 'Архівувати документ успішно створено',
     'already_accepted_rejected' => 'Цитата вже була прийнята або відхилена',
+    'payment_gateway_not_supported' => 'Платіжний шлюз не підтримується',
 ];
