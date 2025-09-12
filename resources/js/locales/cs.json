@@ -497,6 +497,7 @@
         "credit_card": "Platební karta",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Barevné hlinky",
         "other": "Ostatní"
     },
     "support_priority": {
@@ -664,7 +665,8 @@
         "no_sales_person": "Žádná prodejní osoba",
         "no_payment_method": "Žádný způsob platby",
         "click_for_pay_with_paypal": "Klikněte zde pro platbu přes PayPal",
-        "click_for_pay": "Pro platbu klikněte zde"
+        "click_for_pay": "Pro platbu klikněte zde",
+        "click_for_pay_with_coinbase": "Klikněte zde pro platbu kryptem"
     },
     "quote": {
         "quote": "Cenová nabídka | Cenové nabídky",
@@ -1030,7 +1032,12 @@
             "open_banking_client_id": "Open Banking Client ID",
             "open_banking_secret": "Otevřené bankovní tajemství",
             "open_banking_help": "Své ID a tajné ID klienta můžete najít ve svém severském účtu.",
-            "online_payments": "Online platby"
+            "online_payments": "Online platby",
+            "coinbase": "Barevné hlinky",
+            "coinbase_available": "Mince jsou k dispozici",
+            "coinbase_api_key": "API klíč Coinbase",
+            "coinbase_api_key_help": "Váš API klíč můžete najít v komerčním účtu Coinbase.",
+            "coinbase_account_id": "ID interního účtu Coinbase"
         },
         "status": {
             "title": "Stavová stránka",
