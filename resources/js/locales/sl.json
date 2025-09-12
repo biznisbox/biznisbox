@@ -497,6 +497,7 @@
         "credit_card": "Plačilna kartica",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Drugo"
     },
     "support_priority": {
@@ -664,7 +665,8 @@
         "no_sales_person": "Ni prodajalca",
         "no_payment_method": "Način plačila",
         "click_for_pay_with_paypal": "Kliknite tukaj za plačilo prek PayPala",
-        "click_for_pay": "Kliknite tukaj za plačilo"
+        "click_for_pay": "Kliknite tukaj za plačilo",
+        "click_for_pay_with_coinbase": "Click here to pay with crypto"
     },
     "quote": {
         "quote": "Ponudba|Ponudbe",
@@ -1030,7 +1032,12 @@
             "open_banking_client_id": "Odprta bančna ID stranke",
             "open_banking_secret": "Odprta bančna skrivnost",
             "open_banking_help": "Najdete ga v vašem Nordigen računu.",
-            "online_payments": "Spletni plačili"
+            "online_payments": "Spletni plačili",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Coinbase available",
+            "coinbase_api_key": "Coinbase API Key",
+            "coinbase_api_key_help": "You can find your API key in your Coinbase commerce account.",
+            "coinbase_account_id": "Coinbase internal account ID"
         },
         "status": {
             "title": "Status aplikacije",
