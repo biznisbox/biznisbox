@@ -497,6 +497,7 @@
         "credit_card": "Betalingskort",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Annet"
     },
     "support_priority": {
@@ -664,7 +665,8 @@
         "no_sales_person": "Ingen salgsperson",
         "no_payment_method": "Ingen betalingsmåte",
         "click_for_pay_with_paypal": "Klikk her for å betale med PayPal",
-        "click_for_pay": "Klikk her for å betale"
+        "click_for_pay": "Klikk her for å betale",
+        "click_for_pay_with_coinbase": "Klikk her for å betale med crypto"
     },
     "quote": {
         "quote": "Tilbud, tilbud",
@@ -1030,7 +1032,12 @@
             "open_banking_client_id": "Åpne Banking klient-ID",
             "open_banking_secret": "Åpne banking hemmelighet",
             "open_banking_help": "Finner du din klient-ID og hemmelig i din Nordig-konto.",
-            "online_payments": "Elektroniske betalinger"
+            "online_payments": "Elektroniske betalinger",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Coinbase tilgjengelig",
+            "coinbase_api_key": "Coinbase API-nøkkel",
+            "coinbase_api_key_help": "Du kan finne din API-nøkkel i din Coinbase handelskonto.",
+            "coinbase_account_id": "Coinbase intern konto-ID"
         },
         "status": {
             "title": "Status side",
