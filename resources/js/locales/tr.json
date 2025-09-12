@@ -497,6 +497,7 @@
         "credit_card": "Payment card",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Diğer"
     },
     "support_priority": {
@@ -664,7 +665,8 @@
         "no_sales_person": "Satış elemanı yok",
         "no_payment_method": "Ödeme yöntemi yok",
         "click_for_pay_with_paypal": "PayPal ile ödemek için buraya tıklayın",
-        "click_for_pay": "Ödemek için buraya tıklayın"
+        "click_for_pay": "Ödemek için buraya tıklayın",
+        "click_for_pay_with_coinbase": "Click here to pay with crypto"
     },
     "quote": {
         "quote": "Teklif | Teklifler",
@@ -1030,7 +1032,12 @@
             "open_banking_client_id": "Açık Bankacılık Müşteri Kimliği",
             "open_banking_secret": "Açık Bankacılık Şifre",
             "open_banking_help": "Müşteri kimliğinizi ve şifrenizi Nordigen hesabınızda bulabilirsiniz.",
-            "online_payments": "Çevrimiçi Ödemeler"
+            "online_payments": "Çevrimiçi Ödemeler",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Coinbase available",
+            "coinbase_api_key": "Coinbase API Key",
+            "coinbase_api_key_help": "You can find your API key in your Coinbase commerce account.",
+            "coinbase_account_id": "Coinbase internal account ID"
         },
         "status": {
             "title": "Status Page",
