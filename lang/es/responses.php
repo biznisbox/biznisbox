@@ -129,4 +129,5 @@ return [
     'vat_number_validated_successfully' => 'Número de IVA validado con éxito',
     'archive_document_auto_generated' => 'Archivo de documento generado automáticamente',
     'already_accepted_rejected' => 'El presupuesto ya ha sido aceptado o rechazado',
+    'payment_gateway_not_supported' => 'Pasarela de pago no soportada',
 ];
