@@ -497,6 +497,7 @@
         "credit_card": "Payment card",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Egyéb"
     },
     "support_priority": {
@@ -664,7 +665,8 @@
         "no_sales_person": "No sales person",
         "no_payment_method": "Nincs fizetési mód",
         "click_for_pay_with_paypal": "Kattintson ide a PayPal-lal történő fizetéshez",
-        "click_for_pay": "Kattintson ide a fizetéshez"
+        "click_for_pay": "Kattintson ide a fizetéshez",
+        "click_for_pay_with_coinbase": "Click here to pay with crypto"
     },
     "quote": {
         "quote": "Ajánlat | Ajánlatok",
@@ -1030,7 +1032,12 @@
             "open_banking_client_id": "Open Banking ügyfélazonosító",
             "open_banking_secret": "Open Banking titok",
             "open_banking_help": "A Nordigen fiókodban megtalálhatod az ügyfélazonosítód és titkod.",
-            "online_payments": "Online fizetések"
+            "online_payments": "Online fizetések",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Coinbase available",
+            "coinbase_api_key": "Coinbase API Key",
+            "coinbase_api_key_help": "You can find your API key in your Coinbase commerce account.",
+            "coinbase_account_id": "Coinbase internal account ID"
         },
         "status": {
             "title": "Status Page",
