@@ -129,4 +129,5 @@ return [
     'vat_number_validated_successfully' => 'CVR-nummer valideret med succes',
     'archive_document_auto_generated' => 'Automatisk generering af arkivdokument lykkedes',
     'already_accepted_rejected' => 'Tilbud er allerede blevet accepteret eller afvist',
+    'payment_gateway_not_supported' => 'Betalingsgateway understøttes ikke',
 ];
