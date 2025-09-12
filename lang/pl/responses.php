@@ -129,4 +129,5 @@ return [
     'vat_number_validated_successfully' => 'Numer VAT został pomyślnie zweryfikowany',
     'archive_document_auto_generated' => 'Automatycznie wygenerowano archiwizację dokumentu',
     'already_accepted_rejected' => 'Oferta została już zaakceptowana lub odrzucona',
+    'payment_gateway_not_supported' => 'Brama płatności nie jest obsługiwana',
 ];
