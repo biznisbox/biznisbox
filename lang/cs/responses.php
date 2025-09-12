@@ -129,4 +129,5 @@ return [
     'vat_number_validated_successfully' => 'DIČ bylo úspěšně potvrzeno',
     'archive_document_auto_generated' => 'Archivovat dokument automaticky vygenerován',
     'already_accepted_rejected' => 'Cenová nabídka již byla přijata nebo zamítnuta',
+    'payment_gateway_not_supported' => 'Platební brána není podporována',
 ];
