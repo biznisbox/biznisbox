@@ -129,4 +129,5 @@ return [
     'vat_number_validated_successfully' => 'ALV-numero vahvistettu onnistuneesti',
     'archive_document_auto_generated' => 'Arkistoasiakirjan automaattinen luonti onnistui',
     'already_accepted_rejected' => 'Tarjous on jo hyväksytty tai hylätty',
+    'payment_gateway_not_supported' => 'Maksuyhdyskäytävää ei tueta',
 ];
