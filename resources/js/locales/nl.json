@@ -497,6 +497,7 @@
         "credit_card": "Kaart met betaling",
         "paypal": "Paypal",
         "stripe": "Stripe",
+        "coinbase": "Muntbasis",
         "other": "anders"
     },
     "support_priority": {
@@ -664,7 +665,8 @@
         "no_sales_person": "Geen verkoper",
         "no_payment_method": "Geen betaalmethode",
         "click_for_pay_with_paypal": "Klik hier om te betalen met PayPal",
-        "click_for_pay": "Klik hier om te betalen"
+        "click_for_pay": "Klik hier om te betalen",
+        "click_for_pay_with_coinbase": "Klik hier om te betalen met crypto"
     },
     "quote": {
         "quote": "Offerte aanhalingstekens",
@@ -1030,7 +1032,12 @@
             "open_banking_client_id": "Open Bank Client ID",
             "open_banking_secret": "Open bankgeheim",
             "open_banking_help": "U kunt uw client-ID en geheim vinden in uw Noordse account.",
-            "online_payments": "Online betalingen"
+            "online_payments": "Online betalingen",
+            "coinbase": "Muntbasis",
+            "coinbase_available": "Coinbase beschikbaar",
+            "coinbase_api_key": "Coinbase API Sleutel",
+            "coinbase_api_key_help": "U kunt uw API-sleutel vinden in uw Coinbase handelsaccount.",
+            "coinbase_account_id": "Coinbase intern account-ID"
         },
         "status": {
             "title": "Status pagina",
