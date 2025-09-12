@@ -129,4 +129,5 @@ return [
     'vat_number_validated_successfully' => 'Ο αριθμός ΑΦΜ επικυρώθηκε επιτυχώς',
     'archive_document_auto_generated' => 'Αυτόματη δημιουργία αρχείου εγγράφου με επιτυχία',
     'already_accepted_rejected' => 'Η προσφορά έχει ήδη γίνει δεκτή ή απορριφθεί',
+    'payment_gateway_not_supported' => 'Η πύλη πληρωμής δεν υποστηρίζεται',
 ];
