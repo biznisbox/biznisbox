@@ -129,4 +129,5 @@ return [
     'vat_number_validated_successfully' => 'Partita IVA convalidata con successo',
     'archive_document_auto_generated' => 'Archivio documento generato automaticamente',
     'already_accepted_rejected' => 'Il preventivo è già stato accettato o rifiutato',
+    'payment_gateway_not_supported' => 'Gateway di pagamento non supportato',
 ];
