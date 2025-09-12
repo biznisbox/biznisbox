@@ -129,4 +129,5 @@ return [
     'vat_number_validated_successfully' => 'Numéro de TVA validé avec succès',
     'archive_document_auto_generated' => 'Archivage du document généré automatiquement avec succès',
     'already_accepted_rejected' => 'Le devis a déjà été accepté ou rejeté',
+    'payment_gateway_not_supported' => 'Passerelle de paiement non prise en charge',
 ];
