@@ -3,6 +3,7 @@
 ## ✨ New Features & Enhancements
 
 - Added a new feature for paying invoices via client portal using Stripe and PayPal.
+- Added a new feature for paying invoices via client portal using Coinbase (cryptocurrency payments).
 
 ## 🐛 Bug Fixes
 

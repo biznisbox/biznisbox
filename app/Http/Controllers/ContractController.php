@@ -107,7 +107,6 @@ class ContractController extends Controller
         }
         $type = $request->input('type', 'stream');
         return $this->contractService->getContractPdf($id, $type);
-
     }
 
     /**

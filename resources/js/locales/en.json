@@ -497,6 +497,7 @@
         "credit_card": "Payment card",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Other"
     },
     "support_priority": {
@@ -664,7 +665,8 @@
         "no_sales_person": "No sales person",
         "no_payment_method": "No payment method",
         "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "click_for_pay": "Click here to pay",
+        "click_for_pay_with_coinbase": "Click here to pay with crypto"
     },
     "quote": {
         "quote": "Quote | Quotes",
@@ -1030,7 +1032,12 @@
             "open_banking_client_id": "Open Banking Client ID",
             "open_banking_secret": "Open Banking Secret",
             "open_banking_help": "You can find your Client ID and Secret in your Nordigen account.",
-            "online_payments": "Online Payments"
+            "online_payments": "Online Payments",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Coinbase available",
+            "coinbase_api_key": "Coinbase API Key",
+            "coinbase_api_key_help": "You can find your API key in your Coinbase commerce account.",
+            "coinbase_account_id": "Coinbase internal account ID"
         },
         "status": {
             "title": "Status Page",

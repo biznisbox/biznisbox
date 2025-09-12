@@ -7,6 +7,7 @@ use App\Models\Contract;
 use App\Models\Bill;
 use App\Models\Quote;
 use App\Models\Session;
+use App\Services\OnlinePaymentService;
 use Illuminate\Console\Command;
 
 class UpdateItemStatuses extends Command
@@ -57,6 +58,11 @@ class UpdateItemStatuses extends Command
         $this->warn('Session');
         Session::updateSessionStatusCron();
         $this->info('Session statuses updated successfully');
+
+        // Check and update all Coinbase payment statuses
+        $this->warn('Coinbase');
+        OnlinePaymentService::checkAllCoinbasePaymentStatus();
+        $this->info('Coinbase payment statuses updated successfully');
 
         $this->alert('Statuses updated successfully');
     }

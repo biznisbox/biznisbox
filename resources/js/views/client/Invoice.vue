@@ -40,6 +40,15 @@
                             />
 
                             <Button
+                                v-if="$settings.coinbase_available && invoice.status != 'paid' && invoice.status != 'overpaid'"
+                                id="coinbase_button"
+                                v-tooltip:top="$t('invoice.click_for_pay_with_coinbase')"
+                                class="mr-2 no-print"
+                                icon="fab fa-bitcoin"
+                                @click="payInvoiceWithGateway('coinbase')"
+                            />
+
+                            <Button
                                 v-if="invoice.transactions.length > 0"
                                 id="show_transactions_button"
                                 class="mr-2 no-print"

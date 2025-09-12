@@ -76,6 +76,35 @@
                                     :disabled="!settings.paypal_available"
                                 />
                             </div>
+                            <!-- Coinbase -->
+                            <div id="coinbase_integration" class="mt-6">
+                                <h2 class="mb-4 font-bold dark:text-surface-200">{{ $t('admin.integrations.coinbase') }}</h2>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                    <div class="flex flex-col gap-2 mb-2">
+                                        <label for="coinbase_available" class="dark:text-surface-200"
+                                            >{{ $t('admin.integrations.coinbase_available') }}
+                                        </label>
+                                        <ToggleSwitch id="coinbase_available" v-model="settings.coinbase_available" />
+                                    </div>
+                                </div>
+
+                                <TextInput
+                                    id="coinbase_api_key"
+                                    v-model="settings.coinbase_api_key"
+                                    :label="$t('admin.integrations.coinbase_api_key')"
+                                    :disabled="!settings.coinbase_available"
+                                />
+
+                                <SelectInput
+                                    id="coinbase_account_input"
+                                    v-model="settings.coinbase_account_id"
+                                    :label="$t('admin.integrations.coinbase_account_id')"
+                                    :options="accounts"
+                                    option-label="name"
+                                    option-value="id"
+                                    :disabled="!settings.coinbase_available"
+                                />
+                            </div>
                         </TabPanel>
 
                         <!-- Open Banking -->

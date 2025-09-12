@@ -56,6 +56,12 @@ class SettingSeeder extends Seeder
         Setting::firstOrCreate(['key' => 'paypal_test_mode'], ['value' => true, 'type' => 'boolean', 'is_public' => 0]);
         Setting::firstOrCreate(['key' => 'paypal_account_id'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
 
+        // Coinbase settings
+        Setting::firstOrCreate(['key' => 'coinbase_api_key'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
+        Setting::firstOrCreate(['key' => 'coinbase_available'], ['value' => false, 'type' => 'boolean', 'is_public' => 1]);
+        Setting::firstOrCreate(['key' => 'coinbase_test_mode'], ['value' => true, 'type' => 'boolean', 'is_public' => 0]);
+        Setting::firstOrCreate(['key' => 'coinbase_account_id'], ['value' => null, 'type' => 'string', 'is_public' => 0]);
+
         // Mail settings
         Setting::firstOrCreate(['key' => 'mail_mailer'], ['value' => 'smtp', 'type' => 'string', 'is_public' => 0]);
         Setting::firstOrCreate(['key' => 'mail_host'], ['value' => 'localhost', 'type' => 'string', 'is_public' => 0]);
@@ -149,6 +155,21 @@ class SettingSeeder extends Seeder
         Category::firstOrCreate(
             ['additional_info' => 'stripe'],
             ['module' => 'payment_method', 'icon' => 'fab fa-stripe', 'name' => 'Stripe', 'color' => '635BFF'],
+        );
+
+        Category::firstOrCreate(
+            ['additional_info' => 'bank_transfer'],
+            ['module' => 'payment_method', 'icon' => 'fas fa-university', 'name' => 'Bank Transfer', 'color' => '346bb4'],
+        );
+
+        Category::firstOrCreate(
+            ['additional_info' => 'cash'],
+            ['module' => 'payment_method', 'icon' => 'fas fa-money-bill-wave', 'name' => 'Cash', 'color' => '3cba54'],
+        );
+
+        Category::firstOrCreate(
+            ['additional_info' => 'coinbase'],
+            ['module' => 'payment_method', 'icon' => 'fab fa-bitcoin', 'name' => 'Coinbase', 'color' => 'ff9900'],
         );
 
         $this->updateEmailSettings();

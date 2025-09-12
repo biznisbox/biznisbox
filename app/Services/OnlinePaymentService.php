@@ -7,11 +7,12 @@ use App\Models\Invoice;
 use App\Models\Transaction;
 use App\Integrations\Stripe;
 use App\Integrations\PayPal;
+use App\Integrations\Coinbase;
 use App\Models\Category;
 
 class OnlinePaymentService
 {
-    private const URL_CLIENT_REDIRECT = '/api/online-payment/invoice/';
+    private const URL_CLIENT_REDIRECT = '/api/client/online-payment/invoice/';
     private const URL_CLIENT_PORTAL_REDIRECT = '/api/client-portal/online-payment/invoice/';
 
     public function payInvoiceWithStripe($invoice, $key = null, $method = 'web', $type = 'client')
@@ -158,6 +159,86 @@ class OnlinePaymentService
         self::setOnlinePaymentStatus($payment_id, 'failed', $payment['payment_response']);
 
         return $payment;
+    }
+
+    public function payInvoiceWithCoinbase($invoice, $key = null, $method = 'web', $type = 'client')
+    {
+        $payment_session = (new Coinbase())->createCharge([
+            'name' => 'Invoice ' . $invoice->number,
+            'description' => 'Payment for invoice ' . $invoice->number,
+            'local_price' => [
+                'amount' => number_format($invoice->total, 2, '.', ''),
+                'currency' => $invoice->currency,
+            ],
+            'pricing_type' => 'fixed_price',
+            'metadata' => [
+                'custom_field' => $invoice->id,
+                'custom_field_two' => $key,
+            ],
+            'redirect_url' => self::generateSuccessUrl($invoice, $key, $method, 'coinbase', $type),
+            'cancel_url' => self::generateCancelUrl($invoice, $key, $method, 'coinbase', $type),
+        ]);
+
+        $payment = self::createInvoiceOnlinePayment($invoice, $payment_session, $payment_session['data']['id'], 'coinbase', $key);
+
+        return [
+            'payment_id' => $payment->id,
+            'redirect_url' => $payment_session['data']['hosted_url'], // Redirect to this URL to complete payment
+            'payment_session' => $payment_session,
+        ];
+    }
+
+    public function validateInvoiceCoinbasePayment($payment_id)
+    {
+        $payment = OnlinePayment::find($payment_id);
+        if (!$payment) {
+            return [
+                'error' => true,
+                'message' => __('responses.invalid_payment_id'),
+            ];
+        }
+        $payment_session = (new Coinbase())->getCharge($payment->payment_id);
+
+        if (
+            $payment_session['data']['timeline'][count($payment_session['data']['timeline']) - 1]['status'] == 'COMPLETED' &&
+            $payment->status !== 'paid'
+        ) {
+            // Update payment status to paid
+            self::setOnlinePaymentStatus(
+                $payment->id,
+                'paid',
+                $payment_session,
+                $payment_session['data']['payments'][0]['network_transaction_id'] ?? null,
+            );
+
+            $invoice = Invoice::find($payment->payment_document_id);
+
+            $payment_method = self::getPaymentMethod('coinbase');
+
+            $invoice->update([
+                'status' => 'paid',
+                'payment_method_id' => $payment_method->id ?? null,
+            ]);
+
+            $transaction = self::createInvoicePaymentTransaction($invoice, $payment, $payment_method);
+
+            self::sendNotificationToSalesPerson($invoice);
+
+            self::sendWebhookForSuccessfulPayment($payment_method, $payment, $invoice, $transaction);
+
+            return [
+                'data' => $transaction,
+                'message' => __('responses.payment_successful'),
+            ];
+        }
+
+        self::setOnlinePaymentStatus($payment_id, 'failed', $payment_session);
+
+        return [
+            'error' => true,
+            'data' => $payment_session,
+            'message' => __('responses.payment_failed'),
+        ];
     }
 
     private static function getPaymentMethod($method)
@@ -318,38 +399,68 @@ class OnlinePaymentService
 
     private static function sendWebhookForSuccessfulPayment($payment_method, $payment, $invoice, $transaction)
     {
-        sendWebhookForEvent('online_payment:' . $payment_method . '-received', [
+        sendWebhookForEvent('online_payment:received', [
             'payment_id' => $payment->id,
             'invoice_id' => $invoice->id,
             'transaction_id' => $transaction->id,
+            'amount' => $payment->amount,
+            'currency' => $payment->currency,
+            'payment_method' => $payment_method,
+            'payment' => $payment,
+            'invoice' => $invoice,
+            'transaction' => $transaction,
         ]);
     }
 
     public function payInvoiceWithGateway($invoice, $paymentGateway, $key = null, $type = 'client', $method = 'web')
     {
+        $result = null;
         switch ($paymentGateway) {
             case 'stripe':
-                return $this->payInvoiceWithStripe($invoice, $key, $method, $type);
+                $result = $this->payInvoiceWithStripe($invoice, $key, $method, $type);
+                break;
             case 'paypal':
-                return $this->payInvoiceWithPayPal($invoice, $key, $method, $type);
+                $result = $this->payInvoiceWithPayPal($invoice, $key, $method, $type);
+                break;
+            case 'coinbase':
+                $result = $this->payInvoiceWithCoinbase($invoice, $key, $method, $type);
+                break;
             default:
-                return [
+                $result = [
                     'error' => __('responses.payment_gateway_not_supported'),
                 ];
+                break;
         }
+        return $result;
     }
 
     public function validateInvoicePaymentByGateway($paymentGateway, $payment_id, $payer_id = null)
     {
+        $result = null;
         switch ($paymentGateway) {
             case 'stripe':
-                return $this->validateInvoiceStripePayment($payment_id);
+                $result = $this->validateInvoiceStripePayment($payment_id);
+                break;
             case 'paypal':
-                return $this->validateInvoicePayPalPayment($payment_id, $payer_id);
+                $result = $this->validateInvoicePayPalPayment($payment_id, $payer_id);
+                break;
+            case 'coinbase':
+                $result = $this->validateInvoiceCoinbasePayment($payment_id);
+                break;
             default:
-                return [
+                $result = [
                     'error' => __('responses.payment_gateway_not_supported'),
                 ];
+                break;
+        }
+        return $result;
+    }
+
+    public static function checkAllCoinbasePaymentStatus()
+    {
+        $pendingPayments = OnlinePayment::where('payment_method', 'coinbase')->where('status', 'pending')->get();
+        foreach ($pendingPayments as $payment) {
+            (new self())->validateInvoiceCoinbasePayment($payment->id);
         }
     }
 }

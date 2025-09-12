@@ -405,7 +405,7 @@ Route::middleware('auth:api')->group(function () {
     });
 });
 
-// Anonymous routes
+// Client routes
 Route::group(['prefix' => 'client'], function () {
     Route::get('/invoice', [ClientInvoiceController::class, 'getInvoice'])->name('clientGetInvoice');
     Route::get('/quote', [ClientQuoteController::class, 'getQuote'])->name('clientGetQuote');
@@ -414,16 +414,16 @@ Route::group(['prefix' => 'client'], function () {
     Route::post('/support-ticket', [ClientSupportTicketController::class, 'replayOnTicket'])->name('clientReplayOnTicket');
     Route::get('/contract', [ClientContractController::class, 'getContract'])->name('clientGetContract');
     Route::post('/contract/sign', [ClientContractController::class, 'signContract'])->name('clientSignContract');
+
+    // Payment routes (need to be outside the auth:api middleware)
+    Route::get('/online-payment/invoice/{paymentGateway}', [ClientInvoiceController::class, 'validateInvoicePaymentByGateway'])->name(
+        'validateInvoicePaymentByGateway',
+    );
+
+    Route::post('/online-payment/invoice/{paymentGateway}', [ClientInvoiceController::class, 'payInvoiceByGateway'])->name(
+        'clientPayInvoiceByGateway',
+    );
 });
-
-// Payment routes (need to be outside the auth:api middleware)
-Route::get('/online-payment/invoice/{paymentGateway}', [ClientInvoiceController::class, 'validateInvoicePaymentByGateway'])->name(
-    'validateInvoicePaymentByGateway',
-);
-
-Route::post('/online-payment/invoice/{paymentGateway}', [ClientInvoiceController::class, 'payInvoiceByGateway'])->name(
-    'clientPayInvoiceByGateway',
-);
 
 // Client Portal Payment routes (need to be outside the auth:api middleware)
 Route::get('/client-portal/online-payment/invoice/{paymentGateway}', [

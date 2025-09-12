@@ -29,6 +29,12 @@
                             <i v-else-if="data.payment_method === 'bank_transfer'" class="fa fa-university"></i>
                             <i v-else-if="data.payment_method === 'stripe'" class="fab fa-stripe"></i>
                             <i v-else-if="data.payment_method === 'paypal'" class="fab fa-paypal"></i>
+                            <i v-else-if="data.payment_method === 'coinbase'" class="fab fa-bitcoin"></i>
+                            <i v-else-if="data.payment_method === 'check'" class="fa fa-check"></i>
+                            <div v-else>
+                                <i class="fa fa-money-bill-wave"></i>
+                                {{ data.payment_method }}
+                            </div>
                         </span>
                     </template>
                 </Column>

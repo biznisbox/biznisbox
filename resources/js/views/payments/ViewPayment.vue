@@ -16,13 +16,24 @@
                         <i v-else-if="payment.payment_method === 'bank_transfer'" class="fa fa-university"></i>
                         <i v-else-if="payment.payment_method === 'stripe'" class="fab fa-stripe"></i>
                         <i v-else-if="payment.payment_method === 'paypal'" class="fab fa-paypal"></i>
+                        <i v-else-if="payment.payment_method === 'coinbase'" class="fab fa-bitcoin"></i>
+                        <i v-else-if="payment.payment_method === 'check'" class="fa fa-check"></i>
+                        <div v-else>
+                            <i class="fa fa-money-bill-wave"></i>
+                            {{ payment.payment_method }}
+                        </div>
                     </span>
                 </DisplayData>
 
                 <DisplayData :input="$t('form.amount')" :value="formatMoney(payment.amount, payment.currency)" />
 
                 <DisplayData :input="$t('form.status')" customValue>
-                    <Tag :value="$t(`status.${payment.status}`)" />
+                    <Tag v-if="payment.status === 'pending'" :value="$t('status.pending')" severity="info" />
+                    <Tag v-else-if="payment.status === 'paid'" :value="$t('status.paid')" severity="success" />
+                    <Tag v-else-if="payment.status === 'failed'" :value="$t('status.failed')" severity="danger" />
+                    <Tag v-else-if="payment.status === 'canceled'" :value="$t('status.canceled')" severity="info" />
+                    <Tag v-else-if="payment.status === 'refunded'" :value="$t('status.refunded')" severity="secondary" />
+                    <Tag v-else :value="$t(`status.${payment.status}`)" />
                 </DisplayData>
             </div>
 
