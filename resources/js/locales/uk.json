@@ -497,6 +497,7 @@
         "credit_card": "Платіжна картка",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Куенбаз",
         "other": "Інше"
     },
     "support_priority": {
@@ -664,7 +665,8 @@
         "no_sales_person": "Немає відділу з продажу",
         "no_payment_method": "Немає способу оплати",
         "click_for_pay_with_paypal": "Натисніть тут, щоб заплатити за допомогою PayPal",
-        "click_for_pay": "Натисніть тут, щоб заплатити"
+        "click_for_pay": "Натисніть тут, щоб заплатити",
+        "click_for_pay_with_coinbase": "Натисніть тут, щоб заплатити крипто"
     },
     "quote": {
         "quote": "Котирування | Комерційні пропозиції",
@@ -1030,7 +1032,12 @@
             "open_banking_client_id": "Відкрити банківський клієнт ID",
             "open_banking_secret": "Відкрити банківський секрет",
             "open_banking_help": "Ви можете знайти ваш ID клієнта і Secret в Вашому обліковому записі Nordigen.",
-            "online_payments": "Онлайн платежі"
+            "online_payments": "Онлайн платежі",
+            "coinbase": "Куенбаз",
+            "coinbase_available": "Доступно Coinbase",
+            "coinbase_api_key": "Ключ Coinbase API",
+            "coinbase_api_key_help": "Ви можете знайти свій ключ API у вашому обліковому записі Coinbase.",
+            "coinbase_account_id": "Ідентифікатор внутрішнього облікового запису Coinbase"
         },
         "status": {
             "title": "Сторінка стану",
