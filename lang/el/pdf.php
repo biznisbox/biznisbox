@@ -55,6 +55,7 @@ return [
         'bank_transfer' => 'Τραπεζική Μεταφορά',
         'paypal' => 'Paypal',
         'stripe' => 'Stripe',
+        'coinbase' => 'Coinbase',
         'other' => 'Άλλο',
     ],
     'statuses' => [
