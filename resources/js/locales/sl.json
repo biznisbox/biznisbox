@@ -664,9 +664,8 @@
         "list_of_transactions": "Seznam transakcij",
         "no_sales_person": "Ni prodajalca",
         "no_payment_method": "Način plačila",
-        "click_for_pay_with_paypal": "Kliknite tukaj za plačilo prek PayPala",
         "click_for_pay": "Kliknite tukaj za plačilo",
-        "click_for_pay_with_coinbase": "Click here to pay with crypto"
+        "select_payment_gateway": "Select payment gateway"
     },
     "quote": {
         "quote": "Ponudba|Ponudbe",
