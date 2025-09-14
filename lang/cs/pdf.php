@@ -55,6 +55,7 @@ return [
         'bank_transfer' => 'Bankovní převod',
         'paypal' => 'PayPal',
         'stripe' => 'Stripe',
+        'coinbase' => 'Barevné hlinky',
         'other' => 'Ostatní',
     ],
     'statuses' => [
