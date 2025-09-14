@@ -55,6 +55,7 @@ return [
         'bank_transfer' => 'Przelew bankowy',
         'paypal' => 'PayPal',
         'stripe' => 'Stripe',
+        'coinbase' => 'Baza monet',
         'other' => 'Inne',
     ],
     'statuses' => [
