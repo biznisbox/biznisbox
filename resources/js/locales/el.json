@@ -664,9 +664,8 @@
         "list_of_transactions": "Λίστα συναλλαγών",
         "no_sales_person": "Κανένας πωλητής",
         "no_payment_method": "Καμία μέθοδος πληρωμής",
-        "click_for_pay_with_paypal": "Κάντε κλικ εδώ για να πληρώσετε με PayPal",
         "click_for_pay": "Κάντε κλικ εδώ για πληρωμή",
-        "click_for_pay_with_coinbase": "Κάντε κλικ εδώ για να πληρώσετε με crypto"
+        "select_payment_gateway": "Επιλέξτε πύλη πληρωμής"
     },
     "quote": {
         "quote": "Προσφορά Προσφορών",
