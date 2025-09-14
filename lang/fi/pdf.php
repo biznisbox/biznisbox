@@ -55,6 +55,7 @@ return [
         'bank_transfer' => 'Pankkisiirto',
         'paypal' => 'PayPal',
         'stripe' => 'Stripe',
+        'coinbase' => 'Coinbase',
         'other' => 'Muu',
     ],
     'statuses' => [
