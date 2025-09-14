@@ -664,9 +664,8 @@
         "list_of_transactions": "Elenco delle transazioni",
         "no_sales_person": "Nessuna persona di vendita",
         "no_payment_method": "Nessun metodo di pagamento",
-        "click_for_pay_with_paypal": "Clicca qui per pagare con PayPal",
         "click_for_pay": "Clicca qui per pagare",
-        "click_for_pay_with_coinbase": "Clicca qui per pagare con le criptovalute"
+        "select_payment_gateway": "Seleziona gateway di pagamento"
     },
     "quote": {
         "quote": "Preventivo <unk> Preventivi",
