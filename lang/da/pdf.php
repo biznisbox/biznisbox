@@ -55,6 +55,7 @@ return [
         'bank_transfer' => 'Bankoverførsel',
         'paypal' => 'PayPal',
         'stripe' => 'Stripe',
+        'coinbase' => 'Møntbase',
         'other' => 'Andet',
     ],
     'statuses' => [
