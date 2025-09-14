@@ -664,9 +664,8 @@
         "list_of_transactions": "Liste der Transaktionen",
         "no_sales_person": "Kein Verkäufer",
         "no_payment_method": "Keine Zahlungsmethode",
-        "click_for_pay_with_paypal": "Klicken Sie hier, um mit PayPal zu bezahlen",
         "click_for_pay": "Klicke hier, um zu bezahlen",
-        "click_for_pay_with_coinbase": "Klicke hier, um mit Krypto zu bezahlen"
+        "select_payment_gateway": "Zahlungs-Gateway auswählen"
     },
     "quote": {
         "quote": "Angebot | Angebote",
