@@ -15,38 +15,32 @@ class BillService
 
     public function getBills()
     {
-        $bills = $this->billModel->getBills();
-        return $bills;
+        return $this->billModel->getBills();
     }
 
     public function getBill($id)
     {
-        $bill = $this->billModel->getBill($id);
-        return $bill;
+        return $this->billModel->getBill($id);
     }
 
     public function createBill($data)
     {
-        $bill = $this->billModel->createBill($data);
-        return $bill;
+        return $this->billModel->createBill($data);
     }
 
     public function updateBill($id, $data)
     {
-        $bill = $this->billModel->updateBill($id, $data);
-        return $bill;
+        return $this->billModel->updateBill($id, $data);
     }
 
     public function deleteBill($id)
     {
-        $bill = $this->billModel->deleteBill($id);
-        return $bill;
+        return $this->billModel->deleteBill($id);
     }
 
     public function getBillNumber()
     {
-        $billNumber = $this->billModel->getBillNumber();
-        return $billNumber;
+        return $this->billModel->getBillNumber();
     }
 
     public function getBillPdf($id, $type = 'stream')

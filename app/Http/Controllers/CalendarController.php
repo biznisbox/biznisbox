@@ -52,7 +52,7 @@ class CalendarController extends Controller
         if (!$event) {
             return apiResponse(null, __('responses.item_not_found_with_id'), 404);
         }
-        return apiResponse($event, __('responses.data_retrieved_successfully'), 200);
+        return apiResponse($event, __('responses.data_retrieved_successfully'));
     }
 
     /**
@@ -68,7 +68,7 @@ class CalendarController extends Controller
         if (!$event) {
             return apiResponse(null, __('responses.item_not_created'), 400);
         }
-        return apiResponse($event, __('responses.item_created_successfully'), 200);
+        return apiResponse($event, __('responses.item_created_successfully'));
     }
 
     /**
@@ -85,7 +85,7 @@ class CalendarController extends Controller
         if (!$event) {
             return apiResponse(null, __('responses.item_not_updated'), 400);
         }
-        return apiResponse($event, __('responses.item_updated_successfully'), 200);
+        return apiResponse($event, __('responses.item_updated_successfully'));
     }
 
     /**
@@ -100,6 +100,6 @@ class CalendarController extends Controller
         if (!$event) {
             return apiResponse(null, __('responses.item_not_deleted'), 400);
         }
-        return apiResponse($event, __('responses.item_deleted_successfully'), 200);
+        return apiResponse($event, __('responses.item_deleted_successfully'));
     }
 }

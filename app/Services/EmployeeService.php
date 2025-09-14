@@ -14,43 +14,36 @@ class EmployeeService
 
     public function getEmployees()
     {
-        $employees = $this->employeeModel->getEmployees();
-        return $employees;
+        return $this->employeeModel->getEmployees();
     }
 
     public function getEmployee($id)
     {
-        $employee = $this->employeeModel->getEmployee($id);
-        return $employee;
+        return $this->employeeModel->getEmployee($id);
     }
 
     public function createEmployee($data)
     {
-        $employee = $this->employeeModel->createEmployee($data);
-        return $employee;
+        return $this->employeeModel->createEmployee($data);
     }
 
     public function updateEmployee($id, $data)
     {
-        $employee = $this->employeeModel->updateEmployee($id, $data);
-        return $employee;
+        return $this->employeeModel->updateEmployee($id, $data);
     }
 
     public function deleteEmployee($id)
     {
-        $employee = $this->employeeModel->deleteEmployee($id);
-        return $employee;
+        return $this->employeeModel->deleteEmployee($id);
     }
 
     public function getPublicEmployees()
     {
-        $employees = $this->employeeModel->getPublicEmployees();
-        return $employees;
+        return $this->employeeModel->getPublicEmployees();
     }
 
     public function getEmployeeNumber()
     {
-        $employee = $this->employeeModel->getEmployeeNumber();
-        return $employee;
+        return $this->employeeModel->getEmployeeNumber();
     }
 }

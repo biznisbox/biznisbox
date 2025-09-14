@@ -17,31 +17,26 @@ class CalendarService
         if ($user == null) {
             $user = auth()->id();
         }
-        $events = $this->calendarEvent->getEventsByUser($user, $start, $end);
-        return $events;
+        return $this->calendarEvent->getEventsByUser($user, $start, $end);
     }
 
     public function createEvent($data)
     {
-        $event = $this->calendarEvent->createEvent($data);
-        return $event;
+        return $this->calendarEvent->createEvent($data);
     }
 
     public function updateEvent($id, $data)
     {
-        $event = $this->calendarEvent->updateEvent($id, $data);
-        return $event;
+        return $this->calendarEvent->updateEvent($id, $data);
     }
 
     public function deleteEvent($id)
     {
-        $event = $this->calendarEvent->deleteEvent($id);
-        return $event;
+        return $this->calendarEvent->deleteEvent($id);
     }
 
     public function getEvent($id)
     {
-        $event = $this->calendarEvent->getEvent($id);
-        return $event;
+        return $this->calendarEvent->getEvent($id);
     }
 }

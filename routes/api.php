@@ -399,11 +399,21 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/contracts', [ClientPortalContractController::class, 'getContracts'])->name('getClientPortalContracts');
         Route::get('/contracts/{id}', [ClientPortalContractController::class, 'getContract'])->name('getClientPortalContract');
         // Online Payments
+        Route::get('/online-payment/available-payment-gateways', [
+            ClientPortalInvoiceController::class,
+            'getAllAvailablePaymentGateways',
+        ])->name('clientPortalGetAllAvailablePaymentGateways');
         Route::post('/online-payment/invoice/{paymentGateway}', [ClientPortalInvoiceController::class, 'payInvoiceByGateway'])->name(
             'clientPortalPayInvoiceByGateway',
         );
     });
 });
+
+// Client Portal Payment routes (need to be outside the auth:api middleware)
+Route::get('/client-portal/online-payment/invoice/{paymentGateway}', [
+    ClientPortalInvoiceController::class,
+    'validateInvoicePaymentByGateway',
+])->name('clientPortalValidateInvoicePaymentByGateway');
 
 // Client routes
 Route::group(['prefix' => 'client'], function () {
@@ -415,6 +425,10 @@ Route::group(['prefix' => 'client'], function () {
     Route::get('/contract', [ClientContractController::class, 'getContract'])->name('clientGetContract');
     Route::post('/contract/sign', [ClientContractController::class, 'signContract'])->name('clientSignContract');
 
+    Route::get('/online-payment/available-payment-gateways', [ClientInvoiceController::class, 'getAllAvailablePaymentGateways'])->name(
+        'clientGetAllAvailablePaymentGateways',
+    );
+
     // Payment routes (need to be outside the auth:api middleware)
     Route::get('/online-payment/invoice/{paymentGateway}', [ClientInvoiceController::class, 'validateInvoicePaymentByGateway'])->name(
         'validateInvoicePaymentByGateway',
@@ -424,12 +438,6 @@ Route::group(['prefix' => 'client'], function () {
         'clientPayInvoiceByGateway',
     );
 });
-
-// Client Portal Payment routes (need to be outside the auth:api middleware)
-Route::get('/client-portal/online-payment/invoice/{paymentGateway}', [
-    ClientPortalInvoiceController::class,
-    'validateInvoicePaymentByGateway',
-])->name('clientPortalValidateInvoicePaymentByGateway');
 
 // Installation routes
 Route::get('/install/check-app-installed', [InstallerController::class, 'checkAppInstalled'])->name('checkAppInstalled');

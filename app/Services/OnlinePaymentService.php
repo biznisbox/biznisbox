@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enum\PaymentGatewayEnum;
 use App\Models\OnlinePayment;
 use App\Models\Invoice;
 use App\Models\Transaction;
@@ -462,5 +463,18 @@ class OnlinePaymentService
         foreach ($pendingPayments as $payment) {
             (new self())->validateInvoiceCoinbasePayment($payment->id);
         }
+    }
+
+    public static function getAllAvailablePaymentGateways()
+    {
+        $paymentGateways = PaymentGatewayEnum::toArray();
+
+        $available_gateways = [];
+        foreach ($paymentGateways as $gateway) {
+            if (settings("{$gateway}_available")) {
+                $available_gateways[] = self::getPaymentMethod($gateway);
+            }
+        }
+        return $available_gateways;
     }
 }

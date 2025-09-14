@@ -4,36 +4,19 @@
             <PageHeader :title="invoice.number">
                 <template #actions>
                     <Button
-                        v-if="$settings.stripe_available && invoice.status != 'paid' && invoice.status != 'overpaid'"
-                        id="stripe_button"
-                        v-tooltip:top="$t('invoice.click_for_pay')"
-                        class="mr-2 no-print"
-                        icon="fa fa-credit-card"
-                        @click="payInvoiceWithGateway('stripe')"
-                    />
-                    <Button
-                        v-if="$settings.paypal_available && invoice.status != 'paid' && invoice.status != 'overpaid'"
-                        id="paypal_button"
-                        v-tooltip:top="$t('invoice.click_for_pay_with_paypal')"
-                        class="mr-2 no-print"
-                        icon="fab fa-paypal"
-                        @click="payInvoiceWithGateway('paypal')"
-                    />
-
-                    <Button
-                        v-if="$settings.coinbase_available && invoice.status != 'paid' && invoice.status != 'overpaid'"
-                        id="coinbase_button"
-                        v-tooltip:top="$t('invoice.click_for_pay_with_coinbase')"
-                        class="mr-2 no-print"
-                        icon="fab fa-bitcoin"
-                        @click="payInvoiceWithGateway('coinbase')"
-                    />
-                    <Button
                         v-if="invoice.download"
                         :label="$t('basic.download')"
                         icon="fa fa-download"
                         class="no-print"
                         @click="downloadFile(invoice.download)"
+                    />
+                    <Button
+                        v-if="availablePaymentGateways.length > 1 && invoice.status != 'paid'"
+                        id="select_payment_gateway_button"
+                        v-tooltip:top="$t('invoice.click_for_pay')"
+                        class="mr-2 no-print"
+                        icon="fa fa-credit-card"
+                        @click="availablePaymentGatewaysDialog = true"
                     />
                 </template>
             </PageHeader>
@@ -223,6 +206,32 @@
                     @click="goTo('/client-portal/invoices')"
                 />
             </div>
+
+            <!-- Select payment Gateway dialog -->
+            <Dialog
+                ref="select_payment_gateway_dialog"
+                v-model:visible="availablePaymentGatewaysDialog"
+                :header="$t('invoice.select_payment_gateway')"
+                modal
+            >
+                <div class="grid grid-cols-1 gap-2 p-3" id="available_payment_gateways_dialog_content">
+                    <div
+                        v-for="paymentGateway in availablePaymentGateways"
+                        :key="paymentGateway.id"
+                        @click="payInvoiceWithGateway(paymentGateway.additional_info)"
+                        class="flex items-center space-x-4 border p-4 rounded-lg transition-shadow hover:shadow-lg focus:shadow-lg cursor-pointer outline-none"
+                        :style="{
+                            backgroundColor: '#' + paymentGateway.color + '20', // Light background tint
+                            borderColor: '#' + paymentGateway.color,
+                        }"
+                    >
+                        <i :class="paymentGateway.icon + ' fa-2x'" :style="{ color: '#' + paymentGateway.color }" aria-hidden="true"></i>
+                        <span class="text-base font-medium text-gray-800 dark:text-gray-200">
+                            {{ paymentGateway.name }}
+                        </span>
+                    </div>
+                </div>
+            </Dialog>
         </LoadingScreen>
     </DefaultLayout>
 </template>
@@ -280,6 +289,8 @@ export default {
                 tax: '',
                 total: 0.0,
             },
+            availablePaymentGateways: [],
+            availablePaymentGatewaysDialog: false,
         }
     },
 
@@ -290,13 +301,22 @@ export default {
             })
         },
 
+        getAvailablePaymentGateways() {
+            this.makeHttpRequest('GET', '/api/client-portal/online-payment/available-payment-gateways', null, {
+                key: this.$route.query.key,
+            }).then((response) => {
+                this.availablePaymentGateways = response.data.data
+            })
+        },
+
         payInvoiceWithGateway(paymentGateway) {
             this.makeHttpRequest(
                 'POST',
                 `/api/client-portal/online-payment/invoice/${paymentGateway}`,
                 { invoiceId: this.invoice.id },
                 null,
-                null
+                null,
+                false
             ).then((response) => {
                 this.$cookies.set('payment_id', response.data.data.payment_id, '1h')
                 window.open(response.data.data.redirect_url, '_blank')
@@ -309,6 +329,7 @@ export default {
     },
 
     created() {
+        this.getAvailablePaymentGateways()
         this.getInvoiceById(this.$route.params.id)
     },
 }

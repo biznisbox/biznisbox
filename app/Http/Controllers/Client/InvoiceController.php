@@ -81,4 +81,16 @@ class InvoiceController extends Controller
         }
         return apiResponse($payment);
     }
+
+    /**
+     * Get all available payment gateways
+     *
+     * @return array $gateways List of available payment gateways
+     */
+    public function getAllAvailablePaymentGateways()
+    {
+        $key = request()->key;
+        $gateways = $this->invoiceService->getAllAvailablePaymentGateways($key);
+        return apiResponse($gateways, __('responses.data_retrieved_successfully'));
+    }
 }

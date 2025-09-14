@@ -99,4 +99,9 @@ class InvoiceService
         );
         return $payment;
     }
+
+    public function getAllAvailablePaymentGateways()
+    {
+        return (new OnlinePaymentService())->getAllAvailablePaymentGateways();
+    }
 }

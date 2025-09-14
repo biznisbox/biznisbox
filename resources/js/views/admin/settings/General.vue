@@ -63,6 +63,9 @@
                                 { value: 'YYYY/MM/DD', label: 'YYYY/MM/DD' },
                                 { value: 'DD.MM.YYYY', label: 'DD.MM.YYYY' },
                                 { value: 'DD-MM-YYYY', label: 'DD-MM-YYYY' },
+                                { value: 'YYYY-MM-DD', label: 'YYYY-MM-DD' },
+                                { value: 'YYYY.MM.DD', label: 'YYYY.MM.DD' },
+                                { value: 'YYYY DD MM', label: 'YYYY DD MM' },
                             ]"
                         />
                         <SelectInput
@@ -72,6 +75,8 @@
                             :options="[
                                 { value: 'HH:mm', label: 'HH:mm' },
                                 { value: 'HH:mm:ss', label: 'HH:mm:ss' },
+                                { value: 'hh:mm A', label: 'hh:mm A' },
+                                { value: 'hh:mm:ss A', label: 'hh:mm:ss A' },
                             ]"
                         />
 
@@ -85,6 +90,17 @@
                                 { value: 'YYYY/MM/DD HH:mm', label: 'YYYY/MM/DD HH:mm' },
                                 { value: 'DD.MM.YYYY HH:mm', label: 'DD.MM.YYYY HH:mm' },
                                 { value: 'DD-MM-YYYY HH:mm', label: 'DD-MM-YYYY HH:mm' },
+                                { value: 'YYYY-MM-DD HH:mm', label: 'YYYY-MM-DD HH:mm' },
+                                { value: 'YYYY.MM.DD HH:mm', label: 'YYYY.MM.DD HH:mm' },
+                                { value: 'YYYY DD MM HH:mm', label: 'YYYY DD MM HH:mm' },
+                                { value: 'DD/MM/YYYY hh:mm A', label: 'DD/MM/YYYY hh:mm A' },
+                                { value: 'MM/DD/YYYY hh:mm A', label: 'MM/DD/YYYY hh:mm A' },
+                                { value: 'YYYY/MM/DD hh:mm A', label: 'YYYY/MM/DD hh:mm A' },
+                                { value: 'DD.MM.YYYY hh:mm A', label: 'DD.MM.YYYY hh:mm A' },
+                                { value: 'DD-MM-YYYY hh:mm A', label: 'DD-MM-YYYY hh:mm A' },
+                                { value: 'YYYY-MM-DD hh:mm A', label: 'YYYY-MM-DD hh:mm A' },
+                                { value: 'YYYY.MM.DD hh:mm A', label: 'YYYY.MM.DD hh:mm A' },
+                                { value: 'YYYY DD MM hh:mm A', label: 'YYYY DD MM hh:mm A' },
                             ]"
                         />
                     </div>
@@ -140,5 +156,3 @@ export default {
     },
 }
 </script>
-
-<style></style>

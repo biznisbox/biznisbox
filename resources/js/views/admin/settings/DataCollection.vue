@@ -14,7 +14,7 @@
 
             <Tabs v-model:value="activeTab" class="mb-4">
                 <TabList>
-                    <Tab value="transaction">{{ $t('admin.data_collection.transaction_categories') }}</Tab>
+                    <Tab value="transaction_categories">{{ $t('admin.data_collection.transaction_categories') }}</Tab>
                     <Tab value="document_type">{{ $t('admin.data_collection.document_types') }}</Tab>
                     <Tab value="payment_method">{{ $t('admin.data_collection.payment_methods') }}</Tab>
                     <Tab value="contract_type">{{ $t('admin.data_collection.contract_types') }}</Tab>
@@ -22,7 +22,7 @@
                 </TabList>
 
                 <TabPanels>
-                    <TabPanel value="transaction">
+                    <TabPanel value="transaction_categories">
                         <DataTable :value="transaction" data-key="id">
                             <template #empty>
                                 <div class="p-4 pl-0 text-center w-full">
@@ -344,6 +344,7 @@
                             :options="[
                                 { label: $t('payment_methods.stripe'), value: 'stripe' },
                                 { label: $t('payment_methods.paypal'), value: 'paypal' },
+                                { label: $t('payment_methods.coinbase'), value: 'coinbase' },
                                 { label: $t('payment_methods.bank_transfer'), value: 'bank_transfer' },
                                 { label: $t('payment_methods.cash'), value: 'cash' },
                                 { label: $t('payment_methods.other'), value: 'other' },
@@ -484,7 +485,6 @@ export default {
             } else {
                 this.category.module = this.activeTab
                 this.setAvailableParentCategories(this.activeTab)
-                this.parent
                 this.showNewEditCategoryDialog = true
             }
         },
@@ -541,5 +541,3 @@ export default {
     },
 }
 </script>
-
-<style></style>

@@ -76,4 +76,16 @@ class InvoiceService
         );
         return $payment;
     }
+
+    public function getAllAvailablePaymentGateways($key)
+    {
+        if (!$key) {
+            return [
+                'error' => __('responses.invalid_key'),
+            ];
+        }
+        if (validateExternalKey($key, 'invoice')) {
+            return (new OnlinePaymentService())->getAllAvailablePaymentGateways();
+        }
+    }
 }
