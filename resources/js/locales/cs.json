@@ -664,9 +664,8 @@
         "list_of_transactions": "Seznam transakcí",
         "no_sales_person": "Žádná prodejní osoba",
         "no_payment_method": "Žádný způsob platby",
-        "click_for_pay_with_paypal": "Klikněte zde pro platbu přes PayPal",
         "click_for_pay": "Pro platbu klikněte zde",
-        "click_for_pay_with_coinbase": "Klikněte zde pro platbu kryptem"
+        "select_payment_gateway": "Vybrat platební bránu"
     },
     "quote": {
         "quote": "Cenová nabídka | Cenové nabídky",
