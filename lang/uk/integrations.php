@@ -5,4 +5,5 @@ return [
     'stripe' => 'Stripe',
     'coinbase' => 'Куенбаз',
     'open_banking' => 'Відкрити банкінг',
+    'vies_vat' => 'Перевірка ПДВ VIES',
 ];
