@@ -664,9 +664,8 @@
         "list_of_transactions": "Список операцій",
         "no_sales_person": "Немає відділу з продажу",
         "no_payment_method": "Немає способу оплати",
-        "click_for_pay_with_paypal": "Натисніть тут, щоб заплатити за допомогою PayPal",
         "click_for_pay": "Натисніть тут, щоб заплатити",
-        "click_for_pay_with_coinbase": "Натисніть тут, щоб заплатити крипто"
+        "select_payment_gateway": "Обрати платіжний шлюз"
     },
     "quote": {
         "quote": "Котирування | Комерційні пропозиції",
