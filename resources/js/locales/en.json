@@ -664,9 +664,8 @@
         "list_of_transactions": "List of transactions",
         "no_sales_person": "No sales person",
         "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
         "click_for_pay": "Click here to pay",
-        "click_for_pay_with_coinbase": "Click here to pay with crypto"
+        "select_payment_gateway": "Select payment gateway"
     },
     "quote": {
         "quote": "Quote | Quotes",
