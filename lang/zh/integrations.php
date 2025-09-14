@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'paypal' => 'Paypal',
+    'paypal' => 'PayPal',
     'stripe' => 'Stripe',
-    'coinbase' => '硬币',
-    'open_banking' => '开放银行',
+    'coinbase' => 'Coinbase',
+    'open_banking' => 'Open Banking',
 ];
