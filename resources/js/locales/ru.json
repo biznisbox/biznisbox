@@ -664,9 +664,8 @@
         "list_of_transactions": "Список операций",
         "no_sales_person": "Нет продавца",
         "no_payment_method": "Нет способа оплаты",
-        "click_for_pay_with_paypal": "Нажмите здесь, чтобы оплатить через PayPal",
         "click_for_pay": "Нажмите здесь для оплаты",
-        "click_for_pay_with_coinbase": "Нажмите здесь, чтобы оплатить криптовалютой"
+        "select_payment_gateway": "Выберите платежный шлюз"
     },
     "quote": {
         "quote": "Цитата | Предложения",
