@@ -55,6 +55,7 @@ return [
         'bank_transfer' => 'Bank overschrijving',
         'paypal' => 'PayPal',
         'stripe' => 'Stripe',
+        'coinbase' => 'Muntbasis',
         'other' => 'anders',
     ],
     'statuses' => [
