@@ -664,9 +664,8 @@
         "list_of_transactions": "Liste over transaktioner",
         "no_sales_person": "Ingen salgsperson",
         "no_payment_method": "Ingen betalingsmetode",
-        "click_for_pay_with_paypal": "Klik her for at betale med PayPal",
         "click_for_pay": "Klik her for at betale",
-        "click_for_pay_with_coinbase": "Klik her for at betale med krypto"
+        "select_payment_gateway": "Vælg betalingsgateway"
     },
     "quote": {
         "quote": "Tilbud - Tilbud",
