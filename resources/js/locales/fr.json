@@ -664,9 +664,8 @@
         "list_of_transactions": "Liste des opérations",
         "no_sales_person": "Aucune personne commerciale",
         "no_payment_method": "Aucun moyen de paiement",
-        "click_for_pay_with_paypal": "Cliquez ici pour payer avec PayPal",
         "click_for_pay": "Cliquez ici pour payer",
-        "click_for_pay_with_coinbase": "Cliquez ici pour payer avec des cryptomonnaies"
+        "select_payment_gateway": "Sélectionnez la passerelle de paiement"
     },
     "quote": {
         "quote": "Devis | Devis",
