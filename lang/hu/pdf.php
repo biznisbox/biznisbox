@@ -55,6 +55,7 @@ return [
         'bank_transfer' => 'Banki átutalás',
         'paypal' => 'Paypal',
         'stripe' => 'Stripe',
+        'coinbase' => 'Coinbase',
         'other' => 'Egyéb',
     ],
     'statuses' => [
