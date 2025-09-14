@@ -9,6 +9,7 @@ enum IntegrationEnum: string
     case STRIPE = 'stripe'; // Stripe payments
     case COINBASE = 'coinbase'; // Coinbase payments
     case OPEN_BANKING = 'open_banking'; // Open Banking via Nordigen
+    case VIES_VAT = 'vies_vat'; // VIES VAT validation
 
     public function label(): string
     {
@@ -17,6 +18,7 @@ enum IntegrationEnum: string
             self::STRIPE => __('integrations.stripe'),
             self::COINBASE => __('integrations.coinbase'),
             self::OPEN_BANKING => __('integrations.open_banking'),
+            self::VIES_VAT => __('integrations.vies_vat'),
         };
     }
 
@@ -27,6 +29,7 @@ enum IntegrationEnum: string
             self::STRIPE => 'stripe_',
             self::COINBASE => 'coinbase_',
             self::OPEN_BANKING => 'open_banking_',
+            self::VIES_VAT => 'vies_vat_',
         };
     }
 
@@ -54,6 +57,7 @@ enum IntegrationEnum: string
                 'id' => [],
                 'secret' => [],
             ],
+            self::VIES_VAT => [],
         };
     }
 

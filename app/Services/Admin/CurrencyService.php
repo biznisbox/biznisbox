@@ -18,21 +18,21 @@ class CurrencyService
     public function getCurrencies()
     {
         $currencies = $this->currencyModel->all();
-        createActivityLog('retrieve', null, 'App\Models\Currency', 'getCurrencies');
+        createActivityLog('retrieve', null, Currency::$modelName, 'getCurrencies');
         return $currencies;
     }
 
     public function getCurrency($id)
     {
         $currency = $this->currencyModel->where('id', $id)->first();
-        createActivityLog('retrieve', $id, 'App\Models\Currency', 'getCurrency');
+        createActivityLog('retrieve', $id, Currency::$modelName, 'getCurrency');
         return $currency;
     }
 
     public function liveUpdateCurrencyRate()
     {
         $exchangeRateProvider = settings('exchange_rate_provider');
-        createActivityLog('updateCurrencyRate', null, 'App\Models\Currency', 'liveUpdateCurrencyRate');
+        createActivityLog('updateCurrencyRate', null, Currency::$modelName, 'liveUpdateCurrencyRate');
 
         if ($exchangeRateProvider == 'ecb') {
             if (!settings('default_currency') == 'EUR') {

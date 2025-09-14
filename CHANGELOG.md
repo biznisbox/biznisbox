@@ -2,17 +2,21 @@
 
 ## ✨ New Features & Enhancements
 
-- Added a new feature for paying invoices via client portal using Stripe and PayPal.
-- Added a new feature for paying invoices via client portal using Coinbase (cryptocurrency payments).
+- Added a new feature for paying invoices via the client portal using Stripe and PayPal.
+- Added a new integration with Coinbase Commerce as a payment gateway.
+- Changed the method for paying invoices via payment gateways (Stripe, PayPal, Coinbase Commerce, etc.) — now you can view all available payment methods in the client portal when paying an invoice. The selection of payment methods is based on the settings in the admin panel.
+- Improved the UI for selecting payment methods in the client portal when paying an invoice.
 
 ## 🐛 Bug Fixes
 
-- Fixed an issue with sending emails when using the queue system (mails are send on the moment, not in the background).
+- Fixed an issue with sending emails when using the queue system (emails are now sent immediately instead of being stuck in the background).
+- Fixed an issue with making mail server settings public (sensitive data like passwords are now hidden -security fix-).
 
 ## 🧑‍💻 Development Updates
 
-- Improved code quality and maintainability by refactoring code structure.
-- Refactored the payment gateway integrations for better reliability and options for future enhancements.
+- Improved code quality and maintainability by refactoring the code structure.
+- Refactored the payment gateway integrations for better reliability and flexibility for future enhancements.
+- Refactored the payment method selection on invoices (client) and the settings seeder — all settings are now handled with enums for integrations and payment gateways.
 
 # 2.13.0
 
