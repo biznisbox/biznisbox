@@ -664,9 +664,8 @@
         "list_of_transactions": "İşlem listesi",
         "no_sales_person": "Satış elemanı yok",
         "no_payment_method": "Ödeme yöntemi yok",
-        "click_for_pay_with_paypal": "PayPal ile ödemek için buraya tıklayın",
         "click_for_pay": "Ödemek için buraya tıklayın",
-        "click_for_pay_with_coinbase": "Click here to pay with crypto"
+        "select_payment_gateway": "Select payment gateway"
     },
     "quote": {
         "quote": "Teklif | Teklifler",
