@@ -55,6 +55,7 @@ return [
         'bank_transfer' => 'Virement bancaire',
         'paypal' => 'Paypal',
         'stripe' => 'Stripe',
+        'coinbase' => 'Base de pièces',
         'other' => 'Autres',
     ],
     'statuses' => [
