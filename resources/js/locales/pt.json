@@ -664,9 +664,8 @@
         "list_of_transactions": "Lista de transações",
         "no_sales_person": "Sem vendedores",
         "no_payment_method": "Nenhum método de pagamento",
-        "click_for_pay_with_paypal": "Clique aqui para pagar com PayPal",
         "click_for_pay": "Clique aqui para pagar",
-        "click_for_pay_with_coinbase": "Clique aqui para pagar com cripto"
+        "select_payment_gateway": "Selecionar gateway de pagamento"
     },
     "quote": {
         "quote": "Citações da Cotação",
