@@ -1,6 +1,6 @@
 {
     "name": "biznisbox",
-    "version": "2.13.0",
+    "version": "2.14.0",
     "description": "BiznisBox is the all-in-one business platform that helps you manage your business, from invoicing to contracts, and more",
     "private": true,
     "type": "module",
