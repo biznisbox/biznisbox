@@ -5,4 +5,5 @@ return [
     'stripe' => 'Stripe',
     'coinbase' => 'Baza monet',
     'open_banking' => 'Otwórz bankowość',
+    'vies_vat' => 'Weryfikacja VAT VIES',
 ];
