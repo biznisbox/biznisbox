@@ -55,6 +55,7 @@ return [
         'bank_transfer' => 'Bonifico Bancario',
         'paypal' => 'Paypal',
         'stripe' => 'Stripe',
+        'coinbase' => 'Coinbase',
         'other' => 'Altro',
     ],
     'statuses' => [
