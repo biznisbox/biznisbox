@@ -55,6 +55,7 @@ return [
         'bank_transfer' => '银行转账',
         'paypal' => 'Paypal',
         'stripe' => 'Stripe',
+        'coinbase' => '硬币',
         'other' => '其他',
     ],
     'statuses' => [
