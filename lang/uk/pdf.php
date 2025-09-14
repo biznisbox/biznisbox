@@ -55,6 +55,7 @@ return [
         'bank_transfer' => 'Банківський переказ',
         'paypal' => 'Пайпал',
         'stripe' => 'Stripe',
+        'coinbase' => 'Куенбаз',
         'other' => 'Інше',
     ],
     'statuses' => [
