@@ -55,6 +55,7 @@ return [
         'bank_transfer' => 'Bančno nakazilo',
         'paypal' => 'PayPal',
         'stripe' => 'Stripe',
+        'coinbase' => 'Coinbase',
         'other' => 'Drugo',
     ],
     'statuses' => [
