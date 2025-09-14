@@ -664,9 +664,8 @@
         "list_of_transactions": "Lijst van transacties",
         "no_sales_person": "Geen verkoper",
         "no_payment_method": "Geen betaalmethode",
-        "click_for_pay_with_paypal": "Klik hier om te betalen met PayPal",
         "click_for_pay": "Klik hier om te betalen",
-        "click_for_pay_with_coinbase": "Klik hier om te betalen met crypto"
+        "select_payment_gateway": "Selecteer betaling gateway"
     },
     "quote": {
         "quote": "Offerte aanhalingstekens",
