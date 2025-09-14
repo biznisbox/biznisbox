@@ -664,9 +664,8 @@
         "list_of_transactions": "Luettelo tapahtumista",
         "no_sales_person": "Ei myyntihenkilöä",
         "no_payment_method": "Ei maksutapaa",
-        "click_for_pay_with_paypal": "Maksa PayPalilla napsauttamalla tästä",
         "click_for_pay": "Maksa klikkaamalla tästä",
-        "click_for_pay_with_coinbase": "Klikkaa tästä maksaaksesi salauksella"
+        "select_payment_gateway": "Valitse maksuväylä"
     },
     "quote": {
         "quote": "Tarjous - Lainaukset",
