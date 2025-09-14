@@ -664,9 +664,8 @@
         "list_of_transactions": "Lista över transaktioner",
         "no_sales_person": "Ingen säljare",
         "no_payment_method": "Ingen betalningsmetod",
-        "click_for_pay_with_paypal": "Klicka här för att betala med PayPal",
         "click_for_pay": "Klicka här för att betala",
-        "click_for_pay_with_coinbase": "Klicka här för att betala med krypto"
+        "select_payment_gateway": "Välj betalnings gateway"
     },
     "quote": {
         "quote": "Offert <unk> Offerter",
