@@ -423,7 +423,9 @@
         "icon": "Ikona",
         "additional_info": "Další informace",
         "client_portal": "Portál klienta",
-        "type_of_contract_sign": "Typ smluvní značky"
+        "type_of_contract_sign": "Typ smluvní značky",
+        "refund": "Vrácení peněz",
+        "payment_number": "Číslo platby"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -821,7 +823,10 @@
         "edit_payment": "Upravit platbu",
         "no_payments": "Nebyly nalezeny žádné platby",
         "delete_confirm_payment": "Jste si jisti, že chcete odstranit tuto platbu?",
-        "payment_details": "Detaily platby"
+        "payment_details": "Detaily platby",
+        "refund_confirmation": "Jste si jisti, že chcete vrátit tuto platbu?",
+        "refund_successful": "Platba byla úspěšně vrácena",
+        "refund_failed": "Vrácení platby se nezdařilo"
     },
     "archive": {
         "archive": "Archiv | Archivy",
