@@ -130,7 +130,8 @@
         "system": "Система",
         "add_signer": "Добавить знака",
         "click_for_download": "Нажмите здесь, чтобы загрузить",
-        "sign": "Знак"
+        "sign": "Знак",
+        "import": "Импорт"
     },
     "audit_log": {
         "audit_log": "Журнал аудита",
@@ -172,6 +173,7 @@
         "internal": "Внутренний",
         "external": "Внешний",
         "external_key": "Внешний ключ",
+        "client_portal": "Клиентский портал",
         "system": "Система"
     },
     "user_nav_menu": {
@@ -419,7 +421,11 @@
         "module": "Модуль",
         "parent_category": "Родительская категория",
         "icon": "Иконка",
-        "additional_info": "Дополнительная информация"
+        "additional_info": "Дополнительная информация",
+        "client_portal": "Портал Клиента",
+        "type_of_contract_sign": "Тип знака контракта",
+        "refund": "Возврат",
+        "payment_number": "Номер платежа"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -493,6 +499,7 @@
         "credit_card": "Платежная карта",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Прочие вопросы"
     },
     "support_priority": {
@@ -522,6 +529,11 @@
     "tax_types": {
         "percent": "Процент",
         "fixed": "Исправлено"
+    },
+    "contract_sign_types": {
+        "electronic": "Электронная",
+        "digital_signature": "Цифровая подпись",
+        "paper": "Бумага"
     },
     "login_history": {
         "login_history": "История входа",
@@ -555,7 +567,9 @@
         "activities": "Действия",
         "edit_activity": "Изменить активность",
         "partner_activities": "Партнерская деятельность",
-        "send_email": "Отправить email"
+        "send_email": "Отправить email",
+        "add_to_client_portal": "Добавить в клиентский портал",
+        "vat_number_required": "Требуется указать номер НДС"
     },
     "partner_activity_types": {
         "call": "Звонок",
@@ -652,8 +666,8 @@
         "list_of_transactions": "Список операций",
         "no_sales_person": "Нет продавца",
         "no_payment_method": "Нет способа оплаты",
-        "click_for_pay_with_paypal": "Нажмите здесь, чтобы оплатить через PayPal",
-        "click_for_pay": "Нажмите здесь для оплаты"
+        "click_for_pay": "Нажмите здесь для оплаты",
+        "select_payment_gateway": "Выберите платежный шлюз"
     },
     "quote": {
         "quote": "Цитата | Предложения",
@@ -809,7 +823,10 @@
         "edit_payment": "Редактировать платеж",
         "no_payments": "Платежи не найдены",
         "delete_confirm_payment": "Вы уверены, что хотите удалить этот платеж?",
-        "payment_details": "Детали оплаты"
+        "payment_details": "Детали оплаты",
+        "refund_confirmation": "Вы уверены, что хотите вернуть этот платеж?",
+        "refund_successful": "Платёж успешно возвращен",
+        "refund_failed": "Возврат платежа не удался"
     },
     "archive": {
         "archive": "Архив | Архивы",
@@ -1019,7 +1036,12 @@
             "open_banking_client_id": "Открытый банковский ID Клиента",
             "open_banking_secret": "Открытый банковский секрет",
             "open_banking_help": "Вы можете найти свой идентификатор клиента и секрет в вашем Nordigen.",
-            "online_payments": "Онлайн платежи"
+            "online_payments": "Онлайн платежи",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Доступна база Coinbase",
+            "coinbase_api_key": "Ключ API Coinbase",
+            "coinbase_api_key_help": "Вы можете найти ваш API ключ в вашей учетной записи Coinbase commerce аккаунта.",
+            "coinbase_account_id": "ID внутреннего аккаунта Coinbase"
         },
         "status": {
             "title": "Страница статуса",
@@ -1090,7 +1112,10 @@
             "default_time_format": "Формат времени по умолчанию",
             "default_datetime_format": "Формат по умолчанию",
             "show_barcode_on_documents": "Показывать штрих-код на документах",
-            "week_start": "День начала недели"
+            "week_start": "День начала недели",
+            "exchange_rate_provider": "Поставщик обменного курса",
+            "save_document_into_archive": "Сохранить документ в архив",
+            "save_document_into_archive_description": "Если включено, документы будут сохранены в архиве (счета, кавычки, счета, контракты)."
         },
         "taxes": {
             "title": "Налоговые ставки",
@@ -1102,7 +1127,9 @@
             "name": "Наименование",
             "value": "Значение",
             "description": "Описание",
-            "delete_confirm_tax": "Вы уверены, что хотите удалить этот налог?"
+            "delete_confirm_tax": "Вы уверены, что хотите удалить этот налог?",
+            "import_tax": "Импорт налоговых ставок",
+            "import_tax_description": "Вы можете импортировать налоговые ставки из ресурсов публичных данных. Данные будут загружены из списка НДС ЕС. Это не может быть полностью актуальным или точным. Пожалуйста, проверьте импортированные данные."
         },
         "role": {
             "title": "Роли",
@@ -1205,7 +1232,9 @@
             "no_transaction_categories": "Не найдено категорий транзакций",
             "no_contract_types": "Типы контрактов не найдены",
             "delete_category_ask": "Вы уверены, что хотите удалить этот элемент коллекции данных?",
-            "delete_category_success": "Элемент сбора данных успешно удален"
+            "delete_category_success": "Элемент сбора данных успешно удален",
+            "product_categories": "Категории товаров",
+            "no_product_categories": "Категории товаров не найдены"
         }
     },
     "month": {
@@ -1569,5 +1598,23 @@
         "finish_installation_description": "Установка завершена. Теперь вы можете войти в свою учетную запись.",
         "go_to_login": "Войти",
         "installation": "Установка"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Панель",
+            "invoices": "Счета",
+            "quotes": "Предложения",
+            "transactions": "Транзакции",
+            "support": "Поддержка",
+            "contracts": "Контракты",
+            "partner_details": "Информация о партнере"
+        },
+        "partner_details": "Информация о партнере",
+        "dashboard": "Панель",
+        "number_of_contracts": "Количество контрактов",
+        "number_of_unpaid_invoices": "Количество неоплаченных счетов",
+        "number_of_quotes": "Количество котировок",
+        "number_of_bills": "Количество счетов",
+        "number_of_support_tickets": "Количество заявок на поддержку"
     }
 }

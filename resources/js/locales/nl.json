@@ -130,7 +130,8 @@
         "system": "Systeem",
         "add_signer": "Voeg ondertekenaar toe",
         "click_for_download": "Klik hier om te downloaden",
-        "sign": "Ondertekenen"
+        "sign": "Ondertekenen",
+        "import": "Importeren"
     },
     "audit_log": {
         "audit_log": "Controle logboek",
@@ -172,6 +173,7 @@
         "internal": "Intern",
         "external": "Extern",
         "external_key": "Externe sleutel",
+        "client_portal": "Portaal klant",
         "system": "Systeem"
     },
     "user_nav_menu": {
@@ -419,7 +421,11 @@
         "module": "Module",
         "parent_category": "Bovenliggende categorie",
         "icon": "Pictogram",
-        "additional_info": "Extra informatie"
+        "additional_info": "Extra informatie",
+        "client_portal": "Client Portaal",
+        "type_of_contract_sign": "Soort Contract Teken",
+        "refund": "Restitutie",
+        "payment_number": "Betaling Nummer"
     },
     "address_types": {
         "billing": "Facturering",
@@ -493,6 +499,7 @@
         "credit_card": "Kaart met betaling",
         "paypal": "Paypal",
         "stripe": "Stripe",
+        "coinbase": "Muntbasis",
         "other": "anders"
     },
     "support_priority": {
@@ -522,6 +529,11 @@
     "tax_types": {
         "percent": "Percentage",
         "fixed": "Opgelost"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektronisch",
+        "digital_signature": "Digitale handtekening",
+        "paper": "Papieren"
     },
     "login_history": {
         "login_history": "Login geschiedenis",
@@ -555,7 +567,9 @@
         "activities": "Activiteiten",
         "edit_activity": "Activiteit bewerken",
         "partner_activities": "Partner activiteiten",
-        "send_email": "E-mail verzenden"
+        "send_email": "E-mail verzenden",
+        "add_to_client_portal": "Toevoegen aan klantenportaal",
+        "vat_number_required": "BTW-nummer is vereist"
     },
     "partner_activity_types": {
         "call": "Oproepen",
@@ -652,8 +666,8 @@
         "list_of_transactions": "Lijst van transacties",
         "no_sales_person": "Geen verkoper",
         "no_payment_method": "Geen betaalmethode",
-        "click_for_pay_with_paypal": "Klik hier om te betalen met PayPal",
-        "click_for_pay": "Klik hier om te betalen"
+        "click_for_pay": "Klik hier om te betalen",
+        "select_payment_gateway": "Selecteer betaling gateway"
     },
     "quote": {
         "quote": "Offerte aanhalingstekens",
@@ -809,7 +823,10 @@
         "edit_payment": "Bewerk betaling",
         "no_payments": "Geen betalingen gevonden",
         "delete_confirm_payment": "Weet u zeker dat u deze betaling wilt verwijderen?",
-        "payment_details": "Details betaling"
+        "payment_details": "Details betaling",
+        "refund_confirmation": "Weet u zeker dat u deze betaling wilt terugbetalen?",
+        "refund_successful": "Betaling met succes terugbetaald",
+        "refund_failed": "Betaling terugbetaling mislukt"
     },
     "archive": {
         "archive": "Archiveer veriefarchieven",
@@ -1019,7 +1036,12 @@
             "open_banking_client_id": "Open Bank Client ID",
             "open_banking_secret": "Open bankgeheim",
             "open_banking_help": "U kunt uw client-ID en geheim vinden in uw Noordse account.",
-            "online_payments": "Online betalingen"
+            "online_payments": "Online betalingen",
+            "coinbase": "Muntbasis",
+            "coinbase_available": "Coinbase beschikbaar",
+            "coinbase_api_key": "Coinbase API Sleutel",
+            "coinbase_api_key_help": "U kunt uw API-sleutel vinden in uw Coinbase handelsaccount.",
+            "coinbase_account_id": "Coinbase intern account-ID"
         },
         "status": {
             "title": "Status pagina",
@@ -1090,7 +1112,10 @@
             "default_time_format": "Standaard Tijdsformaat",
             "default_datetime_format": "Standaard Datumtijd Formaat",
             "show_barcode_on_documents": "Toon streepjescode op documenten",
-            "week_start": "Begindag week"
+            "week_start": "Begindag week",
+            "exchange_rate_provider": "Wisselkoers Provider",
+            "save_document_into_archive": "Document opslaan in archief",
+            "save_document_into_archive_description": "Indien ingeschakeld, documenten zullen worden opgeslagen in het archief (facturen, offertes, contracten en contracten)."
         },
         "taxes": {
             "title": "BTW tarieven",
@@ -1102,7 +1127,9 @@
             "name": "naam",
             "value": "Waarde",
             "description": "Beschrijving",
-            "delete_confirm_tax": "Weet u zeker dat u dit BTW-tarief wilt verwijderen?"
+            "delete_confirm_tax": "Weet u zeker dat u dit BTW-tarief wilt verwijderen?",
+            "import_tax": "BTW-tarieven importeren",
+            "import_tax_description": "U kunt belastingtarieven importeren uit publieke gegevensbronnen. Gegevens zullen worden opgehaald uit de EU-BTW-lijst. Deze kan niet volledig up-to-date of accuraat zijn. Controleer nogmaals de geïmporteerde gegevens."
         },
         "role": {
             "title": "Rollen",
@@ -1205,7 +1232,9 @@
             "no_transaction_categories": "Geen transactiecategorieën gevonden",
             "no_contract_types": "Geen contracttypes gevonden",
             "delete_category_ask": "Weet je zeker dat je deze gegevensverzameling wilt verwijderen?",
-            "delete_category_success": "Verzamelen van gegevens is succesvol verwijderd"
+            "delete_category_success": "Verzamelen van gegevens is succesvol verwijderd",
+            "product_categories": "Product categorieën",
+            "no_product_categories": "Geen product categorieën gevonden"
         }
     },
     "month": {
@@ -1569,5 +1598,23 @@
         "finish_installation_description": "De installatie is voltooid. U kunt nu inloggen op uw account.",
         "go_to_login": "Ga naar login",
         "installation": "Installatie"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Dashboard",
+            "invoices": "Rekeningen",
+            "quotes": "Offertes",
+            "transactions": "Transacties",
+            "support": "Ondersteuning",
+            "contracts": "Contracten",
+            "partner_details": "Partner details"
+        },
+        "partner_details": "Partner details",
+        "dashboard": "Dashboard",
+        "number_of_contracts": "Aantal contracten",
+        "number_of_unpaid_invoices": "Aantal onbetaalde facturen",
+        "number_of_quotes": "Aantal offertes",
+        "number_of_bills": "Aantal contracten",
+        "number_of_support_tickets": "Aantal support tickets"
     }
 }
