@@ -251,13 +251,13 @@ Route::middleware('auth:api')->group(function () {
     Route::group(['middleware' => 'can:payments'], function () {
         Route::get('/payments', [PaymentController::class, 'getPayments'])->name('getPayments');
         Route::get('/payments/{id}', [PaymentController::class, 'getPayment'])->name('getPayment');
+        Route::post('/payments/{id}/refund', [PaymentController::class, 'makePaymentRefund'])->name('makePaymentRefund');
     });
 
     Route::post('/create_webhook', [DataController::class, 'createWebhookSubscription'])
         ->name('createWebhookSubscription')
         ->middleware('can:webhooks');
 
-    // Test this function on the Zapier app
     Route::delete('/delete_webhook', [DataController::class, 'deleteWebhookSubscription'])
         ->name('deleteWebhookSubscription')
         ->middleware('can:webhooks');

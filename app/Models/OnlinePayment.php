@@ -32,6 +32,11 @@ class OnlinePayment extends Model implements Auditable
         'notes',
     ];
 
+    public function generateTags(): array
+    {
+        return ['OnlinePayment'];
+    }
+
     protected function casts(): array
     {
         return [

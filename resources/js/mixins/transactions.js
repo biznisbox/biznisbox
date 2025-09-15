@@ -6,6 +6,7 @@ export default {
             transactionCategories: [],
             customers: [],
             suppliers: [],
+            paymentMethods: [],
             category: {
                 id: '',
                 name: '',
@@ -35,6 +36,7 @@ export default {
                 reference_online_payment: '',
                 from_account: null,
                 to_account: null,
+                payment_method_id: null,
             },
         }
     },
@@ -150,6 +152,16 @@ export default {
         getSuppliers() {
             this.makeHttpRequest('GET', '/api/partner/limited?type=supplier,both').then((response) => {
                 this.suppliers = response.data.data
+            })
+        },
+
+        /**
+         * Get payment methods
+         * @returns {array}  return payment methods
+         * */
+        getPaymentMethods() {
+            this.makeHttpRequest('GET', '/api/categories?module=payment_method').then((response) => {
+                this.paymentMethods = response.data.data
             })
         },
     },

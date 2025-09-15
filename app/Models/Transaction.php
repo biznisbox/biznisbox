@@ -93,6 +93,11 @@ class Transaction extends Model implements Auditable
         return $this->belongsTo(Partner::class, 'supplier_id', 'id');
     }
 
+    public function payment_method()
+    {
+        return $this->belongsTo(Category::class, 'payment_method_id', 'id');
+    }
+
     public function getTransactions()
     {
         $transactions = $this->with('account')->orderBy('date', 'desc')->get();
@@ -113,6 +118,7 @@ class Transaction extends Model implements Auditable
             'customer',
             'supplier',
             'payment:number,id,payment_method,amount,currency',
+            'payment_method',
         ])->find($id);
         if ($transaction) {
             createActivityLog('retrieve', $id, Transaction::$modelName, 'Transaction');

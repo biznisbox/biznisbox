@@ -83,27 +83,22 @@ class Stripe
         return $intent;
     }
 
-    public function retrievePaymentIntent($payment_intent_id)
+    public static function retrievePaymentIntent($payment_intent_id)
     {
-        $intent = $this->stripe->paymentIntents->retrieve($payment_intent_id);
-        return $intent;
+        return (new self())->stripe->paymentIntents->retrieve($payment_intent_id);
     }
 
-    public function confirmPaymentIntent($payment_intent_id)
+    public static function refundPayment($payment_intent_id, $amount = null, $reason = null)
     {
-        $intent = $this->stripe->paymentIntents->confirm($payment_intent_id);
-        return $intent;
-    }
+        $data = [
+            'payment_intent' => $payment_intent_id,
+            'reason' => $reason ?: 'requested_by_customer',
+        ];
 
-    public function cancelPaymentIntent($payment_intent_id)
-    {
-        $intent = $this->stripe->paymentIntents->cancel($payment_intent_id);
-        return $intent;
-    }
+        if ($amount) {
+            $data['amount'] = $amount * 100;
+        }
 
-    public function capturePaymentIntent($payment_intent_id)
-    {
-        $intent = $this->stripe->paymentIntents->capture($payment_intent_id);
-        return $intent;
+        return (new self())->stripe->refunds->create($data);
     }
 }

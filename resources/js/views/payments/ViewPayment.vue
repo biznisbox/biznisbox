@@ -4,6 +4,13 @@
             <PageHeader :title="payment.number">
                 <template #actions>
                     <Button :label="$t('audit_log.audit_log')" icon="fa fa-history" severity="info" @click="showAuditLogDialog = true" />
+                    <Button
+                        v-if="payment.payment_method == 'stripe' && payment.status == 'paid'"
+                        :label="$t('form.refund')"
+                        icon="fa fa-undo"
+                        severity="info"
+                        @click="makePaymentRefund"
+                    />
                 </template>
             </PageHeader>
 
@@ -50,7 +57,7 @@
             :header="$t('audit_log.audit_log')"
             :draggable="false"
         >
-            <AuditLog :item_id="$route.params.id" item_type="Payment" />
+            <AuditLog :item_id="$route.params.id" item_type="OnlinePayment" />
         </Dialog>
     </DefaultLayout>
 </template>
@@ -74,6 +81,15 @@ export default {
         getPayment() {
             this.makeHttpRequest('GET', `/api/payments/${this.$route.params.id}`).then((response) => {
                 this.payment = response.data.data
+            })
+        },
+
+        makePaymentRefund() {
+            this.confirmDeleteDialog(this.$t('payment.refund_confirmation'), this.$t('basic.confirmation'), () => {
+                this.makeHttpRequest('POST', `/api/payments/${this.$route.params.id}/refund`).then((response) => {
+                    this.payment = response.data.data
+                    this.makeToast(this.$t('payment.refund_successful'))
+                })
             })
         },
     },

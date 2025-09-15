@@ -51,6 +51,14 @@
                 <DisplayData v-if="transaction.category" :input="$t('form.category')" :value="transaction.category?.label" />
                 <DisplayData v-if="transaction.account_id != null" :input="$t('form.account')" :value="transaction.account?.name" />
                 <DisplayData v-if="transaction.reference" :input="$t('form.reference')" :value="transaction.reference" />
+
+                <!--Payment method -->
+                <DisplayData v-if="transaction.payment_method" :input="$t('form.payment_method')" custom-value>
+                    <i :class="transaction.payment_method?.icon + ' mr-2'" v-if="transaction.payment_method?.icon"></i>
+                    {{ transaction.payment_method?.label }}
+                </DisplayData>
+
+                <DisplayData v-if="transaction.payment" :input="$t('form.payment_number')" :value="transaction.payment?.number" isLink :link="`/payments/${transaction.payment?.id}`" />
             </div>
             <div id="function_buttons" class="flex justify-end mt-4 gap-2">
                 <Button
@@ -78,6 +86,7 @@
 </template>
 
 <script>
+import DisplayData from '@/components/DisplayData.vue'
 import TransactionsMixin from '@/mixins/transactions'
 export default {
     name: 'ViewTransactionPage',

@@ -121,6 +121,15 @@
                         />
                     </div>
                     <TextInput id="reference_input" v-model="transaction.reference" :label="$t('form.reference')" />
+                    <SelectInput
+                        id="payment_method_input"
+                        v-model="transaction.payment_method_id"
+                        :label="$t('form.payment_method')"
+                        :options="paymentMethods"
+                        option-label="label"
+                        option-value="id"
+                        filter
+                    />
                 </form>
             </div>
             <div id="function_buttons" class="flex justify-end mt-4 gap-2">
@@ -176,8 +185,8 @@ export default {
         this.getCustomers()
         this.getTransactionNumber()
         this.getSuppliers()
+        this.getPaymentMethods()
         this.getTransactionCategories()
-        this.getCurrencies()
         this.transaction.currency = this.$settings.default_currency
     },
 

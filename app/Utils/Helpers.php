@@ -420,8 +420,7 @@ if (!function_exists('createActivityLog')) {
         $type = 'internal',
         $external_key = null,
     ) {
-        $activity = new \App\Models\ActivityLog();
-        $activity->createLog($event, $auditable_id, $auditable_type, $tags, $user_id, $user_type, $type, $external_key);
+        \App\Models\ActivityLog::createLog($event, $auditable_id, $auditable_type, $tags, $user_id, $user_type, $type, $external_key);
     }
 }
 

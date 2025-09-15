@@ -40,6 +40,25 @@ class PaymentController extends Controller
     public function getPayment($id)
     {
         $payment = $this->paymentService->getPayment($id);
+        if (!$payment) {
+            return apiResponse(null, __('responses.data_not_found'), 404);
+        }
         return apiResponse($payment, __('responses.data_retrieved_successfully'));
+    }
+
+    /**
+     * Make a refund for a payment
+     *
+     * @param  string  $id id of the payment
+     * @return array $result result of the refund operation
+     */
+    public function makePaymentRefund($id)
+    {
+        $result = $this->paymentService->makePaymentRefund($id);
+        if (!$result) {
+            return apiResponse(null, __('responses.refund_failed'), 400);
+        }
+
+        return apiResponse($result, __('responses.data_retrieved_successfully'));
     }
 }

@@ -100,9 +100,9 @@ class ExternalKey extends Model implements Auditable
      * @param string $module
      * @return bool
      */
-    public function validateKey($key, $module)
+    public static function validateKey($key, $module)
     {
-        $external_key = $this->where('key', $key)->where('module', $module)->first();
+        $external_key = self::where('key', $key)->where('module', $module)->first();
 
         if ($external_key) {
             $external_key = $external_key->update([

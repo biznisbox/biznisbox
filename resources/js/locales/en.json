@@ -423,7 +423,9 @@
         "icon": "Icon",
         "additional_info": "Additional Info",
         "client_portal": "Client Portal",
-        "type_of_contract_sign": "Type of Contract Sign"
+        "type_of_contract_sign": "Type of Contract Sign",
+        "refund": "Refund",
+        "payment_number": "Payment Number"
     },
     "address_types": {
         "billing": "Billing",
@@ -821,7 +823,10 @@
         "edit_payment": "Edit Payment",
         "no_payments": "No payments found",
         "delete_confirm_payment": "Are you sure you want to delete this payment?",
-        "payment_details": "Payment details"
+        "payment_details": "Payment details",
+        "refund_confirmation": "Are you sure you want to refund this payment?",
+        "refund_successful": "Payment refunded successfully",
+        "refund_failed": "Payment refund failed"
     },
     "archive": {
         "archive": "Archive | Archives",
