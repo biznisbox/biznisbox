@@ -423,7 +423,9 @@
         "icon": "Icon",
         "additional_info": "Additional Info",
         "client_portal": "Client Portal",
-        "type_of_contract_sign": "Type of Contract Sign"
+        "type_of_contract_sign": "Type of Contract Sign",
+        "refund": "Refund",
+        "payment_number": "Payment Number"
     },
     "address_types": {
         "billing": "Billing",
@@ -821,7 +823,10 @@
         "edit_payment": "Fizetés szerkesztése",
         "no_payments": "Nincsenek kifizetések",
         "delete_confirm_payment": "Biztosan törölni kívánja ezt a fizetést?",
-        "payment_details": "Fizetési részletek"
+        "payment_details": "Fizetési részletek",
+        "refund_confirmation": "Are you sure you want to refund this payment?",
+        "refund_successful": "Payment refunded successfully",
+        "refund_failed": "Payment refund failed"
     },
     "archive": {
         "archive": "Archívum | Archívumok",
