@@ -423,7 +423,9 @@
         "icon": "Іконка",
         "additional_info": "Додаткова інформація",
         "client_portal": "Портал клієнта",
-        "type_of_contract_sign": "Тип знака договору"
+        "type_of_contract_sign": "Тип знака договору",
+        "refund": "Повернення коштів",
+        "payment_number": "Номер оплати"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -821,7 +823,10 @@
         "edit_payment": "Редагувати платіж",
         "no_payments": "Не знайдено оплат",
         "delete_confirm_payment": "Ви впевнені, що хочете видалити цей платіж?",
-        "payment_details": "Деталі платежу"
+        "payment_details": "Деталі платежу",
+        "refund_confirmation": "Справді бажаєте повернути цей платіж?",
+        "refund_successful": "Оплату успішно повернуто",
+        "refund_failed": "Відшкодування платежу не вдалося"
     },
     "archive": {
         "archive": "Архів | Архіви",
