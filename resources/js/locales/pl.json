@@ -423,7 +423,9 @@
         "icon": "Ikona",
         "additional_info": "Dodatkowe informacje",
         "client_portal": "Portal klienta",
-        "type_of_contract_sign": "Rodzaj podpisu umowy"
+        "type_of_contract_sign": "Rodzaj podpisu umowy",
+        "refund": "Zwrot",
+        "payment_number": "Numer płatności"
     },
     "address_types": {
         "billing": "Płatność",
@@ -821,7 +823,10 @@
         "edit_payment": "Edytuj płatność",
         "no_payments": "Nie znaleziono płatności",
         "delete_confirm_payment": "Czy na pewno chcesz usunąć tę płatność?",
-        "payment_details": "Szczegóły płatności"
+        "payment_details": "Szczegóły płatności",
+        "refund_confirmation": "Czy na pewno chcesz zwrócić tę płatność?",
+        "refund_successful": "Płatność zwrócona pomyślnie",
+        "refund_failed": "Zwrot płatności nie powiódł się"
     },
     "archive": {
         "archive": "Archiwum | Archiwum",
