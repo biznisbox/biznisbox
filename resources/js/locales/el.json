@@ -423,7 +423,9 @@
         "icon": "Εικονίδιο",
         "additional_info": "Πρόσθετες Πληροφορίες",
         "client_portal": "Πύλη Πελάτη",
-        "type_of_contract_sign": "Τύπος σημάδι σύμβασης"
+        "type_of_contract_sign": "Τύπος σημάδι σύμβασης",
+        "refund": "Επιστροφή",
+        "payment_number": "Αριθμός Πληρωμής"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -821,7 +823,10 @@
         "edit_payment": "Επεξεργασία Πληρωμής",
         "no_payments": "Δεν βρέθηκαν πληρωμές",
         "delete_confirm_payment": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή την πληρωμή?",
-        "payment_details": "Λεπτομέρειες πληρωμής"
+        "payment_details": "Λεπτομέρειες πληρωμής",
+        "refund_confirmation": "Είστε σίγουροι ότι θέλετε να επιστρέψετε αυτή την πληρωμή?",
+        "refund_successful": "Η πληρωμή επιστράφηκε επιτυχώς",
+        "refund_failed": "Η επιστροφή χρημάτων απέτυχε"
     },
     "archive": {
         "archive": "Αρχειοθέτηση Αρχείων",
