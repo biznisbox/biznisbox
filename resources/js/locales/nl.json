@@ -423,7 +423,9 @@
         "icon": "Pictogram",
         "additional_info": "Extra informatie",
         "client_portal": "Client Portaal",
-        "type_of_contract_sign": "Soort Contract Teken"
+        "type_of_contract_sign": "Soort Contract Teken",
+        "refund": "Restitutie",
+        "payment_number": "Betaling Nummer"
     },
     "address_types": {
         "billing": "Facturering",
@@ -821,7 +823,10 @@
         "edit_payment": "Bewerk betaling",
         "no_payments": "Geen betalingen gevonden",
         "delete_confirm_payment": "Weet u zeker dat u deze betaling wilt verwijderen?",
-        "payment_details": "Details betaling"
+        "payment_details": "Details betaling",
+        "refund_confirmation": "Weet u zeker dat u deze betaling wilt terugbetalen?",
+        "refund_successful": "Betaling met succes terugbetaald",
+        "refund_failed": "Betaling terugbetaling mislukt"
     },
     "archive": {
         "archive": "Archiveer veriefarchieven",
