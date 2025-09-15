@@ -423,7 +423,9 @@
         "icon": "Icon",
         "additional_info": "Additional Info",
         "client_portal": "Client Portal",
-        "type_of_contract_sign": "Type of Contract Sign"
+        "type_of_contract_sign": "Type of Contract Sign",
+        "refund": "Refund",
+        "payment_number": "Payment Number"
     },
     "address_types": {
         "billing": "Fatura",
@@ -821,7 +823,10 @@
         "edit_payment": "Ödeme Düzenle",
         "no_payments": "Ödeme Bulunamadı",
         "delete_confirm_payment": "Bu ödemeyi silmek istediğinizden emin misiniz?",
-        "payment_details": "Ödeme detayları"
+        "payment_details": "Ödeme detayları",
+        "refund_confirmation": "Are you sure you want to refund this payment?",
+        "refund_successful": "Payment refunded successfully",
+        "refund_failed": "Payment refund failed"
     },
     "archive": {
         "archive": "Arşiv | Arşivler",
