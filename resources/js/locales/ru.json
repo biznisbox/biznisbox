@@ -423,7 +423,9 @@
         "icon": "Иконка",
         "additional_info": "Дополнительная информация",
         "client_portal": "Портал Клиента",
-        "type_of_contract_sign": "Тип знака контракта"
+        "type_of_contract_sign": "Тип знака контракта",
+        "refund": "Возврат",
+        "payment_number": "Номер платежа"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -821,7 +823,10 @@
         "edit_payment": "Редактировать платеж",
         "no_payments": "Платежи не найдены",
         "delete_confirm_payment": "Вы уверены, что хотите удалить этот платеж?",
-        "payment_details": "Детали оплаты"
+        "payment_details": "Детали оплаты",
+        "refund_confirmation": "Вы уверены, что хотите вернуть этот платеж?",
+        "refund_successful": "Платёж успешно возвращен",
+        "refund_failed": "Возврат платежа не удался"
     },
     "archive": {
         "archive": "Архив | Архивы",
