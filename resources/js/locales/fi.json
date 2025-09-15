@@ -423,7 +423,9 @@
         "icon": "Kuvake",
         "additional_info": "Lisätiedot",
         "client_portal": "Asiakkaan Portaali",
-        "type_of_contract_sign": "Allekirjoituksen tyyppi"
+        "type_of_contract_sign": "Allekirjoituksen tyyppi",
+        "refund": "Hyvitys",
+        "payment_number": "Maksun Numero"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -821,7 +823,10 @@
         "edit_payment": "Muokkaa Maksua",
         "no_payments": "Maksuja ei löytynyt",
         "delete_confirm_payment": "Oletko varma, että haluat poistaa tämän maksun?",
-        "payment_details": "Maksun tiedot"
+        "payment_details": "Maksun tiedot",
+        "refund_confirmation": "Oletko varma, että haluat palauttaa tämän maksun?",
+        "refund_successful": "Maksu palautettu onnistuneesti",
+        "refund_failed": "Maksun palautus epäonnistui"
     },
     "archive": {
         "archive": "Arkisto Arkisto Arkisto",
