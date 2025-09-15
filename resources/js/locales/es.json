@@ -423,7 +423,9 @@
         "icon": "Icono",
         "additional_info": "Información adicional",
         "client_portal": "Portal del cliente",
-        "type_of_contract_sign": "Tipo de signo de contrato"
+        "type_of_contract_sign": "Tipo de signo de contrato",
+        "refund": "Reembolso",
+        "payment_number": "Número de pago"
     },
     "address_types": {
         "billing": "Facturación",
@@ -821,7 +823,10 @@
         "edit_payment": "Editar pago",
         "no_payments": "No se encontraron pagos",
         "delete_confirm_payment": "¿Está seguro que desea eliminar este pago?",
-        "payment_details": "Detalles de pago"
+        "payment_details": "Detalles de pago",
+        "refund_confirmation": "¿Estás seguro de que quieres reembolsar este pago?",
+        "refund_successful": "Pago reembolsado con éxito",
+        "refund_failed": "Error en el reembolso del pago"
     },
     "archive": {
         "archive": "Archivo | Archivos",
