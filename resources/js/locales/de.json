@@ -423,7 +423,9 @@
         "icon": "Symbol",
         "additional_info": "Zusätzliche Info",
         "client_portal": "Kundenportal",
-        "type_of_contract_sign": "Art des Vertragsschildes"
+        "type_of_contract_sign": "Art des Vertragsschildes",
+        "refund": "Rückerstattung",
+        "payment_number": "Zahlungsnummer"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -821,7 +823,10 @@
         "edit_payment": "Zahlung bearbeiten",
         "no_payments": "Keine Zahlungen gefunden",
         "delete_confirm_payment": "Sind Sie sicher, dass Sie diese Zahlung löschen möchten?",
-        "payment_details": "Zahlungsdetails"
+        "payment_details": "Zahlungsdetails",
+        "refund_confirmation": "Sind Sie sicher, dass Sie diese Zahlung erstatten möchten?",
+        "refund_successful": "Zahlung erfolgreich zurückerstattet",
+        "refund_failed": "Zahlungsrückerstattung fehlgeschlagen"
     },
     "archive": {
         "archive": "Archiv | Archive",
