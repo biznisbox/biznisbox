@@ -423,7 +423,9 @@
         "icon": "Ikona",
         "additional_info": "Dodatne informacije",
         "client_portal": "Portal strank",
-        "type_of_contract_sign": "Type of Contract Sign"
+        "type_of_contract_sign": "Type of Contract Sign",
+        "refund": "Refund",
+        "payment_number": "Payment Number"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -821,7 +823,10 @@
         "edit_payment": "Uredi plačilo",
         "no_payments": "Ni najdenih plačil",
         "delete_confirm_payment": "Ali ste prepričani, da želite izbrisati to plačilo?",
-        "payment_details": "Podrobnosti o plačilu"
+        "payment_details": "Podrobnosti o plačilu",
+        "refund_confirmation": "Are you sure you want to refund this payment?",
+        "refund_successful": "Payment refunded successfully",
+        "refund_failed": "Payment refund failed"
     },
     "archive": {
         "archive": "Arhiv | Arhivi",
