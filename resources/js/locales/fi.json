@@ -130,7 +130,8 @@
         "system": "Järjestelmä",
         "add_signer": "Lisää Allekirjoittaja",
         "click_for_download": "Lataa napsauttamalla tästä",
-        "sign": "Allekirjoita"
+        "sign": "Allekirjoita",
+        "import": "Tuo"
     },
     "audit_log": {
         "audit_log": "Tarkastusloki",
@@ -172,6 +173,7 @@
         "internal": "Sisäinen",
         "external": "Ulkoinen",
         "external_key": "Ulkoinen avain",
+        "client_portal": "Asiakkaan portaali",
         "system": "Järjestelmä"
     },
     "user_nav_menu": {
@@ -419,7 +421,11 @@
         "module": "Moduuli",
         "parent_category": "Ylätason Kategoria",
         "icon": "Kuvake",
-        "additional_info": "Lisätiedot"
+        "additional_info": "Lisätiedot",
+        "client_portal": "Asiakkaan Portaali",
+        "type_of_contract_sign": "Allekirjoituksen tyyppi",
+        "refund": "Hyvitys",
+        "payment_number": "Maksun Numero"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -493,6 +499,7 @@
         "credit_card": "Maksukortti",
         "paypal": "Paypal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Muu"
     },
     "support_priority": {
@@ -522,6 +529,11 @@
     "tax_types": {
         "percent": "Prosenttiosuus",
         "fixed": "Kiinteä"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektroninen",
+        "digital_signature": "Digitaalinen Allekirjoitus",
+        "paper": "Paperi"
     },
     "login_history": {
         "login_history": "Kirjautumishistoria",
@@ -555,7 +567,9 @@
         "activities": "Toiminnot",
         "edit_activity": "Muokkaa Toimintaa",
         "partner_activities": "Yhteistyökumppaneiden Toiminta",
-        "send_email": "Lähetä sähköposti"
+        "send_email": "Lähetä sähköposti",
+        "add_to_client_portal": "Lisää asiakasportaaliin",
+        "vat_number_required": "ALV-numero on pakollinen"
     },
     "partner_activity_types": {
         "call": "Soita",
@@ -652,8 +666,8 @@
         "list_of_transactions": "Luettelo tapahtumista",
         "no_sales_person": "Ei myyntihenkilöä",
         "no_payment_method": "Ei maksutapaa",
-        "click_for_pay_with_paypal": "Maksa PayPalilla napsauttamalla tästä",
-        "click_for_pay": "Maksa klikkaamalla tästä"
+        "click_for_pay": "Maksa klikkaamalla tästä",
+        "select_payment_gateway": "Valitse maksuväylä"
     },
     "quote": {
         "quote": "Tarjous - Lainaukset",
@@ -809,7 +823,10 @@
         "edit_payment": "Muokkaa Maksua",
         "no_payments": "Maksuja ei löytynyt",
         "delete_confirm_payment": "Oletko varma, että haluat poistaa tämän maksun?",
-        "payment_details": "Maksun tiedot"
+        "payment_details": "Maksun tiedot",
+        "refund_confirmation": "Oletko varma, että haluat palauttaa tämän maksun?",
+        "refund_successful": "Maksu palautettu onnistuneesti",
+        "refund_failed": "Maksun palautus epäonnistui"
     },
     "archive": {
         "archive": "Arkisto Arkisto Arkisto",
@@ -1019,7 +1036,12 @@
             "open_banking_client_id": "Open Banking Client ID",
             "open_banking_secret": "Avaa Pankkisalaisuus",
             "open_banking_help": "Löydät asiakkaasi tunnuksen ja salaisen Nordigen-tililtäsi.",
-            "online_payments": "Online-maksut"
+            "online_payments": "Online-maksut",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Coinbase saatavilla",
+            "coinbase_api_key": "Coinbase API-avain",
+            "coinbase_api_key_help": "Voit löytää oman API avain teidän Coinbase kaupan tili.",
+            "coinbase_account_id": "Coinbase sisäinen tili ID"
         },
         "status": {
             "title": "Tila Sivu",
@@ -1090,7 +1112,10 @@
             "default_time_format": "Ajan Oletusmuoto",
             "default_datetime_format": "Oletus Päivämäärä Muoto",
             "show_barcode_on_documents": "Näytä viivakoodi asiakirjoissa",
-            "week_start": "Viikon Aloituspäivä"
+            "week_start": "Viikon Aloituspäivä",
+            "exchange_rate_provider": "Valuuttakurssin Tarjoaja",
+            "save_document_into_archive": "Tallenna asiakirja arkistoon",
+            "save_document_into_archive_description": "Jos käytössä, asiakirjat tallennetaan arkistoon (laskut, lainaukset, laskut, sopimukset)."
         },
         "taxes": {
             "title": "Verot",
@@ -1102,7 +1127,9 @@
             "name": "Nimi",
             "value": "Arvo",
             "description": "Kuvaus",
-            "delete_confirm_tax": "Oletko varma, että haluat poistaa tämän verokannan?"
+            "delete_confirm_tax": "Oletko varma, että haluat poistaa tämän verokannan?",
+            "import_tax": "Tuo Verokannat",
+            "import_tax_description": "Voit tuoda verokantoja julkisten tietojen resursseista. Tiedot haetaan EU:n alv-luettelosta. Se ei voi olla täysin ajan tasalla tai tarkka. Tarkista tuodut tiedot."
         },
         "role": {
             "title": "Roolit",
@@ -1205,7 +1232,9 @@
             "no_transaction_categories": "Tapahtumakategorioita ei löytynyt",
             "no_contract_types": "Sopimustyyppejä ei löytynyt",
             "delete_category_ask": "Oletko varma, että haluat poistaa tämän tiedonkeruun kohteen?",
-            "delete_category_success": "Tiedonkeruun kohde poistettu onnistuneesti"
+            "delete_category_success": "Tiedonkeruun kohde poistettu onnistuneesti",
+            "product_categories": "Tuoteryhmät",
+            "no_product_categories": "Tuoteryhmiä ei löytynyt"
         }
     },
     "month": {
@@ -1569,5 +1598,23 @@
         "finish_installation_description": "Asennus on valmis. Voit nyt kirjautua sisään tilillesi.",
         "go_to_login": "Siirry kirjautumiseen",
         "installation": "Asennus"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Hallintapaneeli",
+            "invoices": "Laskut",
+            "quotes": "Lainaukset",
+            "transactions": "Tapahtumat",
+            "support": "Tuki",
+            "contracts": "Sopimukset",
+            "partner_details": "Kumppanin Tiedot"
+        },
+        "partner_details": "Kumppanin tiedot",
+        "dashboard": "Hallintapaneeli",
+        "number_of_contracts": "Sopimusten lukumäärä",
+        "number_of_unpaid_invoices": "Maksamattomien laskujen määrä",
+        "number_of_quotes": "Lainauksien määrä",
+        "number_of_bills": "Laskujen lukumäärä",
+        "number_of_support_tickets": "Tukipyyntöjen määrä"
     }
 }

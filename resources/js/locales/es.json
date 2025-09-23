@@ -130,7 +130,8 @@
         "system": "Sistema",
         "add_signer": "Añadir firmante",
         "click_for_download": "Haga clic aquí para descargar",
-        "sign": "Signo"
+        "sign": "Signo",
+        "import": "Importar"
     },
     "audit_log": {
         "audit_log": "Auditoría",
@@ -172,6 +173,7 @@
         "internal": "Interno",
         "external": "Externo",
         "external_key": "Clave externa",
+        "client_portal": "Portal del cliente",
         "system": "Sistema"
     },
     "user_nav_menu": {
@@ -419,7 +421,11 @@
         "module": "Módulo",
         "parent_category": "Categoría padre",
         "icon": "Icono",
-        "additional_info": "Información adicional"
+        "additional_info": "Información adicional",
+        "client_portal": "Portal del cliente",
+        "type_of_contract_sign": "Tipo de signo de contrato",
+        "refund": "Reembolso",
+        "payment_number": "Número de pago"
     },
     "address_types": {
         "billing": "Facturación",
@@ -493,6 +499,7 @@
         "credit_card": "Tarjeta de pago",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Base de monedas",
         "other": "Otro"
     },
     "support_priority": {
@@ -522,6 +529,11 @@
     "tax_types": {
         "percent": "Porcentaje",
         "fixed": "Fijado"
+    },
+    "contract_sign_types": {
+        "electronic": "Electrónico",
+        "digital_signature": "Firma digital",
+        "paper": "Papel"
     },
     "login_history": {
         "login_history": "Historial de acceso",
@@ -555,7 +567,9 @@
         "activities": "Actividades",
         "edit_activity": "Editar actividad",
         "partner_activities": "Actividades de socios",
-        "send_email": "Enviar email"
+        "send_email": "Enviar email",
+        "add_to_client_portal": "Añadir al portal del cliente",
+        "vat_number_required": "Se requiere el número de IVA"
     },
     "partner_activity_types": {
         "call": "Llamar",
@@ -652,8 +666,8 @@
         "list_of_transactions": "Lista de transacciones",
         "no_sales_person": "No hay vendedores",
         "no_payment_method": "Sin método de pago",
-        "click_for_pay_with_paypal": "Haga clic aquí para pagar con PayPal",
-        "click_for_pay": "Haga clic aquí para pagar"
+        "click_for_pay": "Haga clic aquí para pagar",
+        "select_payment_gateway": "Seleccionar pasarela de pago"
     },
     "quote": {
         "quote": "Cotización | Citas",
@@ -809,7 +823,10 @@
         "edit_payment": "Editar pago",
         "no_payments": "No se encontraron pagos",
         "delete_confirm_payment": "¿Está seguro que desea eliminar este pago?",
-        "payment_details": "Detalles de pago"
+        "payment_details": "Detalles de pago",
+        "refund_confirmation": "¿Estás seguro de que quieres reembolsar este pago?",
+        "refund_successful": "Pago reembolsado con éxito",
+        "refund_failed": "Error en el reembolso del pago"
     },
     "archive": {
         "archive": "Archivo | Archivos",
@@ -1019,7 +1036,12 @@
             "open_banking_client_id": "Abrir ID de Cliente de Banca",
             "open_banking_secret": "Open Banking secret",
             "open_banking_help": "Usted puede encontrar su ID de cliente y secreto en su cuenta de Nordigen.",
-            "online_payments": "Pagos en línea"
+            "online_payments": "Pagos en línea",
+            "coinbase": "Base de monedas",
+            "coinbase_available": "Base de monedas disponible",
+            "coinbase_api_key": "Clave API Coinbase",
+            "coinbase_api_key_help": "Puede encontrar su clave API en su cuenta de comercio de Coinbase.",
+            "coinbase_account_id": "ID de cuenta interna de Coinbase"
         },
         "status": {
             "title": "Página de estado",
@@ -1090,7 +1112,10 @@
             "default_time_format": "Formato de hora por defecto",
             "default_datetime_format": "Formato de fecha por defecto",
             "show_barcode_on_documents": "Mostrar código de barras en documentos",
-            "week_start": "Día de inicio de semana"
+            "week_start": "Día de inicio de semana",
+            "exchange_rate_provider": "Proveedor de tipo de cambio",
+            "save_document_into_archive": "Guardar documento en archivo",
+            "save_document_into_archive_description": "Si está habilitado, los documentos se guardarán en el archivo (facturas, cotizaciones, facturas, contratos)."
         },
         "taxes": {
             "title": "Impuestos",
@@ -1102,7 +1127,9 @@
             "name": "Nombre",
             "value": "Valor",
             "description": "Descripción",
-            "delete_confirm_tax": "¿Está seguro que desea eliminar esta tasa de impuesto?"
+            "delete_confirm_tax": "¿Está seguro que desea eliminar esta tasa de impuesto?",
+            "import_tax": "Importar tasas de impuestos",
+            "import_tax_description": "Puede importar impuestos de los recursos de datos públicos. Los datos se obtendrán de la lista de IVA de la UE. No puede estar totalmente actualizado o preciso. Por favor, compruebe los datos importados."
         },
         "role": {
             "title": "Roles",
@@ -1205,7 +1232,9 @@
             "no_transaction_categories": "No se encontraron categorías de transacción",
             "no_contract_types": "No se encontraron tipos de contrato",
             "delete_category_ask": "¿Está seguro de que desea eliminar este elemento de recopilación de datos?",
-            "delete_category_success": "Elemento de recolección de datos eliminado correctamente"
+            "delete_category_success": "Elemento de recolección de datos eliminado correctamente",
+            "product_categories": "Categorías de productos",
+            "no_product_categories": "No se encontraron categorías de productos"
         }
     },
     "month": {
@@ -1569,5 +1598,23 @@
         "finish_installation_description": "La instalación se ha completado. Ahora puede iniciar sesión en su cuenta.",
         "go_to_login": "Ir al inicio de sesión",
         "installation": "Instalación"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Tablero",
+            "invoices": "Facturas",
+            "quotes": "Cotizaciones",
+            "transactions": "Transacciones",
+            "support": "Soporte",
+            "contracts": "Contratos",
+            "partner_details": "Detalles del socio"
+        },
+        "partner_details": "Detalles del socio",
+        "dashboard": "Tablero",
+        "number_of_contracts": "Número de contratos",
+        "number_of_unpaid_invoices": "Número de facturas pendientes de pago",
+        "number_of_quotes": "Número de comillas",
+        "number_of_bills": "Número de facturas",
+        "number_of_support_tickets": "Número de tickets de soporte"
     }
 }

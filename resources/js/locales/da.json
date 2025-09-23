@@ -130,7 +130,8 @@
         "system": "System",
         "add_signer": "Tilføj underskriver",
         "click_for_download": "Klik her for at downloade",
-        "sign": "Underskriv"
+        "sign": "Underskriv",
+        "import": "Importér"
     },
     "audit_log": {
         "audit_log": "Revisionslog",
@@ -172,6 +173,7 @@
         "internal": "Intern",
         "external": "Ekstern",
         "external_key": "Ekstern nøgle",
+        "client_portal": "Klient portal",
         "system": "System"
     },
     "user_nav_menu": {
@@ -419,7 +421,11 @@
         "module": "Modul",
         "parent_category": "Overordnet Kategori",
         "icon": "Ikon",
-        "additional_info": "Yderligere Info"
+        "additional_info": "Yderligere Info",
+        "client_portal": "Klient Portal",
+        "type_of_contract_sign": "Type af kontrakttegn",
+        "refund": "Tilbagebetaling",
+        "payment_number": "Betalings Nummer"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -493,6 +499,7 @@
         "credit_card": "Betaling kort",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Møntbase",
         "other": "Andet"
     },
     "support_priority": {
@@ -522,6 +529,11 @@
     "tax_types": {
         "percent": "Procentdel",
         "fixed": "Fast"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektronisk",
+        "digital_signature": "Digital Signatur",
+        "paper": "Papir"
     },
     "login_history": {
         "login_history": "Log Ind Historik",
@@ -555,7 +567,9 @@
         "activities": "Aktiviteter",
         "edit_activity": "Rediger Aktivitet",
         "partner_activities": "Partner Aktiviteter",
-        "send_email": "Send e-mail"
+        "send_email": "Send e-mail",
+        "add_to_client_portal": "Føj til klientportal",
+        "vat_number_required": "CVR-nummer er påkrævet"
     },
     "partner_activity_types": {
         "call": "Opkald",
@@ -652,8 +666,8 @@
         "list_of_transactions": "Liste over transaktioner",
         "no_sales_person": "Ingen salgsperson",
         "no_payment_method": "Ingen betalingsmetode",
-        "click_for_pay_with_paypal": "Klik her for at betale med PayPal",
-        "click_for_pay": "Klik her for at betale"
+        "click_for_pay": "Klik her for at betale",
+        "select_payment_gateway": "Vælg betalingsgateway"
     },
     "quote": {
         "quote": "Tilbud - Tilbud",
@@ -809,7 +823,10 @@
         "edit_payment": "Rediger Betaling",
         "no_payments": "Ingen betalinger fundet",
         "delete_confirm_payment": "Er du sikker på du vil slette denne betaling?",
-        "payment_details": "Betalings detaljer"
+        "payment_details": "Betalings detaljer",
+        "refund_confirmation": "Er du sikker på du vil refundere denne betaling?",
+        "refund_successful": "Betaling refunderet",
+        "refund_failed": "Tilbagebetaling mislykkedes"
     },
     "archive": {
         "archive": "Arkiverede Arkiver",
@@ -1019,7 +1036,12 @@
             "open_banking_client_id": "Åben Bankklient-Id",
             "open_banking_secret": "Åben Bankhemmelighed",
             "open_banking_help": "Du kan finde dit klient ID og din Hemmelighed på din Nordigen konto.",
-            "online_payments": "Online Betalinger"
+            "online_payments": "Online Betalinger",
+            "coinbase": "Møntbase",
+            "coinbase_available": "Møntbase tilgængelig",
+            "coinbase_api_key": "Coinbase API-nøgle",
+            "coinbase_api_key_help": "Du kan finde din API-nøgle på din Coinbase handelskonto.",
+            "coinbase_account_id": "Coinbase intern konto ID"
         },
         "status": {
             "title": "Status Side",
@@ -1090,7 +1112,10 @@
             "default_time_format": "Standard Tidsformat",
             "default_datetime_format": "Standard Datotidsformat",
             "show_barcode_on_documents": "Vis stregkode på dokumenter",
-            "week_start": "Uge Startdag"
+            "week_start": "Uge Startdag",
+            "exchange_rate_provider": "Udbyder Af Valutakurs",
+            "save_document_into_archive": "Gem dokument i arkiv",
+            "save_document_into_archive_description": "Hvis aktiveret, vil dokumenter blive gemt i arkivet (fakturaer, citater, regninger, kontrakter)."
         },
         "taxes": {
             "title": "Moms Priser",
@@ -1102,7 +1127,9 @@
             "name": "Navn",
             "value": "Værdi",
             "description": "Varebeskrivelse",
-            "delete_confirm_tax": "Er du sikker på, at du vil slette denne momssats?"
+            "delete_confirm_tax": "Er du sikker på, at du vil slette denne momssats?",
+            "import_tax": "Importér Momssatser",
+            "import_tax_description": "Du kan importere momssatser fra offentlige dataressourcer. Data hentes fra EU's momsliste. Det kan ikke være fuldt opdateret eller nøjagtigt. Dobbelttjek venligst de importerede data."
         },
         "role": {
             "title": "Roller",
@@ -1205,7 +1232,9 @@
             "no_transaction_categories": "Ingen transaktionskategorier fundet",
             "no_contract_types": "Ingen aftaletyper fundet",
             "delete_category_ask": "Er du sikker på, at du vil slette dette dataindsamlingselement?",
-            "delete_category_success": "Dataindsamlingselement slettet succesfuldt"
+            "delete_category_success": "Dataindsamlingselement slettet succesfuldt",
+            "product_categories": "Produkt kategorier",
+            "no_product_categories": "Ingen produktkategorier fundet"
         }
     },
     "month": {
@@ -1569,5 +1598,23 @@
         "finish_installation_description": "Installationen er færdig. Du kan nu logge ind på din konto.",
         "go_to_login": "Gå til login",
         "installation": "Installation"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Instrumentbræt",
+            "invoices": "Fakturaer",
+            "quotes": "Tilbud",
+            "transactions": "Transaktioner",
+            "support": "Support",
+            "contracts": "Kontrakter",
+            "partner_details": "Partner Detaljer"
+        },
+        "partner_details": "Partner detaljer",
+        "dashboard": "Instrumentbræt",
+        "number_of_contracts": "Antal kontrakter",
+        "number_of_unpaid_invoices": "Antal ubetalte fakturaer",
+        "number_of_quotes": "Antal citater",
+        "number_of_bills": "Antal regninger",
+        "number_of_support_tickets": "Antal billetter til support"
     }
 }

@@ -130,7 +130,8 @@
         "system": "System",
         "add_signer": "Add Signer",
         "click_for_download": "Click here to download",
-        "sign": "Sign"
+        "sign": "Sign",
+        "import": "Import"
     },
     "audit_log": {
         "audit_log": "審計日誌",
@@ -172,6 +173,7 @@
         "internal": "Internal",
         "external": "External",
         "external_key": "外部鍵",
+        "client_portal": "Client portal",
         "system": "System"
     },
     "user_nav_menu": {
@@ -419,7 +421,11 @@
         "module": "Module",
         "parent_category": "Parent Category",
         "icon": "Icon",
-        "additional_info": "Additional Info"
+        "additional_info": "Additional Info",
+        "client_portal": "Client Portal",
+        "type_of_contract_sign": "Type of Contract Sign",
+        "refund": "Refund",
+        "payment_number": "Payment Number"
     },
     "address_types": {
         "billing": "Billing",
@@ -493,6 +499,7 @@
         "credit_card": "Payment card",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "其他"
     },
     "support_priority": {
@@ -522,6 +529,11 @@
     "tax_types": {
         "percent": "百分比",
         "fixed": "固定"
+    },
+    "contract_sign_types": {
+        "electronic": "Electronic",
+        "digital_signature": "Digital Signature",
+        "paper": "Paper"
     },
     "login_history": {
         "login_history": "Login History",
@@ -555,7 +567,9 @@
         "activities": "Activities",
         "edit_activity": "Edit Activity",
         "partner_activities": "Partner Activities",
-        "send_email": "Send email"
+        "send_email": "Send email",
+        "add_to_client_portal": "Add to client portal",
+        "vat_number_required": "VAT number is required"
     },
     "partner_activity_types": {
         "call": "Call",
@@ -652,8 +666,8 @@
         "list_of_transactions": "List of transactions",
         "no_sales_person": "No sales person",
         "no_payment_method": "No payment method",
-        "click_for_pay_with_paypal": "Click here to pay with PayPal",
-        "click_for_pay": "Click here to pay"
+        "click_for_pay": "Click here to pay",
+        "select_payment_gateway": "Select payment gateway"
     },
     "quote": {
         "quote": "Quote | Quotes",
@@ -809,7 +823,10 @@
         "edit_payment": "編輯付款",
         "no_payments": "找不到付款",
         "delete_confirm_payment": "您確定要刪除此付款嗎？",
-        "payment_details": "付款詳情"
+        "payment_details": "付款詳情",
+        "refund_confirmation": "Are you sure you want to refund this payment?",
+        "refund_successful": "Payment refunded successfully",
+        "refund_failed": "Payment refund failed"
     },
     "archive": {
         "archive": "Archive | Archives",
@@ -1019,7 +1036,12 @@
             "open_banking_client_id": "Open Banking Client ID",
             "open_banking_secret": "Open Banking Secret",
             "open_banking_help": "You can find your Client ID and Secret in your Nordigen account.",
-            "online_payments": "線上付款"
+            "online_payments": "線上付款",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Coinbase available",
+            "coinbase_api_key": "Coinbase API Key",
+            "coinbase_api_key_help": "You can find your API key in your Coinbase commerce account.",
+            "coinbase_account_id": "Coinbase internal account ID"
         },
         "status": {
             "title": "Status Page",
@@ -1090,7 +1112,10 @@
             "default_time_format": "Default Time Format",
             "default_datetime_format": "Default Datetime Format",
             "show_barcode_on_documents": "Show barcode on documents",
-            "week_start": "Week Start Day"
+            "week_start": "Week Start Day",
+            "exchange_rate_provider": "Exchange Rate Provider",
+            "save_document_into_archive": "Save Document into Archive",
+            "save_document_into_archive_description": "If enabled, documents will be saved into the archive (invoices, quotes, bills, contracts)."
         },
         "taxes": {
             "title": "Tax Rates",
@@ -1102,7 +1127,9 @@
             "name": "Name",
             "value": "數值",
             "description": "描述",
-            "delete_confirm_tax": "Are you sure you want to delete this tax rate?"
+            "delete_confirm_tax": "Are you sure you want to delete this tax rate?",
+            "import_tax": "Import Tax Rates",
+            "import_tax_description": "You can import tax rates from public data resources. Data will be fetched from the EU VAT list. It can be not fully up-to-date or accurate. Please double-check the imported data."
         },
         "role": {
             "title": "Roles",
@@ -1205,7 +1232,9 @@
             "no_transaction_categories": "No transaction categories found",
             "no_contract_types": "No contract types found",
             "delete_category_ask": "Are you sure you want to delete this data collection item?",
-            "delete_category_success": "Data collection item deleted successfully"
+            "delete_category_success": "Data collection item deleted successfully",
+            "product_categories": "Product categories",
+            "no_product_categories": "No product categories found"
         }
     },
     "month": {
@@ -1569,5 +1598,23 @@
         "finish_installation_description": "安裝完成。您現在可以登錄您的賬戶",
         "go_to_login": "轉到登錄頁面",
         "installation": "安裝"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Dashboard",
+            "invoices": "Invoices",
+            "quotes": "Quotes",
+            "transactions": "Transactions",
+            "support": "Support",
+            "contracts": "Contracts",
+            "partner_details": "Partner Details"
+        },
+        "partner_details": "Partner details",
+        "dashboard": "Dashboard",
+        "number_of_contracts": "Number of contracts",
+        "number_of_unpaid_invoices": "Number of unpaid invoices",
+        "number_of_quotes": "Number of quotes",
+        "number_of_bills": "Number of bills",
+        "number_of_support_tickets": "Number of support tickets"
     }
 }
