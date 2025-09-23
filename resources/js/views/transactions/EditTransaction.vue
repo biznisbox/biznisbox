@@ -121,7 +121,7 @@
                         />
                     </div>
                     <TextInput id="reference_input" v-model="transaction.reference" :label="$t('form.reference')" />
-                                 <SelectInput
+                    <SelectInput
                         id="payment_method_input"
                         v-model="transaction.payment_method_id"
                         :label="$t('form.payment_method')"

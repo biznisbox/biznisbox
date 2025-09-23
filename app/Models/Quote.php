@@ -190,8 +190,7 @@ class Quote extends Model implements Auditable
 
     public static function getQuoteNumber()
     {
-        $number = generateNextNumber(settings('quote_number_format'), 'quote');
-        return $number;
+        return generateNextNumber(settings('quote_number_format'), 'quote');
     }
 
     public function convertQuoteToInvoice($id)

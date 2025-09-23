@@ -58,7 +58,13 @@
                     {{ transaction.payment_method?.label }}
                 </DisplayData>
 
-                <DisplayData v-if="transaction.payment" :input="$t('form.payment_number')" :value="transaction.payment?.number" isLink :link="`/payments/${transaction.payment?.id}`" />
+                <DisplayData
+                    v-if="transaction.payment"
+                    :input="$t('form.payment_number')"
+                    :value="transaction.payment?.number"
+                    isLink
+                    :link="`/payments/${transaction.payment?.id}`"
+                />
             </div>
             <div id="function_buttons" class="flex justify-end mt-4 gap-2">
                 <Button

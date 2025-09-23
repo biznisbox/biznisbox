@@ -60,11 +60,11 @@ class Currency extends Model implements Auditable
         return $amount * $rate;
     }
 
-    public function formatCurrency($amount, $currency = null)
+    public static function formatCurrency($amount, $currency = null)
     {
         $currency = $currency ? $currency : settings('default_currency');
-        $currency = $this->where('code', $currency)->first();
+        $currency = self::where('code', $currency)->first();
         $amount = number_format($amount, $currency->number_of_decimal, $currency->decimal_separator, $currency->thousand_separator);
-        return $currency->placement == 'after' ? $amount . $currency->symbol : $currency->symbol . $amount;
+        return $currency->placement == 'after' ? $amount . ' ' . $currency->symbol : $currency->symbol . ' ' . $amount;
     }
 }
