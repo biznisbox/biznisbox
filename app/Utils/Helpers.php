@@ -397,6 +397,59 @@ if (!function_exists('setSupplierData')) {
     }
 }
 
+if (!function_exists('setPartnerData')) {
+    /**
+     * Generic function to set partner data (customer, payer, supplier)
+     *
+     * @param array $data - invoice/quote/bill data
+     * @param UUID|null $partnerId - partner id
+     * @param UUID|null $partnerAddressId - partner address id
+     * @param string $prefix - prefix for data keys (customer|payer|supplier)
+     * @return array $data - updated data
+     */
+    function setPartnerData(array $data, $partnerId, $partnerAddressId, string $prefix): array
+    {
+        // Define prefixed keys
+        $keys = [
+            'id'         => "{$prefix}_id",
+            'address_id' => "{$prefix}_address_id",
+            'name'       => "{$prefix}_name",
+            'address'    => "{$prefix}_address",
+            'city'       => "{$prefix}_city",
+            'zip_code'   => "{$prefix}_zip_code",
+            'country'    => "{$prefix}_country",
+        ];
+
+        // If no partner, clear values
+        if (!$partnerId) {
+            foreach ($keys as $key) {
+                $data[$key] = null;
+            }
+            return $data;
+        }
+
+        $partner = \App\Models\Partner::find($partnerId);
+        $address = null;
+
+        if ($partnerAddressId) {
+            $address = \App\Models\PartnerAddress::where('partner_id', $partnerId)
+                ->where('id', $partnerAddressId)
+                ->first();
+        }
+
+        // Fill data
+        $data[$keys['id']]         = $partner->id ?? null;
+        $data[$keys['name']]       = $partner->name ?? null;
+        $data[$keys['address_id']] = $address->id ?? null;
+        $data[$keys['address']]    = $address->address ?? null;
+        $data[$keys['city']]       = $address->city ?? null;
+        $data[$keys['zip_code']]   = $address->zip_code ?? null;
+        $data[$keys['country']]    = $address->country ?? null;
+
+        return $data;
+    }
+}
+
 if (!function_exists('createActivityLog')) {
     /**
      * Create activity log
@@ -496,10 +549,7 @@ if (!function_exists('formatMoney')) {
      */
     function formatMoney($amount, $currency = null)
     {
-        if (!$currency) {
-            $currency = settings('default_currency');
-        }
-        return number_format($amount, 2) . ' ' . $currency;
+        return \App\Models\Currency::formatCurrency($amount, $currency);
     }
 }
 

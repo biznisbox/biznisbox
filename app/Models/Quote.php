@@ -122,8 +122,8 @@ class Quote extends Model implements Auditable
 
     public function createQuote($data)
     {
-        $data = setPayerData($data, $data['payer_id'], $data['payer_address_id']);
-        $data = setCustomerData($data, $data['customer_id'], $data['customer_address_id']);
+        $data = setPartnerData($data, $data['payer_id'], $data['payer_address_id'], 'payer');
+        $data = setPartnerData($data, $data['customer_id'], $data['customer_address_id'], 'customer');
         $data['default_currency'] = settings('default_currency');
         $data['number'] = $this->getQuoteNumber();
         $quote = $this->create($data);
@@ -146,8 +146,8 @@ class Quote extends Model implements Auditable
 
     public function updateQuote($id, $data)
     {
-        $data = setPayerData($data, $data['payer_id'], $data['payer_address_id']);
-        $data = setCustomerData($data, $data['customer_id'], $data['customer_address_id']);
+        $data = setPartnerData($data, $data['payer_id'], $data['payer_address_id'], 'payer');
+        $data = setPartnerData($data, $data['customer_id'], $data['customer_address_id'], 'customer');
         $quote = $this->find($id);
 
         $quote = $quote->update($data);

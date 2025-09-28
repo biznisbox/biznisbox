@@ -107,7 +107,7 @@ class Bill extends Model implements Auditable
 
     public function createBill($data)
     {
-        $data = setSupplierData($data, $data['supplier_id'], $data['supplier_address_id']);
+        $data = setPartnerData($data, $data['supplier_id'], $data['supplier_address_id'], 'supplier');
         $bill = $this->create($data);
         if ($bill) {
             if (isset($data['items'])) {
@@ -137,7 +137,7 @@ class Bill extends Model implements Auditable
     {
         $bill = $this->find($id);
         if ($bill) {
-            $data = setSupplierData($data, $data['supplier_id'], $data['supplier_address_id']);
+            $data = setPartnerData($data, $data['supplier_id'], $data['supplier_address_id'], 'supplier');
             $data['number'] = $bill['number'];
             $bill->update($data);
             if (isset($data['items'])) {

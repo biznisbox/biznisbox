@@ -55,8 +55,8 @@ class InvoiceService
 
     public function createInvoice($data)
     {
-        $data = setPayerData($data, $data['payer_id'], $data['payer_address_id']);
-        $data = setCustomerData($data, $data['customer_id'], $data['customer_address_id']);
+        $data = setPartnerData($data, $data['payer_id'], $data['payer_address_id'], 'payer');
+        $data = setPartnerData($data, $data['customer_id'], $data['customer_address_id'], 'customer');
         $data['default_currency'] = settings('default_currency');
         $data['number'] = $this->getInvoiceNumber();
 
@@ -103,8 +103,8 @@ class InvoiceService
 
     public function updateInvoice($id, $data)
     {
-        $data = setPayerData($data, $data['payer_id'], $data['payer_address_id']);
-        $data = setCustomerData($data, $data['customer_id'], $data['customer_address_id']);
+        $data = setPartnerData($data, $data['payer_id'], $data['payer_address_id'], 'payer');
+        $data = setPartnerData($data, $data['customer_id'], $data['customer_address_id'], 'customer');
         $invoice = $this->invoiceModel->find($id);
         if ($invoice->status == 'paid') {
             return false;
