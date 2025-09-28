@@ -203,7 +203,8 @@
         "employees": "Employees",
         "support": "Support",
         "payments": "Payments",
-        "contracts": "Contracts"
+        "contracts": "Contracts",
+        "projects": "Projects"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -425,7 +426,10 @@
         "client_portal": "Client Portal",
         "type_of_contract_sign": "Type of Contract Sign",
         "refund": "Refund",
-        "payment_number": "Payment Number"
+        "payment_number": "Payment Number",
+        "is_billable": "Is Billable",
+        "budget": "Budget",
+        "project_key": "Project Key"
     },
     "address_types": {
         "billing": "Billing",
@@ -742,7 +746,8 @@
         "waiting_signature": "Waiting for signature",
         "not_started": "Not started",
         "planned": "Planned",
-        "spam": "Spam"
+        "spam": "Spam",
+        "on_hold": "On hold"
     },
     "calendar": {
         "calendar": "Calendar | Calendars",
@@ -975,6 +980,20 @@
         "intern": "Intern",
         "volunteer": "Volunteer",
         "other": "Other"
+    },
+    "project": {
+        "project": "Project | Projects",
+        "new_project": "New Project",
+        "edit_project": "Edit Project",
+        "no_projects": "No projects found",
+        "create_first_project": "Create your first project",
+        "delete_confirm_project": "Are you sure you want to delete this project?",
+        "project_details": "Project details",
+        "start_and_end_date": "Start and end date",
+        "team_members": "Team members",
+        "add_team_member": "Add team member",
+        "no_team_members": "No team members",
+        "start_end_date": "Start and End Date"
     },
     "admin": {
         "menu": {

@@ -106,6 +106,19 @@ if (!function_exists('generateNextNumber')) {
     }
 }
 
+if (!function_exists('generateProjectTaskNumber')) {
+    /**
+     * Function for generate next task number for project
+     * @param string  $project_key - project key
+     * @return string  $task_number - task number
+     */
+    function generateProjectTaskNumber($project_key)
+    {
+        $number = new SerialNumberFormatter();
+        return $number->generateProjectTaskNumber($project_key);
+    }
+}
+
 if (!function_exists('settings')) {
     /**
      * Function access to application settings in database

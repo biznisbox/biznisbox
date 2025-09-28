@@ -18,6 +18,7 @@ use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\SupportTicketController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ContractController;
+use App\Http\Controllers\ProjectController;
 // Admin controllers
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\DepartmentController as AdminDepartmentController;
@@ -254,6 +255,22 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/payments/{id}/refund', [PaymentController::class, 'makePaymentRefund'])->name('makePaymentRefund');
     });
 
+    // Projects
+    Route::group(['middleware' => 'can:projects'], function () {
+        Route::get('/projects', [ProjectController::class, 'getProjects'])->name('getProjects');
+        Route::get('/projects/{id}', [ProjectController::class, 'getProject'])->name('getProject');
+        Route::post('/projects', [ProjectController::class, 'createProject'])->name('createProject');
+        Route::put('/projects/{id}', [ProjectController::class, 'updateProject'])->name('updateProject');
+        Route::delete('/projects/{id}', [ProjectController::class, 'deleteProject'])->name('deleteProject');
+
+        // Project Tasks
+        Route::get('/projects/tasks/{id}', [ProjectController::class, 'getProjectTask'])->name('getProjectTask');
+        Route::post('/projects/tasks', [ProjectController::class, 'createProjectTask'])->name('createProjectTask');
+        Route::put('/projects/tasks/{id}', [ProjectController::class, 'updateProjectTask'])->name('updateProjectTask');
+        Route::delete('/projects/tasks/{id}', [ProjectController::class, 'deleteProjectTask'])->name('deleteProjectTask');
+    });
+
+    // Webhooks - for external services
     Route::post('/create_webhook', [DataController::class, 'createWebhookSubscription'])
         ->name('createWebhookSubscription')
         ->middleware('can:webhooks');
