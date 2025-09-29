@@ -1,3 +1,18 @@
+# 2.14.1
+
+## ✨ New Features & Enhancements
+
+- Add option to refund a payment from the invoice view (Stripe only).
+- On transaction add option to select payment method.
+
+## 🐛 Bug Fixes
+
+- Fixed an issue with showing the payments audit log.
+
+## 🧑‍💻 Development Updates
+
+- Improved code quality and maintainability by refactoring the code structure.
+
 # 2.14.0
 
 ## ✨ New Features & Enhancements
