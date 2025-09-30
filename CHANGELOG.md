@@ -1,3 +1,9 @@
+# 2.14.2
+
+## 🐛 Bug Fixes
+
+- Fixed an issue with the docker image not being built correctly (removed checking composer SHA).
+
 # 2.14.1
 
 ## ✨ New Features & Enhancements

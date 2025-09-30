@@ -411,13 +411,13 @@ if (!function_exists('setPartnerData')) {
     {
         // Define prefixed keys
         $keys = [
-            'id'         => "{$prefix}_id",
+            'id' => "{$prefix}_id",
             'address_id' => "{$prefix}_address_id",
-            'name'       => "{$prefix}_name",
-            'address'    => "{$prefix}_address",
-            'city'       => "{$prefix}_city",
-            'zip_code'   => "{$prefix}_zip_code",
-            'country'    => "{$prefix}_country",
+            'name' => "{$prefix}_name",
+            'address' => "{$prefix}_address",
+            'city' => "{$prefix}_city",
+            'zip_code' => "{$prefix}_zip_code",
+            'country' => "{$prefix}_country",
         ];
 
         // If no partner, clear values
@@ -432,19 +432,17 @@ if (!function_exists('setPartnerData')) {
         $address = null;
 
         if ($partnerAddressId) {
-            $address = \App\Models\PartnerAddress::where('partner_id', $partnerId)
-                ->where('id', $partnerAddressId)
-                ->first();
+            $address = \App\Models\PartnerAddress::where('partner_id', $partnerId)->where('id', $partnerAddressId)->first();
         }
 
         // Fill data
-        $data[$keys['id']]         = $partner->id ?? null;
-        $data[$keys['name']]       = $partner->name ?? null;
+        $data[$keys['id']] = $partner->id ?? null;
+        $data[$keys['name']] = $partner->name ?? null;
         $data[$keys['address_id']] = $address->id ?? null;
-        $data[$keys['address']]    = $address->address ?? null;
-        $data[$keys['city']]       = $address->city ?? null;
-        $data[$keys['zip_code']]   = $address->zip_code ?? null;
-        $data[$keys['country']]    = $address->country ?? null;
+        $data[$keys['address']] = $address->address ?? null;
+        $data[$keys['city']] = $address->city ?? null;
+        $data[$keys['zip_code']] = $address->zip_code ?? null;
+        $data[$keys['country']] = $address->country ?? null;
 
         return $data;
     }

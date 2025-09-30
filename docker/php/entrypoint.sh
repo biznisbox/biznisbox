@@ -16,7 +16,7 @@ if [ ! -f "$ENV_FILE" ]; then
     # Basic environment variable substitution
     sed -i "s|^APP_NAME=.*|APP_NAME=${APP_NAME:-BiznisBox}|g" "$ENV_FILE"
     sed -i "s|^APP_ENV=.*|APP_ENV=${APP_ENV:-production}|g" "$ENV_FILE"
-    sed -i "s|^APP_DEBUG=.*|APP_DEBUG=${APP_DEBUG:-false}|g" "$ENV_FILE" 
+    sed -i "s|^APP_DEBUG=.*|APP_DEBUG=${APP_DEBUG:-false}|g" "$ENV_FILE"
     sed -i "s|^APP_URL=.*|APP_URL=${APP_URL:-http://localhost}|g" "$ENV_FILE"
 
     # APP_KEY
@@ -49,7 +49,7 @@ if [ ! -f "$ENV_FILE" ]; then
     sed -i "s|^APP_DEMO_MODE=.*|APP_DEMO_MODE=${APP_DEMO_MODE:-false}|g" "$ENV_FILE"
     sed -i "s|^QUEUE_CONNECTION=.*|QUEUE_CONNECTION=${QUEUE_CONNECTION:-database}|g" "$ENV_FILE"
     sed -i "s|^JWT_SECRET=.*|JWT_SECRET=${JWT_SECRET:-123456789012345678901234567890123456789012345678901234567890}|g" "$ENV_FILE"
-    
+
     if [ "${APP_DEMO_MODE}" = "true" ]; then
         sed -i "s|^MAIL_MAILER=.*|MAIL_MAILER=log|g" "$ENV_FILE"
     fi
@@ -93,12 +93,11 @@ if [ -z "${current_app_key}" ]; then
     echo "APP_KEY generated."
 fi
 
-# If APP_MODE is set to 'demo' or 'development', install composer to image 
+# If APP_MODE is set to 'demo' or 'development', install composer to image
 if [ "${APP_MODE}" = "demo" ] || [ "${APP_MODE}" = "development" ]; then
     echo "Installing Composer for demo/development mode..."
     if [ ! -f /usr/local/bin/composer ]; then
         php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-        php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'.PHP_EOL; } else { echo 'Installer corrupt'.PHP_EOL; unlink('composer-setup.php'); exit(1); }"
         php composer-setup.php --install-dir=/usr/local/bin --filename=composer
         rm composer-setup.php
     fi
@@ -107,7 +106,7 @@ else
     echo "Skipping Composer installation (APP_MODE is not 'demo' or 'development')."
 fi
 
-# Run migrations and seed the database 
+# Run migrations and seed the database
 if [ "$(whoami)" = 'root' ]; then
     su-exec www-data php artisan migrate --force --no-interaction
     su-exec www-data php artisan db:seed --class=ProductionSeeder --force --no-interaction
