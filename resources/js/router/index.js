@@ -243,7 +243,6 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    console.log(`Navigating to: ${to.fullPath}`)
     const token = cookies.get('token')
     if (to.meta.auth && !to.meta.admin && !to.meta.client) {
         // Check if route requires auth

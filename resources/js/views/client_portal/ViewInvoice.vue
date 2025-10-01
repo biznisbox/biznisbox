@@ -11,7 +11,7 @@
                         @click="downloadFile(invoice.download)"
                     />
                     <Button
-                        v-if="availablePaymentGateways.length > 1 && invoice.status != 'paid'"
+                        v-if="availablePaymentGateways.length > 0 && invoice.status != 'paid'"
                         id="select_payment_gateway_button"
                         v-tooltip:top="$t('invoice.click_for_pay')"
                         class="mr-2 no-print"

@@ -1,6 +1,13 @@
+# 2.14.4
+
+## 🐛 Bug Fixes
+
+- Fixed an issue with showing the payment methods on the invoice view in the client portal and client view.
+
 # 2.14.3
 
 ## 🐛 Bug Fixes
+
 - Fixed an issue with saving the new invoice because of a stock management error.
 
 # 2.14.2
