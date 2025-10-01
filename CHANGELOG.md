@@ -1,20 +1,20 @@
 # 2.14.3
 
 ## 🐛 Bug Fixes
-- Fixed an issue with saving the new invoice because of stock management error.
+- Fixed an issue with saving the new invoice because of a stock management error.
 
 # 2.14.2
 
 ## 🐛 Bug Fixes
 
-- Fixed an issue with the docker image not being built correctly (removed checking composer SHA).
+- Fixed an issue with the Docker image not being built correctly (removed checking composer SHA).
 
 # 2.14.1
 
 ## ✨ New Features & Enhancements
 
 - Add option to refund a payment from the invoice view (Stripe only).
-- On transaction add option to select payment method.
+- On transaction, add an option to select the payment method.
 
 ## 🐛 Bug Fixes
 
