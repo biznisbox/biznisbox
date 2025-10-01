@@ -74,7 +74,7 @@ class InvoiceService
         if ($invoice) {
             if (isset($data['items'])) {
                 foreach ($data['items'] as $item) {
-                    $this->invoiceModel->decrementStock($item['product_id'], $item['quantity']);
+                    $this->decrementStock($item['product_id'], $item['quantity']);
                     $item['total'] = calculateItemTotalHelper($item);
                     $invoice->items()->create($item);
                 }
@@ -123,7 +123,7 @@ class InvoiceService
         if ($invoice) {
             $invoice = $this->invoiceModel->find($id);
             if (isset($data['items'])) {
-                $items = $invoice->items()->each(function ($item) {
+                $invoice->items()->each(function ($item) {
                     // Increment stock of all items (before update) to avoid negative stock
                     $this->incrementStock($item->product_id, $item->quantity);
                     $item->delete();

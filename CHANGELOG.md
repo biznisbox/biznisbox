@@ -1,3 +1,8 @@
+# 2.14.3
+
+## 🐛 Bug Fixes
+- Fixed an issue with saving the new invoice because of stock management error.
+
 # 2.14.2
 
 ## 🐛 Bug Fixes
