@@ -130,7 +130,8 @@
         "system": "Σύστημα",
         "add_signer": "Προσθήκη Υπογραφέα",
         "click_for_download": "Κάντε κλικ εδώ για λήψη",
-        "sign": "Υπογραφή"
+        "sign": "Υπογραφή",
+        "import": "Εισαγωγή"
     },
     "audit_log": {
         "audit_log": "Αρχείο Ελέγχου",
@@ -172,6 +173,7 @@
         "internal": "Εσωτερική",
         "external": "Εξωτερικό",
         "external_key": "Εξωτερικό κλειδί",
+        "client_portal": "Πύλη πελάτη",
         "system": "Σύστημα"
     },
     "user_nav_menu": {
@@ -419,7 +421,11 @@
         "module": "Πρόσθετο",
         "parent_category": "Γονική Κατηγορία",
         "icon": "Εικονίδιο",
-        "additional_info": "Πρόσθετες Πληροφορίες"
+        "additional_info": "Πρόσθετες Πληροφορίες",
+        "client_portal": "Πύλη Πελάτη",
+        "type_of_contract_sign": "Τύπος σημάδι σύμβασης",
+        "refund": "Επιστροφή",
+        "payment_number": "Αριθμός Πληρωμής"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -493,6 +499,7 @@
         "credit_card": "Κάρτα πληρωμής",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Άλλο"
     },
     "support_priority": {
@@ -522,6 +529,11 @@
     "tax_types": {
         "percent": "Ποσοστό",
         "fixed": "Σταθερό"
+    },
+    "contract_sign_types": {
+        "electronic": "Ηλεκτρονικό",
+        "digital_signature": "Ψηφιακή Υπογραφή",
+        "paper": "Χαρτί"
     },
     "login_history": {
         "login_history": "Ιστορικό Σύνδεσης",
@@ -555,7 +567,9 @@
         "activities": "Δραστηριότητες",
         "edit_activity": "Επεξεργασία Δραστηριότητας",
         "partner_activities": "Δραστηριότητες Συνεργατών",
-        "send_email": "Αποστολή email"
+        "send_email": "Αποστολή email",
+        "add_to_client_portal": "Προσθήκη στην πύλη του πελάτη",
+        "vat_number_required": "Απαιτείται αριθμός ΑΦΜ"
     },
     "partner_activity_types": {
         "call": "Κλήση",
@@ -652,8 +666,8 @@
         "list_of_transactions": "Λίστα συναλλαγών",
         "no_sales_person": "Κανένας πωλητής",
         "no_payment_method": "Καμία μέθοδος πληρωμής",
-        "click_for_pay_with_paypal": "Κάντε κλικ εδώ για να πληρώσετε με PayPal",
-        "click_for_pay": "Κάντε κλικ εδώ για πληρωμή"
+        "click_for_pay": "Κάντε κλικ εδώ για πληρωμή",
+        "select_payment_gateway": "Επιλέξτε πύλη πληρωμής"
     },
     "quote": {
         "quote": "Προσφορά Προσφορών",
@@ -809,7 +823,10 @@
         "edit_payment": "Επεξεργασία Πληρωμής",
         "no_payments": "Δεν βρέθηκαν πληρωμές",
         "delete_confirm_payment": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή την πληρωμή?",
-        "payment_details": "Λεπτομέρειες πληρωμής"
+        "payment_details": "Λεπτομέρειες πληρωμής",
+        "refund_confirmation": "Είστε σίγουροι ότι θέλετε να επιστρέψετε αυτή την πληρωμή?",
+        "refund_successful": "Η πληρωμή επιστράφηκε επιτυχώς",
+        "refund_failed": "Η επιστροφή χρημάτων απέτυχε"
     },
     "archive": {
         "archive": "Αρχειοθέτηση Αρχείων",
@@ -1019,7 +1036,12 @@
             "open_banking_client_id": "Άνοιγμα Αναγνωριστικού Τραπεζικού Πελάτη",
             "open_banking_secret": "Ανοικτό Τραπεζικό Μυστικό",
             "open_banking_help": "Μπορείτε να βρείτε το ID και το Μυστικό σας πελάτη στο λογαριασμό σας Nordigen.",
-            "online_payments": "Online Πληρωμές"
+            "online_payments": "Online Πληρωμές",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Coinbase διαθέσιμο",
+            "coinbase_api_key": "Κλειδί Api Coinbase",
+            "coinbase_api_key_help": "Μπορείτε να βρείτε το κλειδί API σας στο λογαριασμό συναλλαγών Coinbase.",
+            "coinbase_account_id": "Αναγνωριστικό εσωτερικού λογαριασμού Coinbase"
         },
         "status": {
             "title": "Σελίδα Κατάστασης",
@@ -1090,7 +1112,10 @@
             "default_time_format": "Προεπιλεγμένη Μορφή Ώρας",
             "default_datetime_format": "Προεπιλεγμένη Μορφή Ημερομηνίας",
             "show_barcode_on_documents": "Εμφάνιση barcode στα έγγραφα",
-            "week_start": "Ημέρα Έναρξης Εβδομάδας"
+            "week_start": "Ημέρα Έναρξης Εβδομάδας",
+            "exchange_rate_provider": "Πάροχος Συναλλαγματικών Ισοτιμιών",
+            "save_document_into_archive": "Αποθήκευση εγγράφου στην αρχειοθήκη",
+            "save_document_into_archive_description": "Αν ενεργοποιηθεί, τα έγγραφα θα αποθηκεύονται στο αρχείο (τιμολόγια, εισαγωγικά, τιμολόγια, συμβόλαια)."
         },
         "taxes": {
             "title": "Φορολογικοί Συντελεστές",
@@ -1102,7 +1127,9 @@
             "name": "Όνομα",
             "value": "Τιμή",
             "description": "Περιγραφή",
-            "delete_confirm_tax": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον φορολογικό συντελεστή?"
+            "delete_confirm_tax": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον φορολογικό συντελεστή?",
+            "import_tax": "Εισαγωγή Συντελεστών Φόρου",
+            "import_tax_description": "Μπορείτε να εισαγάγετε φορολογικούς συντελεστές από δημόσιους πόρους δεδομένων. Τα δεδομένα θα λαμβάνονται από τη λίστα ΦΠΑ της ΕΕ. Δεν μπορεί να είναι πλήρως ενημερωμένο ή ακριβές. Παρακαλώ ελέγξτε ξανά τα εισαγόμενα δεδομένα."
         },
         "role": {
             "title": "Ρόλοι",
@@ -1205,7 +1232,9 @@
             "no_transaction_categories": "Δεν βρέθηκαν κατηγορίες συναλλαγών",
             "no_contract_types": "Δεν βρέθηκαν τύποι συμβάσεων",
             "delete_category_ask": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το στοιχείο συλλογής δεδομένων?",
-            "delete_category_success": "Το στοιχείο συλλογής δεδομένων διαγράφηκε με επιτυχία"
+            "delete_category_success": "Το στοιχείο συλλογής δεδομένων διαγράφηκε με επιτυχία",
+            "product_categories": "Κατηγορίες προϊόντων",
+            "no_product_categories": "Δεν βρέθηκαν κατηγορίες προϊόντων"
         }
     },
     "month": {
@@ -1569,5 +1598,23 @@
         "finish_installation_description": "Η εγκατάσταση έχει ολοκληρωθεί. Μπορείτε τώρα να συνδεθείτε στο λογαριασμό σας.",
         "go_to_login": "Πηγαίνετε να συνδεθείτε",
         "installation": "Εγκατάσταση"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Ταμπλό",
+            "invoices": "Τιμολόγια",
+            "quotes": "Προσφορές",
+            "transactions": "Συναλλαγές",
+            "support": "Υποστήριξη",
+            "contracts": "Συμβάσεις",
+            "partner_details": "Λεπτομέρειες Συνεργάτη"
+        },
+        "partner_details": "Λεπτομέρειες συνεργάτη",
+        "dashboard": "Ταμπλό",
+        "number_of_contracts": "Αριθμός συμβάσεων",
+        "number_of_unpaid_invoices": "Αριθμός μη καταβληθέντων τιμολογίων",
+        "number_of_quotes": "Αριθμός εισαγωγικών",
+        "number_of_bills": "Αριθμός λογαριασμών",
+        "number_of_support_tickets": "Αριθμός εισιτηρίων υποστήριξης"
     }
 }

@@ -130,7 +130,8 @@
         "system": "Systemadministrasjon",
         "add_signer": "Legg til signner",
         "click_for_download": "Klikk her for å laste ned",
-        "sign": "Signer"
+        "sign": "Signer",
+        "import": "Importer"
     },
     "audit_log": {
         "audit_log": "Revisjon logg",
@@ -172,6 +173,7 @@
         "internal": "Intern",
         "external": "Ekstern",
         "external_key": "Ekstern nøkkel",
+        "client_portal": "Klient portal",
         "system": "Systemadministrasjon"
     },
     "user_nav_menu": {
@@ -419,7 +421,11 @@
         "module": "Modul",
         "parent_category": "Overordnet kategori",
         "icon": "Ikon",
-        "additional_info": "Mer informasjon"
+        "additional_info": "Mer informasjon",
+        "client_portal": "Klient portal",
+        "type_of_contract_sign": "Type kontrakt-skilt",
+        "refund": "Refusjon",
+        "payment_number": "Betalings nummer"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -493,6 +499,7 @@
         "credit_card": "Betalingskort",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Annet"
     },
     "support_priority": {
@@ -522,6 +529,11 @@
     "tax_types": {
         "percent": "Prosent",
         "fixed": "Fast"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektronisk",
+        "digital_signature": "Digital signatur",
+        "paper": "Papir"
     },
     "login_history": {
         "login_history": "Påloggings historikk",
@@ -555,7 +567,9 @@
         "activities": "Aktiviteter",
         "edit_activity": "Rediger aktivitet",
         "partner_activities": "Øvrige aktiviteter",
-        "send_email": "Send e-post"
+        "send_email": "Send e-post",
+        "add_to_client_portal": "Legg til i klientportalen",
+        "vat_number_required": "MVA-nummer er påkrevd"
     },
     "partner_activity_types": {
         "call": "Ring",
@@ -652,8 +666,8 @@
         "list_of_transactions": "Liste over transaksjoner",
         "no_sales_person": "Ingen salgsperson",
         "no_payment_method": "Ingen betalingsmåte",
-        "click_for_pay_with_paypal": "Klikk her for å betale med PayPal",
-        "click_for_pay": "Klikk her for å betale"
+        "click_for_pay": "Klikk her for å betale",
+        "select_payment_gateway": "Velg betalingsgateway"
     },
     "quote": {
         "quote": "Tilbud, tilbud",
@@ -809,7 +823,10 @@
         "edit_payment": "Rediger betaling",
         "no_payments": "Ingen betalinger funnet",
         "delete_confirm_payment": "Er du sikker på at du vil slette denne betalingen?",
-        "payment_details": "Betalings informasjon"
+        "payment_details": "Betalings informasjon",
+        "refund_confirmation": "Er du sikker på at du vil refundere denne betalingen?",
+        "refund_successful": "Tilbakebetaling var vellykket",
+        "refund_failed": "Tilbakebetaling mislyktes"
     },
     "archive": {
         "archive": "Arkiv: Archives",
@@ -1019,7 +1036,12 @@
             "open_banking_client_id": "Åpne Banking klient-ID",
             "open_banking_secret": "Åpne banking hemmelighet",
             "open_banking_help": "Finner du din klient-ID og hemmelig i din Nordig-konto.",
-            "online_payments": "Elektroniske betalinger"
+            "online_payments": "Elektroniske betalinger",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Coinbase tilgjengelig",
+            "coinbase_api_key": "Coinbase API-nøkkel",
+            "coinbase_api_key_help": "Du kan finne din API-nøkkel i din Coinbase handelskonto.",
+            "coinbase_account_id": "Coinbase intern konto-ID"
         },
         "status": {
             "title": "Status side",
@@ -1090,7 +1112,10 @@
             "default_time_format": "Standard klokkeslettformat",
             "default_datetime_format": "Standard datoformat",
             "show_barcode_on_documents": "Vis strekkode på dokumenter",
-            "week_start": "Ukens startdag"
+            "week_start": "Ukens startdag",
+            "exchange_rate_provider": "Valutakurs leverandør",
+            "save_document_into_archive": "Lagre dokument til arkiv",
+            "save_document_into_archive_description": "Dersom aktivert vil dokumenter bli lagret i arkivet (fakturaer, tilbud, regninger, kontrakter)."
         },
         "taxes": {
             "title": "Mva satser",
@@ -1102,7 +1127,9 @@
             "name": "Navn",
             "value": "Verdi",
             "description": "Beskrivelse",
-            "delete_confirm_tax": "Er du sikker på at du vil slette denne skattesatsen?"
+            "delete_confirm_tax": "Er du sikker på at du vil slette denne skattesatsen?",
+            "import_tax": "Importere skattesatser",
+            "import_tax_description": "Du kan importere skattesatser fra offentlige ressurser. Data vil bli hentet fra EUs mva-liste. Den kan ikke være fullstendig oppdatert eller nøyaktig. Vennligst dobbeltsjekk de importerte dataene."
         },
         "role": {
             "title": "Roller",
@@ -1205,7 +1232,9 @@
             "no_transaction_categories": "Ingen transaksjonskategorier funnet",
             "no_contract_types": "Ingen kontrakttyper funnet",
             "delete_category_ask": "Er du sikker på at du vil slette denne datainnsamlingen?",
-            "delete_category_success": "Datainnsamlingen ble slettet"
+            "delete_category_success": "Datainnsamlingen ble slettet",
+            "product_categories": "Produkt kategorier",
+            "no_product_categories": "Ingen produktkategorier funnet"
         }
     },
     "month": {
@@ -1569,5 +1598,23 @@
         "finish_installation_description": "Installasjonen er ferdig. Du kan nå logge inn på kontoen din.",
         "go_to_login": "Gå til innlogging",
         "installation": "Installasjon"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Kontrollpanel",
+            "invoices": "Fakturaer",
+            "quotes": "Tilbud",
+            "transactions": "Transaksjoner",
+            "support": "Brukerstøtte",
+            "contracts": "Kontrakter",
+            "partner_details": "Detaljer for partner"
+        },
+        "partner_details": "Detaljer for partner",
+        "dashboard": "Kontrollpanel",
+        "number_of_contracts": "Antall kontrakter",
+        "number_of_unpaid_invoices": "Antall ubetalte fakturaer",
+        "number_of_quotes": "Antall tilbud",
+        "number_of_bills": "Antall regninger",
+        "number_of_support_tickets": "Antall saker til støtte"
     }
 }
