@@ -203,7 +203,8 @@
         "employees": "Ansatte",
         "support": "Brukerstøtte",
         "payments": "Betalinger",
-        "contracts": "Kontrakter"
+        "contracts": "Kontrakter",
+        "projects": "Prosjekter"
     },
     "dashboard": {
         "title": "Kontrollpanel",
@@ -425,7 +426,12 @@
         "client_portal": "Klient portal",
         "type_of_contract_sign": "Type kontrakt-skilt",
         "refund": "Refusjon",
-        "payment_number": "Betalings nummer"
+        "payment_number": "Betalings nummer",
+        "is_billable": "Er fakturerbar",
+        "budget": "Budsjett",
+        "project_key": "Prosjektnøkkel (Automatic Translation)",
+        "completed_at": "Fullført ved",
+        "progress_in_percent": "Progress i prosent"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -450,6 +456,10 @@
         "one_year": "Ett år",
         "all_time": "Hele tiden",
         "never": "Aldri"
+    },
+    "task_type": {
+        "task": "Oppgave",
+        "milestone": "Milepæl"
     },
     "industries": {
         "agriculture": "Jordbruk",
@@ -742,7 +752,10 @@
         "waiting_signature": "Venter på signatur",
         "not_started": "Ikke påbegynt",
         "planned": "Planlagt",
-        "spam": "Søppelpost"
+        "spam": "Søppelpost",
+        "on_hold": "På vent",
+        "to_do": "Må gjøres",
+        "done": "Ferdig"
     },
     "calendar": {
         "calendar": "Kalender: Kalendere",
@@ -975,6 +988,39 @@
         "intern": "Praktikant",
         "volunteer": "Frivillig",
         "other": "Annet"
+    },
+    "project": {
+        "project": "Prosjekt εProsjekter",
+        "new_project": "Nytt prosjekt",
+        "edit_project": "Rediger prosjekt",
+        "no_projects": "Ingen prosjekter funnet",
+        "create_first_project": "Opprett ditt første prosjekt",
+        "delete_confirm_project": "Er du sikker på at du vil slette dette prosjektet?",
+        "project_details": "Prosjektets detaljer",
+        "start_and_end_date": "Start- og sluttdato",
+        "team_members": "Teammedlemmer",
+        "add_team_member": "Legg til gruppemedlem",
+        "no_team_members": "Ingen teammedlemmer",
+        "start_end_date": "Start- og sluttdato",
+        "tasks": "Oppgaver",
+        "add_task": "Legg til oppgave",
+        "no_tasks": "Finner ingen aktiviteter",
+        "task": "Oppgave Eylea-oppgaver",
+        "edit_task": "Rediger oppgave",
+        "delete_task_confirmation": "Er du sikker på at du vil slette oppgaven?",
+        "kanban_board": "Kanban Board",
+        "create_task": "Ny oppgave",
+        "project_members": "Prosjektmedlemmer",
+        "add_member": "Legg til medlem",
+        "remove_member": "Fjern medlem",
+        "remove_member_confirmation": "Er du sikker på at du vil fjerne dette medlemmet fra prosjektet?"
+    },
+    "project_role": {
+        "owner": "Eier",
+        "manager": "Leder",
+        "team_member": "Gruppe medlem",
+        "viewer": "Bruker",
+        "client": "Klient"
     },
     "admin": {
         "menu": {
@@ -1224,6 +1270,8 @@
             "document_types": "Dokument typer",
             "payment_methods": "Betalingsmåter",
             "contract_types": "Kontrakt typer",
+            "task_categories": "Oppgave kategorier",
+            "project_categories": "Prosjekt kategorier",
             "new_data_collection_item": "Ny datainnsamlingselement",
             "edit_data_collection_item": "Rediger datainnsamlingselement",
             "icon_tooltip": "Du kan bruke Font Awesome ikoner. Du finner listen over ikonene her: https://fontawesome.com/icons",
@@ -1234,7 +1282,9 @@
             "delete_category_ask": "Er du sikker på at du vil slette denne datainnsamlingen?",
             "delete_category_success": "Datainnsamlingen ble slettet",
             "product_categories": "Produkt kategorier",
-            "no_product_categories": "Ingen produktkategorier funnet"
+            "no_product_categories": "Ingen produktkategorier funnet",
+            "no_task_categories": "Ingen oppgavekategorier funnet",
+            "no_project_categories": "Ingen prosjektkategorier funnet"
         }
     },
     "month": {
