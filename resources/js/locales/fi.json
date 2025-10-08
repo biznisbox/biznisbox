@@ -203,7 +203,8 @@
         "employees": "Työntekijät",
         "support": "Tuki",
         "payments": "Maksut",
-        "contracts": "Sopimukset"
+        "contracts": "Sopimukset",
+        "projects": "Projektit"
     },
     "dashboard": {
         "title": "Hallintapaneeli",
@@ -425,7 +426,12 @@
         "client_portal": "Asiakkaan Portaali",
         "type_of_contract_sign": "Allekirjoituksen tyyppi",
         "refund": "Hyvitys",
-        "payment_number": "Maksun Numero"
+        "payment_number": "Maksun Numero",
+        "is_billable": "Laskutettavissa",
+        "budget": "Budjetti",
+        "project_key": "Projektin Avain",
+        "completed_at": "Valmis Klo",
+        "progress_in_percent": "Edistyminen prosentteina"
     },
     "address_types": {
         "billing": "Laskutus",
@@ -450,6 +456,10 @@
         "one_year": "Yksi vuosi",
         "all_time": "Koko ajan",
         "never": "Ei Koskaan"
+    },
+    "task_type": {
+        "task": "Tehtävä",
+        "milestone": "Merkkipaalu"
     },
     "industries": {
         "agriculture": "Maatalous",
@@ -742,7 +752,10 @@
         "waiting_signature": "Odotetaan allekirjoitusta",
         "not_started": "Ei aloitettu",
         "planned": "Suunniteltu",
-        "spam": "Roskaposti"
+        "spam": "Roskaposti",
+        "on_hold": "On pitämällä",
+        "to_do": "Voit tehdä",
+        "done": "Valmis"
     },
     "calendar": {
         "calendar": "Kalenteri - Kalenterit",
@@ -975,6 +988,39 @@
         "intern": "Ulkoinen",
         "volunteer": "Vapaaehtoinen",
         "other": "Muu"
+    },
+    "project": {
+        "project": "Hanke – Hankkeet",
+        "new_project": "Uusi Projekti",
+        "edit_project": "Muokkaa Projektia",
+        "no_projects": "Projekteja ei löytynyt",
+        "create_first_project": "Luo ensimmäinen projekti",
+        "delete_confirm_project": "Oletko varma, että haluat poistaa tämän projektin?",
+        "project_details": "Projektin tiedot",
+        "start_and_end_date": "Aloitus- ja lopetuspäivä",
+        "team_members": "Tiimin jäsenet",
+        "add_team_member": "Lisää tiimin jäsen",
+        "no_team_members": "Ei tiimin jäseniä",
+        "start_end_date": "Aloitus- ja lopetuspäivä",
+        "tasks": "Tehtävät",
+        "add_task": "Lisää Tehtävä",
+        "no_tasks": "Tehtäviä ei löytynyt",
+        "task": "Tehtävä - Tehtävät",
+        "edit_task": "Muokkaa Tehtävää",
+        "delete_task_confirmation": "Oletko varma, että haluat poistaa tämän tehtävän?",
+        "kanban_board": "Kanbanin Lauta",
+        "create_task": "Luo Tehtävä",
+        "project_members": "Projektin Jäsenet",
+        "add_member": "Lisää Jäsen",
+        "remove_member": "Poista Jäsen",
+        "remove_member_confirmation": "Oletko varma, että haluat poistaa tämän jäsenen projektista?"
+    },
+    "project_role": {
+        "owner": "Omistaja",
+        "manager": "Johtaja",
+        "team_member": "Tiimin Jäsen",
+        "viewer": "Katsoja",
+        "client": "Asiakas"
     },
     "admin": {
         "menu": {
@@ -1224,6 +1270,8 @@
             "document_types": "Asiakirjan Tyypit",
             "payment_methods": "Maksutavat",
             "contract_types": "Sopimustyypit",
+            "task_categories": "Tehtävien Kategoriat",
+            "project_categories": "Projektin Kategoriat",
             "new_data_collection_item": "Uusi Tiedonkeruukohde",
             "edit_data_collection_item": "Muokkaa Tiedonkeruun Kohdetta",
             "icon_tooltip": "Voit käyttää Font Awesome kuvakkeita. Löydät kuvakkeiden listan täältä: https://fontawesome.com/icons",
@@ -1234,7 +1282,9 @@
             "delete_category_ask": "Oletko varma, että haluat poistaa tämän tiedonkeruun kohteen?",
             "delete_category_success": "Tiedonkeruun kohde poistettu onnistuneesti",
             "product_categories": "Tuoteryhmät",
-            "no_product_categories": "Tuoteryhmiä ei löytynyt"
+            "no_product_categories": "Tuoteryhmiä ei löytynyt",
+            "no_task_categories": "Tehtäväluokkia ei löytynyt",
+            "no_project_categories": "No project categories found"
         }
     },
     "month": {
