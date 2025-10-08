@@ -4,6 +4,6 @@ return [
     'paypal' => 'PayPal',
     'stripe' => 'Stripe',
     'coinbase' => 'Coinbase',
-    'open_banking' => 'Open Banking',
-    'vies_vat' => 'VIES VAT Validation',
+    'open_banking' => 'Odprto bančništvo',
+    'vies_vat' => 'VIES VAT Validacija',
 ];
