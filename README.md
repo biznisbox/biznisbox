@@ -57,11 +57,15 @@ BiznisBox is open-source business management software that includes the followin
 - **Document Storage** – Archive business documents securely
 - **Contract Management** – Create and sign contracts digitally
 - **Calendar & Events** – Schedule meetings, tasks, and reminders
+- **Project Management** – Track projects and tasks
 - **User Roles & Permissions** – Manage user access and permissions
 - **Multi-Language Support** – Available in English, French, and Spanish
 - **Audit Log** – Track changes with a detailed history log
 - **Open Banking Integration** – Supports GoCardless
-- **Payment Gateway Integration** – Supports Stripe & PayPal for online payments
+- **Payment Gateway Integration** – Supports Stripe, PayPal and Coinbase Commerce 
+- **Self-Hosted** – Full control over your data and privacy
+- **Mobile Friendly** – Responsive design for all devices
+- **API Access** – Integrate with other tools and services
 
 ## Need help?
 

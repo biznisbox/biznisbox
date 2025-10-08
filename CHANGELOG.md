@@ -1,3 +1,14 @@
+# 2.15.0
+
+## ✨ New Features & Enhancements
+
+- Added a new "Projects" module to manage projects and tasks.
+- Added a new feature to assign project roles to users within projects.
+
+## 🌐 Localization
+
+- Updated translations with the latest contributions from Crowdin to support better multilingual usability.
+
 # 2.14.4
 
 ## 🐛 Bug Fixes
