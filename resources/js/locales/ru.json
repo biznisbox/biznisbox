@@ -203,7 +203,8 @@
         "employees": "Сотрудники",
         "support": "Поддержка",
         "payments": "Платежи",
-        "contracts": "Контракты"
+        "contracts": "Контракты",
+        "projects": "Проекты"
     },
     "dashboard": {
         "title": "Панель",
@@ -425,7 +426,12 @@
         "client_portal": "Портал Клиента",
         "type_of_contract_sign": "Тип знака контракта",
         "refund": "Возврат",
-        "payment_number": "Номер платежа"
+        "payment_number": "Номер платежа",
+        "is_billable": "Оплачивается",
+        "budget": "Бюджет",
+        "project_key": "Ключ проекта",
+        "completed_at": "Завершено в",
+        "progress_in_percent": "Прогресс в процентах"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -450,6 +456,10 @@
         "one_year": "Один год",
         "all_time": "За все время",
         "never": "Никогда"
+    },
+    "task_type": {
+        "task": "Задача",
+        "milestone": "Этап"
     },
     "industries": {
         "agriculture": "Сельское хозяйство",
@@ -742,7 +752,10 @@
         "waiting_signature": "Ожидание подписи",
         "not_started": "Не начато",
         "planned": "Запланировано",
-        "spam": "Спам"
+        "spam": "Спам",
+        "on_hold": "Задержано",
+        "to_do": "Выполнить",
+        "done": "Готово"
     },
     "calendar": {
         "calendar": "Календарь | Календари",
@@ -975,6 +988,39 @@
         "intern": "Интерн",
         "volunteer": "Волонтер",
         "other": "Прочие вопросы"
+    },
+    "project": {
+        "project": "Проект | Проекты",
+        "new_project": "Новый проект",
+        "edit_project": "Редактировать проект",
+        "no_projects": "Проектов не найдено",
+        "create_first_project": "Создайте свой первый проект",
+        "delete_confirm_project": "Вы уверены, что хотите удалить этот проект?",
+        "project_details": "Детали проекта",
+        "start_and_end_date": "Дата начала и окончания",
+        "team_members": "Члены команды",
+        "add_team_member": "Добавить участника команды",
+        "no_team_members": "Нет членов команды",
+        "start_end_date": "Дата начала и окончания",
+        "tasks": "Задачи",
+        "add_task": "Добавить задачу",
+        "no_tasks": "Задачи не найдены",
+        "task": "Задача | Задачи",
+        "edit_task": "Редактировать задачу",
+        "delete_task_confirmation": "Вы уверены, что хотите удалить эту задачу?",
+        "kanban_board": "Доска Канбана",
+        "create_task": "Создать задачу",
+        "project_members": "Участники проекта",
+        "add_member": "Добавить участника",
+        "remove_member": "Удалить участника",
+        "remove_member_confirmation": "Вы уверены, что хотите удалить этого участника из проекта?"
+    },
+    "project_role": {
+        "owner": "Владелец",
+        "manager": "Менеджер",
+        "team_member": "Участник команды",
+        "viewer": "Просмотрщик",
+        "client": "Клиент"
     },
     "admin": {
         "menu": {
@@ -1224,6 +1270,8 @@
             "document_types": "Типы документов",
             "payment_methods": "Способы оплаты",
             "contract_types": "Типы контрактов",
+            "task_categories": "Категории задач",
+            "project_categories": "Категории проектов",
             "new_data_collection_item": "Новый элемент сбора данных",
             "edit_data_collection_item": "Изменить элемент сбора данных",
             "icon_tooltip": "Вы можете использовать Font Awesome иконки. Вы можете найти список иконок здесь: https://fontawesome.com/icons",
@@ -1234,7 +1282,9 @@
             "delete_category_ask": "Вы уверены, что хотите удалить этот элемент коллекции данных?",
             "delete_category_success": "Элемент сбора данных успешно удален",
             "product_categories": "Категории товаров",
-            "no_product_categories": "Категории товаров не найдены"
+            "no_product_categories": "Категории товаров не найдены",
+            "no_task_categories": "Категории задач не найдены",
+            "no_project_categories": "Категории проекта не найдены"
         }
     },
     "month": {
