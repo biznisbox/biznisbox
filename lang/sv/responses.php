@@ -130,4 +130,9 @@ return [
     'archive_document_auto_generated' => 'Arkiveringsdokumentet har genererats automatiskt',
     'already_accepted_rejected' => 'Offerten har redan accepterats eller avvisats',
     'payment_gateway_not_supported' => 'Betalningsgateway stöds inte',
+    'member_added_successfully' => 'Medlemmen har lagts till',
+    'member_role_updated_successfully' => 'Medlemsrollen har uppdaterats',
+    'cannot_update_member_role' => 'Kan inte uppdatera rollen som medlem',
+    'cannot_remove_member' => 'Kan inte ta bort medlem',
+    'member_removed_successfully' => 'Medlemmen har tagits bort',
 ];
