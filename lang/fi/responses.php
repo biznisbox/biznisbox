@@ -130,4 +130,9 @@ return [
     'archive_document_auto_generated' => 'Arkistoasiakirjan automaattinen luonti onnistui',
     'already_accepted_rejected' => 'Tarjous on jo hyväksytty tai hylätty',
     'payment_gateway_not_supported' => 'Maksuyhdyskäytävää ei tueta',
+    'member_added_successfully' => 'Jäsen lisätty onnistuneesti',
+    'member_role_updated_successfully' => 'Jäsenrooli päivitetty onnistuneesti',
+    'cannot_update_member_role' => 'Jäsenroolia ei voi päivittää',
+    'cannot_remove_member' => 'Jäsentä ei voi poistaa',
+    'member_removed_successfully' => 'Jäsen poistettu onnistuneesti',
 ];
