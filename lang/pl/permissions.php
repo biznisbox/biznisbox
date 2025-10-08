@@ -45,4 +45,5 @@ return [
     'admin_status_page' => 'Strona statusu administratora',
     'admin_update_app' => 'Aplikacja aktualizacji administratora',
     'admin_data_collection' => 'Zbieranie danych administratora',
+    'projects' => 'Projekty',
 ];
