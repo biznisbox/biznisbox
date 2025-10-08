@@ -203,7 +203,8 @@
         "employees": "Werknemers",
         "support": "Ondersteuning",
         "payments": "Betalingen",
-        "contracts": "Contracten"
+        "contracts": "Contracten",
+        "projects": "Projecten"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -425,7 +426,12 @@
         "client_portal": "Client Portaal",
         "type_of_contract_sign": "Soort Contract Teken",
         "refund": "Restitutie",
-        "payment_number": "Betaling Nummer"
+        "payment_number": "Betaling Nummer",
+        "is_billable": "Is Factureerbaar",
+        "budget": "Begroting",
+        "project_key": "Project Sleutel",
+        "completed_at": "Voltooid op",
+        "progress_in_percent": "Voortgang in procent"
     },
     "address_types": {
         "billing": "Facturering",
@@ -450,6 +456,10 @@
         "one_year": "Een jaar",
         "all_time": "Gehele tijd",
         "never": "Nooit"
+    },
+    "task_type": {
+        "task": "Opdracht",
+        "milestone": "Mijlpaal"
     },
     "industries": {
         "agriculture": "Landbouw",
@@ -742,7 +752,10 @@
         "waiting_signature": "Wachten op ondertekening",
         "not_started": "Niet gestart",
         "planned": "Gepland",
-        "spam": "Spam"
+        "spam": "Spam",
+        "on_hold": "In de wacht",
+        "to_do": "Nog te doen",
+        "done": "Voltooid"
     },
     "calendar": {
         "calendar": "Kalenderkalenders",
@@ -975,6 +988,39 @@
         "intern": "Intern",
         "volunteer": "Vrijwilliger",
         "other": "anders"
+    },
+    "project": {
+        "project": "Project structie Projecten",
+        "new_project": "Nieuw project",
+        "edit_project": "Bewerk project",
+        "no_projects": "Geen projecten gevonden",
+        "create_first_project": "Maak je eerste project",
+        "delete_confirm_project": "Weet u zeker dat u dit project wilt verwijderen?",
+        "project_details": "Project details",
+        "start_and_end_date": "Start- en einddatum",
+        "team_members": "Team leden",
+        "add_team_member": "Teamlid toevoegen",
+        "no_team_members": "Geen teamleden",
+        "start_end_date": "Start- en einddatum",
+        "tasks": "Taken",
+        "add_task": "Taak toevoegen",
+        "no_tasks": "Geen taken gevonden",
+        "task": "Taak format@@1- Taken",
+        "edit_task": "Taak bewerken",
+        "delete_task_confirmation": "Weet u zeker dat u deze taak wilt verwijderen?",
+        "kanban_board": "Kanban bord",
+        "create_task": "Taak maken",
+        "project_members": "Project Leden",
+        "add_member": "Lid toevoegen",
+        "remove_member": "Verwijder lid",
+        "remove_member_confirmation": "Weet je zeker dat je dit lid uit het project wilt verwijderen?"
+    },
+    "project_role": {
+        "owner": "Eigenaar",
+        "manager": "Beheerder",
+        "team_member": "Team lid",
+        "viewer": "Bekijker",
+        "client": "Klant"
     },
     "admin": {
         "menu": {
@@ -1224,6 +1270,8 @@
             "document_types": "Document typen",
             "payment_methods": "Betalingsmethoden",
             "contract_types": "Contract Types",
+            "task_categories": "Taak categorieën",
+            "project_categories": "Project Categorieën",
             "new_data_collection_item": "Nieuw data collectie item",
             "edit_data_collection_item": "Bewerk Data Collection Item",
             "icon_tooltip": "Gebruik de Font Awesome iconen. Hier vindt u de lijst met pictogrammen: https://fontawesome.com/iconen",
@@ -1234,7 +1282,9 @@
             "delete_category_ask": "Weet je zeker dat je deze gegevensverzameling wilt verwijderen?",
             "delete_category_success": "Verzamelen van gegevens is succesvol verwijderd",
             "product_categories": "Product categorieën",
-            "no_product_categories": "Geen product categorieën gevonden"
+            "no_product_categories": "Geen product categorieën gevonden",
+            "no_task_categories": "Geen taakcategorieën gevonden",
+            "no_project_categories": "Geen projectcategorieën gevonden"
         }
     },
     "month": {
