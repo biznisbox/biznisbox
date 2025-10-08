@@ -130,4 +130,9 @@ return [
     'archive_document_auto_generated' => 'Archivio documento generato automaticamente',
     'already_accepted_rejected' => 'Il preventivo è già stato accettato o rifiutato',
     'payment_gateway_not_supported' => 'Gateway di pagamento non supportato',
+    'member_added_successfully' => 'Membro aggiunto con successo',
+    'member_role_updated_successfully' => 'Ruolo membro aggiornato con successo',
+    'cannot_update_member_role' => 'Impossibile aggiornare il ruolo del membro',
+    'cannot_remove_member' => 'Impossibile rimuovere il membro',
+    'member_removed_successfully' => 'Membro rimosso con successo',
 ];
