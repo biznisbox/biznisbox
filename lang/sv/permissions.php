@@ -45,4 +45,5 @@ return [
     'admin_status_page' => 'Admins statussida',
     'admin_update_app' => 'Administratörsuppdateringsapp',
     'admin_data_collection' => 'Insamling av admindata',
+    'projects' => 'Projekt',
 ];
