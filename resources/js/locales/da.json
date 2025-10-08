@@ -203,7 +203,8 @@
         "employees": "Medarbejdere",
         "support": "Support",
         "payments": "Betalinger",
-        "contracts": "Kontrakter"
+        "contracts": "Kontrakter",
+        "projects": "Projekter"
     },
     "dashboard": {
         "title": "Instrumentbræt",
@@ -425,7 +426,12 @@
         "client_portal": "Klient Portal",
         "type_of_contract_sign": "Type af kontrakttegn",
         "refund": "Tilbagebetaling",
-        "payment_number": "Betalings Nummer"
+        "payment_number": "Betalings Nummer",
+        "is_billable": "Er Fakturerbar",
+        "budget": "Budget",
+        "project_key": "Projekt Nøgle",
+        "completed_at": "Afsluttet Den",
+        "progress_in_percent": "Fremskridt i procent"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -450,6 +456,10 @@
         "one_year": "Et år",
         "all_time": "Al tid",
         "never": "Aldrig"
+    },
+    "task_type": {
+        "task": "Opgave",
+        "milestone": "Milepæl"
     },
     "industries": {
         "agriculture": "Landbrug",
@@ -742,7 +752,10 @@
         "waiting_signature": "Venter på signatur",
         "not_started": "Ikke startet",
         "planned": "Planlagt",
-        "spam": "Spam"
+        "spam": "Spam",
+        "on_hold": "På hold",
+        "to_do": "At gøre",
+        "done": "Udført"
     },
     "calendar": {
         "calendar": "Kalender Kalendere",
@@ -975,6 +988,39 @@
         "intern": "Intern",
         "volunteer": "Frivillig",
         "other": "Andet"
+    },
+    "project": {
+        "project": "Projekt ● Projekter",
+        "new_project": "Nyt Projekt",
+        "edit_project": "Rediger Projekt",
+        "no_projects": "Ingen projekter fundet",
+        "create_first_project": "Opret dit første projekt",
+        "delete_confirm_project": "Er du sikker på, at du vil slette dette projekt?",
+        "project_details": "Projekt detaljer",
+        "start_and_end_date": "Start og slut dato",
+        "team_members": "Team medlemmer",
+        "add_team_member": "Tilføj teammedlem",
+        "no_team_members": "Ingen teammedlemmer",
+        "start_end_date": "Start og slut dato",
+        "tasks": "Opgaver",
+        "add_task": "Tilføj Opgave",
+        "no_tasks": "Ingen opgaver fundet",
+        "task": "Opgaveopgave Opgaver",
+        "edit_task": "Rediger Opgave",
+        "delete_task_confirmation": "Er du sikker på du vil slette denne opgave?",
+        "kanban_board": "Kanban Board",
+        "create_task": "Opret Opgave",
+        "project_members": "Projekt Medlemmer",
+        "add_member": "Tilføj Medlem",
+        "remove_member": "Fjern Medlem",
+        "remove_member_confirmation": "Er du sikker på, at du vil fjerne dette medlem fra projektet?"
+    },
+    "project_role": {
+        "owner": "Ejer",
+        "manager": "Administrator",
+        "team_member": "Team Medlem",
+        "viewer": "Fremviser",
+        "client": "Klient"
     },
     "admin": {
         "menu": {
@@ -1224,6 +1270,8 @@
             "document_types": "Dokumenttyper",
             "payment_methods": "Betalingsmetoder",
             "contract_types": "Kontrakt Typer",
+            "task_categories": "Opgave Kategorier",
+            "project_categories": "Projekt Kategorier",
             "new_data_collection_item": "Nyt Dataindsamlingspunkt",
             "edit_data_collection_item": "Rediger Dataindsamlingspunkt",
             "icon_tooltip": "Du kan bruge Font Awesome ikoner. Du kan finde listen over ikoner her: https://fontawesome.com/icons",
@@ -1234,7 +1282,9 @@
             "delete_category_ask": "Er du sikker på, at du vil slette dette dataindsamlingselement?",
             "delete_category_success": "Dataindsamlingselement slettet succesfuldt",
             "product_categories": "Produkt kategorier",
-            "no_product_categories": "Ingen produktkategorier fundet"
+            "no_product_categories": "Ingen produktkategorier fundet",
+            "no_task_categories": "Ingen opgavekategorier fundet",
+            "no_project_categories": "No project categories found"
         }
     },
     "month": {
