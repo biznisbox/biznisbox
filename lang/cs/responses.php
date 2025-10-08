@@ -130,4 +130,9 @@ return [
     'archive_document_auto_generated' => 'Archivovat dokument automaticky vygenerován',
     'already_accepted_rejected' => 'Cenová nabídka již byla přijata nebo zamítnuta',
     'payment_gateway_not_supported' => 'Platební brána není podporována',
+    'member_added_successfully' => 'Člen úspěšně přidán',
+    'member_role_updated_successfully' => 'Členská role byla úspěšně aktualizována',
+    'cannot_update_member_role' => 'Nelze aktualizovat členskou roli',
+    'cannot_remove_member' => 'Člena nelze odebrat',
+    'member_removed_successfully' => 'Člen úspěšně odebrán',
 ];
