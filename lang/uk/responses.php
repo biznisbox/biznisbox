@@ -130,4 +130,9 @@ return [
     'archive_document_auto_generated' => 'Архівувати документ успішно створено',
     'already_accepted_rejected' => 'Цитата вже була прийнята або відхилена',
     'payment_gateway_not_supported' => 'Платіжний шлюз не підтримується',
+    'member_added_successfully' => 'Учасника успішно додано',
+    'member_role_updated_successfully' => 'Роль учасника успішно оновлена',
+    'cannot_update_member_role' => 'Не вдалося оновити роль учасника',
+    'cannot_remove_member' => 'Не можна видалити учасника',
+    'member_removed_successfully' => 'Учасника успішно видалено',
 ];
