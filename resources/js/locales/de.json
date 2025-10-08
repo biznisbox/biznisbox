@@ -203,7 +203,8 @@
         "employees": "Mitarbeiter",
         "support": "Unterstützung",
         "payments": "Zahlungen",
-        "contracts": "Verträge"
+        "contracts": "Verträge",
+        "projects": "Projekte"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -425,7 +426,12 @@
         "client_portal": "Kundenportal",
         "type_of_contract_sign": "Art des Vertragsschildes",
         "refund": "Rückerstattung",
-        "payment_number": "Zahlungsnummer"
+        "payment_number": "Zahlungsnummer",
+        "is_billable": "Ist abrechenbar",
+        "budget": "Budget",
+        "project_key": "Projektschlüssel",
+        "completed_at": "Abgeschlossen am",
+        "progress_in_percent": "Fortschritt in Prozent"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -450,6 +456,10 @@
         "one_year": "Ein Jahr",
         "all_time": "Gesamt",
         "never": "Nie"
+    },
+    "task_type": {
+        "task": "Aufgabe",
+        "milestone": "Meilenstein"
     },
     "industries": {
         "agriculture": "Landwirtschaft",
@@ -742,7 +752,10 @@
         "waiting_signature": "Warte auf Signatur",
         "not_started": "Nicht gestartet",
         "planned": "Geplant",
-        "spam": "Spam"
+        "spam": "Spam",
+        "on_hold": "Warten",
+        "to_do": "Zu tun",
+        "done": "Fertig"
     },
     "calendar": {
         "calendar": "Kalender | Kalender",
@@ -975,6 +988,39 @@
         "intern": "Intern",
         "volunteer": "Freiwilliger",
         "other": "Andere"
+    },
+    "project": {
+        "project": "Projekt | Projekte",
+        "new_project": "Neues Projekt",
+        "edit_project": "Projekt bearbeiten",
+        "no_projects": "Keine Projekte gefunden",
+        "create_first_project": "Erstelle dein erstes Projekt",
+        "delete_confirm_project": "Sind Sie sicher, dass Sie dieses Projekt löschen möchten?",
+        "project_details": "Projektdetails",
+        "start_and_end_date": "Start- und Enddatum",
+        "team_members": "Teammitglieder",
+        "add_team_member": "Teammitglied hinzufügen",
+        "no_team_members": "Keine Teammitglieder",
+        "start_end_date": "Start- und Enddatum",
+        "tasks": "Aufgaben",
+        "add_task": "Neue Aufgabe",
+        "no_tasks": "Keine Aufgaben gefunden",
+        "task": "Aufgabe | Aufgaben",
+        "edit_task": "Aufgabe bearbeiten",
+        "delete_task_confirmation": "Sind Sie sicher, dass Sie diese Aufgabe löschen möchten?",
+        "kanban_board": "Kanban Board",
+        "create_task": "Aufgabe erstellen",
+        "project_members": "Projektmitglieder",
+        "add_member": "Mitglied hinzufügen",
+        "remove_member": "Mitglied entfernen",
+        "remove_member_confirmation": "Sind Sie sicher, dass Sie dieses Mitglied aus dem Projekt entfernen möchten?"
+    },
+    "project_role": {
+        "owner": "Besitzer",
+        "manager": "Manager",
+        "team_member": "Teammitglied",
+        "viewer": "Betrachter",
+        "client": "Kunde"
     },
     "admin": {
         "menu": {
@@ -1224,6 +1270,8 @@
             "document_types": "Dokumententypen",
             "payment_methods": "Zahlungsarten",
             "contract_types": "Vertragstypen",
+            "task_categories": "Aufgabenkategorien",
+            "project_categories": "Projektkategorien",
             "new_data_collection_item": "Neues Datenerfassungselement",
             "edit_data_collection_item": "Datensammel-Element bearbeiten",
             "icon_tooltip": "Du kannst Font Awesome Icons verwenden. Die Liste der Icons findest du hier: https://fontawesome.com/icons",
@@ -1234,7 +1282,9 @@
             "delete_category_ask": "Sind Sie sicher, dass Sie dieses Datensammlungselement löschen möchten?",
             "delete_category_success": "Datensammlungselement erfolgreich gelöscht",
             "product_categories": "Produktkategorien",
-            "no_product_categories": "Keine Produktkategorien gefunden"
+            "no_product_categories": "Keine Produktkategorien gefunden",
+            "no_task_categories": "Keine Aufgabenkategorien gefunden",
+            "no_project_categories": "No project categories found"
         }
     },
     "month": {
