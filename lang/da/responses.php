@@ -130,4 +130,9 @@ return [
     'archive_document_auto_generated' => 'Automatisk generering af arkivdokument lykkedes',
     'already_accepted_rejected' => 'Tilbud er allerede blevet accepteret eller afvist',
     'payment_gateway_not_supported' => 'Betalingsgateway understøttes ikke',
+    'member_added_successfully' => 'Medlem tilføjet',
+    'member_role_updated_successfully' => 'Medlemsrollen blev opdateret',
+    'cannot_update_member_role' => 'Kan ikke opdatere medlemsrolle',
+    'cannot_remove_member' => 'Kan ikke fjerne medlem',
+    'member_removed_successfully' => 'Medlem fjernet',
 ];
