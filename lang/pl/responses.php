@@ -130,4 +130,9 @@ return [
     'archive_document_auto_generated' => 'Automatycznie wygenerowano archiwizację dokumentu',
     'already_accepted_rejected' => 'Oferta została już zaakceptowana lub odrzucona',
     'payment_gateway_not_supported' => 'Brama płatności nie jest obsługiwana',
+    'member_added_successfully' => 'Użytkownik dodany pomyślnie',
+    'member_role_updated_successfully' => 'Pomyślnie zaktualizowano rolę członka',
+    'cannot_update_member_role' => 'Nie można zaktualizować roli członka',
+    'cannot_remove_member' => 'Nie można usunąć członka',
+    'member_removed_successfully' => 'Użytkownik usunięty pomyślnie',
 ];
