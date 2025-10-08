@@ -45,4 +45,5 @@ return [
     'admin_status_page' => 'Admin statusside',
     'admin_update_app' => 'Admin Oppdater appen',
     'admin_data_collection' => 'Admin datainnsamling',
+    'projects' => 'Prosjekter',
 ];
