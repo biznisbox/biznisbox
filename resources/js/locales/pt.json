@@ -203,7 +203,8 @@
         "employees": "Funcionários",
         "support": "SUPORTE",
         "payments": "Pagamentos",
-        "contracts": "Contratos"
+        "contracts": "Contratos",
+        "projects": "Projetos"
     },
     "dashboard": {
         "title": "Painel",
@@ -425,7 +426,12 @@
         "client_portal": "Portal do Cliente",
         "type_of_contract_sign": "Tipo de Sinal de Contrato",
         "refund": "Reembolso",
-        "payment_number": "Número de Pagamento"
+        "payment_number": "Número de Pagamento",
+        "is_billable": "É Faturável",
+        "budget": "Orçamento",
+        "project_key": "Chave do Projeto",
+        "completed_at": "Concluído em",
+        "progress_in_percent": "Progresso em porcentagem"
     },
     "address_types": {
         "billing": "Faturamento",
@@ -450,6 +456,10 @@
         "one_year": "%d anos",
         "all_time": "Desde o início",
         "never": "nunca"
+    },
+    "task_type": {
+        "task": "Tarefas",
+        "milestone": "Marco"
     },
     "industries": {
         "agriculture": "Agricultura",
@@ -742,7 +752,10 @@
         "waiting_signature": "Aguardando assinatura",
         "not_started": "Não Iniciado",
         "planned": "Planejado",
-        "spam": "Spam"
+        "spam": "Spam",
+        "on_hold": "Em espera",
+        "to_do": "Para fazer",
+        "done": "Concluído"
     },
     "calendar": {
         "calendar": "Calendários do calendário",
@@ -975,6 +988,39 @@
         "intern": "Estagiário",
         "volunteer": "Voluntário",
         "other": "Outros"
+    },
+    "project": {
+        "project": "Projetos do Projeto",
+        "new_project": "Novo Projeto",
+        "edit_project": "Editar Projeto",
+        "no_projects": "Nenhum projeto encontrado",
+        "create_first_project": "Crie seu primeiro projeto",
+        "delete_confirm_project": "Tem certeza que deseja excluir este projeto?",
+        "project_details": "Detalhes do Projeto",
+        "start_and_end_date": "Data de início e fim",
+        "team_members": "Membros da equipe",
+        "add_team_member": "Adicionar Membro",
+        "no_team_members": "Nenhum membro da equipe",
+        "start_end_date": "Data de início e término",
+        "tasks": "Tarefas",
+        "add_task": "Adicionar tarefa",
+        "no_tasks": "Nenhuma tarefa encontrada",
+        "task": "Tarefas da Tarefa",
+        "edit_task": "Editar tarefa",
+        "delete_task_confirmation": "Tem certeza que deseja excluir esta tarefa?",
+        "kanban_board": "Painel Kanban",
+        "create_task": "Criar tarefa",
+        "project_members": "Membros do Projeto",
+        "add_member": "Adicionar Membro",
+        "remove_member": "Remover Membro",
+        "remove_member_confirmation": "Tem certeza que deseja remover este membro do projeto?"
+    },
+    "project_role": {
+        "owner": "Proprietário",
+        "manager": "Administrador",
+        "team_member": "Membro da equipe",
+        "viewer": "Visualizador",
+        "client": "Cliente"
     },
     "admin": {
         "menu": {
@@ -1224,6 +1270,8 @@
             "document_types": "Tipos de documentos",
             "payment_methods": "Métodos de pagamento",
             "contract_types": "Tipos de Contrato",
+            "task_categories": "Categorias de tarefa",
+            "project_categories": "Categorias de projeto",
             "new_data_collection_item": "Novo item da coleção de dados",
             "edit_data_collection_item": "Editar item da coleção de dados",
             "icon_tooltip": "Você pode usar ícones de Font Awesome. Você pode encontrar a lista de ícones aqui: https://fontawesome.com/icons",
@@ -1234,7 +1282,9 @@
             "delete_category_ask": "Tem certeza de que deseja excluir este item de coleta de dados?",
             "delete_category_success": "Item da coleção de dados excluído com sucesso",
             "product_categories": "Categorias de produtos",
-            "no_product_categories": "Nenhuma categoria de produtos encontrada"
+            "no_product_categories": "Nenhuma categoria de produtos encontrada",
+            "no_task_categories": "Nenhuma categoria de tarefa encontrada",
+            "no_project_categories": "Nenhuma categoria de projeto encontrada"
         }
     },
     "month": {
