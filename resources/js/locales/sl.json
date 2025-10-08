@@ -203,7 +203,8 @@
         "employees": "Zaposleni",
         "support": "Podpora",
         "payments": "Plačila",
-        "contracts": "Pogodbe"
+        "contracts": "Pogodbe",
+        "projects": "Projects"
     },
     "dashboard": {
         "title": "Nadzorna plošča",
@@ -425,7 +426,12 @@
         "client_portal": "Portal strank",
         "type_of_contract_sign": "Type of Contract Sign",
         "refund": "Refund",
-        "payment_number": "Payment Number"
+        "payment_number": "Payment Number",
+        "is_billable": "Is Billable",
+        "budget": "Budget",
+        "project_key": "Project Key",
+        "completed_at": "Completed At",
+        "progress_in_percent": "Progress in percent"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -450,6 +456,10 @@
         "one_year": "Eno leto",
         "all_time": "Ves čas",
         "never": "Nikoli"
+    },
+    "task_type": {
+        "task": "Task",
+        "milestone": "Milestone"
     },
     "industries": {
         "agriculture": "Kmetijstvo",
@@ -742,7 +752,10 @@
         "waiting_signature": "Čakanje na podpis",
         "not_started": "Ni začeto",
         "planned": "Načrtovano",
-        "spam": "Spam"
+        "spam": "Spam",
+        "on_hold": "On hold",
+        "to_do": "To do",
+        "done": "Done"
     },
     "calendar": {
         "calendar": "Koledar | Koledarji",
@@ -975,6 +988,39 @@
         "intern": "Pripravnik",
         "volunteer": "Prostovoljec",
         "other": "Drugo"
+    },
+    "project": {
+        "project": "Project | Projects",
+        "new_project": "New Project",
+        "edit_project": "Edit Project",
+        "no_projects": "No projects found",
+        "create_first_project": "Create your first project",
+        "delete_confirm_project": "Are you sure you want to delete this project?",
+        "project_details": "Project details",
+        "start_and_end_date": "Start and end date",
+        "team_members": "Team members",
+        "add_team_member": "Add team member",
+        "no_team_members": "No team members",
+        "start_end_date": "Start and End Date",
+        "tasks": "Tasks",
+        "add_task": "Add Task",
+        "no_tasks": "No tasks found",
+        "task": "Task | Tasks",
+        "edit_task": "Edit Task",
+        "delete_task_confirmation": "Are you sure you want to delete this task?",
+        "kanban_board": "Kanban Board",
+        "create_task": "Create Task",
+        "project_members": "Project Members",
+        "add_member": "Add Member",
+        "remove_member": "Remove Member",
+        "remove_member_confirmation": "Are you sure you want to remove this member from the project?"
+    },
+    "project_role": {
+        "owner": "Owner",
+        "manager": "Manager",
+        "team_member": "Team Member",
+        "viewer": "Viewer",
+        "client": "Client"
     },
     "admin": {
         "menu": {
@@ -1224,6 +1270,8 @@
             "document_types": "Vrste dokumentov",
             "payment_methods": "Načini plačila",
             "contract_types": "Tip pogodbe",
+            "task_categories": "Task Categories",
+            "project_categories": "Project Categories",
             "new_data_collection_item": "Nov element šifranta",
             "edit_data_collection_item": "Urejanje elementa šifranta",
             "icon_tooltip": "Uporabite lahko ikone Font Awesome. Seznam ikon najdete tukaj: https://fontawesome.com/icons",
@@ -1234,7 +1282,9 @@
             "delete_category_ask": "Ali ste prepričani, da želite izbrisati ta element šifrantov?",
             "delete_category_success": "Element šifranta je bil uspešno izbrisan",
             "product_categories": "Kategorije izdelkov",
-            "no_product_categories": "Kategorije izdelkov niso najdene"
+            "no_product_categories": "Kategorije izdelkov niso najdene",
+            "no_task_categories": "No task categories found",
+            "no_project_categories": "No project categories found"
         }
     },
     "month": {
