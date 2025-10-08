@@ -130,4 +130,9 @@ return [
     'archive_document_auto_generated' => 'Arquivar documento gerado automaticamente com sucesso',
     'already_accepted_rejected' => 'O orçamento já foi aceito ou rejeitado',
     'payment_gateway_not_supported' => 'Gateway de pagamento não suportado',
+    'member_added_successfully' => 'Membro adicionado com sucesso',
+    'member_role_updated_successfully' => 'Função de membro atualizada com sucesso',
+    'cannot_update_member_role' => 'Não é possível atualizar papel de membro',
+    'cannot_remove_member' => 'Impossível remover membro',
+    'member_removed_successfully' => 'Membro removido com sucesso',
 ];
