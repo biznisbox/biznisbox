@@ -203,7 +203,8 @@
         "employees": "Zaměstnanci",
         "support": "Podpora",
         "payments": "KAPITOLA 1 4 – CELKEM",
-        "contracts": "Zakázky"
+        "contracts": "Zakázky",
+        "projects": "Projekty"
     },
     "dashboard": {
         "title": "Nástěnka",
@@ -425,7 +426,12 @@
         "client_portal": "Portál klienta",
         "type_of_contract_sign": "Typ smluvní značky",
         "refund": "Vrácení peněz",
-        "payment_number": "Číslo platby"
+        "payment_number": "Číslo platby",
+        "is_billable": "Je fakturovatelný",
+        "budget": "Rozpočet",
+        "project_key": "Klíč projektu",
+        "completed_at": "Dokončeno",
+        "progress_in_percent": "Pokrok v procentech"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -450,6 +456,10 @@
         "one_year": "Jeden rok",
         "all_time": "Celý čas",
         "never": "Nikdy"
+    },
+    "task_type": {
+        "task": "Úkol",
+        "milestone": "Milník"
     },
     "industries": {
         "agriculture": "Zemědělství",
@@ -742,7 +752,10 @@
         "waiting_signature": "Čekání na podpis",
         "not_started": "Nezahájeno",
         "planned": "Plánované",
-        "spam": "Nevyžádaná pošta"
+        "spam": "Nevyžádaná pošta",
+        "on_hold": "Zapnuto",
+        "to_do": "K provedení",
+        "done": "Hotovo"
     },
     "calendar": {
         "calendar": "Kalendář | Kalendáře",
@@ -975,6 +988,39 @@
         "intern": "Interní",
         "volunteer": "Dobrovolník",
         "other": "Ostatní"
+    },
+    "project": {
+        "project": "Projekt | Projekty",
+        "new_project": "Nový projekt",
+        "edit_project": "Upravit projekt",
+        "no_projects": "Nebyly nalezeny žádné projekty",
+        "create_first_project": "Vytvořte svůj první projekt",
+        "delete_confirm_project": "Jste si jisti, že chcete odstranit tento projekt?",
+        "project_details": "Detaily projektu",
+        "start_and_end_date": "Datum zahájení a ukončení",
+        "team_members": "Členové týmu",
+        "add_team_member": "Přidat člena týmu",
+        "no_team_members": "Žádní členové týmu",
+        "start_end_date": "Začátek a konec",
+        "tasks": "Úkoly",
+        "add_task": "Přidat úkol",
+        "no_tasks": "Nebyly nalezeny žádné úkoly",
+        "task": "Úkol | Úkoly",
+        "edit_task": "Upravit úkol",
+        "delete_task_confirmation": "Jste si jisti, že chcete odstranit tento úkol?",
+        "kanban_board": "Kanban Board",
+        "create_task": "Vytvořit úkol",
+        "project_members": "Členové projektu",
+        "add_member": "Přidat člena",
+        "remove_member": "Odebrat člena",
+        "remove_member_confirmation": "Opravdu chcete odstranit tohoto člena z projektu?"
+    },
+    "project_role": {
+        "owner": "Vlastník",
+        "manager": "Správce",
+        "team_member": "Člen týmu",
+        "viewer": "Prohlížeč",
+        "client": "Zákazník"
     },
     "admin": {
         "menu": {
@@ -1224,6 +1270,8 @@
             "document_types": "Typy dokumentů",
             "payment_methods": "Způsoby platby",
             "contract_types": "Typy kontraktů",
+            "task_categories": "Kategorie úkolů",
+            "project_categories": "Kategorie projektů",
             "new_data_collection_item": "Nová položka pro sběr dat",
             "edit_data_collection_item": "Upravit položku kolekce dat",
             "icon_tooltip": "Písmo Awesome ikony můžete použít zde: https://fontawesome.com/icons",
@@ -1234,7 +1282,9 @@
             "delete_category_ask": "Jste si jisti, že chcete odstranit tuto položku pro sběr dat?",
             "delete_category_success": "Položka sběru dat byla úspěšně odstraněna",
             "product_categories": "Kategorie produktů",
-            "no_product_categories": "Nebyly nalezeny žádné kategorie produktů"
+            "no_product_categories": "Nebyly nalezeny žádné kategorie produktů",
+            "no_task_categories": "Nebyly nalezeny žádné kategorie úkolů",
+            "no_project_categories": "No project categories found"
         }
     },
     "month": {
