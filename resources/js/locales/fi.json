@@ -1284,7 +1284,7 @@
             "product_categories": "Tuoteryhmät",
             "no_product_categories": "Tuoteryhmiä ei löytynyt",
             "no_task_categories": "Tehtäväluokkia ei löytynyt",
-            "no_project_categories": "No project categories found"
+            "no_project_categories": "Projektikategorioita ei löytynyt"
         }
     },
     "month": {
