@@ -173,7 +173,7 @@
         "internal": "Notranji",
         "external": "Zunanji",
         "external_key": "Zunanji ključ",
-        "client_portal": "Client portal",
+        "client_portal": "Portal strank",
         "system": "Sistem"
     },
     "user_nav_menu": {
@@ -204,7 +204,7 @@
         "support": "Podpora",
         "payments": "Plačila",
         "contracts": "Pogodbe",
-        "projects": "Projects"
+        "projects": "Projekti"
     },
     "dashboard": {
         "title": "Nadzorna plošča",
@@ -424,14 +424,14 @@
         "icon": "Ikona",
         "additional_info": "Dodatne informacije",
         "client_portal": "Portal strank",
-        "type_of_contract_sign": "Type of Contract Sign",
-        "refund": "Refund",
-        "payment_number": "Payment Number",
-        "is_billable": "Is Billable",
-        "budget": "Budget",
-        "project_key": "Project Key",
-        "completed_at": "Completed At",
-        "progress_in_percent": "Progress in percent"
+        "type_of_contract_sign": "Tip podpisa pogodbe",
+        "refund": "Povračilo",
+        "payment_number": "Številka plačila",
+        "is_billable": "Je obračunljiv",
+        "budget": "Proračun",
+        "project_key": "Ključ projekta",
+        "completed_at": "Dokončano",
+        "progress_in_percent": "Napredek v odstotkih"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -458,8 +458,8 @@
         "never": "Nikoli"
     },
     "task_type": {
-        "task": "Task",
-        "milestone": "Milestone"
+        "task": "Opravilo",
+        "milestone": "Mejnik"
     },
     "industries": {
         "agriculture": "Kmetijstvo",
@@ -541,9 +541,9 @@
         "fixed": "Fiksen"
     },
     "contract_sign_types": {
-        "electronic": "Electronic",
-        "digital_signature": "Digital Signature",
-        "paper": "Paper"
+        "electronic": "Elektronski podpis",
+        "digital_signature": "Digitalni podpis",
+        "paper": "Papir"
     },
     "login_history": {
         "login_history": "Zgodovina prijav",
@@ -579,7 +579,7 @@
         "partner_activities": "Partnerjeve aktivnosti",
         "send_email": "Pošlji sporočilo",
         "add_to_client_portal": "Dodaj v portal strank",
-        "vat_number_required": "VAT number is required"
+        "vat_number_required": "Davčna številka je zahtevan podatek"
     },
     "partner_activity_types": {
         "call": "Klic",
@@ -677,7 +677,7 @@
         "no_sales_person": "Ni prodajalca",
         "no_payment_method": "Način plačila",
         "click_for_pay": "Kliknite tukaj za plačilo",
-        "select_payment_gateway": "Select payment gateway"
+        "select_payment_gateway": "Izberite plačilnega ponudnika"
     },
     "quote": {
         "quote": "Ponudba|Ponudbe",
@@ -753,9 +753,9 @@
         "not_started": "Ni začeto",
         "planned": "Načrtovano",
         "spam": "Spam",
-        "on_hold": "On hold",
-        "to_do": "To do",
-        "done": "Done"
+        "on_hold": "Na čakanju",
+        "to_do": "Za narediti",
+        "done": "Opravljeno"
     },
     "calendar": {
         "calendar": "Koledar | Koledarji",
@@ -837,9 +837,9 @@
         "no_payments": "Ni najdenih plačil",
         "delete_confirm_payment": "Ali ste prepričani, da želite izbrisati to plačilo?",
         "payment_details": "Podrobnosti o plačilu",
-        "refund_confirmation": "Are you sure you want to refund this payment?",
-        "refund_successful": "Payment refunded successfully",
-        "refund_failed": "Payment refund failed"
+        "refund_confirmation": "Ali ste prepričani, da želite povrniti to plačilo?",
+        "refund_successful": "Plačilo uspešno povrnjeno",
+        "refund_failed": "Vračilo plačila ni bilo uspešno"
     },
     "archive": {
         "archive": "Arhiv | Arhivi",
@@ -990,37 +990,37 @@
         "other": "Drugo"
     },
     "project": {
-        "project": "Project | Projects",
-        "new_project": "New Project",
-        "edit_project": "Edit Project",
-        "no_projects": "No projects found",
-        "create_first_project": "Create your first project",
-        "delete_confirm_project": "Are you sure you want to delete this project?",
-        "project_details": "Project details",
-        "start_and_end_date": "Start and end date",
-        "team_members": "Team members",
-        "add_team_member": "Add team member",
-        "no_team_members": "No team members",
-        "start_end_date": "Start and End Date",
-        "tasks": "Tasks",
-        "add_task": "Add Task",
-        "no_tasks": "No tasks found",
-        "task": "Task | Tasks",
-        "edit_task": "Edit Task",
-        "delete_task_confirmation": "Are you sure you want to delete this task?",
-        "kanban_board": "Kanban Board",
-        "create_task": "Create Task",
-        "project_members": "Project Members",
-        "add_member": "Add Member",
-        "remove_member": "Remove Member",
-        "remove_member_confirmation": "Are you sure you want to remove this member from the project?"
+        "project": "Projekt | Projekti",
+        "new_project": "Nov projekt",
+        "edit_project": "Uredi projekt",
+        "no_projects": "Ni najdenih projektov",
+        "create_first_project": "Ustvarite vaš prvi projekt",
+        "delete_confirm_project": "Ali ste prepričani, da želite izbrisati ta projekt?",
+        "project_details": "Podrobnosti projekta",
+        "start_and_end_date": "Datum pričetka in zaključka projekta",
+        "team_members": "Člani ekipe",
+        "add_team_member": "Dodaj člana",
+        "no_team_members": "Ni članov ekipe",
+        "start_end_date": "Datum pričetka in zaključka projekta",
+        "tasks": "Opravila",
+        "add_task": "Dodaj opravilo",
+        "no_tasks": "Ni najdenih opravil",
+        "task": "Opravilo | Opravila",
+        "edit_task": "Uredi opravilo",
+        "delete_task_confirmation": "Ste prepričani, da želite izbrisati to opravilo?",
+        "kanban_board": "Kanban",
+        "create_task": "Ustvari opravilo",
+        "project_members": "Člani projekta",
+        "add_member": "Dodaj člana",
+        "remove_member": "Odstrani člana",
+        "remove_member_confirmation": "Ali ste prepričani, da želite odstraniti člana projekta?"
     },
     "project_role": {
-        "owner": "Owner",
-        "manager": "Manager",
-        "team_member": "Team Member",
-        "viewer": "Viewer",
-        "client": "Client"
+        "owner": "Lastnik",
+        "manager": "Vodja",
+        "team_member": "Član ekipe",
+        "viewer": "Pregledovalec",
+        "client": "Stranka"
     },
     "admin": {
         "menu": {
@@ -1084,10 +1084,10 @@
             "open_banking_help": "Najdete ga v vašem Nordigen računu.",
             "online_payments": "Spletni plačili",
             "coinbase": "Coinbase",
-            "coinbase_available": "Coinbase available",
-            "coinbase_api_key": "Coinbase API Key",
-            "coinbase_api_key_help": "You can find your API key in your Coinbase commerce account.",
-            "coinbase_account_id": "Coinbase internal account ID"
+            "coinbase_available": "Coinbase aktiven",
+            "coinbase_api_key": "Coinbase API ključ",
+            "coinbase_api_key_help": "Najdete ga v vašem Coinbase Commerce računu.",
+            "coinbase_account_id": "ID internega računa za Coinbase"
         },
         "status": {
             "title": "Status aplikacije",
@@ -1160,8 +1160,8 @@
             "show_barcode_on_documents": "Prikaži črtno kodo na dokumentih",
             "week_start": "Dan začetka tedna",
             "exchange_rate_provider": "Ponudnik menjalnega tečaja",
-            "save_document_into_archive": "Save Document into Archive",
-            "save_document_into_archive_description": "If enabled, documents will be saved into the archive (invoices, quotes, bills, contracts)."
+            "save_document_into_archive": "Shrani dokument v arhiv",
+            "save_document_into_archive_description": "Če je aktivirano, se dokumenti avtomatsko shranijo v arhiv (računi, ponudbe, prejeti računi, pogodbe)."
         },
         "taxes": {
             "title": "Davčne stopnje",
@@ -1270,8 +1270,8 @@
             "document_types": "Vrste dokumentov",
             "payment_methods": "Načini plačila",
             "contract_types": "Tip pogodbe",
-            "task_categories": "Task Categories",
-            "project_categories": "Project Categories",
+            "task_categories": "Kategorije opravil",
+            "project_categories": "Kategorije projektov",
             "new_data_collection_item": "Nov element šifranta",
             "edit_data_collection_item": "Urejanje elementa šifranta",
             "icon_tooltip": "Uporabite lahko ikone Font Awesome. Seznam ikon najdete tukaj: https://fontawesome.com/icons",
@@ -1283,8 +1283,8 @@
             "delete_category_success": "Element šifranta je bil uspešno izbrisan",
             "product_categories": "Kategorije izdelkov",
             "no_product_categories": "Kategorije izdelkov niso najdene",
-            "no_task_categories": "No task categories found",
-            "no_project_categories": "No project categories found"
+            "no_task_categories": "Ni najdenih kategorij opravil",
+            "no_project_categories": "Ni najdenih opravil projektov"
         }
     },
     "month": {
