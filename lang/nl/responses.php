@@ -130,4 +130,9 @@ return [
     'archive_document_auto_generated' => 'Archief automatisch gegenereerd met succes',
     'already_accepted_rejected' => 'Prijsopgave is al geaccepteerd of afgewezen',
     'payment_gateway_not_supported' => 'Betalingsgateway niet ondersteund',
+    'member_added_successfully' => 'Lid succesvol toegevoegd',
+    'member_role_updated_successfully' => 'Deelnemerrol succesvol bijgewerkt',
+    'cannot_update_member_role' => 'Kan de rol van lid niet bijwerken',
+    'cannot_remove_member' => 'Kan lid niet verwijderen',
+    'member_removed_successfully' => 'Lid succesvol verwijderd',
 ];
