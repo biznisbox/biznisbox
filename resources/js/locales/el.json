@@ -203,7 +203,8 @@
         "employees": "Υπάλληλοι",
         "support": "Υποστήριξη",
         "payments": "Πληρωμές",
-        "contracts": "Συμβάσεις"
+        "contracts": "Συμβάσεις",
+        "projects": "Έργα"
     },
     "dashboard": {
         "title": "Ταμπλό",
@@ -425,7 +426,12 @@
         "client_portal": "Πύλη Πελάτη",
         "type_of_contract_sign": "Τύπος σημάδι σύμβασης",
         "refund": "Επιστροφή",
-        "payment_number": "Αριθμός Πληρωμής"
+        "payment_number": "Αριθμός Πληρωμής",
+        "is_billable": "Είναι Χρεώσιμο",
+        "budget": "Προϋπολογισμός",
+        "project_key": "Κλειδί Έργου",
+        "completed_at": "Ολοκληρώθηκε Στις",
+        "progress_in_percent": "Πρόοδος σε ποσοστό"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -450,6 +456,10 @@
         "one_year": "Ένας χρόνος",
         "all_time": "Όλη την ώρα",
         "never": "Ποτέ"
+    },
+    "task_type": {
+        "task": "Εργασία",
+        "milestone": "Ορόσημο"
     },
     "industries": {
         "agriculture": "Γεωργία",
@@ -742,7 +752,10 @@
         "waiting_signature": "Αναμονή για υπογραφή",
         "not_started": "Δεν ξεκίνησε",
         "planned": "Προγραμματισμένο",
-        "spam": "Ανεπιθύμητα"
+        "spam": "Ανεπιθύμητα",
+        "on_hold": "Σε αναμονή",
+        "to_do": "Να γίνει",
+        "done": "Ολοκληρώθηκε"
     },
     "calendar": {
         "calendar": "Ημερολόγιο \"Ημερολόγια\"",
@@ -975,6 +988,39 @@
         "intern": "Πρακτορείο",
         "volunteer": "Εθελοντής",
         "other": "Άλλο"
+    },
+    "project": {
+        "project": "Έργα - Έργα",
+        "new_project": "Νέο Έργο",
+        "edit_project": "Επεξεργασία Έργου",
+        "no_projects": "Δεν βρέθηκαν πρότζεκτ",
+        "create_first_project": "Δημιουργήστε το πρώτο σας έργο",
+        "delete_confirm_project": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το έργο?",
+        "project_details": "Λεπτομέρειες έργου",
+        "start_and_end_date": "Ημερομηνία έναρξης και λήξης",
+        "team_members": "Μέλη της ομάδας",
+        "add_team_member": "Προσθήκη μέλους ομάδας",
+        "no_team_members": "Κανένα μέλος της ομάδας",
+        "start_end_date": "Ημερομηνία έναρξης και λήξης",
+        "tasks": "Εργασίες",
+        "add_task": "Προσθήκη Εργασίας",
+        "no_tasks": "Δεν βρέθηκαν εργασίες",
+        "task": "Εργασία",
+        "edit_task": "Επεξεργασία Εργασίας",
+        "delete_task_confirmation": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν την εργασία?",
+        "kanban_board": "Πίνακα Kanban",
+        "create_task": "Δημιουργία Εργασίας",
+        "project_members": "Μέλη Του Έργου",
+        "add_member": "Προσθήκη Μελών",
+        "remove_member": "Αφαίρεση Μέλους",
+        "remove_member_confirmation": "Είστε βέβαιοι ότι θέλετε να αφαιρέσετε αυτό το μέλος από το έργο?"
+    },
+    "project_role": {
+        "owner": "Ιδιοκτήτης",
+        "manager": "Διαχειριστής",
+        "team_member": "Μέλος Ομάδας",
+        "viewer": "Προβολέας",
+        "client": "Πελάτης"
     },
     "admin": {
         "menu": {
@@ -1224,6 +1270,8 @@
             "document_types": "Τύποι Εγγράφων",
             "payment_methods": "Τρόποι Πληρωμής",
             "contract_types": "Τύποι Συμβολαίου",
+            "task_categories": "Κατηγορίες Εργασιών",
+            "project_categories": "Κατηγορίες Έργου",
             "new_data_collection_item": "Νέο Στοιχείο Συλλογής Δεδομένων",
             "edit_data_collection_item": "Επεξεργασία Στοιχείου Συλλογής Δεδομένων",
             "icon_tooltip": "Μπορείτε να χρησιμοποιήσετε εικονίδια γραμματοσειράς. Μπορείτε να βρείτε τη λίστα των εικονιδίων εδώ: https://fontawesome.com/icons",
@@ -1234,7 +1282,9 @@
             "delete_category_ask": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το στοιχείο συλλογής δεδομένων?",
             "delete_category_success": "Το στοιχείο συλλογής δεδομένων διαγράφηκε με επιτυχία",
             "product_categories": "Κατηγορίες προϊόντων",
-            "no_product_categories": "Δεν βρέθηκαν κατηγορίες προϊόντων"
+            "no_product_categories": "Δεν βρέθηκαν κατηγορίες προϊόντων",
+            "no_task_categories": "Δεν βρέθηκαν κατηγορίες εργασιών",
+            "no_project_categories": "No project categories found"
         }
     },
     "month": {
