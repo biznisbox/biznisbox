@@ -203,7 +203,8 @@
         "employees": "Pracownicy",
         "support": "Wsparcie",
         "payments": "Wynagrodzenia",
-        "contracts": "Kontrakty"
+        "contracts": "Kontrakty",
+        "projects": "Projekty"
     },
     "dashboard": {
         "title": "Pulpit",
@@ -425,7 +426,12 @@
         "client_portal": "Portal klienta",
         "type_of_contract_sign": "Rodzaj podpisu umowy",
         "refund": "Zwrot",
-        "payment_number": "Numer płatności"
+        "payment_number": "Numer płatności",
+        "is_billable": "Jest Billable",
+        "budget": "Budżet",
+        "project_key": "Klucz projektu",
+        "completed_at": "Ukończone w",
+        "progress_in_percent": "Postęp w procentach"
     },
     "address_types": {
         "billing": "Płatność",
@@ -450,6 +456,10 @@
         "one_year": "Jeden rok",
         "all_time": "Cały czas",
         "never": "Nigdy"
+    },
+    "task_type": {
+        "task": "Zadanie",
+        "milestone": "Etap"
     },
     "industries": {
         "agriculture": "Rolnictwo",
@@ -742,7 +752,10 @@
         "waiting_signature": "Oczekiwanie na podpis",
         "not_started": "Nie rozpoczęto",
         "planned": "Zaplanowane",
-        "spam": "Spam"
+        "spam": "Spam",
+        "on_hold": "Zatrzymano",
+        "to_do": "Do wykonania",
+        "done": "Gotowe"
     },
     "calendar": {
         "calendar": "Kalendarz | Kalendarze",
@@ -975,6 +988,39 @@
         "intern": "Intern",
         "volunteer": "Wolontariusz",
         "other": "Inne"
+    },
+    "project": {
+        "project": "Projekt | Projekty",
+        "new_project": "Nowy projekt",
+        "edit_project": "Edytuj projekt",
+        "no_projects": "Nie znaleziono projektów",
+        "create_first_project": "Utwórz swój pierwszy projekt",
+        "delete_confirm_project": "Czy na pewno chcesz usunąć ten projekt?",
+        "project_details": "Szczegóły projektu",
+        "start_and_end_date": "Data rozpoczęcia i zakończenia",
+        "team_members": "Członkowie zespołu",
+        "add_team_member": "Dodaj członka zespołu",
+        "no_team_members": "Brak członków zespołu",
+        "start_end_date": "Data rozpoczęcia i zakończenia",
+        "tasks": "Zadania",
+        "add_task": "Dodaj zadanie",
+        "no_tasks": "Nie znaleziono zadań",
+        "task": "Zadanie | Zadania",
+        "edit_task": "Edytuj zadanie",
+        "delete_task_confirmation": "Czy na pewno chcesz usunąć to zadanie?",
+        "kanban_board": "Tablica Kanban",
+        "create_task": "Utwórz zadanie",
+        "project_members": "Członkowie projektu",
+        "add_member": "Dodaj członka",
+        "remove_member": "Usuń członka",
+        "remove_member_confirmation": "Czy na pewno chcesz usunąć tego użytkownika z projektu?"
+    },
+    "project_role": {
+        "owner": "Właściciel",
+        "manager": "Menedżer",
+        "team_member": "Członek zespołu",
+        "viewer": "Przeglądarka",
+        "client": "Klient"
     },
     "admin": {
         "menu": {
@@ -1224,6 +1270,8 @@
             "document_types": "Typy dokumentów",
             "payment_methods": "Metody płatności",
             "contract_types": "Rodzaje umów",
+            "task_categories": "Kategorie zadań",
+            "project_categories": "Kategorie projektów",
             "new_data_collection_item": "Nowy element zbierania danych",
             "edit_data_collection_item": "Edytuj element zbierania danych",
             "icon_tooltip": "Możesz użyć ikony Font Awesome (Font Awesome ikony). Lista ikon znajduje się tutaj: https://fontawesome.com/icons",
@@ -1234,7 +1282,9 @@
             "delete_category_ask": "Czy na pewno chcesz usunąć ten element kolekcji danych?",
             "delete_category_success": "Element zbierania danych został pomyślnie usunięty",
             "product_categories": "Kategorie produktów",
-            "no_product_categories": "Nie znaleziono kategorii produktów"
+            "no_product_categories": "Nie znaleziono kategorii produktów",
+            "no_task_categories": "Nie znaleziono kategorii zadań",
+            "no_project_categories": "Nie znaleziono kategorii projektu"
         }
     },
     "month": {
