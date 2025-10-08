@@ -3,8 +3,7 @@
 return [
     'hi' => 'Hi,',
     'this_is_a_test_email' => 'Este es un correo electrónico de prueba. Por favor, ignórelo.',
-    'config_is_working' =>
-        'Si está viendo este correo electrónico, significa que la configuración del correo electrónico está funcionando.',
+    'config_is_working' => 'Si está viendo este correo electrónico, significa que la configuración del correo electrónico está funcionando.',
     'all_rights_reserved' => 'Todos los derechos reservados.',
     'subject_test_email' => 'Test Email',
     'user_details' => 'Detalles del usuario',
@@ -58,6 +57,19 @@ return [
     'personal_access_token_details' => 'Detalles del token de acceso personal',
     'personal_access_token_name' => 'Nombre del Token',
     'personal_access_token_valid_until' => 'Válido hasta',
-    'if_this_was_not_you_personal_access_token' =>
-        'Si no fue usted, por favor elimine el token inmediatamente y póngase en contacto con el administrador.',
+    'if_this_was_not_you_personal_access_token' => 'Si no fue usted, por favor elimine el token inmediatamente y póngase en contacto con el administrador.',
+    'subject_support_ticket' => 'Notificación de ticket de soporte',
+    'new_support_ticket' => 'Se ha creado un nuevo ticket de soporte.',
+    'support_ticket_details' => 'Detalles de Ticket de Soporte',
+    'support_ticket_number' => 'Número: :number',
+    'support_ticket_status' => 'Estado: :status',
+    'support_ticket_subject' => 'Asunto: :subject',
+    'click_on_the_button_below_to_view_ticket' => 'Haga clic en el botón de abajo para ver el ticket.',
+    'view_ticket' => 'Ver Ticket',
+    'new_user_for_client_portal' => 'Se ha creado un nuevo usuario para el portal del cliente.',
+    'client_portal_details' => 'Detalles de acceso del Portal del Cliente',
+    'client_portal_email' => 'Client Portal Email: :email',
+    'client_portal_password' => 'Contraseña del cliente:',
+    'login_to_client_portal' => 'Iniciar sesión en el Portal del Cliente',
+    'client_portal_notification_subject' => 'Notificación de acceso al Portal de Cliente',
 ];

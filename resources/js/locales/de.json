@@ -130,7 +130,8 @@
         "system": "System",
         "add_signer": "Unterzeichner hinzufügen",
         "click_for_download": "Zum Herunterladen hier klicken",
-        "sign": "Schild"
+        "sign": "Schild",
+        "import": "Importieren"
     },
     "audit_log": {
         "audit_log": "Audit-Log",
@@ -172,6 +173,7 @@
         "internal": "Intern",
         "external": "Externe",
         "external_key": "Externer Schlüssel",
+        "client_portal": "Kundenportal",
         "system": "System"
     },
     "user_nav_menu": {
@@ -201,7 +203,8 @@
         "employees": "Mitarbeiter",
         "support": "Unterstützung",
         "payments": "Zahlungen",
-        "contracts": "Verträge"
+        "contracts": "Verträge",
+        "projects": "Projekte"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -419,7 +422,16 @@
         "module": "Modul",
         "parent_category": "Übergeordnete Kategorie",
         "icon": "Symbol",
-        "additional_info": "Zusätzliche Info"
+        "additional_info": "Zusätzliche Info",
+        "client_portal": "Kundenportal",
+        "type_of_contract_sign": "Art des Vertragsschildes",
+        "refund": "Rückerstattung",
+        "payment_number": "Zahlungsnummer",
+        "is_billable": "Ist abrechenbar",
+        "budget": "Budget",
+        "project_key": "Projektschlüssel",
+        "completed_at": "Abgeschlossen am",
+        "progress_in_percent": "Fortschritt in Prozent"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -444,6 +456,10 @@
         "one_year": "Ein Jahr",
         "all_time": "Gesamt",
         "never": "Nie"
+    },
+    "task_type": {
+        "task": "Aufgabe",
+        "milestone": "Meilenstein"
     },
     "industries": {
         "agriculture": "Landwirtschaft",
@@ -493,6 +509,7 @@
         "credit_card": "Zahlungskarte",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Münzen",
         "other": "Andere"
     },
     "support_priority": {
@@ -522,6 +539,11 @@
     "tax_types": {
         "percent": "Prozentsatz",
         "fixed": "Feste"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektronisch",
+        "digital_signature": "Digitale Signatur",
+        "paper": "Papier"
     },
     "login_history": {
         "login_history": "Anmeldeverlauf",
@@ -555,7 +577,9 @@
         "activities": "Aktivitäten",
         "edit_activity": "Aktivität bearbeiten",
         "partner_activities": "Partneraktivitäten",
-        "send_email": "E-Mail senden"
+        "send_email": "E-Mail senden",
+        "add_to_client_portal": "Zum Kundenportal hinzufügen",
+        "vat_number_required": "USt-IdNr. ist erforderlich"
     },
     "partner_activity_types": {
         "call": "Anruf",
@@ -652,8 +676,8 @@
         "list_of_transactions": "Liste der Transaktionen",
         "no_sales_person": "Kein Verkäufer",
         "no_payment_method": "Keine Zahlungsmethode",
-        "click_for_pay_with_paypal": "Klicken Sie hier, um mit PayPal zu bezahlen",
-        "click_for_pay": "Klicke hier, um zu bezahlen"
+        "click_for_pay": "Klicke hier, um zu bezahlen",
+        "select_payment_gateway": "Zahlungs-Gateway auswählen"
     },
     "quote": {
         "quote": "Angebot | Angebote",
@@ -728,7 +752,10 @@
         "waiting_signature": "Warte auf Signatur",
         "not_started": "Nicht gestartet",
         "planned": "Geplant",
-        "spam": "Spam"
+        "spam": "Spam",
+        "on_hold": "Warten",
+        "to_do": "Zu tun",
+        "done": "Fertig"
     },
     "calendar": {
         "calendar": "Kalender | Kalender",
@@ -809,7 +836,10 @@
         "edit_payment": "Zahlung bearbeiten",
         "no_payments": "Keine Zahlungen gefunden",
         "delete_confirm_payment": "Sind Sie sicher, dass Sie diese Zahlung löschen möchten?",
-        "payment_details": "Zahlungsdetails"
+        "payment_details": "Zahlungsdetails",
+        "refund_confirmation": "Sind Sie sicher, dass Sie diese Zahlung erstatten möchten?",
+        "refund_successful": "Zahlung erfolgreich zurückerstattet",
+        "refund_failed": "Zahlungsrückerstattung fehlgeschlagen"
     },
     "archive": {
         "archive": "Archiv | Archive",
@@ -959,6 +989,39 @@
         "volunteer": "Freiwilliger",
         "other": "Andere"
     },
+    "project": {
+        "project": "Projekt | Projekte",
+        "new_project": "Neues Projekt",
+        "edit_project": "Projekt bearbeiten",
+        "no_projects": "Keine Projekte gefunden",
+        "create_first_project": "Erstelle dein erstes Projekt",
+        "delete_confirm_project": "Sind Sie sicher, dass Sie dieses Projekt löschen möchten?",
+        "project_details": "Projektdetails",
+        "start_and_end_date": "Start- und Enddatum",
+        "team_members": "Teammitglieder",
+        "add_team_member": "Teammitglied hinzufügen",
+        "no_team_members": "Keine Teammitglieder",
+        "start_end_date": "Start- und Enddatum",
+        "tasks": "Aufgaben",
+        "add_task": "Neue Aufgabe",
+        "no_tasks": "Keine Aufgaben gefunden",
+        "task": "Aufgabe | Aufgaben",
+        "edit_task": "Aufgabe bearbeiten",
+        "delete_task_confirmation": "Sind Sie sicher, dass Sie diese Aufgabe löschen möchten?",
+        "kanban_board": "Kanban Board",
+        "create_task": "Aufgabe erstellen",
+        "project_members": "Projektmitglieder",
+        "add_member": "Mitglied hinzufügen",
+        "remove_member": "Mitglied entfernen",
+        "remove_member_confirmation": "Sind Sie sicher, dass Sie dieses Mitglied aus dem Projekt entfernen möchten?"
+    },
+    "project_role": {
+        "owner": "Besitzer",
+        "manager": "Manager",
+        "team_member": "Teammitglied",
+        "viewer": "Betrachter",
+        "client": "Kunde"
+    },
     "admin": {
         "menu": {
             "dashboard": "Dashboard",
@@ -1019,7 +1082,12 @@
             "open_banking_client_id": "Öffne Banking-Kunden-ID",
             "open_banking_secret": "Öffne Bankgeheimnis",
             "open_banking_help": "Ihre Client-ID und Ihr Geheimnis finden Sie in Ihrem Nordigen Konto.",
-            "online_payments": "Online-Zahlungen"
+            "online_payments": "Online-Zahlungen",
+            "coinbase": "Münzen",
+            "coinbase_available": "Coinbase verfügbar",
+            "coinbase_api_key": "Coinbase API-Schlüssel",
+            "coinbase_api_key_help": "Sie finden Ihren API-Schlüssel in Ihrem Coinbase Commerce-Konto.",
+            "coinbase_account_id": "Coinbase interne Konto-ID"
         },
         "status": {
             "title": "Statusseite",
@@ -1090,7 +1158,10 @@
             "default_time_format": "Standard-Zeitformat",
             "default_datetime_format": "Standardformat für Datumszeit",
             "show_barcode_on_documents": "Barcode auf Dokumenten anzeigen",
-            "week_start": "Wochentag"
+            "week_start": "Wochentag",
+            "exchange_rate_provider": "Wechselkurs-Anbieter",
+            "save_document_into_archive": "Dokument im Archiv speichern",
+            "save_document_into_archive_description": "Wenn aktiviert, werden die Dokumente im Archiv gespeichert (Rechnungen, Angebote, Rechnungen, Verträge)."
         },
         "taxes": {
             "title": "Steuersätze",
@@ -1102,7 +1173,9 @@
             "name": "Name",
             "value": "Wert",
             "description": "Beschreibung",
-            "delete_confirm_tax": "Sind Sie sicher, dass Sie diesen Steuersatz löschen möchten?"
+            "delete_confirm_tax": "Sind Sie sicher, dass Sie diesen Steuersatz löschen möchten?",
+            "import_tax": "Steuersätze importieren",
+            "import_tax_description": "Sie können Steuersätze aus öffentlichen Datenressourcen importieren. Daten werden von der EU-MwSt-Liste abgerufen. Es kann nicht vollständig aktuell oder genau sein. Bitte überprüfen Sie die importierten Daten."
         },
         "role": {
             "title": "Rollen",
@@ -1197,6 +1270,8 @@
             "document_types": "Dokumententypen",
             "payment_methods": "Zahlungsarten",
             "contract_types": "Vertragstypen",
+            "task_categories": "Aufgabenkategorien",
+            "project_categories": "Projektkategorien",
             "new_data_collection_item": "Neues Datenerfassungselement",
             "edit_data_collection_item": "Datensammel-Element bearbeiten",
             "icon_tooltip": "Du kannst Font Awesome Icons verwenden. Die Liste der Icons findest du hier: https://fontawesome.com/icons",
@@ -1205,7 +1280,11 @@
             "no_transaction_categories": "Keine Transaktionskategorien gefunden",
             "no_contract_types": "Keine Vertragstypen gefunden",
             "delete_category_ask": "Sind Sie sicher, dass Sie dieses Datensammlungselement löschen möchten?",
-            "delete_category_success": "Datensammlungselement erfolgreich gelöscht"
+            "delete_category_success": "Datensammlungselement erfolgreich gelöscht",
+            "product_categories": "Produktkategorien",
+            "no_product_categories": "Keine Produktkategorien gefunden",
+            "no_task_categories": "Keine Aufgabenkategorien gefunden",
+            "no_project_categories": "Keine Projektkategorien gefunden"
         }
     },
     "month": {
@@ -1569,5 +1648,23 @@
         "finish_installation_description": "Die Installation ist abgeschlossen. Sie können sich jetzt in Ihr Konto einloggen.",
         "go_to_login": "Zum Login",
         "installation": "Installation"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Dashboard",
+            "invoices": "Rechnungen",
+            "quotes": "Zitate",
+            "transactions": "Transaktionen",
+            "support": "Unterstützung",
+            "contracts": "Verträge",
+            "partner_details": "Partner-Details"
+        },
+        "partner_details": "Partner-Details",
+        "dashboard": "Dashboard",
+        "number_of_contracts": "Anzahl der Verträge",
+        "number_of_unpaid_invoices": "Anzahl der unbezahlten Rechnungen",
+        "number_of_quotes": "Anzahl der Zitate",
+        "number_of_bills": "Anzahl der Rechnungen",
+        "number_of_support_tickets": "Anzahl der Support-Tickets"
     }
 }

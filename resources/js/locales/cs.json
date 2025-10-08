@@ -130,7 +130,8 @@
         "system": "Systém",
         "add_signer": "Přidat podpisce",
         "click_for_download": "Klikněte zde pro stažení",
-        "sign": "Značka"
+        "sign": "Značka",
+        "import": "Importovat"
     },
     "audit_log": {
         "audit_log": "Protokol auditu",
@@ -172,6 +173,7 @@
         "internal": "Interní",
         "external": "Externí",
         "external_key": "Externí klíč",
+        "client_portal": "Portál klienta",
         "system": "Systém"
     },
     "user_nav_menu": {
@@ -201,7 +203,8 @@
         "employees": "Zaměstnanci",
         "support": "Podpora",
         "payments": "KAPITOLA 1 4 – CELKEM",
-        "contracts": "Zakázky"
+        "contracts": "Zakázky",
+        "projects": "Projekty"
     },
     "dashboard": {
         "title": "Nástěnka",
@@ -419,7 +422,16 @@
         "module": "Modul",
         "parent_category": "Nadřazená kategorie",
         "icon": "Ikona",
-        "additional_info": "Další informace"
+        "additional_info": "Další informace",
+        "client_portal": "Portál klienta",
+        "type_of_contract_sign": "Typ smluvní značky",
+        "refund": "Vrácení peněz",
+        "payment_number": "Číslo platby",
+        "is_billable": "Je fakturovatelný",
+        "budget": "Rozpočet",
+        "project_key": "Klíč projektu",
+        "completed_at": "Dokončeno",
+        "progress_in_percent": "Pokrok v procentech"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -444,6 +456,10 @@
         "one_year": "Jeden rok",
         "all_time": "Celý čas",
         "never": "Nikdy"
+    },
+    "task_type": {
+        "task": "Úkol",
+        "milestone": "Milník"
     },
     "industries": {
         "agriculture": "Zemědělství",
@@ -493,6 +509,7 @@
         "credit_card": "Platební karta",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Barevné hlinky",
         "other": "Ostatní"
     },
     "support_priority": {
@@ -522,6 +539,11 @@
     "tax_types": {
         "percent": "Procento",
         "fixed": "Fixní"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektronické",
+        "digital_signature": "Digitální podpis",
+        "paper": "Papír"
     },
     "login_history": {
         "login_history": "Historie přihlášení",
@@ -555,7 +577,9 @@
         "activities": "Aktivity",
         "edit_activity": "Upravit aktivitu",
         "partner_activities": "Partnerské aktivity",
-        "send_email": "Poslat e-mail"
+        "send_email": "Poslat e-mail",
+        "add_to_client_portal": "Přidat na klientský portál",
+        "vat_number_required": "DIČ je povinné"
     },
     "partner_activity_types": {
         "call": "Hovor",
@@ -652,8 +676,8 @@
         "list_of_transactions": "Seznam transakcí",
         "no_sales_person": "Žádná prodejní osoba",
         "no_payment_method": "Žádný způsob platby",
-        "click_for_pay_with_paypal": "Klikněte zde pro platbu přes PayPal",
-        "click_for_pay": "Pro platbu klikněte zde"
+        "click_for_pay": "Pro platbu klikněte zde",
+        "select_payment_gateway": "Vybrat platební bránu"
     },
     "quote": {
         "quote": "Cenová nabídka | Cenové nabídky",
@@ -728,7 +752,10 @@
         "waiting_signature": "Čekání na podpis",
         "not_started": "Nezahájeno",
         "planned": "Plánované",
-        "spam": "Nevyžádaná pošta"
+        "spam": "Nevyžádaná pošta",
+        "on_hold": "Zapnuto",
+        "to_do": "K provedení",
+        "done": "Hotovo"
     },
     "calendar": {
         "calendar": "Kalendář | Kalendáře",
@@ -809,7 +836,10 @@
         "edit_payment": "Upravit platbu",
         "no_payments": "Nebyly nalezeny žádné platby",
         "delete_confirm_payment": "Jste si jisti, že chcete odstranit tuto platbu?",
-        "payment_details": "Detaily platby"
+        "payment_details": "Detaily platby",
+        "refund_confirmation": "Jste si jisti, že chcete vrátit tuto platbu?",
+        "refund_successful": "Platba byla úspěšně vrácena",
+        "refund_failed": "Vrácení platby se nezdařilo"
     },
     "archive": {
         "archive": "Archiv | Archivy",
@@ -959,6 +989,39 @@
         "volunteer": "Dobrovolník",
         "other": "Ostatní"
     },
+    "project": {
+        "project": "Projekt | Projekty",
+        "new_project": "Nový projekt",
+        "edit_project": "Upravit projekt",
+        "no_projects": "Nebyly nalezeny žádné projekty",
+        "create_first_project": "Vytvořte svůj první projekt",
+        "delete_confirm_project": "Jste si jisti, že chcete odstranit tento projekt?",
+        "project_details": "Detaily projektu",
+        "start_and_end_date": "Datum zahájení a ukončení",
+        "team_members": "Členové týmu",
+        "add_team_member": "Přidat člena týmu",
+        "no_team_members": "Žádní členové týmu",
+        "start_end_date": "Začátek a konec",
+        "tasks": "Úkoly",
+        "add_task": "Přidat úkol",
+        "no_tasks": "Nebyly nalezeny žádné úkoly",
+        "task": "Úkol | Úkoly",
+        "edit_task": "Upravit úkol",
+        "delete_task_confirmation": "Jste si jisti, že chcete odstranit tento úkol?",
+        "kanban_board": "Kanban Board",
+        "create_task": "Vytvořit úkol",
+        "project_members": "Členové projektu",
+        "add_member": "Přidat člena",
+        "remove_member": "Odebrat člena",
+        "remove_member_confirmation": "Opravdu chcete odstranit tohoto člena z projektu?"
+    },
+    "project_role": {
+        "owner": "Vlastník",
+        "manager": "Správce",
+        "team_member": "Člen týmu",
+        "viewer": "Prohlížeč",
+        "client": "Zákazník"
+    },
     "admin": {
         "menu": {
             "dashboard": "Nástěnka",
@@ -1019,7 +1082,12 @@
             "open_banking_client_id": "Open Banking Client ID",
             "open_banking_secret": "Otevřené bankovní tajemství",
             "open_banking_help": "Své ID a tajné ID klienta můžete najít ve svém severském účtu.",
-            "online_payments": "Online platby"
+            "online_payments": "Online platby",
+            "coinbase": "Barevné hlinky",
+            "coinbase_available": "Mince jsou k dispozici",
+            "coinbase_api_key": "API klíč Coinbase",
+            "coinbase_api_key_help": "Váš API klíč můžete najít v komerčním účtu Coinbase.",
+            "coinbase_account_id": "ID interního účtu Coinbase"
         },
         "status": {
             "title": "Stavová stránka",
@@ -1090,7 +1158,10 @@
             "default_time_format": "Výchozí formát času",
             "default_datetime_format": "Výchozí formát data a času",
             "show_barcode_on_documents": "Zobrazit čárový kód na dokumentech",
-            "week_start": "Počáteční den týdne"
+            "week_start": "Počáteční den týdne",
+            "exchange_rate_provider": "Poskytovatel směnného kurzu",
+            "save_document_into_archive": "Uložit dokument do archivu",
+            "save_document_into_archive_description": "Pokud je povoleno, dokumenty budou uloženy do archivu (faktury, cenové nabídky, účty, smlouvy)."
         },
         "taxes": {
             "title": "Daňové sazby",
@@ -1102,7 +1173,9 @@
             "name": "Název",
             "value": "Hodnota",
             "description": "L 343, 22.12.2009, s. 1).",
-            "delete_confirm_tax": "Jste si jisti, že chcete odstranit tuto sazbu daně?"
+            "delete_confirm_tax": "Jste si jisti, že chcete odstranit tuto sazbu daně?",
+            "import_tax": "Importovat daňové sazby",
+            "import_tax_description": "Můžete importovat daňové sazby z veřejných datových zdrojů. Data budou načtena ze seznamu DPH EU. Nemůže být plně aktuální nebo přesné. Zkontrolujte prosím importovaná data."
         },
         "role": {
             "title": "Role",
@@ -1197,6 +1270,8 @@
             "document_types": "Typy dokumentů",
             "payment_methods": "Způsoby platby",
             "contract_types": "Typy kontraktů",
+            "task_categories": "Kategorie úkolů",
+            "project_categories": "Kategorie projektů",
             "new_data_collection_item": "Nová položka pro sběr dat",
             "edit_data_collection_item": "Upravit položku kolekce dat",
             "icon_tooltip": "Písmo Awesome ikony můžete použít zde: https://fontawesome.com/icons",
@@ -1205,7 +1280,11 @@
             "no_transaction_categories": "Nebyly nalezeny žádné kategorie transakcí",
             "no_contract_types": "Nebyly nalezeny žádné typy smluv",
             "delete_category_ask": "Jste si jisti, že chcete odstranit tuto položku pro sběr dat?",
-            "delete_category_success": "Položka sběru dat byla úspěšně odstraněna"
+            "delete_category_success": "Položka sběru dat byla úspěšně odstraněna",
+            "product_categories": "Kategorie produktů",
+            "no_product_categories": "Nebyly nalezeny žádné kategorie produktů",
+            "no_task_categories": "Nebyly nalezeny žádné kategorie úkolů",
+            "no_project_categories": "Nebyly nalezeny žádné kategorie projektu"
         }
     },
     "month": {
@@ -1569,5 +1648,23 @@
         "finish_installation_description": "Instalace je dokončena. Nyní se můžete přihlásit ke svému účtu.",
         "go_to_login": "Přejít na přihlášení",
         "installation": "Montáž"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Nástěnka",
+            "invoices": "Faktury",
+            "quotes": "Citace",
+            "transactions": "Transakce",
+            "support": "Podpora",
+            "contracts": "Zakázky",
+            "partner_details": "Podrobnosti o partnerovi"
+        },
+        "partner_details": "Podrobnosti o partnerovi",
+        "dashboard": "Nástěnka",
+        "number_of_contracts": "Počet smluv",
+        "number_of_unpaid_invoices": "Počet nezaplacených faktur",
+        "number_of_quotes": "Počet kotací",
+        "number_of_bills": "Počet účtů",
+        "number_of_support_tickets": "Počet podpůrných lístků"
     }
 }

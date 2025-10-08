@@ -130,7 +130,8 @@
         "system": "Система",
         "add_signer": "Додати реєстр",
         "click_for_download": "Натисніть тут, щоб завантажити",
-        "sign": "Підпис"
+        "sign": "Підпис",
+        "import": "Імпорт"
     },
     "audit_log": {
         "audit_log": "Журнал аудиту",
@@ -172,6 +173,7 @@
         "internal": "Внутрішній",
         "external": "Зовнішній",
         "external_key": "Зовнішній ключ",
+        "client_portal": "Портал клієнта",
         "system": "Система"
     },
     "user_nav_menu": {
@@ -201,7 +203,8 @@
         "employees": "Співробітники",
         "support": "Підтримка",
         "payments": "Оплата",
-        "contracts": "Контракти"
+        "contracts": "Контракти",
+        "projects": "Проекти"
     },
     "dashboard": {
         "title": "Приладна дошка",
@@ -419,7 +422,16 @@
         "module": "Модуль",
         "parent_category": "Батьківська категорія",
         "icon": "Іконка",
-        "additional_info": "Додаткова інформація"
+        "additional_info": "Додаткова інформація",
+        "client_portal": "Портал клієнта",
+        "type_of_contract_sign": "Тип знака договору",
+        "refund": "Повернення коштів",
+        "payment_number": "Номер оплати",
+        "is_billable": "Оплатить",
+        "budget": "Бюджет",
+        "project_key": "Ключ проекту",
+        "completed_at": "Завершено",
+        "progress_in_percent": "Відсоток прогресу в процентах"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -444,6 +456,10 @@
         "one_year": "Один рік",
         "all_time": "За весь час",
         "never": "Ніколи"
+    },
+    "task_type": {
+        "task": "Завдання",
+        "milestone": "Етап"
     },
     "industries": {
         "agriculture": "Сільське господарство",
@@ -493,6 +509,7 @@
         "credit_card": "Платіжна картка",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Куенбаз",
         "other": "Інше"
     },
     "support_priority": {
@@ -522,6 +539,11 @@
     "tax_types": {
         "percent": "Процент",
         "fixed": "Виправлена"
+    },
+    "contract_sign_types": {
+        "electronic": "Електронний",
+        "digital_signature": "Цифрова підпис",
+        "paper": "Папір"
     },
     "login_history": {
         "login_history": "Історія входів в систему",
@@ -555,7 +577,9 @@
         "activities": "Події",
         "edit_activity": "Редагувати дію",
         "partner_activities": "Активність партнера",
-        "send_email": "Надіслати ел. листа"
+        "send_email": "Надіслати ел. листа",
+        "add_to_client_portal": "Додати до клієнтського порталу",
+        "vat_number_required": "Необхідно вказати номер платника ПДВ"
     },
     "partner_activity_types": {
         "call": "Дзвінок",
@@ -652,8 +676,8 @@
         "list_of_transactions": "Список операцій",
         "no_sales_person": "Немає відділу з продажу",
         "no_payment_method": "Немає способу оплати",
-        "click_for_pay_with_paypal": "Натисніть тут, щоб заплатити за допомогою PayPal",
-        "click_for_pay": "Натисніть тут, щоб заплатити"
+        "click_for_pay": "Натисніть тут, щоб заплатити",
+        "select_payment_gateway": "Обрати платіжний шлюз"
     },
     "quote": {
         "quote": "Котирування | Комерційні пропозиції",
@@ -728,7 +752,10 @@
         "waiting_signature": "Очікування підпису",
         "not_started": "Не розпочато",
         "planned": "Заплановано",
-        "spam": "Спам"
+        "spam": "Спам",
+        "on_hold": "На утриманні",
+        "to_do": "Зробити",
+        "done": "Виконано"
     },
     "calendar": {
         "calendar": "Календар | Календар",
@@ -809,7 +836,10 @@
         "edit_payment": "Редагувати платіж",
         "no_payments": "Не знайдено оплат",
         "delete_confirm_payment": "Ви впевнені, що хочете видалити цей платіж?",
-        "payment_details": "Деталі платежу"
+        "payment_details": "Деталі платежу",
+        "refund_confirmation": "Справді бажаєте повернути цей платіж?",
+        "refund_successful": "Оплату успішно повернуто",
+        "refund_failed": "Відшкодування платежу не вдалося"
     },
     "archive": {
         "archive": "Архів | Архіви",
@@ -959,6 +989,39 @@
         "volunteer": "Волонтер",
         "other": "Інше"
     },
+    "project": {
+        "project": "Проект | Проекти",
+        "new_project": "Новий проект",
+        "edit_project": "Редагувати проект",
+        "no_projects": "Проектів не знайдено",
+        "create_first_project": "Створіть свій перший проект",
+        "delete_confirm_project": "Ви дійсно бажаєте видалити цей проект?",
+        "project_details": "Деталі проекту",
+        "start_and_end_date": "Дата початку і закінчення",
+        "team_members": "Учасники команди",
+        "add_team_member": "Додати учасника команди",
+        "no_team_members": "Немає членів команди",
+        "start_end_date": "Дата початку і закінчення",
+        "tasks": "Завдання",
+        "add_task": "Додати завдання",
+        "no_tasks": "Не знайдено завдань",
+        "task": "Завдання | Завдання",
+        "edit_task": "Редагувати завдання",
+        "delete_task_confirmation": "Ви дійсно бажаєте видалити це завдання?",
+        "kanban_board": "Kanban дошка",
+        "create_task": "Нове завдання",
+        "project_members": "Учасники проекту",
+        "add_member": "Додати учасника",
+        "remove_member": "Видалити члена",
+        "remove_member_confirmation": "Ви впевнені, що хочете видалити цього учасника з проекту?"
+    },
+    "project_role": {
+        "owner": "Власник",
+        "manager": "Керівник",
+        "team_member": "Член команди",
+        "viewer": "Переглядач",
+        "client": "Клієнт"
+    },
     "admin": {
         "menu": {
             "dashboard": "Приладна дошка",
@@ -1019,7 +1082,12 @@
             "open_banking_client_id": "Відкрити банківський клієнт ID",
             "open_banking_secret": "Відкрити банківський секрет",
             "open_banking_help": "Ви можете знайти ваш ID клієнта і Secret в Вашому обліковому записі Nordigen.",
-            "online_payments": "Онлайн платежі"
+            "online_payments": "Онлайн платежі",
+            "coinbase": "Куенбаз",
+            "coinbase_available": "Доступно Coinbase",
+            "coinbase_api_key": "Ключ Coinbase API",
+            "coinbase_api_key_help": "Ви можете знайти свій ключ API у вашому обліковому записі Coinbase.",
+            "coinbase_account_id": "Ідентифікатор внутрішнього облікового запису Coinbase"
         },
         "status": {
             "title": "Сторінка стану",
@@ -1090,7 +1158,10 @@
             "default_time_format": "Формат часу за замовчуванням",
             "default_datetime_format": "Формат дати і часу за замовчуванням",
             "show_barcode_on_documents": "Показувати штрих-код на документах",
-            "week_start": "День початку тижня"
+            "week_start": "День початку тижня",
+            "exchange_rate_provider": "Постачальник обмінного курсу",
+            "save_document_into_archive": "Зберегти документ у архів",
+            "save_document_into_archive_description": "Якщо увімкнено, документи будуть збережені в архів (рахунки-фактури, котирування, рахунки, контракти)."
         },
         "taxes": {
             "title": "Податкові ставки",
@@ -1102,7 +1173,9 @@
             "name": "Ім'я",
             "value": "Цінність",
             "description": "Опис",
-            "delete_confirm_tax": "Ви дійсно бажаєте видалити цю податкову ставку?"
+            "delete_confirm_tax": "Ви дійсно бажаєте видалити цю податкову ставку?",
+            "import_tax": "Імпорт податкових ставок",
+            "import_tax_description": "Ви можете імпортувати податкові ставки з державних даних ресурсів. Дані будуть отримані з переліку ПДВ ЄС. Неможливо повністю оновити або точно. Будь ласка, перевірте імпортовані дані."
         },
         "role": {
             "title": "Ролі",
@@ -1197,6 +1270,8 @@
             "document_types": "Типи документів",
             "payment_methods": "Способи оплати",
             "contract_types": "Типи контрактів",
+            "task_categories": "Категорії завдань",
+            "project_categories": "Категорії проекту",
             "new_data_collection_item": "Новий елемент збору даних",
             "edit_data_collection_item": "Редагувати Елемент Збору даних",
             "icon_tooltip": "Можна використовувати піктограми із шрифтами Awesom. Можна знайти список значків тут: https://fontawesome.com/icons",
@@ -1205,7 +1280,11 @@
             "no_transaction_categories": "Не знайдено категорій операцій",
             "no_contract_types": "Не знайдено жодного типу контрактів",
             "delete_category_ask": "Ви дійсно бажаєте видалити цей елемент збору даних?",
-            "delete_category_success": "Елемент збору даних успішно видалено"
+            "delete_category_success": "Елемент збору даних успішно видалено",
+            "product_categories": "Категорії товарів",
+            "no_product_categories": "Не знайдено категорій товарів",
+            "no_task_categories": "Не знайдено категорії завдань",
+            "no_project_categories": "Не знайдено категорій проекту"
         }
     },
     "month": {
@@ -1569,5 +1648,23 @@
         "finish_installation_description": "Встановлення завершено. Ви можете увійти в свій обліковий запис.",
         "go_to_login": "Перейти до входу",
         "installation": "Інсталяція"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Приладна дошка",
+            "invoices": "Рахунки",
+            "quotes": "Комерційні пропозиції",
+            "transactions": "Транзакції",
+            "support": "Підтримка",
+            "contracts": "Контракти",
+            "partner_details": "Деталі партнера"
+        },
+        "partner_details": "Деталі партнера",
+        "dashboard": "Приладна дошка",
+        "number_of_contracts": "Кількість договорів",
+        "number_of_unpaid_invoices": "Кількість неоплачених рахунків",
+        "number_of_quotes": "Кількість лапок",
+        "number_of_bills": "Кількість рахунків",
+        "number_of_support_tickets": "Кількість квитків на підтримку"
     }
 }

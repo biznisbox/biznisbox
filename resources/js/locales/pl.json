@@ -130,7 +130,8 @@
         "system": "System",
         "add_signer": "Dodaj podpisującego",
         "click_for_download": "Kliknij tutaj, aby pobrać",
-        "sign": "Podpis"
+        "sign": "Podpis",
+        "import": "Importuj"
     },
     "audit_log": {
         "audit_log": "Dziennik audytu",
@@ -172,6 +173,7 @@
         "internal": "Wewnętrzne",
         "external": "Zewnętrzne",
         "external_key": "Klucz zewnętrzny",
+        "client_portal": "Portal klienta",
         "system": "System"
     },
     "user_nav_menu": {
@@ -201,7 +203,8 @@
         "employees": "Pracownicy",
         "support": "Wsparcie",
         "payments": "Wynagrodzenia",
-        "contracts": "Kontrakty"
+        "contracts": "Kontrakty",
+        "projects": "Projekty"
     },
     "dashboard": {
         "title": "Pulpit",
@@ -419,7 +422,16 @@
         "module": "Moduł",
         "parent_category": "Kategoria nadrzędna",
         "icon": "Ikona",
-        "additional_info": "Dodatkowe informacje"
+        "additional_info": "Dodatkowe informacje",
+        "client_portal": "Portal klienta",
+        "type_of_contract_sign": "Rodzaj podpisu umowy",
+        "refund": "Zwrot",
+        "payment_number": "Numer płatności",
+        "is_billable": "Jest Billable",
+        "budget": "Budżet",
+        "project_key": "Klucz projektu",
+        "completed_at": "Ukończone w",
+        "progress_in_percent": "Postęp w procentach"
     },
     "address_types": {
         "billing": "Płatność",
@@ -444,6 +456,10 @@
         "one_year": "Jeden rok",
         "all_time": "Cały czas",
         "never": "Nigdy"
+    },
+    "task_type": {
+        "task": "Zadanie",
+        "milestone": "Etap"
     },
     "industries": {
         "agriculture": "Rolnictwo",
@@ -493,6 +509,7 @@
         "credit_card": "Karta płatnicza",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Baza monet",
         "other": "Inne"
     },
     "support_priority": {
@@ -522,6 +539,11 @@
     "tax_types": {
         "percent": "Procent",
         "fixed": "Naprawione"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektroniczne",
+        "digital_signature": "Podpis cyfrowy",
+        "paper": "Papier"
     },
     "login_history": {
         "login_history": "Historia logowania",
@@ -555,7 +577,9 @@
         "activities": "Aktywności",
         "edit_activity": "Edytuj Aktywność",
         "partner_activities": "Aktywności partnera",
-        "send_email": "Wyślij e-mail"
+        "send_email": "Wyślij e-mail",
+        "add_to_client_portal": "Dodaj do portalu klienta",
+        "vat_number_required": "Numer VAT jest wymagany"
     },
     "partner_activity_types": {
         "call": "Połącz",
@@ -652,8 +676,8 @@
         "list_of_transactions": "Lista transakcji",
         "no_sales_person": "Brak sprzedawcy",
         "no_payment_method": "Brak metody płatności",
-        "click_for_pay_with_paypal": "Kliknij tutaj, aby zapłacić PayPal",
-        "click_for_pay": "Kliknij tutaj, aby zapłacić"
+        "click_for_pay": "Kliknij tutaj, aby zapłacić",
+        "select_payment_gateway": "Wybierz bramę płatności"
     },
     "quote": {
         "quote": "Oferta | Oferty",
@@ -728,7 +752,10 @@
         "waiting_signature": "Oczekiwanie na podpis",
         "not_started": "Nie rozpoczęto",
         "planned": "Zaplanowane",
-        "spam": "Spam"
+        "spam": "Spam",
+        "on_hold": "Zatrzymano",
+        "to_do": "Do wykonania",
+        "done": "Gotowe"
     },
     "calendar": {
         "calendar": "Kalendarz | Kalendarze",
@@ -809,7 +836,10 @@
         "edit_payment": "Edytuj płatność",
         "no_payments": "Nie znaleziono płatności",
         "delete_confirm_payment": "Czy na pewno chcesz usunąć tę płatność?",
-        "payment_details": "Szczegóły płatności"
+        "payment_details": "Szczegóły płatności",
+        "refund_confirmation": "Czy na pewno chcesz zwrócić tę płatność?",
+        "refund_successful": "Płatność zwrócona pomyślnie",
+        "refund_failed": "Zwrot płatności nie powiódł się"
     },
     "archive": {
         "archive": "Archiwum | Archiwum",
@@ -959,6 +989,39 @@
         "volunteer": "Wolontariusz",
         "other": "Inne"
     },
+    "project": {
+        "project": "Projekt | Projekty",
+        "new_project": "Nowy projekt",
+        "edit_project": "Edytuj projekt",
+        "no_projects": "Nie znaleziono projektów",
+        "create_first_project": "Utwórz swój pierwszy projekt",
+        "delete_confirm_project": "Czy na pewno chcesz usunąć ten projekt?",
+        "project_details": "Szczegóły projektu",
+        "start_and_end_date": "Data rozpoczęcia i zakończenia",
+        "team_members": "Członkowie zespołu",
+        "add_team_member": "Dodaj członka zespołu",
+        "no_team_members": "Brak członków zespołu",
+        "start_end_date": "Data rozpoczęcia i zakończenia",
+        "tasks": "Zadania",
+        "add_task": "Dodaj zadanie",
+        "no_tasks": "Nie znaleziono zadań",
+        "task": "Zadanie | Zadania",
+        "edit_task": "Edytuj zadanie",
+        "delete_task_confirmation": "Czy na pewno chcesz usunąć to zadanie?",
+        "kanban_board": "Tablica Kanban",
+        "create_task": "Utwórz zadanie",
+        "project_members": "Członkowie projektu",
+        "add_member": "Dodaj członka",
+        "remove_member": "Usuń członka",
+        "remove_member_confirmation": "Czy na pewno chcesz usunąć tego użytkownika z projektu?"
+    },
+    "project_role": {
+        "owner": "Właściciel",
+        "manager": "Menedżer",
+        "team_member": "Członek zespołu",
+        "viewer": "Przeglądarka",
+        "client": "Klient"
+    },
     "admin": {
         "menu": {
             "dashboard": "Pulpit",
@@ -1019,7 +1082,12 @@
             "open_banking_client_id": "Otwarty identyfikator klienta bankowego",
             "open_banking_secret": "Otwarty klucz bankowy",
             "open_banking_help": "Możesz znaleźć swój identyfikator klienta i sekret na swoim koncie Nordigen.",
-            "online_payments": "Płatności online"
+            "online_payments": "Płatności online",
+            "coinbase": "Baza monet",
+            "coinbase_available": "Dostępna baza monet",
+            "coinbase_api_key": "Klucz API Coinbase",
+            "coinbase_api_key_help": "Klucz API można znaleźć na koncie Coinbase commerce.",
+            "coinbase_account_id": "ID konta wewnętrznego Coinbase"
         },
         "status": {
             "title": "Strona statusu",
@@ -1090,7 +1158,10 @@
             "default_time_format": "Domyślny format czasu",
             "default_datetime_format": "Domyślny format daty",
             "show_barcode_on_documents": "Pokaż kod kreskowy na dokumentach",
-            "week_start": "Dzień początkowy tygodnia"
+            "week_start": "Dzień początkowy tygodnia",
+            "exchange_rate_provider": "Dostawca kursu wymiany walut",
+            "save_document_into_archive": "Zapisz dokument w Archiwum",
+            "save_document_into_archive_description": "Jeśli włączone, dokumenty zostaną zapisane w archiwum (faktury, oferty, rachunki, kontrakty)."
         },
         "taxes": {
             "title": "Stawki podatku",
@@ -1102,7 +1173,9 @@
             "name": "Nazwisko",
             "value": "Wartość",
             "description": "Opis",
-            "delete_confirm_tax": "Czy na pewno chcesz usunąć tę stawkę podatku?"
+            "delete_confirm_tax": "Czy na pewno chcesz usunąć tę stawkę podatku?",
+            "import_tax": "Importuj stawki podatku",
+            "import_tax_description": "Możesz zaimportować stawki podatkowe z publicznych zasobów danych. Dane zostaną pobrane z unijnej listy VAT. Nie może być w pełni aktualny lub dokładny. Sprawdź ponownie zaimportowane dane."
         },
         "role": {
             "title": "Role",
@@ -1197,6 +1270,8 @@
             "document_types": "Typy dokumentów",
             "payment_methods": "Metody płatności",
             "contract_types": "Rodzaje umów",
+            "task_categories": "Kategorie zadań",
+            "project_categories": "Kategorie projektów",
             "new_data_collection_item": "Nowy element zbierania danych",
             "edit_data_collection_item": "Edytuj element zbierania danych",
             "icon_tooltip": "Możesz użyć ikony Font Awesome (Font Awesome ikony). Lista ikon znajduje się tutaj: https://fontawesome.com/icons",
@@ -1205,7 +1280,11 @@
             "no_transaction_categories": "Nie znaleziono kategorii transakcji",
             "no_contract_types": "Nie znaleziono typów umów",
             "delete_category_ask": "Czy na pewno chcesz usunąć ten element kolekcji danych?",
-            "delete_category_success": "Element zbierania danych został pomyślnie usunięty"
+            "delete_category_success": "Element zbierania danych został pomyślnie usunięty",
+            "product_categories": "Kategorie produktów",
+            "no_product_categories": "Nie znaleziono kategorii produktów",
+            "no_task_categories": "Nie znaleziono kategorii zadań",
+            "no_project_categories": "Nie znaleziono kategorii projektu"
         }
     },
     "month": {
@@ -1569,5 +1648,23 @@
         "finish_installation_description": "Instalacja zakończona. Możesz teraz zalogować się na swoje konto.",
         "go_to_login": "Przejdź do logowania",
         "installation": "Instalacja"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Pulpit",
+            "invoices": "Faktury",
+            "quotes": "Oferty",
+            "transactions": "Transakcje",
+            "support": "Wsparcie",
+            "contracts": "Kontrakty",
+            "partner_details": "Szczegóły partnera"
+        },
+        "partner_details": "Szczegóły partnera",
+        "dashboard": "Pulpit",
+        "number_of_contracts": "Liczba umów",
+        "number_of_unpaid_invoices": "Liczba niespłaconych faktur",
+        "number_of_quotes": "Liczba kwotowań",
+        "number_of_bills": "Liczba rachunków",
+        "number_of_support_tickets": "Liczba biletów wsparcia"
     }
 }
