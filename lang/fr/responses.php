@@ -130,4 +130,9 @@ return [
     'archive_document_auto_generated' => 'Archivage du document généré automatiquement avec succès',
     'already_accepted_rejected' => 'Le devis a déjà été accepté ou rejeté',
     'payment_gateway_not_supported' => 'Passerelle de paiement non prise en charge',
+    'member_added_successfully' => 'Membre ajouté avec succès',
+    'member_role_updated_successfully' => 'Rôle membre mis à jour avec succès',
+    'cannot_update_member_role' => 'Impossible de mettre à jour le rôle du membre',
+    'cannot_remove_member' => 'Impossible de supprimer le membre',
+    'member_removed_successfully' => 'Membre supprimé avec succès',
 ];
