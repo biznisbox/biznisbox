@@ -93,28 +93,26 @@
                     <TextInput v-model="project.project_key" :label="$t('form.project_key')" />
                     <TinyMceEditor v-model="project.description" :label="$t('form.description')" />
 
-                    <DateInput v-model="project.start_date" :label="$t('form.start_date')" />
-                    <DateInput v-model="project.end_date" :label="$t('form.end_date')" />
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <DateInput v-model="project.start_date" :label="$t('form.start_date')" />
+                        <DateInput v-model="project.end_date" :label="$t('form.end_date')" />
+                    </div>
 
-                    <SelectInput
-                        v-model="project.category"
-                        :options="projectCategories"
-                        :label="$t('form.category')"
-                        placeholder="Select a category"
-                    />
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <SelectInput
+                            v-model="project.status"
+                            :options="projectStatuses"
+                            :label="$t('form.status')"
+                            placeholder="Select a status"
+                        />
 
-                    <SelectInput
-                        v-model="project.status"
-                        :options="projectStatuses"
-                        :label="$t('form.status')"
-                        placeholder="Select a status"
-                    />
-                    <SelectInput
-                        v-model="project.priority"
-                        :options="projectPriorities"
-                        :label="$t('form.priority')"
-                        placeholder="Select a priority"
-                    />
+                        <SelectInput
+                            v-model="project.priority"
+                            :options="projectPriorities"
+                            :label="$t('form.priority')"
+                            placeholder="Select a priority"
+                        />
+                    </div>
                     <NumberInput v-model="project.budget" :label="$t('form.budget')" type="currency" />
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <div class="flex flex-col gap-2 mb-2">

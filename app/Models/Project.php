@@ -68,7 +68,9 @@ class Project extends Model implements Auditable
 
     public function members()
     {
-        return $this->belongsToMany(User::class, 'project_members', 'project_id', 'user_id')->withTimestamps();
+        return $this->belongsToMany(User::class, 'project_members', 'project_id', 'user_id')
+            ->withPivot('project_role', 'active', 'id')
+            ->withTimestamps();
     }
 
     public static function getProjectNumber()

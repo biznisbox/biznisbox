@@ -119,6 +119,19 @@ if (!function_exists('generateProjectTaskNumber')) {
     }
 }
 
+if (!function_exists('incrementProjectTaskNumber')) {
+    /**
+     * Function for increment last task number for project
+     * @param string  $project_key - project key
+     * @return void
+     */
+    function incrementProjectTaskNumber($project_key)
+    {
+        $number = new SerialNumberFormatter();
+        return $number->incrementProjectTaskNumber($project_key);
+    }
+}
+
 if (!function_exists('settings')) {
     /**
      * Function access to application settings in database

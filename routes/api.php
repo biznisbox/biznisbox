@@ -262,7 +262,10 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/projects', [ProjectController::class, 'createProject'])->name('createProject');
         Route::put('/projects/{id}', [ProjectController::class, 'updateProject'])->name('updateProject');
         Route::delete('/projects/{id}', [ProjectController::class, 'deleteProject'])->name('deleteProject');
-
+        // Project Members
+        Route::post('/project/{id}/members', [ProjectController::class, 'addProjectMember'])->name('addProjectMember');
+        Route::put('/project/{id}/members', [ProjectController::class, 'updateProjectMember'])->name('updateProjectMember');
+        Route::delete('/project/{id}/members/{userId}', [ProjectController::class, 'removeProjectMember'])->name('removeProjectMember');
         // Project Tasks
         Route::get('/projects/tasks/{id}', [ProjectController::class, 'getProjectTask'])->name('getProjectTask');
         Route::post('/projects/tasks', [ProjectController::class, 'createProjectTask'])->name('createProjectTask');

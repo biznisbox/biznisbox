@@ -13,7 +13,7 @@
             :filter="filter"
             :placeholder="placeholder"
             :editable="editable"
-            :show-clear="showClear"
+            :showClear="showClear"
             :invalid="validate?.$dirty && validate?.$invalid"
             @change="updateValue"
             @blur="validate?.$touch()"

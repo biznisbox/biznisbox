@@ -51,13 +51,15 @@ class ProjectService
         }
         // Add created by user as a member (owner)
         $project = $this->projectModel->create($data);
-        $project->members()->attach($data['created_by'], ['role' => 'owner', 'id' => uuid_create()]);
+        $project->members()->attach($data['created_by'], ['project_role' => 'owner', 'id' => uuid_create()]);
+        incrementLastItemNumber('project', settings('project_number_format'));
         return $project;
     }
 
     public function updateProject($id, $data)
     {
         $project = $this->getProjectById($id);
+        $data['project_key'] = $project->project_key; // Prevent updating project_key
         if (!isset($data['is_billable'])) {
             $data['is_billable'] = false;
         }
@@ -71,18 +73,56 @@ class ProjectService
         return $project->delete();
     }
 
-    // Task related methods
+    /**********************************
+     **** Project Member methods ******
+     **********************************/
+    public function addProjectMember($projectId, $userId, $role = 'member')
+    {
+        $project = $this->getProjectById($projectId);
+        if ($project->members()->where('user_id', $userId)->exists()) {
+            return false; // User is already a member
+        }
+        $project->members()->attach($userId, ['project_role' => $role, 'id' => uuid_create()]);
+        return true;
+    }
+
+    public function updateProjectMember($projectId, $userId, $role)
+    {
+        $project = $this->getProjectById($projectId);
+        if (!$project->members()->where('user_id', $userId)->exists()) {
+            return false; // User is not a member
+        }
+        $project->members()->updateExistingPivot($userId, ['project_role' => $role]);
+        return true;
+    }
+
+    public function removeProjectMember($projectId, $userId)
+    {
+        $project = $this->getProjectById($projectId);
+        if (!$project->members()->where('user_id', $userId)->exists()) {
+            return false; // User is not a member
+        }
+        if ($project->created_by == $userId) {
+            return false; // Owner cannot be removed
+        }
+        $project->members()->detach($userId);
+        return true;
+    }
+
+    /**********************************
+     **** Task related methods ********
+     **********************************/
 
     public function getTaskById($id)
     {
-        $task = $this->taskModel->with('assignee:id,email,first_name,last_name,picture', 'project')->findOrFail($id);
-        return $task;
+        return $this->taskModel->with('assignee:id,email,first_name,last_name,picture', 'project')->findOrFail($id);
     }
 
     public function createTask($data)
     {
         $data['number'] = Task::generateTaskNumber([$data['project_id']]);
         $task = $this->taskModel->create($data);
+        incrementProjectTaskNumber($task->project->project_key);
         return $task;
     }
 

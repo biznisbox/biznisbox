@@ -73,8 +73,6 @@ class Task extends Model implements Auditable
             return null; // or throw an exception if preferred
         }
 
-        Log::info($project);
-
         return generateProjectTaskNumber($project->project_key);
     }
 }

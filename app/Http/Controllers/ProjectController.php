@@ -63,7 +63,7 @@ class ProjectController extends Controller
      * @param  string  $id
      * @return array details of the updated project
      */
-    public function updateProject(ProjectRequest $request, $id)
+    public function updateProject(Request $request, $id)
     {
         $data = $request->all();
         $project = $this->projectService->updateProject($id, $data);
@@ -79,6 +79,48 @@ class ProjectController extends Controller
     {
         $this->projectService->deleteProject($id);
         return apiResponse([], __('responses.item_deleted_successfully'));
+    }
+
+    /**
+     * Add project member.
+     * @param string $projectId
+     */
+    public function addProjectMember(Request $request, $projectId)
+    {
+        $userId = $request->input('user_id');
+        $role = $request->input('role', 'member'); // Roles can be 'owner', 'admin', 'member', etc.
+        if (!$userId) {
+            return apiResponse([], __('responses.user_id_required'), 400);
+        }
+        $this->projectService->addProjectMember($projectId, $userId, $role);
+        return apiResponse([], __('responses.member_added_successfully'));
+    }
+
+    /**
+     * Update project member role.
+     * @param string $projectId
+     */
+    public function updateProjectMember(Request $request, $projectId)
+    {
+        $userId = $request->input('user_id');
+        $role = $request->input('role'); // New role
+        if (!$this->projectService->updateProjectMember($projectId, $userId, $role)) {
+            return apiResponse([], __('responses.cannot_update_member_role'), 400);
+        }
+        return apiResponse([], __('responses.member_role_updated_successfully'));
+    }
+
+    /**
+     * Remove project member.
+     * @param string $projectId
+     * @param string $userId
+     */
+    public function removeProjectMember($projectId, $userId)
+    {
+        if (!$this->projectService->removeProjectMember($projectId, $userId)) {
+            return apiResponse([], __('responses.cannot_remove_member'), 400);
+        }
+        return apiResponse([], __('responses.member_removed_successfully'));
     }
 
     // Task related methods can be added here or in a separate TaskController

@@ -33,7 +33,7 @@ return new class extends Migration {
             $table->uuid('id')->primary();
             $table->foreignUuid('project_id')->references('id')->on('projects')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignUuid('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('role')->nullable();
+            $table->string('project_role')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
         });

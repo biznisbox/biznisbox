@@ -36,6 +36,17 @@ export default {
                 { label: this.$t('priority.high'), value: 'high' },
                 { label: this.$t('priority.urgent'), value: 'urgent' },
             ],
+            taskTypes: [
+                { label: this.$t('task_type.task'), value: 'task' },
+                { label: this.$t('task_type.milestone'), value: 'milestone' },
+            ],
+            projectRoles: [
+                { label: this.$t('project_role.owner'), value: 'owner' },
+                { label: this.$t('project_role.manager'), value: 'manager' },
+                { label: this.$t('project_role.team_member'), value: 'team_member' },
+                { label: this.$t('project_role.viewer'), value: 'viewer' },
+                { label: this.$t('project_role.client'), value: 'client' },
+            ],
             task: {
                 project_id: this.project?.id,
                 number: '',
@@ -109,8 +120,24 @@ export default {
          * @returns {void}
          */
         getProject(id) {
-            this.makeHttpRequest('GET', `/api/projects/${id}`).then((response) => {
-                this.project = response.data.data
+            this.makeHttpRequest('GET', `/api/projects/${id}`)
+                .then((response) => {
+                    this.project = response.data.data
+                })
+                .catch((error) => {
+                    if (error.response && error.response.status === 404) {
+                        this.$router.push({ name: 'projects' })
+                    }
+                })
+        },
+
+        /**
+         * Fetch a single task from API
+         * @returns {void}
+         */
+        getTask(id) {
+            this.makeHttpRequest('GET', `/api/projects/tasks/${id}`).then((response) => {
+                this.task = response.data.data
             })
         },
 
@@ -142,6 +169,62 @@ export default {
         deleteTask(id) {
             this.makeHttpRequest('DELETE', `/api/projects/tasks/${id}`).then((response) => {
                 this.showToast(response.data.message)
+                this.showNewEditTaskDialog = false
+                this.getProject(this.project.id)
+            })
+        },
+
+        deleteTaskAsk(id) {
+            this.confirmDeleteDialog(
+                this.$t('project.delete_task_confirmation'),
+                this.$t('basic.confirmation'),
+                () => {
+                    this.deleteTask(id)
+                },
+                () => {}
+            )
+        },
+
+        /**
+         * Remove a member from the project
+         * @param {string} userId - The ID of the user to remove
+         * @returns {void}
+         */
+        removeMember(userId) {
+            this.makeHttpRequest('DELETE', `/api/project/${this.project.id}/members/${userId}`).then((response) => {
+                this.showToast(response.data.message)
+                this.getProject(this.project.id)
+            })
+        },
+
+        removeMemberAsk(userId) {
+            this.confirmDeleteDialog(
+                this.$t('project.remove_member_confirmation'),
+                this.$t('basic.confirmation'),
+                () => {
+                    this.removeMember(userId)
+                },
+                () => {}
+            )
+        },
+
+        /**
+         * Add a member to the project
+         * @param {string} userId - The ID of the user to add
+         * @returns {void}
+         */
+        addProjectMember(userId, role) {
+            this.makeHttpRequest('POST', `/api/project/${this.project.id}/members`, { user_id: userId, role: role }).then((response) => {
+                this.showToast(response.data.message)
+                this.showNewEditProjectMemberDialog = false
+                this.getProject(this.project.id)
+            })
+        },
+
+        updateProjectMember(userId, role) {
+            this.makeHttpRequest('PUT', `/api/project/${this.project.id}/members`, { user_id: userId, role: role }).then((response) => {
+                this.showToast(response.data.message)
+                this.showNewEditProjectMemberDialog = false
                 this.getProject(this.project.id)
             })
         },
