@@ -133,5 +133,13 @@
         "permission": "contracts",
         "permissions": [],
         "to": "/contracts"
+    },
+    {
+        "name": "user_menu_items.projects",
+        "meta": ["projects"],
+        "icon": "fa fa-project-diagram",
+        "permission": "projects",
+        "permissions": [],
+        "to": "/projects"
     }
 ]

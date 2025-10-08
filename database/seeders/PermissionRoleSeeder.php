@@ -34,6 +34,7 @@ class PermissionRoleSeeder extends Seeder
         Permission::firstOrCreate(['name' => 'settings', 'display_name' => 'permissions.settings']);
         Permission::firstOrCreate(['name' => 'contracts', 'display_name' => 'permissions.contracts']);
         Permission::firstOrCreate(['name' => 'webhooks', 'display_name' => 'permissions.webhooks']);
+        Permission::firstOrCreate(['name' => 'projects', 'display_name' => 'permissions.projects']);
 
         // Admin permissions
         Permission::firstOrCreate(['name' => 'admin', 'display_name' => 'permissions.admin']);
@@ -92,6 +93,7 @@ class PermissionRoleSeeder extends Seeder
             'contracts',
             'settings',
             'webhooks',
+            'projects',
         ]);
     }
 }

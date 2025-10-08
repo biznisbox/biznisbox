@@ -117,14 +117,14 @@ export default {
 
         /**
          * Function for show toast message
-         * @param {string} massage Detail of the message
+         * @param {string} message Detail of the message
          * @param {string} summary Summary of the message - title (Success, Info, Warning, Error) (default: Success)
          * @param {string} severity Severity of the message (success, info, warn, error) (default: success)
          * @param {number} life Life of the message in milliseconds (default: 3000)
          * @returns {void} Show toast message
          **/
-        showToast(massage, summary = this.$t('basic.success'), severity = 'success', life = 3000) {
-            this.$toast.add({ severity: severity, summary: summary, detail: massage, life: life })
+        showToast(message, summary = this.$t('basic.success'), severity = 'success', life = 3000) {
+            this.$toast.add({ severity: severity, summary: summary, detail: message, life: life })
         },
 
         /**
@@ -288,6 +288,13 @@ export default {
         viewPaymentNavigation(rowData) {
             this.$router.push({
                 name: 'payment-view',
+                params: { id: rowData.data.id },
+            })
+        },
+
+        viewProjectNavigation(rowData) {
+            this.$router.push({
+                name: 'project-view',
                 params: { id: rowData.data.id },
             })
         },

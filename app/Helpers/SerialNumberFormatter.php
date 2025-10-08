@@ -223,4 +223,16 @@ class SerialNumberFormatter
         }
         return $this->generateNumber($placeholders, '-', $module);
     }
+
+    public static function generateProjectTaskNumber($project_key)
+    {
+        $TASK_NUMBER_FORMAT = '{{TEXT:"' . $project_key . '"}}{{DELIMITER}}{{NUMBER:4}}';
+        return generateNextNumber($TASK_NUMBER_FORMAT, $project_key);
+    }
+
+    public static function incrementProjectTaskNumber($project_key)
+    {
+        $TASK_NUMBER_FORMAT = '{{TEXT:"' . $project_key . '"}}{{DELIMITER}}{{NUMBER:4}}';
+        return incrementLastItemNumber($project_key, $TASK_NUMBER_FORMAT);
+    }
 }

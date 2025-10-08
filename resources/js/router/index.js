@@ -80,6 +80,10 @@ const routes = [
     makeRoute('/support/create', 'support-ticket-create', () => import('../views/support/CreateSupportTicket.vue'), { auth: true }),
     makeRoute('/support/:id', 'support-ticket-view', () => import('../views/support/ViewSupportTicket.vue'), { auth: true }),
 
+    // Projects
+    makeRoute('/projects', 'projects', () => import('../views/projects/Projects.vue'), { auth: true }),
+    makeRoute('/projects/:id', 'project-view', () => import('../views/projects/ViewProject.vue'), { auth: true }),
+
     // Admin
     makeRoute('/admin', 'admin', () => import('../views/admin/AdminDashboard.vue'), { auth: true, admin: true }),
 

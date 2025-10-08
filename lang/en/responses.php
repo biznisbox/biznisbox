@@ -130,4 +130,9 @@ return [
     'archive_document_auto_generated' => 'Archive document auto-generated successfully',
     'already_accepted_rejected' => 'Quote has already been accepted or rejected',
     'payment_gateway_not_supported' => 'Payment gateway not supported',
+    'member_added_successfully' => 'Member added successfully',
+    'member_role_updated_successfully' => 'Member role updated successfully',
+    'cannot_update_member_role' => 'Cannot update member role',
+    'cannot_remove_member' => 'Cannot remove member',
+    'member_removed_successfully' => 'Member removed successfully',
 ];
