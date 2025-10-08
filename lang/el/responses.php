@@ -130,4 +130,9 @@ return [
     'archive_document_auto_generated' => 'Αυτόματη δημιουργία αρχείου εγγράφου με επιτυχία',
     'already_accepted_rejected' => 'Η προσφορά έχει ήδη γίνει δεκτή ή απορριφθεί',
     'payment_gateway_not_supported' => 'Η πύλη πληρωμής δεν υποστηρίζεται',
+    'member_added_successfully' => 'Το μέλος προστέθηκε επιτυχώς',
+    'member_role_updated_successfully' => 'Ο ρόλος μέλους ενημερώθηκε με επιτυχία',
+    'cannot_update_member_role' => 'Αδυναμία ενημέρωσης ρόλου μέλους',
+    'cannot_remove_member' => 'Αδυναμία αφαίρεσης μέλους',
+    'member_removed_successfully' => 'Το μέλος αφαιρέθηκε επιτυχώς',
 ];
