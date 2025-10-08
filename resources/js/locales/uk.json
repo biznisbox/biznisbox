@@ -203,7 +203,8 @@
         "employees": "Співробітники",
         "support": "Підтримка",
         "payments": "Оплата",
-        "contracts": "Контракти"
+        "contracts": "Контракти",
+        "projects": "Проекти"
     },
     "dashboard": {
         "title": "Приладна дошка",
@@ -425,7 +426,12 @@
         "client_portal": "Портал клієнта",
         "type_of_contract_sign": "Тип знака договору",
         "refund": "Повернення коштів",
-        "payment_number": "Номер оплати"
+        "payment_number": "Номер оплати",
+        "is_billable": "Оплатить",
+        "budget": "Бюджет",
+        "project_key": "Ключ проекту",
+        "completed_at": "Завершено",
+        "progress_in_percent": "Відсоток прогресу в процентах"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -450,6 +456,10 @@
         "one_year": "Один рік",
         "all_time": "За весь час",
         "never": "Ніколи"
+    },
+    "task_type": {
+        "task": "Завдання",
+        "milestone": "Етап"
     },
     "industries": {
         "agriculture": "Сільське господарство",
@@ -742,7 +752,10 @@
         "waiting_signature": "Очікування підпису",
         "not_started": "Не розпочато",
         "planned": "Заплановано",
-        "spam": "Спам"
+        "spam": "Спам",
+        "on_hold": "На утриманні",
+        "to_do": "Зробити",
+        "done": "Виконано"
     },
     "calendar": {
         "calendar": "Календар | Календар",
@@ -975,6 +988,39 @@
         "intern": "Внутрішні",
         "volunteer": "Волонтер",
         "other": "Інше"
+    },
+    "project": {
+        "project": "Проект | Проекти",
+        "new_project": "Новий проект",
+        "edit_project": "Редагувати проект",
+        "no_projects": "Проектів не знайдено",
+        "create_first_project": "Створіть свій перший проект",
+        "delete_confirm_project": "Ви дійсно бажаєте видалити цей проект?",
+        "project_details": "Деталі проекту",
+        "start_and_end_date": "Дата початку і закінчення",
+        "team_members": "Учасники команди",
+        "add_team_member": "Додати учасника команди",
+        "no_team_members": "Немає членів команди",
+        "start_end_date": "Дата початку і закінчення",
+        "tasks": "Завдання",
+        "add_task": "Додати завдання",
+        "no_tasks": "Не знайдено завдань",
+        "task": "Завдання | Завдання",
+        "edit_task": "Редагувати завдання",
+        "delete_task_confirmation": "Ви дійсно бажаєте видалити це завдання?",
+        "kanban_board": "Kanban дошка",
+        "create_task": "Нове завдання",
+        "project_members": "Учасники проекту",
+        "add_member": "Додати учасника",
+        "remove_member": "Видалити члена",
+        "remove_member_confirmation": "Ви впевнені, що хочете видалити цього учасника з проекту?"
+    },
+    "project_role": {
+        "owner": "Власник",
+        "manager": "Керівник",
+        "team_member": "Член команди",
+        "viewer": "Переглядач",
+        "client": "Клієнт"
     },
     "admin": {
         "menu": {
@@ -1224,6 +1270,8 @@
             "document_types": "Типи документів",
             "payment_methods": "Способи оплати",
             "contract_types": "Типи контрактів",
+            "task_categories": "Категорії завдань",
+            "project_categories": "Категорії проекту",
             "new_data_collection_item": "Новий елемент збору даних",
             "edit_data_collection_item": "Редагувати Елемент Збору даних",
             "icon_tooltip": "Можна використовувати піктограми із шрифтами Awesom. Можна знайти список значків тут: https://fontawesome.com/icons",
@@ -1234,7 +1282,9 @@
             "delete_category_ask": "Ви дійсно бажаєте видалити цей елемент збору даних?",
             "delete_category_success": "Елемент збору даних успішно видалено",
             "product_categories": "Категорії товарів",
-            "no_product_categories": "Не знайдено категорій товарів"
+            "no_product_categories": "Не знайдено категорій товарів",
+            "no_task_categories": "Не знайдено категорії завдань",
+            "no_project_categories": "Не знайдено категорій проекту"
         }
     },
     "month": {
