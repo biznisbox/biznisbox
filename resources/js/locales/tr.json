@@ -431,7 +431,8 @@
         "budget": "Budget",
         "project_key": "Project Key",
         "completed_at": "Completed At",
-        "progress_in_percent": "Progress in percent"
+        "progress_in_percent": "Progress in percent",
+        "archived_until": "Archived Until"
     },
     "address_types": {
         "billing": "Fatura",
