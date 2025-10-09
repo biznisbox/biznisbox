@@ -86,7 +86,7 @@ class InstallService
      */
     public function getDbSettingsFromEnv()
     {
-        $dbSettings = [
+        return [
             'driver' => env('DB_CONNECTION'),
             'host' => env('DB_HOST'),
             'port' => env('DB_PORT'),
@@ -94,8 +94,6 @@ class InstallService
             'username' => env('DB_USERNAME'),
             'password' => env('DB_PASSWORD'),
         ];
-
-        return $dbSettings;
     }
 
     /**

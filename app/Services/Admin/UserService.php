@@ -35,20 +35,17 @@ class UserService
 
     public function createUser($data)
     {
-        $user = $this->userModel->createUser($data);
-        return $user;
+        return $this->userModel->createUser($data);
     }
 
     public function updateUser($id, $data)
     {
-        $user = $this->userModel->updateUser($id, $data);
-        return $user;
+        return $this->userModel->updateUser($id, $data);
     }
 
     public function deleteUser($id)
     {
-        $user = $this->userModel->deleteUser($id);
-        return $user;
+        return $this->userModel->deleteUser($id);
     }
 
     public function resetPassword($id, $data)

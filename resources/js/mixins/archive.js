@@ -19,7 +19,7 @@ export default {
                 download_url: '',
                 partner_id: '',
                 connected_document_id: '',
-                connected_document_type: 'App\\Models\\Archive',
+                connected_document_type: String.raw('App\Models\Archive'),
                 storage_location_id: '',
                 protection_level: '',
                 preview_link: '',

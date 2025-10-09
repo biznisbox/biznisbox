@@ -156,7 +156,6 @@ export default {
             if (url) {
                 return this.$router.push('/' + url)
             }
-            return
         },
     },
 }

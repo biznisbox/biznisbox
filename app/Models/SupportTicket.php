@@ -151,13 +151,13 @@ class SupportTicket extends Model implements Auditable
         }
 
         // Clear contact details if custom contact is true
-        if ($data['custom_contact'] == true) {
+        if ($data['custom_contact']) {
             $data['contact_id'] = null;
             $data['partner_id'] = null;
         }
 
         // Clear custom contact details if custom contact is false
-        if ($data['custom_contact'] == false) {
+        if (!$data['custom_contact']) {
             $data['contact_name'] = null;
             $data['contact_email'] = null;
             $data['contact_phone_number'] = null;
@@ -189,8 +189,7 @@ class SupportTicket extends Model implements Auditable
 
     public static function getTicketNumber()
     {
-        $number = generateNextNumber(settings('support_ticket_number_format'), 'support_ticket');
-        return $number;
+        return generateNextNumber(settings('support_ticket_number_format'), 'support_ticket');
     }
 
     public function shareTicket($id)

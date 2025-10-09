@@ -28,7 +28,7 @@ export default {
         generatePassword() {
             if (this.user.auto_generated_password) {
                 const array = new Uint32Array(1)
-                window.crypto.getRandomValues(array)
+                globalThis.crypto.getRandomValues(array)
                 this.user.password = array[0].toString(36).slice(-8)
             } else {
                 this.user.password = ''

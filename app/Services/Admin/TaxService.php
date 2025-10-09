@@ -16,32 +16,27 @@ class TaxService
 
     public function getTaxes()
     {
-        $taxes = $this->taxModel->getTaxes();
-        return $taxes;
+        return $this->taxModel->getTaxes();
     }
 
     public function getTax($id)
     {
-        $tax = $this->taxModel->getTax($id);
-        return $tax;
+        return $this->taxModel->getTax($id);
     }
 
     public function createTax($data)
     {
-        $tax = $this->taxModel->createTax($data);
-        return $tax;
+        return $this->taxModel->createTax($data);
     }
 
     public function updateTax($data, $id)
     {
-        $tax = $this->taxModel->updateTax($data, $id);
-        return $tax;
+        return $this->taxModel->updateTax($data, $id);
     }
 
     public function deleteTax($id)
     {
-        $tax = $this->taxModel->deleteTax($id);
-        return $tax;
+        return $this->taxModel->deleteTax($id);
     }
 
     public function importTaxRates($countryCode)

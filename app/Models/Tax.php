@@ -58,8 +58,7 @@ class Tax extends Model implements Auditable
 
     public function createTax($data)
     {
-        $tax = $this->create($data);
-        return $tax;
+        return $this->create($data);
     }
 
     public function updateTax($data, $id)

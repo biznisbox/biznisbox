@@ -26,7 +26,7 @@ class QuoteController extends Controller
      * @return Quote[] $quotes Quotes
      * @authenticated
      */
-    public function getQuotes(Request $request)
+    public function getQuotes()
     {
         $quotes = $this->quoteService->getQuotes();
 
@@ -44,7 +44,7 @@ class QuoteController extends Controller
      * @return Quote $quote Quote
      * @authenticated
      */
-    public function getQuoteById(Request $request, $quoteId)
+    public function getQuoteById($quoteId)
     {
         $quote = $this->quoteService->getQuoteById($quoteId);
 

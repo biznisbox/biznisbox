@@ -226,13 +226,13 @@ class SerialNumberFormatter
 
     public static function generateProjectTaskNumber($project_key)
     {
-        $TASK_NUMBER_FORMAT = '{{TEXT:"' . $project_key . '"}}{{DELIMITER}}{{NUMBER:4}}';
-        return generateNextNumber($TASK_NUMBER_FORMAT, $project_key);
+        $taskNumberFormat = '{{TEXT:"' . $project_key . '"}}{{DELIMITER}}{{NUMBER:4}}';
+        return generateNextNumber($taskNumberFormat, $project_key);
     }
 
     public static function incrementProjectTaskNumber($project_key)
     {
-        $TASK_NUMBER_FORMAT = '{{TEXT:"' . $project_key . '"}}{{DELIMITER}}{{NUMBER:4}}';
-        return incrementLastItemNumber($project_key, $TASK_NUMBER_FORMAT);
+        $taskNumberFormat = '{{TEXT:"' . $project_key . '"}}{{DELIMITER}}{{NUMBER:4}}';
+        incrementLastItemNumber($project_key, $taskNumberFormat);
     }
 }

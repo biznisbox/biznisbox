@@ -33,8 +33,7 @@ class WebhookSubscriptionService
 
     public function createWebhookSubscription($data)
     {
-        $webhookSubscription = $this->webhookSubscription->create($data);
-        return $webhookSubscription;
+        return $this->webhookSubscription->create($data);
     }
 
     public function updateWebhookSubscription($id, $data)

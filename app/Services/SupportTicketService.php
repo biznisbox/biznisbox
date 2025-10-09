@@ -21,14 +21,12 @@ class SupportTicketService
 
     public function getTickets()
     {
-        $tickets = $this->supportTicketModel->getSupportTickets();
-        return $tickets;
+        return $this->supportTicketModel->getSupportTickets();
     }
 
     public function getTicket($id)
     {
-        $ticket = $this->supportTicketModel->getSupportTicket($id);
-        return $ticket;
+        return $this->supportTicketModel->getSupportTicket($id);
     }
 
     public function getTicketContents($id)
@@ -106,8 +104,7 @@ class SupportTicketService
 
     public function getTicketNumber()
     {
-        $ticket = $this->supportTicketModel->getTicketNumber();
-        return $ticket;
+        return $this->supportTicketModel->getTicketNumber();
     }
 
     public function shareTicket($id)

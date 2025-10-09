@@ -282,11 +282,10 @@ export default {
     watch: {
         layout: {
             handler: function (newVal) {
-                this.availableComponents = this.availableComponents.filter((component) => !newVal.find((item) => item.i === component.i))
+                this.availableComponents = this.availableComponents.filter((component) => !newVal.some((item) => item.i === component.i))
             },
             deep: true,
         },
     },
 }
 </script>
-<style></style>

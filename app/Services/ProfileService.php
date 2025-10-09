@@ -12,6 +12,15 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileService
 {
+    private $userModel;
+    private $notificationModel;
+
+    public function __construct()
+    {
+        $this->userModel = new User();
+        $this->notificationModel = new Notification();
+    }
+
     /**
      * Change the theme
      *
@@ -19,7 +28,7 @@ class ProfileService
      */
     public function changeTheme($theme)
     {
-        $user = User::find(auth()->id());
+        $user = $this->userModel->find(auth()->id());
         $user->theme = $theme;
         $user->save();
     }
@@ -31,8 +40,7 @@ class ProfileService
      */
     public function getProfile()
     {
-        $user = User::with('sessions', 'roles', 'permissions')->find(auth()->id());
-        return $user;
+        return $this->userModel->with('sessions', 'roles', 'permissions')->find(auth()->id());
     }
 
     /**
@@ -42,7 +50,7 @@ class ProfileService
      */
     public function updateProfile($data)
     {
-        $user = User::find(auth()->id());
+        $user = $this->userModel->find(auth()->id());
 
         $user->update([
             'first_name' => $data['first_name'],
@@ -58,7 +66,7 @@ class ProfileService
      */
     public function updatePassword($data)
     {
-        $user = User::find(auth()->id());
+        $user = $this->userModel->find(auth()->id());
         // Check if the current password is correct
         if (!Hash::check($data['current_password'], $user->password)) {
             return false;
@@ -79,7 +87,7 @@ class ProfileService
      */
     public function set2FactorAuth()
     {
-        $user = User::find(auth()->id());
+        $user = $this->userModel->find(auth()->id());
         $google2fa = new Google2FA();
         $secret = $google2fa->generateSecretKey();
 
@@ -105,7 +113,7 @@ class ProfileService
      */
     public function enable2FactorAuth($data)
     {
-        $user = User::find(auth()->id());
+        $user = $this->userModel->find(auth()->id());
 
         $google2fa = new Google2FA();
         $secret = DB::table('2fa')
@@ -127,7 +135,7 @@ class ProfileService
 
             DB::table('2fa')->where('user_id', $user->id)->where('secret', '!=', $secret)->delete();
 
-            User::find(auth()->id())->update(['two_factor_auth' => true]);
+            $this->userModel->find(auth()->id())->update(['two_factor_auth' => true]);
 
             return true;
         }
@@ -139,11 +147,11 @@ class ProfileService
      */
     public function disable2FactorAuth()
     {
-        $user = User::find(auth()->id());
+        $user = $this->userModel->find(auth()->id());
 
         DB::table('2fa')->where('user_id', $user->id)->delete();
 
-        User::find(auth()->id())->update(['two_factor_auth' => false]);
+        $this->userModel->find(auth()->id())->update(['two_factor_auth' => false]);
     }
 
     /**
@@ -154,7 +162,7 @@ class ProfileService
     public function setProfilePicture($request)
     {
         if ($request->hasFile('picture')) {
-            $user = User::find(auth()->id());
+            $user = $this->userModel->find(auth()->id());
             if ($user->picture && $user->picture !== $user->id . '.png') {
                 Storage::disk('public')->delete($user->picture);
             }
@@ -171,7 +179,7 @@ class ProfileService
      */
     public function deleteProfilePicture()
     {
-        $user = User::find(auth()->id());
+        $user = $this->userModel->find(auth()->id());
         if ($user->picture && $user->picture !== $user->id . '.png') {
             Storage::disk('public')->delete($user->picture);
         }
@@ -190,7 +198,7 @@ class ProfileService
      */
     public function getCurrentUserNotifications()
     {
-        return Notification::getUserNotifications(auth()->id());
+        return $this->notificationModel->getUserNotifications(auth()->id());
     }
 
     /**
@@ -200,7 +208,8 @@ class ProfileService
      */
     public function markNotificationAsRead($notification_id)
     {
-        $notification = Notification::where('id', $notification_id)
+        $notification = $this->notificationModel
+            ->where('id', $notification_id)
             ->where('user_id', auth()->id())
             ->first();
         return $notification->markAsRead();
@@ -213,7 +222,8 @@ class ProfileService
      */
     public function deleteNotification($notification_id)
     {
-        $notification = Notification::where('id', $notification_id)
+        $notification = $this->notificationModel
+            ->where('id', $notification_id)
             ->where('user_id', auth()->id())
             ->first();
         return $notification->delete();

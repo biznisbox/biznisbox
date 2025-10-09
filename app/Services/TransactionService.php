@@ -14,43 +14,36 @@ class TransactionService
 
     public function getTransactions()
     {
-        $transactions = $this->transactionModel->getTransactions();
-        return $transactions;
+        return $this->transactionModel->getTransactions();
     }
 
     public function getTransaction($id)
     {
-        $transaction = $this->transactionModel->getTransaction($id);
-        return $transaction;
+        return $this->transactionModel->getTransaction($id);
     }
 
     public function createTransaction($data)
     {
-        $transaction = $this->transactionModel->createTransaction($data);
-        return $transaction;
+        return $this->transactionModel->createTransaction($data);
     }
 
     public function updateTransaction($id, $data)
     {
-        $transaction = $this->transactionModel->updateTransaction($id, $data);
-        return $transaction;
+        return $this->transactionModel->updateTransaction($id, $data);
     }
 
     public function deleteTransaction($id)
     {
-        $transaction = $this->transactionModel->deleteTransaction($id);
-        return $transaction;
+        return $this->transactionModel->deleteTransaction($id);
     }
 
     public function getTransactionNumber()
     {
-        $transaction = $this->transactionModel->getTransactionNumber();
-        return $transaction;
+        return $this->transactionModel->getTransactionNumber();
     }
 
     public function getTransactionsByAccountId($account_id)
     {
-        $transactions = $this->transactionModel->getTransactionsByAccountId($account_id);
-        return $transactions;
+        return $this->transactionModel->getTransactionsByAccountId($account_id);
     }
 }

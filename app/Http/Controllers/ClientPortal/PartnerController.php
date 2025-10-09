@@ -26,7 +26,7 @@ class PartnerController extends Controller
      * @return Partner $partner Partner details
      * @authenticated
      */
-    public function getPartnerDetails(Request $request)
+    public function getPartnerDetails()
     {
         $partner = $this->partnerService->getPartner();
 

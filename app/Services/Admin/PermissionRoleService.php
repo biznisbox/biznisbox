@@ -152,7 +152,6 @@ class PermissionRoleService
      */
     public function getPermissions()
     {
-        $permissions = Permission::all();
-        return $permissions;
+        return Permission::all();
     }
 }

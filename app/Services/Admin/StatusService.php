@@ -77,6 +77,9 @@ class StatusService
             case 'sqlsrv':
                 $version = DB::selectOne('SELECT @@VERSION as version')->version;
                 break;
+            default:
+                $version = 'Unknown database type';
+                break;
         }
 
         return $version;

@@ -947,3 +947,14 @@ if (!function_exists('calculateStorageUsage')) {
         return $usage;
     }
 }
+
+if (!function_exists('getCurrentLoggedInUserId')) {
+    /**
+     * Get current logged in user id
+     * @return string|null $user_id - user id
+     */
+    function getCurrentLoggedInUserId()
+    {
+        return auth()->id();
+    }
+}

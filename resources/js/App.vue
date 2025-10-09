@@ -15,17 +15,17 @@ export default {
         handleHelp(e) {
             if (e.key === 'F1') {
                 e.preventDefault()
-                window.open('https://docs.biznisbox.com', '_blank')
+                globalThis.open('https://docs.biznisbox.com', '_blank')
             }
         },
     },
 
     mounted() {
-        window.addEventListener('keydown', this.handleHelp)
+        globalThis.addEventListener('keydown', this.handleHelp)
     },
 
     beforeUnmount() {
-        window.removeEventListener('keydown', this.handleHelp)
+        globalThis.removeEventListener('keydown', this.handleHelp)
     },
 }
 </script>

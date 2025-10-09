@@ -485,7 +485,7 @@ export default {
             if (currency === null || currency === undefined) {
                 currency = this.$settings.default_currency
             }
-            if (isNaN(value)) {
+            if (Number.isNaN(Number(value))) {
                 // If value is not number, return value as it is (bug fix)
                 return value + ' ' + currency
             }
@@ -507,7 +507,7 @@ export default {
 
             const i = Math.floor(Math.log(bytes) / Math.log(k))
 
-            return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
+            return `${Number.parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
         },
 
         /**
@@ -556,8 +556,8 @@ export default {
          * @returns {object} app settings
          **/
         $settings() {
-            if (window.App?.settings) {
-                return window.App?.settings
+            if (globalThis.App?.settings) {
+                return globalThis.App?.settings
             }
         },
     },

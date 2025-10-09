@@ -31,8 +31,7 @@ class DepartmentService
 
     public function createDepartment($data)
     {
-        $department = $this->department->create($data);
-        return $department;
+        return $this->department->create($data);
     }
 
     public function updateDepartment($id, $data)

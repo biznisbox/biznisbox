@@ -92,7 +92,6 @@
 </template>
 
 <script>
-import DisplayData from '@/components/DisplayData.vue'
 import TransactionsMixin from '@/mixins/transactions'
 export default {
     name: 'ViewTransactionPage',

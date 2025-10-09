@@ -14,10 +14,10 @@ class SendPartnerMessage extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $from_email = '';
-    public $from_name = '';
+    public $fromEmail = '';
+    public $fromName = '';
     public $subject;
-    private $content_message;
+    private $contentMessage;
 
     /**
      * Create a new message instance.
@@ -26,12 +26,12 @@ class SendPartnerMessage extends Mailable
      * @param string $subject
      * @param string $content_message
      */
-    public function __construct($from_email, $from_name, $subject, $content_message)
+    public function __construct($fromEmail, $fromName, $subject, $contentMessage)
     {
-        $this->from_email = $from_email;
-        $this->from_name = $from_name;
+        $this->fromEmail = $fromEmail;
+        $this->fromName = $fromName;
         $this->subject = $subject;
-        $this->content_message = $content_message;
+        $this->contentMessage = $contentMessage;
     }
 
     /**
@@ -39,7 +39,7 @@ class SendPartnerMessage extends Mailable
      */
     public function envelope(): Envelope
     {
-        return new Envelope(from: new Address($this->from_email, $this->from_name), subject: $this->subject);
+        return new Envelope(from: new Address($this->fromEmail, $this->fromName), subject: $this->subject);
     }
 
     /**
@@ -47,7 +47,7 @@ class SendPartnerMessage extends Mailable
      */
     public function content(): Content
     {
-        return new Content(view: 'emails.partner_email', with: ['content_message' => $this->content_message]);
+        return new Content(view: 'emails.partner_email', with: ['contentMessage' => $this->contentMessage]);
     }
 
     /**
