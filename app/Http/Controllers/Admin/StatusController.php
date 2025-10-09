@@ -30,4 +30,15 @@ class StatusController extends Controller
         $version = $this->statusService->getVersion();
         return apiResponse($version);
     }
+
+    /**
+     * Get server status
+     *
+     * @return array $status Status
+     */
+    public function getStatus()
+    {
+        $status = $this->statusService->getServerStatus();
+        return apiResponse($status);
+    }
 }

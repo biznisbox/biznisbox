@@ -924,3 +924,26 @@ if (!function_exists('setEmailConfig')) {
         }
     }
 }
+
+if (!function_exists('calculateStorageUsage')) {
+    /**
+     * Calculate storage usage
+     * @return int $usage - storage usage in bytes
+     */
+    function calculateStorageUsage()
+    {
+        $storagePath = storage_path('app/public');
+        $usage = 0;
+
+        if (is_dir($storagePath)) {
+            $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($storagePath));
+            foreach ($files as $file) {
+                if ($file->isFile()) {
+                    $usage += $file->getSize();
+                }
+            }
+        }
+
+        return $usage;
+    }
+}

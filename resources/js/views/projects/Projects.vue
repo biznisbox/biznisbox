@@ -188,7 +188,7 @@ export default {
                 case 'completed':
                     return 'success'
                 case 'on_hold':
-                    return 'warning'
+                    return 'warn'
                 case 'cancelled':
                     return 'danger'
                 default:

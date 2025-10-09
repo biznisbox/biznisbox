@@ -62,7 +62,7 @@ BiznisBox is open-source business management software that includes the followin
 - **Multi-Language Support** – Available in English, French, and Spanish
 - **Audit Log** – Track changes with a detailed history log
 - **Open Banking Integration** – Supports GoCardless
-- **Payment Gateway Integration** – Supports Stripe, PayPal and Coinbase Commerce 
+- **Payment Gateway Integration** – Supports Stripe, PayPal and Coinbase Commerce
 - **Self-Hosted** – Full control over your data and privacy
 - **Mobile Friendly** – Responsive design for all devices
 - **API Access** – Integrate with other tools and services

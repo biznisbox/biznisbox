@@ -26,6 +26,7 @@ class DevSeeder extends Seeder
             BillSeeder::class,
             TransactionSeeder::class,
             ContractSeeder::class,
+            ProjectSeeder::class,
         ]);
     }
 }

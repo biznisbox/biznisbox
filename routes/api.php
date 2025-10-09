@@ -338,6 +338,7 @@ Route::middleware('auth:api')->group(function () {
 
         // Status
         Route::get('/version', [AdminStatusController::class, 'getVersion'])->name('adminGetVersion');
+        Route::get('/status', [AdminStatusController::class, 'getStatus'])->name('adminGetStatus');
 
         // Numbering
         Route::group(['middleware' => 'can:admin_numbering'], function () {

@@ -2,6 +2,7 @@
 
 namespace App\Services\Client;
 
+use App\Enum\NotificationType;
 use App\Models\SupportTicket;
 use App\Models\SupportTicketContent;
 use App\Models\ExternalKey;
@@ -53,7 +54,7 @@ class SupportTicketService
                     getUserIdFromEmployeeId($ticket->assignee_id),
                     'NewTicketMessage',
                     Str::limit($data['message'], 150),
-                    'info',
+                    NotificationType::INFO,
                     'view',
                     'support/' . $ticket->id,
                 );

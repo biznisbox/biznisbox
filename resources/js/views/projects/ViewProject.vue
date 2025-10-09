@@ -424,16 +424,20 @@ export default {
         getStatusSeverity(status) {
             switch (status) {
                 case 'not_started':
+                case 'to_do':
                     return 'secondary'
                 case 'planned':
                     return 'warn'
                 case 'in_progress':
-                    return 'primary'
+                    return 'warn'
                 case 'completed':
+                case 'done':
                     return 'success'
                 case 'on_hold':
+                case 'medium':
                     return 'warn'
                 case 'cancelled':
+                case 'high':
                     return 'danger'
                 default:
                     return null

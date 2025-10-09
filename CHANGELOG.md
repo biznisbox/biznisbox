@@ -1,3 +1,18 @@
+# 2.16.0
+
+## ✨ New Features & Enhancements
+
+- Added notifications for new projects and tasks to keep users informed of updates.
+- Add new data to status page (PHP version, Database version, Server software, Storage used, Storage limit).
+
+## 🐛 Bug Fixes
+
+- Fixed an issue with the project labeling of severity levels in the Project table.
+
+## 🧑‍💻 Development Updates
+
+- Improved code quality and maintainability by refactoring the notification system (added a new Enum for notification types).
+
 # 2.15.0
 
 ## ✨ New Features & Enhancements

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enum\NotificationType;
 use App\Models\Contract;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\ExternalKey;
@@ -266,7 +267,7 @@ class ContractService
             $url = url('/' . $local_url);
             if ($signer->user_id != null) {
                 // notification for internal users
-                createNotification($signer->user_id, 'ContractForSign', 'NewContractForSign', 'info', 'Sign', $local_url);
+                createNotification($signer->user_id, 'ContractForSign', 'NewContractForSign', NotificationType::INFO, 'Sign', $local_url);
             }
             setEmailConfig();
             Mail::to($signer->signer_email, $signer->signer_name)->send(new ContractNotification($contract, $url, $signer));

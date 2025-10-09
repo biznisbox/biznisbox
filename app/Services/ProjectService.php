@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enum\NotificationType;
 use App\Models\Project;
 use App\Models\Task;
 
@@ -19,19 +20,21 @@ class ProjectService
     public function getProjectsForUser()
     {
         $userId = auth()->id();
-        return $this->projectModel
+        $projects = $this->projectModel
             ->with('partner', 'creator:id,email,first_name,last_name,picture', 'members')
             ->where('created_by', $userId)
             ->orWhereHas('members', function ($query) use ($userId) {
                 $query->where('user_id', $userId);
             })
             ->get();
+        createActivityLog('retrieveByUser', null, Project::$modelName, 'Project');
+        return $projects;
     }
 
     public function getProjectById($id)
     {
         $userId = auth()->id();
-        return $this->projectModel
+        $projects = $this->projectModel
             ->with('tasks', 'partner', 'creator', 'members:id,email,first_name,last_name,picture')
             ->where('id', $id)
             ->where(function ($query) use ($userId) {
@@ -40,6 +43,8 @@ class ProjectService
                 });
             })
             ->firstOrFail();
+        createActivityLog('retrieveById', $id, Project::$modelName, 'Project');
+        return $projects;
     }
 
     public function createProject($data)
@@ -53,6 +58,7 @@ class ProjectService
         $project = $this->projectModel->create($data);
         $project->members()->attach($data['created_by'], ['project_role' => 'owner', 'id' => uuid_create()]);
         incrementLastItemNumber('project', settings('project_number_format'));
+        sendWebhookForEvent('project:created', $project->toArray());
         return $project;
     }
 
@@ -64,12 +70,14 @@ class ProjectService
             $data['is_billable'] = false;
         }
         $project->update($data);
+        sendWebhookForEvent('project:updated', $project->toArray());
         return $project;
     }
 
     public function deleteProject($id)
     {
         $project = $this->getProjectById($id);
+        sendWebhookForEvent('project:deleted', $project->toArray());
         return $project->delete();
     }
 
@@ -83,6 +91,8 @@ class ProjectService
             return false; // User is already a member
         }
         $project->members()->attach($userId, ['project_role' => $role, 'id' => uuid_create()]);
+        sendWebhookForEvent('project:member_added', ['project_id' => $projectId, 'user_id' => $userId, 'role' => $role]);
+        createNotification($userId, 'AddedToProject', 'AddedToProject', NotificationType::INFO, 'view', 'projects/' . $projectId);
         return true;
     }
 
@@ -93,6 +103,7 @@ class ProjectService
             return false; // User is not a member
         }
         $project->members()->updateExistingPivot($userId, ['project_role' => $role]);
+        sendWebhookForEvent('project:member_updated', ['project_id' => $projectId, 'user_id' => $userId, 'role' => $role]);
         return true;
     }
 
@@ -106,6 +117,8 @@ class ProjectService
             return false; // Owner cannot be removed
         }
         $project->members()->detach($userId);
+        sendWebhookForEvent('project:member_removed', ['project_id' => $projectId, 'user_id' => $userId]);
+        createNotification($userId, 'RemovedFromProject', 'RemovedFromProject', NotificationType::ERROR, 'view', 'projects');
         return true;
     }
 
@@ -115,7 +128,9 @@ class ProjectService
 
     public function getTaskById($id)
     {
-        return $this->taskModel->with('assignee:id,email,first_name,last_name,picture', 'project')->findOrFail($id);
+        $task = $this->taskModel->with('assignee:id,email,first_name,last_name,picture', 'project')->findOrFail($id);
+        createActivityLog('retrieveById', $id, Task::$modelName, 'Task');
+        return $task;
     }
 
     public function createTask($data)
@@ -123,6 +138,15 @@ class ProjectService
         $data['number'] = Task::generateTaskNumber([$data['project_id']]);
         $task = $this->taskModel->create($data);
         incrementProjectTaskNumber($task->project->project_key);
+        sendWebhookForEvent('task:created', $task->toArray());
+        createNotification(
+            $data['assigned_to'],
+            'NewTaskAssigned',
+            'NewTaskAssigned',
+            NotificationType::INFO,
+            'view',
+            'projects/' . $data['project_id'] . '?task=' . $task->id,
+        );
         return $task;
     }
 
@@ -130,12 +154,22 @@ class ProjectService
     {
         $task = $this->taskModel->findOrFail($id);
         $task->update($data);
+        sendWebhookForEvent('task:updated', $task->toArray());
+        createNotification(
+            $data['assigned_to'],
+            'TaskUpdated',
+            'TaskUpdated',
+            NotificationType::WARNING,
+            'view',
+            'projects/' . $data['project_id'] . '?task=' . $task->id,
+        );
         return $task;
     }
 
     public function deleteTask($id)
     {
         $task = $this->taskModel->findOrFail($id);
+        sendWebhookForEvent('task:deleted', $task->toArray());
         return $task->delete();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enum\NotificationType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -165,7 +166,7 @@ class Contract extends Model implements Auditable
                 $contract->user_id,
                 'RejectedContract',
                 'ContractRejectedBySigner',
-                'info',
+                NotificationType::ERROR,
                 'view',
                 'contracts/' . $contract->id,
             );
@@ -177,7 +178,7 @@ class Contract extends Model implements Auditable
                 $contract->user_id,
                 'SignedContract',
                 'ContractSignedBySigner',
-                'info',
+                NotificationType::INFO,
                 'view',
                 'contracts/' . $contract->id,
             );
@@ -189,7 +190,7 @@ class Contract extends Model implements Auditable
                     $contract->user_id,
                     'SignedContract',
                     'ContractSignedByAllSigners',
-                    'info',
+                    NotificationType::INFO,
                     'view',
                     'contracts/' . $contract->id,
                 );

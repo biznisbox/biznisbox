@@ -19,50 +19,57 @@ class QuoteService
 
     public function getQuotes()
     {
-        $quotes = $this->quoteModel->getQuotes();
+        $quotes = $this->quoteModel->with('items')->get();
+        createActivityLog('retrieve', null, Quote::$modelName, 'Quote');
         return $quotes;
     }
 
     public function getQuote($id)
     {
-        $quote = $this->quoteModel->getQuote($id);
+        $quote = $this->quoteModel->with('items', 'paymentMethod')->find($id);
+        createActivityLog('retrieve', $id, Quote::$modelName, 'Quote');
         return $quote;
     }
 
     public function createQuote($data)
     {
-        $quote = $this->quoteModel->createQuote($data);
-        return $quote;
+        return $this->quoteModel->createQuote($data);
     }
 
     public function updateQuote($id, $data)
     {
-        $quote = $this->quoteModel->updateQuote($id, $data);
-        return $quote;
+        return $this->quoteModel->updateQuote($id, $data);
     }
 
     public function deleteQuote($id)
     {
-        $quote = $this->quoteModel->deleteQuote($id);
+        $quote = $this->quoteModel->find($id);
+        $quote->items()->delete();
+        $quote->delete();
+        sendWebhookForEvent('quote:deleted', $quote->toArray());
         return $quote;
     }
 
     public function getQuoteNumber()
     {
-        $quote = $this->quoteModel->getQuoteNumber();
-        return $quote;
+        return $this->quoteModel->getQuoteNumber();
     }
 
     public function shareQuote($id)
     {
-        $quote = $this->quoteModel->shareQuote($id);
-        return $quote;
+        if ($this->quoteModel->find($id)) {
+            $key = generateExternalKey('quote', $id);
+            $url = url('/client/quote/' . $id . '?key=' . $key . '&lang=' . app()->getLocale());
+            createActivityLog('ShareQuote', $id, Quote::$modelName, 'Quote');
+            sendWebhookForEvent('quote:shared', ['quote_id' => $id, 'url' => $url]);
+            return $url;
+        }
+        return null;
     }
 
     public function convertQuoteToInvoice($id)
     {
-        $quote = $this->quoteModel->convertQuoteToInvoice($id);
-        return $quote;
+        return $this->quoteModel->convertQuoteToInvoice($id);
     }
 
     /**
@@ -74,7 +81,7 @@ class QuoteService
 
     public function getQuotePdf($id, $type = 'stream')
     {
-        $quote = $this->quoteModel->getQuote($id);
+        $quote = $this->getQuote($id);
         $settings = settings([
             'company_name',
             'company_address',

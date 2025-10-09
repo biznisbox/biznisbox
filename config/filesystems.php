@@ -69,4 +69,6 @@ return [
     'links' => [
         public_path('storage') => storage_path('app/public'),
     ],
+
+    'storage_limit' => env('STORAGE_LIMIT', -1), // Storage limit in MB - default is unlimited (-1)
 ];

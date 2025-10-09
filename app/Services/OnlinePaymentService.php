@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enum\NotificationType;
 use App\Enum\PaymentGatewayEnum;
 use App\Models\OnlinePayment;
 use App\Models\Invoice;
@@ -381,7 +382,7 @@ class OnlinePaymentService
             getUserIdFromEmployeeId($invoice->sales_person_id),
             'InvoicePayment',
             'InvoicePaymentReceived',
-            'info',
+            NotificationType::INFO,
             'view',
             'invoices/' . $invoice->id,
         );

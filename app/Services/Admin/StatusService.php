@@ -2,9 +2,11 @@
 
 namespace App\Services\Admin;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use Parsedown;
+use Illuminate\Support\Facades\Log;
 
 class StatusService
 {
@@ -34,5 +36,49 @@ class StatusService
             'changelog' => $changelog,
             'is_up_to_date' => version_compare($composer['version'], $latestVersion) >= 0,
         ];
+    }
+
+    public function getServerStatus()
+    {
+        $server = [
+            'php_version' => phpversion(),
+            'server_software' => $_SERVER['SERVER_SOFTWARE'] ?? 'N/A',
+            'database_version' => $this->getDatabaseVersion(),
+            'storage_limit' => config('filesystems.storage_limit'),
+            'storage_used' => calculateStorageUsage(),
+            'storage_free' =>
+                config('filesystems.storage_limit') == -1 ? -1 : config('filesystems.storage_limit') - calculateStorageUsage(),
+            'storage_usage_percentage' =>
+                config('filesystems.storage_limit') == -1
+                    ? -1
+                    : round((calculateStorageUsage() / config('filesystems.storage_limit')) * 100, 2), // percentage
+        ];
+
+        createActivityLog('retrieve', null, 'App\Services\Admin\StatusService', 'getServerStatus');
+
+        return $server;
+    }
+
+    private function getDatabaseVersion()
+    {
+        $connection = config('database.default');
+        $version = 'N/A';
+
+        switch ($connection) {
+            case 'mysql':
+                $version = DB::selectOne('SELECT VERSION() as version')->version;
+                break;
+            case 'pgsql':
+                $version = DB::selectOne('SHOW server_version')->server_version;
+                break;
+            case 'sqlite':
+                $version = DB::selectOne('SELECT sqlite_version() as version')->version;
+                break;
+            case 'sqlsrv':
+                $version = DB::selectOne('SELECT @@VERSION as version')->version;
+                break;
+        }
+
+        return $version;
     }
 }

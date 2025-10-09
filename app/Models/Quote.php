@@ -113,13 +113,6 @@ class Quote extends Model implements Auditable
         ]);
     }
 
-    public function getQuotes()
-    {
-        $quotes = $this->with('items')->get();
-        createActivityLog('retrieve', null, Quote::$modelName, 'Quote');
-        return $quotes;
-    }
-
     public function createQuote($data)
     {
         $data = setPartnerData($data, $data['payer_id'], $data['payer_address_id'], 'payer');
