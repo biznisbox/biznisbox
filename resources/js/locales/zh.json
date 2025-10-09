@@ -431,7 +431,8 @@
         "budget": "三. 预算",
         "project_key": "项目密钥",
         "completed_at": "完成于",
-        "progress_in_percent": "进展百分比"
+        "progress_in_percent": "进展百分比",
+        "archived_until": "存档至"
     },
     "address_types": {
         "billing": "计费",
