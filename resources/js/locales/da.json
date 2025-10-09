@@ -1013,7 +1013,8 @@
         "project_members": "Projekt Medlemmer",
         "add_member": "Tilføj Medlem",
         "remove_member": "Fjern Medlem",
-        "remove_member_confirmation": "Er du sikker på, at du vil fjerne dette medlem fra projektet?"
+        "remove_member_confirmation": "Er du sikker på, at du vil fjerne dette medlem fra projektet?",
+        "edit_member": "Rediger Medlem"
     },
     "project_role": {
         "owner": "Ejer",
@@ -1096,7 +1097,13 @@
             "changelog": "Ændringslog",
             "view_changelog": "Se Ændringslog",
             "new_version_available": "Ny version tilgængelig til download",
-            "download_now": "Download nu"
+            "download_now": "Download nu",
+            "php_version": "PHP Version",
+            "database_version": "Database Version",
+            "server_software": "Server Software",
+            "storage_used": "Brugt Lagerplads",
+            "storage_limit": "Storage Limit",
+            "unlimited": "Unlimited"
         },
         "user": {
             "title": "Brugere",
