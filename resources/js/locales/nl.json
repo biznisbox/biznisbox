@@ -431,7 +431,8 @@
         "budget": "Begroting",
         "project_key": "Project Sleutel",
         "completed_at": "Voltooid op",
-        "progress_in_percent": "Voortgang in procent"
+        "progress_in_percent": "Voortgang in procent",
+        "archived_until": "Gearchiveerd tot"
     },
     "address_types": {
         "billing": "Facturering",
