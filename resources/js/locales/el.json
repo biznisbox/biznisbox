@@ -431,7 +431,8 @@
         "budget": "Προϋπολογισμός",
         "project_key": "Κλειδί Έργου",
         "completed_at": "Ολοκληρώθηκε Στις",
-        "progress_in_percent": "Πρόοδος σε ποσοστό"
+        "progress_in_percent": "Πρόοδος σε ποσοστό",
+        "archived_until": "Αρχειοθετημένο Μέχρι"
     },
     "address_types": {
         "billing": "Χρέωση",
