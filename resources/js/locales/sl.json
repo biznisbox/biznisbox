@@ -1013,7 +1013,8 @@
         "project_members": "Člani projekta",
         "add_member": "Dodaj člana",
         "remove_member": "Odstrani člana",
-        "remove_member_confirmation": "Ali ste prepričani, da želite odstraniti člana projekta?"
+        "remove_member_confirmation": "Ali ste prepričani, da želite odstraniti člana projekta?",
+        "edit_member": "Edit Member"
     },
     "project_role": {
         "owner": "Lastnik",
@@ -1096,7 +1097,13 @@
             "changelog": "Dnevnik sprememb",
             "view_changelog": "Pokaži dnevnik sprememb",
             "new_version_available": "Nova verzija aplikacije je na voljo za prenos",
-            "download_now": "Prenesi zdaj"
+            "download_now": "Prenesi zdaj",
+            "php_version": "PHP Version",
+            "database_version": "Database Version",
+            "server_software": "Server Software",
+            "storage_used": "Storage Used",
+            "storage_limit": "Storage Limit",
+            "unlimited": "Unlimited"
         },
         "user": {
             "title": "Uporabniki",
