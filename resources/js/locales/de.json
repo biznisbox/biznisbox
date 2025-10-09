@@ -1102,8 +1102,8 @@
             "database_version": "Datenbankversion",
             "server_software": "Server-Software",
             "storage_used": "Speicher verwendet",
-            "storage_limit": "Storage Limit",
-            "unlimited": "Unlimited"
+            "storage_limit": "Speicherlimit",
+            "unlimited": "Unbegrenzt"
         },
         "user": {
             "title": "Benutzer",
