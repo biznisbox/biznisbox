@@ -1013,7 +1013,8 @@
         "project_members": "Учасники проекту",
         "add_member": "Додати учасника",
         "remove_member": "Видалити члена",
-        "remove_member_confirmation": "Ви впевнені, що хочете видалити цього учасника з проекту?"
+        "remove_member_confirmation": "Ви впевнені, що хочете видалити цього учасника з проекту?",
+        "edit_member": "Редагувати учасника"
     },
     "project_role": {
         "owner": "Власник",
@@ -1096,7 +1097,13 @@
             "changelog": "Список змін",
             "view_changelog": "Перегляд списку змін",
             "new_version_available": "Доступна нова версія для завантаження",
-            "download_now": "Завантажити зараз"
+            "download_now": "Завантажити зараз",
+            "php_version": "Версія PHP",
+            "database_version": "Версія бази даних",
+            "server_software": "Серверне програмне забезпечення",
+            "storage_used": "Використовується пам’ять",
+            "storage_limit": "Ліміт простору",
+            "unlimited": "Необмежено"
         },
         "user": {
             "title": "Спільноти",
