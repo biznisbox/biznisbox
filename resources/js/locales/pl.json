@@ -1013,7 +1013,8 @@
         "project_members": "Członkowie projektu",
         "add_member": "Dodaj członka",
         "remove_member": "Usuń członka",
-        "remove_member_confirmation": "Czy na pewno chcesz usunąć tego użytkownika z projektu?"
+        "remove_member_confirmation": "Czy na pewno chcesz usunąć tego użytkownika z projektu?",
+        "edit_member": "Edytuj członka"
     },
     "project_role": {
         "owner": "Właściciel",
@@ -1096,7 +1097,13 @@
             "changelog": "Lista zmian",
             "view_changelog": "Zobacz listę zmian",
             "new_version_available": "Nowa wersja dostępna do pobrania",
-            "download_now": "Pobierz teraz"
+            "download_now": "Pobierz teraz",
+            "php_version": "Wersja PHP",
+            "database_version": "Wersja bazy danych",
+            "server_software": "Oprogramowanie serwera",
+            "storage_used": "Użyta pamięć",
+            "storage_limit": "Limit pamięci",
+            "unlimited": "Nieograniczona"
         },
         "user": {
             "title": "Użytkownicy",
