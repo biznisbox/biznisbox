@@ -431,7 +431,8 @@
         "budget": "Bilancio",
         "project_key": "Chiave Del Progetto",
         "completed_at": "Completato Il",
-        "progress_in_percent": "Progresso in percentuale"
+        "progress_in_percent": "Progresso in percentuale",
+        "archived_until": "Archiviato Fino A"
     },
     "address_types": {
         "billing": "Fatturazione",
