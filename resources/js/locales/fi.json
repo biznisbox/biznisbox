@@ -431,7 +431,8 @@
         "budget": "Budjetti",
         "project_key": "Projektin Avain",
         "completed_at": "Valmis Klo",
-        "progress_in_percent": "Edistyminen prosentteina"
+        "progress_in_percent": "Edistyminen prosentteina",
+        "archived_until": "Arkistoitu Kunnes"
     },
     "address_types": {
         "billing": "Laskutus",
