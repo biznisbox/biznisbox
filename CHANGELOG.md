@@ -1,3 +1,9 @@
+# 2.16.1
+
+## 🐛 Bug Fixes
+
+- Fixed an issue with the login process where users with two-factor authentication enabled were not being redirected to the OTP input screen or have their active status checked correctly.
+
 # 2.16.0
 
 ## ✨ New Features & Enhancements
