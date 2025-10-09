@@ -1013,7 +1013,8 @@
         "project_members": "Участники проекта",
         "add_member": "Добавить участника",
         "remove_member": "Удалить участника",
-        "remove_member_confirmation": "Вы уверены, что хотите удалить этого участника из проекта?"
+        "remove_member_confirmation": "Вы уверены, что хотите удалить этого участника из проекта?",
+        "edit_member": "Изменить участника"
     },
     "project_role": {
         "owner": "Владелец",
@@ -1096,7 +1097,13 @@
             "changelog": "Список изменений",
             "view_changelog": "Список изменений",
             "new_version_available": "Новая версия доступна для скачивания",
-            "download_now": "Скачать сейчас"
+            "download_now": "Скачать сейчас",
+            "php_version": "Версия PHP",
+            "database_version": "Версия базы данных",
+            "server_software": "Серверное программное обеспечение",
+            "storage_used": "Используемое хранилище",
+            "storage_limit": "Лимит памяти",
+            "unlimited": "Неограниченный"
         },
         "user": {
             "title": "Пользователи",
