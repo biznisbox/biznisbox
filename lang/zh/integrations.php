@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'paypal' => 'Paypal',
+    'paypal' => 'PayPal',
     'stripe' => 'Stripe',
-    'coinbase' => '硬币',
-    'open_banking' => '开放银行',
-    'vies_vat' => 'VIES 增值税验证',
+    'coinbase' => 'Coinbase',
+    'open_banking' => 'Open Banking',
+    'vies_vat' => 'VIES VAT Validation',
 ];
