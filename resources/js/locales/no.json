@@ -431,7 +431,8 @@
         "budget": "Budsjett",
         "project_key": "Prosjektnøkkel (Automatic Translation)",
         "completed_at": "Fullført ved",
-        "progress_in_percent": "Progress i prosent"
+        "progress_in_percent": "Progress i prosent",
+        "archived_until": "Arkivert til"
     },
     "address_types": {
         "billing": "Fakturering",
