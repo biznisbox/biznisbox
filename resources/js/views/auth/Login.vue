@@ -49,17 +49,17 @@ export default {
     methods: {
         login() {
             this.makeHttpRequest('POST', '/api/auth/login', this.form).then((response) => {
-                if (!response.data.data.active) {
+                if (response.data.data.active == false) {
                     this.showToast(this.$t('auth.account_disabled'), this.$t('auth.login_failed'), 'error')
                     return
                 }
 
-                if (response.data.data.two_factor_auth) {
+                if (response.data.data.two_factor_auth == true) {
                     this.otp_required = true
                     return
                 }
 
-                if (!response.data.data.otp) {
+                if (response.data.data.otp == false) {
                     this.showToast(this.$t('auth.invalid_otp'), this.$t('auth.login_failed'), 'error')
                     return
                 }
