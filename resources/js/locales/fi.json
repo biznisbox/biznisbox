@@ -1013,7 +1013,8 @@
         "project_members": "Projektin Jäsenet",
         "add_member": "Lisää Jäsen",
         "remove_member": "Poista Jäsen",
-        "remove_member_confirmation": "Oletko varma, että haluat poistaa tämän jäsenen projektista?"
+        "remove_member_confirmation": "Oletko varma, että haluat poistaa tämän jäsenen projektista?",
+        "edit_member": "Muokkaa Jäsen"
     },
     "project_role": {
         "owner": "Omistaja",
@@ -1096,7 +1097,13 @@
             "changelog": "Muutosloki",
             "view_changelog": "Näytä Muutosloki",
             "new_version_available": "Uusi versio ladattavissa",
-            "download_now": "Lataa nyt"
+            "download_now": "Lataa nyt",
+            "php_version": "Php Versio",
+            "database_version": "Tietokannan Versio",
+            "server_software": "Palvelimen Ohjelmisto",
+            "storage_used": "Tallennustila Käytetty",
+            "storage_limit": "Tallennustilan Raja",
+            "unlimited": "Rajoittamaton"
         },
         "user": {
             "title": "Käyttäjät",
