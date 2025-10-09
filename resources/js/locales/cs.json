@@ -1102,8 +1102,8 @@
             "database_version": "Verze databáze",
             "server_software": "Software serveru",
             "storage_used": "Použité úložiště",
-            "storage_limit": "Storage Limit",
-            "unlimited": "Unlimited"
+            "storage_limit": "Limit úložiště",
+            "unlimited": "Bez omezení"
         },
         "user": {
             "title": "Uživatelé",
