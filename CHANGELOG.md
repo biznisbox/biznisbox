@@ -12,6 +12,7 @@
 ## 🧑‍💻 Development Updates
 
 - Improved code quality and maintainability by refactoring the notification system (added a new Enum for notification types).
+- Refactored the code for better readability and organization.
 
 # 2.15.0
 
