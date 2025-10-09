@@ -1102,8 +1102,8 @@
             "database_version": "Database Version",
             "server_software": "Server Software",
             "storage_used": "Brugt Lagerplads",
-            "storage_limit": "Storage Limit",
-            "unlimited": "Unlimited"
+            "storage_limit": "Grænse For Lagring",
+            "unlimited": "Ubegrænset"
         },
         "user": {
             "title": "Brugere",
