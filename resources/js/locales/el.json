@@ -1013,7 +1013,8 @@
         "project_members": "Μέλη Του Έργου",
         "add_member": "Προσθήκη Μελών",
         "remove_member": "Αφαίρεση Μέλους",
-        "remove_member_confirmation": "Είστε βέβαιοι ότι θέλετε να αφαιρέσετε αυτό το μέλος από το έργο?"
+        "remove_member_confirmation": "Είστε βέβαιοι ότι θέλετε να αφαιρέσετε αυτό το μέλος από το έργο?",
+        "edit_member": "Επεξεργασία Μέλους"
     },
     "project_role": {
         "owner": "Ιδιοκτήτης",
@@ -1096,7 +1097,13 @@
             "changelog": "Αρχείο Αλλαγών",
             "view_changelog": "Προβολή Αρχείου Αλλαγών",
             "new_version_available": "Νέα έκδοση διαθέσιμη για λήψη",
-            "download_now": "Άμεση λήψη"
+            "download_now": "Άμεση λήψη",
+            "php_version": "Έκδοση PHP",
+            "database_version": "Έκδοση Βάσης Δεδομένων",
+            "server_software": "Λογισμικό Διακομιστή",
+            "storage_used": "Χρησιμοποιείται Αποθηκευτικός Χώρος",
+            "storage_limit": "Όριο Αποθήκευσης",
+            "unlimited": "Απεριόριστο"
         },
         "user": {
             "title": "Χρήστες",
