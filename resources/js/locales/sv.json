@@ -1013,7 +1013,8 @@
         "project_members": "Projektmedlemmar",
         "add_member": "Lägg till medlem",
         "remove_member": "Ta bort medlem",
-        "remove_member_confirmation": "Är du säker på att du vill ta bort denna medlem från projektet?"
+        "remove_member_confirmation": "Är du säker på att du vill ta bort denna medlem från projektet?",
+        "edit_member": "Redigera medlem"
     },
     "project_role": {
         "owner": "Ägare",
@@ -1096,7 +1097,13 @@
             "changelog": "Ändringslogg",
             "view_changelog": "Visa ändringslogg",
             "new_version_available": "Ny version tillgänglig för nedladdning",
-            "download_now": "Ladda ner nu"
+            "download_now": "Ladda ner nu",
+            "php_version": "PHP-version",
+            "database_version": "Databasens version",
+            "server_software": "Server programvara",
+            "storage_used": "Lagring som används",
+            "storage_limit": "Gräns för lagring",
+            "unlimited": "Obegränsad"
         },
         "user": {
             "title": "Användare",
