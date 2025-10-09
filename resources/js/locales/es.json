@@ -1102,8 +1102,8 @@
             "database_version": "Versión de la base de datos",
             "server_software": "Software del Servidor",
             "storage_used": "Almacenamiento usado",
-            "storage_limit": "Storage Limit",
-            "unlimited": "Unlimited"
+            "storage_limit": "Límite de almacenamiento",
+            "unlimited": "Ilimitado"
         },
         "user": {
             "title": "Usuarios",
