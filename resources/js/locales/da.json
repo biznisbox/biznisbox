@@ -431,7 +431,8 @@
         "budget": "Budget",
         "project_key": "Projekt Nøgle",
         "completed_at": "Afsluttet Den",
-        "progress_in_percent": "Fremskridt i procent"
+        "progress_in_percent": "Fremskridt i procent",
+        "archived_until": "Arkiveret Indtil"
     },
     "address_types": {
         "billing": "Fakturering",
