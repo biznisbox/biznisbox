@@ -431,7 +431,8 @@
         "budget": "Budget",
         "project_key": "Projektschlüssel",
         "completed_at": "Abgeschlossen am",
-        "progress_in_percent": "Fortschritt in Prozent"
+        "progress_in_percent": "Fortschritt in Prozent",
+        "archived_until": "Archiviert bis"
     },
     "address_types": {
         "billing": "Abrechnung",
