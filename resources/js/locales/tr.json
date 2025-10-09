@@ -1013,7 +1013,8 @@
         "project_members": "Project Members",
         "add_member": "Add Member",
         "remove_member": "Remove Member",
-        "remove_member_confirmation": "Are you sure you want to remove this member from the project?"
+        "remove_member_confirmation": "Are you sure you want to remove this member from the project?",
+        "edit_member": "Edit Member"
     },
     "project_role": {
         "owner": "Owner",
@@ -1096,7 +1097,13 @@
             "changelog": "Changelog",
             "view_changelog": "View Changelog",
             "new_version_available": "New version available for download",
-            "download_now": "Download now"
+            "download_now": "Download now",
+            "php_version": "PHP Version",
+            "database_version": "Database Version",
+            "server_software": "Server Software",
+            "storage_used": "Storage Used",
+            "storage_limit": "Storage Limit",
+            "unlimited": "Unlimited"
         },
         "user": {
             "title": "Kullanıcılar",
