@@ -106,13 +106,26 @@ class ActivityLog extends Model
      * @param string $external_key External key
      * @return void
      */
-    public function getLogByExternalKey($external_key)
+    public static function getLogByExternalKey($external_key)
     {
         return self::where('external_key', $external_key)->first();
     }
 
-    public function getLogsByItem($item_id, $item_type)
+    /**
+     * Get activity logs by item
+     *
+     * @param string $item_id ID of item
+     * @param string $item_type Type of item (class name including namespace e.g. App\Models\Bill)
+     * @return void
+     */
+    public static function getLogsByItem($item_id, $item_type)
     {
-        return self::where('auditable_id', $item_id)->where('auditable_type', $item_type)->get();
+        $logs = self::with('user:id,first_name,last_name,picture,email', 'externalKeyData')
+            ->where('auditable_id', $item_id)
+            ->where('auditable_type', $item_type)
+            ->orderBy('id', 'desc')
+            ->get();
+        createActivityLog('retrieveLogs', $item_id, $item_type, $item_type);
+        return $logs;
     }
 }

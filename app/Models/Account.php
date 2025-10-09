@@ -65,75 +65,9 @@ class Account extends Model implements Auditable
             ->orderBy('date', 'desc');
     }
 
-    public function createAccount($data)
+    public static function changeDefaultAccount()
     {
-        if ($data['is_default']) {
-            $this->changeDefaultAccount();
-        }
-        $account = self::create($data);
-        if ($account) {
-            sendWebhookForEvent('account:created', $account->toArray());
-            return true;
-        }
-        return false;
-    }
-
-    public function updateAccount($id, $data)
-    {
-        $account = self::where('id', $id)->first();
-        if ($data['is_default']) {
-            $this->changeDefaultAccount();
-        }
-        $account->update($data);
-        if ($account) {
-            sendWebhookForEvent('account:updated', $account->toArray());
-            return true;
-        }
-        return false;
-    }
-
-    public function deleteAccount($id)
-    {
-        $account = self::where('id', $id)->first();
-        $accountData = $account->toArray();
-        if ($account->is_default == 1) {
-            return [
-                'error' => true,
-                'message' => __('responses.default_account_cannot_be_deleted'),
-            ];
-        }
-        $account = $account->delete();
-        if ($account) {
-            sendWebhookForEvent('account:deleted', $accountData);
-            return true;
-        }
-        return $account;
-    }
-
-    public function getAccount($id)
-    {
-        $account = self::where('id', $id)->first();
-        $account->transactions;
-        if ($account) {
-            createActivityLog('retrieve', $id, Account::$modelName, 'Account');
-            return $account;
-        }
-        return false;
-    }
-
-    public function getAccounts()
-    {
-        $accounts = $this->orderBy('name', 'asc')->get();
-        if ($accounts) {
-            createActivityLog('retrieve', null, Account::$modelName, 'Account');
-            return $accounts;
-        }
-        return false;
-    }
-
-    private function changeDefaultAccount()
-    {
-        $account = $this->where('is_default', true)->update(['is_default' => false]);
+        $account = self::where('is_default', true)->update(['is_default' => false]);
         if ($account) {
             return true;
         }

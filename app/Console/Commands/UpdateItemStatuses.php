@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Enum\ConsoleCommandEnum;
 use App\Models\Invoice;
 use App\Models\Contract;
 use App\Models\Bill;
@@ -17,7 +18,7 @@ class UpdateItemStatuses extends Command
      *
      * @var string
      */
-    protected $signature = 'biznisbox:update-item-statuses';
+    protected $signature = ConsoleCommandEnum::UPDATE_ITEM_STATUSES->value;
 
     /**
      * The console command description.

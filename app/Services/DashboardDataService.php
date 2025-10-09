@@ -35,6 +35,11 @@ class DashboardDataService
             ->count();
     }
 
+    private function getNumberOfProducts()
+    {
+        return DB::table('products')->count();
+    }
+
     private function getMonthIncomeAndExpenses($month = null, $year = null)
     {
         if ($month == null) {
@@ -112,6 +117,9 @@ class DashboardDataService
                 break;
             case 'current_year_monthly_income_and_expenses':
                 return $this->currentYearMonthlyIncomeAndExpenses();
+                break;
+            case 'number_of_products':
+                return $this->getNumberOfProducts();
                 break;
             default:
                 return null;

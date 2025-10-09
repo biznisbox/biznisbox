@@ -33,7 +33,8 @@ class ArchiveService
 
     public function getDocument($id)
     {
-        $document = $this->archiveModel->getDocument($id);
+        $document = $this->archiveModel->with('connectedDocument', 'partner', 'storageLocation', 'documentType')->find($id);
+        createActivityLog('retrieve', $id, Archive::$modelName, 'Archive');
         return $document;
     }
 
@@ -124,14 +125,27 @@ class ArchiveService
 
     public function deleteDocument($id)
     {
-        $document = $this->archiveModel->deleteDocument($id);
-        return $document;
+        $document = $this->archiveModel->find($id);
+        if (!$document) {
+            return false;
+        }
+        $document->delete();
+        sendWebhookForEvent('archive:document_deleted', ['id' => $id]);
+        return true;
     }
 
     public function restoreDocument($id)
     {
-        $document = $this->archiveModel->restoreDocument($id);
-        return $document;
+        $document = $this->archiveModel->withTrashed()->find($id);
+        if (!$document) {
+            return [
+                'error' => __('responses.item_not_restored'),
+                'status' => 400,
+            ];
+        }
+        $document->restore();
+        sendWebhookForEvent('archive:document_restored', ['id' => $id]);
+        return true;
     }
 
     public function deleteDocumentPermanently($id)

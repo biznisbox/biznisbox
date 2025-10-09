@@ -8,7 +8,8 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class BillService
 {
     private $billModel;
-    public function __construct(Bill $billModel)
+
+    public function __construct()
     {
         $this->billModel = new Bill();
     }

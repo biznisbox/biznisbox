@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Enum\ConsoleCommandEnum;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
@@ -15,7 +16,7 @@ class DemoResetData extends Command
      *
      * @var string
      */
-    protected $signature = 'app:demo-reset-data';
+    protected $signature = ConsoleCommandEnum::DEMO_RESET_DATA->value;
 
     /**
      * The console command description.

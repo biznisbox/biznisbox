@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Enum\ConsoleCommandEnum;
 use Illuminate\Console\Command;
 use App\Models\Currency;
 use App\Services\Admin\CurrencyService;
@@ -14,7 +15,7 @@ class UpdateCurrencyRate extends Command
      *
      * @var string
      */
-    protected $signature = 'biznisbox:update-currency-rate';
+    protected $signature = ConsoleCommandEnum::UPDATE_CURRENCY_RATE->value;
 
     /**
      * The console command description.

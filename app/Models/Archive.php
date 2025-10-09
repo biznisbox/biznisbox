@@ -93,13 +93,6 @@ class Archive extends Model implements Auditable
         return $this->onlyTrashed()->get();
     }
 
-    public function getDocument($id)
-    {
-        $document = $this->with('connectedDocument', 'partner', 'storageLocation', 'documentType')->find($id);
-        createActivityLog('retrieve', $id, Archive::$modelName, 'Archive');
-        return $document;
-    }
-
     public function getDocumentsByFolder($folderId = null)
     {
         // Get trashed documents
@@ -120,31 +113,6 @@ class Archive extends Model implements Auditable
         // Get documents by folder id
         createActivityLog('retrieve', null, Archive::$modelName, 'Archive');
         return $this->with('connectedDocument', 'partner', 'storageLocation', 'documentType')->where('folder_id', $folderId)->get();
-    }
-
-    public function deleteDocument($id)
-    {
-        $document = $this->find($id);
-        if (!$document) {
-            return false;
-        }
-        $document->delete();
-        sendWebhookForEvent('archive:document_deleted', ['id' => $id]);
-        return true;
-    }
-
-    public function restoreDocument($id)
-    {
-        $document = $this->withTrashed()->find($id);
-        if (!$document) {
-            return [
-                'error' => __('responses.item_not_restored'),
-                'status' => 400,
-            ];
-        }
-        $document->restore();
-        sendWebhookForEvent('archive:document_restored', ['id' => $id]);
-        return true;
     }
 
     public static function getArchiveNumber()

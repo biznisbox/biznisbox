@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Enum\ConsoleCommandEnum;
 use Illuminate\Console\Command;
 use App\Services\OpenBankingService;
 
@@ -12,7 +13,7 @@ class RefreshBankTransactions extends Command
      *
      * @var string
      */
-    protected $signature = 'biznisbox:refresh-bank-transactions';
+    protected $signature = ConsoleCommandEnum::REFRESH_BANK_TRANSACTIONS->value;
 
     /**
      * The console command description.

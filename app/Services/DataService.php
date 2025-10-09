@@ -56,16 +56,7 @@ class DataService
             return null;
         }
 
-        $logs = ActivityLog::where([
-            'auditable_type' => 'App\Models\\' . $item_type,
-            'auditable_id' => $item_id,
-        ])
-            ->with('user:id,first_name,last_name,picture,email', 'externalKeyData')
-            ->orderBy('id', 'desc')
-            ->get();
-
-        createActivityLog('retrieveLogs', $item_id, 'App\Models\\' . $item_type, $item_type);
-        return $logs;
+        return ActivityLog::getLogsByItem($item_id, 'App\Models\\' . $item_type);
     }
 
     public function getCurrencies()
@@ -168,7 +159,7 @@ class DataService
 
     public function updateDashboardLayout($data, $type = 'user')
     {
-        $dashboard_layout = DB::table('dashboard')
+        return DB::table('dashboard')
             ->where([
                 'user_id' => auth()->id(),
                 'type' => $type,
@@ -177,7 +168,6 @@ class DataService
                 'content' => $data,
                 'updated_at' => now(),
             ]);
-        return $dashboard_layout;
     }
 
     public function createWebhookSubscription($data)

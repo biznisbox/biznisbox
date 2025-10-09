@@ -1,47 +1,48 @@
 <?php
 
+use App\Enum\ConsoleCommandEnum;
 use Illuminate\Support\Facades\Schedule;
 use Illuminate\Support\Stringable;
 
-Schedule::command('biznisbox:refresh-bank-transactions')
+Schedule::command(ConsoleCommandEnum::REFRESH_BANK_TRANSACTIONS->value)
     ->withoutOverlapping()
     ->hourly()
     ->onSuccess(function (Stringable $output) {
-        insertScheduleRun('biznisbox:refresh-bank-transactions', 'success', $output);
+        insertScheduleRun(ConsoleCommandEnum::REFRESH_BANK_TRANSACTIONS->value, 'success', $output);
     })
     ->onFailure(function (Stringable $output) {
-        insertScheduleRun('biznisbox:refresh-bank-transactions', 'failed', $output);
+        insertScheduleRun(ConsoleCommandEnum::REFRESH_BANK_TRANSACTIONS->value, 'failed', $output);
     });
 
-Schedule::command('biznisbox:update-currency-rate')
+Schedule::command(ConsoleCommandEnum::UPDATE_CURRENCY_RATE->value)
     ->withoutOverlapping()
     ->daily()
     ->onSuccess(function (Stringable $output) {
-        insertScheduleRun('biznisbox:update-currency-rate', 'success', $output);
+        insertScheduleRun(ConsoleCommandEnum::UPDATE_CURRENCY_RATE->value, 'success', $output);
     })
     ->onFailure(function (Stringable $output) {
-        insertScheduleRun('biznisbox:update-currency-rate', 'failed', $output);
+        insertScheduleRun(ConsoleCommandEnum::UPDATE_CURRENCY_RATE->value, 'failed', $output);
     });
 
-Schedule::command('biznisbox:update-item-statuses')
+Schedule::command(ConsoleCommandEnum::UPDATE_ITEM_STATUSES->value)
     ->withoutOverlapping()
     ->daily()
     ->onSuccess(function (Stringable $output) {
-        insertScheduleRun('biznisbox:update-item-statuses', 'success', $output);
+        insertScheduleRun(ConsoleCommandEnum::UPDATE_ITEM_STATUSES->value, 'success', $output);
     })
     ->onFailure(function (Stringable $output) {
-        insertScheduleRun('biznisbox:update-item-statuses', 'failed', $output);
+        insertScheduleRun(ConsoleCommandEnum::UPDATE_ITEM_STATUSES->value, 'failed', $output);
     });
 
 // Reset demo data
 if (config('app.demo.enabled') === true) {
-    Schedule::command('app:demo-reset-data')
+    Schedule::command(ConsoleCommandEnum::DEMO_RESET_DATA->value)
         ->withoutOverlapping()
         ->everySixHours()
         ->onSuccess(function (Stringable $output) {
-            insertScheduleRun('app:demo-reset-data', 'success', $output);
+            insertScheduleRun(ConsoleCommandEnum::DEMO_RESET_DATA->value, 'success', $output);
         })
         ->onFailure(function (Stringable $output) {
-            insertScheduleRun('app:demo-reset-data', 'failed', $output);
+            insertScheduleRun(ConsoleCommandEnum::DEMO_RESET_DATA->value, 'failed', $output);
         });
 }

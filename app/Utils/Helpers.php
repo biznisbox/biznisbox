@@ -838,10 +838,10 @@ if (!function_exists('getJwtPayloadData')) {
 if (!function_exists('generateRandomPassword')) {
     /**
      * Generate random password
-     * @param int $length - length of password
+     * @param int $length - length of password (default: 15)
      * @return string $password - generated password
      */
-    function generateRandomPassword($length = 10)
+    function generateRandomPassword($length = 15)
     {
         return Str::random($length);
     }

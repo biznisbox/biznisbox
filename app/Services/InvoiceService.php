@@ -16,6 +16,7 @@ class InvoiceService
 {
     private $invoiceModel;
     private $productModel;
+
     public function __construct()
     {
         $this->invoiceModel = new Invoice();

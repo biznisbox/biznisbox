@@ -15,74 +15,71 @@ class PartnerService
 {
     private $partnerModel;
     private $vatIdValidator;
+    private $partnerActivityModel;
 
     public function __construct()
     {
         $this->partnerModel = new Partner();
         $this->vatIdValidator = new VatIdValidate();
+        $this->partnerActivityModel = new PartnerActivity();
     }
 
     public function getPartners($type = null)
     {
-        $partners = $this->partnerModel->getPartners($type);
+        // type can have comma separated values (customer, supplier, both)
+        if ($type) {
+            $type = explode(',', $type);
+            $partners = $this->partnerModel->with('addresses', 'contacts')->whereIn('type', $type)->get();
+        } else {
+            $partners = $this->partnerModel->with('addresses', 'contacts')->get();
+        }
+        createActivityLog('retrieve', null, Partner::$modelName, 'Partner');
         return $partners;
     }
 
     public function getPartner($id)
     {
-        $partner = $this->partnerModel->getPartner($id);
-        return $partner;
+        return $this->partnerModel->getPartner($id);
     }
 
     public function createPartner($data)
     {
-        $partner = $this->partnerModel->createPartner($data);
-        return $partner;
+        return $this->partnerModel->createPartner($data);
     }
 
     public function updatePartner($id, $data)
     {
-        $partner = $this->partnerModel->updatePartner($id, $data);
-        return $partner;
+        return $this->partnerModel->updatePartner($id, $data);
     }
 
     public function deletePartner(string $id)
     {
-        $partner = $this->partnerModel->deletePartner($id);
-        return $partner;
+        return $this->partnerModel->deletePartner($id);
     }
 
     public function getPartnerNumber()
     {
-        $partner = $this->partnerModel->getPartnerNumber();
-        return $partner;
+        return $this->partnerModel->getPartnerNumber();
     }
 
     public function getPartnersLimitedData($type = null)
     {
-        $partners = $this->partnerModel->getPartnersLimitedData($type);
-        return $partners;
+        return $this->partnerModel->getPartnersLimitedData($type);
     }
 
     public function createPartnerActivity($data)
     {
-        $partnerActivity = new PartnerActivity();
-        $partnerActivity = $partnerActivity->createPartnerActivity($data);
-        return $partnerActivity;
+        return $this->partnerActivityModel->createPartnerActivity($data);
     }
 
     public function updatePartnerActivity($id, $data)
     {
-        $partnerActivity = new PartnerActivity();
-        $partnerActivity = $partnerActivity->updatePartnerActivity($id, $data);
-        return $partnerActivity;
+        return $this->partnerActivityModel->updatePartnerActivity($id, $data);
     }
 
     public function deletePartnerActivity($id)
     {
-        $partnerActivity = new PartnerActivity();
-        $partnerActivity = $partnerActivity->deletePartnerActivity($id);
-        return $partnerActivity;
+        return $this->partnerActivityModel->deletePartnerActivity($id);
     }
 
     public function sendEmailToPartnerContact($partnerContactId, $subject, $message)
@@ -148,7 +145,7 @@ class PartnerService
             return false;
         }
         // Create user
-        $password = generateRandomPassword(12);
+        $password = generateRandomPassword(15);
         $user = new User();
         $user = $user->createUser([
             'first_name' => $partnerContact->name,
