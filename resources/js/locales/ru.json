@@ -431,7 +431,8 @@
         "budget": "Бюджет",
         "project_key": "Ключ проекта",
         "completed_at": "Завершено в",
-        "progress_in_percent": "Прогресс в процентах"
+        "progress_in_percent": "Прогресс в процентах",
+        "archived_until": "Архивировано до"
     },
     "address_types": {
         "billing": "Биллинг",
