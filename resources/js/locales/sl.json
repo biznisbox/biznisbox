@@ -431,7 +431,8 @@
         "budget": "Proračun",
         "project_key": "Ključ projekta",
         "completed_at": "Dokončano",
-        "progress_in_percent": "Napredek v odstotkih"
+        "progress_in_percent": "Napredek v odstotkih",
+        "archived_until": "Archived Until"
     },
     "address_types": {
         "billing": "Obračunavanje",
