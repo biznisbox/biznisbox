@@ -431,7 +431,8 @@
         "budget": "Budget",
         "project_key": "Projektets nyckel",
         "completed_at": "Slutförd vid",
-        "progress_in_percent": "Progress i procent"
+        "progress_in_percent": "Progress i procent",
+        "archived_until": "Arkiverad till"
     },
     "address_types": {
         "billing": "Fakturering",
