@@ -1013,7 +1013,8 @@
         "project_members": "Project Leden",
         "add_member": "Lid toevoegen",
         "remove_member": "Verwijder lid",
-        "remove_member_confirmation": "Weet je zeker dat je dit lid uit het project wilt verwijderen?"
+        "remove_member_confirmation": "Weet je zeker dat je dit lid uit het project wilt verwijderen?",
+        "edit_member": "Lid bewerken"
     },
     "project_role": {
         "owner": "Eigenaar",
@@ -1096,7 +1097,13 @@
             "changelog": "Wijzigingslogboek",
             "view_changelog": "Bekijk Changelog",
             "new_version_available": "Nieuwe versie beschikbaar om te downloaden",
-            "download_now": "Nu downloaden"
+            "download_now": "Nu downloaden",
+            "php_version": "PHP versie",
+            "database_version": "Database versie",
+            "server_software": "Server Software",
+            "storage_used": "Gebruikte opslagruimte",
+            "storage_limit": "Opslag Limiet",
+            "unlimited": "Onbeperkt"
         },
         "user": {
             "title": "Gebruikers",
