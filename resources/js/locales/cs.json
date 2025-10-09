@@ -431,7 +431,8 @@
         "budget": "Rozpočet",
         "project_key": "Klíč projektu",
         "completed_at": "Dokončeno",
-        "progress_in_percent": "Pokrok v procentech"
+        "progress_in_percent": "Pokrok v procentech",
+        "archived_until": "Archivováno do"
     },
     "address_types": {
         "billing": "Fakturace",
