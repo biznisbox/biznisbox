@@ -52,10 +52,10 @@
         "omnipay/paypal": "^3.0",
         "owen-it/laravel-auditing": "^14.0",
         "php-open-source-saver/jwt-auth": "^2.8",
-        "pragmarx/google2fa": "^8.0",
+        "pragmarx/google2fa": "^9.0",
         "spatie/laravel-permission": "^6.21",
         "spatie/laravel-webhook-server": "^3.8",
-        "stripe/stripe-php": "^17.4"
+        "stripe/stripe-php": "^18.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.24",

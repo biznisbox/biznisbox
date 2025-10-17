@@ -12,22 +12,22 @@
         "lint:fix": "eslint --fix ."
     },
     "devDependencies": {
-        "@eslint/js": "^9.37.0",
-        "eslint": "^9.37.0",
+        "@eslint/js": "^9.38.0",
+        "eslint": "^9.38.0",
         "@fortawesome/fontawesome-free": "^7.1.0",
         "@prettier/plugin-php": "^0.24.0",
         "@vitejs/plugin-vue": "^6.0.1",
         "autoprefixer": "^10.4.21",
         "axios": "^1.12.2",
-        "eslint-plugin-vue": "^10.5.0",
+        "eslint-plugin-vue": "^10.5.1",
         "globals": "^16.4.0",
         "laravel-vite-plugin": "^2.0.1",
         "prettier": "^3.6.2",
         "prettier-plugin-blade": "^2.1.21",
         "tailwindcss": "^4.1.14",
         "@tailwindcss/vite": "^4.1.14",
-        "vite": "7.1.9",
-        "vite-plugin-vue-devtools": "^8.0.2"
+        "vite": "7.1.10",
+        "vite-plugin-vue-devtools": "^8.0.3"
     },
     "dependencies": {
         "@fullcalendar/core": "^6.1.19",
@@ -43,10 +43,10 @@
         "@vuelidate/validators": "^2.0.4",
         "apexcharts": "^5.3.5",
         "dayjs": "^1.11.18",
-        "dompurify": "^3.2.7",
+        "dompurify": "^3.3.0",
         "file-icon-vectors": "^1.0.0",
         "flag-icons": "^7.5.0",
-        "grid-layout-plus": "^1.1.0",
+        "grid-layout-plus": "^1.1.1",
         "jwt-decode": "^4.0.0",
         "leaflet": "^1.9.4",
         "lodash": "^4.17.21",
@@ -58,8 +58,8 @@
         "vue-axios": "^3.5.2",
         "vue-i18n": "^11.1.12",
         "vue-map-ui": "^0.0.18",
-        "vue-router": "^4.5.1",
-        "vue3-apexcharts": "^1.8.0",
+        "vue-router": "^4.6.3",
+        "vue3-apexcharts": "^1.9.0",
         "vue3-cookies": "^1.0.6",
         "vue3-pdf-app": "^1.0.3"
     }

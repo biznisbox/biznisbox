@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Hash;
 use Laravolt\Avatar\Avatar;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Admin\UserDetails;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable implements JWTSubject, Auditable
 {
@@ -287,27 +288,32 @@ class User extends Authenticatable implements JWTSubject, Auditable
             'format' => 'png',
             'type' => 'square',
             'backgrounds' => [
-                '#f44336',
-                '#E91E63',
-                '#9C27B0',
-                '#673AB7',
-                '#3F51B5',
-                '#2196F3',
-                '#03A9F4',
-                '#00BCD4',
-                '#009688',
-                '#4CAF50',
-                '#8BC34A',
-                '#CDDC39',
-                '#FFC107',
-                '#FF9800',
-                '#FF5722',
+                '#f8a5a5',
+                '#f8a1c4',
+                '#d7aefb',
+                '#b39ddb',
+                '#9fa8da',
+                '#90caf9',
+                '#81d4fa',
+                '#80deea',
+                '#80cbc4',
+                '#a5d6a7',
+                '#c5e1a5',
+                '#e6ee9c',
+                '#ffe082',
+                '#ffcc80',
+                '#ffab91',
             ],
             'fontSize' => 120,
             'font_color' => '#ffffff',
         ]);
+
         $img_path = $user_id . '.png';
-        $avatar->create($first_name . ' ' . $last_name)->save(storage_path('/app/public/' . $img_path));
+        $avatarData = $avatar
+            ->create($first_name . ' ' . $last_name)
+            ->getImageObject()
+            ->toPng();
+        Storage::disk('public')->put($img_path, $avatarData);
         return $this->find($user_id)->update(['picture' => $img_path]);
     }
 
