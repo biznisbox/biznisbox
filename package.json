@@ -24,9 +24,9 @@
         "laravel-vite-plugin": "^2.0.1",
         "prettier": "^3.6.2",
         "prettier-plugin-blade": "^2.1.21",
-        "tailwindcss": "^4.1.14",
-        "@tailwindcss/vite": "^4.1.14",
-        "vite": "7.1.10",
+        "tailwindcss": "^4.1.16",
+        "@tailwindcss/vite": "^4.1.16",
+        "vite": "7.1.12",
         "vite-plugin-vue-devtools": "^8.0.3"
     },
     "dependencies": {
@@ -53,13 +53,13 @@
         "primevue": "^4.4.1",
         "qrcode.vue": "^3.6.0",
         "tailwindcss-primeui": "^0.6.1",
-        "tinymce": "^8.1.2",
+        "tinymce": "^8.2.0",
         "vue": "^3.5.22",
         "vue-axios": "^3.5.2",
         "vue-i18n": "^11.1.12",
         "vue-map-ui": "^0.0.18",
         "vue-router": "^4.6.3",
-        "vue3-apexcharts": "^1.9.0",
+        "vue3-apexcharts": "^1.10.0",
         "vue3-cookies": "^1.0.6",
         "vue3-pdf-app": "^1.0.3"
     }
