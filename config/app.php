@@ -161,4 +161,6 @@ return [
         'username' => env('APP_DEMO_USERNAME', 'demo@example.com'),
         'password' => env('APP_DEMO_PASSWORD', 'password'),
     ],
+
+    'enable_telemetry' => env('APP_ENABLE_TELEMETRY', true),
 ];
