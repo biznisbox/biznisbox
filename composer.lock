@@ -1877,16 +1877,16 @@
         },
         {
             "name": "knuckleswtf/scribe",
-            "version": "5.3.0",
+            "version": "5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/knuckleswtf/scribe.git",
-                "reference": "380f9cd6de6d65d2e92930a8613d8a682e83e8c7"
+                "reference": "779f91aa01a18d271b2c8314d5c44635c7375dfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/knuckleswtf/scribe/zipball/380f9cd6de6d65d2e92930a8613d8a682e83e8c7",
-                "reference": "380f9cd6de6d65d2e92930a8613d8a682e83e8c7",
+                "url": "https://api.github.com/repos/knuckleswtf/scribe/zipball/779f91aa01a18d271b2c8314d5c44635c7375dfc",
+                "reference": "779f91aa01a18d271b2c8314d5c44635c7375dfc",
                 "shasum": ""
             },
             "require": {
@@ -1902,9 +1902,8 @@
                 "nunomaduro/collision": "^6.0|^7.0|^8.0",
                 "php": ">=8.1",
                 "ramsey/uuid": "^4.2.2",
-                "shalvah/clara": "^3.1.0",
+                "shalvah/clara": "3.3.0",
                 "shalvah/upgrader": ">=0.6.0",
-                "spatie/data-transfer-object": "^2.6|^3.0",
                 "symfony/var-exporter": "^6.0|^7.0",
                 "symfony/yaml": "^6.0|^7.0"
             },
@@ -1959,7 +1958,7 @@
             ],
             "support": {
                 "issues": "https://github.com/knuckleswtf/scribe/issues",
-                "source": "https://github.com/knuckleswtf/scribe/tree/5.3.0"
+                "source": "https://github.com/knuckleswtf/scribe/tree/5.5.0"
             },
             "funding": [
                 {
@@ -1967,7 +1966,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2025-07-28T22:27:25+00:00"
+            "time": "2025-10-25T17:58:31+00:00"
         },
         {
             "name": "laravel/framework",
@@ -6249,16 +6248,16 @@
         },
         {
             "name": "shalvah/clara",
-            "version": "3.2.0",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shalvah/clara.git",
-                "reference": "cdbb5737cbdd101756d97dd2279a979a1af7710b"
+                "reference": "6b30f389d71bfdd3f6e09f9b9537205ac7e118de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shalvah/clara/zipball/cdbb5737cbdd101756d97dd2279a979a1af7710b",
-                "reference": "cdbb5737cbdd101756d97dd2279a979a1af7710b",
+                "url": "https://api.github.com/repos/shalvah/clara/zipball/6b30f389d71bfdd3f6e09f9b9537205ac7e118de",
+                "reference": "6b30f389d71bfdd3f6e09f9b9537205ac7e118de",
                 "shasum": ""
             },
             "require": {
@@ -6290,9 +6289,9 @@
             ],
             "support": {
                 "issues": "https://github.com/shalvah/clara/issues",
-                "source": "https://github.com/shalvah/clara/tree/3.2.0"
+                "source": "https://github.com/shalvah/clara/tree/3.3.0"
             },
-            "time": "2024-02-27T20:30:59+00:00"
+            "time": "2025-10-20T22:26:39+00:00"
         },
         {
             "name": "shalvah/upgrader",
@@ -6351,70 +6350,6 @@
                 }
             ],
             "time": "2024-02-20T11:51:46+00:00"
-        },
-        {
-            "name": "spatie/data-transfer-object",
-            "version": "3.9.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/data-transfer-object.git",
-                "reference": "1df0906c4e9e3aebd6c0506fd82c8b7d5548c1c8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/data-transfer-object/zipball/1df0906c4e9e3aebd6c0506fd82c8b7d5548c1c8",
-                "reference": "1df0906c4e9e3aebd6c0506fd82c8b7d5548c1c8",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "illuminate/collections": "^8.36",
-                "jetbrains/phpstorm-attributes": "^1.0",
-                "larapack/dd": "^1.1",
-                "phpunit/phpunit": "^9.5.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\DataTransferObject\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Brent Roose",
-                    "email": "brent@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Data transfer objects with batteries included",
-            "homepage": "https://github.com/spatie/data-transfer-object",
-            "keywords": [
-                "data-transfer-object",
-                "spatie"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/data-transfer-object/issues",
-                "source": "https://github.com/spatie/data-transfer-object/tree/3.9.1"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "abandoned": "spatie/laravel-data",
-            "time": "2022-09-16T13:34:38+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",

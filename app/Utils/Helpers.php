@@ -814,6 +814,7 @@ if (!function_exists('isAppInstalled')) {
                 return true;
             }
         } catch (\Exception $e) {
+            saveSystemLog('isAppInstalled', 'error', 'high', 'Helpers', 'Error checking if app is installed: ' . $e->getMessage());
             return false;
         }
 
@@ -878,7 +879,7 @@ if (!function_exists('saveFilePdfToArchive')) {
             $archive->saveFileToArchive($fileOutput, $fileName, $module, $moduleItemId, $partner_id);
             return true;
         } catch (\Exception $e) {
-            Log::error('Error saving file to archive: ' . $e->getMessage());
+            saveSystemLog('saveFilePdfToArchive', 'error', 'high', 'Helpers', 'Error saving file to archive: ' . $e->getMessage());
             return false;
         }
     }
@@ -956,5 +957,78 @@ if (!function_exists('getCurrentLoggedInUserId')) {
     function getCurrentLoggedInUserId()
     {
         return auth()->id();
+    }
+}
+
+if (!function_exists('saveSendEmailLog')) {
+    /**
+     * Send email log
+     * @param string $email_template - email template
+     * @param string $module - module
+     * @param string $mail_to - mail to
+     * @param string $subject - subject
+     * @param string $body - body
+     * @param string $status - status
+     * @param string $triggered_by - triggered by
+     * @return void
+     */
+    function saveSendEmailLog($email_template, $module, $mail_to, $status, $triggered_by, $user_id = null, $subject = null, $body = null)
+    {
+        try {
+            DB::table('send_email_log')->insert([
+                'id' => Str::uuid(),
+                'email_template' => $email_template,
+                'module' => $module,
+                'mail_to' => $mail_to,
+                'subject' => $subject,
+                'body' => $body,
+                'status' => $status,
+                'triggered_by' => $triggered_by,
+                'user_id' => $user_id,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        } catch (\Exception $e) {
+            saveSystemLog('saveSendEmailLog', 'error', 'high', 'Helpers', 'Error saving send email log: ' . $e->getMessage(), $triggered_by, $user_id);
+            return false;
+        }
+        return true;
+    }
+}
+
+if (!function_exists('saveSystemLog')) {
+    /**
+     * Save system log
+     * @param string $action - action (function name)
+     * @param string $type - type (e.g., 'info', 'warning', 'error')
+     * @param string $severity - severity (e.g., 'low', 'medium', 'high')
+     * @param string $module - module (e.g., 'email', 'user', 'payment')
+     * @param string $message - message
+     * @param string $triggered_by - triggered by (e.g., 'system', 'user')
+     * @param string $user_id - user id
+     * @param array $context - context
+     * @return void
+     */
+    function saveSystemLog($action, $type, $severity, $module, $message, $triggered_by = 'system', $user_id = null, $context = [])
+    {
+        try {
+            DB::table('system_logs')->insert([
+                'id' => Str::uuid(),
+                'action' => $action,
+                'type' => $type,
+                'severity' => $severity,
+                'module' => $module,
+                'message' => $message,
+                'triggered_by' => $triggered_by,
+                'user_id' => $user_id,
+                'context' => json_encode($context),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Error saving system log: ' . $e->getMessage());
+            return false;
+        }
+        return true;
     }
 }

@@ -261,6 +261,7 @@ class ArchiveService
                 'partner_id' => $partner_id,
             ]);
             if ($document) {
+                incrementLastItemNumber('archive', settings('archive_number_format'));
                 return true;
             }
         } catch (\Exception $e) {

@@ -104,6 +104,7 @@ class PartnerService
         $email = Mail::to($partnerContact->email, $partnerContact->name)->send(
             new SendPartnerMessage($from_email, $from_name, $subject, $message),
         );
+        saveSendEmailLog('SendPartnerMessage', 'partner_contact', $partnerContact->email, 'sent', 'user', auth()->id());
 
         if (!$email) {
             return false;
@@ -174,6 +175,7 @@ class PartnerService
         $email = Mail::to($partnerContact->email, $partnerContact->name)->send(
             new ClientPortalNotification($partnerContact->partner, $password, $partnerContact),
         );
+        saveSendEmailLog('ClientPortalNotification', 'partner_contact', $partnerContact->email, 'sent', 'user', auth()->id());
 
         createActivityLog('addPartnerContactToClientPortal', $partnerContact->partner_id, 'App\Models\Partner', 'Partner');
 

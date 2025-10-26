@@ -325,6 +325,7 @@ class User extends Authenticatable implements JWTSubject, Auditable
             foreach ($recipient as $email) {
                 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     Mail::to($email)->send(new UserDetails($user, $password));
+                    saveSendEmailLog('UserDetails', 'user', $email, 'sent', 'user', auth()->id());
                 }
             }
             return true;

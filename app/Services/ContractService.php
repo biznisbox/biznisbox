@@ -238,6 +238,7 @@ class ContractService
         if ($data) {
             if ($data['type'] == 'email') {
                 Mail::to($data['email'])->send(new ContractNotification($contract, $url, null));
+                saveSendEmailLog('ContractNotification', 'contract', $data['email'], 'sent', 'user', auth()->id());
             }
         }
 
@@ -271,6 +272,7 @@ class ContractService
             }
             setEmailConfig();
             Mail::to($signer->signer_email, $signer->signer_name)->send(new ContractNotification($contract, $url, $signer));
+            saveSendEmailLog('ContractNotification', 'contract', $signer->signer_email, 'sent', 'user', auth()->id());
         }
         return $contract;
     }

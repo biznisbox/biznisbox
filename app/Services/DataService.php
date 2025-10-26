@@ -284,6 +284,7 @@ class DataService
         Mail::to($user->email, $user->first_name . ' ' . $user->last_name)->send(
             new PersonalAccessTokenCreated($user, $personalAccessToken),
         );
+        saveSendEmailLog('PersonalAccessTokenCreated', 'user', $user->email, 'sent', 'user', auth()->id());
         return $token;
     }
 
