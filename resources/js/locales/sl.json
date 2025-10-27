@@ -1089,7 +1089,9 @@
             "coinbase_available": "Coinbase aktiven",
             "coinbase_api_key": "Coinbase API ključ",
             "coinbase_api_key_help": "Najdete ga v vašem Coinbase Commerce računu.",
-            "coinbase_account_id": "ID internega računa za Coinbase"
+            "coinbase_account_id": "ID internega računa za Coinbase",
+            "document_signing_available": "Document Signing available",
+            "document_signing": "Document Signing"
         },
         "status": {
             "title": "Status aplikacije",
