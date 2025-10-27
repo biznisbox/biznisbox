@@ -1089,7 +1089,9 @@
             "coinbase_available": "Base de pièces disponible",
             "coinbase_api_key": "Clé API Coinbase",
             "coinbase_api_key_help": "Vous pouvez trouver votre clé API dans votre compte de commerce Coinbase.",
-            "coinbase_account_id": "ID du compte interne de Coinbase"
+            "coinbase_account_id": "ID du compte interne de Coinbase",
+            "document_signing_available": "Signature de document disponible",
+            "document_signing": "Signature du document"
         },
         "status": {
             "title": "Page de statut",
