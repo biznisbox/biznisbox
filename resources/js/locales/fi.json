@@ -1089,7 +1089,9 @@
             "coinbase_available": "Coinbase saatavilla",
             "coinbase_api_key": "Coinbase API-avain",
             "coinbase_api_key_help": "Voit löytää oman API avain teidän Coinbase kaupan tili.",
-            "coinbase_account_id": "Coinbase sisäinen tili ID"
+            "coinbase_account_id": "Coinbase sisäinen tili ID",
+            "document_signing_available": "Asiakirjan allekirjoitus saatavilla",
+            "document_signing": "Asiakirjan Allekirjoitus"
         },
         "status": {
             "title": "Tila Sivu",
