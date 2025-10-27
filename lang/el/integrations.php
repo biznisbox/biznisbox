@@ -6,4 +6,5 @@ return [
     'coinbase' => 'Coinbase',
     'open_banking' => 'Ανοικτή Τραπεζική',
     'vies_vat' => 'VIES Επικύρωση ΦΠΑ',
+    'document_signer' => 'Υπογραφέας Εγγράφου Pdf',
 ];
