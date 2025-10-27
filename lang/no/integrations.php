@@ -6,4 +6,5 @@ return [
     'coinbase' => 'Coinbase',
     'open_banking' => 'Åpne bank',
     'vies_vat' => 'VIES MVA-validering',
+    'document_signer' => 'PDF dokumentsignatner',
 ];
