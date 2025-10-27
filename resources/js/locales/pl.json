@@ -1089,7 +1089,9 @@
             "coinbase_available": "Dostępna baza monet",
             "coinbase_api_key": "Klucz API Coinbase",
             "coinbase_api_key_help": "Klucz API można znaleźć na koncie Coinbase commerce.",
-            "coinbase_account_id": "ID konta wewnętrznego Coinbase"
+            "coinbase_account_id": "ID konta wewnętrznego Coinbase",
+            "document_signing_available": "Podpisywanie dokumentu dostępne",
+            "document_signing": "Podpisywanie dokumentu"
         },
         "status": {
             "title": "Strona statusu",
