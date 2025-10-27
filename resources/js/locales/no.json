@@ -1089,7 +1089,9 @@
             "coinbase_available": "Coinbase tilgjengelig",
             "coinbase_api_key": "Coinbase API-nøkkel",
             "coinbase_api_key_help": "Du kan finne din API-nøkkel i din Coinbase handelskonto.",
-            "coinbase_account_id": "Coinbase intern konto-ID"
+            "coinbase_account_id": "Coinbase intern konto-ID",
+            "document_signing_available": "Dokument signering tilgjengelig",
+            "document_signing": "Dokument signering"
         },
         "status": {
             "title": "Status side",
