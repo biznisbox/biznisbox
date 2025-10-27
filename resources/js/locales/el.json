@@ -1089,7 +1089,9 @@
             "coinbase_available": "Coinbase διαθέσιμο",
             "coinbase_api_key": "Κλειδί Api Coinbase",
             "coinbase_api_key_help": "Μπορείτε να βρείτε το κλειδί API σας στο λογαριασμό συναλλαγών Coinbase.",
-            "coinbase_account_id": "Αναγνωριστικό εσωτερικού λογαριασμού Coinbase"
+            "coinbase_account_id": "Αναγνωριστικό εσωτερικού λογαριασμού Coinbase",
+            "document_signing_available": "Διαθέσιμη υπογραφή εγγράφου",
+            "document_signing": "Υπογραφή Εγγράφου"
         },
         "status": {
             "title": "Σελίδα Κατάστασης",
