@@ -1089,7 +1089,9 @@
             "coinbase_available": "Coinbase disponibile",
             "coinbase_api_key": "Coinbase API Key",
             "coinbase_api_key_help": "Puoi trovare la tua chiave API nel tuo account Coinbase commerce.",
-            "coinbase_account_id": "Coinbase ID account interno"
+            "coinbase_account_id": "Coinbase ID account interno",
+            "document_signing_available": "Firma documento disponibile",
+            "document_signing": "Firma Del Documento"
         },
         "status": {
             "title": "Pagina Di Stato",
