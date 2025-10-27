@@ -6,4 +6,5 @@ return [
     'coinbase' => 'Møntbase',
     'open_banking' => 'Åben Banking',
     'vies_vat' => 'VIES Moms Validering',
+    'document_signer' => 'PDF Dokumentsignatur',
 ];
