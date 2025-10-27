@@ -1089,7 +1089,9 @@
             "coinbase_available": "Coinbase beschikbaar",
             "coinbase_api_key": "Coinbase API Sleutel",
             "coinbase_api_key_help": "U kunt uw API-sleutel vinden in uw Coinbase handelsaccount.",
-            "coinbase_account_id": "Coinbase intern account-ID"
+            "coinbase_account_id": "Coinbase intern account-ID",
+            "document_signing_available": "Documentondertekening beschikbaar",
+            "document_signing": "Document ondertekenen"
         },
         "status": {
             "title": "Status pagina",
