@@ -1089,7 +1089,9 @@
             "coinbase_available": "Доступно Coinbase",
             "coinbase_api_key": "Ключ Coinbase API",
             "coinbase_api_key_help": "Ви можете знайти свій ключ API у вашому обліковому записі Coinbase.",
-            "coinbase_account_id": "Ідентифікатор внутрішнього облікового запису Coinbase"
+            "coinbase_account_id": "Ідентифікатор внутрішнього облікового запису Coinbase",
+            "document_signing_available": "Доступний підпис документа",
+            "document_signing": "Підписання документа"
         },
         "status": {
             "title": "Сторінка стану",
