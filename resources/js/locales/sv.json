@@ -1089,7 +1089,9 @@
             "coinbase_available": "Myntbas tillgänglig",
             "coinbase_api_key": "Coinbase API-nyckel",
             "coinbase_api_key_help": "Du kan hitta din API-nyckel i ditt Coinbase handelskonto.",
-            "coinbase_account_id": "Coinbase internt konto-ID"
+            "coinbase_account_id": "Coinbase internt konto-ID",
+            "document_signing_available": "Dokumentsignering tillgänglig",
+            "document_signing": "Signering av dokument"
         },
         "status": {
             "title": "Statussida",
