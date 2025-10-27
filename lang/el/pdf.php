@@ -97,4 +97,7 @@ return [
     ],
     'no_payment_method' => 'Καμία Μέθοδος Πληρωμής',
     'tax_amount' => 'Ποσό Φόρου',
+    'signer' => 'Signer',
+    'signed_by' => 'Υπογράφηκε από',
+    'on' => 'ενεργό',
 ];
