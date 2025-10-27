@@ -1089,7 +1089,9 @@
             "coinbase_available": "Coinbase verfügbar",
             "coinbase_api_key": "Coinbase API-Schlüssel",
             "coinbase_api_key_help": "Sie finden Ihren API-Schlüssel in Ihrem Coinbase Commerce-Konto.",
-            "coinbase_account_id": "Coinbase interne Konto-ID"
+            "coinbase_account_id": "Coinbase interne Konto-ID",
+            "document_signing_available": "Dokumentensignierung verfügbar",
+            "document_signing": "Unterschrift von Dokumenten"
         },
         "status": {
             "title": "Statusseite",
