@@ -1089,7 +1089,9 @@
             "coinbase_available": "Доступна база Coinbase",
             "coinbase_api_key": "Ключ API Coinbase",
             "coinbase_api_key_help": "Вы можете найти ваш API ключ в вашей учетной записи Coinbase commerce аккаунта.",
-            "coinbase_account_id": "ID внутреннего аккаунта Coinbase"
+            "coinbase_account_id": "ID внутреннего аккаунта Coinbase",
+            "document_signing_available": "Подписание документа доступно",
+            "document_signing": "Подписание документа"
         },
         "status": {
             "title": "Страница статуса",
