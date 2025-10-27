@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enum\NotificationType;
+use App\Integrations\PdfSigner;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -139,23 +140,21 @@ class Contract extends Model implements Auditable
 
         if (!$signer || $signer->status == 'signed') {
             return [
-                'error' => true,
-                'message' => __('responses.signer_not_found_or_already_signed'),
+                'error' => __('responses.signer_not_found_or_already_signed'),
             ];
         }
 
         $signer_update = $signer->update([
-            'status' => $data['sign_status'],
+            'status' => $data['sign_status'] ?? null,
             'signature' => $data['sign_status'] == 'signed' ? $data['signature'] : null,
             'signature_ip' => $request->ip(),
             'signature_user_agent' => $request->userAgent(),
             'signature_date_time' => now(),
-            'notes' => $data['notes'],
+            'notes' => $data['notes'] ?? null,
         ]);
 
         if (!$signer_update) {
             return [
-                'error' => true,
                 'message' => __('responses.error_signing_contract'),
             ];
         }

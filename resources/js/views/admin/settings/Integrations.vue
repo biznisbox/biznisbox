@@ -8,6 +8,7 @@
                     <TabList>
                         <Tab value="online_payments">{{ $t('admin.integrations.online_payments') }}</Tab>
                         <Tab value="open_banking">{{ $t('admin.integrations.open_banking') }}</Tab>
+                        <Tab value="document_signing">{{ $t('admin.integrations.document_signing') }}</Tab>
                     </TabList>
 
                     <TabPanels>
@@ -132,6 +133,19 @@
                                         :label="$t('admin.integrations.open_banking_secret')"
                                         :disabled="!settings.open_banking_available"
                                     />
+                                </div>
+                            </div>
+                        </TabPanel>
+
+                        <!-- Document Signing -->
+                        <TabPanel value="document_signing" class="p-2">
+                            <div id="document_signing_integration">
+                                <h2 class="font-bold mb-4 dark:text-surface-200">{{ $t('admin.integrations.document_signing') }}</h2>
+                                <div class="flex flex-col gap-2 mb-2">
+                                    <label class="dark:text-surface-200">
+                                        {{ $t('admin.integrations.document_signing_available') }}
+                                    </label>
+                                    <ToggleSwitch v-model="settings.document_signer_available" />
                                 </div>
                             </div>
                         </TabPanel>

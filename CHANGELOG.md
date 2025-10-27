@@ -1,17 +1,20 @@
 # 2.17.0
 
 ## ✨ New Features & Enhancements
+
 - Added system logs for tracking important actions and events within the application.
 - Implemented email sending logs to monitor email delivery status and issues.
 
-# 2.16.3 
+# 2.16.3
 
 ## 🐛 Bug Fixes
+
 - Fix issue with showing archive page due the Sonar code analysis report.
 
 # 2.16.2
 
 ## 🐛 Bug Fixes
+
 - Upgrade NPM and Composer dependencies to fix security vulnerabilities.
 
 # 2.16.1

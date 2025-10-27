@@ -1,6 +1,12 @@
 @extends('pdfs.layout')
+
 <!-- Document title -->
-@section('title', __('pdf.contract') . ' ' . $contract->number)
+@section('title')
+<span style="color: rgb(28, 118, 220); font-size: 18px; font-weight: bold;">
+    {{ $contract->title }}
+</span>
+@endsection
+
 <!-- Barcode -->
 @section('barcode')
     {!! DNS2D::getBarcodeHtml($contract->id, 'QRCODE', 3, 3) !!}
@@ -12,35 +18,16 @@
         <p>
             <strong>{{ __('pdf.number') }}</strong>
             {{ $contract->number }}
-            <br />
-            <strong>{{ __('pdf.status') }}</strong>
-
-            @if ($contract->status == 'signed')
-                <span style="color: rgb(45, 173, 45)">{{ __('pdf.statuses.signed') }}</span>
-            @elseif ($contract->status == 'rejected')
-                <span style="color: rgb(196, 41, 41)">{{ __('pdf.statuses.rejected') }}</span>
-            @elseif ($contract->status == 'expired')
-                <span style="color: rgb(170, 50, 50)">{{ __('pdf.statuses.expired') }}</span>
-            @elseif ($contract->status == 'waiting_signers')
-                <span style="color: rgb(216, 202, 0)">{{ __('pdf.statuses.waiting_signers') }}</span>
-            @elseif ($contract->status == 'cancelled')
-                <span style="color: rgb(49, 97, 129)">{{ __('pdf.statuses.cancelled') }}</span>
-            @elseif ($contract->status == 'draft')
-                <span style="color: rgb(219, 169, 75)">{{ __('pdf.statuses.draft') }}</span>
-            @else
-                <span style="color: rgb(105, 105, 188)">{{ __('pdf.statuses.other') }}</span>
-            @endif
         </p>
+    </div>
 
-        <!-- Contract content -->
-        <span style="color: rgb(28, 118, 220)">{{ __('pdf.contract') }}</span>
-        <br />
-        <div id="contract_content" style="margin-top: 5px">
+    <!-- Contract Content -->
+    <div id="contract_content" style="margin-top: 15px">
             {!! $contract->content !!}
-        </div>
+    </div>
 
-        <!-- Signers -->
-        <span style="color: rgb(28, 118, 220);">{{ __('pdf.signers') }}</span>
+    <!-- Signers -->
+   <span style="color: rgb(28, 118, 220);">{{ __('pdf.signers') }}</span>
 
         <table id="signers" width="100%">
             <thead>
@@ -77,5 +64,6 @@
                     </tr>
                 @endforeach
             </tbody>
+        </table>
     </div>
 @endsection

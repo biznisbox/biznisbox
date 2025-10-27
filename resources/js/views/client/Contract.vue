@@ -238,7 +238,7 @@ export default {
                 accept_terms: false,
                 signature: '',
                 notes: '',
-                contract_status: 'signed',
+                sign_status: 'signed',
             }
         },
 

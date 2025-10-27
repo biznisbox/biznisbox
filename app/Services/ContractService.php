@@ -3,11 +3,13 @@
 namespace App\Services;
 
 use App\Enum\NotificationType;
+use App\Integrations\PdfSigner;
 use App\Models\Contract;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\ExternalKey;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Client\ContractNotification;
+use Illuminate\Support\Str;
 
 class ContractService
 {
@@ -66,13 +68,10 @@ class ContractService
         }
         sendWebhookForEvent('contract:created', $contract->toArray());
         incrementLastItemNumber('contract', settings('contract_number_format'));
-        saveFilePdfToArchive(
-            $this->getContractPdf($contract->id, 'attach'),
-            $contract->number . '.pdf',
-            Contract::$modelName,
-            $contract->id,
-            $contract->partner_id,
-        );
+
+        $pdfContent = $this->getContractPdf($contract->id, 'attach');
+
+        saveFilePdfToArchive($pdfContent, $contract->number . '.pdf', Contract::$modelName, $contract->id, $contract->partner_id);
         return $contract;
     }
 
@@ -89,8 +88,7 @@ class ContractService
         $signers = $contract->signers()->where('status', 'signed')->count();
         if ($contract->status == 'signed' || $signers >= 1 || $contract->status == 'rejected') {
             return [
-                'error' => true,
-                'message' => __('responses.cannot_update_signed_contract'),
+                'error' => __('responses.cannot_update_signed_contract'),
             ];
         }
 
@@ -119,7 +117,6 @@ class ContractService
 
         if (!$contract_update) {
             return [
-                'error' => true,
                 'message' => __('responses.error_updating_item'),
             ];
         }
@@ -143,13 +140,9 @@ class ContractService
         }
 
         sendWebhookForEvent('contract:updated', $contract->toArray());
-        saveFilePdfToArchive(
-            $this->getContractPdf($contract->id, 'attach'),
-            $contract->number . '.pdf',
-            Contract::$modelName,
-            $contract->id,
-            $contract->partner_id,
-        );
+        $pdfContent = $this->getContractPdf($contract->id, 'attach');
+
+        saveFilePdfToArchive($pdfContent, $contract->number . '.pdf', Contract::$modelName, $contract->id, $contract->partner_id);
         return $contract;
     }
 
@@ -163,7 +156,6 @@ class ContractService
             $contract->status == 'rejected'
         ) {
             return [
-                'error' => true,
                 'message' => __('responses.cannot_delete_signed_contract'),
             ];
         }
@@ -201,14 +193,60 @@ class ContractService
         ]);
         $pdf = PDF::loadView('pdfs.contract', compact('contract', 'settings'));
 
+        $pdfFile = $pdf->output();
+
+        // Sign PDF if needed
+        if (settings('document_signing_available')) {
+            $pdfSigner = new PdfSigner();
+            $tempPdfPath = storage_path('app/temp_contract_' . Str::uuid() . '.pdf');
+            file_put_contents($tempPdfPath, $pdfFile);
+            $pdfSigner->signPdfInvisible(
+                $tempPdfPath,
+                $tempPdfPath,
+                [
+                    'name' => settings('company_name'),
+                    'email' => settings('company_email'),
+                    'reason' => 'Server Digital Signature',
+                    'signature_image' => null,
+                ],
+                null,
+                false,
+                false,
+            );
+        }
+
         if ($type == 'attach') {
-            return $pdf->output();
+            if (isset($tempPdfPath) && file_exists($tempPdfPath)) {
+                $signedPdfContent = file_get_contents($tempPdfPath);
+                unlink($tempPdfPath);
+                return $signedPdfContent;
+            }
+            return $pdfFile;
         }
         if ($type == 'download') {
             createActivityLog('downloadContract', $contract->id, Contract::$modelName, 'Contract');
+            if (isset($tempPdfPath) && file_exists($tempPdfPath)) {
+                $signedPdfContent = file_get_contents($tempPdfPath);
+                return response()->streamDownload(function () use ($signedPdfContent) {
+                    echo $signedPdfContent;
+                }, 'Contract ' . $contract->number . '.pdf');
+            }
             return $pdf->download('Contract ' . $contract->number . '.pdf');
         } else {
-            createActivityLog('viewContract', $contract->id, Contract::$modelName, 'Contract');
+            createActivityLog('viewContractPdf', $contract->id, Contract::$modelName, 'Contract');
+            if (isset($tempPdfPath) && file_exists($tempPdfPath)) {
+                $signedPdfContent = file_get_contents($tempPdfPath);
+                return response()->stream(
+                    function () use ($signedPdfContent) {
+                        echo $signedPdfContent;
+                    },
+                    200,
+                    [
+                        'Content-Type' => 'application/pdf',
+                        'Content-Disposition' => 'inline; filename="Contract ' . $contract->number . '.pdf"',
+                    ],
+                );
+            }
             return $pdf->stream('Contract ' . $contract->number . '.pdf');
         }
     }

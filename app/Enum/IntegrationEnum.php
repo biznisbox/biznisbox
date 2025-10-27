@@ -10,6 +10,7 @@ enum IntegrationEnum: string
     case COINBASE = 'coinbase'; // Coinbase payments
     case OPEN_BANKING = 'open_banking'; // Open Banking via Nordigen
     case VIES_VAT = 'vies_vat'; // VIES VAT validation
+    case DOCUMENT_SIGNER = 'document_signer'; // PDF Document Signer
 
     public function label(): string
     {
@@ -19,6 +20,7 @@ enum IntegrationEnum: string
             self::COINBASE => __('integrations.coinbase'),
             self::OPEN_BANKING => __('integrations.open_banking'),
             self::VIES_VAT => __('integrations.vies_vat'),
+            self::DOCUMENT_SIGNER => __('integrations.document_signer'),
         };
     }
 
@@ -30,6 +32,7 @@ enum IntegrationEnum: string
             self::COINBASE => 'coinbase_',
             self::OPEN_BANKING => 'open_banking_',
             self::VIES_VAT => 'vies_vat_',
+            self::DOCUMENT_SIGNER => 'document_signer_',
         };
     }
 
@@ -58,6 +61,11 @@ enum IntegrationEnum: string
                 'secret' => [],
             ],
             self::VIES_VAT => [],
+            self::DOCUMENT_SIGNER => [
+                'certificate_path' => [],
+                'private_key_path' => [],
+                'private_key_password' => [],
+            ],
         };
     }
 
@@ -68,13 +76,13 @@ enum IntegrationEnum: string
             $settings = $integration->settings();
             Setting::firstOrCreate(
                 ['key' => $integration->prefix() . 'available'],
-                ['value' => false, 'type' => 'boolean', 'is_public' => 1],
+                ['value' => false, 'type' => 'boolean', 'is_public' => true],
             );
 
             foreach ($settings as $key => $setting) {
                 $defaultValue = $setting['value'] ?? null;
                 $type = $setting['type'] ?? 'string';
-                $isPublic = $setting['is_public'] ?? 0;
+                $isPublic = $setting['is_public'] ?? false;
 
                 Setting::firstOrCreate(
                     ['key' => $integration->prefix() . $key],

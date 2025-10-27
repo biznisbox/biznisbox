@@ -47,7 +47,13 @@ class DataService
 
     public function getAvailableLocales()
     {
-        return config('app.available_locales');
+        $locales = config('app.available_locales');
+
+        foreach ($locales as $key => $locale) {
+            $locales[$key]['locale'] = __('responses.locale.' . $locale['code']);
+        }
+
+        return $locales;
     }
 
     public function getLogs($item_id, $item_type)

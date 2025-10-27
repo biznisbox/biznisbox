@@ -989,7 +989,15 @@ if (!function_exists('saveSendEmailLog')) {
                 'updated_at' => now(),
             ]);
         } catch (\Exception $e) {
-            saveSystemLog('saveSendEmailLog', 'error', 'high', 'Helpers', 'Error saving send email log: ' . $e->getMessage(), $triggered_by, $user_id);
+            saveSystemLog(
+                'saveSendEmailLog',
+                'error',
+                'high',
+                'Helpers',
+                'Error saving send email log: ' . $e->getMessage(),
+                $triggered_by,
+                $user_id,
+            );
             return false;
         }
         return true;
