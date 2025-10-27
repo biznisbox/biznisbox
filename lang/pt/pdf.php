@@ -97,4 +97,7 @@ return [
     ],
     'no_payment_method' => 'Nenhum método de pagamento',
     'tax_amount' => 'Valor do imposto',
+    'signer' => 'Signer',
+    'signed_by' => 'Assinado por',
+    'on' => 'ligado',
 ];
