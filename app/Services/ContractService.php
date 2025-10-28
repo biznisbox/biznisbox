@@ -227,6 +227,7 @@ class ContractService
             createActivityLog('downloadContract', $contract->id, Contract::$modelName, 'Contract');
             if (isset($tempPdfPath) && file_exists($tempPdfPath)) {
                 $signedPdfContent = file_get_contents($tempPdfPath);
+                unlink($tempPdfPath);
                 return response()->streamDownload(function () use ($signedPdfContent) {
                     echo $signedPdfContent;
                 }, 'Contract ' . $contract->number . '.pdf');
@@ -236,6 +237,7 @@ class ContractService
             createActivityLog('viewContractPdf', $contract->id, Contract::$modelName, 'Contract');
             if (isset($tempPdfPath) && file_exists($tempPdfPath)) {
                 $signedPdfContent = file_get_contents($tempPdfPath);
+                unlink($tempPdfPath);
                 return response()->stream(
                     function () use ($signedPdfContent) {
                         echo $signedPdfContent;
