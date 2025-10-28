@@ -97,4 +97,7 @@ return [
     ],
     'no_payment_method' => 'Geen betaalmethode',
     'tax_amount' => 'BTW bedrag',
+    'signer' => 'Signer',
+    'signed_by' => 'Ondertekend door',
+    'on' => 'op',
 ];

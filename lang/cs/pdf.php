@@ -97,4 +97,7 @@ return [
     ],
     'no_payment_method' => 'Bez způsobu platby',
     'tax_amount' => 'Částka daně',
+    'signer' => 'Signer',
+    'signed_by' => 'Podepsáno',
+    'on' => 'dne',
 ];

@@ -97,4 +97,7 @@ return [
     ],
     'no_payment_method' => 'Ingen Betalingsmetode',
     'tax_amount' => 'Moms Beløb',
+    'signer' => 'Signer',
+    'signed_by' => 'Signeret af',
+    'on' => 'til',
 ];

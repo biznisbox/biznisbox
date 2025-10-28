@@ -97,4 +97,7 @@ return [
     ],
     'no_payment_method' => 'Ingen betalingsmåte',
     'tax_amount' => 'Mva beløp',
+    'signer' => 'Signer',
+    'signed_by' => 'Signert av',
+    'on' => 'på',
 ];
