@@ -375,7 +375,6 @@
 </template>
 
 <script>
-import SelectInput from '@/components/form/SelectInput.vue'
 import ProjectMixin from '@/mixins/projects'
 import { FilterMatchMode, FilterOperator } from '@primevue/core/api'
 export default {
@@ -421,29 +420,6 @@ export default {
             this.showNewEditProjectMemberDialog = true
         },
 
-        getStatusSeverity(status) {
-            switch (status) {
-                case 'not_started':
-                case 'to_do':
-                    return 'secondary'
-                case 'planned':
-                    return 'warn'
-                case 'in_progress':
-                    return 'warn'
-                case 'completed':
-                case 'done':
-                    return 'success'
-                case 'on_hold':
-                case 'medium':
-                    return 'warn'
-                case 'cancelled':
-                case 'high':
-                    return 'danger'
-                default:
-                    return null
-            }
-        },
-
         openNewTaskDialog() {
             this.resetTaskForm()
             this.isEditTask = false
@@ -460,6 +436,7 @@ export default {
             }
         },
     },
+
     data() {
         return {
             showEditProjectDialog: false,

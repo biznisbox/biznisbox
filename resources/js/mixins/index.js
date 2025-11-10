@@ -529,6 +529,39 @@ export default {
         isMobile() {
             return window.innerWidth <= 768
         },
+
+        /**
+         * Function for set status severity
+         * @param {string} status Status to set severity
+         * @returns {string} Severity of the status
+         */
+        getStatusSeverity(status) {
+            switch (status) {
+                case 'not_started':
+                case 'to_do':
+                case 'low':
+                case 'over_stock':
+                    return 'secondary' // neutral
+                case 'planned':
+                case 'in_progress':
+                case 'on_hold':
+                case 'medium':
+                case 'low_stock':
+                    return 'warn' // orange
+                case 'completed':
+                case 'done':
+                case 'in_stock':
+                    return 'success' // green
+                case 'cancelled':
+                case 'high':
+                case 'out_of_stock':
+                    return 'danger' // red
+                case 'partial':
+                    return 'info' // blue
+                default:
+                    return null
+            }
+        },
     },
 
     created() {

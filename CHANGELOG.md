@@ -6,6 +6,9 @@
 - Implemented email sending logs to monitor email delivery status and issues.
 - Add digital signature support for contracts, when exporting contracts as PDF, contracts can now digitally sign them for enhanced security and authenticity.
 
+## 🐛 Bug Fixes
+
+- Some changes in showing stock status tags in the product list and product view pages.
 
 # 2.16.3
 

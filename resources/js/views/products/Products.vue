@@ -86,10 +86,9 @@
 
                 <Column field="stock_status" :header="$t('form.stock_status')" sortable>
                     <template #body="{ data }">
-                        <Tag v-if="data.stock_status === 'out_of_stock'" severity="danger"> {{ $t('stock_status.out_of_stock') }}</Tag>
-                        <Tag v-if="data.stock_status === 'in_stock'" severity="success"> {{ $t('stock_status.in_stock') }}</Tag>
-                        <Tag v-if="data.stock_status === 'low_stock'" severity="warn"> {{ $t('stock_status.low_stock') }}</Tag>
-                        <Tag v-if="data.stock_status === 'over_stock'" severity="warn"> {{ $t('stock_status.over_stock') }}</Tag>
+                        <Tag v-if="data.stock_status" :severity="getStatusSeverity(data.stock_status)">
+                            {{ $t('stock_status.' + data.stock_status) }}
+                        </Tag>
                     </template>
 
                     <template #filter="{ filterModel }">
@@ -100,7 +99,6 @@
                                 { label: $t('stock_status.in_stock'), value: 'in_stock' },
                                 { label: $t('stock_status.low_stock'), value: 'low_stock' },
                                 { label: $t('stock_status.over_stock'), value: 'over_stock' },
-                                { label: $t('stock_status.unknown'), value: 'unknown' },
                             ]"
                             option-label="label"
                             option-value="value"

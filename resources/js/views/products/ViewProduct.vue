@@ -40,10 +40,15 @@
                         <DisplayData :input="$t('form.buy_price')" :value="formatMoney(product.buy_price)" />
                         <DisplayData :input="$t('form.unit')" :value="product.unit" />
                     </div>
-                    <div v-if="product.type == 'product'" class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                    <div v-if="product.type == 'product'" class="grid grid-cols-2 md:grid-cols-4 gap-2">
                         <DisplayData :input="$t('form.stock')" :value="product.stock" />
                         <DisplayData :input="$t('form.min_stock')" :value="product.stock_min" />
                         <DisplayData :input="$t('form.max_stock')" :value="product.stock_max" />
+                        <Tag
+                            v-if="product.stock_status"
+                            :value="$t('stock_status.' + product.stock_status)"
+                            :severity="getStatusSeverity(product.stock_status)"
+                        />
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
