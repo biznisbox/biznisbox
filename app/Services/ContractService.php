@@ -178,6 +178,7 @@ class ContractService
     public function getContractPdf($id, $type = 'stream')
     {
         $contract = $this->getContract($id);
+
         $settings = settings([
             'company_name',
             'company_address',
@@ -191,23 +192,25 @@ class ContractService
             'show_barcode_on_documents',
             'default_currency',
         ]);
-        $pdf = PDF::loadView('pdfs.contract', compact('contract', 'settings'));
 
+        $pdf = PDF::loadView('pdfs.contract', compact('contract', 'settings'));
         $pdfFile = $pdf->output();
 
-        // Sign PDF if needed
-        if (settings('document_signing_available')) {
-            $pdfSigner = new PdfSigner();
-            $tempPdfPath = storage_path('app/temp_contract_' . Str::uuid() . '.pdf');
-            file_put_contents($tempPdfPath, $pdfFile);
-            $pdfSigner->signPdfInvisible(
+        // Create a temporary file for PDF signing if needed
+        $tempPdfPath = storage_path('app/temp_contract_' . Str::uuid() . '.pdf');
+        file_put_contents($tempPdfPath, $pdfFile);
+
+        $isSigningEnabled = settings('document_signer_available');
+
+        if ($isSigningEnabled) {
+            (new PdfSigner())->signPdfInvisible(
                 $tempPdfPath,
                 $tempPdfPath,
                 [
                     'name' => settings('company_name'),
                     'email' => settings('company_email'),
                     'reason' => 'Server Digital Signature',
-                    'signature_image' => null,
+                    'location' => settings('company_city'),
                 ],
                 null,
                 false,
@@ -215,44 +218,48 @@ class ContractService
             );
         }
 
-        if ($type == 'attach') {
-            if (isset($tempPdfPath) && file_exists($tempPdfPath)) {
-                $signedPdfContent = file_get_contents($tempPdfPath);
+        /**
+         * Helper: get final PDF contents (signed if available)
+         */
+        $getPdfContent = function () use ($isSigningEnabled, $tempPdfPath, $pdfFile) {
+            if ($isSigningEnabled && file_exists($tempPdfPath)) {
+                $content = file_get_contents($tempPdfPath);
                 unlink($tempPdfPath);
-                return $signedPdfContent;
+                return $content;
             }
+            unlink($tempPdfPath);
             return $pdfFile;
-        }
-        if ($type == 'download') {
-            createActivityLog('downloadContract', $contract->id, Contract::$modelName, 'Contract');
-            if (isset($tempPdfPath) && file_exists($tempPdfPath)) {
-                $signedPdfContent = file_get_contents($tempPdfPath);
-                unlink($tempPdfPath);
-                return response()->streamDownload(function () use ($signedPdfContent) {
-                    echo $signedPdfContent;
-                }, 'Contract ' . $contract->number . '.pdf');
-            }
-            return $pdf->download('Contract ' . $contract->number . '.pdf');
-        } else {
-            createActivityLog('viewContractPdf', $contract->id, Contract::$modelName, 'Contract');
-            if (isset($tempPdfPath) && file_exists($tempPdfPath)) {
-                $signedPdfContent = file_get_contents($tempPdfPath);
-                unlink($tempPdfPath);
+        };
+
+        $filename = __('pdf.contract') . '_' . $contract->number . '.pdf';
+
+        // Handle output types
+        switch ($type) {
+            case 'attach':
+                return $getPdfContent();
+
+            case 'download':
+                createActivityLog('downloadContract', $contract->id, Contract::$modelName, 'Contract');
+
+                return response()->streamDownload(function () use ($getPdfContent) {
+                    echo $getPdfContent();
+                }, $filename);
+
+            default:
+                createActivityLog('viewContractPdf', $contract->id, Contract::$modelName, 'Contract');
+
                 return response()->stream(
-                    function () use ($signedPdfContent) {
-                        echo $signedPdfContent;
+                    function () use ($getPdfContent) {
+                        echo $getPdfContent();
                     },
                     200,
                     [
                         'Content-Type' => 'application/pdf',
-                        'Content-Disposition' => 'inline; filename="Contract ' . $contract->number . '.pdf"',
+                        'Content-Disposition' => 'inline; filename="' . $filename . '"',
                     ],
                 );
-            }
-            return $pdf->stream('Contract ' . $contract->number . '.pdf');
         }
     }
-
     /**
      * Share contract
      * @return void
