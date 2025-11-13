@@ -431,7 +431,8 @@
         "budget": "Budget",
         "project_key": "Project Key",
         "completed_at": "Completed At",
-        "progress_in_percent": "Progress in percent"
+        "progress_in_percent": "Progress in percent",
+        "archived_until": "Archived Until"
     },
     "address_types": {
         "billing": "Billing",
@@ -1013,7 +1014,8 @@
         "project_members": "Project Members",
         "add_member": "Add Member",
         "remove_member": "Remove Member",
-        "remove_member_confirmation": "Are you sure you want to remove this member from the project?"
+        "remove_member_confirmation": "Are you sure you want to remove this member from the project?",
+        "edit_member": "Edit Member"
     },
     "project_role": {
         "owner": "Owner",
@@ -1087,7 +1089,9 @@
             "coinbase_available": "Coinbase available",
             "coinbase_api_key": "Coinbase API Key",
             "coinbase_api_key_help": "You can find your API key in your Coinbase commerce account.",
-            "coinbase_account_id": "Coinbase internal account ID"
+            "coinbase_account_id": "Coinbase internal account ID",
+            "document_signing_available": "Document Signing available",
+            "document_signing": "Document Signing"
         },
         "status": {
             "title": "Status Page",
@@ -1096,7 +1100,13 @@
             "changelog": "Changelog",
             "view_changelog": "View Changelog",
             "new_version_available": "New version available for download",
-            "download_now": "Download now"
+            "download_now": "Download now",
+            "php_version": "PHP Version",
+            "database_version": "Database Version",
+            "server_software": "Server Software",
+            "storage_used": "Storage Used",
+            "storage_limit": "Storage Limit",
+            "unlimited": "Unlimited"
         },
         "user": {
             "title": "Users",

@@ -6,4 +6,5 @@ return [
     'coinbase' => 'Coinbase',
     'open_banking' => 'Avoin Pankkitoiminta',
     'vies_vat' => 'VIES Alv-Vahvistus',
+    'document_signer' => 'Pdf Asiakirjan Allekirjoittaja',
 ];

@@ -97,4 +97,7 @@ return [
     ],
     'no_payment_method' => 'Način plačila ni določen',
     'tax_amount' => 'Znesek davka',
+    'signer' => 'Signer',
+    'signed_by' => 'Signed by',
+    'on' => 'on',
 ];

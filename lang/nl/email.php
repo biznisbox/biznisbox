@@ -57,8 +57,7 @@ return [
     'personal_access_token_details' => 'Details persoonlijke toegangstoken',
     'personal_access_token_name' => 'Token naam',
     'personal_access_token_valid_until' => 'Geldig tot',
-    'if_this_was_not_you_personal_access_token' =>
-        'Als dit niet u was, verwijder dan de token onmiddellijk en neem contact op met de beheerder.',
+    'if_this_was_not_you_personal_access_token' => 'Als dit niet u was, verwijder dan de token onmiddellijk en neem contact op met de beheerder.',
     'subject_support_ticket' => 'Ondersteuning van ticket notificatie',
     'new_support_ticket' => 'Er is een nieuwe support ticket aangemaakt.',
     'support_ticket_details' => 'Support Ticket Details',

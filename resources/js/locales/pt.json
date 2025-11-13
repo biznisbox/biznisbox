@@ -431,7 +431,8 @@
         "budget": "Orçamento",
         "project_key": "Chave do Projeto",
         "completed_at": "Concluído em",
-        "progress_in_percent": "Progresso em porcentagem"
+        "progress_in_percent": "Progresso em porcentagem",
+        "archived_until": "Arquivado até"
     },
     "address_types": {
         "billing": "Faturamento",
@@ -1013,7 +1014,8 @@
         "project_members": "Membros do Projeto",
         "add_member": "Adicionar Membro",
         "remove_member": "Remover Membro",
-        "remove_member_confirmation": "Tem certeza que deseja remover este membro do projeto?"
+        "remove_member_confirmation": "Tem certeza que deseja remover este membro do projeto?",
+        "edit_member": "Editar Membro"
     },
     "project_role": {
         "owner": "Proprietário",
@@ -1087,7 +1089,9 @@
             "coinbase_available": "Coinbase disponível",
             "coinbase_api_key": "Chave API do Coinbase",
             "coinbase_api_key_help": "Você pode encontrar sua chave de API na sua conta de comércio Coinbase.",
-            "coinbase_account_id": "ID interno da conta Coinbase"
+            "coinbase_account_id": "ID interno da conta Coinbase",
+            "document_signing_available": "Assinatura de Documento disponível",
+            "document_signing": "Assinatura de documento"
         },
         "status": {
             "title": "Página de estado",
@@ -1096,7 +1100,13 @@
             "changelog": "Mudanças",
             "view_changelog": "Ver alterações",
             "new_version_available": "Nova versão disponível para download",
-            "download_now": "Baixe agora"
+            "download_now": "Baixe agora",
+            "php_version": "Versão do PHP",
+            "database_version": "Versão do banco",
+            "server_software": "Software do servidor",
+            "storage_used": "Armazenamento usado",
+            "storage_limit": "Limite de armazenamento",
+            "unlimited": "Ilimitado"
         },
         "user": {
             "title": "Utilizadores",
