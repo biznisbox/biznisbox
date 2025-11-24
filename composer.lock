@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4859e70d40a92f54aaf5a0a9151fcf33",
+    "content-hash": "1fb6493f746d577b5ab7c3bfb790d5f2",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -4241,16 +4241,16 @@
         },
         {
             "name": "nnjeim/world",
-            "version": "1.1.33",
+            "version": "1.1.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nnjeim/world.git",
-                "reference": "4fb2bf0689103b743dc345fc85671cc4d8d76913"
+                "reference": "8fa772544024f40ca0d92e333314c21041d81ec4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nnjeim/world/zipball/4fb2bf0689103b743dc345fc85671cc4d8d76913",
-                "reference": "4fb2bf0689103b743dc345fc85671cc4d8d76913",
+                "url": "https://api.github.com/repos/nnjeim/world/zipball/8fa772544024f40ca0d92e333314c21041d81ec4",
+                "reference": "8fa772544024f40ca0d92e333314c21041d81ec4",
                 "shasum": ""
             },
             "require": {
@@ -4301,9 +4301,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nnjeim/world/issues",
-                "source": "https://github.com/nnjeim/world/tree/1.1.33"
+                "source": "https://github.com/nnjeim/world/tree/1.1.36"
             },
-            "time": "2025-02-07T06:09:43+00:00"
+            "time": "2025-08-21T03:36:01+00:00"
         },
         {
             "name": "nordigen/nordigen-php",
