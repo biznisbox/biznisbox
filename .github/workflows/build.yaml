@@ -9,6 +9,8 @@ on:
     schedule:
         # Every week on Sunday at midnight
         - cron: '0 0 * * 0'
+permissions:
+    contents: read
 env:
     TYPE_OF_BUILD: 'production'
     GITHUB_SHA: ${{ github.sha }}
@@ -48,7 +50,7 @@ jobs:
             - name: Install Composer dependencies
               run: composer install --no-interaction --prefer-dist --optimize-autoloader
             - name: Install NPM modules
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v6
               with:
                   node-version: 22
             - run: |
