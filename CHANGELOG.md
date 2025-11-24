@@ -1,3 +1,9 @@
+# 2.17.1
+
+## 🐛 Bug Fixes
+
+- Fixed an issue with digital signatures not being applied correctly when exporting contracts as PDF.
+
 # 2.17.0
 
 ## ✨ New Features & Enhancements
