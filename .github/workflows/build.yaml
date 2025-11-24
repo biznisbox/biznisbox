@@ -11,12 +11,15 @@ on:
         - cron: '0 0 * * 0'
 permissions:
     contents: read
+    actions: write
 env:
     TYPE_OF_BUILD: 'production'
     GITHUB_SHA: ${{ github.sha }}
 jobs:
     build:
         runs-on: ubuntu-latest
+        permissions:
+            contents: read
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
@@ -71,6 +74,9 @@ jobs:
                   path: ${{ github.workspace }}/
     release:
         runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            actions: write
         needs: build
         steps:
             - name: Get current date
