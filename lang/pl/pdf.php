@@ -97,4 +97,7 @@ return [
     ],
     'no_payment_method' => 'Brak metody płatności',
     'tax_amount' => 'Kwota podatku',
+    'signer' => 'Signer',
+    'signed_by' => 'Podpisane przez',
+    'on' => 'Włączone',
 ];

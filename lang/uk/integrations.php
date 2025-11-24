@@ -6,4 +6,5 @@ return [
     'coinbase' => 'Куенбаз',
     'open_banking' => 'Відкрити банкінг',
     'vies_vat' => 'Перевірка ПДВ VIES',
+    'document_signer' => 'Відправник PDF-документів',
 ];

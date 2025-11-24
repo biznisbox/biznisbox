@@ -97,4 +97,7 @@ return [
     ],
     'no_payment_method' => 'Ingen betalningsmetod',
     'tax_amount' => 'Skatt belopp',
+    'signer' => 'Signer',
+    'signed_by' => 'Signerad av',
+    'on' => 'på',
 ];
