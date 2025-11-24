@@ -10,7 +10,7 @@ on:
         # Every week on Sunday at midnight
         - cron: '0 0 * * 0'
 permissions:
-    contents: read
+    contents: write
     actions: write
 env:
     TYPE_OF_BUILD: 'production'
@@ -18,8 +18,6 @@ env:
 jobs:
     build:
         runs-on: ubuntu-latest
-        permissions:
-            contents: read
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
@@ -74,9 +72,6 @@ jobs:
                   path: ${{ github.workspace }}/
     release:
         runs-on: ubuntu-latest
-        permissions:
-            contents: read
-            actions: write
         needs: build
         steps:
             - name: Get current date
