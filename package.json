@@ -26,7 +26,7 @@
         "prettier-plugin-blade": "^2.1.21",
         "tailwindcss": "^4.1.17",
         "@tailwindcss/vite": "^4.1.17",
-        "vite": "7.2.4",
+        "vite": "7.2.6",
         "vite-plugin-vue-devtools": "^8.0.5"
     },
     "dependencies": {
