@@ -1,3 +1,7 @@
+# 2.17.2
+
+- Update Composer and NPM dependencies to fix security vulnerabilities and bugs.
+
 # 2.17.1
 
 ## 🐛 Bug Fixes
