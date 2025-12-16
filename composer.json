@@ -57,7 +57,7 @@
         "smalot/pdfparser": "^2.12",
         "spatie/laravel-permission": "^6.21",
         "spatie/laravel-webhook-server": "^3.8",
-        "stripe/stripe-php": "^18.0",
+        "stripe/stripe-php": "^19.0",
         "tecnickcom/tcpdf": "^6.10"
     },
     "require-dev": {
