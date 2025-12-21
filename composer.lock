@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f25390131fb5cef2d444d694713f619",
+    "content-hash": "ebabbc89a5a02a5d24a1b1f0b3f57291",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -1748,16 +1748,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "3.11.5",
+            "version": "3.11.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "76e96d3809d53dd8d597005634a733d4b2f6c2c3"
+                "reference": "5f6d27d9fd56312c47f347929e7ac15345c605a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/76e96d3809d53dd8d597005634a733d4b2f6c2c3",
-                "reference": "76e96d3809d53dd8d597005634a733d4b2f6c2c3",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/5f6d27d9fd56312c47f347929e7ac15345c605a1",
+                "reference": "5f6d27d9fd56312c47f347929e7ac15345c605a1",
                 "shasum": ""
             },
             "require": {
@@ -1804,7 +1804,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Intervention/image/issues",
-                "source": "https://github.com/Intervention/image/tree/3.11.5"
+                "source": "https://github.com/Intervention/image/tree/3.11.6"
             },
             "funding": [
                 {
@@ -1820,7 +1820,7 @@
                     "type": "ko_fi"
                 }
             ],
-            "time": "2025-11-29T11:18:34+00:00"
+            "time": "2025-12-17T13:38:29+00:00"
         },
         {
             "name": "jaybizzle/crawler-detect",
@@ -1969,16 +1969,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v12.42.0",
+            "version": "v12.43.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "509b33095564c5165366d81bbaa0afaac28abe75"
+                "reference": "195b893593a9298edee177c0844132ebaa02102f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/509b33095564c5165366d81bbaa0afaac28abe75",
-                "reference": "509b33095564c5165366d81bbaa0afaac28abe75",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/195b893593a9298edee177c0844132ebaa02102f",
+                "reference": "195b893593a9298edee177c0844132ebaa02102f",
                 "shasum": ""
             },
             "require": {
@@ -2187,7 +2187,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-12-09T15:51:23+00:00"
+            "time": "2025-12-16T18:53:08+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -4243,16 +4243,16 @@
         },
         {
             "name": "nnjeim/world",
-            "version": "1.1.33",
+            "version": "1.1.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nnjeim/world.git",
-                "reference": "4fb2bf0689103b743dc345fc85671cc4d8d76913"
+                "reference": "8fa772544024f40ca0d92e333314c21041d81ec4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nnjeim/world/zipball/4fb2bf0689103b743dc345fc85671cc4d8d76913",
-                "reference": "4fb2bf0689103b743dc345fc85671cc4d8d76913",
+                "url": "https://api.github.com/repos/nnjeim/world/zipball/8fa772544024f40ca0d92e333314c21041d81ec4",
+                "reference": "8fa772544024f40ca0d92e333314c21041d81ec4",
                 "shasum": ""
             },
             "require": {
@@ -4303,9 +4303,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nnjeim/world/issues",
-                "source": "https://github.com/nnjeim/world/tree/1.1.33"
+                "source": "https://github.com/nnjeim/world/tree/1.1.36"
             },
-            "time": "2025-02-07T06:09:43+00:00"
+            "time": "2025-08-21T03:36:01+00:00"
         },
         {
             "name": "nordigen/nordigen-php",
@@ -5916,16 +5916,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.12.17",
+            "version": "v0.12.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "85fbbd9f3064e157fc21fe4362b2b5c19f2ea631"
+                "reference": "ddff0ac01beddc251786fe70367cd8bbdb258196"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/85fbbd9f3064e157fc21fe4362b2b5c19f2ea631",
-                "reference": "85fbbd9f3064e157fc21fe4362b2b5c19f2ea631",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/ddff0ac01beddc251786fe70367cd8bbdb258196",
+                "reference": "ddff0ac01beddc251786fe70367cd8bbdb258196",
                 "shasum": ""
             },
             "require": {
@@ -5989,9 +5989,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.17"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.12.18"
             },
-            "time": "2025-12-15T04:55:34+00:00"
+            "time": "2025-12-17T14:35:46+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -6705,16 +6705,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v18.2.0",
+            "version": "v19.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "0acd7bdac84ad0f940d5da30c417170ce59b4fbc"
+                "reference": "4e3de7211645699b1f5b5f1f1b45bd9faf369426"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/0acd7bdac84ad0f940d5da30c417170ce59b4fbc",
-                "reference": "0acd7bdac84ad0f940d5da30c417170ce59b4fbc",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/4e3de7211645699b1f5b5f1f1b45bd9faf369426",
+                "reference": "4e3de7211645699b1f5b5f1f1b45bd9faf369426",
                 "shasum": ""
             },
             "require": {
@@ -6758,9 +6758,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v18.2.0"
+                "source": "https://github.com/stripe/stripe-php/tree/v19.1.0"
             },
-            "time": "2025-11-05T22:59:39+00:00"
+            "time": "2025-12-16T19:48:17+00:00"
         },
         {
             "name": "symfony/clock",

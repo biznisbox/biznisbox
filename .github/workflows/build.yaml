@@ -45,7 +45,7 @@ jobs:
             - name: Setup PHP with PECL extension
               uses: shivammathur/setup-php@v2
               with:
-                  php-version: '8.4'
+                  php-version: '8.5'
                   extensions: mbstring, intl, gd, pdo_mysql, zip, exif, pcntl, bcmath, soap, imagick, xdebug, opcache, imagick
                   tools: composer:v2
             - name: Install Composer dependencies
@@ -65,7 +65,7 @@ jobs:
                   npm install --production --no-audit
                   rm -rf .git .github .gitignore .gitattributes .editorconfig tailwind.config.js .env .eslintrc.cjs .prettierignore .prettierrc.json .jsconfig.json phpunit.xml version crowdin.yml install.lock postcss.config.js eslint.config.js sonar-project.properties
             - name: Upload artifacts
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v5
               with:
                   name: biznisbox
                   include-hidden-files: true # Include hidden files in the artifact (fix for .env .gitignore ...)
@@ -78,7 +78,7 @@ jobs:
               id: date
               run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M:%S')"
             - name: Download artifacts
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v6
               with:
                   name: biznisbox
             - name: Create zip archive

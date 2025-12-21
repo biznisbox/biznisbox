@@ -1,4 +1,4 @@
-FROM php:8.4-fpm-alpine AS app_build
+FROM php:8.5-fpm-alpine AS app_build
 
 RUN apk add --no-cache \
         build-base \
@@ -24,11 +24,11 @@ RUN apk add --no-cache \
         su-exec \
         supervisor \
         unzip \
-        zip   
+        zip
 
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) \
-        pdo pdo_mysql pdo_pgsql zip gd mbstring exif pcntl bcmath 
+        pdo pdo_mysql pdo_pgsql zip gd mbstring exif pcntl bcmath
 
 WORKDIR /var/www/html
 
@@ -53,7 +53,7 @@ RUN mkdir -p /var/www/html/storage/framework/sessions \
     && mkdir -p /var/www/html/storage/framework/cache/data \
     && mkdir -p /var/www/html/storage/logs \
     && mkdir -p /var/www/html/bootstrap/cache \
-    && mkdir -p /var/www/html/public/build \ 
+    && mkdir -p /var/www/html/public/build \
     && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
     && chmod -R ug+rwx /var/www/html/storage /var/www/html/bootstrap/cache \
     && chown -R www-data:www-data /var/www/html/public \
@@ -73,7 +73,7 @@ RUN apk add --no-cache \
         oniguruma \
         postgresql-libs \
         su-exec \
-        supervisor 
+        supervisor
 
 COPY --from=app_build /usr/local/etc/php/conf.d/ /usr/local/etc/php/conf.d/
 COPY --from=app_build /usr/local/lib/php/extensions/ /usr/local/lib/php/extensions/
@@ -83,7 +83,7 @@ WORKDIR /var/www/html
 COPY --from=app_build /var/www/html /var/www/html
 COPY --from=app_build /etc/supervisor/conf.d/app.conf /etc/supervisor/conf.d/app.conf
 COPY --from=app_build /etc/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=app_build /etc/nginx/http.d/default.conf /etc/nginx/http.d/default.conf 
+COPY --from=app_build /etc/nginx/http.d/default.conf /etc/nginx/http.d/default.conf
 COPY --from=app_build /usr/local/bin/entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY --from=app_build /usr/local/etc/php/conf.d/php.ini /usr/local/etc/php/conf.d/php.ini
 
