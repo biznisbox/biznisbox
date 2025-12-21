@@ -65,7 +65,7 @@ jobs:
                   npm install --production --no-audit
                   rm -rf .git .github .gitignore .gitattributes .editorconfig tailwind.config.js .env .eslintrc.cjs .prettierignore .prettierrc.json .jsconfig.json phpunit.xml version crowdin.yml install.lock postcss.config.js eslint.config.js sonar-project.properties
             - name: Upload artifacts
-              uses: actions/upload-artifact@v5
+              uses: actions/upload-artifact@v6
               with:
                   name: biznisbox
                   include-hidden-files: true # Include hidden files in the artifact (fix for .env .gitignore ...)
