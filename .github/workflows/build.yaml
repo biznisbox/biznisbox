@@ -78,7 +78,7 @@ jobs:
               id: date
               run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M:%S')"
             - name: Download artifacts
-              uses: actions/download-artifact@v6
+              uses: actions/download-artifact@v7
               with:
                   name: biznisbox
             - name: Create zip archive
