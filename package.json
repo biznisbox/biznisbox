@@ -35,7 +35,7 @@
         "@fullcalendar/interaction": "^6.1.19",
         "@fullcalendar/list": "^6.1.19",
         "@fullcalendar/rrule": "^6.1.19",
-        "@fullcalendar/timegrid": "^6.1.19",
+        "@fullcalendar/timegrid": "^6.1.20",
         "@fullcalendar/vue3": "^6.1.19",
         "@selemondev/vue3-signature-pad": "^1.8.0",
         "@tinymce/tinymce-vue": "^6.3.0",
