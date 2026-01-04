@@ -6,4 +6,5 @@ return [
     'coinbase' => 'Coinbase',
     'open_banking' => 'Odprto bančništvo',
     'vies_vat' => 'VIES VAT Validacija',
+    'document_signer' => 'PDF podpisovanje dokumentov',
 ];

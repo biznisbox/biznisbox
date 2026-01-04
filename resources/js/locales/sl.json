@@ -431,7 +431,8 @@
         "budget": "Proračun",
         "project_key": "Ključ projekta",
         "completed_at": "Dokončano",
-        "progress_in_percent": "Napredek v odstotkih"
+        "progress_in_percent": "Napredek v odstotkih",
+        "archived_until": "Arhivirano do"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -1013,7 +1014,8 @@
         "project_members": "Člani projekta",
         "add_member": "Dodaj člana",
         "remove_member": "Odstrani člana",
-        "remove_member_confirmation": "Ali ste prepričani, da želite odstraniti člana projekta?"
+        "remove_member_confirmation": "Ali ste prepričani, da želite odstraniti člana projekta?",
+        "edit_member": "Uredi člana"
     },
     "project_role": {
         "owner": "Lastnik",
@@ -1087,7 +1089,9 @@
             "coinbase_available": "Coinbase aktiven",
             "coinbase_api_key": "Coinbase API ključ",
             "coinbase_api_key_help": "Najdete ga v vašem Coinbase Commerce računu.",
-            "coinbase_account_id": "ID internega računa za Coinbase"
+            "coinbase_account_id": "ID internega računa za Coinbase",
+            "document_signing_available": "Podpisovanje dokumentov na voljo",
+            "document_signing": "Podpisovanje dokumentov"
         },
         "status": {
             "title": "Status aplikacije",
@@ -1096,7 +1100,13 @@
             "changelog": "Dnevnik sprememb",
             "view_changelog": "Pokaži dnevnik sprememb",
             "new_version_available": "Nova verzija aplikacije je na voljo za prenos",
-            "download_now": "Prenesi zdaj"
+            "download_now": "Prenesi zdaj",
+            "php_version": "Verzija PHP",
+            "database_version": "Različica podatkovne baze",
+            "server_software": "Programska oprema strežnika",
+            "storage_used": "Porabljen prostor",
+            "storage_limit": "Omejitev shrambe",
+            "unlimited": "Neomejeno"
         },
         "user": {
             "title": "Uporabniki",

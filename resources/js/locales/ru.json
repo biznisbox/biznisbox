@@ -431,7 +431,8 @@
         "budget": "Бюджет",
         "project_key": "Ключ проекта",
         "completed_at": "Завершено в",
-        "progress_in_percent": "Прогресс в процентах"
+        "progress_in_percent": "Прогресс в процентах",
+        "archived_until": "Архивировано до"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -1013,7 +1014,8 @@
         "project_members": "Участники проекта",
         "add_member": "Добавить участника",
         "remove_member": "Удалить участника",
-        "remove_member_confirmation": "Вы уверены, что хотите удалить этого участника из проекта?"
+        "remove_member_confirmation": "Вы уверены, что хотите удалить этого участника из проекта?",
+        "edit_member": "Изменить участника"
     },
     "project_role": {
         "owner": "Владелец",
@@ -1087,7 +1089,9 @@
             "coinbase_available": "Доступна база Coinbase",
             "coinbase_api_key": "Ключ API Coinbase",
             "coinbase_api_key_help": "Вы можете найти ваш API ключ в вашей учетной записи Coinbase commerce аккаунта.",
-            "coinbase_account_id": "ID внутреннего аккаунта Coinbase"
+            "coinbase_account_id": "ID внутреннего аккаунта Coinbase",
+            "document_signing_available": "Подписание документа доступно",
+            "document_signing": "Подписание документа"
         },
         "status": {
             "title": "Страница статуса",
@@ -1096,7 +1100,13 @@
             "changelog": "Список изменений",
             "view_changelog": "Список изменений",
             "new_version_available": "Новая версия доступна для скачивания",
-            "download_now": "Скачать сейчас"
+            "download_now": "Скачать сейчас",
+            "php_version": "Версия PHP",
+            "database_version": "Версия базы данных",
+            "server_software": "Серверное программное обеспечение",
+            "storage_used": "Используемое хранилище",
+            "storage_limit": "Лимит памяти",
+            "unlimited": "Неограниченный"
         },
         "user": {
             "title": "Пользователи",

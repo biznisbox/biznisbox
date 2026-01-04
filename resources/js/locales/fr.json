@@ -431,7 +431,8 @@
         "budget": "Budget",
         "project_key": "Clé du projet",
         "completed_at": "Terminé à",
-        "progress_in_percent": "Progression en pourcentage"
+        "progress_in_percent": "Progression en pourcentage",
+        "archived_until": "Archivé jusqu'au"
     },
     "address_types": {
         "billing": "Facturation",
@@ -1013,7 +1014,8 @@
         "project_members": "Membres du projet",
         "add_member": "Ajouter un membre",
         "remove_member": "Supprimer un membre",
-        "remove_member_confirmation": "Êtes-vous sûr de vouloir supprimer ce membre du projet ?"
+        "remove_member_confirmation": "Êtes-vous sûr de vouloir supprimer ce membre du projet ?",
+        "edit_member": "Modifier le membre"
     },
     "project_role": {
         "owner": "Propriétaire",
@@ -1087,7 +1089,9 @@
             "coinbase_available": "Base de pièces disponible",
             "coinbase_api_key": "Clé API Coinbase",
             "coinbase_api_key_help": "Vous pouvez trouver votre clé API dans votre compte de commerce Coinbase.",
-            "coinbase_account_id": "ID du compte interne de Coinbase"
+            "coinbase_account_id": "ID du compte interne de Coinbase",
+            "document_signing_available": "Signature de document disponible",
+            "document_signing": "Signature du document"
         },
         "status": {
             "title": "Page de statut",
@@ -1096,7 +1100,13 @@
             "changelog": "Historique des modifications",
             "view_changelog": "Voir le changelog",
             "new_version_available": "Nouvelle version disponible en téléchargement",
-            "download_now": "Télécharger maintenant"
+            "download_now": "Télécharger maintenant",
+            "php_version": "Version de PHP",
+            "database_version": "Version de la base de données",
+            "server_software": "Logiciel Serveur",
+            "storage_used": "Stockage utilisé",
+            "storage_limit": "Limite de stockage",
+            "unlimited": "Illimité"
         },
         "user": {
             "title": "Utilisateurs",

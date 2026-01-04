@@ -97,4 +97,7 @@ return [
     ],
     'no_payment_method' => 'Нет метода оплаты',
     'tax_amount' => 'Сумма налога',
+    'signer' => 'Signer',
+    'signed_by' => 'Подписано',
+    'on' => 'вкл',
 ];

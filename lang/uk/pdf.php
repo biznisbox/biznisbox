@@ -97,4 +97,7 @@ return [
     ],
     'no_payment_method' => 'Немає способів оплати',
     'tax_amount' => 'Сума податків',
+    'signer' => 'Signer',
+    'signed_by' => 'Підписано',
+    'on' => 'вкл',
 ];

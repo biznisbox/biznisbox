@@ -431,7 +431,8 @@
         "budget": "Presupuestario",
         "project_key": "Clave del proyecto",
         "completed_at": "Completado el",
-        "progress_in_percent": "Progreso en porcentaje"
+        "progress_in_percent": "Progreso en porcentaje",
+        "archived_until": "Archivado hasta"
     },
     "address_types": {
         "billing": "Facturación",
@@ -1013,7 +1014,8 @@
         "project_members": "Miembros del proyecto",
         "add_member": "Añadir miembro",
         "remove_member": "Quitar miembro",
-        "remove_member_confirmation": "¿Está seguro de que desea eliminar a este miembro del proyecto?"
+        "remove_member_confirmation": "¿Está seguro de que desea eliminar a este miembro del proyecto?",
+        "edit_member": "Editar miembro"
     },
     "project_role": {
         "owner": "Propietario",
@@ -1087,7 +1089,9 @@
             "coinbase_available": "Base de monedas disponible",
             "coinbase_api_key": "Clave API Coinbase",
             "coinbase_api_key_help": "Puede encontrar su clave API en su cuenta de comercio de Coinbase.",
-            "coinbase_account_id": "ID de cuenta interna de Coinbase"
+            "coinbase_account_id": "ID de cuenta interna de Coinbase",
+            "document_signing_available": "Firma de documentos disponible",
+            "document_signing": "Firma de documentos"
         },
         "status": {
             "title": "Página de estado",
@@ -1096,7 +1100,13 @@
             "changelog": "Cambios",
             "view_changelog": "Ver registro de cambios",
             "new_version_available": "Nueva versión disponible para descargar",
-            "download_now": "Descargar ahora"
+            "download_now": "Descargar ahora",
+            "php_version": "Versión PHP",
+            "database_version": "Versión de la base de datos",
+            "server_software": "Software del Servidor",
+            "storage_used": "Almacenamiento usado",
+            "storage_limit": "Límite de almacenamiento",
+            "unlimited": "Ilimitado"
         },
         "user": {
             "title": "Usuarios",

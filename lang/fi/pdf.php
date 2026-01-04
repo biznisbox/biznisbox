@@ -97,4 +97,7 @@ return [
     ],
     'no_payment_method' => 'Ei Maksutapaa',
     'tax_amount' => 'Veron Määrä',
+    'signer' => 'Signer',
+    'signed_by' => 'Allekirjoittanut',
+    'on' => 'päällä',
 ];

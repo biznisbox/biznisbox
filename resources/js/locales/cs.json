@@ -431,7 +431,8 @@
         "budget": "Rozpočet",
         "project_key": "Klíč projektu",
         "completed_at": "Dokončeno",
-        "progress_in_percent": "Pokrok v procentech"
+        "progress_in_percent": "Pokrok v procentech",
+        "archived_until": "Archivováno do"
     },
     "address_types": {
         "billing": "Fakturace",
@@ -1013,7 +1014,8 @@
         "project_members": "Členové projektu",
         "add_member": "Přidat člena",
         "remove_member": "Odebrat člena",
-        "remove_member_confirmation": "Opravdu chcete odstranit tohoto člena z projektu?"
+        "remove_member_confirmation": "Opravdu chcete odstranit tohoto člena z projektu?",
+        "edit_member": "Upravit člena"
     },
     "project_role": {
         "owner": "Vlastník",
@@ -1087,7 +1089,9 @@
             "coinbase_available": "Mince jsou k dispozici",
             "coinbase_api_key": "API klíč Coinbase",
             "coinbase_api_key_help": "Váš API klíč můžete najít v komerčním účtu Coinbase.",
-            "coinbase_account_id": "ID interního účtu Coinbase"
+            "coinbase_account_id": "ID interního účtu Coinbase",
+            "document_signing_available": "Podpis dokumentu je k dispozici",
+            "document_signing": "Podpis dokumentu"
         },
         "status": {
             "title": "Stavová stránka",
@@ -1096,7 +1100,13 @@
             "changelog": "Seznam změn",
             "view_changelog": "Zobrazit seznam změn",
             "new_version_available": "K dispozici je nová verze ke stažení",
-            "download_now": "Stáhnout nyní"
+            "download_now": "Stáhnout nyní",
+            "php_version": "Verze PHP",
+            "database_version": "Verze databáze",
+            "server_software": "Software serveru",
+            "storage_used": "Použité úložiště",
+            "storage_limit": "Limit úložiště",
+            "unlimited": "Bez omezení"
         },
         "user": {
             "title": "Uživatelé",

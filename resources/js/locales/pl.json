@@ -431,7 +431,8 @@
         "budget": "Budżet",
         "project_key": "Klucz projektu",
         "completed_at": "Ukończone w",
-        "progress_in_percent": "Postęp w procentach"
+        "progress_in_percent": "Postęp w procentach",
+        "archived_until": "Zarchiwizowane do"
     },
     "address_types": {
         "billing": "Płatność",
@@ -1013,7 +1014,8 @@
         "project_members": "Członkowie projektu",
         "add_member": "Dodaj członka",
         "remove_member": "Usuń członka",
-        "remove_member_confirmation": "Czy na pewno chcesz usunąć tego użytkownika z projektu?"
+        "remove_member_confirmation": "Czy na pewno chcesz usunąć tego użytkownika z projektu?",
+        "edit_member": "Edytuj członka"
     },
     "project_role": {
         "owner": "Właściciel",
@@ -1087,7 +1089,9 @@
             "coinbase_available": "Dostępna baza monet",
             "coinbase_api_key": "Klucz API Coinbase",
             "coinbase_api_key_help": "Klucz API można znaleźć na koncie Coinbase commerce.",
-            "coinbase_account_id": "ID konta wewnętrznego Coinbase"
+            "coinbase_account_id": "ID konta wewnętrznego Coinbase",
+            "document_signing_available": "Podpisywanie dokumentu dostępne",
+            "document_signing": "Podpisywanie dokumentu"
         },
         "status": {
             "title": "Strona statusu",
@@ -1096,7 +1100,13 @@
             "changelog": "Lista zmian",
             "view_changelog": "Zobacz listę zmian",
             "new_version_available": "Nowa wersja dostępna do pobrania",
-            "download_now": "Pobierz teraz"
+            "download_now": "Pobierz teraz",
+            "php_version": "Wersja PHP",
+            "database_version": "Wersja bazy danych",
+            "server_software": "Oprogramowanie serwera",
+            "storage_used": "Użyta pamięć",
+            "storage_limit": "Limit pamięci",
+            "unlimited": "Nieograniczona"
         },
         "user": {
             "title": "Użytkownicy",

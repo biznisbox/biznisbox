@@ -431,7 +431,8 @@
         "budget": "Budget",
         "project_key": "Projekt Nøgle",
         "completed_at": "Afsluttet Den",
-        "progress_in_percent": "Fremskridt i procent"
+        "progress_in_percent": "Fremskridt i procent",
+        "archived_until": "Arkiveret Indtil"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -1013,7 +1014,8 @@
         "project_members": "Projekt Medlemmer",
         "add_member": "Tilføj Medlem",
         "remove_member": "Fjern Medlem",
-        "remove_member_confirmation": "Er du sikker på, at du vil fjerne dette medlem fra projektet?"
+        "remove_member_confirmation": "Er du sikker på, at du vil fjerne dette medlem fra projektet?",
+        "edit_member": "Rediger Medlem"
     },
     "project_role": {
         "owner": "Ejer",
@@ -1087,7 +1089,9 @@
             "coinbase_available": "Møntbase tilgængelig",
             "coinbase_api_key": "Coinbase API-nøgle",
             "coinbase_api_key_help": "Du kan finde din API-nøgle på din Coinbase handelskonto.",
-            "coinbase_account_id": "Coinbase intern konto ID"
+            "coinbase_account_id": "Coinbase intern konto ID",
+            "document_signing_available": "Dokumentsignatur tilgængelig",
+            "document_signing": "Dokument Signing"
         },
         "status": {
             "title": "Status Side",
@@ -1096,7 +1100,13 @@
             "changelog": "Ændringslog",
             "view_changelog": "Se Ændringslog",
             "new_version_available": "Ny version tilgængelig til download",
-            "download_now": "Download nu"
+            "download_now": "Download nu",
+            "php_version": "PHP Version",
+            "database_version": "Database Version",
+            "server_software": "Server Software",
+            "storage_used": "Brugt Lagerplads",
+            "storage_limit": "Grænse For Lagring",
+            "unlimited": "Ubegrænset"
         },
         "user": {
             "title": "Brugere",

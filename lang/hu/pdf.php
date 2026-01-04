@@ -97,4 +97,7 @@ return [
     ],
     'no_payment_method' => 'No Payment Method',
     'tax_amount' => 'Tax Amount',
+    'signer' => 'Signer',
+    'signed_by' => 'Signed by',
+    'on' => 'on',
 ];

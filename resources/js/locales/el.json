@@ -431,7 +431,8 @@
         "budget": "Προϋπολογισμός",
         "project_key": "Κλειδί Έργου",
         "completed_at": "Ολοκληρώθηκε Στις",
-        "progress_in_percent": "Πρόοδος σε ποσοστό"
+        "progress_in_percent": "Πρόοδος σε ποσοστό",
+        "archived_until": "Αρχειοθετημένο Μέχρι"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -1013,7 +1014,8 @@
         "project_members": "Μέλη Του Έργου",
         "add_member": "Προσθήκη Μελών",
         "remove_member": "Αφαίρεση Μέλους",
-        "remove_member_confirmation": "Είστε βέβαιοι ότι θέλετε να αφαιρέσετε αυτό το μέλος από το έργο?"
+        "remove_member_confirmation": "Είστε βέβαιοι ότι θέλετε να αφαιρέσετε αυτό το μέλος από το έργο?",
+        "edit_member": "Επεξεργασία Μέλους"
     },
     "project_role": {
         "owner": "Ιδιοκτήτης",
@@ -1087,7 +1089,9 @@
             "coinbase_available": "Coinbase διαθέσιμο",
             "coinbase_api_key": "Κλειδί Api Coinbase",
             "coinbase_api_key_help": "Μπορείτε να βρείτε το κλειδί API σας στο λογαριασμό συναλλαγών Coinbase.",
-            "coinbase_account_id": "Αναγνωριστικό εσωτερικού λογαριασμού Coinbase"
+            "coinbase_account_id": "Αναγνωριστικό εσωτερικού λογαριασμού Coinbase",
+            "document_signing_available": "Διαθέσιμη υπογραφή εγγράφου",
+            "document_signing": "Υπογραφή Εγγράφου"
         },
         "status": {
             "title": "Σελίδα Κατάστασης",
@@ -1096,7 +1100,13 @@
             "changelog": "Αρχείο Αλλαγών",
             "view_changelog": "Προβολή Αρχείου Αλλαγών",
             "new_version_available": "Νέα έκδοση διαθέσιμη για λήψη",
-            "download_now": "Άμεση λήψη"
+            "download_now": "Άμεση λήψη",
+            "php_version": "Έκδοση PHP",
+            "database_version": "Έκδοση Βάσης Δεδομένων",
+            "server_software": "Λογισμικό Διακομιστή",
+            "storage_used": "Χρησιμοποιείται Αποθηκευτικός Χώρος",
+            "storage_limit": "Όριο Αποθήκευσης",
+            "unlimited": "Απεριόριστο"
         },
         "user": {
             "title": "Χρήστες",

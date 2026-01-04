@@ -431,7 +431,8 @@
         "budget": "Budget",
         "project_key": "Projektschlüssel",
         "completed_at": "Abgeschlossen am",
-        "progress_in_percent": "Fortschritt in Prozent"
+        "progress_in_percent": "Fortschritt in Prozent",
+        "archived_until": "Archiviert bis"
     },
     "address_types": {
         "billing": "Abrechnung",
@@ -1013,7 +1014,8 @@
         "project_members": "Projektmitglieder",
         "add_member": "Mitglied hinzufügen",
         "remove_member": "Mitglied entfernen",
-        "remove_member_confirmation": "Sind Sie sicher, dass Sie dieses Mitglied aus dem Projekt entfernen möchten?"
+        "remove_member_confirmation": "Sind Sie sicher, dass Sie dieses Mitglied aus dem Projekt entfernen möchten?",
+        "edit_member": "Mitglied bearbeiten"
     },
     "project_role": {
         "owner": "Besitzer",
@@ -1087,7 +1089,9 @@
             "coinbase_available": "Coinbase verfügbar",
             "coinbase_api_key": "Coinbase API-Schlüssel",
             "coinbase_api_key_help": "Sie finden Ihren API-Schlüssel in Ihrem Coinbase Commerce-Konto.",
-            "coinbase_account_id": "Coinbase interne Konto-ID"
+            "coinbase_account_id": "Coinbase interne Konto-ID",
+            "document_signing_available": "Dokumentensignierung verfügbar",
+            "document_signing": "Unterschrift von Dokumenten"
         },
         "status": {
             "title": "Statusseite",
@@ -1096,7 +1100,13 @@
             "changelog": "Changelog",
             "view_changelog": "Changelog anzeigen",
             "new_version_available": "Neue Version zum Download verfügbar",
-            "download_now": "Jetzt herunterladen"
+            "download_now": "Jetzt herunterladen",
+            "php_version": "PHP-Version",
+            "database_version": "Datenbankversion",
+            "server_software": "Server-Software",
+            "storage_used": "Speicher verwendet",
+            "storage_limit": "Speicherlimit",
+            "unlimited": "Unbegrenzt"
         },
         "user": {
             "title": "Benutzer",
