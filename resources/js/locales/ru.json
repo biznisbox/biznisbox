@@ -127,7 +127,11 @@
         "same_as_company_address": "Так же, как адрес компании",
         "audit_log": "Журнал аудита",
         "get_current_location": "Получить текущее местоположение",
-        "system": "Система"
+        "system": "Система",
+        "add_signer": "Добавить знака",
+        "click_for_download": "Нажмите здесь, чтобы загрузить",
+        "sign": "Знак",
+        "import": "Импорт"
     },
     "audit_log": {
         "audit_log": "Журнал аудита",
@@ -160,12 +164,16 @@
         "moved": "Перемещено",
         "retrieve_public": "Получить публичный",
         "upload": "Выгрузить",
-        "share": "Поделиться"
+        "share": "Поделиться",
+        "delete": "Удалить",
+        "sign": "Знак",
+        "convert_to_invoice": "Преобразовать в счет"
     },
     "audit_log_type": {
         "internal": "Внутренний",
         "external": "Внешний",
         "external_key": "Внешний ключ",
+        "client_portal": "Клиентский портал",
         "system": "Система"
     },
     "user_nav_menu": {
@@ -194,7 +202,9 @@
         "settings": "Настройки",
         "employees": "Сотрудники",
         "support": "Поддержка",
-        "payments": "Платежи"
+        "payments": "Платежи",
+        "contracts": "Контракты",
+        "projects": "Проекты"
     },
     "dashboard": {
         "title": "Панель",
@@ -396,7 +406,33 @@
         "display_name": "Показать имя",
         "theme": "Тема",
         "overpaid_amount": "Переплаченная сумма",
-        "sum_of_payments": "Сумма платежей"
+        "sum_of_payments": "Сумма платежей",
+        "date_for_signature": "Дата подписи",
+        "is_signer": "Подписчик",
+        "signer_name": "Имя знака",
+        "signer_email": "Signer Email",
+        "signer_phone": "Телефон подписи",
+        "signers": "Подписчики",
+        "outcome": "Результат",
+        "activity_type": "Тип деятельности",
+        "user": "Пользователь",
+        "is_internal": "Внутренний",
+        "picture": "Картинка",
+        "last_used_at": "Последнее использование в",
+        "module": "Модуль",
+        "parent_category": "Родительская категория",
+        "icon": "Иконка",
+        "additional_info": "Дополнительная информация",
+        "client_portal": "Портал Клиента",
+        "type_of_contract_sign": "Тип знака контракта",
+        "refund": "Возврат",
+        "payment_number": "Номер платежа",
+        "is_billable": "Оплачивается",
+        "budget": "Бюджет",
+        "project_key": "Ключ проекта",
+        "completed_at": "Завершено в",
+        "progress_in_percent": "Прогресс в процентах",
+        "archived_until": "Архивировано до"
     },
     "address_types": {
         "billing": "Биллинг",
@@ -411,6 +447,20 @@
     "entity_types": {
         "company": "Компания",
         "individual": "Индивидуальный"
+    },
+    "time_range": {
+        "one_day": "Один день",
+        "one_week": "Одна неделя",
+        "one_month": "Один месяц",
+        "three_months": "Три месяца",
+        "six_months": "Шесть месяцев",
+        "one_year": "Один год",
+        "all_time": "За все время",
+        "never": "Никогда"
+    },
+    "task_type": {
+        "task": "Задача",
+        "milestone": "Этап"
     },
     "industries": {
         "agriculture": "Сельское хозяйство",
@@ -457,9 +507,10 @@
         "bank_transfer": "Банковский перевод",
         "cash": "Наличные",
         "check": "Проверить",
-        "credit_card": "Кредитная карта",
+        "credit_card": "Платежная карта",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Прочие вопросы"
     },
     "support_priority": {
@@ -467,6 +518,14 @@
         "low": "Низкий",
         "medium": "Средний",
         "normal": "Обычный",
+        "high": "Высокий",
+        "urgent": "Срочно"
+    },
+    "priority": {
+        "none": "Нет",
+        "low": "Низкий",
+        "normal": "Обычный",
+        "medium": "Средний",
         "high": "Высокий",
         "urgent": "Срочно"
     },
@@ -481,6 +540,11 @@
     "tax_types": {
         "percent": "Процент",
         "fixed": "Исправлено"
+    },
+    "contract_sign_types": {
+        "electronic": "Электронная",
+        "digital_signature": "Цифровая подпись",
+        "paper": "Бумага"
     },
     "login_history": {
         "login_history": "История входа",
@@ -507,7 +571,26 @@
         "contacts": "Контакты",
         "partner_details": "Информация о партнере",
         "delete_confirm_partner": "Вы уверены, что хотите удалить этого партнера?",
-        "contact_informations": "Контактная информация"
+        "contact_information": "Контактная информация",
+        "add_activity": "Добавить активность",
+        "no_activities": "Действия не найдены",
+        "activity": "Активность",
+        "activities": "Действия",
+        "edit_activity": "Изменить активность",
+        "partner_activities": "Партнерская деятельность",
+        "send_email": "Отправить email",
+        "add_to_client_portal": "Добавить в клиентский портал",
+        "vat_number_required": "Требуется указать номер НДС"
+    },
+    "partner_activity_types": {
+        "call": "Звонок",
+        "task": "Задача",
+        "video_call": "Видеовызов",
+        "meeting": "Встреча",
+        "email": "Почта",
+        "visit": "Посетить",
+        "note": "Примечание",
+        "other": "Прочие вопросы"
     },
     "product": {
         "product": "Продукт | Продукты",
@@ -540,7 +623,13 @@
         "two_factor_authentication_code": "Код двухфакторной аутентификации",
         "two_factor_authentication_code_info": "Введите код, созданный вашим приложением-аутентификатором для проверки двухфакторной аутентификации.",
         "verify_2fa": "Проверить 2FA",
-        "cannot_remove__default_avatar": "Нельзя удалить аватар по умолчанию."
+        "cannot_remove_default_avatar": "Нельзя удалить аватар по умолчанию.",
+        "personal_access_tokens": "Персональные токены доступа",
+        "create_personal_access_token": "Создать токен персонального доступа",
+        "no_personal_access_tokens": "Маркеры персонального доступа не найдены",
+        "generated_personal_access_token_message": "Ваш персональный токен доступа был создан. Это единственный раз, когда вы увидите этот токен, поэтому убедитесь, что он сохранён в безопасном месте.",
+        "generated_personal_access_token": "Генерируемый персональный токен доступа",
+        "delete_personal_access_token": "Вы уверены, что хотите удалить этот персональный токен доступа?"
     },
     "document_types": {
         "document": "Документ",
@@ -588,8 +677,8 @@
         "list_of_transactions": "Список операций",
         "no_sales_person": "Нет продавца",
         "no_payment_method": "Нет способа оплаты",
-        "click_for_pay_with_paypal": "Нажмите здесь, чтобы оплатить через PayPal",
-        "click_for_pay": "Нажмите здесь для оплаты"
+        "click_for_pay": "Нажмите здесь для оплаты",
+        "select_payment_gateway": "Выберите платежный шлюз"
     },
     "quote": {
         "quote": "Цитата | Предложения",
@@ -618,7 +707,8 @@
         "converted_to_invoice": "Цитата преобразована в счёт",
         "expired": "Эта смета истекла. Вы не можете принять или отклонить ее.",
         "rejected": "Цитата успешно отклонена.",
-        "accepted": "Цитата успешно принята."
+        "accepted": "Цитата успешно принята.",
+        "no_payment_method": "Нет способа оплаты"
     },
     "status": {
         "draft": "Черновик",
@@ -657,7 +747,16 @@
         "in_review": "Проверяется",
         "delegated": "Делегированные",
         "approved": "Одобрено",
-        "not_approved": "Не одобрено"
+        "not_approved": "Не одобрено",
+        "waiting_signers": "Ожидание подписчиков",
+        "signed": "Подписано",
+        "waiting_signature": "Ожидание подписи",
+        "not_started": "Не начато",
+        "planned": "Запланировано",
+        "spam": "Спам",
+        "on_hold": "Задержано",
+        "to_do": "Выполнить",
+        "done": "Готово"
     },
     "calendar": {
         "calendar": "Календарь | Календари",
@@ -738,7 +837,10 @@
         "edit_payment": "Редактировать платеж",
         "no_payments": "Платежи не найдены",
         "delete_confirm_payment": "Вы уверены, что хотите удалить этот платеж?",
-        "payment_details": "Детали оплаты"
+        "payment_details": "Детали оплаты",
+        "refund_confirmation": "Вы уверены, что хотите вернуть этот платеж?",
+        "refund_successful": "Платёж успешно возвращен",
+        "refund_failed": "Возврат платежа не удался"
     },
     "archive": {
         "archive": "Архив | Архивы",
@@ -776,7 +878,8 @@
         "no_items": "Нет элементов",
         "select_item": "Выберите элемент",
         "date_and_due_date": "Дата и дата окончания",
-        "delete_confirm_bill": "Вы уверены, что хотите удалить этот счет?"
+        "delete_confirm_bill": "Вы уверены, что хотите удалить этот счет?",
+        "no_payment_method": "Нет способа оплаты"
     },
     "account": {
         "account": "Аккаунт | Аккаунты",
@@ -800,6 +903,26 @@
         "no_documents": "Документы не найдены",
         "create_first_document": "Создайте свой первый документ",
         "delete_confirm_document": "Вы уверены, что хотите удалить этот документ?"
+    },
+    "contract": {
+        "contract": "Контракты | Контракты",
+        "create_contract": "Создать контракт",
+        "edit_contract": "Изменить контракт",
+        "no_contracts": "Нет контрактов",
+        "create_first_contract": "Создайте свой первый контракт",
+        "delete_confirm_contract": "Вы уверены, что хотите удалить этот контракт?",
+        "contract_details": "Информация о договоре",
+        "no_content": "Нет содержимого",
+        "no_partner": "Нет партнера",
+        "sign_contract": "Подписать контракт",
+        "contract_signed": "Контракт подписан",
+        "accept_sign_terms": "Я согласен, что подписав настоящий документ, я согласен с тем, что подпись является юридически обязательной и эквивалентна моей рукописной подписи.",
+        "accept_terms_required": "Подпись и принятие условий должны быть подписаны договором.",
+        "not_signed": "Ещё не подписано",
+        "signed": "Документ подписан",
+        "no_signers": "Нет подписчиков",
+        "share_dialog": "Поделиться контрактом",
+        "share_dialog_text": "Скопируйте ссылку ниже и поделитесь ею с вашим партнером или отсканируйте QR-код."
     },
     "support": {
         "support": "Поддержка | Поддержка",
@@ -867,6 +990,40 @@
         "volunteer": "Волонтер",
         "other": "Прочие вопросы"
     },
+    "project": {
+        "project": "Проект | Проекты",
+        "new_project": "Новый проект",
+        "edit_project": "Редактировать проект",
+        "no_projects": "Проектов не найдено",
+        "create_first_project": "Создайте свой первый проект",
+        "delete_confirm_project": "Вы уверены, что хотите удалить этот проект?",
+        "project_details": "Детали проекта",
+        "start_and_end_date": "Дата начала и окончания",
+        "team_members": "Члены команды",
+        "add_team_member": "Добавить участника команды",
+        "no_team_members": "Нет членов команды",
+        "start_end_date": "Дата начала и окончания",
+        "tasks": "Задачи",
+        "add_task": "Добавить задачу",
+        "no_tasks": "Задачи не найдены",
+        "task": "Задача | Задачи",
+        "edit_task": "Редактировать задачу",
+        "delete_task_confirmation": "Вы уверены, что хотите удалить эту задачу?",
+        "kanban_board": "Доска Канбана",
+        "create_task": "Создать задачу",
+        "project_members": "Участники проекта",
+        "add_member": "Добавить участника",
+        "remove_member": "Удалить участника",
+        "remove_member_confirmation": "Вы уверены, что хотите удалить этого участника из проекта?",
+        "edit_member": "Изменить участника"
+    },
+    "project_role": {
+        "owner": "Владелец",
+        "manager": "Менеджер",
+        "team_member": "Участник команды",
+        "viewer": "Просмотрщик",
+        "client": "Клиент"
+    },
     "admin": {
         "menu": {
             "dashboard": "Панель",
@@ -885,7 +1042,10 @@
             "app_status": "Статус приложения",
             "units": "Единицы измерения",
             "email": "Почта",
-            "webhooks": "Вебхуки"
+            "webhooks": "Вебхуки",
+            "server_settings": "Настройки сервера",
+            "status_page": "Страница статуса",
+            "data_collection": "Сбор данных"
         },
         "company": {
             "title": "Настройки компании",
@@ -899,7 +1059,9 @@
             "company_country": "Страна компании",
             "company_vat": "Company VAT",
             "company_logo": "Логотип компании",
-            "company_logo_help": "Рекомендуемый размер: 100x100px"
+            "company_logo_help": "Рекомендуемый размер: 100x100px",
+            "company_website": "Веб-сайт компании",
+            "company_primary_color": "Основной цвет"
         },
         "integrations": {
             "title": "Интеграции",
@@ -922,7 +1084,29 @@
             "open_banking_client_id": "Открытый банковский ID Клиента",
             "open_banking_secret": "Открытый банковский секрет",
             "open_banking_help": "Вы можете найти свой идентификатор клиента и секрет в вашем Nordigen.",
-            "online_payments": "Онлайн платежи"
+            "online_payments": "Онлайн платежи",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Доступна база Coinbase",
+            "coinbase_api_key": "Ключ API Coinbase",
+            "coinbase_api_key_help": "Вы можете найти ваш API ключ в вашей учетной записи Coinbase commerce аккаунта.",
+            "coinbase_account_id": "ID внутреннего аккаунта Coinbase",
+            "document_signing_available": "Подписание документа доступно",
+            "document_signing": "Подписание документа"
+        },
+        "status": {
+            "title": "Страница статуса",
+            "app_version": "Версия приложения",
+            "latest_version": "Последняя версия",
+            "changelog": "Список изменений",
+            "view_changelog": "Список изменений",
+            "new_version_available": "Новая версия доступна для скачивания",
+            "download_now": "Скачать сейчас",
+            "php_version": "Версия PHP",
+            "database_version": "Версия базы данных",
+            "server_software": "Серверное программное обеспечение",
+            "storage_used": "Используемое хранилище",
+            "storage_limit": "Лимит памяти",
+            "unlimited": "Неограниченный"
         },
         "user": {
             "title": "Пользователи",
@@ -936,9 +1120,13 @@
             "reset_password": "Сбросить пароль",
             "send_details_to": "Отправить подробности",
             "never_logged_in": "Никогда не входил",
+            "never_used": "Не использовано",
             "auto_generate_password": "Сгенерировать пароль автоматически",
             "delete_confirm_user": "Вы уверены, что хотите удалить этого пользователя?",
-            "disable_2fa": "Отключить 2FA"
+            "disable_2fa": "Отключить 2FA",
+            "personal_access_tokens": "Персональные токены доступа",
+            "no_personal_access_tokens": "Маркеры персонального доступа не найдены",
+            "delete_confirm_personal_access_token": "Вы уверены, что хотите удалить этот персональный токен доступа?"
         },
         "department": {
             "title": "Отделы",
@@ -979,7 +1167,11 @@
             "default_date_format": "Формат даты по умолчанию",
             "default_time_format": "Формат времени по умолчанию",
             "default_datetime_format": "Формат по умолчанию",
-            "show_barcode_on_documents": "Показывать штрих-код на документах"
+            "show_barcode_on_documents": "Показывать штрих-код на документах",
+            "week_start": "День начала недели",
+            "exchange_rate_provider": "Поставщик обменного курса",
+            "save_document_into_archive": "Сохранить документ в архив",
+            "save_document_into_archive_description": "Если включено, документы будут сохранены в архиве (счета, кавычки, счета, контракты)."
         },
         "taxes": {
             "title": "Налоговые ставки",
@@ -991,7 +1183,9 @@
             "name": "Наименование",
             "value": "Значение",
             "description": "Описание",
-            "delete_confirm_tax": "Вы уверены, что хотите удалить этот налог?"
+            "delete_confirm_tax": "Вы уверены, что хотите удалить этот налог?",
+            "import_tax": "Импорт налоговых ставок",
+            "import_tax_description": "Вы можете импортировать налоговые ставки из ресурсов публичных данных. Данные будут загружены из списка НДС ЕС. Это не может быть полностью актуальным или точным. Пожалуйста, проверьте импортированные данные."
         },
         "role": {
             "title": "Роли",
@@ -1047,7 +1241,8 @@
             "mail_from_name": "Почта от имени",
             "send_test_email": "Отправить тестовое письмо",
             "send_test_email_to": "Отправить тестовое письмо",
-            "sendmail_path": "Путь к Sendmail"
+            "sendmail_path": "Путь к Sendmail",
+            "no_email_selected": "Email не выбран"
         },
         "numbering": {
             "title": "Параметры форматов чисел",
@@ -1063,7 +1258,9 @@
             "employee": "Формат номера сотрудника",
             "project": "Формат номера проекта",
             "department": "Формат номера отдела",
-            "archive": "Формат числа архива"
+            "archive": "Формат числа архива",
+            "contract": "Формат номера контракта",
+            "yearly": "Ежегодно"
         },
         "webhook": {
             "title": "Подписка на вебхуки",
@@ -1075,6 +1272,29 @@
             "delete_confirm_webhook_subscription": "Вы уверены, что хотите удалить эту подписку на webhook?",
             "add_header": "Добавить заголовок",
             "remove_header": "Удалить заголовок"
+        },
+        "data_collection": {
+            "title": "Сбор данных",
+            "data_collection": "Сбор данных",
+            "transaction_categories": "Категории транзакций",
+            "document_types": "Типы документов",
+            "payment_methods": "Способы оплаты",
+            "contract_types": "Типы контрактов",
+            "task_categories": "Категории задач",
+            "project_categories": "Категории проектов",
+            "new_data_collection_item": "Новый элемент сбора данных",
+            "edit_data_collection_item": "Изменить элемент сбора данных",
+            "icon_tooltip": "Вы можете использовать Font Awesome иконки. Вы можете найти список иконок здесь: https://fontawesome.com/icons",
+            "no_document_types": "Типы документов не найдены",
+            "no_payment_methods": "Способы оплаты не найдены",
+            "no_transaction_categories": "Не найдено категорий транзакций",
+            "no_contract_types": "Типы контрактов не найдены",
+            "delete_category_ask": "Вы уверены, что хотите удалить этот элемент коллекции данных?",
+            "delete_category_success": "Элемент сбора данных успешно удален",
+            "product_categories": "Категории товаров",
+            "no_product_categories": "Категории товаров не найдены",
+            "no_task_categories": "Категории задач не найдены",
+            "no_project_categories": "Категории проекта не найдены"
         }
     },
     "month": {
@@ -1438,5 +1658,23 @@
         "finish_installation_description": "Установка завершена. Теперь вы можете войти в свою учетную запись.",
         "go_to_login": "Войти",
         "installation": "Установка"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Панель",
+            "invoices": "Счета",
+            "quotes": "Предложения",
+            "transactions": "Транзакции",
+            "support": "Поддержка",
+            "contracts": "Контракты",
+            "partner_details": "Информация о партнере"
+        },
+        "partner_details": "Информация о партнере",
+        "dashboard": "Панель",
+        "number_of_contracts": "Количество контрактов",
+        "number_of_unpaid_invoices": "Количество неоплаченных счетов",
+        "number_of_quotes": "Количество котировок",
+        "number_of_bills": "Количество счетов",
+        "number_of_support_tickets": "Количество заявок на поддержку"
     }
 }
