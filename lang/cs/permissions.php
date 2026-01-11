@@ -41,4 +41,9 @@ return [
     'admin_email_settings' => 'Nastavení e-mailu administrátora',
     'admin_webhooks' => 'Admin Webhooky',
     'webhooks' => 'Webhooky',
+    'contracts' => 'Zakázky',
+    'admin_status_page' => 'Administrace stavové stránky',
+    'admin_update_app' => 'Admin aktualizační aplikace',
+    'admin_data_collection' => 'Shromažďování dat správce',
+    'projects' => 'Projekty',
 ];
