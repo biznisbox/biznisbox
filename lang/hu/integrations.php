@@ -7,4 +7,5 @@ return [
     'open_banking' => 'Open Banking',
     'vies_vat' => 'VIES VAT Validation',
     'document_signer' => 'PDF Document Signer',
+    'support_ticket_mailer' => 'Support Ticket IMAP Integration',
 ];
