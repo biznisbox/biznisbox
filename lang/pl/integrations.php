@@ -7,4 +7,5 @@ return [
     'open_banking' => 'Otwórz bankowość',
     'vies_vat' => 'Weryfikacja VAT VIES',
     'document_signer' => 'Podpisujący dokument PDF',
+    'support_ticket_mailer' => 'Wesprzyj integrację z IMAP zgłoszenia',
 ];
