@@ -7,4 +7,5 @@ return [
     'open_banking' => 'Offenes Banking',
     'vies_vat' => 'VIES USt-USt-Überprüfung',
     'document_signer' => 'PDF Dokument Signer',
+    'support_ticket_mailer' => 'Support Ticket IMAP Integration',
 ];
