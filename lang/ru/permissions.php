@@ -41,4 +41,9 @@ return [
     'admin_email_settings' => 'Настройки электронной почты администратора',
     'admin_webhooks' => 'Админ Webhooks',
     'webhooks' => 'Вебхуки',
+    'contracts' => 'Контракты',
+    'admin_status_page' => 'Страница статуса администратора',
+    'admin_update_app' => 'Обновление админа',
+    'admin_data_collection' => 'Админ сбор данных',
+    'projects' => 'Проекты',
 ];
