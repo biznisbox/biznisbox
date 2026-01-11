@@ -41,4 +41,9 @@ return [
     'admin_email_settings' => 'Ρυθμίσεις Email Διαχειριστή',
     'admin_webhooks' => 'Webhooks Διαχειριστή',
     'webhooks' => 'Webhooks',
+    'contracts' => 'Συμβάσεις',
+    'admin_status_page' => 'Σελίδα Κατάστασης Διαχειριστή',
+    'admin_update_app' => 'Εφαρμογή Ενημέρωσης Διαχειριστή',
+    'admin_data_collection' => 'Συλλογή Δεδομένων Διαχειριστή',
+    'projects' => 'Έργα',
 ];
