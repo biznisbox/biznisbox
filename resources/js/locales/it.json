@@ -127,7 +127,11 @@
         "same_as_company_address": "Come l'indirizzo dell'azienda",
         "audit_log": "Registro Di Audit",
         "get_current_location": "Ottieni la posizione corrente",
-        "system": "Sistema"
+        "system": "Sistema",
+        "add_signer": "Aggiungi Firmatario",
+        "click_for_download": "Clicca qui per scaricare",
+        "sign": "Firma",
+        "import": "Importa"
     },
     "audit_log": {
         "audit_log": "Registro Di Audit",
@@ -160,12 +164,16 @@
         "moved": "Spostato",
         "retrieve_public": "Recupera Pubblico",
         "upload": "Carica",
-        "share": "Condividi"
+        "share": "Condividi",
+        "delete": "Elimina",
+        "sign": "Firma",
+        "convert_to_invoice": "Converti in fattura"
     },
     "audit_log_type": {
         "internal": "Interno",
         "external": "Esterno",
         "external_key": "Tasto esterno",
+        "client_portal": "Portale client",
         "system": "Sistema"
     },
     "user_nav_menu": {
@@ -194,7 +202,9 @@
         "settings": "Impostazioni",
         "employees": "Dipendenti",
         "support": "Supporto",
-        "payments": "Pagamenti"
+        "payments": "Pagamenti",
+        "contracts": "Contratti",
+        "projects": "Progetti"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -396,7 +406,33 @@
         "display_name": "Nome Visualizzato",
         "theme": "Tema",
         "overpaid_amount": "Importo Pagato",
-        "sum_of_payments": "Somma dei pagamenti"
+        "sum_of_payments": "Somma dei pagamenti",
+        "date_for_signature": "Data della firma",
+        "is_signer": "È Firmatario",
+        "signer_name": "Nome Del Firmatario",
+        "signer_email": "Signer Email",
+        "signer_phone": "Telefono Firmatario",
+        "signers": "Firmatari",
+        "outcome": "Risultato",
+        "activity_type": "Tipo Di Attività",
+        "user": "Utente",
+        "is_internal": "È Interno",
+        "picture": "Immagine",
+        "last_used_at": "Ultimo Utilizzato Il",
+        "module": "Modulo",
+        "parent_category": "Categoria Genitore",
+        "icon": "Icona",
+        "additional_info": "Informazioni Aggiuntive",
+        "client_portal": "Portale Client",
+        "type_of_contract_sign": "Tipo di Contract Sign",
+        "refund": "Rimborso",
+        "payment_number": "Numero Di Pagamento",
+        "is_billable": "È Fatturabile",
+        "budget": "Bilancio",
+        "project_key": "Chiave Del Progetto",
+        "completed_at": "Completato Il",
+        "progress_in_percent": "Progresso in percentuale",
+        "archived_until": "Archiviato Fino A"
     },
     "address_types": {
         "billing": "Fatturazione",
@@ -411,6 +447,20 @@
     "entity_types": {
         "company": "Società",
         "individual": "Individuale"
+    },
+    "time_range": {
+        "one_day": "Un giorno",
+        "one_week": "Una settimana",
+        "one_month": "Un mese",
+        "three_months": "Tre mesi",
+        "six_months": "Sei mesi",
+        "one_year": "Un anno",
+        "all_time": "Tutto il tempo",
+        "never": "Mai"
+    },
+    "task_type": {
+        "task": "Attività",
+        "milestone": "Milestone"
     },
     "industries": {
         "agriculture": "Agricoltura",
@@ -457,9 +507,10 @@
         "bank_transfer": "Bonifico Bancario",
         "cash": "Contanti",
         "check": "Controlla",
-        "credit_card": "Carta Di Credito",
+        "credit_card": "Carta di pagamento",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Altro"
     },
     "support_priority": {
@@ -467,6 +518,14 @@
         "low": "Basso",
         "medium": "Medio",
         "normal": "Normale",
+        "high": "Alto",
+        "urgent": "Urgente"
+    },
+    "priority": {
+        "none": "Nessuno",
+        "low": "Basso",
+        "normal": "Normale",
+        "medium": "Medio",
         "high": "Alto",
         "urgent": "Urgente"
     },
@@ -481,6 +540,11 @@
     "tax_types": {
         "percent": "Percentuale",
         "fixed": "Fisso"
+    },
+    "contract_sign_types": {
+        "electronic": "Elettronico",
+        "digital_signature": "Firma Digitale",
+        "paper": "Carta"
     },
     "login_history": {
         "login_history": "Cronologia Login",
@@ -507,7 +571,26 @@
         "contacts": "Contatti",
         "partner_details": "Dettagli partner",
         "delete_confirm_partner": "Sei sicuro di voler eliminare questo partner?",
-        "contact_informations": "Informazioni Di Contatto"
+        "contact_information": "Informazioni Di Contatto",
+        "add_activity": "Aggiungi attività",
+        "no_activities": "Nessuna attività trovata",
+        "activity": "Attività",
+        "activities": "Attività",
+        "edit_activity": "Modifica Attività",
+        "partner_activities": "Attività Partner",
+        "send_email": "Invia email",
+        "add_to_client_portal": "Aggiungi al portale client",
+        "vat_number_required": "Il numero di partita IVA è obbligatorio"
+    },
+    "partner_activity_types": {
+        "call": "Chiama",
+        "task": "Attività",
+        "video_call": "Videochiamata",
+        "meeting": "Riunione",
+        "email": "Email",
+        "visit": "Visita",
+        "note": "Nota",
+        "other": "Altro"
     },
     "product": {
         "product": "Prodotto <unk> Prodotti",
@@ -540,7 +623,13 @@
         "two_factor_authentication_code": "Codice Di Autenticazione A Due Fattori",
         "two_factor_authentication_code_info": "Inserisci il codice generato dalla tua app di autenticazione per verificare la configurazione di autenticazione a due fattori.",
         "verify_2fa": "Verifica 2FA",
-        "cannot_remove__default_avatar": "Non è possibile rimuovere l'avatar predefinito."
+        "cannot_remove_default_avatar": "Non è possibile rimuovere l'avatar predefinito.",
+        "personal_access_tokens": "Token Di Accesso Personale",
+        "create_personal_access_token": "Crea Token Di Accesso Personale",
+        "no_personal_access_tokens": "Nessun token di accesso personale trovato",
+        "generated_personal_access_token_message": "Il tuo token di accesso personale è stato generato. Questa è l'unica volta che vedrai questo token, quindi assicurati di salvarlo da qualche parte al sicuro.",
+        "generated_personal_access_token": "Token Di Accesso Personale Generato",
+        "delete_personal_access_token": "Sei sicuro di voler eliminare questo token di accesso personale?"
     },
     "document_types": {
         "document": "Documento",
@@ -588,8 +677,8 @@
         "list_of_transactions": "Elenco delle transazioni",
         "no_sales_person": "Nessuna persona di vendita",
         "no_payment_method": "Nessun metodo di pagamento",
-        "click_for_pay_with_paypal": "Clicca qui per pagare con PayPal",
-        "click_for_pay": "Clicca qui per pagare"
+        "click_for_pay": "Clicca qui per pagare",
+        "select_payment_gateway": "Seleziona gateway di pagamento"
     },
     "quote": {
         "quote": "Preventivo <unk> Preventivi",
@@ -618,7 +707,8 @@
         "converted_to_invoice": "Preventivo convertito in fattura",
         "expired": "Questo preventivo è scaduto. Non puoi accettarlo o rifiutarlo.",
         "rejected": "Questa citazione è stata respinta con successo.",
-        "accepted": "Questo preventivo è stato accettato con successo."
+        "accepted": "Questo preventivo è stato accettato con successo.",
+        "no_payment_method": "Nessun metodo di pagamento"
     },
     "status": {
         "draft": "Bozza",
@@ -657,7 +747,16 @@
         "in_review": "In revisione",
         "delegated": "Delegato",
         "approved": "Approvato",
-        "not_approved": "Non approvato"
+        "not_approved": "Non approvato",
+        "waiting_signers": "In attesa dei firmatari",
+        "signed": "Firmato",
+        "waiting_signature": "In attesa della firma",
+        "not_started": "Non avviato",
+        "planned": "Pianificato",
+        "spam": "Spam",
+        "on_hold": "In attesa",
+        "to_do": "Da fare",
+        "done": "Fatto"
     },
     "calendar": {
         "calendar": "Calendario <unk> Calendari",
@@ -738,7 +837,10 @@
         "edit_payment": "Modifica Pagamento",
         "no_payments": "Nessun pagamento trovato",
         "delete_confirm_payment": "Sei sicuro di voler eliminare questo pagamento?",
-        "payment_details": "Dettagli di pagamento"
+        "payment_details": "Dettagli di pagamento",
+        "refund_confirmation": "Sei sicuro di voler rimborsare questo pagamento?",
+        "refund_successful": "Pagamento rimborsato con successo",
+        "refund_failed": "Rimborso del pagamento non riuscito"
     },
     "archive": {
         "archive": "Archivio <unk> Archivi",
@@ -776,7 +878,8 @@
         "no_items": "Nessun elemento",
         "select_item": "Seleziona elemento",
         "date_and_due_date": "Data e scadenza",
-        "delete_confirm_bill": "Sei sicuro di voler eliminare questa bolletta?"
+        "delete_confirm_bill": "Sei sicuro di voler eliminare questa bolletta?",
+        "no_payment_method": "Nessun metodo di pagamento"
     },
     "account": {
         "account": "Account <unk> Account",
@@ -800,6 +903,26 @@
         "no_documents": "Nessun documento trovato",
         "create_first_document": "Crea il tuo primo documento",
         "delete_confirm_document": "Sei sicuro di voler eliminare questo documento?"
+    },
+    "contract": {
+        "contract": "Contratto <unk> Contratti",
+        "create_contract": "Crea Contratto",
+        "edit_contract": "Modifica Contratto",
+        "no_contracts": "Nessun contratto trovato",
+        "create_first_contract": "Crea il tuo primo contratto",
+        "delete_confirm_contract": "Sei sicuro di voler eliminare questo contratto?",
+        "contract_details": "Dettagli del contratto",
+        "no_content": "Nessun contenuto",
+        "no_partner": "Nessun partner",
+        "sign_contract": "Firma contratto",
+        "contract_signed": "Contratto firmato",
+        "accept_sign_terms": "Accetto che firmando questo documento, concordo sul fatto che la firma sia giuridicamente vincolante e equivalente alla mia firma manoscritta.",
+        "accept_terms_required": "La firma e l'accettazione dei termini sono necessarie per firmare il contratto.",
+        "not_signed": "Non ancora firmato",
+        "signed": "Documento firmato",
+        "no_signers": "Nessun firmatario",
+        "share_dialog": "Condividi contratto",
+        "share_dialog_text": "Copia il link qui sotto e condividilo con il tuo partner o scansiona il codice QR."
     },
     "support": {
         "support": "Supporto <unk> Supporta",
@@ -867,6 +990,40 @@
         "volunteer": "Volontariato",
         "other": "Altro"
     },
+    "project": {
+        "project": "Progetto <unk> Progetti",
+        "new_project": "Nuovo Progetto",
+        "edit_project": "Modifica Progetto",
+        "no_projects": "Nessun progetto trovato",
+        "create_first_project": "Crea il tuo primo progetto",
+        "delete_confirm_project": "Sei sicuro di voler eliminare questo progetto?",
+        "project_details": "Dettagli del progetto",
+        "start_and_end_date": "Data di inizio e fine",
+        "team_members": "Membri del team",
+        "add_team_member": "Aggiungi membro del team",
+        "no_team_members": "Nessun membro del team",
+        "start_end_date": "Data di inizio e fine",
+        "tasks": "Compiti",
+        "add_task": "Aggiungi Attività",
+        "no_tasks": "Nessuna attività trovata",
+        "task": "Attività <unk> Attività",
+        "edit_task": "Modifica Attività",
+        "delete_task_confirmation": "Sei sicuro di voler eliminare questa attività?",
+        "kanban_board": "Kanban Board",
+        "create_task": "Crea Attività",
+        "project_members": "Membri Del Progetto",
+        "add_member": "Aggiungi Membro",
+        "remove_member": "Rimuovi Membro",
+        "remove_member_confirmation": "Sei sicuro di voler rimuovere questo membro dal progetto?",
+        "edit_member": "Modifica Membro"
+    },
+    "project_role": {
+        "owner": "Proprietario",
+        "manager": "Manager",
+        "team_member": "Membro Della Squadra",
+        "viewer": "Visualizzatore",
+        "client": "Client"
+    },
     "admin": {
         "menu": {
             "dashboard": "Dashboard",
@@ -885,7 +1042,10 @@
             "app_status": "Stato Dell'Applicazione",
             "units": "Unità",
             "email": "Email",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Impostazioni Server",
+            "status_page": "Pagina Di Stato",
+            "data_collection": "Raccolta Dati"
         },
         "company": {
             "title": "Impostazioni Azienda",
@@ -899,7 +1059,9 @@
             "company_country": "Paese Dell'Azienda",
             "company_vat": "Company VAT",
             "company_logo": "Logo Azienda",
-            "company_logo_help": "Dimensione consigliata: 100x100px"
+            "company_logo_help": "Dimensione consigliata: 100x100px",
+            "company_website": "Sito Web Dell'Azienda",
+            "company_primary_color": "Colore Principale"
         },
         "integrations": {
             "title": "Integrazioni",
@@ -922,7 +1084,29 @@
             "open_banking_client_id": "Open Banking Client ID",
             "open_banking_secret": "Open Banking Secret",
             "open_banking_help": "Puoi trovare il tuo ID Client e Secret nel tuo account Nordigen.",
-            "online_payments": "Pagamenti Online"
+            "online_payments": "Pagamenti Online",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Coinbase disponibile",
+            "coinbase_api_key": "Coinbase API Key",
+            "coinbase_api_key_help": "Puoi trovare la tua chiave API nel tuo account Coinbase commerce.",
+            "coinbase_account_id": "Coinbase ID account interno",
+            "document_signing_available": "Firma documento disponibile",
+            "document_signing": "Firma Del Documento"
+        },
+        "status": {
+            "title": "Pagina Di Stato",
+            "app_version": "Versione App",
+            "latest_version": "Ultima Versione",
+            "changelog": "Changelog",
+            "view_changelog": "Visualizza Changelog",
+            "new_version_available": "Nuova versione disponibile per il download",
+            "download_now": "Scarica ora",
+            "php_version": "Versione PHP",
+            "database_version": "Versione Database",
+            "server_software": "Software Server",
+            "storage_used": "Archiviazione Usata",
+            "storage_limit": "Limite Di Stoccaggio",
+            "unlimited": "Illimitato"
         },
         "user": {
             "title": "Utenti",
@@ -936,9 +1120,13 @@
             "reset_password": "Reimposta Password",
             "send_details_to": "Invia dettagli a",
             "never_logged_in": "Non aver mai effettuato l'accesso",
+            "never_used": "Mai usato",
             "auto_generate_password": "Generazione automatica password",
             "delete_confirm_user": "Sei sicuro di voler eliminare questo utente?",
-            "disable_2fa": "Disabilita 2FA"
+            "disable_2fa": "Disabilita 2FA",
+            "personal_access_tokens": "Token Di Accesso Personale",
+            "no_personal_access_tokens": "Nessun token di accesso personale trovato",
+            "delete_confirm_personal_access_token": "Sei sicuro di voler eliminare questo token di accesso personale?"
         },
         "department": {
             "title": "Dipartimenti",
@@ -979,7 +1167,11 @@
             "default_date_format": "Formato Di Data Predefinito",
             "default_time_format": "Formato Predefinito Ora",
             "default_datetime_format": "Formato Predefinito Datetime",
-            "show_barcode_on_documents": "Mostra il codice a barre sui documenti"
+            "show_barcode_on_documents": "Mostra il codice a barre sui documenti",
+            "week_start": "Giorno Inizio Settimana",
+            "exchange_rate_provider": "Provider Di Tasso Di Cambio",
+            "save_document_into_archive": "Salva il documento nell'archivio",
+            "save_document_into_archive_description": "Se abilitata, i documenti verranno salvati nell'archivio (fatture, preventivi, fatture, contratti)."
         },
         "taxes": {
             "title": "Aliquote Fiscali",
@@ -991,7 +1183,9 @@
             "name": "Nome",
             "value": "Valore",
             "description": "Descrizione",
-            "delete_confirm_tax": "Sei sicuro di voler eliminare questa aliquota fiscale?"
+            "delete_confirm_tax": "Sei sicuro di voler eliminare questa aliquota fiscale?",
+            "import_tax": "Importa Aliquote Fiscali",
+            "import_tax_description": "È possibile importare aliquote fiscali da risorse di dati pubblici. I dati saranno recuperati dalla lista IVA UE. Non può essere completamente aggiornato o accurato. Si prega di ricontrollare i dati importati."
         },
         "role": {
             "title": "Ruoli",
@@ -1047,7 +1241,8 @@
             "mail_from_name": "Posta Dal Nome",
             "send_test_email": "Invia email di prova",
             "send_test_email_to": "Invia email di prova a",
-            "sendmail_path": "Percorso Sendmail"
+            "sendmail_path": "Percorso Sendmail",
+            "no_email_selected": "Nessuna email selezionata"
         },
         "numbering": {
             "title": "Impostazioni dei formati numerici",
@@ -1063,7 +1258,9 @@
             "employee": "Formato numero dipendente",
             "project": "Formato numero progetto",
             "department": "Formato numero dipartimento",
-            "archive": "Formato numero archivio"
+            "archive": "Formato numero archivio",
+            "contract": "Formato numero contratto",
+            "yearly": "Annuale"
         },
         "webhook": {
             "title": "Abbonamento Webhooks",
@@ -1075,6 +1272,29 @@
             "delete_confirm_webhook_subscription": "Sei sicuro di voler eliminare questo abbonamento a webhook?",
             "add_header": "Aggiungi Intestazione",
             "remove_header": "Rimuovi Intestazione"
+        },
+        "data_collection": {
+            "title": "Raccolta Dati",
+            "data_collection": "Raccolta Dati",
+            "transaction_categories": "Categorie Di Transazione",
+            "document_types": "Tipi Di Documento",
+            "payment_methods": "Metodi Di Pagamento",
+            "contract_types": "Tipi Di Contratto",
+            "task_categories": "Categorie Attività",
+            "project_categories": "Categorie Di Progetto",
+            "new_data_collection_item": "Nuovo Elemento Di Raccolta Dati",
+            "edit_data_collection_item": "Modifica Elemento Raccolta Dati",
+            "icon_tooltip": "Puoi usare Font Awesome icons. Puoi trovare la lista delle icone qui: https://fontawesome.com/icons",
+            "no_document_types": "Nessun tipo di documento trovato",
+            "no_payment_methods": "Nessun metodo di pagamento trovato",
+            "no_transaction_categories": "Nessuna categoria di transazione trovata",
+            "no_contract_types": "Nessun tipo di contratto trovato",
+            "delete_category_ask": "Sei sicuro di voler eliminare questo elemento di raccolta dati?",
+            "delete_category_success": "Voce raccolta dati eliminata con successo",
+            "product_categories": "Categorie di prodotti",
+            "no_product_categories": "Nessuna categoria di prodotto trovata",
+            "no_task_categories": "Nessuna categoria di attività trovata",
+            "no_project_categories": "Nessuna categoria di progetto trovata"
         }
     },
     "month": {
@@ -1438,5 +1658,23 @@
         "finish_installation_description": "L'installazione è completa. Ora puoi accedere al tuo account.",
         "go_to_login": "Vai al login",
         "installation": "Installazione"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Dashboard",
+            "invoices": "Fatture",
+            "quotes": "Quotazioni",
+            "transactions": "Transazioni",
+            "support": "Supporto",
+            "contracts": "Contratti",
+            "partner_details": "Dettagli Partner"
+        },
+        "partner_details": "Dettagli partner",
+        "dashboard": "Dashboard",
+        "number_of_contracts": "Numero di contratti",
+        "number_of_unpaid_invoices": "Numero di fatture non pagate",
+        "number_of_quotes": "Numero di preventivi",
+        "number_of_bills": "Numero di fatture",
+        "number_of_support_tickets": "Numero di ticket di supporto"
     }
 }
