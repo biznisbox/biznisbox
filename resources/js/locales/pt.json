@@ -127,7 +127,11 @@
         "same_as_company_address": "Igual ao endereço da empresa",
         "audit_log": "Registro de auditoria",
         "get_current_location": "Obter a localização atual",
-        "system": "SISTEMA"
+        "system": "SISTEMA",
+        "add_signer": "Adicionar Assinante",
+        "click_for_download": "Clique aqui para baixar",
+        "sign": "Assinar",
+        "import": "Importação"
     },
     "audit_log": {
         "audit_log": "Registro de auditoria",
@@ -160,12 +164,16 @@
         "moved": "Movido",
         "retrieve_public": "Recuperar Público",
         "upload": "Transferir",
-        "share": "Compartilhar"
+        "share": "Compartilhar",
+        "delete": "excluir",
+        "sign": "Assinar",
+        "convert_to_invoice": "Converter para fatura"
     },
     "audit_log_type": {
         "internal": "interno",
         "external": "externo",
         "external_key": "Chave externa",
+        "client_portal": "Portal do Cliente",
         "system": "SISTEMA"
     },
     "user_nav_menu": {
@@ -194,7 +202,9 @@
         "settings": "Confirgurações",
         "employees": "Funcionários",
         "support": "SUPORTE",
-        "payments": "Pagamentos"
+        "payments": "Pagamentos",
+        "contracts": "Contratos",
+        "projects": "Projetos"
     },
     "dashboard": {
         "title": "Painel",
@@ -396,7 +406,33 @@
         "display_name": "Nome para exibição",
         "theme": "Tema",
         "overpaid_amount": "Valor Sobrecarregado",
-        "sum_of_payments": "Soma dos pagamentos"
+        "sum_of_payments": "Soma dos pagamentos",
+        "date_for_signature": "Data da Assinatura",
+        "is_signer": "É Assinante",
+        "signer_name": "Nome do assinante",
+        "signer_email": "Signer Email",
+        "signer_phone": "Telefone do assinante",
+        "signers": "Assinantes",
+        "outcome": "Resultado",
+        "activity_type": "Tipo de Atividade",
+        "user": "Usuário",
+        "is_internal": "É interno",
+        "picture": "Imagem",
+        "last_used_at": "Último uso em",
+        "module": "Módulo",
+        "parent_category": "Categoria Pai",
+        "icon": "Ícone",
+        "additional_info": "Informação Adicional",
+        "client_portal": "Portal do Cliente",
+        "type_of_contract_sign": "Tipo de Sinal de Contrato",
+        "refund": "Reembolso",
+        "payment_number": "Número de Pagamento",
+        "is_billable": "É Faturável",
+        "budget": "Orçamento",
+        "project_key": "Chave do Projeto",
+        "completed_at": "Concluído em",
+        "progress_in_percent": "Progresso em porcentagem",
+        "archived_until": "Arquivado até"
     },
     "address_types": {
         "billing": "Faturamento",
@@ -411,6 +447,20 @@
     "entity_types": {
         "company": "Empresas",
         "individual": "Individual"
+    },
+    "time_range": {
+        "one_day": "unnamed@@0 dias",
+        "one_week": "Uma semana",
+        "one_month": "unnamed@@0 meses",
+        "three_months": "Três meses",
+        "six_months": "Seis meses",
+        "one_year": "%d anos",
+        "all_time": "Desde o início",
+        "never": "nunca"
+    },
+    "task_type": {
+        "task": "Tarefas",
+        "milestone": "Marco"
     },
     "industries": {
         "agriculture": "Agricultura",
@@ -457,9 +507,10 @@
         "bank_transfer": "Transferência Bancária",
         "cash": "Dinheiro",
         "check": "Verificar",
-        "credit_card": "Cartão de Crédito",
+        "credit_card": "Cartão de pagamento",
         "paypal": "Paypal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Outros"
     },
     "support_priority": {
@@ -467,6 +518,14 @@
         "low": "baixa",
         "medium": "Média",
         "normal": "normal",
+        "high": "alta",
+        "urgent": "Urgente"
+    },
+    "priority": {
+        "none": "Nenhuma",
+        "low": "baixa",
+        "normal": "normal",
+        "medium": "Média",
         "high": "alta",
         "urgent": "Urgente"
     },
@@ -481,6 +540,11 @@
     "tax_types": {
         "percent": "Porcentagem",
         "fixed": "Corrigido"
+    },
+    "contract_sign_types": {
+        "electronic": "Eletrônica",
+        "digital_signature": "Assinatura digital",
+        "paper": "Papel"
     },
     "login_history": {
         "login_history": "Histórico Acesso",
@@ -507,7 +571,26 @@
         "contacts": "CONTATOS",
         "partner_details": "Detalhes do parceiro",
         "delete_confirm_partner": "Tem certeza que deseja excluir este parceiro?",
-        "contact_informations": "Informações de contato"
+        "contact_information": "Informação do Contato",
+        "add_activity": "Adicionar atividade",
+        "no_activities": "Nenhuma atividade encontrada",
+        "activity": "Atividade",
+        "activities": "Atividades",
+        "edit_activity": "Editar Atividade",
+        "partner_activities": "Atividades de parceiro",
+        "send_email": "Enviar e-mail",
+        "add_to_client_portal": "Adicionar ao portal do cliente",
+        "vat_number_required": "O número VAT é obrigatório"
+    },
+    "partner_activity_types": {
+        "call": "Chamada",
+        "task": "Tarefas",
+        "video_call": "Chamada de vídeo",
+        "meeting": "Reunião",
+        "email": "e-mail",
+        "visit": "Visitar",
+        "note": "Observação",
+        "other": "Outros"
     },
     "product": {
         "product": "Produtos de Produto",
@@ -540,7 +623,13 @@
         "two_factor_authentication_code": "Código da autenticação em dois fatores",
         "two_factor_authentication_code_info": "Digite o código gerado pelo seu aplicativo autenticador para verificar a configuração de autenticação de dois fatores.",
         "verify_2fa": "Verificar 2FA",
-        "cannot_remove__default_avatar": "Você não pode remover o avatar padrão."
+        "cannot_remove_default_avatar": "Você não pode remover o avatar padrão.",
+        "personal_access_tokens": "Tokens de acesso pessoal",
+        "create_personal_access_token": "Criar token de acesso pessoal",
+        "no_personal_access_tokens": "Nenhum token de acesso pessoal encontrado",
+        "generated_personal_access_token_message": "Seu token de acesso pessoal foi gerado. Esta é a única vez que você verá este token, então certifique-se de salvá-lo em algum lugar seguro.",
+        "generated_personal_access_token": "Token de acesso pessoal gerado",
+        "delete_personal_access_token": "Tem certeza que deseja excluir este token de acesso pessoal?"
     },
     "document_types": {
         "document": "Documento",
@@ -588,8 +677,8 @@
         "list_of_transactions": "Lista de transações",
         "no_sales_person": "Sem vendedores",
         "no_payment_method": "Nenhum método de pagamento",
-        "click_for_pay_with_paypal": "Clique aqui para pagar com PayPal",
-        "click_for_pay": "Clique aqui para pagar"
+        "click_for_pay": "Clique aqui para pagar",
+        "select_payment_gateway": "Selecionar gateway de pagamento"
     },
     "quote": {
         "quote": "Citações da Cotação",
@@ -618,7 +707,8 @@
         "converted_to_invoice": "Orçamento convertido para fatura",
         "expired": "Esta cotação expirou. Você não pode aceitar ou rejeitá-la.",
         "rejected": "Esta cotação foi rejeitada com sucesso.",
-        "accepted": "Esta cotação foi aceita com sucesso."
+        "accepted": "Esta cotação foi aceita com sucesso.",
+        "no_payment_method": "Nenhum método de pagamento"
     },
     "status": {
         "draft": "Rascunho",
@@ -657,7 +747,16 @@
         "in_review": "Em revisão",
         "delegated": "Delegado",
         "approved": "Aceito",
-        "not_approved": "Não aprovado"
+        "not_approved": "Não aprovado",
+        "waiting_signers": "Aguardando assinantes",
+        "signed": "Assinado",
+        "waiting_signature": "Aguardando assinatura",
+        "not_started": "Não Iniciado",
+        "planned": "Planejado",
+        "spam": "Spam",
+        "on_hold": "Em espera",
+        "to_do": "Para fazer",
+        "done": "Concluído"
     },
     "calendar": {
         "calendar": "Calendários do calendário",
@@ -738,7 +837,10 @@
         "edit_payment": "Editar Pagamento",
         "no_payments": "Nenhum pagamento encontrado",
         "delete_confirm_payment": "Tem certeza que deseja excluir este pagamento?",
-        "payment_details": "Detalhes do pagamento"
+        "payment_details": "Detalhes do pagamento",
+        "refund_confirmation": "Tem certeza de que deseja reembolsar este pagamento?",
+        "refund_successful": "Pagamento reembolsado com sucesso",
+        "refund_failed": "Falha ao reembolsar pagamento"
     },
     "archive": {
         "archive": "Arquivar Arquivos",
@@ -776,7 +878,8 @@
         "no_items": "Nenhum item",
         "select_item": "Selecione o item",
         "date_and_due_date": "Data e prazo",
-        "delete_confirm_bill": "Tem certeza de que deseja excluir esta fatura?"
+        "delete_confirm_bill": "Tem certeza de que deseja excluir esta fatura?",
+        "no_payment_method": "Nenhum método de pagamento"
     },
     "account": {
         "account": "Contas da Conta 2020",
@@ -800,6 +903,26 @@
         "no_documents": "Nenhum documento encontrado",
         "create_first_document": "Criar o seu primeiro documento",
         "delete_confirm_document": "Tem certeza de que deseja excluir este documento?"
+    },
+    "contract": {
+        "contract": "Contratos de Contrato",
+        "create_contract": "Criar Contrato",
+        "edit_contract": "Editar Contrato",
+        "no_contracts": "Nenhum contrato encontrado",
+        "create_first_contract": "Crie seu primeiro contrato",
+        "delete_confirm_contract": "Tem certeza que deseja excluir este contrato?",
+        "contract_details": "Detalhes do contrato",
+        "no_content": "Nenhum conteúdo",
+        "no_partner": "Nenhum parceiro",
+        "sign_contract": "Assinar contrato",
+        "contract_signed": "Contrato assinado",
+        "accept_sign_terms": "Aceito que, ao assinar este documento, concordo que a assinatura é juridicamente vinculativa e equivalente à minha assinatura manuscrita.",
+        "accept_terms_required": "Assinatura e aceitação dos termos são necessários para assinar o contrato.",
+        "not_signed": "Ainda não assinado",
+        "signed": "Documento assinado",
+        "no_signers": "Nenhum assinante",
+        "share_dialog": "Compartilhar contrato",
+        "share_dialog_text": "Copie o link abaixo e compartilhe-o com seu parceiro ou digitalize o código QR."
     },
     "support": {
         "support": "Apoie-os",
@@ -867,6 +990,40 @@
         "volunteer": "Voluntário",
         "other": "Outros"
     },
+    "project": {
+        "project": "Projetos do Projeto",
+        "new_project": "Novo Projeto",
+        "edit_project": "Editar Projeto",
+        "no_projects": "Nenhum projeto encontrado",
+        "create_first_project": "Crie seu primeiro projeto",
+        "delete_confirm_project": "Tem certeza que deseja excluir este projeto?",
+        "project_details": "Detalhes do Projeto",
+        "start_and_end_date": "Data de início e fim",
+        "team_members": "Membros da equipe",
+        "add_team_member": "Adicionar Membro",
+        "no_team_members": "Nenhum membro da equipe",
+        "start_end_date": "Data de início e término",
+        "tasks": "Tarefas",
+        "add_task": "Adicionar tarefa",
+        "no_tasks": "Nenhuma tarefa encontrada",
+        "task": "Tarefas da Tarefa",
+        "edit_task": "Editar tarefa",
+        "delete_task_confirmation": "Tem certeza que deseja excluir esta tarefa?",
+        "kanban_board": "Painel Kanban",
+        "create_task": "Criar tarefa",
+        "project_members": "Membros do Projeto",
+        "add_member": "Adicionar Membro",
+        "remove_member": "Remover Membro",
+        "remove_member_confirmation": "Tem certeza que deseja remover este membro do projeto?",
+        "edit_member": "Editar Membro"
+    },
+    "project_role": {
+        "owner": "Proprietário",
+        "manager": "Administrador",
+        "team_member": "Membro da equipe",
+        "viewer": "Visualizador",
+        "client": "Cliente"
+    },
     "admin": {
         "menu": {
             "dashboard": "Painel",
@@ -885,7 +1042,10 @@
             "app_status": "Status do aplicativo",
             "units": "Unidades",
             "email": "e-mail",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Configurações do Servidor",
+            "status_page": "Página de estado",
+            "data_collection": "Coleta de dados"
         },
         "company": {
             "title": "Configurações da Empresa",
@@ -899,7 +1059,9 @@
             "company_country": "País Empresa",
             "company_vat": "Company VAT",
             "company_logo": "Logotipo da Empresa",
-            "company_logo_help": "Tamanho recomendado: 100x100px"
+            "company_logo_help": "Tamanho recomendado: 100x100px",
+            "company_website": "Site da Companhia",
+            "company_primary_color": "Cor primária"
         },
         "integrations": {
             "title": "Integrações",
@@ -922,7 +1084,29 @@
             "open_banking_client_id": "Abrir ID do Cliente Bancário",
             "open_banking_secret": "Abrir Segredo Bancário",
             "open_banking_help": "Você pode encontrar seu Client ID e Secret na sua conta Nordigen.",
-            "online_payments": "Pagamentos Online"
+            "online_payments": "Pagamentos Online",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Coinbase disponível",
+            "coinbase_api_key": "Chave API do Coinbase",
+            "coinbase_api_key_help": "Você pode encontrar sua chave de API na sua conta de comércio Coinbase.",
+            "coinbase_account_id": "ID interno da conta Coinbase",
+            "document_signing_available": "Assinatura de Documento disponível",
+            "document_signing": "Assinatura de documento"
+        },
+        "status": {
+            "title": "Página de estado",
+            "app_version": "Versão do aplicativo",
+            "latest_version": "Última Versão",
+            "changelog": "Mudanças",
+            "view_changelog": "Ver alterações",
+            "new_version_available": "Nova versão disponível para download",
+            "download_now": "Baixe agora",
+            "php_version": "Versão do PHP",
+            "database_version": "Versão do banco",
+            "server_software": "Software do servidor",
+            "storage_used": "Armazenamento usado",
+            "storage_limit": "Limite de armazenamento",
+            "unlimited": "Ilimitado"
         },
         "user": {
             "title": "Utilizadores",
@@ -936,9 +1120,13 @@
             "reset_password": "Redefinir a senha",
             "send_details_to": "Enviar detalhes para",
             "never_logged_in": "Nunca logou",
+            "never_used": "Nunca usado",
             "auto_generate_password": "Gerar senha automaticamente",
             "delete_confirm_user": "Tem certeza de que deseja excluir este usuário?",
-            "disable_2fa": "Desativar 2FA"
+            "disable_2fa": "Desativar 2FA",
+            "personal_access_tokens": "Tokens de acesso pessoal",
+            "no_personal_access_tokens": "Nenhum token de acesso pessoal encontrado",
+            "delete_confirm_personal_access_token": "Tem certeza que deseja excluir este token de acesso pessoal?"
         },
         "department": {
             "title": "Departamentos",
@@ -979,7 +1167,11 @@
             "default_date_format": "Formato de data padrão",
             "default_time_format": "Formato de hora padrão",
             "default_datetime_format": "Formato de data padrão",
-            "show_barcode_on_documents": "Mostrar código de barras nos documentos"
+            "show_barcode_on_documents": "Mostrar código de barras nos documentos",
+            "week_start": "Dia Inicial da Semana",
+            "exchange_rate_provider": "Provedor Taxa de Câmbio",
+            "save_document_into_archive": "Salvar documento no arquivo",
+            "save_document_into_archive_description": "Se ativado, os documentos serão salvos no arquivo (faturas, citações, faturas, contratos)."
         },
         "taxes": {
             "title": "Taxas de imposto",
@@ -991,7 +1183,9 @@
             "name": "Nome:",
             "value": "Valor",
             "description": "Descrição:",
-            "delete_confirm_tax": "Tem certeza que deseja excluir esta taxa de imposto?"
+            "delete_confirm_tax": "Tem certeza que deseja excluir esta taxa de imposto?",
+            "import_tax": "Importar Taxas de Imposto",
+            "import_tax_description": "Pode-se importar taxas de imposto a partir de recursos de dados públicos. Os dados serão obtidos da lista de IVA da UE. Não pode estar totalmente atualizado ou preciso. Por favor, verifique novamente os dados importados."
         },
         "role": {
             "title": "Papéis",
@@ -1047,7 +1241,8 @@
             "mail_from_name": "Nome do E-mail",
             "send_test_email": "Enviar e-mail de teste",
             "send_test_email_to": "Enviar e-mail de teste para",
-            "sendmail_path": "Caminho do Sendmail"
+            "sendmail_path": "Caminho do Sendmail",
+            "no_email_selected": "Nenhum e-mail selecionado"
         },
         "numbering": {
             "title": "Configurações de números formatos",
@@ -1063,7 +1258,9 @@
             "employee": "Formato número de funcionário",
             "project": "Formato do número do projeto",
             "department": "Formato número do departamento",
-            "archive": "Formato do arquivo"
+            "archive": "Formato do arquivo",
+            "contract": "Formato número do contrato",
+            "yearly": "Anualmente"
         },
         "webhook": {
             "title": "Assinatura de webhooks",
@@ -1075,6 +1272,29 @@
             "delete_confirm_webhook_subscription": "Tem certeza de que deseja excluir esta assinatura do webhook?",
             "add_header": "Adicionar Cabeçalho",
             "remove_header": "Remover Cabeçalho"
+        },
+        "data_collection": {
+            "title": "Coleta de dados",
+            "data_collection": "Coleta de dados",
+            "transaction_categories": "Categorias de transação",
+            "document_types": "Tipos de documentos",
+            "payment_methods": "Métodos de pagamento",
+            "contract_types": "Tipos de Contrato",
+            "task_categories": "Categorias de tarefa",
+            "project_categories": "Categorias de projeto",
+            "new_data_collection_item": "Novo item da coleção de dados",
+            "edit_data_collection_item": "Editar item da coleção de dados",
+            "icon_tooltip": "Você pode usar ícones de Font Awesome. Você pode encontrar a lista de ícones aqui: https://fontawesome.com/icons",
+            "no_document_types": "Nenhum tipo de documento encontrado",
+            "no_payment_methods": "Nenhum método de pagamento encontrado",
+            "no_transaction_categories": "Nenhuma categoria de transação encontrada",
+            "no_contract_types": "Nenhum tipo de contrato foi encontrado",
+            "delete_category_ask": "Tem certeza de que deseja excluir este item de coleta de dados?",
+            "delete_category_success": "Item da coleção de dados excluído com sucesso",
+            "product_categories": "Categorias de produtos",
+            "no_product_categories": "Nenhuma categoria de produtos encontrada",
+            "no_task_categories": "Nenhuma categoria de tarefa encontrada",
+            "no_project_categories": "Nenhuma categoria de projeto encontrada"
         }
     },
     "month": {
@@ -1438,5 +1658,23 @@
         "finish_installation_description": "A instalação está completa. Agora você pode acessar a sua conta.",
         "go_to_login": "Ir para o login",
         "installation": "Instalação"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Painel",
+            "invoices": "Faturas",
+            "quotes": "Cotações",
+            "transactions": "Transações",
+            "support": "SUPORTE",
+            "contracts": "Contratos",
+            "partner_details": "Detalhes do parceiro"
+        },
+        "partner_details": "Detalhes do parceiro",
+        "dashboard": "Painel",
+        "number_of_contracts": "Número de contratos",
+        "number_of_unpaid_invoices": "Número de faturas a pagar",
+        "number_of_quotes": "Número de Cotações",
+        "number_of_bills": "Número de faturas",
+        "number_of_support_tickets": "Número de tickets de suporte"
     }
 }
