@@ -127,7 +127,11 @@
         "same_as_company_address": "Так само, як адреса компанії",
         "audit_log": "Журнал аудиту",
         "get_current_location": "Визначити місцезнаходження",
-        "system": "Система"
+        "system": "Система",
+        "add_signer": "Додати реєстр",
+        "click_for_download": "Натисніть тут, щоб завантажити",
+        "sign": "Підпис",
+        "import": "Імпорт"
     },
     "audit_log": {
         "audit_log": "Журнал аудиту",
@@ -160,12 +164,16 @@
         "moved": "Переміщено",
         "retrieve_public": "Отримати публічну",
         "upload": "Вивантажити",
-        "share": "Поділитись"
+        "share": "Поділитись",
+        "delete": "Видалити",
+        "sign": "Підпис",
+        "convert_to_invoice": "Перетворити на рахунок"
     },
     "audit_log_type": {
         "internal": "Внутрішній",
         "external": "Зовнішній",
         "external_key": "Зовнішній ключ",
+        "client_portal": "Портал клієнта",
         "system": "Система"
     },
     "user_nav_menu": {
@@ -194,7 +202,9 @@
         "settings": "Налаштування",
         "employees": "Співробітники",
         "support": "Підтримка",
-        "payments": "Оплата"
+        "payments": "Оплата",
+        "contracts": "Контракти",
+        "projects": "Проекти"
     },
     "dashboard": {
         "title": "Приладна дошка",
@@ -396,7 +406,33 @@
         "display_name": "Ім'я для відображення",
         "theme": "Тема",
         "overpaid_amount": "Сума переплачених",
-        "sum_of_payments": "Сума платежів"
+        "sum_of_payments": "Сума платежів",
+        "date_for_signature": "Дата підпису",
+        "is_signer": "Чи є Сигнер",
+        "signer_name": "Логін",
+        "signer_email": "Signer Email",
+        "signer_phone": "Телефон зі значком",
+        "signers": "Сигнери",
+        "outcome": "Результат",
+        "activity_type": "Тип дії",
+        "user": "Користувач",
+        "is_internal": "Є внутрішнім",
+        "picture": "Зображення",
+        "last_used_at": "Останній використаний",
+        "module": "Модуль",
+        "parent_category": "Батьківська категорія",
+        "icon": "Іконка",
+        "additional_info": "Додаткова інформація",
+        "client_portal": "Портал клієнта",
+        "type_of_contract_sign": "Тип знака договору",
+        "refund": "Повернення коштів",
+        "payment_number": "Номер оплати",
+        "is_billable": "Оплатить",
+        "budget": "Бюджет",
+        "project_key": "Ключ проекту",
+        "completed_at": "Завершено",
+        "progress_in_percent": "Відсоток прогресу в процентах",
+        "archived_until": "Архівовано до"
     },
     "address_types": {
         "billing": "Біллінг",
@@ -411,6 +447,20 @@
     "entity_types": {
         "company": "Організація",
         "individual": "Індивід"
+    },
+    "time_range": {
+        "one_day": "Один день",
+        "one_week": "Один тиждень",
+        "one_month": "Один місяць",
+        "three_months": "Три місяці",
+        "six_months": "Шість місяців",
+        "one_year": "Один рік",
+        "all_time": "За весь час",
+        "never": "Ніколи"
+    },
+    "task_type": {
+        "task": "Завдання",
+        "milestone": "Етап"
     },
     "industries": {
         "agriculture": "Сільське господарство",
@@ -457,9 +507,10 @@
         "bank_transfer": "Банківський переказ",
         "cash": "Готівкою",
         "check": "Перевірити",
-        "credit_card": "Кредитна Картка",
+        "credit_card": "Платіжна картка",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Куенбаз",
         "other": "Інше"
     },
     "support_priority": {
@@ -467,6 +518,14 @@
         "low": "Низька",
         "medium": "Медіум",
         "normal": "Нормальний",
+        "high": "Високий",
+        "urgent": "Терміновий"
+    },
+    "priority": {
+        "none": "Без ефекту",
+        "low": "Низька",
+        "normal": "Нормальний",
+        "medium": "Медіум",
         "high": "Високий",
         "urgent": "Терміновий"
     },
@@ -481,6 +540,11 @@
     "tax_types": {
         "percent": "Процент",
         "fixed": "Виправлена"
+    },
+    "contract_sign_types": {
+        "electronic": "Електронний",
+        "digital_signature": "Цифрова підпис",
+        "paper": "Папір"
     },
     "login_history": {
         "login_history": "Історія входів в систему",
@@ -507,7 +571,26 @@
         "contacts": "Контакти",
         "partner_details": "Деталі партнера",
         "delete_confirm_partner": "Ви впевнені, що хочете видалити цього партнера?",
-        "contact_informations": "Інформація про контакт"
+        "contact_information": "Контактна інформація",
+        "add_activity": "Додати активність",
+        "no_activities": "Не знайдено активностей",
+        "activity": "Активність",
+        "activities": "Події",
+        "edit_activity": "Редагувати дію",
+        "partner_activities": "Активність партнера",
+        "send_email": "Надіслати ел. листа",
+        "add_to_client_portal": "Додати до клієнтського порталу",
+        "vat_number_required": "Необхідно вказати номер платника ПДВ"
+    },
+    "partner_activity_types": {
+        "call": "Дзвінок",
+        "task": "Завдання",
+        "video_call": "Відеодзвінок",
+        "meeting": "Зустріч",
+        "email": "Ел. пошта",
+        "visit": "Візит",
+        "note": "Примітка",
+        "other": "Інше"
     },
     "product": {
         "product": "Товар | Продукти",
@@ -540,7 +623,13 @@
         "two_factor_authentication_code": "Код двофакторної аутентифікації",
         "two_factor_authentication_code_info": "Введіть код, згенерований вашим додатком аутентифікації, щоб перевірити налаштування двофакторної автентифікації.",
         "verify_2fa": "Перевірка 2FA",
-        "cannot_remove__default_avatar": "Не можна видалити аватар за замовчуванням."
+        "cannot_remove_default_avatar": "Не можна видалити аватар за замовчуванням.",
+        "personal_access_tokens": "Токени особистого доступу",
+        "create_personal_access_token": "Створити персональний токен доступу",
+        "no_personal_access_tokens": "Персональні токени доступу не знайдені",
+        "generated_personal_access_token_message": "Ваш персональний токен доступу. Це єдиний раз, коли ви побачите цей токен, тому переконайтеся, що він буде збережений в безпеці.",
+        "generated_personal_access_token": "Згенерований токен персонального доступу",
+        "delete_personal_access_token": "Ви впевнені, що бажаєте видалити цей персональний токен доступу?"
     },
     "document_types": {
         "document": "Документ",
@@ -588,8 +677,8 @@
         "list_of_transactions": "Список операцій",
         "no_sales_person": "Немає відділу з продажу",
         "no_payment_method": "Немає способу оплати",
-        "click_for_pay_with_paypal": "Натисніть тут, щоб заплатити за допомогою PayPal",
-        "click_for_pay": "Натисніть тут, щоб заплатити"
+        "click_for_pay": "Натисніть тут, щоб заплатити",
+        "select_payment_gateway": "Обрати платіжний шлюз"
     },
     "quote": {
         "quote": "Котирування | Комерційні пропозиції",
@@ -618,7 +707,8 @@
         "converted_to_invoice": "Котирування перетворено на рахунок",
         "expired": "Термін дії цитати закінчився. Ви не можете прийняти або відхилити його.",
         "rejected": "Ця цитата була успішно відхилена.",
-        "accepted": "Ця цитата була успішно прийнята."
+        "accepted": "Ця цитата була успішно прийнята.",
+        "no_payment_method": "Немає способу оплати"
     },
     "status": {
         "draft": "Креслення",
@@ -657,7 +747,16 @@
         "in_review": "На розгляді",
         "delegated": "Делеговані",
         "approved": "Затверджено",
-        "not_approved": "Не затверджено"
+        "not_approved": "Не затверджено",
+        "waiting_signers": "Очікування підписників",
+        "signed": "Підписано",
+        "waiting_signature": "Очікування підпису",
+        "not_started": "Не розпочато",
+        "planned": "Заплановано",
+        "spam": "Спам",
+        "on_hold": "На утриманні",
+        "to_do": "Зробити",
+        "done": "Виконано"
     },
     "calendar": {
         "calendar": "Календар | Календар",
@@ -738,7 +837,10 @@
         "edit_payment": "Редагувати платіж",
         "no_payments": "Не знайдено оплат",
         "delete_confirm_payment": "Ви впевнені, що хочете видалити цей платіж?",
-        "payment_details": "Деталі платежу"
+        "payment_details": "Деталі платежу",
+        "refund_confirmation": "Справді бажаєте повернути цей платіж?",
+        "refund_successful": "Оплату успішно повернуто",
+        "refund_failed": "Відшкодування платежу не вдалося"
     },
     "archive": {
         "archive": "Архів | Архіви",
@@ -776,7 +878,8 @@
         "no_items": "Товарів немає",
         "select_item": "Виберіть елемент",
         "date_and_due_date": "Дата і дата завершення",
-        "delete_confirm_bill": "Ви впевнені, що хочете видалити рахунок?"
+        "delete_confirm_bill": "Ви впевнені, що хочете видалити рахунок?",
+        "no_payment_method": "Немає способу оплати"
     },
     "account": {
         "account": "Обліковий запис | Рахунки",
@@ -800,6 +903,26 @@
         "no_documents": "Документів не знайдено",
         "create_first_document": "Створити перший документ",
         "delete_confirm_document": "Ви впевнені, що хочете видалити цей документ?"
+    },
+    "contract": {
+        "contract": "Договір | Контракти",
+        "create_contract": "Створити контракт",
+        "edit_contract": "Редагувати контракт",
+        "no_contracts": "Договори не знайдені",
+        "create_first_contract": "Створити свій перший контракт",
+        "delete_confirm_contract": "Ви впевнені, що бажаєте видалити цей контракт?",
+        "contract_details": "Докладна інформація",
+        "no_content": "Без вмісту",
+        "no_partner": "Немає партнера",
+        "sign_contract": "Підписати контракт",
+        "contract_signed": "Договір підписаний",
+        "accept_sign_terms": "Я погоджуюсь, що підписуючи цей документ, я згоден з тим, що підпис є юридично обов'язковим та еквівалентом моєму підпису.",
+        "accept_terms_required": "Для підписання контракту необхідно підписати умови або погодження з термінами.",
+        "not_signed": "Ще не підписано",
+        "signed": "Документ підписано",
+        "no_signers": "Немає підписників",
+        "share_dialog": "Поділитись контрактом",
+        "share_dialog_text": "Скопіюйте посилання нижче та поділіться ним із партнером або відскануйте QR-код."
     },
     "support": {
         "support": "Підтримка | Підтримка",
@@ -867,6 +990,40 @@
         "volunteer": "Волонтер",
         "other": "Інше"
     },
+    "project": {
+        "project": "Проект | Проекти",
+        "new_project": "Новий проект",
+        "edit_project": "Редагувати проект",
+        "no_projects": "Проектів не знайдено",
+        "create_first_project": "Створіть свій перший проект",
+        "delete_confirm_project": "Ви дійсно бажаєте видалити цей проект?",
+        "project_details": "Деталі проекту",
+        "start_and_end_date": "Дата початку і закінчення",
+        "team_members": "Учасники команди",
+        "add_team_member": "Додати учасника команди",
+        "no_team_members": "Немає членів команди",
+        "start_end_date": "Дата початку і закінчення",
+        "tasks": "Завдання",
+        "add_task": "Додати завдання",
+        "no_tasks": "Не знайдено завдань",
+        "task": "Завдання | Завдання",
+        "edit_task": "Редагувати завдання",
+        "delete_task_confirmation": "Ви дійсно бажаєте видалити це завдання?",
+        "kanban_board": "Kanban дошка",
+        "create_task": "Нове завдання",
+        "project_members": "Учасники проекту",
+        "add_member": "Додати учасника",
+        "remove_member": "Видалити члена",
+        "remove_member_confirmation": "Ви впевнені, що хочете видалити цього учасника з проекту?",
+        "edit_member": "Редагувати учасника"
+    },
+    "project_role": {
+        "owner": "Власник",
+        "manager": "Керівник",
+        "team_member": "Член команди",
+        "viewer": "Переглядач",
+        "client": "Клієнт"
+    },
     "admin": {
         "menu": {
             "dashboard": "Приладна дошка",
@@ -885,7 +1042,10 @@
             "app_status": "Статус додатку",
             "units": "Одиниці виміру",
             "email": "Ел. пошта",
-            "webhooks": "Вебгаки"
+            "webhooks": "Вебгаки",
+            "server_settings": "Налаштування сервера",
+            "status_page": "Сторінка стану",
+            "data_collection": "Колекція даних"
         },
         "company": {
             "title": "Налаштування компанії",
@@ -899,7 +1059,9 @@
             "company_country": "Країна",
             "company_vat": "Company VAT",
             "company_logo": "Логотип компанії",
-            "company_logo_help": "Рекомендований розмір: 100x100px"
+            "company_logo_help": "Рекомендований розмір: 100x100px",
+            "company_website": "Веб-сайт компанії",
+            "company_primary_color": "Основний колір"
         },
         "integrations": {
             "title": "Ентеграції",
@@ -922,7 +1084,29 @@
             "open_banking_client_id": "Відкрити банківський клієнт ID",
             "open_banking_secret": "Відкрити банківський секрет",
             "open_banking_help": "Ви можете знайти ваш ID клієнта і Secret в Вашому обліковому записі Nordigen.",
-            "online_payments": "Онлайн платежі"
+            "online_payments": "Онлайн платежі",
+            "coinbase": "Куенбаз",
+            "coinbase_available": "Доступно Coinbase",
+            "coinbase_api_key": "Ключ Coinbase API",
+            "coinbase_api_key_help": "Ви можете знайти свій ключ API у вашому обліковому записі Coinbase.",
+            "coinbase_account_id": "Ідентифікатор внутрішнього облікового запису Coinbase",
+            "document_signing_available": "Доступний підпис документа",
+            "document_signing": "Підписання документа"
+        },
+        "status": {
+            "title": "Сторінка стану",
+            "app_version": "Версія програми",
+            "latest_version": "Остання версія",
+            "changelog": "Список змін",
+            "view_changelog": "Перегляд списку змін",
+            "new_version_available": "Доступна нова версія для завантаження",
+            "download_now": "Завантажити зараз",
+            "php_version": "Версія PHP",
+            "database_version": "Версія бази даних",
+            "server_software": "Серверне програмне забезпечення",
+            "storage_used": "Використовується пам’ять",
+            "storage_limit": "Ліміт простору",
+            "unlimited": "Необмежено"
         },
         "user": {
             "title": "Спільноти",
@@ -936,9 +1120,13 @@
             "reset_password": "Скидання пароля",
             "send_details_to": "Відправити подробиці до",
             "never_logged_in": "Ніколи не входив",
+            "never_used": "Ніколи не використано",
             "auto_generate_password": "Автоматично згенерувати пароль",
             "delete_confirm_user": "Ви впевнені, що хочете видалити цього користувача?",
-            "disable_2fa": "Вимкнути 2FA"
+            "disable_2fa": "Вимкнути 2FA",
+            "personal_access_tokens": "Токени особистого доступу",
+            "no_personal_access_tokens": "Персональні токени доступу не знайдені",
+            "delete_confirm_personal_access_token": "Ви впевнені, що бажаєте видалити цей персональний токен доступу?"
         },
         "department": {
             "title": "Відділи",
@@ -979,7 +1167,11 @@
             "default_date_format": "Формат дати за замовчуванням",
             "default_time_format": "Формат часу за замовчуванням",
             "default_datetime_format": "Формат дати і часу за замовчуванням",
-            "show_barcode_on_documents": "Показувати штрих-код на документах"
+            "show_barcode_on_documents": "Показувати штрих-код на документах",
+            "week_start": "День початку тижня",
+            "exchange_rate_provider": "Постачальник обмінного курсу",
+            "save_document_into_archive": "Зберегти документ у архів",
+            "save_document_into_archive_description": "Якщо увімкнено, документи будуть збережені в архів (рахунки-фактури, котирування, рахунки, контракти)."
         },
         "taxes": {
             "title": "Податкові ставки",
@@ -991,7 +1183,9 @@
             "name": "Ім'я",
             "value": "Цінність",
             "description": "Опис",
-            "delete_confirm_tax": "Ви дійсно бажаєте видалити цю податкову ставку?"
+            "delete_confirm_tax": "Ви дійсно бажаєте видалити цю податкову ставку?",
+            "import_tax": "Імпорт податкових ставок",
+            "import_tax_description": "Ви можете імпортувати податкові ставки з державних даних ресурсів. Дані будуть отримані з переліку ПДВ ЄС. Неможливо повністю оновити або точно. Будь ласка, перевірте імпортовані дані."
         },
         "role": {
             "title": "Ролі",
@@ -1047,7 +1241,8 @@
             "mail_from_name": "Назва пошти",
             "send_test_email": "Надіслати тестовий лист",
             "send_test_email_to": "Відправити тестовий лист до",
-            "sendmail_path": "Шлях до Sendmail"
+            "sendmail_path": "Шлях до Sendmail",
+            "no_email_selected": "Адресу ел. пошти не вибрано"
         },
         "numbering": {
             "title": "Параметри числових форматів",
@@ -1063,7 +1258,9 @@
             "employee": "Формат номеру співробітника",
             "project": "Формат номера проекту",
             "department": "Формат номерів відділу",
-            "archive": "Формат номерів архіву"
+            "archive": "Формат номерів архіву",
+            "contract": "Формат номерів договору",
+            "yearly": "За рік"
         },
         "webhook": {
             "title": "Веб-хуки",
@@ -1075,6 +1272,29 @@
             "delete_confirm_webhook_subscription": "Ви дійсно бажаєте видалити цю підписку на вебхук?",
             "add_header": "Додати заголовок",
             "remove_header": "Видалити заголовок"
+        },
+        "data_collection": {
+            "title": "Колекція даних",
+            "data_collection": "Колекція даних",
+            "transaction_categories": "Категорії транзакцій",
+            "document_types": "Типи документів",
+            "payment_methods": "Способи оплати",
+            "contract_types": "Типи контрактів",
+            "task_categories": "Категорії завдань",
+            "project_categories": "Категорії проекту",
+            "new_data_collection_item": "Новий елемент збору даних",
+            "edit_data_collection_item": "Редагувати Елемент Збору даних",
+            "icon_tooltip": "Можна використовувати піктограми із шрифтами Awesom. Можна знайти список значків тут: https://fontawesome.com/icons",
+            "no_document_types": "Типи документів не знайдені",
+            "no_payment_methods": "Не знайдено способів оплати",
+            "no_transaction_categories": "Не знайдено категорій операцій",
+            "no_contract_types": "Не знайдено жодного типу контрактів",
+            "delete_category_ask": "Ви дійсно бажаєте видалити цей елемент збору даних?",
+            "delete_category_success": "Елемент збору даних успішно видалено",
+            "product_categories": "Категорії товарів",
+            "no_product_categories": "Не знайдено категорій товарів",
+            "no_task_categories": "Не знайдено категорії завдань",
+            "no_project_categories": "Не знайдено категорій проекту"
         }
     },
     "month": {
@@ -1438,5 +1658,23 @@
         "finish_installation_description": "Встановлення завершено. Ви можете увійти в свій обліковий запис.",
         "go_to_login": "Перейти до входу",
         "installation": "Інсталяція"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Приладна дошка",
+            "invoices": "Рахунки",
+            "quotes": "Комерційні пропозиції",
+            "transactions": "Транзакції",
+            "support": "Підтримка",
+            "contracts": "Контракти",
+            "partner_details": "Деталі партнера"
+        },
+        "partner_details": "Деталі партнера",
+        "dashboard": "Приладна дошка",
+        "number_of_contracts": "Кількість договорів",
+        "number_of_unpaid_invoices": "Кількість неоплачених рахунків",
+        "number_of_quotes": "Кількість лапок",
+        "number_of_bills": "Кількість рахунків",
+        "number_of_support_tickets": "Кількість квитків на підтримку"
     }
 }
