@@ -41,4 +41,9 @@ return [
     'admin_email_settings' => 'Yönetici E-posta Ayarları',
     'admin_webhooks' => 'Yönetici Webhooks',
     'webhooks' => 'Webhooks',
+    'contracts' => 'Contracts',
+    'admin_status_page' => 'Admin Status Page',
+    'admin_update_app' => 'Admin Update App',
+    'admin_data_collection' => 'Admin Data Collection',
+    'projects' => 'Projects',
 ];
