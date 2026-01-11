@@ -41,7 +41,7 @@ class InvoiceService
                     'error' => __('responses.invoice_not_found_or_already_paid'),
                 ];
             }
-            $payment = (new OnlinePaymentService())->payInvoiceWithGateway($invoice, $paymentGateway, $key);
+            $payment = new OnlinePaymentService()->payInvoiceWithGateway($invoice, $paymentGateway, $key);
             createActivityLog(
                 'onlinePayment_' . strtolower($paymentGateway),
                 $invoice->id,
@@ -63,7 +63,7 @@ class InvoiceService
                 'error' => __('responses.invalid_payment_id'),
             ];
         }
-        $payment = (new OnlinePaymentService())->validateInvoicePaymentByGateway($paymentGateway, $payment_id, $payer_id);
+        $payment = new OnlinePaymentService()->validateInvoicePaymentByGateway($paymentGateway, $payment_id, $payer_id);
         createActivityLog(
             'validate_' . strtolower($paymentGateway) . '_payment',
             $payment['data']->id ?? null,
@@ -85,7 +85,7 @@ class InvoiceService
             ];
         }
         if (validateExternalKey($key, 'invoice')) {
-            return (new OnlinePaymentService())->getAllAvailablePaymentGateways();
+            return new OnlinePaymentService()->getAllAvailablePaymentGateways();
         }
     }
 }

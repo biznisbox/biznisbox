@@ -85,7 +85,7 @@ class Stripe
 
     public static function retrievePaymentIntent($payment_intent_id)
     {
-        return (new self())->stripe->paymentIntents->retrieve($payment_intent_id);
+        return new self()->stripe->paymentIntents->retrieve($payment_intent_id);
     }
 
     public static function refundPayment($payment_intent_id, $amount = null, $reason = null)
@@ -99,6 +99,6 @@ class Stripe
             $data['amount'] = $amount * 100;
         }
 
-        return (new self())->stripe->refunds->create($data);
+        return new self()->stripe->refunds->create($data);
     }
 }

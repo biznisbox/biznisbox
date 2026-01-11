@@ -19,7 +19,7 @@ class OnlinePaymentService
 
     public function payInvoiceWithStripe($invoice, $key = null, $method = 'web', $type = 'client')
     {
-        $payment_session = (new Stripe())->createCheckoutForInvoicePayment(
+        $payment_session = new Stripe()->createCheckoutForInvoicePayment(
             $invoice,
             [
                 'invoice_id' => $invoice->id,
@@ -47,7 +47,7 @@ class OnlinePaymentService
                 'message' => __('responses.invalid_payment_id'),
             ];
         }
-        $payment_session = (new Stripe())->retrievePaymentSession($payment->payment_id);
+        $payment_session = new Stripe()->retrievePaymentSession($payment->payment_id);
 
         if ($payment_session->payment_status == 'paid' && $payment !== 'paid') {
             // Update payment status to paid
@@ -93,7 +93,7 @@ class OnlinePaymentService
      */
     public function payInvoiceWithPayPal($invoice, $key = null, $method = 'web', $type = 'client')
     {
-        $payment_session = (new PayPal())->createCheckoutForInvoicePayment(
+        $payment_session = new PayPal()->createCheckoutForInvoicePayment(
             $invoice,
             [
                 'invoice_id' => $invoice->id,
@@ -127,7 +127,7 @@ class OnlinePaymentService
             ];
         }
 
-        $payment = (new PayPal())->validateInvoicePayPalPayment($payment_id, $payer_id);
+        $payment = new PayPal()->validateInvoicePayPalPayment($payment_id, $payer_id);
 
         if ($payment['status'] == 'success') {
             $online_payment = OnlinePayment::where('payment_id', $payment_id)->latest()->first();
@@ -165,7 +165,7 @@ class OnlinePaymentService
 
     public function payInvoiceWithCoinbase($invoice, $key = null, $method = 'web', $type = 'client')
     {
-        $payment_session = (new Coinbase())->createCharge([
+        $payment_session = new Coinbase()->createCharge([
             'name' => 'Invoice ' . $invoice->number,
             'description' => 'Payment for invoice ' . $invoice->number,
             'local_price' => [
@@ -199,7 +199,7 @@ class OnlinePaymentService
                 'message' => __('responses.invalid_payment_id'),
             ];
         }
-        $payment_session = (new Coinbase())->getCharge($payment->payment_id);
+        $payment_session = new Coinbase()->getCharge($payment->payment_id);
 
         if (
             $payment_session['data']['timeline'][count($payment_session['data']['timeline']) - 1]['status'] == 'COMPLETED' &&
@@ -462,7 +462,7 @@ class OnlinePaymentService
     {
         $pendingPayments = OnlinePayment::where('payment_method', 'coinbase')->where('status', 'pending')->get();
         foreach ($pendingPayments as $payment) {
-            (new self())->validateInvoiceCoinbasePayment($payment->id);
+            new self()->validateInvoiceCoinbasePayment($payment->id);
         }
     }
 

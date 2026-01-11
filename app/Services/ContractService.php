@@ -203,7 +203,7 @@ class ContractService
         $isSigningEnabled = settings('document_signer_available');
 
         if ($isSigningEnabled) {
-            (new PdfSigner())->signPdfInvisible(
+            new PdfSigner()->signPdfInvisible(
                 $tempPdfPath,
                 $tempPdfPath,
                 [

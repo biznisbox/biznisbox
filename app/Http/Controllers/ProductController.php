@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
 use App\Services\ProductService;
+use Illuminate\Http\Request;
 /**
  * @group Products
  *
@@ -132,5 +133,14 @@ class ProductController extends Controller
     {
         $number = $this->productService->getProductNumber();
         return apiResponse($number, __('responses.data_retrieved_successfully'));
+    }
+
+    public function getProductPdf(Request $request, string $id)
+    {
+        if (!$request->hasValidSignatureWhileIgnoring(['lang'])) {
+            return apiResponse(null, __('responses.invalid_signature'), 400);
+        }
+        $type = $request->input('type', 'stream');
+        return $this->productService->getProductPdf($id, $type);
     }
 }

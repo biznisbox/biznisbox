@@ -184,12 +184,21 @@
             <LoadingScreen :blocked="loadingData">
                 <form>
                     <TextInput v-model="task.title" :label="$t('form.title')" />
-                    <SelectInput v-model="task.type" :options="taskTypes" :label="$t('form.type')" placeholder="Select a type" />
+                    <SelectInput
+                        v-model="task.type"
+                        :options="taskTypes"
+                        :label="$t('form.type')"
+                        placeholder="Select a type"
+                        showClear
+                        filter
+                    />
                     <SelectInput
                         v-model="task.category"
                         :options="taskCategories"
                         filter
-                        :showClear="true"
+                        showClear
+                        option-label="name"
+                        option-value="id"
                         :label="$t('form.category')"
                         placeholder="Select a category"
                     />
@@ -200,7 +209,7 @@
                         <DateInput v-model="task.due_date" :label="$t('form.due_date')" />
                     </div>
                     <DateInput v-model="task.completed_at" :label="$t('form.completed_at')" />
-                    <NumberInput type="number" v-model="task.progress_in_percent" :label="$t('form.progress_in_percent')" />
+                    <NumberInput v-model="task.progress_in_percent" :show-buttons="true" :label="$t('form.progress_in_percent')" />
 
                     <SelectInput
                         v-model="task.assigned_to"

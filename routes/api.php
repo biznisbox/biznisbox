@@ -479,3 +479,4 @@ Route::get('/invoice/{id}/pdf', [InvoiceController::class, 'getInvoicePdf'])->na
 Route::get('/quote/{id}/pdf', [QuoteController::class, 'getQuotePdf'])->name('getQuotePdf');
 Route::get('/bill/{id}/pdf', [BillController::class, 'getBillPdf'])->name('getBillPdf');
 Route::get('/contract/{id}/pdf', [ContractController::class, 'getContractPdf'])->name('getContractPdf');
+Route::get('/product/{id}/pdf', [ProductController::class, 'getProductPdf'])->name('getProductPdf');

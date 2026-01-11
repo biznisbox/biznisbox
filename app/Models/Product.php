@@ -100,95 +100,6 @@ class Product extends Model implements Auditable
     }
 
     /**
-     * Function to get products with category
-     * @return void Return products with category
-     */
-    public function getProducts()
-    {
-        $products = $this->with(['category'])->get();
-        createActivityLog('retrieve', null, Product::$modelName, 'Product');
-        return $products;
-    }
-
-    /**
-     * Function to get product with category
-     * @param string $id Product id
-     * @return void Return product with category
-     */
-    public function getProduct($id)
-    {
-        $product = $this->with(['category'])->find($id);
-        if (!$product) {
-            return false;
-        }
-        createActivityLog('retrieve', $id, Product::$modelName, 'Product');
-        return $product;
-    }
-
-    /**
-     * Function to create product
-     * @param array $data Product data
-     * @return void Return created product
-     */
-    public function createProduct($data)
-    {
-        $data = array_merge($data, ['number' => $this->getProductNumber()]);
-        $product = $this->create($data);
-        if (!$product) {
-            return false;
-        }
-        incrementLastItemNumber('product', settings('product_number_format'));
-        sendWebhookForEvent('product:created', $product->toArray());
-        return $product;
-    }
-
-    /**
-     * Function to update product
-     * @param string $id Product id
-     * @param array $data Product data
-     * @return void Return updated product
-     */
-    public function updateProduct($id, $data)
-    {
-        $product = $this->find($id);
-        if (!$product) {
-            return false;
-        }
-        $product->update($data);
-        $product->save();
-        sendWebhookForEvent('product:updated', $product->toArray());
-        return $product;
-    }
-
-    /**
-     * Function to delete product
-     * @param string $id Product id
-     * @return void Return deleted product
-     */
-    public function deleteProduct($id)
-    {
-        $product = $this->find($id);
-        if (!$product) {
-            return false;
-        }
-        $product->delete();
-        sendWebhookForEvent('product:deleted', $product->toArray());
-        return $product;
-    }
-
-    /**
-     * Function to get product by barcode
-     * @param string $barcode Product barcode
-     * @return void Return product
-     */
-    public function getProductByBarcode($barcode)
-    {
-        $product = $this->where('barcode', $barcode)->first();
-        createActivityLog('retrieveBarcode', $product->id, Product::$modelName, 'Product');
-        return $product;
-    }
-
-    /**
      * Function to get product number
      * @return void Return product number
      */
@@ -220,18 +131,6 @@ class Product extends Model implements Auditable
             'tax',
         ]);
         createActivityLog('retrievePublic', null, Product::$modelName, 'Product');
-        return $products;
-    }
-
-    /**
-     * Function to get products by category
-     * @param string $id Category id
-     * @return void Return products by category
-     */
-    public function getProductsByCategory($id)
-    {
-        $products = $this->where('category_id', $id)->get();
-        createActivityLog('retrieveByCategory', null, Product::$modelName, 'Product');
         return $products;
     }
 }

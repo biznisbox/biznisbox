@@ -17,10 +17,10 @@
                         id="delete_product_button"
                         icon="fa fa-trash"
                     />
+                    <Button :label="$t('basic.show_pdf')" @click="showPdf" id="show_pdf_button" icon="fa fa-file-pdf" />
                     <Button
                         :label="$t('audit_log.audit_log')"
                         @click="showAuditLogDialog = true"
-                        severity="info"
                         id="audit_log_button"
                         icon="fa fa-history"
                     />
@@ -100,6 +100,12 @@ export default {
         return {
             showAuditLogDialog: false,
         }
+    },
+
+    methods: {
+        showPdf() {
+            window.open(this.product.preview_pdf, '_blank')
+        },
     },
 }
 </script>
