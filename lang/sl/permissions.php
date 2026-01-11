@@ -41,4 +41,9 @@ return [
     'admin_email_settings' => 'Admin nastavitve e-pošte',
     'admin_webhooks' => 'Skrbniki spletnih uporabnikov',
     'webhooks' => 'Spletne kljuke (Webhooks)',
+    'contracts' => 'Pogodbe',
+    'admin_status_page' => 'Admin Status stran',
+    'admin_update_app' => 'Admin posdobitev aplikacije',
+    'admin_data_collection' => 'Admin šifranti',
+    'projects' => 'Projekti',
 ];
