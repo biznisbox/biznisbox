@@ -9,6 +9,7 @@
                         <Tab value="online_payments">{{ $t('admin.integrations.online_payments') }}</Tab>
                         <Tab value="open_banking">{{ $t('admin.integrations.open_banking') }}</Tab>
                         <Tab value="document_signing">{{ $t('admin.integrations.document_signing') }}</Tab>
+                        <Tab value="support_ticket_imap">{{ $t('admin.integrations.support_ticket_imap') }}</Tab>
                     </TabList>
 
                     <TabPanels>
@@ -149,6 +150,69 @@
                                 </div>
                             </div>
                         </TabPanel>
+                        <!-- Support Ticket IMAP Integration -->
+                        <TabPanel value="support_ticket_imap" class="p-2">
+                            <div id="support_ticket_imap_integration">
+                                <h2 class="font-bold mb-4 dark:text-surface-200">{{ $t('admin.integrations.support_ticket_imap') }}</h2>
+                                <div class="flex flex-col gap-2 mb-2">
+                                    <label class="dark:text-surface-200">
+                                        {{ $t('admin.integrations.support_ticket_imap_available') }}
+                                    </label>
+                                    <ToggleSwitch v-model="settings.support_ticket_imap_available" />
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                                    <TextInput
+                                        id="support_ticket_imap_host"
+                                        v-model="settings.support_ticket_imap_host"
+                                        :label="$t('admin.integrations.support_ticket_imap_host')"
+                                        :disabled="!settings.support_ticket_imap_available"
+                                    />
+
+                                    <NumberInput
+                                        id="support_ticket_imap_port"
+                                        v-model="settings.support_ticket_imap_port"
+                                        :label="$t('admin.integrations.support_ticket_imap_port')"
+                                        :disabled="!settings.support_ticket_imap_available"
+                                    />
+
+                                    <SelectInput
+                                        id="support_ticket_imap_encryption"
+                                        v-model="settings.support_ticket_imap_encryption"
+                                        :label="$t('admin.integrations.support_ticket_imap_encryption')"
+                                        :options="[
+                                            { label: 'None', value: 'none' },
+                                            { label: 'SSL/TLS', value: 'ssl' },
+                                            { label: 'TLS', value: 'tls' },
+                                            { label: 'STARTTLS', value: 'starttls' },
+                                        ]"
+                                        :disabled="!settings.support_ticket_imap_available"
+                                    />
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                    <TextInput
+                                        id="support_ticket_imap_username"
+                                        v-model="settings.support_ticket_imap_username"
+                                        :label="$t('admin.integrations.support_ticket_imap_username')"
+                                        :disabled="!settings.support_ticket_imap_available"
+                                    />
+                                    <PasswordInput
+                                        id="support_ticket_imap_password"
+                                        v-model="settings.support_ticket_imap_password"
+                                        :label="$t('admin.integrations.support_ticket_imap_password')"
+                                        :disabled="!settings.support_ticket_imap_available"
+                                    />
+                                </div>
+
+                                <TextInput
+                                    id="support_ticket_imap_default_folder"
+                                    v-model="settings.support_ticket_imap_default_folder"
+                                    :label="$t('admin.integrations.support_ticket_imap_default_folder')"
+                                    :disabled="!settings.support_ticket_imap_available"
+                                />
+                            </div>
+                        </TabPanel>
                     </TabPanels>
                 </Tabs>
             </div>
@@ -161,14 +225,13 @@
 </template>
 
 <script>
+import NumberInput from '@/components/form/NumberInput.vue'
 import SettingsMixin from '@/mixins/admin/settings'
 export default {
     name: 'AdminIntegrationsPage',
     mixins: [SettingsMixin],
     data() {
         return {
-            stripe_disabled_input: true,
-            paypal_disabled_input: true,
             accounts: [],
         }
     },

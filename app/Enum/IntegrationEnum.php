@@ -11,6 +11,7 @@ enum IntegrationEnum: string
     case OPEN_BANKING = 'open_banking'; // Open Banking via Nordigen
     case VIES_VAT = 'vies_vat'; // VIES VAT validation
     case DOCUMENT_SIGNER = 'document_signer'; // PDF Document Signer
+    case SUPPORT_TICKET_IMAP = 'support_ticket_imap'; // Support Ticket IMAP Integration
 
     public function label(): string
     {
@@ -21,6 +22,7 @@ enum IntegrationEnum: string
             self::OPEN_BANKING => __('integrations.open_banking'),
             self::VIES_VAT => __('integrations.vies_vat'),
             self::DOCUMENT_SIGNER => __('integrations.document_signer'),
+            self::SUPPORT_TICKET_IMAP => __('integrations.support_ticket_imap'),
         };
     }
 
@@ -33,6 +35,7 @@ enum IntegrationEnum: string
             self::OPEN_BANKING => 'open_banking_',
             self::VIES_VAT => 'vies_vat_',
             self::DOCUMENT_SIGNER => 'document_signer_',
+            self::SUPPORT_TICKET_IMAP => 'support_ticket_imap_',
         };
     }
 
@@ -65,6 +68,16 @@ enum IntegrationEnum: string
                 'certificate_path' => [],
                 'private_key_path' => [],
                 'private_key_password' => [],
+            ],
+            self::SUPPORT_TICKET_IMAP => [
+                'host' => [],
+                'port' => [],
+                'encryption' => [],
+                'username' => [],
+                'password' => [],
+                'default_folder' => [
+                    'value' => 'INBOX',
+                ],
             ],
         };
     }

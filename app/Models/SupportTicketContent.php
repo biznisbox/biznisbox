@@ -57,21 +57,11 @@ class SupportTicketContent extends Model implements Auditable
         return false;
     }
 
-    public function createTicketMessage($ticket_id, $data)
+    public static function getTicketMessageById($id)
     {
-        $message = self::create([
-            'ticket_id' => $ticket_id,
-            'to' => $data['to'] ?? null,
-            'from' => $data['from'] ?? auth()->user()->first_name . ' ' . auth()->user()->last_name . ' <' . auth()->user()->email . '>',
-            'message' => $data['message'],
-            'type' => 'text',
-            'status' => 'sent',
-        ]);
-
-        if ($message) {
-            sendWebhookForEvent('support_ticket:new_message', [array_merge($message->toArray(), ['ticket_id' => $ticket_id])]);
-            $supportTicket = new SupportTicket();
-            return $supportTicket->getSupportTicket($ticket_id);
+        $supportTicket = self::find($id);
+        if ($supportTicket) {
+            return $supportTicket;
         }
         return false;
     }

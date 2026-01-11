@@ -14,6 +14,16 @@ Schedule::command(ConsoleCommandEnum::REFRESH_BANK_TRANSACTIONS->value)
         insertScheduleRun(ConsoleCommandEnum::REFRESH_BANK_TRANSACTIONS->value, 'failed', $output);
     });
 
+Schedule::command(ConsoleCommandEnum::SEND_SUPPORT_TICKET_IMAP_MAILER->value)
+    ->withoutOverlapping()
+    ->everyFiveMinutes()
+    ->onSuccess(function (Stringable $output) {
+        insertScheduleRun(ConsoleCommandEnum::SEND_SUPPORT_TICKET_IMAP_MAILER->value, 'success', $output);
+    })
+    ->onFailure(function (Stringable $output) {
+        insertScheduleRun(ConsoleCommandEnum::SEND_SUPPORT_TICKET_IMAP_MAILER->value, 'failed', $output);
+    });
+
 Schedule::command(ConsoleCommandEnum::UPDATE_CURRENCY_RATE->value)
     ->withoutOverlapping()
     ->daily()

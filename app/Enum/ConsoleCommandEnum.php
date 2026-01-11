@@ -8,6 +8,7 @@ enum ConsoleCommandEnum: string
     case UPDATE_CURRENCY_RATE = 'biznisbox:update-currency-rate';
     case UPDATE_ITEM_STATUSES = 'biznisbox:update-item-statuses';
     case DEMO_RESET_DATA = 'app:demo-reset-data';
+    case SEND_SUPPORT_TICKET_IMAP_MAILER = 'biznisbox:process-support-ticket-imap-mails';
 
     public function description(): string
     {
@@ -16,6 +17,7 @@ enum ConsoleCommandEnum: string
             self::UPDATE_CURRENCY_RATE => 'Update currency rate of all currencies in the system',
             self::UPDATE_ITEM_STATUSES => 'Update item statuses (invoices, contracts, etc.)',
             self::DEMO_RESET_DATA => 'Reset demo data to initial state',
+            self::SEND_SUPPORT_TICKET_IMAP_MAILER => 'Fetch and process support ticket emails via IMAP',
         };
     }
 }

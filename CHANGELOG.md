@@ -1,3 +1,18 @@
+# 2.18.0
+
+## ✨ New Features & Enhancements
+
+- Add new feature to add manage support ticket messages via email (IMAP). Users can now reply to support ticket messages directly from their email clients, and the responses will be automatically linked to the corresponding support tickets in the system. (This feature enhances communication efficiency and ensures that all ticket-related correspondence is centralized within the support ticketing system.)
+- Add new PDF template for product exporting with improved design and layout.
+
+# 🐛 Bug Fixes
+
+- Fixed bug with numbering items in the view of support ticket replays.
+
+# 2.17.3
+
+- Update Composer and NPM dependencies to fix security vulnerabilities and bugs.
+
 # 2.17.2
 
 - Update Composer and NPM dependencies to fix security vulnerabilities and bugs.

@@ -213,9 +213,10 @@
                         <h1 class="text-2xl font-bold mb-4">{{ $t('form.message') }}</h1>
 
                         <div v-for="(content, index) in supportTicket.content" :key="index">
-                            <div id="content_{{ index }}" class="card p-4 mb-4">
+                            <div :id="`content_${index}`" class="card p-4 mb-4">
                                 <div class="flex justify-between items-center">
-                                    <div id="content_{{ index }}_from" v-if="content.from !== null">
+                                    <!-- Header - from -->
+                                    <div :id="`content_${index}_from`" v-if="content.from !== null">
                                         <div v-if="content.from === 'system'">
                                             <b>{{ $t('form.from') }}: </b>
                                             <Tag :value="$t('support.system')" />
@@ -225,9 +226,10 @@
                                             <Tag :value="content.from" />
                                         </div>
                                     </div>
-
+                                    <!-- Delete message button -->
                                     <div class="flex">
                                         <Button
+                                            :id="`delete_content_${index}_button`"
                                             v-if="supportTicket.status !== 'closed' && supportTicket.status !== 'resolved'"
                                             icon="fa fa-trash"
                                             severity="danger"
@@ -236,12 +238,19 @@
                                     </div>
                                 </div>
 
-                                <div id="content_{{ index }}_message" class="mt-4">
+                                <!-- To -->
+                                <div :id="`content_${index}_to`" v-if="content.to !== null" class="mt-2">
+                                    <b>{{ $t('form.to') }}: </b>
+                                    <Tag :value="content.to" />
+                                </div>
+
+                                <!-- Message body -->
+                                <div :id="`content_${index}_message`" class="mt-4">
                                     <span v-if="content.type === 'text' && content.message" v-html="formatHtml(content.message)"></span>
                                 </div>
 
                                 <!-- Footer - date -->
-                                <Tag v-if="content.created_at" :value="formatDateTime(content.created_at)" severity="primary" />
+                                <Tag v-if="content.created_at" :value="formatDateTime(content.created_at)" class="mt-3" />
                             </div>
                         </div>
 
