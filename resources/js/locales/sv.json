@@ -127,7 +127,11 @@
         "same_as_company_address": "Samma som företagsadress",
         "audit_log": "Revisionslogg",
         "get_current_location": "Hämta aktuell plats",
-        "system": "System"
+        "system": "System",
+        "add_signer": "Lägg till signer",
+        "click_for_download": "Klicka här för att ladda ner",
+        "sign": "Signera",
+        "import": "Importera"
     },
     "audit_log": {
         "audit_log": "Revisionslogg",
@@ -160,12 +164,16 @@
         "moved": "Flyttad",
         "retrieve_public": "Hämta offentlig",
         "upload": "Ladda upp",
-        "share": "Dela"
+        "share": "Dela",
+        "delete": "Radera",
+        "sign": "Signera",
+        "convert_to_invoice": "Konvertera till faktura"
     },
     "audit_log_type": {
         "internal": "Intern",
         "external": "Extern",
         "external_key": "Extern nyckel",
+        "client_portal": "Kundportal",
         "system": "System"
     },
     "user_nav_menu": {
@@ -194,7 +202,9 @@
         "settings": "Inställningar",
         "employees": "Anställda",
         "support": "Stöd",
-        "payments": "Betalningar"
+        "payments": "Betalningar",
+        "contracts": "Kontrakt",
+        "projects": "Projekt"
     },
     "dashboard": {
         "title": "Instrumentpanel",
@@ -396,7 +406,33 @@
         "display_name": "Visningsnamn",
         "theme": "Tema",
         "overpaid_amount": "Överbetalt belopp",
-        "sum_of_payments": "Summa betalningar"
+        "sum_of_payments": "Summa betalningar",
+        "date_for_signature": "Datum för signatur",
+        "is_signer": "Är undertecknare",
+        "signer_name": "Signerens namn",
+        "signer_email": "Signer Email",
+        "signer_phone": "Signeringsnummer",
+        "signers": "Tecknare",
+        "outcome": "Resultat",
+        "activity_type": "Typ av aktivitet",
+        "user": "Användare",
+        "is_internal": "Är Intern",
+        "picture": "Bild",
+        "last_used_at": "Senast använd kl.",
+        "module": "Modul",
+        "parent_category": "Överordnad kategori",
+        "icon": "Ikon",
+        "additional_info": "Ytterligare information",
+        "client_portal": "Kundportal",
+        "type_of_contract_sign": "Typ av kontraktsskylt",
+        "refund": "Återbetalning",
+        "payment_number": "Betalnings nummer",
+        "is_billable": "Kan faktureras",
+        "budget": "Budget",
+        "project_key": "Projektets nyckel",
+        "completed_at": "Slutförd vid",
+        "progress_in_percent": "Progress i procent",
+        "archived_until": "Arkiverad till"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -411,6 +447,20 @@
     "entity_types": {
         "company": "Företag",
         "individual": "Individuell"
+    },
+    "time_range": {
+        "one_day": "En dag",
+        "one_week": "En vecka",
+        "one_month": "En månad",
+        "three_months": "Tre månader",
+        "six_months": "Sex månader",
+        "one_year": "Ett år",
+        "all_time": "Hela tiden",
+        "never": "Aldrig"
+    },
+    "task_type": {
+        "task": "Uppgift",
+        "milestone": "Milstolpe"
     },
     "industries": {
         "agriculture": "Jordbruk",
@@ -457,9 +507,10 @@
         "bank_transfer": "Banköverföring",
         "cash": "Kontant",
         "check": "Kontrollera",
-        "credit_card": "Kreditkort",
+        "credit_card": "Betalkort",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Myntbas",
         "other": "Annat"
     },
     "support_priority": {
@@ -467,6 +518,14 @@
         "low": "Låg",
         "medium": "Medel",
         "normal": "Normal",
+        "high": "Hög",
+        "urgent": "Brådskande"
+    },
+    "priority": {
+        "none": "Ingen",
+        "low": "Låg",
+        "normal": "Normal",
+        "medium": "Medel",
         "high": "Hög",
         "urgent": "Brådskande"
     },
@@ -481,6 +540,11 @@
     "tax_types": {
         "percent": "Procent",
         "fixed": "Fast"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektronisk",
+        "digital_signature": "Digital signatur",
+        "paper": "Papper"
     },
     "login_history": {
         "login_history": "Logga in Historik",
@@ -507,7 +571,26 @@
         "contacts": "Kontakter",
         "partner_details": "Information om partnern",
         "delete_confirm_partner": "Är du säker på att du vill ta bort denna partner?",
-        "contact_informations": "Kontaktuppgifter"
+        "contact_information": "Kontaktinformation",
+        "add_activity": "Lägg till aktivitet",
+        "no_activities": "Inga aktiviteter hittades",
+        "activity": "Aktivitet",
+        "activities": "Aktiviteter",
+        "edit_activity": "Redigera aktivitet",
+        "partner_activities": "Aktiviteter för partner",
+        "send_email": "Skicka e-post",
+        "add_to_client_portal": "Lägg till i klientportalen",
+        "vat_number_required": "Momsregistreringsnummer krävs"
+    },
+    "partner_activity_types": {
+        "call": "Ring",
+        "task": "Uppgift",
+        "video_call": "Videosamtal",
+        "meeting": "Möte",
+        "email": "E-post",
+        "visit": "Besök",
+        "note": "Anteckning",
+        "other": "Annat"
     },
     "product": {
         "product": "Produkt <unk> Produkter",
@@ -540,7 +623,13 @@
         "two_factor_authentication_code": "Tvåfaktors autentiseringskod",
         "two_factor_authentication_code_info": "Ange koden som genereras av din autentiseringsapp för att verifiera tvåfaktorsautentiseringsinställningar.",
         "verify_2fa": "Verifiera 2FA",
-        "cannot_remove__default_avatar": "Du kan inte ta bort standardavataren."
+        "cannot_remove_default_avatar": "Du kan inte ta bort standardavataren.",
+        "personal_access_tokens": "Personliga åtkomst-Tokens",
+        "create_personal_access_token": "Skapa personlig åtkomsttoken",
+        "no_personal_access_tokens": "Inga personliga åtkomsttokens hittades",
+        "generated_personal_access_token_message": "Din personliga åtkomsttoken har genererats. Detta är den enda gången du ser denna token, så se till att spara den någonstans säkert.",
+        "generated_personal_access_token": "Genererad personlig åtkomsttoken",
+        "delete_personal_access_token": "Är du säker på att du vill ta bort denna personliga åtkomst-token?"
     },
     "document_types": {
         "document": "Dokument",
@@ -588,8 +677,8 @@
         "list_of_transactions": "Lista över transaktioner",
         "no_sales_person": "Ingen säljare",
         "no_payment_method": "Ingen betalningsmetod",
-        "click_for_pay_with_paypal": "Klicka här för att betala med PayPal",
-        "click_for_pay": "Klicka här för att betala"
+        "click_for_pay": "Klicka här för att betala",
+        "select_payment_gateway": "Välj betalnings gateway"
     },
     "quote": {
         "quote": "Offert <unk> Offerter",
@@ -618,7 +707,8 @@
         "converted_to_invoice": "Offert konverterad till faktura",
         "expired": "Denna offert har löpt ut. Du kan inte acceptera eller avvisa den.",
         "rejected": "Detta citat har förkastats framgångsrikt.",
-        "accepted": "Detta citat har accepterats framgångsrikt."
+        "accepted": "Detta citat har accepterats framgångsrikt.",
+        "no_payment_method": "Ingen betalningsmetod"
     },
     "status": {
         "draft": "Utkast",
@@ -657,7 +747,16 @@
         "in_review": "Under granskning",
         "delegated": "Delegerad",
         "approved": "Godkänd",
-        "not_approved": "Ej godkänd"
+        "not_approved": "Ej godkänd",
+        "waiting_signers": "Väntar på undertecknare",
+        "signed": "Signerad",
+        "waiting_signature": "Väntar på signatur",
+        "not_started": "Inte startad",
+        "planned": "Planerat",
+        "spam": "Spam",
+        "on_hold": "På håll",
+        "to_do": "Att göra",
+        "done": "Klar"
     },
     "calendar": {
         "calendar": "Kalender <unk> Kalendrar",
@@ -738,7 +837,10 @@
         "edit_payment": "Redigera betalning",
         "no_payments": "Inga betalningar hittades",
         "delete_confirm_payment": "Är du säker på att du vill ta bort denna betalning?",
-        "payment_details": "Information om betalning"
+        "payment_details": "Information om betalning",
+        "refund_confirmation": "Är du säker på att du vill återbetala denna betalning?",
+        "refund_successful": "Betalningen har återbetalats",
+        "refund_failed": "Återbetalning misslyckades"
     },
     "archive": {
         "archive": "Arkiv <unk> Arkiv",
@@ -776,7 +878,8 @@
         "no_items": "Inga objekt",
         "select_item": "Välj objekt",
         "date_and_due_date": "Datum och förfallodag",
-        "delete_confirm_bill": "Är du säker på att du vill ta bort denna räkning?"
+        "delete_confirm_bill": "Är du säker på att du vill ta bort denna räkning?",
+        "no_payment_method": "Ingen betalningsmetod"
     },
     "account": {
         "account": "Konto <unk> Konton",
@@ -800,6 +903,26 @@
         "no_documents": "Inga dokument hittades",
         "create_first_document": "Skapa ditt första dokument",
         "delete_confirm_document": "Är du säker på att du vill ta bort detta dokument?"
+    },
+    "contract": {
+        "contract": "Kontrakt <unk> Kontrakt",
+        "create_contract": "Skapa kontrakt",
+        "edit_contract": "Redigera kontrakt",
+        "no_contracts": "Inga kontrakt hittades",
+        "create_first_contract": "Skapa ditt första kontrakt",
+        "delete_confirm_contract": "Är du säker på att du vill ta bort detta kontrakt?",
+        "contract_details": "Kontrakt detaljer",
+        "no_content": "Inget innehåll",
+        "no_partner": "Ingen partner",
+        "sign_contract": "Signera kontrakt",
+        "contract_signed": "Kontrakt signerat",
+        "accept_sign_terms": "Jag accepterar att jag genom att underteckna detta dokument håller med om att undertecknandet är rättsligt bindande och likvärdigt med min handskrivna underskrift.",
+        "accept_terms_required": "För att underteckna avtalet krävs undertecknande och godkännande av villkor.",
+        "not_signed": "Inte signerad ännu",
+        "signed": "Dokument signerat",
+        "no_signers": "Inga signerare",
+        "share_dialog": "Dela kontrakt",
+        "share_dialog_text": "Kopiera länken nedan och dela den med din partner eller skanna QR-koden."
     },
     "support": {
         "support": "Stöd <unk> Stöder",
@@ -867,6 +990,40 @@
         "volunteer": "Volontär",
         "other": "Annat"
     },
+    "project": {
+        "project": "Projekt <unk> Projekt",
+        "new_project": "Nytt projekt",
+        "edit_project": "Redigera projekt",
+        "no_projects": "Inga projekt hittades",
+        "create_first_project": "Skapa ditt första projekt",
+        "delete_confirm_project": "Är du säker på att du vill ta bort detta projekt?",
+        "project_details": "Projektdetaljer",
+        "start_and_end_date": "Start- och slutdatum",
+        "team_members": "Teammedlemmar",
+        "add_team_member": "Lägg till teammedlem",
+        "no_team_members": "Inga teammedlemmar",
+        "start_end_date": "Start- och slutdatum",
+        "tasks": "Uppgifter",
+        "add_task": "Lägg till uppgift",
+        "no_tasks": "Inga uppgifter hittades",
+        "task": "Uppgift <unk> Uppgifter",
+        "edit_task": "Redigera uppgift",
+        "delete_task_confirmation": "Är du säker på att du vill ta bort denna uppgift?",
+        "kanban_board": "Kanban Board",
+        "create_task": "Skapa uppgift",
+        "project_members": "Projektmedlemmar",
+        "add_member": "Lägg till medlem",
+        "remove_member": "Ta bort medlem",
+        "remove_member_confirmation": "Är du säker på att du vill ta bort denna medlem från projektet?",
+        "edit_member": "Redigera medlem"
+    },
+    "project_role": {
+        "owner": "Ägare",
+        "manager": "Hanterare",
+        "team_member": "Team Medlem",
+        "viewer": "Läsare",
+        "client": "Klient"
+    },
     "admin": {
         "menu": {
             "dashboard": "Instrumentpanel",
@@ -885,7 +1042,10 @@
             "app_status": "Appens status",
             "units": "Enheter",
             "email": "E-post",
-            "webhooks": "Webbhookar"
+            "webhooks": "Webbhookar",
+            "server_settings": "Serverns inställningar",
+            "status_page": "Statussida",
+            "data_collection": "Insamling av data"
         },
         "company": {
             "title": "Företagets inställningar",
@@ -899,7 +1059,9 @@
             "company_country": "Företagets land",
             "company_vat": "Company VAT",
             "company_logo": "Företagets logotyp",
-            "company_logo_help": "Rekommenderad storlek: 100x100px"
+            "company_logo_help": "Rekommenderad storlek: 100x100px",
+            "company_website": "Företagets webbplats",
+            "company_primary_color": "Primär färg"
         },
         "integrations": {
             "title": "Integrationer",
@@ -922,7 +1084,29 @@
             "open_banking_client_id": "Öppna Bank-klient-ID",
             "open_banking_secret": "Open Banking Secret",
             "open_banking_help": "Du hittar ditt Client ID och Secret på ditt Nordigen-konto.",
-            "online_payments": "Betalningar online"
+            "online_payments": "Betalningar online",
+            "coinbase": "Myntbas",
+            "coinbase_available": "Myntbas tillgänglig",
+            "coinbase_api_key": "Coinbase API-nyckel",
+            "coinbase_api_key_help": "Du kan hitta din API-nyckel i ditt Coinbase handelskonto.",
+            "coinbase_account_id": "Coinbase internt konto-ID",
+            "document_signing_available": "Dokumentsignering tillgänglig",
+            "document_signing": "Signering av dokument"
+        },
+        "status": {
+            "title": "Statussida",
+            "app_version": "Appens version",
+            "latest_version": "Senaste versionen",
+            "changelog": "Ändringslogg",
+            "view_changelog": "Visa ändringslogg",
+            "new_version_available": "Ny version tillgänglig för nedladdning",
+            "download_now": "Ladda ner nu",
+            "php_version": "PHP-version",
+            "database_version": "Databasens version",
+            "server_software": "Server programvara",
+            "storage_used": "Lagring som används",
+            "storage_limit": "Gräns för lagring",
+            "unlimited": "Obegränsad"
         },
         "user": {
             "title": "Användare",
@@ -936,9 +1120,13 @@
             "reset_password": "Återställ lösenord",
             "send_details_to": "Skicka information till",
             "never_logged_in": "Aldrig inloggad",
+            "never_used": "Använd aldrig",
             "auto_generate_password": "Generera lösenord automatiskt",
             "delete_confirm_user": "Är du säker på att du vill ta bort denna användare?",
-            "disable_2fa": "Inaktivera 2FA"
+            "disable_2fa": "Inaktivera 2FA",
+            "personal_access_tokens": "Personliga åtkomst-Tokens",
+            "no_personal_access_tokens": "Inga personliga åtkomsttokens hittades",
+            "delete_confirm_personal_access_token": "Är du säker på att du vill ta bort denna personliga åtkomst-token?"
         },
         "department": {
             "title": "Avdelningar",
@@ -979,7 +1167,11 @@
             "default_date_format": "Förvalt datumformat",
             "default_time_format": "Förvalt tidsformat",
             "default_datetime_format": "Förvalt datumformat",
-            "show_barcode_on_documents": "Visa streckkod på dokument"
+            "show_barcode_on_documents": "Visa streckkod på dokument",
+            "week_start": "Startdag för veckan",
+            "exchange_rate_provider": "Växelkurs-leverantör",
+            "save_document_into_archive": "Spara dokument till arkiv",
+            "save_document_into_archive_description": "Om aktiverad, sparas dokument i arkivet (fakturor, offerter, räkningar, kontrakt)."
         },
         "taxes": {
             "title": "Skattesatser",
@@ -991,7 +1183,9 @@
             "name": "Namn",
             "value": "Värde",
             "description": "Beskrivning",
-            "delete_confirm_tax": "Är du säker på att du vill ta bort denna momssats?"
+            "delete_confirm_tax": "Är du säker på att du vill ta bort denna momssats?",
+            "import_tax": "Importera skattesatser",
+            "import_tax_description": "Du kan importera skattesatser från offentliga dataresurser. Uppgifterna hämtas från EU:s momslista. Det kan inte vara helt uppdaterat eller korrekt. Vänligen dubbelkolla importerade data."
         },
         "role": {
             "title": "Roller",
@@ -1047,7 +1241,8 @@
             "mail_from_name": "E-post från namn",
             "send_test_email": "Skicka testmail",
             "send_test_email_to": "Skicka testmail till",
-            "sendmail_path": "Sökväg för Sendmail"
+            "sendmail_path": "Sökväg för Sendmail",
+            "no_email_selected": "Ingen e-post vald"
         },
         "numbering": {
             "title": "Inställningar för antal format",
@@ -1063,7 +1258,9 @@
             "employee": "Formatet för anställdas nummer",
             "project": "Projekt nummer format",
             "department": "Avdelningens nummer format",
-            "archive": "Arkiv nummer format"
+            "archive": "Arkiv nummer format",
+            "contract": "Kontrakt nummer format",
+            "yearly": "Årligen"
         },
         "webhook": {
             "title": "Prenumeration på webbhookar",
@@ -1075,6 +1272,29 @@
             "delete_confirm_webhook_subscription": "Är du säker på att du vill ta bort denna webhook-prenumeration?",
             "add_header": "Lägg till sidhuvud",
             "remove_header": "Ta bort sidhuvud"
+        },
+        "data_collection": {
+            "title": "Insamling av data",
+            "data_collection": "Insamling av data",
+            "transaction_categories": "Transaktion Kategorier",
+            "document_types": "Dokumenttyper",
+            "payment_methods": "Betalningsmetoder",
+            "contract_types": "Kontraktstyper",
+            "task_categories": "Kategorier för uppgift",
+            "project_categories": "Projekt Kategorier",
+            "new_data_collection_item": "Nytt datainsamlingsobjekt",
+            "edit_data_collection_item": "Redigera datainsamlingsobjekt",
+            "icon_tooltip": "Du kan använda typsnitt Awesome ikoner. Du kan hitta listan över ikoner här: https://fontawesome.com/icons",
+            "no_document_types": "Inga dokumenttyper hittades",
+            "no_payment_methods": "Inga betalningsmetoder hittades",
+            "no_transaction_categories": "Inga transaktionskategorier hittades",
+            "no_contract_types": "Inga kontraktstyper hittades",
+            "delete_category_ask": "Är du säker på att du vill ta bort detta datainsamlingsobjekt?",
+            "delete_category_success": "Datainsamlingsobjektet har tagits bort",
+            "product_categories": "Produktkategorier",
+            "no_product_categories": "Inga produktkategorier hittades",
+            "no_task_categories": "Inga uppgiftskategorier hittades",
+            "no_project_categories": "Inga projektkategorier hittades"
         }
     },
     "month": {
@@ -1438,5 +1658,23 @@
         "finish_installation_description": "Installationen är klar. Du kan nu logga in på ditt konto.",
         "go_to_login": "Gå till inloggning",
         "installation": "Installation"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Instrumentpanel",
+            "invoices": "Fakturor",
+            "quotes": "Offerter",
+            "transactions": "Transaktioner",
+            "support": "Stöd",
+            "contracts": "Kontrakt",
+            "partner_details": "Partner Detaljer"
+        },
+        "partner_details": "Information om partnern",
+        "dashboard": "Instrumentpanel",
+        "number_of_contracts": "Antal kontrakt",
+        "number_of_unpaid_invoices": "Antal obetalda fakturor",
+        "number_of_quotes": "Antal offerter",
+        "number_of_bills": "Antal räkningar",
+        "number_of_support_tickets": "Antal supportärenden"
     }
 }
