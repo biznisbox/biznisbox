@@ -41,4 +41,9 @@ return [
     'admin_email_settings' => 'Configuración de Email Admin',
     'admin_webhooks' => 'Admin Webhooks',
     'webhooks' => 'Webhooks',
+    'contracts' => 'Contratos',
+    'admin_status_page' => 'Página de estado de Admin',
+    'admin_update_app' => 'Actualizar Admin App',
+    'admin_data_collection' => 'Recopilación de datos de Admin',
+    'projects' => 'Proyectos',
 ];
