@@ -41,4 +41,9 @@ return [
     'admin_email_settings' => 'Innstillinger for Admin e-post',
     'admin_webhooks' => 'Admin Webhooks',
     'webhooks' => 'Nettkroker',
+    'contracts' => 'Kontrakter',
+    'admin_status_page' => 'Admin statusside',
+    'admin_update_app' => 'Admin Oppdater appen',
+    'admin_data_collection' => 'Admin datainnsamling',
+    'projects' => 'Prosjekter',
 ];
