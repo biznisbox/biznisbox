@@ -127,7 +127,11 @@
         "same_as_company_address": "Zelfde als bedrijfsadres",
         "audit_log": "Controle logboek",
         "get_current_location": "Verkrijg huidige locatie",
-        "system": "Systeem"
+        "system": "Systeem",
+        "add_signer": "Voeg ondertekenaar toe",
+        "click_for_download": "Klik hier om te downloaden",
+        "sign": "Ondertekenen",
+        "import": "Importeren"
     },
     "audit_log": {
         "audit_log": "Controle logboek",
@@ -160,12 +164,16 @@
         "moved": "Verplaatst",
         "retrieve_public": "Openbaar ophalen",
         "upload": "Uploaden",
-        "share": "Delen"
+        "share": "Delen",
+        "delete": "Verwijderen",
+        "sign": "Ondertekenen",
+        "convert_to_invoice": "Converteren naar factuur"
     },
     "audit_log_type": {
         "internal": "Intern",
         "external": "Extern",
         "external_key": "Externe sleutel",
+        "client_portal": "Portaal klant",
         "system": "Systeem"
     },
     "user_nav_menu": {
@@ -194,7 +202,9 @@
         "settings": "Instellingen",
         "employees": "Werknemers",
         "support": "Ondersteuning",
-        "payments": "Betalingen"
+        "payments": "Betalingen",
+        "contracts": "Contracten",
+        "projects": "Projecten"
     },
     "dashboard": {
         "title": "Dashboard",
@@ -396,7 +406,33 @@
         "display_name": "Toon naam",
         "theme": "Thema",
         "overpaid_amount": "Overpaid bedrag",
-        "sum_of_payments": "Som van betalingen"
+        "sum_of_payments": "Som van betalingen",
+        "date_for_signature": "Datum voor ondertekening",
+        "is_signer": "Is ondertekenaar",
+        "signer_name": "Naam ondertekenaar",
+        "signer_email": "Signer Email",
+        "signer_phone": "Telefoon ondertekenaar",
+        "signers": "Signers",
+        "outcome": "Resultaat",
+        "activity_type": "Type activiteit",
+        "user": "Gebruiker",
+        "is_internal": "Is intern",
+        "picture": "Afbeelding",
+        "last_used_at": "Laatst gebruikt op",
+        "module": "Module",
+        "parent_category": "Bovenliggende categorie",
+        "icon": "Pictogram",
+        "additional_info": "Extra informatie",
+        "client_portal": "Client Portaal",
+        "type_of_contract_sign": "Soort Contract Teken",
+        "refund": "Restitutie",
+        "payment_number": "Betaling Nummer",
+        "is_billable": "Is Factureerbaar",
+        "budget": "Begroting",
+        "project_key": "Project Sleutel",
+        "completed_at": "Voltooid op",
+        "progress_in_percent": "Voortgang in procent",
+        "archived_until": "Gearchiveerd tot"
     },
     "address_types": {
         "billing": "Facturering",
@@ -411,6 +447,20 @@
     "entity_types": {
         "company": "Bedrijfsnaam",
         "individual": "Individueel"
+    },
+    "time_range": {
+        "one_day": "number@@0 dagen",
+        "one_week": "Een week",
+        "one_month": "Een maand",
+        "three_months": "Drie maanden",
+        "six_months": "Zes maanden",
+        "one_year": "Een jaar",
+        "all_time": "Gehele tijd",
+        "never": "Nooit"
+    },
+    "task_type": {
+        "task": "Opdracht",
+        "milestone": "Mijlpaal"
     },
     "industries": {
         "agriculture": "Landbouw",
@@ -457,9 +507,10 @@
         "bank_transfer": "Bank overschrijving",
         "cash": "Contant",
         "check": "Controleer",
-        "credit_card": "Creditcard",
+        "credit_card": "Kaart met betaling",
         "paypal": "Paypal",
         "stripe": "Stripe",
+        "coinbase": "Muntbasis",
         "other": "anders"
     },
     "support_priority": {
@@ -467,6 +518,14 @@
         "low": "laag",
         "medium": "Middelgroot",
         "normal": "normaal",
+        "high": "hoog",
+        "urgent": "Dringend"
+    },
+    "priority": {
+        "none": "geen",
+        "low": "laag",
+        "normal": "normaal",
+        "medium": "Middelgroot",
         "high": "hoog",
         "urgent": "Dringend"
     },
@@ -481,6 +540,11 @@
     "tax_types": {
         "percent": "Percentage",
         "fixed": "Opgelost"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektronisch",
+        "digital_signature": "Digitale handtekening",
+        "paper": "Papieren"
     },
     "login_history": {
         "login_history": "Login geschiedenis",
@@ -507,7 +571,26 @@
         "contacts": "Contactpersonen",
         "partner_details": "Partner details",
         "delete_confirm_partner": "Weet u zeker dat u deze partner wilt verwijderen?",
-        "contact_informations": "Contact informatie"
+        "contact_information": "Contact informatie",
+        "add_activity": "Activiteit toevoegen",
+        "no_activities": "Geen activiteiten gevonden",
+        "activity": "Activiteit",
+        "activities": "Activiteiten",
+        "edit_activity": "Activiteit bewerken",
+        "partner_activities": "Partner activiteiten",
+        "send_email": "E-mail verzenden",
+        "add_to_client_portal": "Toevoegen aan klantenportaal",
+        "vat_number_required": "BTW-nummer is vereist"
+    },
+    "partner_activity_types": {
+        "call": "Oproepen",
+        "task": "Opdracht",
+        "video_call": "Video oproep",
+        "meeting": "Afspraak",
+        "email": "E-mailadres",
+        "visit": "Bezoek",
+        "note": "Notitie",
+        "other": "anders"
     },
     "product": {
         "product": "Product Bourgogne producten",
@@ -540,7 +623,13 @@
         "two_factor_authentication_code": "Twee Factor Authenticatie Code",
         "two_factor_authentication_code_info": "Voer de door uw authenticatie-app gegenereerde code in om de tweestapsverificatie te verifiëren.",
         "verify_2fa": "2FA verifiëren",
-        "cannot_remove__default_avatar": "Je kunt de standaard avatar niet verwijderen."
+        "cannot_remove_default_avatar": "Je kunt de standaard avatar niet verwijderen.",
+        "personal_access_tokens": "Persoonlijke toegangstokens",
+        "create_personal_access_token": "Persoonlijke toegangstoken aanmaken",
+        "no_personal_access_tokens": "Geen persoonlijke toegangstokens gevonden",
+        "generated_personal_access_token_message": "Uw persoonlijke toegangstoken is gegenereerd. Dit is de enige keer dat u dit token ziet, dus zorg ervoor dat u het ergens veilig opslaat.",
+        "generated_personal_access_token": "Gegenereerde persoonlijke toegangstoken",
+        "delete_personal_access_token": "Weet u zeker dat u deze persoonlijke toegangstoets wilt verwijderen?"
     },
     "document_types": {
         "document": "Document",
@@ -588,8 +677,8 @@
         "list_of_transactions": "Lijst van transacties",
         "no_sales_person": "Geen verkoper",
         "no_payment_method": "Geen betaalmethode",
-        "click_for_pay_with_paypal": "Klik hier om te betalen met PayPal",
-        "click_for_pay": "Klik hier om te betalen"
+        "click_for_pay": "Klik hier om te betalen",
+        "select_payment_gateway": "Selecteer betaling gateway"
     },
     "quote": {
         "quote": "Offerte aanhalingstekens",
@@ -618,7 +707,8 @@
         "converted_to_invoice": "Prijsopgave omgezet naar factuur",
         "expired": "Deze offerte is verlopen. U kunt het niet accepteren of afwijzen.",
         "rejected": "Deze offerte is met succes afgewezen.",
-        "accepted": "Deze offerte is met succes geaccepteerd."
+        "accepted": "Deze offerte is met succes geaccepteerd.",
+        "no_payment_method": "Geen betaalmethode"
     },
     "status": {
         "draft": "Kladversie",
@@ -657,7 +747,16 @@
         "in_review": "In beoordeling",
         "delegated": "Overdragen",
         "approved": "Goedgekeurd",
-        "not_approved": "Niet goedgekeurd"
+        "not_approved": "Niet goedgekeurd",
+        "waiting_signers": "Wachten op ondertekenaars",
+        "signed": "Ondertekend",
+        "waiting_signature": "Wachten op ondertekening",
+        "not_started": "Niet gestart",
+        "planned": "Gepland",
+        "spam": "Spam",
+        "on_hold": "In de wacht",
+        "to_do": "Nog te doen",
+        "done": "Voltooid"
     },
     "calendar": {
         "calendar": "Kalenderkalenders",
@@ -738,7 +837,10 @@
         "edit_payment": "Bewerk betaling",
         "no_payments": "Geen betalingen gevonden",
         "delete_confirm_payment": "Weet u zeker dat u deze betaling wilt verwijderen?",
-        "payment_details": "Details betaling"
+        "payment_details": "Details betaling",
+        "refund_confirmation": "Weet u zeker dat u deze betaling wilt terugbetalen?",
+        "refund_successful": "Betaling met succes terugbetaald",
+        "refund_failed": "Betaling terugbetaling mislukt"
     },
     "archive": {
         "archive": "Archiveer veriefarchieven",
@@ -776,7 +878,8 @@
         "no_items": "Geen artikelen",
         "select_item": "Selecteer een item",
         "date_and_due_date": "Datum en vervaldatum",
-        "delete_confirm_bill": "Weet je zeker dat je deze rekening wilt verwijderen?"
+        "delete_confirm_bill": "Weet je zeker dat je deze rekening wilt verwijderen?",
+        "no_payment_method": "Geen betaalmethode"
     },
     "account": {
         "account": "Nabijheid rekening accounts",
@@ -800,6 +903,26 @@
         "no_documents": "Geen documenten gevonden",
         "create_first_document": "Maak uw eerste document aan",
         "delete_confirm_document": "Weet u zeker dat u dit document wilt verwijderen?"
+    },
+    "contract": {
+        "contract": "Contract-instructie contracten",
+        "create_contract": "Maak contract",
+        "edit_contract": "Contract bewerken",
+        "no_contracts": "Geen contracten gevonden",
+        "create_first_contract": "Uw eerste contract aanmaken",
+        "delete_confirm_contract": "Weet u zeker dat u dit contract wilt verwijderen?",
+        "contract_details": "Contract details",
+        "no_content": "Geen inhoud",
+        "no_partner": "Geen partner",
+        "sign_contract": "Onderteken contract",
+        "contract_signed": "Ondertekend contract",
+        "accept_sign_terms": "Ik aanvaard dat ik door dit document te ondertekenen ermee akkoord ga dat de ondertekening juridisch bindend is en overeenkomt met mijn handgeschreven handtekening.",
+        "accept_terms_required": "Ondertekening en acceptatie van de voorwaarden zijn vereist om het contract te ondertekenen.",
+        "not_signed": "Nog niet ondertekend",
+        "signed": "Document ondertekend",
+        "no_signers": "Geen ondertekenaars",
+        "share_dialog": "Contract delen",
+        "share_dialog_text": "Kopieer de onderstaande link en deel deze met uw partner of scan de QR-code."
     },
     "support": {
         "support": "Ondersteun wwit ondersteuning",
@@ -867,6 +990,40 @@
         "volunteer": "Vrijwilliger",
         "other": "anders"
     },
+    "project": {
+        "project": "Project structie Projecten",
+        "new_project": "Nieuw project",
+        "edit_project": "Bewerk project",
+        "no_projects": "Geen projecten gevonden",
+        "create_first_project": "Maak je eerste project",
+        "delete_confirm_project": "Weet u zeker dat u dit project wilt verwijderen?",
+        "project_details": "Project details",
+        "start_and_end_date": "Start- en einddatum",
+        "team_members": "Team leden",
+        "add_team_member": "Teamlid toevoegen",
+        "no_team_members": "Geen teamleden",
+        "start_end_date": "Start- en einddatum",
+        "tasks": "Taken",
+        "add_task": "Taak toevoegen",
+        "no_tasks": "Geen taken gevonden",
+        "task": "Taak format@@1- Taken",
+        "edit_task": "Taak bewerken",
+        "delete_task_confirmation": "Weet u zeker dat u deze taak wilt verwijderen?",
+        "kanban_board": "Kanban bord",
+        "create_task": "Taak maken",
+        "project_members": "Project Leden",
+        "add_member": "Lid toevoegen",
+        "remove_member": "Verwijder lid",
+        "remove_member_confirmation": "Weet je zeker dat je dit lid uit het project wilt verwijderen?",
+        "edit_member": "Lid bewerken"
+    },
+    "project_role": {
+        "owner": "Eigenaar",
+        "manager": "Beheerder",
+        "team_member": "Team lid",
+        "viewer": "Bekijker",
+        "client": "Klant"
+    },
     "admin": {
         "menu": {
             "dashboard": "Dashboard",
@@ -885,7 +1042,10 @@
             "app_status": "Applicatie Status",
             "units": "Eenheden",
             "email": "E-mailadres",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Server Instellingen",
+            "status_page": "Status pagina",
+            "data_collection": "Verzamelen van gegevens"
         },
         "company": {
             "title": "Bedrijf instellingen",
@@ -899,7 +1059,9 @@
             "company_country": "Land van bedrijf",
             "company_vat": "Company VAT",
             "company_logo": "Bedrijfslogo",
-            "company_logo_help": "Aanbevolen grootte: 100x100px"
+            "company_logo_help": "Aanbevolen grootte: 100x100px",
+            "company_website": "Bedrijfs website",
+            "company_primary_color": "Primaire kleur"
         },
         "integrations": {
             "title": "Integraties",
@@ -922,7 +1084,29 @@
             "open_banking_client_id": "Open Bank Client ID",
             "open_banking_secret": "Open bankgeheim",
             "open_banking_help": "U kunt uw client-ID en geheim vinden in uw Noordse account.",
-            "online_payments": "Online betalingen"
+            "online_payments": "Online betalingen",
+            "coinbase": "Muntbasis",
+            "coinbase_available": "Coinbase beschikbaar",
+            "coinbase_api_key": "Coinbase API Sleutel",
+            "coinbase_api_key_help": "U kunt uw API-sleutel vinden in uw Coinbase handelsaccount.",
+            "coinbase_account_id": "Coinbase intern account-ID",
+            "document_signing_available": "Documentondertekening beschikbaar",
+            "document_signing": "Document ondertekenen"
+        },
+        "status": {
+            "title": "Status pagina",
+            "app_version": "App versie",
+            "latest_version": "Nieuwste versie",
+            "changelog": "Wijzigingslogboek",
+            "view_changelog": "Bekijk Changelog",
+            "new_version_available": "Nieuwe versie beschikbaar om te downloaden",
+            "download_now": "Nu downloaden",
+            "php_version": "PHP versie",
+            "database_version": "Database versie",
+            "server_software": "Server Software",
+            "storage_used": "Gebruikte opslagruimte",
+            "storage_limit": "Opslag Limiet",
+            "unlimited": "Onbeperkt"
         },
         "user": {
             "title": "Gebruikers",
@@ -936,9 +1120,13 @@
             "reset_password": "Wachtwoord opnieuw instellen",
             "send_details_to": "Verzend details naar",
             "never_logged_in": "Nooit ingelogd",
+            "never_used": "Nooit gebruikt",
             "auto_generate_password": "Automatisch wachtwoord genereren",
             "delete_confirm_user": "Weet u zeker dat u deze gebruiker wilt verwijderen?",
-            "disable_2fa": "2FA uitschakelen"
+            "disable_2fa": "2FA uitschakelen",
+            "personal_access_tokens": "Persoonlijke toegangstokens",
+            "no_personal_access_tokens": "Geen persoonlijke toegangstokens gevonden",
+            "delete_confirm_personal_access_token": "Weet u zeker dat u deze persoonlijke toegangstoets wilt verwijderen?"
         },
         "department": {
             "title": "Afdelingen",
@@ -979,7 +1167,11 @@
             "default_date_format": "Standaard datumnotatie",
             "default_time_format": "Standaard Tijdsformaat",
             "default_datetime_format": "Standaard Datumtijd Formaat",
-            "show_barcode_on_documents": "Toon streepjescode op documenten"
+            "show_barcode_on_documents": "Toon streepjescode op documenten",
+            "week_start": "Begindag week",
+            "exchange_rate_provider": "Wisselkoers Provider",
+            "save_document_into_archive": "Document opslaan in archief",
+            "save_document_into_archive_description": "Indien ingeschakeld, documenten zullen worden opgeslagen in het archief (facturen, offertes, contracten en contracten)."
         },
         "taxes": {
             "title": "BTW tarieven",
@@ -991,7 +1183,9 @@
             "name": "naam",
             "value": "Waarde",
             "description": "Beschrijving",
-            "delete_confirm_tax": "Weet u zeker dat u dit BTW-tarief wilt verwijderen?"
+            "delete_confirm_tax": "Weet u zeker dat u dit BTW-tarief wilt verwijderen?",
+            "import_tax": "BTW-tarieven importeren",
+            "import_tax_description": "U kunt belastingtarieven importeren uit publieke gegevensbronnen. Gegevens zullen worden opgehaald uit de EU-BTW-lijst. Deze kan niet volledig up-to-date of accuraat zijn. Controleer nogmaals de geïmporteerde gegevens."
         },
         "role": {
             "title": "Rollen",
@@ -1047,7 +1241,8 @@
             "mail_from_name": "E-mail van naam",
             "send_test_email": "Testmail verzenden",
             "send_test_email_to": "Testmail verzenden naar",
-            "sendmail_path": "Sendmail pad"
+            "sendmail_path": "Sendmail pad",
+            "no_email_selected": "Geen e-mail geselecteerd"
         },
         "numbering": {
             "title": "Nummer formaten instellingen",
@@ -1063,7 +1258,9 @@
             "employee": "Medewerker nummer formaat",
             "project": "Project nummer formaat",
             "department": "Formaat afdelingsnummer",
-            "archive": "Archief nummerformaat"
+            "archive": "Archief nummerformaat",
+            "contract": "Contract nummer formaat",
+            "yearly": "Jaarlijks"
         },
         "webhook": {
             "title": "Webhooks abonnement",
@@ -1075,6 +1272,29 @@
             "delete_confirm_webhook_subscription": "Weet u zeker dat u dit webhook abonnement wilt verwijderen?",
             "add_header": "Koptekst toevoegen",
             "remove_header": "Koptekst verwijderen"
+        },
+        "data_collection": {
+            "title": "Verzamelen van gegevens",
+            "data_collection": "Verzamelen van gegevens",
+            "transaction_categories": "Transactie categorieën",
+            "document_types": "Document typen",
+            "payment_methods": "Betalingsmethoden",
+            "contract_types": "Contract Types",
+            "task_categories": "Taak categorieën",
+            "project_categories": "Project Categorieën",
+            "new_data_collection_item": "Nieuw data collectie item",
+            "edit_data_collection_item": "Bewerk Data Collection Item",
+            "icon_tooltip": "Gebruik de Font Awesome iconen. Hier vindt u de lijst met pictogrammen: https://fontawesome.com/iconen",
+            "no_document_types": "Geen documenttypes gevonden",
+            "no_payment_methods": "Geen betaalmethoden gevonden",
+            "no_transaction_categories": "Geen transactiecategorieën gevonden",
+            "no_contract_types": "Geen contracttypes gevonden",
+            "delete_category_ask": "Weet je zeker dat je deze gegevensverzameling wilt verwijderen?",
+            "delete_category_success": "Verzamelen van gegevens is succesvol verwijderd",
+            "product_categories": "Product categorieën",
+            "no_product_categories": "Geen product categorieën gevonden",
+            "no_task_categories": "Geen taakcategorieën gevonden",
+            "no_project_categories": "Geen projectcategorieën gevonden"
         }
     },
     "month": {
@@ -1438,5 +1658,23 @@
         "finish_installation_description": "De installatie is voltooid. U kunt nu inloggen op uw account.",
         "go_to_login": "Ga naar login",
         "installation": "Installatie"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Dashboard",
+            "invoices": "Rekeningen",
+            "quotes": "Offertes",
+            "transactions": "Transacties",
+            "support": "Ondersteuning",
+            "contracts": "Contracten",
+            "partner_details": "Partner details"
+        },
+        "partner_details": "Partner details",
+        "dashboard": "Dashboard",
+        "number_of_contracts": "Aantal contracten",
+        "number_of_unpaid_invoices": "Aantal onbetaalde facturen",
+        "number_of_quotes": "Aantal offertes",
+        "number_of_bills": "Aantal contracten",
+        "number_of_support_tickets": "Aantal support tickets"
     }
 }
