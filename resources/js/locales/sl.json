@@ -1,7 +1,7 @@
 {
     "auth": {
         "login": "Prijava",
-        "email": "E-pošta",
+        "email": "E-poštni naslov",
         "password": "Geslo",
         "password_confirmation": "Potrditev gesla",
         "remember_me": "Zapomni si me",
@@ -127,7 +127,11 @@
         "same_as_company_address": "Isto kot naslov podjetja",
         "audit_log": "Revizijski dnevnik",
         "get_current_location": "Pridobi trenutno lokacijo",
-        "system": "Sistem"
+        "system": "Sistem",
+        "add_signer": "Dodaj podpisnika",
+        "click_for_download": "Klikni za prenos",
+        "sign": "Podpiši",
+        "import": "Uvozi"
     },
     "audit_log": {
         "audit_log": "Revizijski dnevnik",
@@ -160,13 +164,16 @@
         "moved": "Premaknjeno",
         "retrieve_public": "Pridobi javno",
         "upload": "Nalaganje",
-        "share": "Deljenje"
-        "retrieved": "Pridobitev"
+        "share": "Deljenje",
+        "delete": "Izbriši",
+        "sign": "Podpiši",
+        "convert_to_invoice": "Pretvori v račun"
     },
     "audit_log_type": {
         "internal": "Notranji",
         "external": "Zunanji",
         "external_key": "Zunanji ključ",
+        "client_portal": "Portal strank",
         "system": "Sistem"
     },
     "user_nav_menu": {
@@ -195,7 +202,9 @@
         "settings": "Nastavitve",
         "employees": "Zaposleni",
         "support": "Podpora",
-        "payments": "Plačila"
+        "payments": "Plačila",
+        "contracts": "Pogodbe",
+        "projects": "Projekti"
     },
     "dashboard": {
         "title": "Nadzorna plošča",
@@ -397,8 +406,33 @@
         "display_name": "Prikazno ime",
         "theme": "Tema",
         "overpaid_amount": "Preplačani znesek",
-        "sum_of_payments": "Vsota plačil"
-        "visibility": "Vidljivost"
+        "sum_of_payments": "Vsota plačil",
+        "date_for_signature": "Rok za podpis",
+        "is_signer": "Je podpisnik",
+        "signer_name": "Ime/Naziv podpisnika",
+        "signer_email": "E-mail podpisnika",
+        "signer_phone": "Telefonska številka podpisnika",
+        "signers": "Podpisniki",
+        "outcome": "Rezultat",
+        "activity_type": "Tip aktivnosti",
+        "user": "Uporabnik",
+        "is_internal": "Interno",
+        "picture": "Slika",
+        "last_used_at": "Nazadnje uporabljen",
+        "module": "Modul",
+        "parent_category": "Nadrejena kategorija",
+        "icon": "Ikona",
+        "additional_info": "Dodatne informacije",
+        "client_portal": "Portal strank",
+        "type_of_contract_sign": "Tip podpisa pogodbe",
+        "refund": "Povračilo",
+        "payment_number": "Številka plačila",
+        "is_billable": "Je obračunljiv",
+        "budget": "Proračun",
+        "project_key": "Ključ projekta",
+        "completed_at": "Dokončano",
+        "progress_in_percent": "Napredek v odstotkih",
+        "archived_until": "Arhivirano do"
     },
     "address_types": {
         "billing": "Obračunavanje",
@@ -413,6 +447,20 @@
     "entity_types": {
         "company": "Podjetje",
         "individual": "Posameznik"
+    },
+    "time_range": {
+        "one_day": "En dan",
+        "one_week": "En teden",
+        "one_month": "En mesec",
+        "three_months": "Tri mesece",
+        "six_months": "Šest mesecev",
+        "one_year": "Eno leto",
+        "all_time": "Ves čas",
+        "never": "Nikoli"
+    },
+    "task_type": {
+        "task": "Opravilo",
+        "milestone": "Mejnik"
     },
     "industries": {
         "agriculture": "Kmetijstvo",
@@ -459,9 +507,10 @@
         "bank_transfer": "Bančno nakazilo",
         "cash": "Gotovina",
         "check": "Ček",
-        "credit_card": "Kreditna kartica",
+        "credit_card": "Plačilna kartica",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Drugo"
     },
     "support_priority": {
@@ -471,6 +520,14 @@
         "normal": "Normalna",
         "high": "Visoka",
         "urgent": "Urgentna"
+    },
+    "priority": {
+        "none": "Brez",
+        "low": "Nizka",
+        "normal": "Običajna",
+        "medium": "Srednje",
+        "high": "Visoka",
+        "urgent": "Urgentno"
     },
     "product_type": {
         "product": "Izdelek",
@@ -483,6 +540,11 @@
     "tax_types": {
         "percent": "Procent",
         "fixed": "Fiksen"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektronski podpis",
+        "digital_signature": "Digitalni podpis",
+        "paper": "Papir"
     },
     "login_history": {
         "login_history": "Zgodovina prijav",
@@ -509,7 +571,26 @@
         "contacts": "Kontakti",
         "partner_details": "Podrobnosti partnerja",
         "delete_confirm_partner": "Ali ste prepričani, da želite izbrisati partnerja?",
-        "contact_informations": "Kontaktne informacije"
+        "contact_information": "Kontaktne informacije",
+        "add_activity": "Dodaj aktivnost",
+        "no_activities": "Ne najdem aktivnosti",
+        "activity": "Aktivnost",
+        "activities": "Aktivnosti",
+        "edit_activity": "Uredi aktivnost",
+        "partner_activities": "Partnerjeve aktivnosti",
+        "send_email": "Pošlji sporočilo",
+        "add_to_client_portal": "Dodaj v portal strank",
+        "vat_number_required": "Davčna številka je zahtevan podatek"
+    },
+    "partner_activity_types": {
+        "call": "Klic",
+        "task": "Opravilo",
+        "video_call": "Video klic",
+        "meeting": "Sestanek",
+        "email": "E-pošta",
+        "visit": "Obisk",
+        "note": "Opomba",
+        "other": "Drugo"
     },
     "product": {
         "product": "Izdelek | Izdelki",
@@ -542,7 +623,13 @@
         "two_factor_authentication_code": "Koda dvojne avtentikacije",
         "two_factor_authentication_code_info": "Vnesite kodo, ki jo je ustvarila vaša aplikacija za preverjanje pristnosti, da preverite nastavitev dvofaktorske avtentikacije.",
         "verify_2fa": "Preveri 2FA",
-        "cannot_remove__default_avatar": "Ne morete odstraniti privzete sličice."
+        "cannot_remove_default_avatar": "Ni mogoče odstraniti privzete profilne slike",
+        "personal_access_tokens": "Osebni dostopni žetoni",
+        "create_personal_access_token": "Ustvarite osebni dostopni žeton",
+        "no_personal_access_tokens": "Ni osebnih dostopnih žetonov",
+        "generated_personal_access_token_message": "Vaš osebni dostopni žeton je bil ustvarjen. To je edini čas, ko boste videli ta žeton, zato ga shranite na varno mesto.",
+        "generated_personal_access_token": "Ustvarjen žeton osebnega dostopa",
+        "delete_personal_access_token": "Ali ste prepričani, da želite izbrisati ta žeton osebnega dostopa?"
     },
     "document_types": {
         "document": "Dokument",
@@ -590,8 +677,8 @@
         "list_of_transactions": "Seznam transakcij",
         "no_sales_person": "Ni prodajalca",
         "no_payment_method": "Način plačila",
-        "click_for_pay_with_paypal": "Kliknite tukaj za plačilo prek PayPala",
-        "click_for_pay": "Kliknite tukaj za plačilo"
+        "click_for_pay": "Kliknite tukaj za plačilo",
+        "select_payment_gateway": "Izberite plačilnega ponudnika"
     },
     "quote": {
         "quote": "Ponudba|Ponudbe",
@@ -620,7 +707,8 @@
         "converted_to_invoice": "Ponudba pretvorjena v račun",
         "expired": "Ta predračun je potekel. Ne morete ga sprejeti ali zavrniti.",
         "rejected": "Ta predračun je bil uspešno zavrnjen.",
-        "accepted": "Ta predračun je bil uspešno sprejet."
+        "accepted": "Ta predračun je bil uspešno sprejet.",
+        "no_payment_method": "Način plačila ni določen"
     },
     "status": {
         "draft": "Osnutek",
@@ -659,7 +747,16 @@
         "in_review": "V pregledu",
         "delegated": "Delegirano",
         "approved": "Odobreno",
-        "not_approved": "Ni odobreno"
+        "not_approved": "Ni odobreno",
+        "waiting_signers": "Čakanje na podpisnike",
+        "signed": "Podpisano",
+        "waiting_signature": "Čakanje na podpis",
+        "not_started": "Ni začeto",
+        "planned": "Načrtovano",
+        "spam": "Spam",
+        "on_hold": "Na čakanju",
+        "to_do": "Za narediti",
+        "done": "Opravljeno"
     },
     "calendar": {
         "calendar": "Koledar | Koledarji",
@@ -740,7 +837,10 @@
         "edit_payment": "Uredi plačilo",
         "no_payments": "Ni najdenih plačil",
         "delete_confirm_payment": "Ali ste prepričani, da želite izbrisati to plačilo?",
-        "payment_details": "Podrobnosti o plačilu"
+        "payment_details": "Podrobnosti o plačilu",
+        "refund_confirmation": "Ali ste prepričani, da želite povrniti to plačilo?",
+        "refund_successful": "Plačilo uspešno povrnjeno",
+        "refund_failed": "Vračilo plačila ni bilo uspešno"
     },
     "archive": {
         "archive": "Arhiv | Arhivi",
@@ -759,7 +859,6 @@
         "restore_confirm_document": "Ste prepričani, da želite obnoviti ta element?",
         "select_folder": "Izberite mapo",
         "move_document": "Premakni dokument"
-        "restore_confirm_document": "Ste prepričani, da želite obnoviti ta element?"
     },
     "protection_level": {
         "public": "Javno",
@@ -779,7 +878,8 @@
         "no_items": "Ni postavk",
         "select_item": "Izberi postavko",
         "date_and_due_date": "Datum in datum zapadlosti",
-        "delete_confirm_bill": "Ali ste prepričani, da želite izbrisati izbrani prejeti račun?"
+        "delete_confirm_bill": "Ali ste prepričani, da želite izbrisati izbrani prejeti račun?",
+        "no_payment_method": "Način plačila ni določen"
     },
     "account": {
         "account": "Račun | Računi",
@@ -803,6 +903,26 @@
         "no_documents": "Ni dokumentov",
         "create_first_document": "Ustvarite svoj prvi dokument",
         "delete_confirm_document": "Ali ste prepričani, da želite izbrisati ta dokument?"
+    },
+    "contract": {
+        "contract": "Pogodba | Pogodbe",
+        "create_contract": "Ustvari pogodbo",
+        "edit_contract": "Uredi pogodbo",
+        "no_contracts": "Ni najdenih pogodb",
+        "create_first_contract": "Ustvarite svojo prvo pogodbo",
+        "delete_confirm_contract": "Ali ste prepričani, da želite izbrisati pogodbo?",
+        "contract_details": "Podrobnosti pogodbe",
+        "no_content": "Brez vsebine",
+        "no_partner": "Ni partnerja",
+        "sign_contract": "Podpiši pogodbo",
+        "contract_signed": "Pogodba podpisana",
+        "accept_sign_terms": "Strinjam se, da se s podpisom tega dokumenta strinjam, da je podpis pravno zavezujoč in enakovreden mojemu lastnoročnemu podpisu.",
+        "accept_terms_required": "Za podpis pogodbe sta potrebna podpis in sprejem pogojev.",
+        "not_signed": "Še ni podpisano",
+        "signed": "Podpisan dokument",
+        "no_signers": "Ni podpisnikov",
+        "share_dialog": "Deli pogodbo",
+        "share_dialog_text": "Kopiraj spodnjo povezavo in jo pošlji partnerju ali pa skenirajte QR kodo."
     },
     "support": {
         "support": "Podpora",
@@ -870,6 +990,40 @@
         "volunteer": "Prostovoljec",
         "other": "Drugo"
     },
+    "project": {
+        "project": "Projekt | Projekti",
+        "new_project": "Nov projekt",
+        "edit_project": "Uredi projekt",
+        "no_projects": "Ni najdenih projektov",
+        "create_first_project": "Ustvarite vaš prvi projekt",
+        "delete_confirm_project": "Ali ste prepričani, da želite izbrisati ta projekt?",
+        "project_details": "Podrobnosti projekta",
+        "start_and_end_date": "Datum pričetka in zaključka projekta",
+        "team_members": "Člani ekipe",
+        "add_team_member": "Dodaj člana",
+        "no_team_members": "Ni članov ekipe",
+        "start_end_date": "Datum pričetka in zaključka projekta",
+        "tasks": "Opravila",
+        "add_task": "Dodaj opravilo",
+        "no_tasks": "Ni najdenih opravil",
+        "task": "Opravilo | Opravila",
+        "edit_task": "Uredi opravilo",
+        "delete_task_confirmation": "Ste prepričani, da želite izbrisati to opravilo?",
+        "kanban_board": "Kanban",
+        "create_task": "Ustvari opravilo",
+        "project_members": "Člani projekta",
+        "add_member": "Dodaj člana",
+        "remove_member": "Odstrani člana",
+        "remove_member_confirmation": "Ali ste prepričani, da želite odstraniti člana projekta?",
+        "edit_member": "Uredi člana"
+    },
+    "project_role": {
+        "owner": "Lastnik",
+        "manager": "Vodja",
+        "team_member": "Član ekipe",
+        "viewer": "Pregledovalec",
+        "client": "Stranka"
+    },
     "admin": {
         "menu": {
             "dashboard": "Nadzorna plošča",
@@ -878,7 +1032,7 @@
             "integrations": "Integracije",
             "roles": "Vloge",
             "users": "Uporabniki",
-            "departments": "Oddelek",
+            "departments": "Oddeleki",
             "settings": "Nastavitve",
             "settings_general": "Splošno",
             "settings_currency": "Valute",
@@ -888,7 +1042,10 @@
             "app_status": "Stanje aplikacije",
             "units": "Enote",
             "email": "E-pošta",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Nastavitve strežnika",
+            "status_page": "Status aplikacije",
+            "data_collection": "Šifranti"
         },
         "company": {
             "title": "Nastavitve podjetja",
@@ -902,7 +1059,9 @@
             "company_country": "Država podjetja",
             "company_vat": "Davčna številka podjetja",
             "company_logo": "Logotip podjetja",
-            "company_logo_help": "Priporočena velikost je 200x100px"
+            "company_logo_help": "Priporočena velikost je 200x100px",
+            "company_website": "Spletno mesto podjetja",
+            "company_primary_color": "Primarna barva"
         },
         "integrations": {
             "title": "Integracije",
@@ -925,7 +1084,29 @@
             "open_banking_client_id": "Odprta bančna ID stranke",
             "open_banking_secret": "Odprta bančna skrivnost",
             "open_banking_help": "Najdete ga v vašem Nordigen računu.",
-            "online_payments": "Spletni plačili"
+            "online_payments": "Spletni plačili",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Coinbase aktiven",
+            "coinbase_api_key": "Coinbase API ključ",
+            "coinbase_api_key_help": "Najdete ga v vašem Coinbase Commerce računu.",
+            "coinbase_account_id": "ID internega računa za Coinbase",
+            "document_signing_available": "Podpisovanje dokumentov na voljo",
+            "document_signing": "Podpisovanje dokumentov"
+        },
+        "status": {
+            "title": "Status aplikacije",
+            "app_version": "Verzija aplikacije",
+            "latest_version": "Zadnja različica",
+            "changelog": "Dnevnik sprememb",
+            "view_changelog": "Pokaži dnevnik sprememb",
+            "new_version_available": "Nova verzija aplikacije je na voljo za prenos",
+            "download_now": "Prenesi zdaj",
+            "php_version": "Verzija PHP",
+            "database_version": "Različica podatkovne baze",
+            "server_software": "Programska oprema strežnika",
+            "storage_used": "Porabljen prostor",
+            "storage_limit": "Omejitev shrambe",
+            "unlimited": "Neomejeno"
         },
         "user": {
             "title": "Uporabniki",
@@ -939,9 +1120,13 @@
             "reset_password": "Ponastavi geslo",
             "send_details_to": "Pošlji podrobnosti na",
             "never_logged_in": "Prijava ni bila izvedena",
+            "never_used": "Nikoli uporabljeno",
             "auto_generate_password": "Samodejno ustvari geslo",
             "delete_confirm_user": "Ali ste prepričani, da želite izbrisati uporabnika?",
-            "disable_2fa": "Onemogoči 2FA"
+            "disable_2fa": "Onemogoči 2FA",
+            "personal_access_tokens": "Osebni dostopni žetoni",
+            "no_personal_access_tokens": "Ni osebnih dostopnih žetonov",
+            "delete_confirm_personal_access_token": "Ali ste prepričani, da želite izbrisati ta žeton osebnega dostopa?"
         },
         "department": {
             "title": "Oddeleki",
@@ -982,7 +1167,11 @@
             "default_date_format": "Privzeti format datuma",
             "default_time_format": "Privzeti format časa",
             "default_datetime_format": "Privzeti format datuma in časa",
-            "show_barcode_on_documents": "Prikaži črtno kodo na dokumentih"
+            "show_barcode_on_documents": "Prikaži črtno kodo na dokumentih",
+            "week_start": "Dan začetka tedna",
+            "exchange_rate_provider": "Ponudnik menjalnega tečaja",
+            "save_document_into_archive": "Shrani dokument v arhiv",
+            "save_document_into_archive_description": "Če je aktivirano, se dokumenti avtomatsko shranijo v arhiv (računi, ponudbe, prejeti računi, pogodbe)."
         },
         "taxes": {
             "title": "Davčne stopnje",
@@ -994,7 +1183,9 @@
             "name": "Naziv",
             "value": "Vrednost",
             "description": "Opis",
-            "delete_confirm_tax": "Ali ste prepričani, da želite izbrisati davčno stopnjo?"
+            "delete_confirm_tax": "Ali ste prepričani, da želite izbrisati davčno stopnjo?",
+            "import_tax": "Uvozi davčne stopnje",
+            "import_tax_description": "Davčne stopnje lahko uvozite iz javnih podatkovnih virov. Podatki bodo pridobljeni s seznama DDV EU. Morda niso povsem posodobljeni ali točni. Prosimo, dvakrat preverite uvožene podatke."
         },
         "role": {
             "title": "Vloge",
@@ -1014,10 +1205,6 @@
             "number_of_departments": "Število oddelkov",
             "number_of_users": "Število uporabnikov",
             "chart_of_logins_this_month": "Grafikoni prijav tega meseca"
-            "number_of_logins_today": "Število prijav danes",
-            "number_of_departments": "Število oddelkov",
-            "number_of_users": "Število uporabnikov",
-            "logins_this_month": "Prijava ta mesec"
         },
         "units": {
             "title": "Enote",
@@ -1054,7 +1241,8 @@
             "mail_from_name": "Mail Ime Pošiljatelja",
             "send_test_email": "Pošlji preskusno e-pošto",
             "send_test_email_to": "Pošlji testni email na",
-            "sendmail_path": "Sendmail Path"
+            "sendmail_path": "Sendmail Path",
+            "no_email_selected": "Elektronski naslov ni izbran"
         },
         "numbering": {
             "title": "Številčenje",
@@ -1070,7 +1258,9 @@
             "employee": "Format številke zaposlenega",
             "project": "Format številke projekta",
             "department": "Format številke oddelka",
-            "archive": "Arhivni format številke"
+            "archive": "Arhivni format številke",
+            "contract": "Format številke pogodbe",
+            "yearly": "Letno"
         },
         "webhook": {
             "title": "Naročnina na spletni kavelj",
@@ -1082,6 +1272,29 @@
             "delete_confirm_webhook_subscription": "Ali ste prepričani, da želite izbrisati to naročnino webhook?",
             "add_header": "Dodaj glavo",
             "remove_header": "Odstrani glavo"
+        },
+        "data_collection": {
+            "title": "Šifranti",
+            "data_collection": "Šifranti",
+            "transaction_categories": "Kategorije transakcij",
+            "document_types": "Vrste dokumentov",
+            "payment_methods": "Načini plačila",
+            "contract_types": "Tip pogodbe",
+            "task_categories": "Kategorije opravil",
+            "project_categories": "Kategorije projektov",
+            "new_data_collection_item": "Nov element šifranta",
+            "edit_data_collection_item": "Urejanje elementa šifranta",
+            "icon_tooltip": "Uporabite lahko ikone Font Awesome. Seznam ikon najdete tukaj: https://fontawesome.com/icons",
+            "no_document_types": "Vrste dokumentov niso najdene",
+            "no_payment_methods": "Načini plačila niso bili najdeni",
+            "no_transaction_categories": "Kategorije transakcij niso najdene",
+            "no_contract_types": "Ni najdenih tipov pogodb",
+            "delete_category_ask": "Ali ste prepričani, da želite izbrisati ta element šifrantov?",
+            "delete_category_success": "Element šifranta je bil uspešno izbrisan",
+            "product_categories": "Kategorije izdelkov",
+            "no_product_categories": "Kategorije izdelkov niso najdene",
+            "no_task_categories": "Ni najdenih kategorij opravil",
+            "no_project_categories": "Ni najdenih opravil projektov"
         }
     },
     "month": {
@@ -1445,5 +1658,23 @@
         "finish_installation_description": "Namestitev je končana. Zdaj se lahko prijavite v vaš račun.",
         "go_to_login": "Pojdite na prijavo",
         "installation": "Namestitev"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Nadzorna plošča",
+            "invoices": "Izdani računi",
+            "quotes": "Ponudbe",
+            "transactions": "Transakcije",
+            "support": "Podpora",
+            "contracts": "Pogodbe",
+            "partner_details": "Podrobnosti partnerja"
+        },
+        "partner_details": "Podrobnosti partnerja",
+        "dashboard": "Nadzorna plošča",
+        "number_of_contracts": "Število pogodb",
+        "number_of_unpaid_invoices": "Število neplačanih računov",
+        "number_of_quotes": "Število ponudb",
+        "number_of_bills": "Število prejetih računov",
+        "number_of_support_tickets": "Število podpornih zahtevkov"
     }
 }
