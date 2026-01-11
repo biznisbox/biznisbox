@@ -7,4 +7,5 @@ return [
     'open_banking' => 'Otevřené bankovnictví',
     'vies_vat' => 'VIES ověření DPH',
     'document_signer' => 'PDF podpis dokumentu',
+    'support_ticket_mailer' => 'Podpora integrace IMAP ticketu',
 ];
