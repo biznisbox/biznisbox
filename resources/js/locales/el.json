@@ -127,7 +127,11 @@
         "same_as_company_address": "Ίδια με τη διεύθυνση της εταιρείας",
         "audit_log": "Αρχείο Ελέγχου",
         "get_current_location": "Λήψη τρέχουσας τοποθεσίας",
-        "system": "Σύστημα"
+        "system": "Σύστημα",
+        "add_signer": "Προσθήκη Υπογραφέα",
+        "click_for_download": "Κάντε κλικ εδώ για λήψη",
+        "sign": "Υπογραφή",
+        "import": "Εισαγωγή"
     },
     "audit_log": {
         "audit_log": "Αρχείο Ελέγχου",
@@ -160,12 +164,16 @@
         "moved": "Μετακινήθηκε",
         "retrieve_public": "Ανάκτηση Δημοσίου",
         "upload": "Ανέβασμα",
-        "share": "Κοινοποίηση"
+        "share": "Κοινοποίηση",
+        "delete": "Διαγραφή",
+        "sign": "Υπογραφή",
+        "convert_to_invoice": "Μετατροπή σε τιμολόγιο"
     },
     "audit_log_type": {
         "internal": "Εσωτερική",
         "external": "Εξωτερικό",
         "external_key": "Εξωτερικό κλειδί",
+        "client_portal": "Πύλη πελάτη",
         "system": "Σύστημα"
     },
     "user_nav_menu": {
@@ -194,7 +202,9 @@
         "settings": "Ρυθμίσεις",
         "employees": "Υπάλληλοι",
         "support": "Υποστήριξη",
-        "payments": "Πληρωμές"
+        "payments": "Πληρωμές",
+        "contracts": "Συμβάσεις",
+        "projects": "Έργα"
     },
     "dashboard": {
         "title": "Ταμπλό",
@@ -396,7 +406,33 @@
         "display_name": "Εμφανιζόμενο Όνομα",
         "theme": "Θέμα",
         "overpaid_amount": "Υπερπληρωμένο Ποσό",
-        "sum_of_payments": "Άθροισμα πληρωμών"
+        "sum_of_payments": "Άθροισμα πληρωμών",
+        "date_for_signature": "Ημερομηνία υπογραφής",
+        "is_signer": "Είναι Υπογραφέας",
+        "signer_name": "Όνομα Υπογραφέα",
+        "signer_email": "Signer Email",
+        "signer_phone": "Τηλέφωνο Υπογραφέα",
+        "signers": "Υπογραφείς",
+        "outcome": "Αποτέλεσμα",
+        "activity_type": "Τύπος Δραστηριότητας",
+        "user": "Χρήστης",
+        "is_internal": "Είναι Εσωτερικό",
+        "picture": "Εικόνα",
+        "last_used_at": "Τελευταία Χρήση Σε",
+        "module": "Πρόσθετο",
+        "parent_category": "Γονική Κατηγορία",
+        "icon": "Εικονίδιο",
+        "additional_info": "Πρόσθετες Πληροφορίες",
+        "client_portal": "Πύλη Πελάτη",
+        "type_of_contract_sign": "Τύπος σημάδι σύμβασης",
+        "refund": "Επιστροφή",
+        "payment_number": "Αριθμός Πληρωμής",
+        "is_billable": "Είναι Χρεώσιμο",
+        "budget": "Προϋπολογισμός",
+        "project_key": "Κλειδί Έργου",
+        "completed_at": "Ολοκληρώθηκε Στις",
+        "progress_in_percent": "Πρόοδος σε ποσοστό",
+        "archived_until": "Αρχειοθετημένο Μέχρι"
     },
     "address_types": {
         "billing": "Χρέωση",
@@ -411,6 +447,20 @@
     "entity_types": {
         "company": "Εταιρεία",
         "individual": "Ατομικό"
+    },
+    "time_range": {
+        "one_day": "Μία ημέρα",
+        "one_week": "Μία εβδομάδα",
+        "one_month": "Ένας μήνας",
+        "three_months": "Τρεις μήνες",
+        "six_months": "Έξι μήνες",
+        "one_year": "Ένας χρόνος",
+        "all_time": "Όλη την ώρα",
+        "never": "Ποτέ"
+    },
+    "task_type": {
+        "task": "Εργασία",
+        "milestone": "Ορόσημο"
     },
     "industries": {
         "agriculture": "Γεωργία",
@@ -457,9 +507,10 @@
         "bank_transfer": "Τραπεζική Μεταφορά",
         "cash": "Μετρητά",
         "check": "Έλεγχος",
-        "credit_card": "Πιστωτική Κάρτα",
+        "credit_card": "Κάρτα πληρωμής",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Άλλο"
     },
     "support_priority": {
@@ -467,6 +518,14 @@
         "low": "Χαμηλή",
         "medium": "Μεσαίο",
         "normal": "Κανονικό",
+        "high": "Υψηλή",
+        "urgent": "Επείγον"
+    },
+    "priority": {
+        "none": "Κανένα",
+        "low": "Χαμηλή",
+        "normal": "Κανονικό",
+        "medium": "Μεσαίο",
         "high": "Υψηλή",
         "urgent": "Επείγον"
     },
@@ -481,6 +540,11 @@
     "tax_types": {
         "percent": "Ποσοστό",
         "fixed": "Σταθερό"
+    },
+    "contract_sign_types": {
+        "electronic": "Ηλεκτρονικό",
+        "digital_signature": "Ψηφιακή Υπογραφή",
+        "paper": "Χαρτί"
     },
     "login_history": {
         "login_history": "Ιστορικό Σύνδεσης",
@@ -507,7 +571,26 @@
         "contacts": "Επαφές",
         "partner_details": "Λεπτομέρειες συνεργάτη",
         "delete_confirm_partner": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον συνεργάτη?",
-        "contact_informations": "Στοιχεία Επικοινωνίας"
+        "contact_information": "Στοιχεία Επικοινωνίας",
+        "add_activity": "Προσθήκη δραστηριότητας",
+        "no_activities": "Δεν βρέθηκαν δραστηριότητες",
+        "activity": "Δραστηριότητα",
+        "activities": "Δραστηριότητες",
+        "edit_activity": "Επεξεργασία Δραστηριότητας",
+        "partner_activities": "Δραστηριότητες Συνεργατών",
+        "send_email": "Αποστολή email",
+        "add_to_client_portal": "Προσθήκη στην πύλη του πελάτη",
+        "vat_number_required": "Απαιτείται αριθμός ΑΦΜ"
+    },
+    "partner_activity_types": {
+        "call": "Κλήση",
+        "task": "Εργασία",
+        "video_call": "Βίντεο Κλήση",
+        "meeting": "Συνάντηση",
+        "email": "E-mail",
+        "visit": "Επίσκεψη",
+        "note": "Σημείωση",
+        "other": "Άλλο"
     },
     "product": {
         "product": "Προϊόν - Προϊόντα",
@@ -540,7 +623,13 @@
         "two_factor_authentication_code": "Κωδικός Ελέγχου Ταυτότητας Δύο Παραγόντων",
         "two_factor_authentication_code_info": "Εισάγετε τον κωδικό που δημιουργήθηκε από την εφαρμογή ελέγχου ταυτότητας για να επαληθεύσετε τη ρύθμιση ελέγχου ταυτότητας δύο παραγόντων.",
         "verify_2fa": "Επιβεβαίωση 2FA",
-        "cannot_remove__default_avatar": "Δεν μπορείτε να καταργήσετε το προεπιλεγμένο avatar."
+        "cannot_remove_default_avatar": "Δεν μπορείτε να καταργήσετε το προεπιλεγμένο avatar.",
+        "personal_access_tokens": "Προσωπικά Διακριτικά Πρόσβασης",
+        "create_personal_access_token": "Δημιουργία Προσωπικού Διακριτικού Πρόσβασης",
+        "no_personal_access_tokens": "Δεν βρέθηκαν προσωπικά διακριτικά πρόσβασης",
+        "generated_personal_access_token_message": "Το προσωπικό σας διακριτικό πρόσβασης έχει δημιουργηθεί. Αυτή είναι η μόνη φορά που θα δείτε αυτό το διακριτικό, οπότε φροντίστε να το αποθηκεύσετε κάπου ασφαλές.",
+        "generated_personal_access_token": "Δημιουργημένο Προσωπικό Διακριτικό Πρόσβασης",
+        "delete_personal_access_token": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το προσωπικό διακριτικό πρόσβασης?"
     },
     "document_types": {
         "document": "Έγγραφο",
@@ -588,8 +677,8 @@
         "list_of_transactions": "Λίστα συναλλαγών",
         "no_sales_person": "Κανένας πωλητής",
         "no_payment_method": "Καμία μέθοδος πληρωμής",
-        "click_for_pay_with_paypal": "Κάντε κλικ εδώ για να πληρώσετε με PayPal",
-        "click_for_pay": "Κάντε κλικ εδώ για πληρωμή"
+        "click_for_pay": "Κάντε κλικ εδώ για πληρωμή",
+        "select_payment_gateway": "Επιλέξτε πύλη πληρωμής"
     },
     "quote": {
         "quote": "Προσφορά Προσφορών",
@@ -618,7 +707,8 @@
         "converted_to_invoice": "Η προσφορά μετατράπηκε σε τιμολόγιο",
         "expired": "Αυτή η προσφορά έχει λήξει. Δεν μπορείτε να την αποδεχτείτε ή να την απορρίψετε.",
         "rejected": "Αυτή η παράθεση έχει απορριφθεί με επιτυχία.",
-        "accepted": "Αυτή η παράθεση έχει γίνει δεκτή με επιτυχία."
+        "accepted": "Αυτή η παράθεση έχει γίνει δεκτή με επιτυχία.",
+        "no_payment_method": "Καμία μέθοδος πληρωμής"
     },
     "status": {
         "draft": "Πρόχειρο",
@@ -657,7 +747,16 @@
         "in_review": "Σε ανασκόπηση",
         "delegated": "Εξουσιοδοτημένο",
         "approved": "Εγκρίθηκε",
-        "not_approved": "Μη εγκεκριμένο"
+        "not_approved": "Μη εγκεκριμένο",
+        "waiting_signers": "Αναμονή για υπογράφοντες",
+        "signed": "Υπογραφή",
+        "waiting_signature": "Αναμονή για υπογραφή",
+        "not_started": "Δεν ξεκίνησε",
+        "planned": "Προγραμματισμένο",
+        "spam": "Ανεπιθύμητα",
+        "on_hold": "Σε αναμονή",
+        "to_do": "Να γίνει",
+        "done": "Ολοκληρώθηκε"
     },
     "calendar": {
         "calendar": "Ημερολόγιο \"Ημερολόγια\"",
@@ -738,7 +837,10 @@
         "edit_payment": "Επεξεργασία Πληρωμής",
         "no_payments": "Δεν βρέθηκαν πληρωμές",
         "delete_confirm_payment": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή την πληρωμή?",
-        "payment_details": "Λεπτομέρειες πληρωμής"
+        "payment_details": "Λεπτομέρειες πληρωμής",
+        "refund_confirmation": "Είστε σίγουροι ότι θέλετε να επιστρέψετε αυτή την πληρωμή?",
+        "refund_successful": "Η πληρωμή επιστράφηκε επιτυχώς",
+        "refund_failed": "Η επιστροφή χρημάτων απέτυχε"
     },
     "archive": {
         "archive": "Αρχειοθέτηση Αρχείων",
@@ -776,7 +878,8 @@
         "no_items": "Δεν υπάρχουν στοιχεία",
         "select_item": "Επιλογή αντικειμένου",
         "date_and_due_date": "Ημερομηνία και ημερομηνία λήξης",
-        "delete_confirm_bill": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το λογαριασμό?"
+        "delete_confirm_bill": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το λογαριασμό?",
+        "no_payment_method": "Καμία μέθοδος πληρωμής"
     },
     "account": {
         "account": "Λογαριασμοί Λογαριασμών",
@@ -800,6 +903,26 @@
         "no_documents": "Δεν βρέθηκαν έγγραφα",
         "create_first_document": "Δημιουργήστε το πρώτο σας έγγραφο",
         "delete_confirm_document": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το έγγραφο?"
+    },
+    "contract": {
+        "contract": "Συμβόλαια Συμβολαίου",
+        "create_contract": "Δημιουργία Συμβολαίου",
+        "edit_contract": "Επεξεργασία Συμβολαίου",
+        "no_contracts": "Δεν βρέθηκαν συμβάσεις",
+        "create_first_contract": "Δημιουργήστε το πρώτο σας συμβόλαιο",
+        "delete_confirm_contract": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το συμβόλαιο?",
+        "contract_details": "Λεπτομέρειες συμβολαίου",
+        "no_content": "Χωρίς περιεχόμενο",
+        "no_partner": "Κανένας συνεργάτης",
+        "sign_contract": "Υπογραφή σύμβασης",
+        "contract_signed": "Υπογεγραμμένο συμβόλαιο",
+        "accept_sign_terms": "Δέχομαι ότι υπογράφοντας αυτό το έγγραφο, συμφωνώ με το ότι η υπογραφή είναι νομικά δεσμευτική και ισοδύναμη με την χειρόγραφη υπογραφή μου.",
+        "accept_terms_required": "Η υπογραφή και αποδοχή των όρων απαιτείται για την υπογραφή της σύμβασης.",
+        "not_signed": "Δεν έχει υπογραφεί ακόμα",
+        "signed": "Υπογεγραμμένο έγγραφο",
+        "no_signers": "Δεν υπάρχουν υπογράφοντες",
+        "share_dialog": "Κοινοποίηση σύμβασης",
+        "share_dialog_text": "Αντιγράψτε τον παρακάτω σύνδεσμο και μοιραστείτε τον με τον σύντροφό σας ή σαρώστε τον κωδικό QR."
     },
     "support": {
         "support": "Υποστήριξη \"Υποστηρίζει",
@@ -867,6 +990,40 @@
         "volunteer": "Εθελοντής",
         "other": "Άλλο"
     },
+    "project": {
+        "project": "Έργα - Έργα",
+        "new_project": "Νέο Έργο",
+        "edit_project": "Επεξεργασία Έργου",
+        "no_projects": "Δεν βρέθηκαν πρότζεκτ",
+        "create_first_project": "Δημιουργήστε το πρώτο σας έργο",
+        "delete_confirm_project": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το έργο?",
+        "project_details": "Λεπτομέρειες έργου",
+        "start_and_end_date": "Ημερομηνία έναρξης και λήξης",
+        "team_members": "Μέλη της ομάδας",
+        "add_team_member": "Προσθήκη μέλους ομάδας",
+        "no_team_members": "Κανένα μέλος της ομάδας",
+        "start_end_date": "Ημερομηνία έναρξης και λήξης",
+        "tasks": "Εργασίες",
+        "add_task": "Προσθήκη Εργασίας",
+        "no_tasks": "Δεν βρέθηκαν εργασίες",
+        "task": "Εργασία",
+        "edit_task": "Επεξεργασία Εργασίας",
+        "delete_task_confirmation": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν την εργασία?",
+        "kanban_board": "Πίνακα Kanban",
+        "create_task": "Δημιουργία Εργασίας",
+        "project_members": "Μέλη Του Έργου",
+        "add_member": "Προσθήκη Μελών",
+        "remove_member": "Αφαίρεση Μέλους",
+        "remove_member_confirmation": "Είστε βέβαιοι ότι θέλετε να αφαιρέσετε αυτό το μέλος από το έργο?",
+        "edit_member": "Επεξεργασία Μέλους"
+    },
+    "project_role": {
+        "owner": "Ιδιοκτήτης",
+        "manager": "Διαχειριστής",
+        "team_member": "Μέλος Ομάδας",
+        "viewer": "Προβολέας",
+        "client": "Πελάτης"
+    },
     "admin": {
         "menu": {
             "dashboard": "Ταμπλό",
@@ -885,7 +1042,10 @@
             "app_status": "Κατάσταση Εφαρμογής",
             "units": "Μονάδες",
             "email": "E-mail",
-            "webhooks": "Webhooks"
+            "webhooks": "Webhooks",
+            "server_settings": "Ρυθμίσεις Διακομιστή",
+            "status_page": "Σελίδα Κατάστασης",
+            "data_collection": "Συλλογή Δεδομένων"
         },
         "company": {
             "title": "Ρυθμίσεις Εταιρείας",
@@ -899,7 +1059,9 @@
             "company_country": "Εταιρική Χώρα",
             "company_vat": "Company VAT",
             "company_logo": "Λογότυπο Εταιρείας",
-            "company_logo_help": "Συνιστώμενο μέγεθος: 100x100px"
+            "company_logo_help": "Συνιστώμενο μέγεθος: 100x100px",
+            "company_website": "Ιστοσελίδα Εταιρείας",
+            "company_primary_color": "Κύριο Χρώμα"
         },
         "integrations": {
             "title": "Ενσωματώσεις",
@@ -922,7 +1084,29 @@
             "open_banking_client_id": "Άνοιγμα Αναγνωριστικού Τραπεζικού Πελάτη",
             "open_banking_secret": "Ανοικτό Τραπεζικό Μυστικό",
             "open_banking_help": "Μπορείτε να βρείτε το ID και το Μυστικό σας πελάτη στο λογαριασμό σας Nordigen.",
-            "online_payments": "Online Πληρωμές"
+            "online_payments": "Online Πληρωμές",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Coinbase διαθέσιμο",
+            "coinbase_api_key": "Κλειδί Api Coinbase",
+            "coinbase_api_key_help": "Μπορείτε να βρείτε το κλειδί API σας στο λογαριασμό συναλλαγών Coinbase.",
+            "coinbase_account_id": "Αναγνωριστικό εσωτερικού λογαριασμού Coinbase",
+            "document_signing_available": "Διαθέσιμη υπογραφή εγγράφου",
+            "document_signing": "Υπογραφή Εγγράφου"
+        },
+        "status": {
+            "title": "Σελίδα Κατάστασης",
+            "app_version": "Έκδοση Εφαρμογής",
+            "latest_version": "Τελευταία Έκδοση",
+            "changelog": "Αρχείο Αλλαγών",
+            "view_changelog": "Προβολή Αρχείου Αλλαγών",
+            "new_version_available": "Νέα έκδοση διαθέσιμη για λήψη",
+            "download_now": "Άμεση λήψη",
+            "php_version": "Έκδοση PHP",
+            "database_version": "Έκδοση Βάσης Δεδομένων",
+            "server_software": "Λογισμικό Διακομιστή",
+            "storage_used": "Χρησιμοποιείται Αποθηκευτικός Χώρος",
+            "storage_limit": "Όριο Αποθήκευσης",
+            "unlimited": "Απεριόριστο"
         },
         "user": {
             "title": "Χρήστες",
@@ -936,9 +1120,13 @@
             "reset_password": "Επαναφορά Κωδικού Πρόσβασης",
             "send_details_to": "Αποστολή λεπτομερειών σε",
             "never_logged_in": "Ποτέ μη συνδεδεμένος",
+            "never_used": "Ποτέ δεν χρησιμοποιείται",
             "auto_generate_password": "Αυτόματη δημιουργία κωδικού πρόσβασης",
             "delete_confirm_user": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον χρήστη?",
-            "disable_2fa": "Απενεργοποίηση 2FA"
+            "disable_2fa": "Απενεργοποίηση 2FA",
+            "personal_access_tokens": "Προσωπικά Διακριτικά Πρόσβασης",
+            "no_personal_access_tokens": "Δεν βρέθηκαν προσωπικά διακριτικά πρόσβασης",
+            "delete_confirm_personal_access_token": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το προσωπικό διακριτικό πρόσβασης?"
         },
         "department": {
             "title": "Τμήματα",
@@ -979,7 +1167,11 @@
             "default_date_format": "Προεπιλεγμένη Μορφή Ημερομηνίας",
             "default_time_format": "Προεπιλεγμένη Μορφή Ώρας",
             "default_datetime_format": "Προεπιλεγμένη Μορφή Ημερομηνίας",
-            "show_barcode_on_documents": "Εμφάνιση barcode στα έγγραφα"
+            "show_barcode_on_documents": "Εμφάνιση barcode στα έγγραφα",
+            "week_start": "Ημέρα Έναρξης Εβδομάδας",
+            "exchange_rate_provider": "Πάροχος Συναλλαγματικών Ισοτιμιών",
+            "save_document_into_archive": "Αποθήκευση εγγράφου στην αρχειοθήκη",
+            "save_document_into_archive_description": "Αν ενεργοποιηθεί, τα έγγραφα θα αποθηκεύονται στο αρχείο (τιμολόγια, εισαγωγικά, τιμολόγια, συμβόλαια)."
         },
         "taxes": {
             "title": "Φορολογικοί Συντελεστές",
@@ -991,7 +1183,9 @@
             "name": "Όνομα",
             "value": "Τιμή",
             "description": "Περιγραφή",
-            "delete_confirm_tax": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον φορολογικό συντελεστή?"
+            "delete_confirm_tax": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον φορολογικό συντελεστή?",
+            "import_tax": "Εισαγωγή Συντελεστών Φόρου",
+            "import_tax_description": "Μπορείτε να εισαγάγετε φορολογικούς συντελεστές από δημόσιους πόρους δεδομένων. Τα δεδομένα θα λαμβάνονται από τη λίστα ΦΠΑ της ΕΕ. Δεν μπορεί να είναι πλήρως ενημερωμένο ή ακριβές. Παρακαλώ ελέγξτε ξανά τα εισαγόμενα δεδομένα."
         },
         "role": {
             "title": "Ρόλοι",
@@ -1047,7 +1241,8 @@
             "mail_from_name": "Email Από Όνομα",
             "send_test_email": "Αποστολή δοκιμαστικού email",
             "send_test_email_to": "Αποστολή δοκιμαστικού email στο",
-            "sendmail_path": "Διαδρομή Sendmail"
+            "sendmail_path": "Διαδρομή Sendmail",
+            "no_email_selected": "Δεν έχει επιλεγεί email"
         },
         "numbering": {
             "title": "Ρυθμίσεις μορφών αριθμών",
@@ -1063,7 +1258,9 @@
             "employee": "Μορφή αριθμού υπαλλήλων",
             "project": "Μορφή αριθμού έργου",
             "department": "Μορφή αριθμού τμήματος",
-            "archive": "Μορφή αριθμού αρχείου"
+            "archive": "Μορφή αριθμού αρχείου",
+            "contract": "Μορφή αριθμού σύμβασης",
+            "yearly": "Ετήσια"
         },
         "webhook": {
             "title": "Συνδρομή Webhooks",
@@ -1075,6 +1272,29 @@
             "delete_confirm_webhook_subscription": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή τη συνδρομή webhook?",
             "add_header": "Προσθήκη Κεφαλίδας",
             "remove_header": "Αφαίρεση Κεφαλίδας"
+        },
+        "data_collection": {
+            "title": "Συλλογή Δεδομένων",
+            "data_collection": "Συλλογή Δεδομένων",
+            "transaction_categories": "Κατηγορίες Συναλλαγών",
+            "document_types": "Τύποι Εγγράφων",
+            "payment_methods": "Τρόποι Πληρωμής",
+            "contract_types": "Τύποι Συμβολαίου",
+            "task_categories": "Κατηγορίες Εργασιών",
+            "project_categories": "Κατηγορίες Έργου",
+            "new_data_collection_item": "Νέο Στοιχείο Συλλογής Δεδομένων",
+            "edit_data_collection_item": "Επεξεργασία Στοιχείου Συλλογής Δεδομένων",
+            "icon_tooltip": "Μπορείτε να χρησιμοποιήσετε εικονίδια γραμματοσειράς. Μπορείτε να βρείτε τη λίστα των εικονιδίων εδώ: https://fontawesome.com/icons",
+            "no_document_types": "Δεν βρέθηκαν τύποι εγγράφων",
+            "no_payment_methods": "Δεν βρέθηκαν τρόποι πληρωμής",
+            "no_transaction_categories": "Δεν βρέθηκαν κατηγορίες συναλλαγών",
+            "no_contract_types": "Δεν βρέθηκαν τύποι συμβάσεων",
+            "delete_category_ask": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το στοιχείο συλλογής δεδομένων?",
+            "delete_category_success": "Το στοιχείο συλλογής δεδομένων διαγράφηκε με επιτυχία",
+            "product_categories": "Κατηγορίες προϊόντων",
+            "no_product_categories": "Δεν βρέθηκαν κατηγορίες προϊόντων",
+            "no_task_categories": "Δεν βρέθηκαν κατηγορίες εργασιών",
+            "no_project_categories": "Δεν βρέθηκαν κατηγορίες έργου"
         }
     },
     "month": {
@@ -1438,5 +1658,23 @@
         "finish_installation_description": "Η εγκατάσταση έχει ολοκληρωθεί. Μπορείτε τώρα να συνδεθείτε στο λογαριασμό σας.",
         "go_to_login": "Πηγαίνετε να συνδεθείτε",
         "installation": "Εγκατάσταση"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Ταμπλό",
+            "invoices": "Τιμολόγια",
+            "quotes": "Προσφορές",
+            "transactions": "Συναλλαγές",
+            "support": "Υποστήριξη",
+            "contracts": "Συμβάσεις",
+            "partner_details": "Λεπτομέρειες Συνεργάτη"
+        },
+        "partner_details": "Λεπτομέρειες συνεργάτη",
+        "dashboard": "Ταμπλό",
+        "number_of_contracts": "Αριθμός συμβάσεων",
+        "number_of_unpaid_invoices": "Αριθμός μη καταβληθέντων τιμολογίων",
+        "number_of_quotes": "Αριθμός εισαγωγικών",
+        "number_of_bills": "Αριθμός λογαριασμών",
+        "number_of_support_tickets": "Αριθμός εισιτηρίων υποστήριξης"
     }
 }
