@@ -7,4 +7,5 @@ return [
     'open_banking' => 'Open Bank',
     'vies_vat' => 'VIES BTW validatie',
     'document_signer' => 'PDF Document Handtekening',
+    'support_ticket_mailer' => 'Ondersteuning van Ticket IMAP integratie',
 ];
