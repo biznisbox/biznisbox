@@ -7,4 +7,5 @@ return [
     'open_banking' => 'Ανοικτή Τραπεζική',
     'vies_vat' => 'VIES Επικύρωση ΦΠΑ',
     'document_signer' => 'Υπογραφέας Εγγράφου Pdf',
+    'support_ticket_mailer' => 'Υποστήριξη Αίτημα Ενσωμάτωσης Imap',
 ];
