@@ -41,4 +41,9 @@ return [
     'admin_email_settings' => 'Paramètres de courriel de l\'administrateur',
     'admin_webhooks' => 'Webhooks admin',
     'webhooks' => 'Webhooks',
+    'contracts' => 'Contrats',
+    'admin_status_page' => 'Page de statut de l\'administrateur',
+    'admin_update_app' => 'Application de mise à jour de l\'administrateur',
+    'admin_data_collection' => 'Collecte de données de l\'administrateur',
+    'projects' => 'Projets',
 ];
