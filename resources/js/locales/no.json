@@ -127,7 +127,11 @@
         "same_as_company_address": "Samme som firmaadresse",
         "audit_log": "Revisjon logg",
         "get_current_location": "Skaff nåværende posisjon",
-        "system": "Systemadministrasjon"
+        "system": "Systemadministrasjon",
+        "add_signer": "Legg til signner",
+        "click_for_download": "Klikk her for å laste ned",
+        "sign": "Signer",
+        "import": "Importer"
     },
     "audit_log": {
         "audit_log": "Revisjon logg",
@@ -160,12 +164,16 @@
         "moved": "Flyttet",
         "retrieve_public": "Hent offentlige",
         "upload": "Last opp",
-        "share": "Del"
+        "share": "Del",
+        "delete": "Slett",
+        "sign": "Signer",
+        "convert_to_invoice": "Konverter til faktura"
     },
     "audit_log_type": {
         "internal": "Intern",
         "external": "Ekstern",
         "external_key": "Ekstern nøkkel",
+        "client_portal": "Klient portal",
         "system": "Systemadministrasjon"
     },
     "user_nav_menu": {
@@ -194,7 +202,9 @@
         "settings": "Innstillinger",
         "employees": "Ansatte",
         "support": "Brukerstøtte",
-        "payments": "Betalinger"
+        "payments": "Betalinger",
+        "contracts": "Kontrakter",
+        "projects": "Prosjekter"
     },
     "dashboard": {
         "title": "Kontrollpanel",
@@ -396,7 +406,33 @@
         "display_name": "Vis navn",
         "theme": "Tema",
         "overpaid_amount": "Overbetalt beløp",
-        "sum_of_payments": "Sum av betalinger"
+        "sum_of_payments": "Sum av betalinger",
+        "date_for_signature": "Dato for signatur",
+        "is_signer": "Er Signer",
+        "signer_name": "Signer navn",
+        "signer_email": "Signer Email",
+        "signer_phone": "Signer telefon",
+        "signers": "Signaler",
+        "outcome": "Resultat",
+        "activity_type": "Aktivitetstype",
+        "user": "Bruker",
+        "is_internal": "Er intern",
+        "picture": "Bilde",
+        "last_used_at": "Sist brukt den",
+        "module": "Modul",
+        "parent_category": "Overordnet kategori",
+        "icon": "Ikon",
+        "additional_info": "Mer informasjon",
+        "client_portal": "Klient portal",
+        "type_of_contract_sign": "Type kontrakt-skilt",
+        "refund": "Refusjon",
+        "payment_number": "Betalings nummer",
+        "is_billable": "Er fakturerbar",
+        "budget": "Budsjett",
+        "project_key": "Prosjektnøkkel (Automatic Translation)",
+        "completed_at": "Fullført ved",
+        "progress_in_percent": "Progress i prosent",
+        "archived_until": "Arkivert til"
     },
     "address_types": {
         "billing": "Fakturering",
@@ -411,6 +447,20 @@
     "entity_types": {
         "company": "Firma",
         "individual": "Individuell"
+    },
+    "time_range": {
+        "one_day": "Én dag",
+        "one_week": "Én uke",
+        "one_month": "Én måned",
+        "three_months": "Tre måneder",
+        "six_months": "Seks måneder",
+        "one_year": "Ett år",
+        "all_time": "Hele tiden",
+        "never": "Aldri"
+    },
+    "task_type": {
+        "task": "Oppgave",
+        "milestone": "Milepæl"
     },
     "industries": {
         "agriculture": "Jordbruk",
@@ -457,9 +507,10 @@
         "bank_transfer": "Bank overføring",
         "cash": "Kontant",
         "check": "Sjekk",
-        "credit_card": "Kredittkort",
+        "credit_card": "Betalingskort",
         "paypal": "PayPal",
         "stripe": "Stripe",
+        "coinbase": "Coinbase",
         "other": "Annet"
     },
     "support_priority": {
@@ -467,6 +518,14 @@
         "low": "Lav",
         "medium": "Middels",
         "normal": "Vanlig",
+        "high": "Høy",
+        "urgent": "Haster"
+    },
+    "priority": {
+        "none": "Ingen",
+        "low": "Lav",
+        "normal": "Vanlig",
+        "medium": "Middels",
         "high": "Høy",
         "urgent": "Haster"
     },
@@ -481,6 +540,11 @@
     "tax_types": {
         "percent": "Prosent",
         "fixed": "Fast"
+    },
+    "contract_sign_types": {
+        "electronic": "Elektronisk",
+        "digital_signature": "Digital signatur",
+        "paper": "Papir"
     },
     "login_history": {
         "login_history": "Påloggings historikk",
@@ -507,7 +571,26 @@
         "contacts": "Kontakter",
         "partner_details": "Detaljer for partner",
         "delete_confirm_partner": "Er du sikker på at du vil slette denne partneren?",
-        "contact_informations": "Kontakt informasjon"
+        "contact_information": "Kontakt Informasjon",
+        "add_activity": "Legg til aktivitet",
+        "no_activities": "Ingen aktiviteter funnet",
+        "activity": "Aktivitet",
+        "activities": "Aktiviteter",
+        "edit_activity": "Rediger aktivitet",
+        "partner_activities": "Øvrige aktiviteter",
+        "send_email": "Send e-post",
+        "add_to_client_portal": "Legg til i klientportalen",
+        "vat_number_required": "MVA-nummer er påkrevd"
+    },
+    "partner_activity_types": {
+        "call": "Ring",
+        "task": "Oppgave",
+        "video_call": "Video Samtale",
+        "meeting": "Møte",
+        "email": "E-post",
+        "visit": "Besøk",
+        "note": "Notat",
+        "other": "Annet"
     },
     "product": {
         "product": "ProduktProdukt(er) produkter",
@@ -540,7 +623,13 @@
         "two_factor_authentication_code": "To-faktor autentiserings kode",
         "two_factor_authentication_code_info": "Skriv inn koden som er generert av din autentiseringsapp for å bekrefte to-faktor autentiseringsoppsett.",
         "verify_2fa": "Verifiser 2FA",
-        "cannot_remove__default_avatar": "Du kan ikke fjerne standard avataren."
+        "cannot_remove_default_avatar": "Du kan ikke fjerne standard avataren.",
+        "personal_access_tokens": "Personlige tilgangsnøkler",
+        "create_personal_access_token": "Opprett personlig tilgangsnøkkel",
+        "no_personal_access_tokens": "Ingen personlige tilgangsnøkler funnet",
+        "generated_personal_access_token_message": "Ditt personlige tilgangstoken er generert. Dette er bare tiden du vil se denne koden, så sørg for å lagre det et trygt sted.",
+        "generated_personal_access_token": "Generert personlig tilgangsnøkkel",
+        "delete_personal_access_token": "Er du sikker på at du vil slette denne personlige tilgangstoken?"
     },
     "document_types": {
         "document": "Dokument",
@@ -588,8 +677,8 @@
         "list_of_transactions": "Liste over transaksjoner",
         "no_sales_person": "Ingen salgsperson",
         "no_payment_method": "Ingen betalingsmåte",
-        "click_for_pay_with_paypal": "Klikk her for å betale med PayPal",
-        "click_for_pay": "Klikk her for å betale"
+        "click_for_pay": "Klikk her for å betale",
+        "select_payment_gateway": "Velg betalingsgateway"
     },
     "quote": {
         "quote": "Tilbud, tilbud",
@@ -618,7 +707,8 @@
         "converted_to_invoice": "Tilbud konvertert til faktura",
         "expired": "Dette tilbudet er utløpt. Du kan ikke akseptere eller avvise det.",
         "rejected": "Dette tilbudet er avvist",
-        "accepted": "Dette tilbudet er blitt godkjent."
+        "accepted": "Dette tilbudet er blitt godkjent.",
+        "no_payment_method": "Ingen betalingsmåte"
     },
     "status": {
         "draft": "Utkast",
@@ -657,7 +747,16 @@
         "in_review": "I gjennomgang",
         "delegated": "Delegert",
         "approved": "Godkjent",
-        "not_approved": "Ikke godkjent"
+        "not_approved": "Ikke godkjent",
+        "waiting_signers": "Venter på signører",
+        "signed": "Signert",
+        "waiting_signature": "Venter på signatur",
+        "not_started": "Ikke påbegynt",
+        "planned": "Planlagt",
+        "spam": "Søppelpost",
+        "on_hold": "På vent",
+        "to_do": "Må gjøres",
+        "done": "Ferdig"
     },
     "calendar": {
         "calendar": "Kalender: Kalendere",
@@ -738,7 +837,10 @@
         "edit_payment": "Rediger betaling",
         "no_payments": "Ingen betalinger funnet",
         "delete_confirm_payment": "Er du sikker på at du vil slette denne betalingen?",
-        "payment_details": "Betalings informasjon"
+        "payment_details": "Betalings informasjon",
+        "refund_confirmation": "Er du sikker på at du vil refundere denne betalingen?",
+        "refund_successful": "Tilbakebetaling var vellykket",
+        "refund_failed": "Tilbakebetaling mislyktes"
     },
     "archive": {
         "archive": "Arkiv: Archives",
@@ -776,7 +878,8 @@
         "no_items": "Ingen elementer",
         "select_item": "Velg element",
         "date_and_due_date": "Forfallsdato dato og dato",
-        "delete_confirm_bill": "Er du sikker på at du vil slette denne regningen?"
+        "delete_confirm_bill": "Er du sikker på at du vil slette denne regningen?",
+        "no_payment_method": "Ingen betalingsmåte"
     },
     "account": {
         "account": "Konto ∙Kontoer",
@@ -800,6 +903,26 @@
         "no_documents": "Ingen dokumenter ble funnet",
         "create_first_document": "Opprett ditt første dokument",
         "delete_confirm_document": "Er du sikker på at du vil slette dette dokumentet?"
+    },
+    "contract": {
+        "contract": "Kontraktene Kontraktene",
+        "create_contract": "Opprett Kontrakt",
+        "edit_contract": "Rediger kontrakt",
+        "no_contracts": "Ingen kontrakter funnet",
+        "create_first_contract": "Opprett din første kontrakt",
+        "delete_confirm_contract": "Er du sikker på at du vil slette denne kontrakten?",
+        "contract_details": "Kontrakt informasjon",
+        "no_content": "Intet innhold",
+        "no_partner": "Ingen partner",
+        "sign_contract": "Signer kontrakt",
+        "contract_signed": "Kontrakt signert",
+        "accept_sign_terms": "Jeg aksepterer at ved signering av dette dokumentet er jeg enig i at signaturen er juridisk bindende og tilsvarende min håndskrevne signatur.",
+        "accept_terms_required": "Signatur og aksept av vilkår er påkrevd for å undertegne kontrakten.",
+        "not_signed": "Ikke signert ennå",
+        "signed": "Dokument signert",
+        "no_signers": "Ingen signører",
+        "share_dialog": "Del kontrakt",
+        "share_dialog_text": "Kopier lenken nedenfor og del den med partneren din eller skann QR-koden."
     },
     "support": {
         "support": "Støtte iNaturSupport Support",
@@ -867,6 +990,40 @@
         "volunteer": "Frivillig",
         "other": "Annet"
     },
+    "project": {
+        "project": "Prosjekt εProsjekter",
+        "new_project": "Nytt prosjekt",
+        "edit_project": "Rediger prosjekt",
+        "no_projects": "Ingen prosjekter funnet",
+        "create_first_project": "Opprett ditt første prosjekt",
+        "delete_confirm_project": "Er du sikker på at du vil slette dette prosjektet?",
+        "project_details": "Prosjektets detaljer",
+        "start_and_end_date": "Start- og sluttdato",
+        "team_members": "Teammedlemmer",
+        "add_team_member": "Legg til gruppemedlem",
+        "no_team_members": "Ingen teammedlemmer",
+        "start_end_date": "Start- og sluttdato",
+        "tasks": "Oppgaver",
+        "add_task": "Legg til oppgave",
+        "no_tasks": "Finner ingen aktiviteter",
+        "task": "Oppgave Eylea-oppgaver",
+        "edit_task": "Rediger oppgave",
+        "delete_task_confirmation": "Er du sikker på at du vil slette oppgaven?",
+        "kanban_board": "Kanban Board",
+        "create_task": "Ny oppgave",
+        "project_members": "Prosjektmedlemmer",
+        "add_member": "Legg til medlem",
+        "remove_member": "Fjern medlem",
+        "remove_member_confirmation": "Er du sikker på at du vil fjerne dette medlemmet fra prosjektet?",
+        "edit_member": "Rediger medlem"
+    },
+    "project_role": {
+        "owner": "Eier",
+        "manager": "Leder",
+        "team_member": "Gruppe medlem",
+        "viewer": "Bruker",
+        "client": "Klient"
+    },
     "admin": {
         "menu": {
             "dashboard": "Kontrollpanel",
@@ -885,7 +1042,10 @@
             "app_status": "Applikasjons status",
             "units": "Enheter",
             "email": "E-post",
-            "webhooks": "Nettkroker"
+            "webhooks": "Nettkroker",
+            "server_settings": "Server Innstillinger",
+            "status_page": "Status side",
+            "data_collection": "Data samling"
         },
         "company": {
             "title": "Bedriftens innstillinger",
@@ -899,7 +1059,9 @@
             "company_country": "Selskap land",
             "company_vat": "Company VAT",
             "company_logo": "Firmaets logo",
-            "company_logo_help": "Anbefalt størrelse: 100 x 100px"
+            "company_logo_help": "Anbefalt størrelse: 100 x 100px",
+            "company_website": "Firmaets hjemmeside",
+            "company_primary_color": "Primær farge"
         },
         "integrations": {
             "title": "Integrasjoner",
@@ -922,7 +1084,29 @@
             "open_banking_client_id": "Åpne Banking klient-ID",
             "open_banking_secret": "Åpne banking hemmelighet",
             "open_banking_help": "Finner du din klient-ID og hemmelig i din Nordig-konto.",
-            "online_payments": "Elektroniske betalinger"
+            "online_payments": "Elektroniske betalinger",
+            "coinbase": "Coinbase",
+            "coinbase_available": "Coinbase tilgjengelig",
+            "coinbase_api_key": "Coinbase API-nøkkel",
+            "coinbase_api_key_help": "Du kan finne din API-nøkkel i din Coinbase handelskonto.",
+            "coinbase_account_id": "Coinbase intern konto-ID",
+            "document_signing_available": "Dokument signering tilgjengelig",
+            "document_signing": "Dokument signering"
+        },
+        "status": {
+            "title": "Status side",
+            "app_version": "App versjon",
+            "latest_version": "Nyeste versjon",
+            "changelog": "Endringslogg",
+            "view_changelog": "Se endringslogg",
+            "new_version_available": "Ny versjon tilgjengelig for nedlasting",
+            "download_now": "Last ned nå",
+            "php_version": "PHP versjon",
+            "database_version": "Database Versjon",
+            "server_software": "Server programvare",
+            "storage_used": "Brukt lagringsplass",
+            "storage_limit": "Grense for lagring",
+            "unlimited": "Ubegrenset"
         },
         "user": {
             "title": "Brukere",
@@ -936,9 +1120,13 @@
             "reset_password": "Tilbakestill passord",
             "send_details_to": "Send detaljer til",
             "never_logged_in": "Aldri logget inn",
+            "never_used": "Aldri brukt",
             "auto_generate_password": "Autogenerer passord",
             "delete_confirm_user": "Er du sikker på at du vil slette denne brukeren?",
-            "disable_2fa": "Deaktiver 2FA"
+            "disable_2fa": "Deaktiver 2FA",
+            "personal_access_tokens": "Personlige tilgangsnøkler",
+            "no_personal_access_tokens": "Ingen personlige tilgangsnøkler funnet",
+            "delete_confirm_personal_access_token": "Er du sikker på at du vil slette denne personlige tilgangstoken?"
         },
         "department": {
             "title": "Avdelinger",
@@ -979,7 +1167,11 @@
             "default_date_format": "Standard datoformat",
             "default_time_format": "Standard klokkeslettformat",
             "default_datetime_format": "Standard datoformat",
-            "show_barcode_on_documents": "Vis strekkode på dokumenter"
+            "show_barcode_on_documents": "Vis strekkode på dokumenter",
+            "week_start": "Ukens startdag",
+            "exchange_rate_provider": "Valutakurs leverandør",
+            "save_document_into_archive": "Lagre dokument til arkiv",
+            "save_document_into_archive_description": "Dersom aktivert vil dokumenter bli lagret i arkivet (fakturaer, tilbud, regninger, kontrakter)."
         },
         "taxes": {
             "title": "Mva satser",
@@ -991,7 +1183,9 @@
             "name": "Navn",
             "value": "Verdi",
             "description": "Beskrivelse",
-            "delete_confirm_tax": "Er du sikker på at du vil slette denne skattesatsen?"
+            "delete_confirm_tax": "Er du sikker på at du vil slette denne skattesatsen?",
+            "import_tax": "Importere skattesatser",
+            "import_tax_description": "Du kan importere skattesatser fra offentlige ressurser. Data vil bli hentet fra EUs mva-liste. Den kan ikke være fullstendig oppdatert eller nøyaktig. Vennligst dobbeltsjekk de importerte dataene."
         },
         "role": {
             "title": "Roller",
@@ -1047,7 +1241,8 @@
             "mail_from_name": "E-post fra navn",
             "send_test_email": "Send test-e-post",
             "send_test_email_to": "Send test-epost til",
-            "sendmail_path": "Sti for Sendmail"
+            "sendmail_path": "Sti for Sendmail",
+            "no_email_selected": "Ingen e-post valgt"
         },
         "numbering": {
             "title": "Antall formater innstillinger",
@@ -1063,7 +1258,9 @@
             "employee": "Format for ansattes",
             "project": "Prosjektets nummer format",
             "department": "Avdelingsnummer format",
-            "archive": "Arkiver nummer format"
+            "archive": "Arkiver nummer format",
+            "contract": "Kontrakt nummer format",
+            "yearly": "Årlig"
         },
         "webhook": {
             "title": "Webhooks abonnement",
@@ -1075,6 +1272,29 @@
             "delete_confirm_webhook_subscription": "Er du sikker på at du vil slette dette webhook-abonnementet?",
             "add_header": "Legg til topptekst",
             "remove_header": "Fjern topptekst"
+        },
+        "data_collection": {
+            "title": "Data samling",
+            "data_collection": "Data samling",
+            "transaction_categories": "Transaksjons kategorier",
+            "document_types": "Dokument typer",
+            "payment_methods": "Betalingsmåter",
+            "contract_types": "Kontrakt typer",
+            "task_categories": "Oppgave kategorier",
+            "project_categories": "Prosjekt kategorier",
+            "new_data_collection_item": "Ny datainnsamlingselement",
+            "edit_data_collection_item": "Rediger datainnsamlingselement",
+            "icon_tooltip": "Du kan bruke Font Awesome ikoner. Du finner listen over ikonene her: https://fontawesome.com/icons",
+            "no_document_types": "Ingen dokumenttyper funnet",
+            "no_payment_methods": "Ingen betalingsmetoder funnet",
+            "no_transaction_categories": "Ingen transaksjonskategorier funnet",
+            "no_contract_types": "Ingen kontrakttyper funnet",
+            "delete_category_ask": "Er du sikker på at du vil slette denne datainnsamlingen?",
+            "delete_category_success": "Datainnsamlingen ble slettet",
+            "product_categories": "Produkt kategorier",
+            "no_product_categories": "Ingen produktkategorier funnet",
+            "no_task_categories": "Ingen oppgavekategorier funnet",
+            "no_project_categories": "Ingen prosjektkategorier funnet"
         }
     },
     "month": {
@@ -1438,5 +1658,23 @@
         "finish_installation_description": "Installasjonen er ferdig. Du kan nå logge inn på kontoen din.",
         "go_to_login": "Gå til innlogging",
         "installation": "Installasjon"
+    },
+    "client_portal": {
+        "menu": {
+            "dashboard": "Kontrollpanel",
+            "invoices": "Fakturaer",
+            "quotes": "Tilbud",
+            "transactions": "Transaksjoner",
+            "support": "Brukerstøtte",
+            "contracts": "Kontrakter",
+            "partner_details": "Detaljer for partner"
+        },
+        "partner_details": "Detaljer for partner",
+        "dashboard": "Kontrollpanel",
+        "number_of_contracts": "Antall kontrakter",
+        "number_of_unpaid_invoices": "Antall ubetalte fakturaer",
+        "number_of_quotes": "Antall tilbud",
+        "number_of_bills": "Antall regninger",
+        "number_of_support_tickets": "Antall saker til støtte"
     }
 }
