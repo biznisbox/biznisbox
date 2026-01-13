@@ -1091,7 +1091,17 @@
             "coinbase_api_key_help": "Puoi trovare la tua chiave API nel tuo account Coinbase commerce.",
             "coinbase_account_id": "Coinbase ID account interno",
             "document_signing_available": "Firma documento disponibile",
-            "document_signing": "Firma Del Documento"
+            "document_signing": "Firma Del Documento",
+            "support_ticket_imap": "Supporto Ticket IMAP",
+            "support_ticket_imap_available": "Ticket di supporto IMAP disponibile",
+            "support_ticket_imap_host": "Host IMAP",
+            "support_ticket_imap_port": "Porta IMAP",
+            "support_ticket_imap_encryption": "Crittografia IMAP",
+            "support_ticket_imap_username": "Nome Utente IMAP",
+            "support_ticket_imap_password": "Password IMAP",
+            "support_ticket_imap_help": "I ticket di supporto verranno recuperati da questo indirizzo email tramite IMAP.",
+            "support_ticket_imap_default_folder": "Cartella Predefinita",
+            "support_ticket_imap_check_connection": "Verifica Connessione"
         },
         "status": {
             "title": "Pagina Di Stato",
