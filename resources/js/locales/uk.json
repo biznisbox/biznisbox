@@ -1091,7 +1091,17 @@
             "coinbase_api_key_help": "Ви можете знайти свій ключ API у вашому обліковому записі Coinbase.",
             "coinbase_account_id": "Ідентифікатор внутрішнього облікового запису Coinbase",
             "document_signing_available": "Доступний підпис документа",
-            "document_signing": "Підписання документа"
+            "document_signing": "Підписання документа",
+            "support_ticket_imap": "IMAP заявок",
+            "support_ticket_imap_available": "IMAP доступний в службі підтримки",
+            "support_ticket_imap_host": "Хост IMAP",
+            "support_ticket_imap_port": "Порт IMAP",
+            "support_ticket_imap_encryption": "Шифрування IMAP",
+            "support_ticket_imap_username": "Ім'я користувача IMAP",
+            "support_ticket_imap_password": "Пароль IMAP",
+            "support_ticket_imap_help": "Заяви служби підтримки будуть завантажені з цієї адреси електронної пошти через IMAP.",
+            "support_ticket_imap_default_folder": "Папка за замовчуванням",
+            "support_ticket_imap_check_connection": "Перевірте підключення"
         },
         "status": {
             "title": "Сторінка стану",
