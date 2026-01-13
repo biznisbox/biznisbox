@@ -1091,7 +1091,17 @@
             "coinbase_api_key_help": "Вы можете найти ваш API ключ в вашей учетной записи Coinbase commerce аккаунта.",
             "coinbase_account_id": "ID внутреннего аккаунта Coinbase",
             "document_signing_available": "Подписание документа доступно",
-            "document_signing": "Подписание документа"
+            "document_signing": "Подписание документа",
+            "support_ticket_imap": "Поддержка - IMAP",
+            "support_ticket_imap_available": "Доступна поддержка - IMAP",
+            "support_ticket_imap_host": "IMAP хост",
+            "support_ticket_imap_port": "Порт IMAP",
+            "support_ticket_imap_encryption": "Шифрование IMAP",
+            "support_ticket_imap_username": "Имя пользователя IMAP",
+            "support_ticket_imap_password": "Пароль IMAP",
+            "support_ticket_imap_help": "Заявки на поддержку будут загружены с этого адреса электронной почты через IMAP.",
+            "support_ticket_imap_default_folder": "Папка по умолчанию",
+            "support_ticket_imap_check_connection": "Проверить подключение"
         },
         "status": {
             "title": "Страница статуса",
