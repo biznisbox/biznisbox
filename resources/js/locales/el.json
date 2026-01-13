@@ -1091,7 +1091,17 @@
             "coinbase_api_key_help": "Μπορείτε να βρείτε το κλειδί API σας στο λογαριασμό συναλλαγών Coinbase.",
             "coinbase_account_id": "Αναγνωριστικό εσωτερικού λογαριασμού Coinbase",
             "document_signing_available": "Διαθέσιμη υπογραφή εγγράφου",
-            "document_signing": "Υπογραφή Εγγράφου"
+            "document_signing": "Υπογραφή Εγγράφου",
+            "support_ticket_imap": "Υποστήριξη Αιτήματος Imap",
+            "support_ticket_imap_available": "Αίτημα υποστήριξης IMAP διαθέσιμο",
+            "support_ticket_imap_host": "Υπολογιστής IMAP",
+            "support_ticket_imap_port": "Θύρα IMAP",
+            "support_ticket_imap_encryption": "Κρυπτογράφηση IMAP",
+            "support_ticket_imap_username": "Όνομα Χρήστη IMAP",
+            "support_ticket_imap_password": "Κωδικός Πρόσβασης Imap",
+            "support_ticket_imap_help": "Τα εισιτήρια υποστήριξης θα ανακτηθούν από αυτή τη διεύθυνση ηλεκτρονικού ταχυδρομείου μέσω του IMAP.",
+            "support_ticket_imap_default_folder": "Προεπιλεγμένος Φάκελος",
+            "support_ticket_imap_check_connection": "Έλεγχος Σύνδεσης"
         },
         "status": {
             "title": "Σελίδα Κατάστασης",
