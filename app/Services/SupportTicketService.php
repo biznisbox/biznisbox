@@ -75,7 +75,6 @@ class SupportTicketService
         }
 
         if ($supportTicket) {
-
             $this->sendTicketMessage(
                 $supportTicket->id,
                 $supportTicketMessage->id,
@@ -298,7 +297,16 @@ class SupportTicketService
                 $latestContent ? $latestContent->message_id : null,
             ),
         );
-        saveSendEmailLog('SupportTicketMessage', 'support_ticket', $contact->email, 'sent', 'user', auth()->id(), $ticket->subject, $messageContent->message);
+        saveSendEmailLog(
+            'SupportTicketMessage',
+            'support_ticket',
+            $contact->email,
+            'sent',
+            'user',
+            auth()->id(),
+            $ticket->subject,
+            $messageContent->message,
+        );
 
         return true;
     }
