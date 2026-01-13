@@ -1091,7 +1091,17 @@
             "coinbase_api_key_help": "Du kan finde din API-nøgle på din Coinbase handelskonto.",
             "coinbase_account_id": "Coinbase intern konto ID",
             "document_signing_available": "Dokumentsignatur tilgængelig",
-            "document_signing": "Dokument Signing"
+            "document_signing": "Dokument Signing",
+            "support_ticket_imap": "Support Bestilling IMAP",
+            "support_ticket_imap_available": "Support Bestilling IMAP tilgængelig",
+            "support_ticket_imap_host": "IMAP Host",
+            "support_ticket_imap_port": "IMAP Port",
+            "support_ticket_imap_encryption": "IMAP Kryptering",
+            "support_ticket_imap_username": "IMAP Brugernavn",
+            "support_ticket_imap_password": "IMAP Adgangskode",
+            "support_ticket_imap_help": "Support billetter vil blive hentet fra denne e-mail-adresse via IMAP.",
+            "support_ticket_imap_default_folder": "Standard Mappe",
+            "support_ticket_imap_check_connection": "Tjek Forbindelse"
         },
         "status": {
             "title": "Status Side",
