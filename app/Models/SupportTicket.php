@@ -85,16 +85,6 @@ class SupportTicket extends Model implements Auditable
         return generateNextNumber(settings('support_ticket_number_format'), 'support_ticket');
     }
 
-    public function shareTicket($id)
-    {
-        $ticket = $this->find($id);
-        $key = generateExternalKey('support', $ticket->id);
-        $url = url('/client/support/' . $id . '?key=' . $key . '&lang=' . app()->getLocale());
-        createActivityLog('share', $ticket->id, SupportTicket::$modelName, 'shareTicket');
-        sendWebhookForEvent('support_ticket:shared', ['id' => $ticket->id, 'url' => $url]);
-        return $url;
-    }
-
     public static function getClientTicket($id)
     {
         $ticket = self::with('partner', 'category', 'content', 'department:name,email,phone_number,type,id')->find($id);

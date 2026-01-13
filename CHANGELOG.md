@@ -2,10 +2,10 @@
 
 ## ✨ New Features & Enhancements
 
-- Add new feature to add manage support ticket messages via email (IMAP). Users can now reply to support ticket messages directly from their email clients, and the responses will be automatically linked to the corresponding support tickets in the system. (This feature enhances communication efficiency and ensures that all ticket-related correspondence is centralized within the support ticketing system.)
-- Add new PDF template for product exporting with improved design and layout.
+- Add a new feature to manage support ticket messages via email (IMAP). Users can now reply to support ticket messages directly from their email clients, and the responses will be automatically linked to the corresponding support tickets in the system. (This feature enhances communication efficiency and ensures that all ticket-related correspondence is centralised within the support ticketing system.)
+- Add a new PDF template for product exporting with improved design and layout.
 
-# 🐛 Bug Fixes
+## 🐛 Bug Fixes
 
 - Fixed bug with numbering items in the view of support ticket replays.
 

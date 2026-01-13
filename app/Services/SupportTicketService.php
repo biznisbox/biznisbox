@@ -118,12 +118,12 @@ class SupportTicketService
             $data['contact_phone_number'] = null;
         }
 
-        $data['number'] = $supportTicket['number'];
+        $data['number'] = $supportTicket['number']; // Prevent number change
 
         $supportTicket->update($data);
 
         if ($supportTicket) {
-            $supportTicket = $this->supportTicketModel->getSupportTicket($id);
+            $supportTicket = $this->getTicket($id);
             sendWebhookForEvent('support_ticket:updated', $supportTicket->toArray());
             return $supportTicket;
         }
@@ -201,11 +201,13 @@ class SupportTicketService
 
     public function shareTicket($id)
     {
-        $ticket = $this->supportTicketModel->shareTicket($id);
-        if ($ticket) {
-            return $ticket;
-        }
-        return false;
+
+        $ticket = $this->supportTicketModel->find($id);
+        $key = generateExternalKey('support', $ticket->id);
+        $url = url('/client/support/' . $id . '?key=' . $key . '&lang=' . app()->getLocale());
+        createActivityLog('share', $ticket->id, SupportTicket::$modelName, 'shareTicket');
+        sendWebhookForEvent('support_ticket:shared', ['id' => $ticket->id, 'url' => $url]);
+        return $url;
     }
 
     public function sendTicketNotificationToContact($id)
