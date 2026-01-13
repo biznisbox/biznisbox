@@ -1091,7 +1091,17 @@
             "coinbase_api_key_help": "Voit löytää oman API avain teidän Coinbase kaupan tili.",
             "coinbase_account_id": "Coinbase sisäinen tili ID",
             "document_signing_available": "Asiakirjan allekirjoitus saatavilla",
-            "document_signing": "Asiakirjan Allekirjoitus"
+            "document_signing": "Asiakirjan Allekirjoitus",
+            "support_ticket_imap": "Tuki Tiketin IMAP",
+            "support_ticket_imap_available": "Tuki Ticket IMAP saatavilla",
+            "support_ticket_imap_host": "IMAP Isäntä",
+            "support_ticket_imap_port": "IMAP Portti",
+            "support_ticket_imap_encryption": "IMAP-salaus",
+            "support_ticket_imap_username": "IMAP Käyttäjänimi",
+            "support_ticket_imap_password": "IMAP Salasana",
+            "support_ticket_imap_help": "Tukiliput haetaan tästä sähköpostiosoitteesta IMAP: n kautta.",
+            "support_ticket_imap_default_folder": "Oletuskansio",
+            "support_ticket_imap_check_connection": "Tarkista Yhteys"
         },
         "status": {
             "title": "Tila Sivu",
