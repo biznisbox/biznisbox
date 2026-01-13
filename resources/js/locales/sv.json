@@ -1091,7 +1091,17 @@
             "coinbase_api_key_help": "Du kan hitta din API-nyckel i ditt Coinbase handelskonto.",
             "coinbase_account_id": "Coinbase internt konto-ID",
             "document_signing_available": "Dokumentsignering tillgänglig",
-            "document_signing": "Signering av dokument"
+            "document_signing": "Signering av dokument",
+            "support_ticket_imap": "Supportärende IMAP",
+            "support_ticket_imap_available": "Support Biljett IMAP tillgängligt",
+            "support_ticket_imap_host": "IMAP värd",
+            "support_ticket_imap_port": "IMAP port",
+            "support_ticket_imap_encryption": "IMAP-kryptering",
+            "support_ticket_imap_username": "IMAP användarnamn",
+            "support_ticket_imap_password": "IMAP lösenord",
+            "support_ticket_imap_help": "Supportärenden hämtas från denna e-postadress via IMAP.",
+            "support_ticket_imap_default_folder": "Förvald mapp",
+            "support_ticket_imap_check_connection": "Kontrollera anslutning"
         },
         "status": {
             "title": "Statussida",
