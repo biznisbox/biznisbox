@@ -1091,7 +1091,17 @@
             "coinbase_api_key_help": "U kunt uw API-sleutel vinden in uw Coinbase handelsaccount.",
             "coinbase_account_id": "Coinbase intern account-ID",
             "document_signing_available": "Documentondertekening beschikbaar",
-            "document_signing": "Document ondertekenen"
+            "document_signing": "Document ondertekenen",
+            "support_ticket_imap": "Ondersteuning van Ticket IMAP",
+            "support_ticket_imap_available": "Ondersteuning van Ticket IMAP beschikbaar",
+            "support_ticket_imap_host": "IMAP host",
+            "support_ticket_imap_port": "IMAP poort",
+            "support_ticket_imap_encryption": "IMAP encryptie",
+            "support_ticket_imap_username": "IMAP gebruikersnaam",
+            "support_ticket_imap_password": "IMAP wachtwoord",
+            "support_ticket_imap_help": "Support tickets worden van dit e-mailadres opgehaald via IMAP.",
+            "support_ticket_imap_default_folder": "Standaard map",
+            "support_ticket_imap_check_connection": "Verbinding controleren"
         },
         "status": {
             "title": "Status pagina",
