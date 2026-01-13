@@ -10,6 +10,14 @@ use Illuminate\Support\Str;
 
 class SupportTicketService
 {
+    private SupportTicket $supportTicketModel;
+    private SupportTicketContent $supportTicketContentModel;
+    public function __construct(SupportTicket $supportTicketModel, SupportTicketContent $supportTicketContentModel)
+    {
+        $this->supportTicketModel = $supportTicketModel;
+        $this->supportTicketContentModel = $supportTicketContentModel;
+    }
+
     public function getTicket($key)
     {
         if (!$key) {
@@ -41,14 +49,20 @@ class SupportTicketService
             if (!$ticket) {
                 return false;
             }
-            $content = new SupportTicketContent();
 
             $response = [
                 'from' => $data['from'] ?? ($key_data->recipient_id ?? 'Client'),
                 'message' => $data['message'],
             ];
 
-            $content = $content->createTicketMessage($ticket->id, $response);
+            $content = $this->supportTicketContentModel->create([
+                'ticket_id' => $ticket->id,
+                'from' => $response['from'],
+                'message' => $response['message'],
+                'type' => 'text',
+                'status' => 'sent',
+            ]);
+
             if ($content) {
                 createNotification(
                     getUserIdFromEmployeeId($ticket->assignee_id),
