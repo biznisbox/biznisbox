@@ -201,7 +201,6 @@ class SupportTicketService
 
     public function shareTicket($id)
     {
-
         $ticket = $this->supportTicketModel->find($id);
         $key = generateExternalKey('support', $ticket->id);
         $url = url('/client/support/' . $id . '?key=' . $key . '&lang=' . app()->getLocale());
