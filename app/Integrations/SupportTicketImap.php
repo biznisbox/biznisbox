@@ -1,10 +1,12 @@
 <?php
 namespace App\Integrations;
 
+use App\Enum\NotificationType;
 use DirectoryTree\ImapEngine\Mailbox;
 use DirectoryTree\ImapEngine\Message;
 use App\Models\SupportTicket;
 use App\Models\SupportTicketContent;
+use Str;
 
 class SupportTicketImap
 {
@@ -102,6 +104,14 @@ class SupportTicketImap
             if ($ticket) {
                 // Check if message with same message_id already exists
                 $this->createTicketContent($ticket->id, $message, $subject);
+                createNotification(
+                    getUserIdFromEmployeeId($ticket->assignee_id),
+                    'NewTicketMessage',
+                    Str::limit($message->text(), 150),
+                    NotificationType::INFO,
+                    'view',
+                    'support/' . $ticket->id,
+                );
             }
         } else {
             // No existing ticket found, create new ticket and content

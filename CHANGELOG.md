@@ -1,3 +1,11 @@
+# 2.18.1
+## ✨ New Features & Enhancements
+- Added notification for new replays in support tickets to assignees of the support ticket.
+
+## 🐛 Bug Fixes
+- Fixed an issue with support ticket updating and retrieving due structural changes in the SupportTicket module.
+- Fixed missing translation strings in the support ticket module.
+
 # 2.18.0
 
 ## ✨ New Features & Enhancements
