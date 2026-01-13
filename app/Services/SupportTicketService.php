@@ -8,7 +8,6 @@ use App\Models\SupportTicketContent;
 use App\Models\PartnerContact;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Client\SupportTicketNotification;
-use Illuminate\Support\Facades\Log;
 
 class SupportTicketService
 {
@@ -76,6 +75,7 @@ class SupportTicketService
         }
 
         if ($supportTicket) {
+
             $this->sendTicketMessage(
                 $supportTicket->id,
                 $supportTicketMessage->id,
@@ -256,7 +256,15 @@ class SupportTicketService
 
     public function sendTicketMessage($ticket_id, $contentId, $customContact, $contactId, $data = [])
     {
+        if (!settings('support_ticket_imap_available')) {
+            return;
+        }
         $ticket = $this->getTicket($ticket_id);
+
+        if ($ticket->is_internal == true) {
+            return false;
+        }
+
         $messageContent = $this->supportTicketContentModel->getTicketMessageById($contentId);
 
         // select latest replay for response threading
@@ -265,9 +273,6 @@ class SupportTicketService
             ->orderBy('created_at', 'desc')
             ->first();
 
-        if ($ticket->is_internal == true) {
-            return false;
-        }
         if ($customContact) {
             $contact = new \stdClass();
             $contact->email = $ticket->contact_email;
@@ -293,7 +298,7 @@ class SupportTicketService
                 $latestContent ? $latestContent->message_id : null,
             ),
         );
-        saveSendEmailLog('SupportTicketNotification', 'support_ticket', $contact->email, 'sent', 'system', null);
+        saveSendEmailLog('SupportTicketMessage', 'support_ticket', $contact->email, 'sent', 'user', auth()->id(), $ticket->subject, $messageContent->message);
 
         return true;
     }

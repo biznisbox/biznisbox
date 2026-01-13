@@ -60,7 +60,7 @@ class SupportTicketImap
     public function processMessages()
     {
         if (!$this->config['support_ticket_imap_available']) {
-            return;
+            return "Option not enabled";
         }
 
         try {
@@ -119,6 +119,7 @@ class SupportTicketImap
                 'type' => 'ticket',
             ]);
             $this->createTicketContent($newTicket->id, $message, $subject);
+            incrementLastItemNumber('support_ticket', settings('support_ticket_number_format'));
         }
     }
 
@@ -126,7 +127,7 @@ class SupportTicketImap
     {
         SupportTicketContent::create([
             'ticket_id' => $ticketId,
-            'to' => $message->to() ? implode(', ', array_map(fn($addr) => $addr->email(), $message->to())) : '',
+            'to' => $message->to() ? implode(', ', array_map(fn($addr) => $addr->name() . ' <' . $addr->email() . '>', $message->to())) : '',
             'from' => $message->from() ? $message->from()->name() . ' <' . $message->from()->email() . '>' : null,
             'status' => 'received',
             'message' => $message->html(),
