@@ -1091,7 +1091,17 @@
             "coinbase_api_key_help": "Váš API klíč můžete najít v komerčním účtu Coinbase.",
             "coinbase_account_id": "ID interního účtu Coinbase",
             "document_signing_available": "Podpis dokumentu je k dispozici",
-            "document_signing": "Podpis dokumentu"
+            "document_signing": "Podpis dokumentu",
+            "support_ticket_imap": "Podpora IMAP tiketu",
+            "support_ticket_imap_available": "Je k dispozici IMAP podpory tiketu",
+            "support_ticket_imap_host": "IMAP hostitel",
+            "support_ticket_imap_port": "Port IMAP",
+            "support_ticket_imap_encryption": "Šifrování IMAP",
+            "support_ticket_imap_username": "IMAP uživatelské jméno",
+            "support_ticket_imap_password": "IMAP heslo",
+            "support_ticket_imap_help": "Tikety podpory budou načteny z této e-mailové adresy přes IMAP.",
+            "support_ticket_imap_default_folder": "Výchozí složka",
+            "support_ticket_imap_check_connection": "Zkontrolovat připojení"
         },
         "status": {
             "title": "Stavová stránka",
