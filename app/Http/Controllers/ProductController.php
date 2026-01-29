@@ -134,7 +134,13 @@ class ProductController extends Controller
         $number = $this->productService->getProductNumber();
         return apiResponse($number, __('responses.data_retrieved_successfully'));
     }
-
+    /**
+     * Get product PDF
+     *
+     * @param  object  $request request
+     * @param  string  $id id of the product
+     * @return mixed PDF stream or download response
+     */
     public function getProductPdf(Request $request, string $id)
     {
         if (!$request->hasValidSignatureWhileIgnoring(['lang'])) {
