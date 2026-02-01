@@ -18,7 +18,7 @@
         "@shufo/prettier-plugin-blade": "^1.16.1",
         "@tailwindcss/vite": "^4.1.18",
         "@vitejs/plugin-vue": "^6.0.3",
-        "autoprefixer": "^10.4.23",
+        "autoprefixer": "^10.4.24",
         "axios": "^1.13.4",
         "eslint": "^9.39.2",
         "eslint-plugin-vue": "^10.7.0",
