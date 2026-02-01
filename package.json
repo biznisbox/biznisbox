@@ -22,7 +22,7 @@
         "axios": "^1.13.4",
         "eslint": "^9.39.2",
         "eslint-plugin-vue": "^10.7.0",
-        "globals": "^17.2.0",
+        "globals": "^17.3.0",
         "laravel-vite-plugin": "^2.1.0",
         "prettier": "^3.8.1",
         "tailwindcss": "^4.1.18",
