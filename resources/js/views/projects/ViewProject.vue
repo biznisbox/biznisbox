@@ -459,5 +459,20 @@ export default {
             projectMemberForm: { user_id: null, role: null },
         }
     },
+
+    watch: {
+        '$route.params.id'(newId) {
+            this.getProject(newId)
+        },
+        '$route.query.task'(newTaskId) {
+            if (newTaskId) {
+                this.getTask(newTaskId)
+                this.showNewEditTaskDialog = true
+                this.isEditTask = true
+                // Remove the task query parameter from the URL
+                this.$router.replace({ query: { ...this.$route.query, task: undefined } })
+            }
+        },
+    },
 }
 </script>
