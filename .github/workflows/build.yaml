@@ -4,94 +4,106 @@ on:
         branches:
             - main
         tags:
-            - v*
+            - 'v*'
     workflow_dispatch:
     schedule:
         # Every week on Sunday at midnight
         - cron: '0 0 * * 0'
+
 permissions:
     contents: write
     actions: write
+
 env:
-    TYPE_OF_BUILD: 'production'
     GITHUB_SHA: ${{ github.sha }}
+
 jobs:
     build:
         runs-on: ubuntu-latest
+        outputs:
+            TYPE_OF_BUILD: ${{ steps.final-type.outputs.TYPE_OF_BUILD }}
         steps:
             - name: Checkout code
-              uses: actions/checkout@v6
-            - name: Setup build type - nightly
-              if: github.event_name == 'schedule'
-              env:
-                  TYPE_OF_BUILD: 'nightly'
+              uses: actions/checkout@v4
+
+            # Logic to determine build type
+            - name: Setup build type
+              id: set-type
               run: |
-                  echo "TYPE_OF_BUILD=$TYPE_OF_BUILD" >> $GITHUB_ENV
-                  echo "Scheduled build"
-            - name: Setup build type - production
-              if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
-              env:
-                  TYPE_OF_BUILD: 'development'
-              run: |
-                  echo "TYPE_OF_BUILD=$TYPE_OF_BUILD" >> $GITHUB_ENV
-                  echo "Pushed to main branch or manual dispatch - development build"
-            - name: Setup build type - release
-              if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
-              env:
-                  TYPE_OF_BUILD: 'release'
-              run: |
-                  echo "TYPE_OF_BUILD=$TYPE_OF_BUILD" >> $GITHUB_ENV
-                  echo "Pushed a tag - release build"
+                  if [[ "${{ github.event_name }}" == "schedule" ]]; then
+                    echo "SELECTED_TYPE=nightly" >> $GITHUB_ENV
+                  elif [[ "${{ github.event_name }}" == "push" && startsWith(github.ref, 'refs/tags/') ]]; then
+                    echo "SELECTED_TYPE=release" >> $GITHUB_ENV
+                  elif [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == "refs/heads/main" ]]; then
+                    echo "SELECTED_TYPE=production" >> $GITHUB_ENV
+                  else
+                    echo "SELECTED_TYPE=development" >> $GITHUB_ENV
+                  fi
+
+            - name: Finalize Build Type Output
+              id: final-type
+              run: echo "TYPE_OF_BUILD=$SELECTED_TYPE" >> $GITHUB_OUTPUT
+
             - name: Setup PHP with PECL extension
               uses: shivammathur/setup-php@v2
               with:
                   php-version: '8.4'
-                  extensions: mbstring, intl, gd, pdo_mysql, zip, exif, pcntl, bcmath, soap, imagick, xdebug, opcache, imagick
+                  extensions: mbstring, intl, gd, pdo_mysql, zip, exif, pcntl, bcmath, soap, imagick, xdebug, opcache
                   tools: composer:v2
+
             - name: Install Composer dependencies
               run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
             - name: Install NPM modules
-              uses: actions/setup-node@v6
+              uses: actions/setup-node@v4
               with:
                   node-version: 22
-            - run: |
-                  npm install --no-audit
+
+            - run: npm install --no-audit
+
             - name: Build frontend (Vite)
-              run: |
-                  npm run build
-            - name: Remove unnecessary files (dev dependencies, tests, etc.) and optimize autoloader
+              run: npm run build
+
+            - name: Remove unnecessary files and optimize
               run: |
                   composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
-                  npm install --production --no-audit
+                  npm prune --production
                   rm -rf .git .github .gitignore .gitattributes .editorconfig tailwind.config.js .env .eslintrc.cjs .prettierignore .prettierrc.json .jsconfig.json phpunit.xml version crowdin.yml install.lock postcss.config.js eslint.config.js sonar-project.properties
+
             - name: Upload artifacts
-              uses: actions/upload-artifact@v6
+              uses: actions/upload-artifact@v4
               with:
-                  name: biznisbox
-                  include-hidden-files: true # Include hidden files in the artifact (fix for .env .gitignore ...)
+                  name: biznisbox-payload
+                  include-hidden-files: true
                   path: ${{ github.workspace }}/
+
     release:
         runs-on: ubuntu-latest
         needs: build
         steps:
             - name: Get current date
               id: date
-              run: echo "::set-output name=date::$(date +'%Y-%m-%d %H:%M:%S')"
+              run: echo "date=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
+
             - name: Download artifacts
-              uses: actions/download-artifact@v7
+              uses: actions/download-artifact@v4
               with:
-                  name: biznisbox
+                  name: biznisbox-payload
+                  path: ./payload
+
             - name: Create zip archive
               run: |
-                  cd ${{ github.workspace }}
-                  zip -r biznisbox.zip .
+                  cd payload
+                  zip -r ../biznisbox.zip .
+                  cd ..
                   echo "Created biznisbox.zip"
-            - name: Create release
+
+            - name: Create release (Tags)
               if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
               uses: ncipollo/release-action@v1
               with:
                   allowUpdates: true
-                  artifacts: ${{ github.workspace }}/biznisbox.zip
+                  artifacts: 'biznisbox.zip'
                   name: ${{ github.ref_name }}
                   draft: true
                   tag: ${{ github.ref_name }}
@@ -114,36 +126,41 @@ jobs:
 
                       ## Release Information
                         - **Version**: ${{ github.ref_name }}
-                        - **Build Type**: ${{ env.TYPE_OF_BUILD }}
+                        - **Build Type**: ${{ needs.build.outputs.TYPE_OF_BUILD }}
                         - **Build Time**: ${{ steps.date.outputs.date }}
                   prerelease: false
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
             - name: Create nightly release
               if: github.event_name == 'schedule'
               uses: ncipollo/release-action@v1
               with:
-                  tag: dev
+                  tag: nightly
                   allowUpdates: true
                   name: BiznisBox Nightly Build
-                  artifacts: ${{ github.workspace }}/biznisbox.zip
-                  draft: true
+                  artifacts: 'biznisbox.zip'
+                  draft: false
+                  makeLatest: false
                   body: |
                       This is a nightly build of BiznisBox.
-                      It includes the latest changes from the main branch. Unstable features may be present.
                       Run ID: ${{ github.run_id }}
+                      Build Type: ${{ needs.build.outputs.TYPE_OF_BUILD }}
                       Build Time: ${{ steps.date.outputs.date }}
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
             - name: Create dev release
-              if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && !startsWith(github.ref, 'refs/tags/'))
+              if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main' && !startsWith(github.ref, 'refs/tags/'))
               uses: ncipollo/release-action@v1
               with:
                   tag: dev
                   allowUpdates: true
                   name: BiznisBox Dev Build
-                  artifacts: ${{ github.workspace }}/biznisbox.zip
-                  draft: true
+                  artifacts: 'biznisbox.zip'
+                  draft: false
+                  makeLatest: false
                   body: |
-                      This is a development build of BiznisBox.
-                      It includes the latest changes from the main branch. Unstable features may be present.
+                      This is a development build from the main branch.
                       Run ID: ${{ github.run_id }}
+                      Build Type: ${{ needs.build.outputs.TYPE_OF_BUILD }}
                       Build Time: ${{ steps.date.outputs.date }}
+                  token: ${{ secrets.GITHUB_TOKEN }}
