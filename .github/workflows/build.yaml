@@ -143,6 +143,7 @@ jobs:
                   makeLatest: false
                   body: |
                       This is a nightly build of BiznisBox.
+
                       Run ID: ${{ github.run_id }}
                       Build Type: ${{ needs.build.outputs.TYPE_OF_BUILD }}
                       Build Time: ${{ steps.date.outputs.date }}
@@ -160,6 +161,7 @@ jobs:
                   makeLatest: false
                   body: |
                       This is a development build from the main branch.
+
                       Run ID: ${{ github.run_id }}
                       Build Type: ${{ needs.build.outputs.TYPE_OF_BUILD }}
                       Build Time: ${{ steps.date.outputs.date }}
