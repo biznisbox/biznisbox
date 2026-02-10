@@ -141,6 +141,7 @@ jobs:
                   artifacts: 'biznisbox.zip'
                   draft: false
                   makeLatest: false
+                  prerelease: true
                   body: |
                       This is a nightly build of BiznisBox.
 
@@ -159,6 +160,7 @@ jobs:
                   artifacts: 'biznisbox.zip'
                   draft: false
                   makeLatest: false
+                  prerelease: true
                   body: |
                       This is a development build from the main branch.
 
