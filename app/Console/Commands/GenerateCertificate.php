@@ -86,6 +86,7 @@ class GenerateCertificate extends Command
         $settingsData = [
             'document_signer_certificate_path' => '/certificate.pem',
             'document_signer_private_key_path' => '/private_key.pem',
+            'document_signer_p12_path' => '/server-cert.p12',
             'document_signer_private_key_password' => $password,
         ];
 
