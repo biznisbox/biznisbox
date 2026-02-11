@@ -1,3 +1,14 @@
+# 2.19.0
+
+## ✨ New Features & Enhancements
+
+- Change method for signing PDF documents (invoices, contracts, etc.) to use the `setSignature` method from the PDF library SAPP, which provides better support for digital signatures and improves the overall security and integrity of the signed documents.
+- Add option for auto opening the task details page when clicking on a notification. 
+
+## 🐛 Bug Fixes
+
+- Fixed an issue with the task details page not opening when clicking on a notification related to tasks.
+
 # 2.18.2
 
 - Update Composer and NPM dependencies to fix security vulnerabilities and bugs.
