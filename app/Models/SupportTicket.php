@@ -94,7 +94,7 @@ class SupportTicket extends Model implements Auditable
         return false;
     }
 
-    protected static function generateSystemMessage($ticket_id, $message)
+    public static function generateSystemMessage($ticket_id, $message)
     {
         SupportTicketContent::create([
             'ticket_id' => $ticket_id,

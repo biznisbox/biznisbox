@@ -94,15 +94,15 @@ class SupportTicketService
         $supportTicket = $this->supportTicketModel->find($id);
 
         if (isset($data['status']) && $data['status'] == 'closed') {
-            $this->supportTicketModel->generateSystemMessage($id, 'This ticket has been closed');
+            SupportTicket::generateSystemMessage($id, 'This ticket has been closed');
         }
 
         if (isset($data['status']) && $data['status'] == 'reopened') {
-            $this->supportTicketModel->generateSystemMessage($id, 'This ticket has been reopened');
+            SupportTicket::generateSystemMessage($id, 'This ticket has been reopened');
         }
 
         if (isset($data['status']) && $data['status'] == 'resolved') {
-            $this->supportTicketModel->generateSystemMessage($id, 'This ticket has been resolved');
+            SupportTicket::generateSystemMessage($id, 'This ticket has been resolved');
         }
 
         // Clear contact details if custom contact is true
