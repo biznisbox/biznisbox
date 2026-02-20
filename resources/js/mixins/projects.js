@@ -68,6 +68,7 @@ export default {
                 completed_at: null,
                 active: true,
             },
+            kanbanBoard: [],
         }
     },
 
@@ -123,6 +124,15 @@ export default {
             this.makeHttpRequest('GET', `/api/projects/${id}`)
                 .then((response) => {
                     this.project = response.data.data
+                    // Make canban board columns from project tasks grouped by status and add other statuses as empty columns
+                    const statuses = this.projectStatuses.map((status) => status.value)
+                    this.kanbanBoard = statuses.map((status) => {
+                        return {
+                            name: this.projectStatuses.find((s) => s.value === status).label,
+                            value: status,
+                            tasks: this.project.tasks.filter((task) => task.status === status),
+                        }
+                    })
                 })
                 .catch((error) => {
                     if (error.response && error.response.status === 404) {
@@ -162,6 +172,19 @@ export default {
             this.makeHttpRequest('PUT', `/api/projects/tasks/${id}`, this.task).then((response) => {
                 this.showToast(response.data.message)
                 this.showNewEditTaskDialog = false
+                this.getProject(this.project.id)
+            })
+        },
+
+        updateTaskStatus(id, status) {
+            // Get task from project tasks
+            const task = this.project.tasks.find((t) => t.id === id)
+            if (!task) return
+
+            // Update task status
+            task.status = status
+            this.makeHttpRequest('PUT', `/api/projects/tasks/${id}`, task).then((response) => {
+                this.showToast(response.data.message)
                 this.getProject(this.project.id)
             })
         },

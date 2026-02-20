@@ -11,6 +11,7 @@
         <Tabs :value="activeTab">
             <TabList>
                 <Tab value="tasks">{{ $t('project.tasks') }} ({{ project.tasks ? project.tasks.length : 0 }})</Tab>
+                <Tab value="kanban">{{ $t('project.kanban_board') }}</Tab>
             </TabList>
 
             <TabPanels>
@@ -98,6 +99,73 @@
                                 </template>
                             </Column>
                         </DataTable>
+                    </div>
+                </TabPanel>
+                <TabPanel value="kanban">
+                    <div class="card p-4">
+                        <div class="flex gap-4 overflow-x-auto pb-4">
+                            <!-- Stolpec -->
+                            <div
+                                v-for="column in kanbanBoard"
+                                :key="column.value"
+                                :data-status="column.value"
+                                class="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg w-80 flex-shrink-0 shadow-sm"
+                            >
+                                <h3 class="font-bold text-lg mb-4 flex justify-between items-center px-2">
+                                    {{ $t(`status.${column.value}`) }}
+                                    <Badge :value="column.tasks.length" severity="secondary"></Badge>
+                                </h3>
+
+                                <!-- Drag and Drop območje -->
+                                <draggable
+                                    v-model="column.tasks"
+                                    group="tasks"
+                                    :data-status="column.value"
+                                    :item-key="column.value"
+                                    class="min-h-[500px] flex flex-col gap-3"
+                                    ghost-class="opacity-50"
+                                    :animation="200"
+                                    @end="onTaskDragEnd"
+                                >
+                                    <template #item="{ element }">
+                                        <div
+                                            :data-id="element.id"
+                                            class="bg-white dark:bg-gray-700 p-3 rounded-lg shadow cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600"
+                                            @click="openEditTaskDialog({ data: element })"
+                                        >
+                                            <div class="font-semibold mb-2">{{ element.title }}</div>
+                                            <div class="text-sm text-gray-600 dark:text-gray-300 mb-2">
+                                                {{ element.description ? element.description.substring(0, 100) + '...' : '' }}
+                                            </div>
+
+                                            <div class="flex items-center gap-2 mb-2">
+                                                <Tag :value="$t(`task_type.${element.type}`)" />
+                                                <Tag
+                                                    :value="$t(`priority.${element.priority}`)"
+                                                    :severity="getStatusSeverity(element.priority)"
+                                                />
+                                            </div>
+
+                                            <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+                                                <Avatar
+                                                    v-if="
+                                                        element.assigned_to &&
+                                                        project.members.find((m) => m.id === element.assigned_to)?.avatar_url
+                                                    "
+                                                    :image="project.members.find((m) => m.id === element.assigned_to)?.avatar_url"
+                                                    shape="circle"
+                                                />
+                                                <span>{{
+                                                    element.assigned_to
+                                                        ? project.members.find((m) => m.id === element.assigned_to)?.full_name
+                                                        : $t('project.unassigned')
+                                                }}</span>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </draggable>
+                            </div>
+                        </div>
                     </div>
                 </TabPanel>
             </TabPanels>
@@ -386,9 +454,13 @@
 <script>
 import ProjectMixin from '@/mixins/projects'
 import { FilterMatchMode, FilterOperator } from '@primevue/core/api'
+import draggable from 'vuedraggable'
 export default {
     name: 'ProjectsPage',
     mixins: [ProjectMixin],
+    components: {
+        draggable,
+    },
 
     created() {
         this.getProject(this.$route.params.id)
@@ -444,6 +516,12 @@ export default {
                 due_date: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.CONTAINS }] },
             }
         },
+
+        onTaskDragEnd(event) {
+            const taskId = event.item.getAttribute('data-id')
+            const newStatus = event.to.getAttribute('data-status')
+            this.updateTaskStatus(taskId, newStatus)
+        },
     },
 
     data() {
@@ -457,6 +535,7 @@ export default {
             activeTab: 'tasks',
             isEditProjectMember: false,
             projectMemberForm: { user_id: null, role: null },
+            kanbanColumns: [],
         }
     },
 

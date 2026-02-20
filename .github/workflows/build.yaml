@@ -156,8 +156,8 @@ jobs:
 
             - name: Create dev/manual release
               if: |
-                (github.ref == 'refs/heads/main' && github.event_name == 'push') ||
-                (github.event_name == 'workflow_dispatch')
+                  (github.ref == 'refs/heads/main' && github.event_name == 'push') ||
+                  (github.event_name == 'workflow_dispatch')
               uses: ncipollo/release-action@v1
               with:
                   tag: dev

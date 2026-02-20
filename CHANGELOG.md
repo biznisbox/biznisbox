@@ -3,7 +3,7 @@
 ## ✨ New Features & Enhancements
 
 - Change method for signing PDF documents (invoices, contracts, etc.) to use the `setSignature` method from the PDF library SAPP, which provides better support for digital signatures and improves the overall security and integrity of the signed documents.
-- Add option for auto opening the task details page when clicking on a notification. 
+- Add option for auto opening the task details page when clicking on a notification.
 
 ## 🐛 Bug Fixes
 

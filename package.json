@@ -61,6 +61,7 @@
         "vue-router": "^5.0.3",
         "vue3-apexcharts": "^1.10.0",
         "vue3-cookies": "^1.0.6",
-        "vue3-pdf-app": "^1.0.3"
+        "vue3-pdf-app": "^1.0.3",
+        "vuedraggable": "^4.1.0"
     }
 }
