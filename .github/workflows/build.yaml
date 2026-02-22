@@ -129,7 +129,8 @@ jobs:
                   allowUpdates: true
                   artifacts: 'biznisbox.zip'
                   name: ${{ github.ref_name }}
-                  draft: true
+                  draft: false
+                  makeLatest: true
                   tag: ${{ github.ref_name }}
                   body: |
                       # Changelog for ${{ github.ref_name }}
