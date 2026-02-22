@@ -1,3 +1,9 @@
+# 2.20.1
+
+## 🐛 Bug Fixes
+
+- Upgrade the world seeder package to the latest version to fix the migration issue and ensure compatibility with the latest changes in the app. Now install and reset-demo commands should work without issues related to the world seeder.
+
 # 2.20.0
 
 ## ✨ New Features & Enhancements
