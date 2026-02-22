@@ -90,6 +90,9 @@ jobs:
               id: date
               run: echo "date=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
 
+            - name: Checkout code
+              uses: actions/checkout@v4
+
             - name: Download artifacts
               uses: actions/download-artifact@v4
               with:
@@ -102,6 +105,23 @@ jobs:
                   zip -r ../biznisbox.zip .
                   cd ..
 
+            - name: Extract Changelog Section
+              id: extract_changelog
+              if: startsWith(github.ref, 'refs/tags/')
+              run: |
+                  VERSION_CLEAN=${{ github.ref_name }}
+                  VERSION_CLEAN=${VERSION_CLEAN#v}
+                  CHANGELOG_FILE="CHANGELOG.md"
+
+                  CONTENT=$(awk "/# $VERSION_CLEAN/{flag=1; next} /^# /{flag=0} flag" "$CHANGELOG_FILE")
+
+                  if [ -z "$CONTENT" ]; then
+                    CONTENT="No specific changelog entry found for this version in $CHANGELOG_FILE."
+                  fi
+
+                  echo "release_notes<<EOF" >> $GITHUB_OUTPUT
+                  echo "$CONTENT" >> $GITHUB_OUTPUT
+                  echo "EOF" >> $GITHUB_OUTPUT
             - name: Create release (Tags)
               if: startsWith(github.ref, 'refs/tags/')
               uses: ncipollo/release-action@v1
@@ -112,16 +132,11 @@ jobs:
                   draft: true
                   tag: ${{ github.ref_name }}
                   body: |
-                      # Changelog
+                      # Changelog for ${{ github.ref_name }}
 
-                      ## ✨ New Features & Enhancements
+                      ${{ steps.extract_changelog.outputs.release_notes }}
 
-                      - New features and enhancements in this release.
-
-                      ## 🐛 Bug Fixes
-
-                      - Fixed bugs and issues in this release.
-
+                      ---
                       🚀 Found a bug or issue? Report it here: [**Open Issues**](https://github.com/biznisbox/biznisbox/issues)
 
                       🐳 [Docker Image](https://hub.docker.com/r/biznisbox/biznisbox/tags)
@@ -145,7 +160,7 @@ jobs:
                   artifacts: 'biznisbox.zip'
                   draft: false
                   makeLatest: false
-                  prerelease: true
+                  prerelease: false
                   body: |
                       This is a nightly build of BiznisBox.
 
@@ -165,7 +180,8 @@ jobs:
                   name: BiznisBox Dev Build
                   artifacts: 'biznisbox.zip'
                   makeLatest: false
-                  prerelease: true
+                  prerelease: false
+                  draft: false
                   body: |
                       Development build from main branch.
                       - **Type**: ${{ needs.build.outputs.TYPE_OF_BUILD }}
