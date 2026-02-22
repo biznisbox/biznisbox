@@ -1,3 +1,13 @@
+# 2.20.0
+
+## ✨ New Features & Enhancements
+
+- Added a kanban view for tasks in the project module, allowing users to visualize and manage their tasks in a more intuitive and efficient way.
+
+## 🐛 Bug Fixes
+
+- Fixed an issue with system messages not being displayed correctly in the support ticket module.
+
 # 2.19.0
 
 ## ✨ New Features & Enhancements
