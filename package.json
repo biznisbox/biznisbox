@@ -20,7 +20,7 @@
         "@vitejs/plugin-vue": "^6.0.4",
         "autoprefixer": "^10.4.24",
         "axios": "^1.13.5",
-        "eslint": "^10.0.0",
+        "eslint": "^10.0.2",
         "eslint-plugin-vue": "^10.8.0",
         "globals": "^17.3.0",
         "laravel-vite-plugin": "^2.1.0",
