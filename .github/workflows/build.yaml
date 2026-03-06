@@ -24,7 +24,7 @@ jobs:
             TYPE_OF_BUILD: ${{ steps.set-type.outputs.TYPE }}
         steps:
             - name: Checkout code
-              uses: actions/checkout@v4
+              uses: actions/checkout@v6
 
             - name: Setup build type
               id: set-type
@@ -91,7 +91,7 @@ jobs:
               run: echo "date=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_OUTPUT
 
             - name: Checkout code
-              uses: actions/checkout@v4
+              uses: actions/checkout@v6
 
             - name: Download artifacts
               uses: actions/download-artifact@v8
