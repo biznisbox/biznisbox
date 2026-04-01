@@ -27,7 +27,7 @@
         "prettier": "^3.8.1",
         "tailwindcss": "^4.2.2",
         "vite": "8.0.1",
-        "vite-plugin-vue-devtools": "^8.1.0"
+        "vite-plugin-vue-devtools": "^8.1.1"
     },
     "dependencies": {
         "@fullcalendar/core": "^6.1.20",
