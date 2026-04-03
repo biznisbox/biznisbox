@@ -1,7 +1,7 @@
 {
     "name": "biznisbox/biznisbox",
     "type": "project",
-    "version": "2.20.2",
+    "version": "2.20.3",
     "description": "BiznisBox is the all-in-one business platform that helps you manage your business, from invoicing to contracts, and more.",
     "keywords": [
         "laravel",
@@ -36,37 +36,37 @@
         "ext-zip": "*"
     },
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "barryvdh/laravel-dompdf": "^3.1",
         "ddn/sapp": "^1.5",
-        "directorytree/imapengine": "^1.19",
-        "erusev/parsedown": "^1.7",
+        "directorytree/imapengine": "^1.24",
+        "erusev/parsedown": "^1.8",
         "hisorange/browser-detect": "^5.0",
-        "knuckleswtf/scribe": "^5.1",
-        "laravel/framework": "^12.0",
-        "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.10",
-        "laravolt/avatar": "^6.0",
+        "knuckleswtf/scribe": "^5.9",
+        "laravel/framework": "^13.0",
+        "laravel/sanctum": "^4.3",
+        "laravel/tinker": "^3.0",
+        "laravolt/avatar": "^6.4",
         "league/omnipay": "^3.2",
-        "milon/barcode": "^12.0",
+        "milon/barcode": "^13.0",
         "nnjeim/world": "1.1.38",
         "nordigen/nordigen-php": "^1.1",
         "omnipay/paypal": "^3.0",
         "owen-it/laravel-auditing": "^14.0",
-        "php-open-source-saver/jwt-auth": "^2.8",
+        "php-open-source-saver/jwt-auth": "^2.9",
         "pragmarx/google2fa": "^9.0",
         "spatie/laravel-permission": "^7.2",
-        "spatie/laravel-webhook-server": "^3.8",
-        "stripe/stripe-php": "^19.0"
+        "spatie/laravel-webhook-server": "^3.10",
+        "stripe/stripe-php": "^20.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.24",
-        "laravel/pint": "^1.21",
-        "laravel/sail": "^1.41",
+        "laravel/pint": "^1.29",
+        "laravel/sail": "^1.56",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.0",
         "phpunit/phpunit": "^11.0",
-        "spatie/laravel-ignition": "^2.9"
+        "spatie/laravel-ignition": "^2.12"
     },
     "autoload": {
         "psr-4": {
