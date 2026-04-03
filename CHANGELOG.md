@@ -1,3 +1,9 @@
+# 2.20.4
+
+## 🐛 Bug Fixes
+
+- Fix issue with the category and department tables where the foreign key constraints were not properly defined, leading to potential data integrity issues. The migrations have been updated to correctly set up the foreign key relationships, ensuring that parent-child relationships in categories and departments are maintained correctly. Bug showed in the PostgreSQL database, but it is a good practice to have the correct foreign key constraints in place for all supported databases.
+
 # 2.20.3
 
 ## 🐛 Bug Fixes
