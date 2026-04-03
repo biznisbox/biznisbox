@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('parent_id')->nullable()->references('id')->on('categories')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignUuid('parent_id')->nullable();
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('color')->nullable();
@@ -21,6 +21,10 @@ return new class extends Migration {
             $table->string('additional_info')->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('categories', function (Blueprint $table) {
+            $table->foreign('parent_id')->references('id')->on('categories')->nullOnDelete()->cascadeOnUpdate();
         });
     }
 

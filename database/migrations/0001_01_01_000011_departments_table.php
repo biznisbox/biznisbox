@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('parent_id')->references('id')->on('departments')->nullable();
+            $table->uuid('parent_id')->nullable();
             $table->string('name');
             $table->longText('description')->nullable();
             $table->string('type')->nullable(); // department type - sales, support, office, etc.
@@ -26,6 +26,10 @@ return new class extends Migration {
             $table->string('latitude')->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('departments', function (Blueprint $table) {
+            $table->foreign('parent_id')->references('id')->on('departments')->nullOnDelete()->cascadeOnUpdate();
         });
     }
 

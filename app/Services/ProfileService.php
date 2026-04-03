@@ -208,10 +208,7 @@ class ProfileService
      */
     public function markNotificationAsRead($notification_id)
     {
-        $notification = $this->notificationModel
-            ->where('id', $notification_id)
-            ->where('user_id', auth()->id())
-            ->first();
+        $notification = $this->notificationModel->where('id', $notification_id)->where('user_id', auth()->id())->first();
         return $notification->markAsRead();
     }
 
@@ -222,10 +219,7 @@ class ProfileService
      */
     public function deleteNotification($notification_id)
     {
-        $notification = $this->notificationModel
-            ->where('id', $notification_id)
-            ->where('user_id', auth()->id())
-            ->first();
+        $notification = $this->notificationModel->where('id', $notification_id)->where('user_id', auth()->id())->first();
         return $notification->delete();
     }
 }

@@ -188,10 +188,7 @@ class DataService
     {
         $webhook = new \App\Models\WebhookSubscription();
 
-        $webhook = $webhook
-            ->where('id', $id)
-            ->where('user_id', auth()->id())
-            ->first();
+        $webhook = $webhook->where('id', $id)->where('user_id', auth()->id())->first();
         if (!$webhook) {
             return null;
         }
@@ -301,10 +298,7 @@ class DataService
     {
         $personalAccessToken = new \App\Models\PersonalAccessToken();
 
-        $personalAccessToken = $personalAccessToken
-            ->where('id', $id)
-            ->where('user_id', auth()->id())
-            ->first();
+        $personalAccessToken = $personalAccessToken->where('id', $id)->where('user_id', auth()->id())->first();
         if (!$personalAccessToken) {
             return null;
         }
