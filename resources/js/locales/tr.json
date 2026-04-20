@@ -943,7 +943,10 @@
         "mark_as_closed": "Kapandı olarak işaretle",
         "reopen_ticket": "Bileti tekrar aç",
         "ticket_number_and_subject": "Bilet numarası ve konusu",
-        "status_and_priority": "Durum ve öncelik"
+        "status_and_priority": "Durum ve öncelik",
+        "support_ticket_reopened_message": "Support ticket reopened",
+        "support_ticket_closed_message": "Support ticket closed",
+        "support_ticket_resolved_message": "Support ticket resolved"
     },
     "employee": {
         "employee": "Çalışan | Çalışanlar",
