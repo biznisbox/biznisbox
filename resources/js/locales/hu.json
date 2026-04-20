@@ -943,7 +943,10 @@
         "mark_as_closed": "Zárjuk le a jegyet",
         "reopen_ticket": "Jegy újranyitása",
         "ticket_number_and_subject": "Jegy száma és tárgya",
-        "status_and_priority": "Állapot és prioritás"
+        "status_and_priority": "Állapot és prioritás",
+        "support_ticket_reopened_message": "Support ticket reopened",
+        "support_ticket_closed_message": "Support ticket closed",
+        "support_ticket_resolved_message": "Support ticket resolved"
     },
     "employee": {
         "employee": "Munkatárs | Munkatársak",
