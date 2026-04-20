@@ -115,6 +115,9 @@ return [
     'invalid_payment_id' => 'Neplatné ID platby',
     'payment_successful' => 'Platba úspěšná',
     'payment_failed' => 'Platba se nezdařila',
+    'payment_not_found' => 'Platba nenalezena',
+    'payment_not_refundable' => 'Platba není v vratném stavu',
+    'payment_method_not_supported' => 'Způsob platby není podporován',
     'invalid_signature' => 'Neplatný podpis nebo vypršela platnost',
     'tax_rates' => [
         'reduced' => 'Snížená sazba',
