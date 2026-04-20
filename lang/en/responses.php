@@ -115,6 +115,9 @@ return [
     'invalid_payment_id' => 'Invalid payment ID',
     'payment_successful' => 'Payment successful',
     'payment_failed' => 'Payment failed',
+    'payment_not_found' => 'Payment not found',
+    'payment_not_refundable' => 'Payment is not in a refundable state',
+    'payment_method_not_supported' => 'Payment method not supported',
     'invalid_signature' => 'Invalid signature or expired',
     'tax_rates' => [
         'reduced' => 'Reduced Rate',
