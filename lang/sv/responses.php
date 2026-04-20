@@ -115,6 +115,9 @@ return [
     'invalid_payment_id' => 'Ogiltigt betalnings-ID',
     'payment_successful' => 'Betalning slutförd',
     'payment_failed' => 'Betalningen misslyckades',
+    'payment_not_found' => 'Betalningen hittades inte',
+    'payment_not_refundable' => 'Betalningen är inte återbetalningsbar',
+    'payment_method_not_supported' => 'Betalningsmetod stöds inte',
     'invalid_signature' => 'Ogiltig signatur eller förfallen',
     'tax_rates' => [
         'reduced' => 'Minskad hastighet',
