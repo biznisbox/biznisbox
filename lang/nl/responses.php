@@ -115,6 +115,9 @@ return [
     'invalid_payment_id' => 'Ongeldige betalings-ID',
     'payment_successful' => 'Betaling succesvol',
     'payment_failed' => 'Betaling mislukt',
+    'payment_not_found' => 'Betaling niet gevonden',
+    'payment_not_refundable' => 'Betaling is niet in een terugbetalbare staat',
+    'payment_method_not_supported' => 'Betaalmethode niet ondersteund',
     'invalid_signature' => 'Ongeldige handtekening of verlopen',
     'tax_rates' => [
         'reduced' => 'Verminderde tarief',
