@@ -8,9 +8,9 @@ class AccountService
 {
     private $accountModel;
 
-    public function __construct()
+    public function __construct(Account $account)
     {
-        $this->accountModel = new Account();
+        $this->accountModel = $account;
     }
 
     public function getAccounts()

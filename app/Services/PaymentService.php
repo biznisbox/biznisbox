@@ -48,11 +48,11 @@ class PaymentService
         $payment = $this->onlinePayment->find($id);
 
         if (!$payment) {
-            return ['error' => 'Payment not found'];
+            return ['error' => __('responses.payment_not_found')];
         }
 
         if ($payment->status !== 'paid') {
-            return ['error' => 'Payment is not in a refundable state'];
+            return ['error' => __('responses.payment_not_refundable')];
         }
 
         $result = null;
@@ -64,7 +64,7 @@ class PaymentService
                 return ['error' => $e->getMessage()];
             }
         } else {
-            return ['error' => 'Unsupported payment method'];
+            return ['error' => __('responses.payment_method_not_supported')];
         }
 
         if (isset($result['error'])) {

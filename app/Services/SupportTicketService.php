@@ -14,10 +14,10 @@ class SupportTicketService
     private $supportTicketModel;
     private $supportTicketContentModel;
 
-    public function __construct()
+    public function __construct(SupportTicket $supportTicket, SupportTicketContent $supportTicketContent)
     {
-        $this->supportTicketModel = new SupportTicket();
-        $this->supportTicketContentModel = new SupportTicketContent();
+        $this->supportTicketModel = $supportTicket;
+        $this->supportTicketContentModel = $supportTicketContent;
     }
 
     public function getTickets()
@@ -94,15 +94,15 @@ class SupportTicketService
         $supportTicket = $this->supportTicketModel->find($id);
 
         if (isset($data['status']) && $data['status'] == 'closed') {
-            SupportTicket::generateSystemMessage($id, 'This ticket has been closed');
+            SupportTicket::generateSystemMessage($id, 'support_ticket_closed');
         }
 
         if (isset($data['status']) && $data['status'] == 'reopened') {
-            SupportTicket::generateSystemMessage($id, 'This ticket has been reopened');
+            SupportTicket::generateSystemMessage($id, 'support_ticket_reopened');
         }
 
         if (isset($data['status']) && $data['status'] == 'resolved') {
-            SupportTicket::generateSystemMessage($id, 'This ticket has been resolved');
+            SupportTicket::generateSystemMessage($id, 'support_ticket_resolved');
         }
 
         // Clear contact details if custom contact is true

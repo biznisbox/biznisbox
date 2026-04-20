@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\URL;
 class ProductService
 {
     private $productModel;
-    public function __construct()
+    public function __construct(Product $product)
     {
-        $this->productModel = new Product();
+        $this->productModel = $product;
     }
 
     /**

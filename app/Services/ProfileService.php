@@ -15,10 +15,10 @@ class ProfileService
     private $userModel;
     private $notificationModel;
 
-    public function __construct()
+    public function __construct(User $user, Notification $notification)
     {
-        $this->userModel = new User();
-        $this->notificationModel = new Notification();
+        $this->userModel = $user;
+        $this->notificationModel = $notification;
     }
 
     /**

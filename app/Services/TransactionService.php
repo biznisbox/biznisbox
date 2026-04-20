@@ -7,9 +7,9 @@ use App\Models\Transaction;
 class TransactionService
 {
     private $transactionModel;
-    public function __construct()
+    public function __construct(Transaction $transaction)
     {
-        $this->transactionModel = new Transaction();
+        $this->transactionModel = $transaction;
     }
 
     public function getTransactions()

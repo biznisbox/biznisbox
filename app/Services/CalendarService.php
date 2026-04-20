@@ -7,9 +7,9 @@ use App\Models\CalendarEvent;
 class CalendarService
 {
     private $calendarEvent;
-    public function __construct()
+    public function __construct(CalendarEvent $calendarEvent)
     {
-        $this->calendarEvent = new CalendarEvent();
+        $this->calendarEvent = $calendarEvent;
     }
 
     public function getEvents($user, $start, $end)

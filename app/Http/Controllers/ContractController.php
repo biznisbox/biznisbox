@@ -15,9 +15,9 @@ class ContractController extends Controller
 {
     private $contractService;
 
-    public function __construct()
+    public function __construct(ContractService $contractService)
     {
-        $this->contractService = new ContractService();
+        $this->contractService = $contractService;
     }
 
     /**
@@ -85,7 +85,7 @@ class ContractController extends Controller
     /**
      * Get contract number
      *
-     * @return array $contract contract
+     * @return string $contract contract number
      */
     public function getContractNumber()
     {

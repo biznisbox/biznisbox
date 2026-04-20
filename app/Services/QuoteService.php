@@ -12,9 +12,9 @@ class QuoteService
 {
     private $quoteModel;
 
-    public function __construct()
+    public function __construct(Quote $quote)
     {
-        $this->quoteModel = new Quote();
+        $this->quoteModel = $quote;
     }
 
     public function getQuotes()

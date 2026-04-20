@@ -26,5 +26,9 @@ return Application::configure(basePath: dirname(__DIR__))
                     Request::HEADER_X_FORWARDED_AWS_ELB,
             );
     })
-    ->withExceptions(function (Exceptions $exceptions) {})
+    ->withExceptions(function (Exceptions $exceptions) {
+        $exceptions->report(function (Throwable $e) {
+            saveSystemLog('biznisbox_error_logs', 'error', 'high', 'biznisbox', $e->getMessage(), $e->getTraceAsString());
+        });
+    })
     ->create();

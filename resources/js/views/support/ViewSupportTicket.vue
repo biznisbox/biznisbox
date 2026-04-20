@@ -246,7 +246,19 @@
 
                                 <!-- Message body -->
                                 <div :id="`content_${index}_message`" class="mt-4">
-                                    <span v-if="content.type === 'text' && content.message" v-html="formatHtml(content.message)"></span>
+                                    <span
+                                        v-if="content.message == 'support_ticket_reopened'"
+                                        v-html="formatHtml($t('support.support_ticket_reopened_message'))"
+                                    ></span>
+                                    <span
+                                        v-else-if="content.message == 'support_ticket_closed'"
+                                        v-html="formatHtml($t('support.support_ticket_closed_message'))"
+                                    ></span>
+                                    <span
+                                        v-else-if="content.message == 'support_ticket_resolved'"
+                                        v-html="formatHtml($t('support.support_ticket_resolved_message'))"
+                                    ></span>
+                                    <span v-else="content.type === 'text' && content.message" v-html="formatHtml(content.message)"></span>
                                 </div>
 
                                 <!-- Footer - date -->
@@ -303,7 +315,7 @@ import SupportMixin from '@/mixins/support'
 import QrcodeVue from 'qrcode.vue'
 import { required, requiredIf } from '@/plugins/i18n-validators'
 import { useVuelidate } from '@vuelidate/core'
-import { icon } from 'leaflet'
+
 export default {
     name: 'ViewSupportTicketPage',
     mixins: [SupportMixin],

@@ -23,8 +23,9 @@ class CalendarController extends Controller
     /**
      * Get events
      *
-     * @param Request $request
-     * @return void
+     * @@bodyParam start string required Start date of the events (Y-m-d format)
+     * @@bodyParam end string required End date of the events (Y-m-d format)
+     * @return array $events Events
      */
     public function getEvents(Request $request)
     {
@@ -43,7 +44,7 @@ class CalendarController extends Controller
     /**
      * Get event by id
      *
-     * @param [type] $id
+     * @param  string  $id ID of the event
      * @return void
      */
     public function getEvent($id)
@@ -75,7 +76,7 @@ class CalendarController extends Controller
      * Update event
      *
      * @param Request $request
-     * @param [type] $id
+     * @param  string  $id ID of the event
      * @return void
      */
     public function updateEvent(Request $request, $id)
@@ -91,7 +92,7 @@ class CalendarController extends Controller
     /**
      * Delete event
      *
-     * @param [type] $id
+     * @param string $id ID of the event
      * @return void
      */
     public function deleteEvent($id)

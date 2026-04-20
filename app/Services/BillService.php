@@ -9,9 +9,9 @@ class BillService
 {
     private $billModel;
 
-    public function __construct()
+    public function __construct(Bill $bill)
     {
-        $this->billModel = new Bill();
+        $this->billModel = $bill;
     }
 
     public function getBills()

@@ -104,66 +104,89 @@
                 <TabPanel value="kanban">
                     <div class="card p-4">
                         <div class="flex gap-4 overflow-x-auto pb-4">
-                            <!-- Stolpec -->
                             <div
                                 v-for="column in kanbanBoard"
                                 :key="column.value"
                                 :data-status="column.value"
-                                class="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg w-80 flex-shrink-0 shadow-sm"
+                                class="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg w-80 shrink-0 shadow-sm"
                             >
                                 <h3 class="font-bold text-lg mb-4 flex justify-between items-center px-2">
                                     {{ $t(`status.${column.value}`) }}
                                     <Badge :value="column.tasks.length" severity="secondary"></Badge>
                                 </h3>
 
-                                <!-- Drag and Drop območje -->
-                                <draggable
+                                <VueDraggable
                                     v-model="column.tasks"
                                     group="tasks"
-                                    :data-status="column.value"
-                                    :item-key="column.value"
-                                    class="min-h-[500px] flex flex-col gap-3"
-                                    ghost-class="opacity-50"
                                     :animation="200"
-                                    @end="onTaskDragEnd"
+                                    :data-status="column.value"
+                                    ghost-class="opacity-50"
+                                    class="flex flex-col gap-3 p-2 min-h-125"
+                                    @end="onTaskDragEnd($event, column.value)"
                                 >
-                                    <template #item="{ element }">
+                                    <div
+                                        v-for="element in column.tasks"
+                                        :key="element.id"
+                                        :data-id="element.id"
+                                        class="bg-white dark:bg-[#2a323d] border border-gray-200 dark:border-gray-700 p-4 rounded-xl shadow-sm dark:shadow-md cursor-pointer hover:border-blue-500 dark:hover:border-blue-400 transition-all"
+                                        @click="openEditTaskDialog({ data: element })"
+                                    >
+                                        <div class="flex gap-2 mb-3">
+                                            <Tag
+                                                :value="$t(`task_type.${element.type}`)"
+                                                severity="info"
+                                                class="text-[10px] uppercase font-bold"
+                                            />
+                                            <Tag
+                                                :value="$t(`priority.${element.priority}`)"
+                                                :severity="getStatusSeverity(element.priority)"
+                                                class="text-[10px] uppercase font-bold"
+                                            />
+                                        </div>
+
+                                        <div class="text-gray-900 dark:text-white font-bold text-sm mb-2 leading-tight">
+                                            {{ element.title }}
+                                        </div>
+
+                                        <div v-if="element.description" class="text-gray-600 dark:text-gray-400 text-xs mb-4 line-clamp-2">
+                                            {{ element.description }}
+                                        </div>
+
                                         <div
-                                            :data-id="element.id"
-                                            class="bg-white dark:bg-gray-700 p-3 rounded-lg shadow cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600"
-                                            @click="openEditTaskDialog({ data: element })"
+                                            class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100 dark:border-gray-700/50"
                                         >
-                                            <div class="font-semibold mb-2">{{ element.title }}</div>
-                                            <div class="text-sm text-gray-600 dark:text-gray-300 mb-2">
-                                                {{ element.description ? element.description.substring(0, 100) + '...' : '' }}
-                                            </div>
-
-                                            <div class="flex items-center gap-2 mb-2">
-                                                <Tag :value="$t(`task_type.${element.type}`)" />
-                                                <Tag
-                                                    :value="$t(`priority.${element.priority}`)"
-                                                    :severity="getStatusSeverity(element.priority)"
-                                                />
-                                            </div>
-
-                                            <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+                                            <div class="flex items-center gap-2">
                                                 <Avatar
-                                                    v-if="
-                                                        element.assigned_to &&
-                                                        project.members.find((m) => m.id === element.assigned_to)?.avatar_url
-                                                    "
-                                                    :image="project.members.find((m) => m.id === element.assigned_to)?.avatar_url"
+                                                    v-if="element.assigned_to && getMember(element.assigned_to)?.avatar_url"
+                                                    :image="getMember(element.assigned_to).avatar_url"
                                                     shape="circle"
+                                                    class="w-6 h-6"
                                                 />
-                                                <span>{{
-                                                    element.assigned_to
-                                                        ? project.members.find((m) => m.id === element.assigned_to)?.full_name
-                                                        : $t('project.unassigned')
-                                                }}</span>
+                                                <Avatar
+                                                    v-else
+                                                    :label="
+                                                        element.assigned_to
+                                                            ? getMember(element.assigned_to)?.full_name.substring(0, 2).toUpperCase()
+                                                            : '?'
+                                                    "
+                                                    shape="circle"
+                                                    class="w-6 h-6 text-[10px] bg-blue-500 text-white"
+                                                />
+                                                <span class="text-xs text-gray-700 dark:text-gray-300 font-medium">
+                                                    {{
+                                                        element.assigned_to
+                                                            ? getMember(element.assigned_to)?.full_name
+                                                            : $t('project.unassigned')
+                                                    }}
+                                                </span>
+                                            </div>
+
+                                            <div class="text-gray-400 dark:text-gray-500">
+                                                <i class="pi pi-paperclip text-xs"></i>
                                             </div>
                                         </div>
-                                    </template>
-                                </draggable>
+                                    </div>
+                                </VueDraggable>
                             </div>
                         </div>
                     </div>
@@ -231,7 +254,7 @@
 
             <template #footer>
                 <div id="function_buttons" class="flex gap-2 flex-wrap">
-                    <div class="flex-grow"></div>
+                    <div class="grow"></div>
                     <div class="flex justify-content-end gap-2 flex-wrap">
                         <Button :label="$t('basic.cancel')" icon="fa fa-times" severity="secondary" @click="showNewProjectDialog = false" />
                         <Button :label="$t('basic.save')" icon="fa fa-save" @click="updateProject" severity="success" />
@@ -426,7 +449,7 @@
             </LoadingScreen>
             <template #footer>
                 <div id="function_buttons" class="flex gap-2 flex-wrap">
-                    <div class="flex-grow"></div>
+                    <div class="grow"></div>
                     <div class="flex justify-content-end gap-2 flex-wrap">
                         <Button
                             :label="$t('basic.cancel')"
@@ -454,12 +477,12 @@
 <script>
 import ProjectMixin from '@/mixins/projects'
 import { FilterMatchMode, FilterOperator } from '@primevue/core/api'
-import draggable from 'vuedraggable'
+import { VueDraggable } from 'vue-draggable-plus'
 export default {
     name: 'ProjectsPage',
     mixins: [ProjectMixin],
     components: {
-        draggable,
+        VueDraggable,
     },
 
     created() {
@@ -517,10 +540,24 @@ export default {
             }
         },
 
-        onTaskDragEnd(event) {
-            const taskId = event.item.getAttribute('data-id')
-            const newStatus = event.to.getAttribute('data-status')
-            this.updateTaskStatus(taskId, newStatus)
+        onTaskDragEnd(evt, newStatus) {
+            const itemEl = evt.item
+
+            const taskId = itemEl.getAttribute('data-id')
+            const fromStatus = evt.from.getAttribute('data-status')
+            const toStatus = evt.to.getAttribute('data-status')
+
+            /*
+            console.log('ID premaknjene naloge:', taskId)
+            console.log('Stolpec (status) pred premikom:', fromStatus)
+            console.log('Stolpec (status) po premiku:', toStatus)
+            */
+
+            this.updateTaskStatus(taskId, toStatus)
+        },
+
+        getMember(userId) {
+            return this.project.members.find((m) => m.id === userId)
         },
     },
 

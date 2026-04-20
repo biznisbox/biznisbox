@@ -11,9 +11,9 @@ class ArchiveService
 {
     private $archiveModel;
 
-    public function __construct()
+    public function __construct(Archive $archive)
     {
-        $this->archiveModel = new Archive();
+        $this->archiveModel = $archive;
     }
 
     public function getDocuments($folderId = null)
@@ -51,6 +51,7 @@ class ArchiveService
             if ($request->folder_id === 'null') {
                 $request->folder_id = null;
             }
+
             $file = $request->file('file');
             $fileName = $file->getClientOriginalName();
             $diskFileName = Str::uuid() . '.' . $file->getClientOriginalExtension();
@@ -86,10 +87,13 @@ class ArchiveService
                     incrementLastItemNumber('archive', settings('archive_number_format'));
                     return $document;
                 }
+
                 Storage::delete('archive/' . $diskFileName);
+                Log::error('Error creating document in archive: ' . $document);
                 return false;
             }
             Storage::delete('archive/' . $diskFileName);
+            Log::error('Error storing file in archive: ' . $fileStore);
             return false;
         }
     }

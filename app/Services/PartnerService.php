@@ -17,11 +17,11 @@ class PartnerService
     private $vatIdValidator;
     private $partnerActivityModel;
 
-    public function __construct()
+    public function __construct(Partner $partner, VatIdValidate $vatIdValidate, PartnerActivity $partnerActivity)
     {
-        $this->partnerModel = new Partner();
-        $this->vatIdValidator = new VatIdValidate();
-        $this->partnerActivityModel = new PartnerActivity();
+        $this->partnerModel = $partner;
+        $this->vatIdValidator = $vatIdValidate;
+        $this->partnerActivityModel = $partnerActivity;
     }
 
     public function getPartners($type = null)

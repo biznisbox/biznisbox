@@ -11,16 +11,17 @@ use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Mail\Client\InvoiceNotification;
+use Illuminate\Validation\Rules\In;
 
 class InvoiceService
 {
     private $invoiceModel;
     private $productModel;
 
-    public function __construct()
+    public function __construct(Invoice $invoice, Product $product)
     {
-        $this->invoiceModel = new Invoice();
-        $this->productModel = new Product();
+        $this->invoiceModel = $invoice;
+        $this->productModel = $product;
     }
 
     /**

@@ -25,6 +25,7 @@ class BillController extends Controller
      * Get all bills
      *
      * @return array $bills All bills
+     * @apiResourceModel App\Models\Bill
      * @authenticated
      */
     public function getBills()
@@ -39,7 +40,8 @@ class BillController extends Controller
     /**
      * Get bill by id
      *
-     * @param  string  $id id of the bill
+     * @apiResourceModel App\Models\Bill
+     * @urlParam id required The id of the bill
      * @return array $bill bill
      */
     public function getBill($id)
@@ -112,7 +114,7 @@ class BillController extends Controller
     }
 
     /**
-     * Get bill pdf
+     * Get bill PDF
      *
      * @param  object  $request data from the form (type)
      * @param  string  $id id of the bill

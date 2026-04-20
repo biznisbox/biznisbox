@@ -11,10 +11,10 @@ class ProjectService
     private $projectModel;
     private $taskModel;
 
-    public function __construct()
+    public function __construct(Project $project, Task $task)
     {
-        $this->projectModel = new Project();
-        $this->taskModel = new Task();
+        $this->projectModel = $project;
+        $this->taskModel = $task;
     }
 
     public function getProjectsForUser()

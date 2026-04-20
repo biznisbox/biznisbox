@@ -7,9 +7,9 @@ use App\Models\Employee;
 class EmployeeService
 {
     private $employeeModel;
-    public function __construct()
+    public function __construct(Employee $employee)
     {
-        $this->employeeModel = new Employee();
+        $this->employeeModel = $employee;
     }
 
     public function getEmployees()

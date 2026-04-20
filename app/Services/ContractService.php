@@ -15,9 +15,9 @@ class ContractService
 {
     private $contractModel;
 
-    public function __construct()
+    public function __construct(Contract $contract)
     {
-        $this->contractModel = new Contract();
+        $this->contractModel = $contract;
     }
 
     public function getContracts()

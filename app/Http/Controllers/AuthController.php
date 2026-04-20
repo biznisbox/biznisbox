@@ -21,7 +21,7 @@ class AuthController extends Controller
     /**
      * Login
      *
-     * @param  object  $request data from the form (email, password, otp)
+     * @param  object $request data from the form (email, password, otp)
      * @return array $user User
      */
     public function userLogin(Request $request)
@@ -67,6 +67,7 @@ class AuthController extends Controller
      * Me
      *
      * @return array $user User
+     * @apiResourceModel App\Models\User
      * @authenticated
      */
     public function meData()

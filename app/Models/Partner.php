@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 use OwenIt\Auditing\Contracts\Auditable;
-use Illuminate\Support\Facades\Log;
 
 class Partner extends Model implements Auditable
 {
@@ -150,7 +149,6 @@ class Partner extends Model implements Auditable
             sendWebhookForEvent('partner:created', $partner->toArray());
             return $partner;
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
             DB::rollback();
             return false;
         }
@@ -180,7 +178,6 @@ class Partner extends Model implements Auditable
                 return $partner;
             }
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
             DB::rollback();
             return false;
         }
