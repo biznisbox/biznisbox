@@ -943,7 +943,10 @@
         "mark_as_closed": "Marker som lukket",
         "reopen_ticket": "Åpne sak",
         "ticket_number_and_subject": "Saksnummer og emne",
-        "status_and_priority": "Status og prioritet"
+        "status_and_priority": "Status og prioritet",
+        "support_ticket_reopened_message": "Støtte billett gjenåpnet",
+        "support_ticket_closed_message": "Supportsak lukket",
+        "support_ticket_resolved_message": "Supportsak løst"
     },
     "employee": {
         "employee": "Ansatte for ansatte",
