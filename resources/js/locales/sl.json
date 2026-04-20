@@ -943,7 +943,10 @@
         "mark_as_closed": "Označi kot zaprto",
         "reopen_ticket": "Ponovno odpri",
         "ticket_number_and_subject": "Številka in zadeva podpornega zahtevka",
-        "status_and_priority": "Status in prioriteta"
+        "status_and_priority": "Status in prioriteta",
+        "support_ticket_reopened_message": "Support ticket reopened",
+        "support_ticket_closed_message": "Support ticket closed",
+        "support_ticket_resolved_message": "Support ticket resolved"
     },
     "employee": {
         "employee": "Zaposlen | Zaposleni",
