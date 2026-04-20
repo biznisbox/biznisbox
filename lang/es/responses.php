@@ -115,6 +115,9 @@ return [
     'invalid_payment_id' => 'ID de pago no válido',
     'payment_successful' => 'Pago exitoso',
     'payment_failed' => 'Pago fallido',
+    'payment_not_found' => 'Pago no encontrado',
+    'payment_not_refundable' => 'El pago no está en un estado reembolsable',
+    'payment_method_not_supported' => 'Método de pago no soportado',
     'invalid_signature' => 'Firma inválida o caducó',
     'tax_rates' => [
         'reduced' => 'Tasa reducida',
