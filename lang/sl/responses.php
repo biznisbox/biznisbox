@@ -115,6 +115,9 @@ return [
     'invalid_payment_id' => 'Neveljaven ID plačila',
     'payment_successful' => 'Plačilo uspešno',
     'payment_failed' => 'Plačila ni bilo mogoče opraviti',
+    'payment_not_found' => 'Payment not found',
+    'payment_not_refundable' => 'Payment is not in a refundable state',
+    'payment_method_not_supported' => 'Payment method not supported',
     'invalid_signature' => 'Podpis je neveljaven ali je potekel',
     'tax_rates' => [
         'reduced' => 'Znižana vrednost',
