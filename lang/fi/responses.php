@@ -115,6 +115,9 @@ return [
     'invalid_payment_id' => 'Virheellinen maksutunnus',
     'payment_successful' => 'Maksu onnistui',
     'payment_failed' => 'Maksu epäonnistui',
+    'payment_not_found' => 'Maksua ei löytynyt',
+    'payment_not_refundable' => 'Maksu ei ole palautettavassa tilassa',
+    'payment_method_not_supported' => 'Maksutapaa ei tueta',
     'invalid_signature' => 'Virheellinen allekirjoitus tai vanhentunut',
     'tax_rates' => [
         'reduced' => 'Alennettu Hinta',
