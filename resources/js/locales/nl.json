@@ -943,7 +943,10 @@
         "mark_as_closed": "Markeren als gesloten",
         "reopen_ticket": "Ticket heropenen",
         "ticket_number_and_subject": "Ticket nummer en onderwerp",
-        "status_and_priority": "Status en prioriteit"
+        "status_and_priority": "Status en prioriteit",
+        "support_ticket_reopened_message": "Support ticket heropend",
+        "support_ticket_closed_message": "Support ticket gesloten",
+        "support_ticket_resolved_message": "Support ticket opgelost"
     },
     "employee": {
         "employee": "Personeelsmedewerkers",
