@@ -115,6 +115,9 @@ return [
     'invalid_payment_id' => 'Nieprawidłowy identyfikator płatności',
     'payment_successful' => 'Płatność zakończona powodzeniem',
     'payment_failed' => 'Płatność nie powiodła się',
+    'payment_not_found' => 'Nie znaleziono płatności',
+    'payment_not_refundable' => 'Płatność nie jest w stanie zwrotnym',
+    'payment_method_not_supported' => 'Metoda płatności nie jest obsługiwana',
     'invalid_signature' => 'Nieprawidłowy podpis lub wygasł',
     'tax_rates' => [
         'reduced' => 'Stawka obniżona',
