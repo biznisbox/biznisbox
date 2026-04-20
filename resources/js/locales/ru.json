@@ -943,7 +943,10 @@
         "mark_as_closed": "Пометить как закрытые",
         "reopen_ticket": "Открыть заявку заново",
         "ticket_number_and_subject": "Номер и тема заявки",
-        "status_and_priority": "Статус и приоритет"
+        "status_and_priority": "Статус и приоритет",
+        "support_ticket_reopened_message": "Заявка на поддержку открыта заново",
+        "support_ticket_closed_message": "Заявка на поддержку закрыта",
+        "support_ticket_resolved_message": "Заявка на поддержку разрешена"
     },
     "employee": {
         "employee": "Сотрудник | Сотрудники",
