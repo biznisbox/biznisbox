@@ -115,6 +115,9 @@ return [
     'invalid_payment_id' => 'Ugyldigt betalings-ID',
     'payment_successful' => 'Betaling gennemført',
     'payment_failed' => 'Betaling mislykkedes',
+    'payment_not_found' => 'Betaling ikke fundet',
+    'payment_not_refundable' => 'Betalingen er ikke i refunderbar tilstand',
+    'payment_method_not_supported' => 'Betalingsmetode ikke understøttet',
     'invalid_signature' => 'Ugyldig signatur eller udløbet',
     'tax_rates' => [
         'reduced' => 'Reduceret Sats',
