@@ -943,7 +943,10 @@
         "mark_as_closed": "Označit jako uzavřené",
         "reopen_ticket": "Znovu otevřít tiket",
         "ticket_number_and_subject": "Číslo vstupenky a předmět",
-        "status_and_priority": "Stav a priorita"
+        "status_and_priority": "Stav a priorita",
+        "support_ticket_reopened_message": "Podpůrný ticket znovu otevřen",
+        "support_ticket_closed_message": "Tiket pro podporu byl uzavřen",
+        "support_ticket_resolved_message": "Tiket pro podporu vyřešen"
     },
     "employee": {
         "employee": "Zaměstnanec | Zaměstnanci",
