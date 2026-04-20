@@ -115,6 +115,9 @@ return [
     'invalid_payment_id' => 'Μη έγκυρο ID πληρωμής',
     'payment_successful' => 'Επιτυχής πληρωμή',
     'payment_failed' => 'Η πληρωμή απέτυχε',
+    'payment_not_found' => 'Η πληρωμή δεν βρέθηκε',
+    'payment_not_refundable' => 'Η πληρωμή δεν είναι σε κατάσταση επιστροφής',
+    'payment_method_not_supported' => 'Η μέθοδος πληρωμής δεν υποστηρίζεται',
     'invalid_signature' => 'Μη έγκυρη υπογραφή ή έχει λήξει',
     'tax_rates' => [
         'reduced' => 'Μειωμένος Ρυθμός',
