@@ -943,7 +943,10 @@
         "mark_as_closed": "Oznacz jako zamknięte",
         "reopen_ticket": "Otwórz ponownie paragon",
         "ticket_number_and_subject": "Numer i temat zgłoszenia",
-        "status_and_priority": "Status i priorytet"
+        "status_and_priority": "Status i priorytet",
+        "support_ticket_reopened_message": "Bilet pomocy został ponownie otwarty",
+        "support_ticket_closed_message": "Bilet pomocy technicznej zamknięty",
+        "support_ticket_resolved_message": "Bilet pomocy został rozwiązany"
     },
     "employee": {
         "employee": "Pracownik | Pracownicy",
