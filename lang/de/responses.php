@@ -115,6 +115,9 @@ return [
     'invalid_payment_id' => 'Ungültige Zahlungs-ID',
     'payment_successful' => 'Zahlung erfolgreich',
     'payment_failed' => 'Zahlung fehlgeschlagen',
+    'payment_not_found' => 'Zahlung nicht gefunden',
+    'payment_not_refundable' => 'Die Zahlung ist nicht rückerstattungsfähig',
+    'payment_method_not_supported' => 'Zahlungsart nicht unterstützt',
     'invalid_signature' => 'Ungültige Signatur oder abgelaufen',
     'tax_rates' => [
         'reduced' => 'Reduzierte Rate',
