@@ -943,7 +943,10 @@
         "mark_as_closed": "Merkitse suljetuksi",
         "reopen_ticket": "Avaa lippu uudelleen",
         "ticket_number_and_subject": "Lipun numero ja aihe",
-        "status_and_priority": "Tila ja prioriteetti"
+        "status_and_priority": "Tila ja prioriteetti",
+        "support_ticket_reopened_message": "Tukipyyntö avattu uudelleen",
+        "support_ticket_closed_message": "Tukipyyntö suljettu",
+        "support_ticket_resolved_message": "Tukipyyntö ratkaistu"
     },
     "employee": {
         "employee": "Työntekijät - Työntekijät",
