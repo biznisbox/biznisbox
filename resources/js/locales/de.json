@@ -943,7 +943,10 @@
         "mark_as_closed": "Als geschlossen markieren",
         "reopen_ticket": "Ticket erneut öffnen",
         "ticket_number_and_subject": "Ticket-Nummer und Betreff",
-        "status_and_priority": "Status und Priorität"
+        "status_and_priority": "Status und Priorität",
+        "support_ticket_reopened_message": "Support-Ticket wieder geöffnet",
+        "support_ticket_closed_message": "Support-Ticket geschlossen",
+        "support_ticket_resolved_message": "Support-Ticket abgeschlossen"
     },
     "employee": {
         "employee": "Mitarbeiter | Mitarbeiter",
