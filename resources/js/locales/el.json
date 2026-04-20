@@ -943,7 +943,10 @@
         "mark_as_closed": "Σήμανση ως κλειστή",
         "reopen_ticket": "Επανεκκίνηση παραγγελίας",
         "ticket_number_and_subject": "Αριθμός εισιτηρίου και θέμα",
-        "status_and_priority": "Κατάσταση και προτεραιότητα"
+        "status_and_priority": "Κατάσταση και προτεραιότητα",
+        "support_ticket_reopened_message": "Το εισιτήριο υποστήριξης άνοιξε ξανά",
+        "support_ticket_closed_message": "Το εισιτήριο υποστήριξης έκλεισε",
+        "support_ticket_resolved_message": "Το εισιτήριο υποστήριξης επιλύθηκε"
     },
     "employee": {
         "employee": "Υπάλληλος \"Εργαζόμενοι\"",
