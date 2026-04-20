@@ -943,7 +943,10 @@
         "mark_as_closed": "Позначити як закрите",
         "reopen_ticket": "Відкрити тікет знову",
         "ticket_number_and_subject": "Номер тікету та тема",
-        "status_and_priority": "Статус і пріоритет"
+        "status_and_priority": "Статус і пріоритет",
+        "support_ticket_reopened_message": "Заявку технічну підтримку заново відкрито",
+        "support_ticket_closed_message": "Заявку на підтримку закрито",
+        "support_ticket_resolved_message": "Заявка підтримки вирішена"
     },
     "employee": {
         "employee": "Співробітники | Працівники",
