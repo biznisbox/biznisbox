@@ -115,6 +115,9 @@ return [
     'invalid_payment_id' => 'Неправильний ID платежу',
     'payment_successful' => 'Оплата пройшла успішно',
     'payment_failed' => 'Не вдалося оплатити',
+    'payment_not_found' => 'Оплата не знайдена',
+    'payment_not_refundable' => 'Оплата не в незабутньому стані',
+    'payment_method_not_supported' => 'Спосіб оплати не підтримується',
     'invalid_signature' => 'Неприпустимий підпис або він закінчився',
     'tax_rates' => [
         'reduced' => 'Швидкість зменшення',
