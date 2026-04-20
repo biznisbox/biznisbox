@@ -115,6 +115,9 @@ return [
     'invalid_payment_id' => 'Неверный ID платежа',
     'payment_successful' => 'Платеж выполнен',
     'payment_failed' => 'Платеж не удался',
+    'payment_not_found' => 'Платёж не найден',
+    'payment_not_refundable' => 'Оплата не находится в состоянии возврата',
+    'payment_method_not_supported' => 'Способ оплаты не поддерживается',
     'invalid_signature' => 'Неверная подпись или просрочена',
     'tax_rates' => [
         'reduced' => 'Сниженная скорость',
