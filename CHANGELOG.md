@@ -3,6 +3,7 @@
 ## 🐛 Bug Fixes
 
 - Upgrade dependencies to fix security vulnerabilities and bugs.
+- Fix an issue with kanban view for tasks in the project module where the task cards were not displaying correctly due to a library issues. 
 
 # 2.20.4
 
