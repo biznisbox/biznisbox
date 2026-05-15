@@ -1,3 +1,9 @@
+# 2.20.5
+
+## 🐛 Bug Fixes
+
+- Upgrade dependencies to fix security vulnerabilities and bugs.
+
 # 2.20.4
 
 ## 🐛 Bug Fixes
