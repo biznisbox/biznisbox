@@ -1,4 +1,4 @@
-FROM php:8.4-fpm-alpine AS app_build
+FROM php:8.5-fpm-alpine AS app_build
 
 RUN apk add --no-cache \
         build-base \
@@ -60,7 +60,7 @@ RUN mkdir -p /var/www/html/storage/framework/sessions \
     && chmod -R o+r /var/www/html/public \
     && chmod -R o+r /var/www/html/vendor
 
-FROM php:8.4-fpm-alpine AS production
+FROM php:8.5-fpm-alpine AS production
 
 RUN apk add --no-cache \
         freetype \
