@@ -6,7 +6,7 @@
         "password_confirmation": "Bevestig wachtwoord",
         "remember_me": "Mijn gegevens onthouden",
         "forgot_password": "Wachtwoord vergeten",
-        "empty_fields": "Vul alle velden in",
+        "empty_fields": "Vul alle verplichte velden in.",
         "logout": "Afmelden",
         "reset_password": {
             "set_your_password": "Stel je nieuwe wachtwoord in",
@@ -629,7 +629,8 @@
         "no_personal_access_tokens": "Geen persoonlijke toegangstokens gevonden",
         "generated_personal_access_token_message": "Uw persoonlijke toegangstoken is gegenereerd. Dit is de enige keer dat u dit token ziet, dus zorg ervoor dat u het ergens veilig opslaat.",
         "generated_personal_access_token": "Gegenereerde persoonlijke toegangstoken",
-        "delete_personal_access_token": "Weet u zeker dat u deze persoonlijke toegangstoets wilt verwijderen?"
+        "delete_personal_access_token": "Weet u zeker dat u deze persoonlijke toegangstoets wilt verwijderen?",
+        "is_valid": "Is geldig"
     },
     "document_types": {
         "document": "Document",
@@ -756,7 +757,10 @@
         "spam": "Spam",
         "on_hold": "In de wacht",
         "to_do": "Nog te doen",
-        "done": "Voltooid"
+        "done": "Voltooid",
+        "valid": "Valid",
+        "invalid": "Ongeldig",
+        "not_valid": "Niet geldig"
     },
     "calendar": {
         "calendar": "Kalenderkalenders",
