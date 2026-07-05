@@ -6,7 +6,7 @@
         "password_confirmation": "Bekräfta lösenord",
         "remember_me": "Kom ihåg mig",
         "forgot_password": "Glömt lösenord",
-        "empty_fields": "Vänligen fyll i alla fält",
+        "empty_fields": "Vänligen fyll i alla obligatoriska fält.",
         "logout": "Utloggning",
         "reset_password": {
             "set_your_password": "Ange ditt nya lösenord",
@@ -629,7 +629,8 @@
         "no_personal_access_tokens": "Inga personliga åtkomsttokens hittades",
         "generated_personal_access_token_message": "Din personliga åtkomsttoken har genererats. Detta är den enda gången du ser denna token, så se till att spara den någonstans säkert.",
         "generated_personal_access_token": "Genererad personlig åtkomsttoken",
-        "delete_personal_access_token": "Är du säker på att du vill ta bort denna personliga åtkomst-token?"
+        "delete_personal_access_token": "Är du säker på att du vill ta bort denna personliga åtkomst-token?",
+        "is_valid": "Är giltig"
     },
     "document_types": {
         "document": "Dokument",
@@ -756,7 +757,10 @@
         "spam": "Spam",
         "on_hold": "På håll",
         "to_do": "Att göra",
-        "done": "Klar"
+        "done": "Klar",
+        "valid": "Valid",
+        "invalid": "Ogiltig",
+        "not_valid": "Ej giltigt"
     },
     "calendar": {
         "calendar": "Kalender <unk> Kalendrar",
