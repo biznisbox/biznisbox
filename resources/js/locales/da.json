@@ -6,7 +6,7 @@
         "password_confirmation": "Bekræft adgangskode",
         "remember_me": "Husk mig",
         "forgot_password": "Glemt adgangskode",
-        "empty_fields": "Udfyld alle felter",
+        "empty_fields": "Udfyld venligst alle obligatoriske felter.",
         "logout": "Log ud",
         "reset_password": {
             "set_your_password": "Angiv den nye adgangskode",
@@ -629,7 +629,8 @@
         "no_personal_access_tokens": "Ingen personlige adgangstokens fundet",
         "generated_personal_access_token_message": "Din personlige adgangstoken er blevet genereret. Dette er den eneste gang, du vil se dette token, så sørg for at gemme det et sikkert sted.",
         "generated_personal_access_token": "Genereret Personlig Adgangstoken",
-        "delete_personal_access_token": "Er du sikker på, at du vil slette dette personlige adgangstoken?"
+        "delete_personal_access_token": "Er du sikker på, at du vil slette dette personlige adgangstoken?",
+        "is_valid": "Er Gyldig"
     },
     "document_types": {
         "document": "Dokument",
@@ -756,7 +757,10 @@
         "spam": "Spam",
         "on_hold": "På hold",
         "to_do": "At gøre",
-        "done": "Udført"
+        "done": "Udført",
+        "valid": "Valid",
+        "invalid": "Ugyldig",
+        "not_valid": "Ikke gyldig"
     },
     "calendar": {
         "calendar": "Kalender Kalendere",
