@@ -6,7 +6,7 @@
         "password_confirmation": "Passwort bestätigen",
         "remember_me": "Erinnere mich",
         "forgot_password": "Passwort vergessen",
-        "empty_fields": "Bitte füllen Sie alle Felder aus",
+        "empty_fields": "Bitte füllen Sie alle Pflichtfelder aus.",
         "logout": "Abmelden",
         "reset_password": {
             "set_your_password": "Neues Passwort festlegen",
@@ -629,7 +629,8 @@
         "no_personal_access_tokens": "Keine persönlichen Zugangs-Tokens gefunden",
         "generated_personal_access_token_message": "Ihr persönlicher Zugangs-Token wurde generiert. Dies ist das einzige Mal, dass Sie dieses Token sehen, also stellen Sie sicher, dass Sie es an einem sicheren Ort speichern.",
         "generated_personal_access_token": "Generiertes Persönliches Zugangs-Token",
-        "delete_personal_access_token": "Sind Sie sicher, dass Sie diesen persönlichen Zugangs-Token löschen möchten?"
+        "delete_personal_access_token": "Sind Sie sicher, dass Sie diesen persönlichen Zugangs-Token löschen möchten?",
+        "is_valid": "Ist gültig"
     },
     "document_types": {
         "document": "Dokument",
@@ -756,7 +757,10 @@
         "spam": "Spam",
         "on_hold": "Warten",
         "to_do": "Zu tun",
-        "done": "Fertig"
+        "done": "Fertig",
+        "valid": "Valid",
+        "invalid": "Ungültig",
+        "not_valid": "Nicht gültig"
     },
     "calendar": {
         "calendar": "Kalender | Kalender",
