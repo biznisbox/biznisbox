@@ -6,7 +6,7 @@
         "password_confirmation": "Conferma Password",
         "remember_me": "Ricordati di me",
         "forgot_password": "Password dimenticata",
-        "empty_fields": "Si prega di compilare tutti i campi",
+        "empty_fields": "Si prega di compilare tutti i campi obbligatori.",
         "logout": "Esci",
         "reset_password": {
             "set_your_password": "Imposta la tua nuova password",
@@ -629,7 +629,8 @@
         "no_personal_access_tokens": "Nessun token di accesso personale trovato",
         "generated_personal_access_token_message": "Il tuo token di accesso personale è stato generato. Questa è l'unica volta che vedrai questo token, quindi assicurati di salvarlo da qualche parte al sicuro.",
         "generated_personal_access_token": "Token Di Accesso Personale Generato",
-        "delete_personal_access_token": "Sei sicuro di voler eliminare questo token di accesso personale?"
+        "delete_personal_access_token": "Sei sicuro di voler eliminare questo token di accesso personale?",
+        "is_valid": "È Valido"
     },
     "document_types": {
         "document": "Documento",
@@ -756,7 +757,10 @@
         "spam": "Spam",
         "on_hold": "In attesa",
         "to_do": "Da fare",
-        "done": "Fatto"
+        "done": "Fatto",
+        "valid": "Valid",
+        "invalid": "Non Valido",
+        "not_valid": "Non valido"
     },
     "calendar": {
         "calendar": "Calendario <unk> Calendari",
