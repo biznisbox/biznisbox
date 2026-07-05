@@ -6,7 +6,7 @@
         "password_confirmation": "Bekreft passord",
         "remember_me": "Husk meg",
         "forgot_password": "Glemt passord",
-        "empty_fields": "Fyll ut alle feltene",
+        "empty_fields": "Vennligst fyll inn alle påkrevde felt",
         "logout": "Logg",
         "reset_password": {
             "set_your_password": "Angi det nye passordet ditt",
@@ -629,7 +629,8 @@
         "no_personal_access_tokens": "Ingen personlige tilgangsnøkler funnet",
         "generated_personal_access_token_message": "Ditt personlige tilgangstoken er generert. Dette er bare tiden du vil se denne koden, så sørg for å lagre det et trygt sted.",
         "generated_personal_access_token": "Generert personlig tilgangsnøkkel",
-        "delete_personal_access_token": "Er du sikker på at du vil slette denne personlige tilgangstoken?"
+        "delete_personal_access_token": "Er du sikker på at du vil slette denne personlige tilgangstoken?",
+        "is_valid": "Er gyldig"
     },
     "document_types": {
         "document": "Dokument",
@@ -756,7 +757,10 @@
         "spam": "Søppelpost",
         "on_hold": "På vent",
         "to_do": "Må gjøres",
-        "done": "Ferdig"
+        "done": "Ferdig",
+        "valid": "Valid",
+        "invalid": "Ugyldig",
+        "not_valid": "Ikke gyldig"
     },
     "calendar": {
         "calendar": "Kalender: Kalendere",
