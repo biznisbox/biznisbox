@@ -4,7 +4,6 @@
 
 - Add some new localization strings for better user experience and clarity in the app.
 
-
 ## 🐛 Bug Fixes
 
 - Upgrade dependencies to fix security vulnerabilities and bugs.
