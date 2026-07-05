@@ -6,7 +6,7 @@
         "password_confirmation": "Potrditev gesla",
         "remember_me": "Zapomni si me",
         "forgot_password": "Pozabljeno geslo?",
-        "empty_fields": "Prosimo, izpolnite vsa polja.",
+        "empty_fields": "Please fill in all required fields.",
         "logout": "Odjava",
         "reset_password": {
             "set_your_password": "Nastavite novo geslo",
@@ -629,7 +629,8 @@
         "no_personal_access_tokens": "Ni osebnih dostopnih žetonov",
         "generated_personal_access_token_message": "Vaš osebni dostopni žeton je bil ustvarjen. To je edini čas, ko boste videli ta žeton, zato ga shranite na varno mesto.",
         "generated_personal_access_token": "Ustvarjen žeton osebnega dostopa",
-        "delete_personal_access_token": "Ali ste prepričani, da želite izbrisati ta žeton osebnega dostopa?"
+        "delete_personal_access_token": "Ali ste prepričani, da želite izbrisati ta žeton osebnega dostopa?",
+        "is_valid": "Is Valid"
     },
     "document_types": {
         "document": "Dokument",
@@ -756,7 +757,10 @@
         "spam": "Spam",
         "on_hold": "Na čakanju",
         "to_do": "Za narediti",
-        "done": "Opravljeno"
+        "done": "Opravljeno",
+        "valid": "Valid",
+        "invalid": "Invalid",
+        "not_valid": "Not valid"
     },
     "calendar": {
         "calendar": "Koledar | Koledarji",
