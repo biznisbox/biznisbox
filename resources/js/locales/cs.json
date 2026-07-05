@@ -6,7 +6,7 @@
         "password_confirmation": "Potvrzení hesla",
         "remember_me": "Zapamatovat si mě",
         "forgot_password": "Zapomenuté heslo",
-        "empty_fields": "Vyplňte prosím všechna pole",
+        "empty_fields": "Vyplňte všechna povinná pole.",
         "logout": "Odhlásit se",
         "reset_password": {
             "set_your_password": "Nastavte své nové heslo",
@@ -629,7 +629,8 @@
         "no_personal_access_tokens": "Nenalezeny žádné osobní přístupové tokeny",
         "generated_personal_access_token_message": "Váš osobní přístupový token byl vygenerován. Toto je jediná chvíle, kdy uvidíte tento token a ujistěte se, že ho uložíte někde bezpečně.",
         "generated_personal_access_token": "Generovaný osobní přístupový token",
-        "delete_personal_access_token": "Jste si jisti, že chcete odstranit tento osobní přístupový token?"
+        "delete_personal_access_token": "Jste si jisti, že chcete odstranit tento osobní přístupový token?",
+        "is_valid": "Je platný"
     },
     "document_types": {
         "document": "Dokument",
@@ -756,7 +757,10 @@
         "spam": "Nevyžádaná pošta",
         "on_hold": "Zapnuto",
         "to_do": "K provedení",
-        "done": "Hotovo"
+        "done": "Hotovo",
+        "valid": "Valid",
+        "invalid": "Neplatné",
+        "not_valid": "Neplatné"
     },
     "calendar": {
         "calendar": "Kalendář | Kalendáře",
