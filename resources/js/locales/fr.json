@@ -6,7 +6,7 @@
         "password_confirmation": "Confirmer le mot de passe",
         "remember_me": "Se souvenir de moi",
         "forgot_password": "Mot de passe oublié",
-        "empty_fields": "Veuillez remplir tous les champs",
+        "empty_fields": "Veuillez remplir tous les champs obligatoires.",
         "logout": "Déconnexion",
         "reset_password": {
             "set_your_password": "Définir votre nouveau mot de passe",
@@ -629,7 +629,8 @@
         "no_personal_access_tokens": "Aucun jeton d'accès personnel trouvé",
         "generated_personal_access_token_message": "Votre jeton d'accès personnel a été généré. C'est la seule fois que vous verrez ce jeton, alors assurez-vous de le sauvegarder dans un endroit sûr.",
         "generated_personal_access_token": "Jeton d'accès personnel généré",
-        "delete_personal_access_token": "Êtes-vous sûr de vouloir supprimer ce jeton d'accès personnel ?"
+        "delete_personal_access_token": "Êtes-vous sûr de vouloir supprimer ce jeton d'accès personnel ?",
+        "is_valid": "Est valide"
     },
     "document_types": {
         "document": "Document",
@@ -756,7 +757,10 @@
         "spam": "Spam",
         "on_hold": "Suspendu",
         "to_do": "À faire",
-        "done": "Fait"
+        "done": "Fait",
+        "valid": "Valid",
+        "invalid": "Invalide",
+        "not_valid": "Non valide"
     },
     "calendar": {
         "calendar": "Calendrier | Calendriers",
