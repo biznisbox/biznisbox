@@ -6,7 +6,7 @@
         "password_confirmation": "Vahvista Salasana",
         "remember_me": "Muista minut",
         "forgot_password": "Unohdin salasanan",
-        "empty_fields": "Täytä kaikki kentät",
+        "empty_fields": "Täytä kaikki vaaditut kentät.",
         "logout": "Kirjaudu Ulos",
         "reset_password": {
             "set_your_password": "Aseta uusi salasana",
@@ -629,7 +629,8 @@
         "no_personal_access_tokens": "Henkilökohtaisia pääsypoletteja ei löytynyt",
         "generated_personal_access_token_message": "Henkilökohtainen pääsymerkki on luotu. Tämä on ainoa kerta, kun näet tämän tunnuksen, joten varmista, että tallennat sen johonkin turvalliseen paikkaan.",
         "generated_personal_access_token": "Luotu Henkilökohtainen Pääsymerkki",
-        "delete_personal_access_token": "Oletko varma, että haluat poistaa tämän henkilökohtaisen pääsytunnuksen?"
+        "delete_personal_access_token": "Oletko varma, että haluat poistaa tämän henkilökohtaisen pääsytunnuksen?",
+        "is_valid": "On Voimassa"
     },
     "document_types": {
         "document": "Asiakirja",
@@ -756,7 +757,10 @@
         "spam": "Roskaposti",
         "on_hold": "On pitämällä",
         "to_do": "Voit tehdä",
-        "done": "Valmis"
+        "done": "Valmis",
+        "valid": "Valid",
+        "invalid": "Virheellinen",
+        "not_valid": "Ei kelvollinen"
     },
     "calendar": {
         "calendar": "Kalenteri - Kalenterit",
