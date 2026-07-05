@@ -6,7 +6,7 @@
         "password_confirmation": "Підтвердити пароль",
         "remember_me": "Запам'ятати мене",
         "forgot_password": "Забули пароль",
-        "empty_fields": "Будь ласка, заповніть всі поля",
+        "empty_fields": "Будь ласка, заповніть всі обов'язкові поля.",
         "logout": "Вихід із системи",
         "reset_password": {
             "set_your_password": "Встановити новий пароль",
@@ -629,7 +629,8 @@
         "no_personal_access_tokens": "Персональні токени доступу не знайдені",
         "generated_personal_access_token_message": "Ваш персональний токен доступу. Це єдиний раз, коли ви побачите цей токен, тому переконайтеся, що він буде збережений в безпеці.",
         "generated_personal_access_token": "Згенерований токен персонального доступу",
-        "delete_personal_access_token": "Ви впевнені, що бажаєте видалити цей персональний токен доступу?"
+        "delete_personal_access_token": "Ви впевнені, що бажаєте видалити цей персональний токен доступу?",
+        "is_valid": "Дійсний"
     },
     "document_types": {
         "document": "Документ",
@@ -756,7 +757,10 @@
         "spam": "Спам",
         "on_hold": "На утриманні",
         "to_do": "Зробити",
-        "done": "Виконано"
+        "done": "Виконано",
+        "valid": "Valid",
+        "invalid": "Недійсний",
+        "not_valid": "Не дійсний"
     },
     "calendar": {
         "calendar": "Календар | Календар",
