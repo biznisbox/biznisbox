@@ -6,7 +6,7 @@
         "password_confirmation": "Confirmar senha",
         "remember_me": "Lembrar de mim",
         "forgot_password": "Esqueceu a senha",
-        "empty_fields": "Por favor, preencha todos os campos",
+        "empty_fields": "Por favor, preencha todos os campos obrigatórios.",
         "logout": "Desconectar",
         "reset_password": {
             "set_your_password": "Defina sua nova senha",
@@ -629,7 +629,8 @@
         "no_personal_access_tokens": "Nenhum token de acesso pessoal encontrado",
         "generated_personal_access_token_message": "Seu token de acesso pessoal foi gerado. Esta é a única vez que você verá este token, então certifique-se de salvá-lo em algum lugar seguro.",
         "generated_personal_access_token": "Token de acesso pessoal gerado",
-        "delete_personal_access_token": "Tem certeza que deseja excluir este token de acesso pessoal?"
+        "delete_personal_access_token": "Tem certeza que deseja excluir este token de acesso pessoal?",
+        "is_valid": "É válido"
     },
     "document_types": {
         "document": "Documento",
@@ -756,7 +757,10 @@
         "spam": "Spam",
         "on_hold": "Em espera",
         "to_do": "Para fazer",
-        "done": "Concluído"
+        "done": "Concluído",
+        "valid": "Valid",
+        "invalid": "Inválido",
+        "not_valid": "Não é válido"
     },
     "calendar": {
         "calendar": "Calendários do calendário",
