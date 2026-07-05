@@ -246,38 +246,44 @@ const router = createRouter({
     routes,
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, from) => {
     const token = cookies.get('token')
-    if (to.meta.auth && !to.meta.admin && !to.meta.client) {
-        // Check if route requires auth
+
+    // Redirect to dashboard if user is already logged in and tries to access the login page
+    if (to.name === 'auth-login' && token) {
+        return { name: 'dashboard' }
+    }
+
+    let userPermissions = []
+    if (token) {
+        try {
+            userPermissions = jwtDecode(token).data.permissions || []
+        } catch (e) {
+            console.error('Napaka pri dekodiranju JWT:', e)
+            //
+        }
+    }
+
+    // Check for route meta and user permissions
+    if (to.meta.admin) {
+        if (token && userPermissions.includes('admin')) {
+            return
+        }
+        return { name: 'auth-login', query: { redirect: to.fullPath } }
+    }
+
+    if (to.meta.client) {
+        if (token && userPermissions.includes('client')) {
+            return
+        }
+        return { name: 'auth-login', query: { redirect: to.fullPath } }
+    }
+
+    if (to.meta.auth) {
         if (token) {
-            next()
-        } else {
-            next({ name: 'auth-login', query: { redirect: to.fullPath } })
+            return
         }
-    } else if (to.meta.admin) {
-        // Check if route requires admin permissions
-        if (token && jwtDecode(token).data.permissions.includes('admin')) {
-            next()
-        } else {
-            next({ name: 'auth-login', query: { redirect: to.fullPath } })
-        }
-    } else if (to.meta.client) {
-        // Check if route requires client permissions
-        if (token && jwtDecode(token).data.permissions.includes('client')) {
-            next()
-        } else {
-            next({ name: 'auth-login', query: { redirect: to.fullPath } })
-        }
-    } else if (to.name === 'auth-login') {
-        // If user is already logged in, redirect to dashboard (only for login page)
-        if (token) {
-            next({ name: 'dashboard' })
-        } else {
-            next()
-        }
-    } else {
-        next()
+        return { name: 'auth-login', query: { redirect: to.fullPath } }
     }
 })
 

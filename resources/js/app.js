@@ -10,13 +10,20 @@ import IndexMixin from '@/mixins/index'
 import CustomComponents from '@/plugins/components'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import VueApexCharts from 'vue3-apexcharts'
+// Font Awesome imports
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import '@fortawesome/fontawesome-free/js/all.min.js'
+// Flag icons and file icons
 import 'flag-icons/css/flag-icons.min.css'
 import 'file-icon-vectors/dist/file-icon-vivid.css'
+// Map UI imports
 import 'leaflet/dist/leaflet.css'
 import 'vue-map-ui/dist/style.css'
 import 'vue-map-ui/dist/theme-all.css'
+// FullCalendar imports
+import '@fullcalendar/vue3/skeleton.css'
+import '@fullcalendar/vue3/themes/classic/theme.css'
+import '@fullcalendar/vue3/themes/classic/palette.css'
 
 const app = createApp(App)
 app.use(router)

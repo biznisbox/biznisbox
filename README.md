@@ -3,7 +3,7 @@
   <br />
   <h1>BiznisBox</h1>
   <h3>Open-Source Business Management Software</h3>
-  
+
   <p>
     <strong>All-in-one solution for invoices, quotes, documents, and payments.</strong>
   </p>

@@ -277,6 +277,16 @@
                                         <Tag :value="formatDateTime(data.valid_until)" />
                                     </template>
                                 </Column>
+                                <Column field="is_valid" :header="$t('profile.is_valid')">
+                                    <template #body="{ data }">
+                                        <Tag
+                                            v-if="data.valid_until && new Date(data.valid_until) > new Date()"
+                                            severity="success"
+                                            :value="$t('status.valid')"
+                                        />
+                                        <Tag v-else severity="danger" :value="$t('status.invalid')" />
+                                    </template>
+                                </Column>
                                 <Column :header="$t('basic.actions')">
                                     <template #body="{ data }">
                                         <div class="flex gap-2">

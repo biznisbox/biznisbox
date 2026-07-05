@@ -202,12 +202,14 @@
 </template>
 
 <script>
+// FullCalendar imports
+import classicTheme from '@fullcalendar/vue3/themes/classic'
 import FullCalendar from '@fullcalendar/vue3'
-import dayGridPlugin from '@fullcalendar/daygrid'
-import interactionPlugin from '@fullcalendar/interaction'
-import timeGridPlugin from '@fullcalendar/timegrid'
-import rrulePlugin from '@fullcalendar/rrule'
-import allLocales from '@fullcalendar/core/locales-all'
+import dayGridPlugin from '@fullcalendar/vue3/daygrid'
+import interactionPlugin from '@fullcalendar/vue3/interaction'
+import timeGridPlugin from '@fullcalendar/vue3/timegrid'
+import allLocales from '@fullcalendar/vue3/locales-all'
+
 import axios from 'axios'
 import { useCookies } from 'vue3-cookies'
 const { cookies } = useCookies()
@@ -226,7 +228,7 @@ export default {
     data() {
         return {
             calendarOptions: {
-                plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin, rrulePlugin],
+                plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin, classicTheme],
                 initialView: 'dayGridMonth',
                 headerToolbar: {
                     left: 'prev,next today',

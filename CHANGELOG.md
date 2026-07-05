@@ -1,9 +1,21 @@
+# 2.21.0
+
+## ✨ New Features & Enhancements
+
+- Add some new localization strings for better user experience and clarity in the app.
+
+
+## 🐛 Bug Fixes
+
+- Upgrade dependencies to fix security vulnerabilities and bugs.
+- Migrate FullCalendar to the latest version (7.x) to improve performance, bug fixes and compatibility with modern browsers. This update includes changes to the calendar's API and event handling, so please review the FullCalendar documentation for any necessary adjustments in your implementation.
+
 # 2.20.5
 
 ## 🐛 Bug Fixes
 
 - Upgrade dependencies to fix security vulnerabilities and bugs.
-- Fix an issue with kanban view for tasks in the project module where the task cards were not displaying correctly due to a library issues. 
+- Fix an issue with kanban view for tasks in the project module where the task cards were not displaying correctly due to a library issues.
 
 # 2.20.4
 
