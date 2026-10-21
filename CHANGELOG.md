@@ -1,3 +1,10 @@
+# 2.21.1
+
+## Security Fixes
+
+- Upgrade PHP Docker image to fix security vulnerabilities and bugs. Fix for CVE-2026-109618 and CVE-2026-109619.
+
+
 # 2.21.0
 
 ## ✨ New Features & Enhancements
